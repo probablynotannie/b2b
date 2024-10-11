@@ -1,12 +1,9 @@
 import { useState } from "react";
-import { FaCalendarCheck } from "react-icons/fa";
 import { MdCalendarMonth } from "react-icons/md";
-
 import { DatesProvider, MonthPickerInput } from "@mantine/dates";
 
 function Input_mes() {
   const [value, setValue] = useState(null);
-
   return (
     <div>
       <DatesProvider settings={{ locale: "es" }}>
@@ -23,7 +20,9 @@ function Input_mes() {
               },
             }}
           />
-          <MdCalendarMonth className="absolute top-2 left-2 text-gray-500 text-2xl" />
+          <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-2xl">
+            <MdCalendarMonth />
+          </div>
         </div>
       </DatesProvider>
     </div>

@@ -22,7 +22,6 @@ const DateRange = () => {
     <DatesProvider settings={{ locale: "es" }}>
       <div className="relative">
         <DateInput
-        
           value={value}
           valueFormat="DD/MM/YYYY"
           onChange={setValue}
@@ -30,13 +29,15 @@ const DateRange = () => {
           placeholder="Selecciona una fecha"
           styles={{
             input: {
-              padding: "1.4rem",
-              paddingLeft: "2.5rem",
+              padding: "1.3rem",
+              paddingLeft: "2.7rem",
               borderRadius: "8px",
             },
           }}
         />
-        <FaCalendarAlt className="absolute top-3 left-3 text-gray-500 text-xl" />
+        <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+          <FaCalendarAlt />
+        </div>
       </div>
     </DatesProvider>
   );

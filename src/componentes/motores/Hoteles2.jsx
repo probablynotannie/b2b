@@ -1,48 +1,8 @@
-import React from "react";
-
+import Input_Buscador from "../inputs/Buscador";
+import Input_Mes from "../inputs/Mes";
+import Input_DateRange2 from "../inputs/DateRange2";
+import Buscador from "../inputs/Buscador";
 function Hoteles2() {
-  const otros = [
-    {
-      id: 0,
-      icono: "",
-      texto: "Hoteles",
-    },
-    {
-      id: 1,
-      icono: "",
-      texto: "Destinos",
-    },
-    {
-      id: 2,
-      icono: "",
-      texto: "Cruceros",
-    },
-    {
-      id: 3,
-      icono: "",
-      texto: "Vuelo+Hotel",
-    },
-    {
-      id: 4,
-      icono: "",
-      texto: "Coches",
-    },
-    {
-      id: 5,
-      icono: "",
-      texto: "Tickets",
-    },
-    {
-      id: 6,
-      icono: "",
-      texto: "Entradas",
-    },
-    {
-      id: 7,
-      icono: "",
-      texto: "Ferris",
-    },
-  ];
   return (
     <div className="min-h-[80vh]">
       <div className="relative col-span-4 h-[20vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center border-b-2 border--secondary">
@@ -52,32 +12,7 @@ function Hoteles2() {
             <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
             <div className="grid grid-cols-7 gap-5 mt-2 relative">
               <div>
-                <div className="relative">
-                  <div className="absolute inset-y-0 start-0 flex items-center ps-3 pointer-events-none ">
-                    <svg
-                      className="w-4 h-4 text-gray-500 dark:text-gray-400"
-                      aria-hidden="true"
-                      xmlns="http://www.w3.org/2000/svg"
-                      fill="none"
-                      viewBox="0 0 20 20"
-                    >
-                      <path
-                        stroke="currentColor"
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        strokeWidth="2"
-                        d="m19 19-4-4m0-7A7 7 0 1 1 1 8a7 7 0 0 1 14 0Z"
-                      />
-                    </svg>
-                  </div>
-                  <input
-                    type="search"
-                    id="search"
-                    className="block w-full p-3 ps-10 text-sm text-gray-900 border border-gray-300 rounded-lg bg-gray-50 focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                    placeholder="Introduce tu destino"
-                    required
-                  />
-                </div>
+                <Buscador />
               </div>
               <div className="relative">
                 <div className="absolute top-4 left-4 flex items-center  pointer-events-none">
@@ -155,10 +90,21 @@ function Hoteles2() {
             </div>
           </form>
         </div>
-        <div className="mt-24 px-10">aeeaf</div>
+        <div className="mt-24 mx-24 border-t-2 border-slate-100 pt-5">
+          <div className="grid grid-cols-6 gap-5">
+            <div className="mt-2">
+              <Input_Buscador />
+            </div>
+            <div className="mt-2">
+              <Input_Mes />
+            </div>
+            <div className="mt-2">
+              <Input_DateRange2 />
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   );
 }
-
 export default Hoteles2;

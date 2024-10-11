@@ -11,6 +11,7 @@ module.exports = {
   theme: { // defaults to these values
     extend: {
       colors: {
+        inputIcon: '#1e293b',
         primary: '#1e293b', //gris oscuro de navbar 
         secondary: "#ff8c4c", //naranja
         muted: "#e8ecf4", //gris apagado

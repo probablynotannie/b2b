@@ -1,20 +1,20 @@
 import { FaSearch } from "react-icons/fa";
 
 function Buscador() {
+  const dark = true;
   return (
     <div className="relative">
-      <div className="absolute top-3 flex items-center ps-3 pointer-events-none  ">
-        <FaSearch className="text-slate-500 text-lg" />
+      <div className="absolute pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
+        <FaSearch />
       </div>
       <input
         type="search"
         id="search"
-        className="block w-full p-3 ps-10 text-sm text-gray-900 rounded-lg bg-slate-50 focus:ring-blue-400 focus:border-blue-500"
-        placeholder="Introduce tu destino"
+        className="block w-full p-3 ps-10 text-sm text-gray-900 rounded-lg bg-white border rounded-tl-xl rounded-bl-xl border-gray-300 focus:border-0"
+        placeholder="Destino"
         required
       />
     </div>
   );
 }
-
 export default Buscador;
