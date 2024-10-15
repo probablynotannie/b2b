@@ -88,6 +88,10 @@ const DateRange = () => {
     // Reset the swiping state
     isSwiping.current = false;
   };
+  const highlightWeekends = (date) => {
+    const day = date.getDay();
+    return day === 0 || day === 6 ? "weekend-day" : ""; // Sunday (0) and Saturday (6)
+  };
 
   return (
     <div>
@@ -105,26 +109,26 @@ const DateRange = () => {
                 })}`
               : "Selecciona un rango de fechas" // Spanish placeholder
           }
-          className="border border-gray-300 text-gray-500 text-sm rounded-lg p-3  pl-10 w-full cursor-pointer" // Add padding to the left for the icon
+          className="border border-gray-300 text-gray-500 text-sm rounded-lg p-2.5  pl-10 w-full cursor-pointer" // Add padding to the left for the icon
         />
-        <FaCalendarAlt className="absolute left-3 top-2.5 text-gray-500 w-5 h-5" />{" "}
-        {/* Icon for the left */}
+        <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+          <FaCalendarAlt />
+        </div>
         {isOpen && (
           <div className="absolute z-50">
-            <div
-              onTouchStart={handleTouchStart} // Add touch start handler
-              onTouchEnd={handleTouchEnd} // Add touch end handler
-            >
+            <div onTouchStart={handleTouchStart} onTouchEnd={handleTouchEnd}>
               <DatePicker
-              
-                selected={startDate} // Pass current start date
-                onChange={handleChange} // Handle date changes
+                selected={startDate}
+                onChange={handleChange}
                 startDate={startDate}
                 endDate={endDate}
                 selectsRange
                 inline
-                locale={es} // Set the locale to Spanish
-                className="border border-gray-300 rounded-lg p-2 w-full"
+                dayClassName={highlightWeekends} // Apply red text to weekends
+                locale={es}
+                minDate={new Date()}
+                className="custom-input"
+                wrapperClassName="custom-wrapper"
               />
             </div>
           </div>

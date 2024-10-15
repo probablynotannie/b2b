@@ -13,4 +13,49 @@ body{
   font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
 }
 
+.react-datepicker__header {
+  background-color: white;
+  border-bottom: 1px solid #ddd;
+}
 
+.react-datepicker__day {
+  width: 30px;
+  height: 30px;
+  transition: background-color 0.3s;
+}
+
+.react-datepicker__navigation {
+  top: 12px;
+}
+
+.react-datepicker__navigation--previous {
+  left: 12px;
+}
+
+.react-datepicker__navigation--next {
+  right: 12px;
+}
+
+
+.react-datepicker__month-container{
+  font-size: 0.70rem;
+
+}
+/* Custom styling for Saturdays and Sundays */
+.weekend-day {
+  color: red; /* Make the text red for weekends */
+}
+.react-datepicker__day--in-range {
+  border-radius: 50%;
+  background-color: rgb(53, 162, 252); /* Lighter color for dates in the range */
+  color: white;
+}
+
+/* Other custom styles (optional) */
+.react-datepicker__day--selected {
+  background-color: #4a90e2; /* Custom background color for selected date */
+  color: white; /* Custom text color for selected date */
+  border-radius: 50%; /* Make the selected date round */
+}
+
+/* Additional range and selected date styles can remain unchanged */

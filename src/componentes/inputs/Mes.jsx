@@ -1,5 +1,6 @@
 import { useState } from "react";
-import { MdCalendarMonth } from "react-icons/md";
+import { FaCalendarAlt } from "react-icons/fa";
+
 import { DatesProvider, MonthPickerInput } from "@mantine/dates";
 
 function Input_mes() {
@@ -14,14 +15,14 @@ function Input_mes() {
             onChange={setValue}
             styles={{
               input: {
-                padding: "0.7rem",
+                padding: "0.6rem",
                 paddingLeft: "2.6rem",
                 borderRadius: "8px",
               },
             }}
           />
-          <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-2xl">
-            <MdCalendarMonth />
+          <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+            <FaCalendarAlt />
           </div>
         </div>
       </DatesProvider>

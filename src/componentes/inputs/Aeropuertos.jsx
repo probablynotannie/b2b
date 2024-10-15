@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaPlane } from "react-icons/fa";
 
+// Sample data for suggestions
 const suggestionsData = [
   "MADRID (REGION)",
   "MADRID",
@@ -8,10 +9,12 @@ const suggestionsData = [
   "NEW MADRID - CAPE GIRARDEAU, MO (REGION)",
   "Barcelona",
 ];
-function Buscador() {
+
+function Aeropuertos() {
   const [inputValue, setInputValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
@@ -33,6 +36,7 @@ function Buscador() {
     setSuggestions([]);
     setIsDropdownOpen(false);
   };
+
   return (
     <div className="relative ">
       <input
@@ -40,7 +44,7 @@ function Buscador() {
         value={inputValue}
         onChange={handleInputChange}
         placeholder="Destino"
-        className="p-2.5 pl-10 text-sm border text-gray-700 border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400 overflow-hidden text-ellipsis whitespace-nowrap"
+        className="p-2.5 pl-10 text-sm text-slate-950 border border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400    overflow-hidden text-ellipsis whitespace-nowrap"
       />
       {isDropdownOpen && suggestions.length > 0 && (
         <ul className="absolute z-10 w-full bg-white border border-gray-300 rounded-lg max-h-60 overflow-auto">
@@ -48,7 +52,7 @@ function Buscador() {
             <li
               key={index}
               onClick={() => handleSuggestionClick(suggestion)}
-              className="p-2 text-gray-700 hover:bg-gray-100 cursor-pointer"
+              className="p-2 hover:bg-gray-100 cursor-pointer"
             >
               {suggestion}
             </li>
@@ -56,10 +60,10 @@ function Buscador() {
         </ul>
       )}
       <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-lg">
-        <FaSearch />
+        <FaPlane />
       </div>
     </div>
   );
 }
 
-export default Buscador;
+export default Aeropuertos;

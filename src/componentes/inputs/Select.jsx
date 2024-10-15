@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import { FaSearch } from "react-icons/fa";
+import { FaMapPin } from "react-icons/fa";
 
 const suggestionsData = [
   "MADRID (REGION)",
@@ -8,7 +9,7 @@ const suggestionsData = [
   "NEW MADRID - CAPE GIRARDEAU, MO (REGION)",
   "Barcelona",
 ];
-function Buscador() {
+function Select({ placeholder }) {
   const [inputValue, setInputValue] = useState("");
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
@@ -39,7 +40,7 @@ function Buscador() {
         type="text"
         value={inputValue}
         onChange={handleInputChange}
-        placeholder="Destino"
+        placeholder={placeholder}
         className="p-2.5 pl-10 text-sm border text-gray-700 border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400 overflow-hidden text-ellipsis whitespace-nowrap"
       />
       {isDropdownOpen && suggestions.length > 0 && (
@@ -56,10 +57,10 @@ function Buscador() {
         </ul>
       )}
       <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-lg">
-        <FaSearch />
+        <FaMapPin />
       </div>
     </div>
   );
 }
 
-export default Buscador;
+export default Select;
