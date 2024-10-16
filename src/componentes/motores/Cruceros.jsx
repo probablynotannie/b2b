@@ -12,7 +12,7 @@ function Cruceros() {
       <Sidebar />
       <div className="relative col-span-7 md:col-span-6 h-[68vh] bg-[url(../../banner_cruise.jfif)] bg-cover bg-bottom rounded-lg shadow-lg">
         <div className="bg-indigo-800 w-full h-full bg-opacity-55 rounded-lg shadow-lg px-10"></div>
-        <div className="absolute top-32 md:left-20  bg-primary bg-opacity-80 text-white md:w-2/5 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
+        <div className="absolute top-32 md:left-20  bg-CajaForms bg-opacity-80 text-white md:w-2/5 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
           <form>
             <h2 className="text-3xl font-bold ">Buscador de cruceros</h2>
             <div className="grid grid-cols-2 gap-2 mt-2">

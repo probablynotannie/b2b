@@ -1,18 +1,19 @@
 import { useState } from "react";
 import { FaCalendarAlt } from "react-icons/fa";
-
 import { DatesProvider, MonthPickerInput } from "@mantine/dates";
+import "dayjs/locale/es"; // Import Spanish locale from dayjs
 
-function Input_mes() {
-  const [value, setValue] = useState(null);
+function InputMes() {
+  const [valor, setValor] = useState(null);
+
   return (
     <div>
       <DatesProvider settings={{ locale: "es" }}>
         <div className="relative">
           <MonthPickerInput
-            value={value}
+            value={valor}
             placeholder="Selecciona el mes"
-            onChange={setValue}
+            onChange={setValor}
             styles={{
               input: {
                 padding: "0.6rem",
@@ -21,7 +22,7 @@ function Input_mes() {
               },
             }}
           />
-          <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+          <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
             <FaCalendarAlt />
           </div>
         </div>
@@ -30,4 +31,4 @@ function Input_mes() {
   );
 }
 
-export default Input_mes;
+export default InputMes;

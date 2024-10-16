@@ -6,17 +6,17 @@ import Aeropuertos from "../inputs/Aeropuertos";
 import Destinos from "../inputs/Destinos";
 import Navieras from "../inputs/Navieras";
 import Puertos from "../inputs/Puertos";
-import SelectorHora from "../inputs/SelectorHora";
+import SelectorHora from "../inputs/Hora";
 import SelectorDias from "../inputs/SelectorDias";
-import SelectorPersonas from "../inputs/SelectorPersonas";
-import SelectorAdultosNinios from "../inputs/SelectorAdultosNinios";
-import SelectorPaisCiudad from "../inputs/SelectorPaisCiudad";
+import SelectorPersonas from "../inputs/Hab_Adulto_Ninio";
+import SelectorAdultosNinios from "../inputs/Adulto_Ninio";
+import SelectorPaisCiudad from "../inputs/Pais_Ciudad";
 function Hoteles2() {
   return (
     <div className="min-h-[80vh]">
       <div className="relative col-span-4 h-[20vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center border-b-2 border--secondary">
         <div className="bg-indigo-800 w-full h-full bg-opacity-35"></div>
-        <div className="absolute -bottom-16 left-96 bg-primary bg-opacity-70 text-white w-2/3 h-fit px-10 py-2 rounded-lg shadow-xl">
+        <div className="absolute -bottom-16 left-96 bg-CajaForms bg-opacity-70 text-white w-2/3 h-fit px-10 py-2 rounded-lg shadow-xl">
           <form>
             <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
             <div className="grid grid-cols-12 gap-5 mt-2 relative">
@@ -32,7 +32,6 @@ function Hoteles2() {
               <div className="col-span-3">
                 <SelectorPersonas />
               </div>
-
               <div>
                 <button className="bg--secondary rounded-lg p-3 font-bold w-full">
                   Buscar

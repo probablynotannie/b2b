@@ -111,8 +111,6 @@ function Bonificacion() {
                   <option value={"fuerza_general"}>Family General</option>
                 </select>
               </div>
-
-              {/* Conditionally render additional selects based on the selected force */}
               {selectedForce === "ejercito_tierra" && (
                 <div>
                   <span>Especialidad Tierra</span>

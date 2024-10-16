@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_DateRange from "../inputs/DateRange";
-import Input_AdultoNInio from "../inputs/SelectorAdultosNinios";
+import Input_AdultoNInio from "../inputs/Adulto_Ninio";
 
 function Tickets() {
   return (
@@ -10,7 +10,7 @@ function Tickets() {
       <Sidebar />
       <div className="relative col-span-7 md:col-span-6 h-[68vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center rounded-lg shadow-lg">
         <div className="bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10"></div>
-        <div className="absolute top-32 md:left-20  bg-primary bg-opacity-80 text-white md:w-1/3 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
+        <div className="absolute top-32 md:left-20  bg-CajaForms bg-opacity-80 text-white md:w-1/3 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
           <form>
             <h2 className="text-3xl font-bold ">Buscador de tickets</h2>
             <div className="grid gap-2 mt-2">

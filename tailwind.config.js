@@ -8,13 +8,14 @@ module.exports = {
     './src/**/*.{js,ts,jsx,tsx}',
     flowbite.content(),
   ],
-  theme: { // defaults to these values
+  theme: {
     extend: {
       colors: {
-        inputIcon: '#ff8a33',
-        primary: '#1e293b', //gris oscuro de navbar 
-        secondary: "#ff8c4c", //naranja
-        muted: "#e8ecf4", //gris apagado
+        inputIcon: '#ff8c4c', // Naranja
+        CajaForms: '#1e293b', // Gris oscuro
+        primary: '#1e293b', // Gris oscuro de navbar 
+        secondary: "#ff8c4c", // Naranja
+        muted: "#e8ecf4", // Gris apagado
       },
     },
   },

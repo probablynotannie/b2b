@@ -12,5 +12,13 @@ Inputs
   +  8. Aeropuerto origen (Escribes y te van saliendo)
   +  9. Seleccionador de horas
   +  10. Seleccionador de adultos + niños (si se elige el niño hay que especificar edades)
-11. Vehiculos
-12. Pasajeros-bonificacion
+  +  11. Vehiculos
+  +  12. Pasajeros-bonificacion
+
+
+
+  // mejoras
+  1. Buscador destinos y esoo
+      . Que aparezcan diferentes tipos de destinos por ejemplo (destinos/hoteles)
+      . Que ponga cargando cuando se este cargando
+      . Que ponga algo si no hay resultados

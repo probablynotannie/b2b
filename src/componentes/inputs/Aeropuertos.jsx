@@ -52,7 +52,7 @@ function Aeropuertos() {
             <li
               key={index}
               onClick={() => handleSuggestionClick(suggestion)}
-              className="p-2 hover:bg-gray-100 cursor-pointer"
+              className="p-2 text-slate-950 hover:bg-gray-100 cursor-pointer"
             >
               {suggestion}
             </li>

@@ -42,7 +42,7 @@ function Hoteles2() {
     <div className="min-h-[77vh]">
       <div className="relative col-span-4 h-[35vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center">
         <div className="bg-indigo-800 w-full h-full bg-opacity-35"></div>
-        <div className="absolute -bottom-28 left-96 bg-primary bg-opacity-75 text-white w-1/3 h-fit px-10 py-5 rounded-lg shadow-xl">
+        <div className="absolute -bottom-28 left-96 bg-CajaForms bg-opacity-75 text-white w-1/3 h-fit px-10 py-5 rounded-lg shadow-xl">
           <form>
             <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
             <div className="grid grid-cols-3 mt-2 relative">

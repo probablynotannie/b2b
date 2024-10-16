@@ -2,7 +2,7 @@ import React from "react";
 import Sidebar from "../Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_DateRange from "../inputs/DateRange";
-import Input_hora from "../inputs/SelectorHora";
+import Input_hora from "../inputs/Hora";
 import Input_Edad from "../inputs/Edad";
 function Coches() {
   return (
@@ -10,7 +10,7 @@ function Coches() {
       <Sidebar />
       <div className="relative col-span-7 md:col-span-6 h-[68vh] bg-[url(../../banner_cars.jpg)] bg-cover bg-center rounded-lg shadow-lg">
         <div className="bg-indigo-800 w-full h-full bg-opacity-45 rounded-lg shadow-lg px-10"></div>
-        <div className="absolute top-32 md:left-20  bg-primary bg-opacity-80 text-white md:w-1/3 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
+        <div className="absolute top-32 md:left-20  bg-CajaForms bg-opacity-80 text-white md:w-1/3 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
           <form>
             <h2 className="text-3xl font-bold ">Buscador de coches</h2>
             <div className="grid grid-cols-3 gap-2 mt-2">
@@ -28,7 +28,9 @@ function Coches() {
                 <Input_hora />
               </div>
               <div>
-                <span className="block mb-1 text-sm font-semibold">Salida</span>
+                <span className="block mb-1 text-sm font-semibold">
+                  Devolución
+                </span>
                 <Input_hora />
               </div>
               <div>

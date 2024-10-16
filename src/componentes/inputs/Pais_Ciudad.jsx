@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaGlobeAfrica } from "react-icons/fa";
 import { FaGlobeAsia } from "react-icons/fa";
 import { FaGlobeEurope } from "react-icons/fa";
@@ -18,18 +18,22 @@ function SelectorPaisCiudad() {
     { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
     { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
     { name: "Asia", shortName: "AS", flag: <FaGlobeAsia /> },
-    { name: "Europe", shortName: "EU", flag: <FaGlobeEurope /> },
+    { name: "Europa", shortName: "EU", flag: <FaGlobeEurope /> },
     { name: "Oceanía", shortName: "OC", flag: <FaGlobeEurope /> },
-    { name: "Haiku", shortName: "HK", flag: <FaGlobeEurope /> },
+    {
+      name: "Haiku",
+      shortName: "HK",
+      flag: <img src="../../logo.png" className="w-5 h-4" />,
+    },
   ];
 
   const regions = {
-    AF: ["Nigeria", "South Africa", "Egypt"],
+    AF: ["Nigeria", "South Africa", "Egipto"],
     AM: ["USA", "Canada", "Mexico"],
-    AS: ["China", "Japan", "India"],
-    EU: ["Germany", "France", "Italy"],
-    OC: ["Australia", "New Zealand", "Fiji"],
-    HK: ["Region1", "Region2", "Region3"],
+    AS: ["China", "Japón", "India"],
+    EU: ["Alemania", "Francia", "Italia"],
+    OC: ["Australia", "Fiji"],
+    HK: ["Hola", "Haiku", "Vuela"],
   };
 
   const toggleContinentDropdown = () => {
@@ -57,19 +61,13 @@ function SelectorPaisCiudad() {
 
   return (
     <div className="flex w-full">
-      {" "}
-      {/* Ensure full width here */}
-      {/* Continent Selector */}
       <div className="relative">
-        {" "}
-        {/* Removed flex-grow for independent width */}
         <button
           className="flex-shrink-0 z-10 inline-flex py-3 w-[32px]  justify-center items-center text-sm font-medium border bg-inputIcon border-inputIcon rounded-l-lg text-white"
           type="button"
           onClick={toggleContinentDropdown}
         >
           <div className="flex flex-col ">
-            {/* <span>{selectedContinent.flag}</span> */}
             <span className="max-h-[20px]   overflow-hidden text-ellipsis whitespace-nowrap">
               {selectedContinent.shortName}
             </span>
@@ -77,8 +75,6 @@ function SelectorPaisCiudad() {
         </button>
         {isContinentDropdownOpen && (
           <div className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 shadow max-w-[200px]">
-            {" "}
-            {/* Set a max width for the dropdown */}
             <ul className="py-2 text-sm text-gray-700">
               {continents.map((continent) => (
                 <li key={continent.name}>
@@ -88,7 +84,7 @@ function SelectorPaisCiudad() {
                     onClick={() => selectContinent(continent)}
                   >
                     <span className="mr-2">{continent.flag}</span>
-                    {continent.name} {/* Full name in dropdown */}
+                    {continent.name}
                   </button>
                 </li>
               ))}
@@ -98,7 +94,7 @@ function SelectorPaisCiudad() {
       </div>
       <div className="relative flex-grow ">
         <button
-          className="bg-white justify-between rounded-r-lg flex-shrink-0 z-10 inline-flex items-center w-full py-3 px-4 text-sm font-medium text-gray-500 border border-gray-300"
+          className="bg-white  text-slate-950 text-sm justify-between rounded-r-lg flex-shrink-0 z-10 inline-flex items-center w-full py-3 pr-3 border border-gray-300"
           type="button"
           onClick={toggleRegionDropdown}
           disabled={!selectedContinent}

@@ -67,7 +67,7 @@ function Hoteles() {
       <div className="relative col-span-6 h-[68vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center rounded-lg shadow-lg">
         <div className="bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg"></div>
         <div className="absolute  top-32 right-1/2">
-          <div className=" bg-primary bg-opacity-80 text-white  h-fit px-10 py-5 rounded-lg shadow-xl">
+          <div className=" bg-CajaForms bg-opacity-80 text-white  h-fit px-10 py-5 rounded-lg shadow-xl">
             <form>
               <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
               <div className="grid grid-cols-3 mt-2 relative">
