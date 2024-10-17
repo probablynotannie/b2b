@@ -1,8 +1,7 @@
-import React, { useState } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
-import { FaRegSadCry } from "react-icons/fa";
 
 // Datos de sugerencias actualizados con tipos
 const suggestionsData = [
@@ -21,7 +20,11 @@ function Buscador() {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
+  
+  // Referencia para el contenedor de la caja de búsqueda
+  const searchBoxRef = useRef(null);
 
+  // Manejar el cambio en el input
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
@@ -57,11 +60,25 @@ function Buscador() {
     return acc;
   }, {});
 
+  // Detectar clics fuera de la caja de búsqueda
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
+        setIsDropdownOpen(false); // Cerrar el dropdown si se hace clic fuera
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [searchBoxRef]);
+
   // Determinar el número de columnas
   const columnCount = Object.keys(groupedSuggestions).length > 1 ? 2 : 1;
 
   return (
-    <div className="relative">
+    <div className="relative" ref={searchBoxRef}>
       <input
         type="text"
         value={inputValue}
@@ -80,10 +97,10 @@ function Buscador() {
               {Object.entries(groupedSuggestions).map(([type, items]) => (
                 <div key={type}>
                   <div className="relative">
-                    <h3 className="font-semibold bg-primary text-white  rounded-md p-2">
+                    <h3 className="font-semibold bg-primary text-white rounded-md p-2">
                       {type}
                     </h3>
-                    <div className="absolute top-0 pointer-events-none right-1  text-white h-full rounded-tr-md rounded-br-md flex items-center justify-center w-8 text-lg">
+                    <div className="absolute top-0 pointer-events-none right-1 text-white h-full rounded-tr-md rounded-br-md flex items-center justify-center w-8 text-lg">
                       {type === "Hotel" ? <FaHotel /> : <FaMap />}
                     </div>
                   </div>
@@ -92,7 +109,7 @@ function Buscador() {
                       <li
                         key={index}
                         onClick={() => handleSuggestionClick(suggestion)}
-                        className="p-2 border-b flex flex-col  border-slate-200 text-gray-700 hover:bg-slate-50 cursor-pointer"
+                        className="p-2 border-b flex flex-col border-slate-200 text-gray-700 hover:bg-slate-50 cursor-pointer"
                       >
                         <span className="flex space-x-2 items-center">
                           <span className="text-secondary text-lg">
