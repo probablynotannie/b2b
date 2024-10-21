@@ -12,7 +12,6 @@ function SelectorPaisCiudad() {
   const [selectedRegion, setSelectedRegion] = useState("");
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [step, setStep] = useState(1);
-
   const continents = [
     { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
     { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
@@ -25,7 +24,6 @@ function SelectorPaisCiudad() {
       flag: <img src="../../logo.png" className="w-5 h-4" />,
     },
   ];
-
   const regions = {
     AF: ["Nigeria", "Africa", "Egipto"],
     AM: ["USA", "Canada", "Mexico"],
@@ -34,26 +32,22 @@ function SelectorPaisCiudad() {
     OC: ["Australia", "Fiji"],
     HK: ["Hola", "Haiku", "Vuela"],
   };
-
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
     if (!isDropdownOpen) {
       setStep(1);
     }
   };
-
   const selectContinent = (continent) => {
     setSelectedContinent(continent);
     setSelectedRegion("");
 
     setStep(2);
   };
-
   const selectRegion = (region) => {
     setSelectedRegion(region);
     setIsDropdownOpen(false);
   };
-
   return (
     <div className="relative w-full">
       <button
@@ -63,7 +57,7 @@ function SelectorPaisCiudad() {
       >
         <span className="mx-2 overflow-hidden text-ellipsis whitespace-nowrap">
           {selectedRegion
-            ? selectedRegion + " - " + selectedContinent.name
+            ? selectedContinent.name + " - " + selectedRegion
             : "Selecciona continente y región"}
         </span>
         <svg

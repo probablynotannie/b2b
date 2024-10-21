@@ -22,10 +22,10 @@ function Vuelomashotel() {
                 <Input_Aeropuertos />
               </div>
               <div>
-                <Input_HabAdNin />
-              </div>
-              <div>
                 <Input_DateRange />
+              </div>
+              <div className="col-span-2">
+                <Input_HabAdNin />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">

@@ -65,7 +65,7 @@ function SelectorPaisCiudad() {
     <div className="flex w-full">
       <div className="relative">
         <button
-          className="flex-shrink-0 z-10 w-[50px] inline-flex py-3  px-2 justify-center items-center text-sm font-medium border bg-inputIcon border-inputIcon rounded-l-lg text-white"
+          className="flex-shrink-0 z-10 w-[50px] inline-flex py-2  px-2 justify-center items-center text-sm font-medium border bg-inputIcon border-inputIcon rounded-l-lg text-white"
           type="button"
           onClick={toggleContinentDropdown}
         >
@@ -97,7 +97,7 @@ function SelectorPaisCiudad() {
       </div>
       <div className="relative flex-grow ">
         <button
-          className="bg-white  text-slate-950 text-sm justify-between rounded-r-lg flex-shrink-0 z-10 inline-flex items-center w-full py-3 pr-3 border border-gray-300"
+          className="bg-white  text-slate-950 text-sm justify-between rounded-r-lg flex-shrink-0 z-10 inline-flex items-center w-full py-2 pr-3 border border-gray-300"
           type="button"
           onClick={toggleRegionDropdown}
           disabled={!selectedContinent}

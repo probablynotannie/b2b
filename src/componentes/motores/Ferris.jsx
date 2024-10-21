@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import Sidebar from "../Sidebar";
 import Input_Select from "../inputs/Select";
 import Input_Fecha from "../inputs/Fecha";

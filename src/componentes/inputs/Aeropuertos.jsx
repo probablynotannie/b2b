@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaPlane } from "react-icons/fa";
 
 // Sample data for suggestions

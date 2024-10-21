@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
@@ -20,17 +20,13 @@ function Buscador() {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-  
-  // Referencia para el contenedor de la caja de búsqueda
-  const searchBoxRef = useRef(null);
 
-  // Manejar el cambio en el input
+  const searchBoxRef = useRef(null);
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputValue(value);
-    setLoading(true); // Start loading
+    setLoading(true);
     if (value) {
-      // Para simular la tardanza
       setTimeout(() => {
         const filteredSuggestions = suggestionsData.filter((suggestion) =>
           suggestion.name.toLowerCase().includes(value.toLowerCase())
@@ -38,7 +34,7 @@ function Buscador() {
         setSuggestions(filteredSuggestions);
         setIsDropdownOpen(true);
         setLoading(false);
-      }, 500);
+      }, 1000);
     } else {
       setIsDropdownOpen(false);
       setLoading(false);
@@ -51,7 +47,6 @@ function Buscador() {
     setIsDropdownOpen(false);
   };
 
-  // Agrupar sugerencias por tipo
   const groupedSuggestions = suggestions.reduce((acc, suggestion) => {
     if (!acc[suggestion.type]) {
       acc[suggestion.type] = [];
@@ -60,11 +55,13 @@ function Buscador() {
     return acc;
   }, {});
 
-  // Detectar clics fuera de la caja de búsqueda
   useEffect(() => {
     const handleClickOutside = (event) => {
-      if (searchBoxRef.current && !searchBoxRef.current.contains(event.target)) {
-        setIsDropdownOpen(false); // Cerrar el dropdown si se hace clic fuera
+      if (
+        searchBoxRef.current &&
+        !searchBoxRef.current.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
       }
     };
 
@@ -74,9 +71,7 @@ function Buscador() {
     };
   }, [searchBoxRef]);
 
-  // Determinar el número de columnas
   const columnCount = Object.keys(groupedSuggestions).length > 1 ? 2 : 1;
-
   return (
     <div className="relative" ref={searchBoxRef}>
       <input
@@ -134,8 +129,7 @@ function Buscador() {
         </div>
       )}
       <div className="absolute top-0 right-0 pointer-events-none text-slate-300 text-sm h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8">
-        {" "}
-        {suggestions.length}{" "}
+        {suggestions.length}
       </div>
       <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-lg">
         <FaSearch />

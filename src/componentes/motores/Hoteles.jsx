@@ -3,11 +3,14 @@ import Input_Personas from "../inputs/Hab_Adulto_Ninio";
 import Input_Buscador from "../inputs/Buscador";
 import Input_Buscador2 from "../inputs/Buscador2";
 import Input_DateRange from "../inputs/DateRange";
+import Input_DateRange2 from "../inputs/DateRange2";
 function Hoteles() {
   return (
-    <div className="grid grid-cols-7 gap-10 px-10 md:px-20 min-h-[78vh] py-10">
-      <Sidebar />
-      <div className="relative col-span-7 md:col-span-6 h-[68vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center rounded-lg shadow-lg">
+    <div className="grid grid-cols-7 gap-10 px-0 lg:px-20  lg:min-h-[78vh] lg:py-10">
+      <div className="hidden xl:block">
+        <Sidebar />
+      </div>
+      <div className="relative col-span-7  xl:col-span-6 h-[68vh] bg-[url(../../banner_hoteles.jpg)] bg-cover bg-center lg:rounded-lg lg:shadow-lg">
         <div className="bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10"></div>
         <div className="absolute top-32 md:left-20  bg-CajaForms bg-opacity-80 text-white md:w-2/5 h-fit px-10 py-5 pb-16 rounded-lg shadow-xl">
           <form>
@@ -19,10 +22,13 @@ function Hoteles() {
               <div className="col-span-2">
                 <Input_Buscador2 />
               </div>
-              <div>
+              <div className="col-span-2">
                 <Input_DateRange />
               </div>
-              <div>
+              <div className="col-span-2">
+                <Input_DateRange2 />
+              </div>
+              <div className="col-span-2">
                 <Input_Personas />
               </div>
             </div>

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaMap } from "react-icons/fa";
 
 // Sample data to be passed as props
