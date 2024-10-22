@@ -59,3 +59,32 @@ body{
 }
 
 /* Additional range and selected date styles can remain unchanged */
+
+
+.full-screen-date-picker {
+  width: 100%;
+}
+
+@media (max-width: 768px) {
+  .DateRangePicker {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    z-index: 9999;
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
