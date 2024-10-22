@@ -8,6 +8,7 @@ import {
   eachDayOfInterval,
   endOfMonth,
 } from "date-fns";
+import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale"; // Spanish locale
 
 const InfiniteScrollCalendar = () => {
@@ -38,12 +39,16 @@ const InfiniteScrollCalendar = () => {
   // Handle date selection for range
   const handleDateClick = (date) => {
     if (!startDate || (startDate && endDate)) {
+      // If no start date or an end date is already selected, set the start date
       setStartDate(date);
       setEndDate(null);
     } else if (date < startDate) {
+      // If the clicked date is before the start date, set it as the new start date
       setStartDate(date);
     } else {
+      // Set the end date and close the modal
       setEndDate(date);
+      closeModal();
     }
   };
 
@@ -62,12 +67,14 @@ const InfiniteScrollCalendar = () => {
   };
 
   // Render the calendar for each month
-  const renderMonth = (month) => {
+  // Render the calendar for each month
+ // Render the calendar for each month
+const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-
+  
     return (
       <div key={month} className="mb-8">
         {/* Month name above weekdays */}
@@ -83,12 +90,12 @@ const InfiniteScrollCalendar = () => {
             <div
               key={day}
               className={`p-2 text-center rounded-lg cursor-pointer text-black ${
-                startDate && endDate && isSameDay(day, startDate)
-                  ? "bg-blue-500 text-white"
-                  : startDate && endDate && isSameDay(day, endDate)
-                  ? "bg-blue-500 text-white"
-                  : startDate && day > startDate && day < endDate
-                  ? "bg-blue-200"
+                isSameDay(day, startDate)
+                  ? "bg-secondary text-white" // Highlight only the start date
+                  : isSameDay(day, endDate)
+                  ? "bg-secondary text-white" // Highlight only the end date
+                  : startDate && endDate && day > startDate && day < endDate
+                  ? "bg-orange-100" // Highlight the range only if both dates are set
                   : ""
               }`}
               onClick={() => handleDateClick(day)}
@@ -119,24 +126,43 @@ const InfiniteScrollCalendar = () => {
     }
   };
 
+  // Format dates for display
+  const formatDateRange = () => {
+    if (startDate && endDate) {
+      return `${format(startDate, "d 'de' MMMM 'de' yyyy", {
+        locale: es,
+      })} - ${format(endDate, "d 'de' MMMM 'de' yyyy", { locale: es })}`;
+    }
+    return "Selecciona un rango de fechas";
+  };
+
   return (
     <div>
-      <div onClick={openModal} className="bg-blue-500 text-white p-2 rounded">
-        Open Calendar
+      <div
+        onClick={openModal}
+        className="relative bg-slate-50 mt-2 border border-gray-300 text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
+      >
+        {formatDateRange()}
+        <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+          <FaCalendarAlt />
+        </div>
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-full h-4/5 max-w-md mx-auto rounded-lg p-4 overflow-auto relative">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold">Select Date Range</h2>
-              <button onClick={closeModal} className="text-xl text-black">
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-5">
+          <div className="bg-white w-full h-[85%] max-w-md mx-auto rounded-xl relative">
+            <div className="flex justify-between items-center mb-4 bg-primary rounded-t-xl p-5 ">
+              <h2 className="text-xl font-bold text-white">Selecciona el rango de fechas</h2>
+              <button onClick={closeModal} className="text-xl text-white">
                 &times;
               </button>
             </div>
 
             {/* Scrollable calendar */}
-            <div className="overflow-y-auto h-full" onScroll={handleScroll}>
+            <div
+              className="overflow-y-auto h-[calc(100%-80px)] p-4"
+              onScroll={handleScroll}
+            >
               {months.map((month) => renderMonth(month))}
             </div>
           </div>
