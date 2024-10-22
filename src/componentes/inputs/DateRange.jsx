@@ -5,23 +5,12 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Modal } from "flowbite-react"; // Importing Flowbite modal
-import InfiniteScrollCalendar from "./InfiniteScrollCalendar";
+import InfiniteScrollCalendar from "./InfiniteScrollCalendarMultiple";
 const DateRange = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isOpen, setIsOpen] = useState(false);
   const isSwiping = useRef(false);
-  const [isMobile, setIsMobile] = useState(false);
-
-  // Utility function to check if the device is mobile
-  const checkMobile = () => {
-    const userAgent = navigator.userAgent || navigator.vendor || window.opera;
-    return /android|iPad|iPhone|iPod/.test(userAgent) && !window.MSStream;
-  };
-
-  useEffect(() => {
-    setIsMobile(checkMobile());
-  }, []);
 
   const handleChange = (dates) => {
     if (!isSwiping.current) {
@@ -45,7 +34,7 @@ const DateRange = () => {
 
   return (
     <div>
-      <div className="relative">
+      <div className="relative hidden md:block">
         <input
           type="text"
           readOnly
@@ -65,26 +54,29 @@ const DateRange = () => {
           <FaCalendarAlt />
         </div>
       </div>
-      <InfiniteScrollCalendar />
-
-      {isOpen && (
-        <div className="absolute z-50">
-          efefef
-          <DatePicker
-            selected={startDate}
-            onChange={handleChange}
-            startDate={startDate}
-            endDate={endDate}
-            selectsRange
-            inline
-            dayClassName={highlightWeekends}
-            locale={es}
-            minDate={new Date()}
-            className="custom-input"
-            wrapperClassName="custom-wrapper"
-          />
-        </div>
-      )}
+      <div className="md:hidden">
+        <InfiniteScrollCalendar />
+      </div>
+      <div>
+        {isOpen && (
+          <div className="absolute z-50">
+            efefef
+            <DatePicker
+              selected={startDate}
+              onChange={handleChange}
+              startDate={startDate}
+              endDate={endDate}
+              selectsRange
+              inline
+              dayClassName={highlightWeekends}
+              locale={es}
+              minDate={new Date()}
+              className="custom-input"
+              wrapperClassName="custom-wrapper"
+            />
+          </div>
+        )}
+      </div>
     </div>
   );
 };

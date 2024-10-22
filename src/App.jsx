@@ -1,9 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./componentes/estructura/Navbar";
 import Hoteles from "./componentes/motores/Hoteles";
-import Hoteles2 from "./componentes/motores/Hoteles2";
-import Hoteles3 from "./componentes/motores/Hoteles3";
-import Hoteles4 from "./componentes/motores/Hoteles4";
+
 import Coches from "./componentes/motores/Coches";
 import Cruceros from "./componentes/motores/Cruceros";
 import Destinos from "./componentes/motores/Destinos";
@@ -25,9 +23,6 @@ function App() {
           <Navbar />
           <Routes>
             <Route path="/" element={<Hoteles />} />
-            <Route path="/hoteles" element={<Hoteles2 />} />
-            <Route path="/hoteles2" element={<Hoteles3 />} />
-            <Route path="/hoteles3" element={<Hoteles4 />} />
             <Route path="/coches" element={<Coches />} />
             <Route path="/cruceros" element={<Cruceros />} />
             <Route path="/destinos" element={<Destinos />} />

@@ -33,20 +33,17 @@ const InfiniteScrollCalendar = () => {
     for (let i = 1; i <= 3; i++) {
       newMonths.push(addMonths(lastMonth, i));
     }
-    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Append new months
+    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Nuevos meses
   }, [months]);
 
-  // Handle date selection for range
   const handleDateClick = (date) => {
     if (!startDate || (startDate && endDate)) {
-      // If no start date or an end date is already selected, set the start date
       setStartDate(date);
       setEndDate(null);
     } else if (date < startDate) {
-      // If the clicked date is before the start date, set it as the new start date
+      // Si la fecha seleccionada es antes de la fecha ya seleccionada, será nuevo dia de inicio
       setStartDate(date);
     } else {
-      // Set the end date and close the modal
       setEndDate(date);
       closeModal();
     }
@@ -66,36 +63,34 @@ const InfiniteScrollCalendar = () => {
     );
   };
 
-  // Render the calendar for each month
-  // Render the calendar for each month
- // Render the calendar for each month
-const renderMonth = (month) => {
+  // Calendario por mes
+  const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-  
+
     return (
       <div key={month} className="mb-8">
         {/* Month name above weekdays */}
         <h3 className="text-lg font-bold text-center mb-2 text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
         </h3>
-        {renderWeekDays()} {/* Render weekdays for each month */}
+        {renderWeekDays()} {/* Dias de semana */}
         <div className="grid grid-cols-7 gap-1">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="p-4"></div> // empty cells before first day
+            <div key={`empty-${i}`} className="p-4"></div> // Espacio blanco si no hay dias lun-mar...
           ))}
           {daysInMonth.map((day) => (
             <div
               key={day}
               className={`p-2 text-center rounded-lg cursor-pointer text-black ${
                 isSameDay(day, startDate)
-                  ? "bg-secondary text-white" // Highlight only the start date
+                  ? "bg-secondary text-white" // Fecha inicio
                   : isSameDay(day, endDate)
-                  ? "bg-secondary text-white" // Highlight only the end date
+                  ? "bg-secondary text-white" // Fecha fin
                   : startDate && endDate && day > startDate && day < endDate
-                  ? "bg-orange-100" // Highlight the range only if both dates are set
+                  ? "bg-orange-100" // Fechas en medio
                   : ""
               }`}
               onClick={() => handleDateClick(day)}
@@ -140,7 +135,7 @@ const renderMonth = (month) => {
     <div>
       <div
         onClick={openModal}
-        className="relative bg-slate-50 mt-2 border border-gray-300 text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
+        className="relative bg-slate-50  text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
       >
         {formatDateRange()}
         <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
@@ -152,7 +147,9 @@ const renderMonth = (month) => {
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50 px-5">
           <div className="bg-white w-full h-[85%] max-w-md mx-auto rounded-xl relative">
             <div className="flex justify-between items-center mb-4 bg-primary rounded-t-xl p-5 ">
-              <h2 className="text-xl font-bold text-white">Selecciona el rango de fechas</h2>
+              <h2 className="text-xl font-bold text-white">
+                Selecciona el rango de fechas
+              </h2>
               <button onClick={closeModal} className="text-xl text-white">
                 &times;
               </button>

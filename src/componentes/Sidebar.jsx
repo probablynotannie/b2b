@@ -59,7 +59,7 @@ function Sidebar() {
     },
   ];
   return (
-    <div className="col-span-7 md:col-span-1 flex flex-row flex-wrap md:flex-col justify-around  border-2 border-slate-100 px-5 rounded-xl shadow-lg mb-2">
+    <div className=" col-span-7 md:col-span-1 xl:flex flex-row flex-wrap md:flex-col justify-around  border-2 border-slate-100 px-5 rounded-xl shadow-lg mb-2">
       <div className="flex gap-3 items-center ">
         <div className="border-2 bg-primary p-3 rounded-full">
           <FaHotel className="text-2xl text-white" />
