@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   format,
   addMonths,
@@ -9,36 +9,42 @@ import {
   endOfMonth,
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
-import { es } from "date-fns/locale"; // Spanish locale
+import { es } from "date-fns/locale";
 
 const InfiniteScrollCalendar = () => {
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Initial load of multiple months (e.g., load 3 months at once)
   useEffect(() => {
     const initialMonths = [startOfMonth(new Date())];
     for (let i = 1; i < 3; i++) {
       initialMonths.push(addMonths(startOfMonth(new Date()), i));
     }
-    setMonths(initialMonths); // Load 3 months at start
+    setMonths(initialMonths);
   }, []);
 
-  // Load more months dynamically when scrolling
   const loadMoreMonths = useCallback(() => {
-    const lastMonth = months[months.length - 1]; // Get the last visible month
+    const lastMonth = months[months.length - 1];
     const newMonths = [];
     for (let i = 1; i <= 3; i++) {
       newMonths.push(addMonths(lastMonth, i));
     }
-    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Append new months
+    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Nuevos meses
   }, [months]);
 
-  // Handle date selection
   const handleDateClick = (date) => {
-    setSelectedDate(date);
-    closeModal(); // Optionally close the modal after selecting a date
+    if (!startDate || (startDate && endDate)) {
+      setStartDate(date);
+      setEndDate(null);
+    } else if (date < startDate) {
+      // Si la fecha seleccionada es antes de la fecha ya seleccionada, será nuevo dia de inicio
+      setStartDate(date);
+    } else {
+      setEndDate(date);
+      closeModal();
+    }
   };
 
   // Render days of the week
@@ -47,7 +53,7 @@ const InfiniteScrollCalendar = () => {
     return (
       <div className="grid grid-cols-7 text-center font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="p-1 text-black">
+          <div key={day} className="p-1 text-black text-sm">
             {day}
           </div>
         ))}
@@ -55,7 +61,7 @@ const InfiniteScrollCalendar = () => {
     );
   };
 
-  // Render the calendar for each month
+  // Calendario por mes
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
@@ -67,17 +73,23 @@ const InfiniteScrollCalendar = () => {
         {/* Month name above weekdays */}
         <h3 className="text-lg font-bold text-center mb-2 text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
+          {renderWeekDays()} {/* Dias de semana */}
         </h3>
-        {renderWeekDays()} {/* Render weekdays for each month */}
-        <div className="grid grid-cols-7 gap-1">
+        <div className="grid grid-cols-7 gap-1 mb-3">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="p-4"></div> // empty cells before first day
+            <div key={`empty-${i}`} className="p-4"></div> // Espacio blanco si no hay dias lun-mar...
           ))}
           {daysInMonth.map((day) => (
             <div
               key={day}
-              className={`p-2 text-center rounded-lg cursor-pointer text-black ${
-                isSameDay(day, selectedDate) ? "bg-blue-500 text-white" : ""
+              className={`p-2 text-center rounded-lg cursor-pointer text-black text-sm ${
+                isSameDay(day, startDate)
+                  ? "bg-secondary text-white" // Fecha inicio
+                  : isSameDay(day, endDate)
+                  ? "bg-secondary text-white" // Fecha fin
+                  : startDate && endDate && day > startDate && day < endDate
+                  ? "bg-orange-100" // Fechas en medio
+                  : ""
               }`}
               onClick={() => handleDateClick(day)}
             >
@@ -89,17 +101,15 @@ const InfiniteScrollCalendar = () => {
     );
   };
 
-  // Function to open the modal
   const openModal = () => {
     setIsModalOpen(true);
   };
 
-  // Function to close the modal
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  // Load more months on scroll
+  // Cargas más meses
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     if (scrollHeight - scrollTop <= clientHeight + 100) {
@@ -107,41 +117,44 @@ const InfiniteScrollCalendar = () => {
     }
   };
 
-  // Format selected date for display
-  const formatSelectedDate = () => {
-    if (selectedDate) {
-      return format(selectedDate, "d 'de' MMMM 'de' yyyy", { locale: es });
+  // Formato fechas
+  const formatDateRange = () => {
+    if (startDate && endDate) {
+      return `${format(startDate, "dd/MM/yyyy")} - ${format(
+        endDate,
+        "dd/MM/yyyy"
+      )}`;
     }
-    return "Selecciona una fecha";
+    return "Selecciona un rango de fechas";
   };
 
   return (
     <div>
       <div
         onClick={openModal}
-        className="relative bg-slate-50 mt-2 border border-gray-300 text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
+        className="relative bg-slate-50  text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
       >
-        {formatSelectedDate()}
+        {formatDateRange()}
         <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
           <FaCalendarAlt />
         </div>
       </div>
 
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-end z-50">
-          <div className="bg-white w-full h-[80%] max-w-md mx-auto rounded-t-lg p-4 relative">
-            <div className="flex justify-between items-center mb-4">
-              <h2 className="text-xl font-bold text-black">
-                Selecciona una fecha
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="bg-white w-full h-full mx-auto  relative">
+            <div className="flex justify-between items-center mb-4 bg-primary rounded-t-xl p-5 ">
+              <h2 className="text-xl font-bold text-white">
+                Selecciona el rango de fechas
               </h2>
-              <button onClick={closeModal} className="text-xl text-black">
+              <button onClick={closeModal} className="text-xl text-white">
                 &times;
               </button>
             </div>
 
             {/* Scrollable calendar */}
             <div
-              className="overflow-y-auto h-[calc(100%-80px)]"
+              className="overflow-y-auto h-[calc(100%-80px)] p-4"
               onScroll={handleScroll}
             >
               {months.map((month) => renderMonth(month))}

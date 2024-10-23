@@ -8,9 +8,9 @@ function Hoteles() {
     <form>
       <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
       <div className="grid grid-cols-2 gap-2  mt-2">
-        <div className="col-span-2">
+        {/* <div className="col-span-2">
           <Input_Buscador />
-        </div>
+        </div> */}
         <div className="col-span-2">
           <Input_Buscador2 />
         </div>

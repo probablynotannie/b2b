@@ -1,7 +1,4 @@
-import Sidebar from "../Sidebar";
 import Input_Destinos from "../inputs/Pais_Ciudad";
-import Input_Destinos2 from "../inputs/Pais_Ciudad2";
-import Input_Destinos3 from "../inputs/Pais_Ciudad3";
 import Input_Mes from "../inputs/Mes";
 function Destinos() {
   return (
@@ -10,13 +7,6 @@ function Destinos() {
       <div className="mt-2">
         <Input_Destinos />
       </div>
-      <div className="mt-2">
-        <Input_Destinos2 />
-      </div>
-      <div className="mt-2">
-        <Input_Destinos3 />
-      </div>
-
       <div className="mt-2">
         <Input_Mes />
       </div>

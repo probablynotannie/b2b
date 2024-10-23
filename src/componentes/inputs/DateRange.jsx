@@ -5,7 +5,7 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Modal } from "flowbite-react"; // Importing Flowbite modal
-import InfiniteScrollCalendar from "./InfiniteScrollCalendarMultiple";
+import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
 const DateRange = () => {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
