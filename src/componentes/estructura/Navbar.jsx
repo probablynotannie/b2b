@@ -1,7 +1,8 @@
 import { Link } from "react-router-dom";
 import { Dropdown } from "flowbite-react";
-import { FaUserCog } from "react-icons/fa";
-import { MdMarkEmailRead } from "react-icons/md";
+import { Popover } from "flowbite-react";
+import Usuario from "./Usuario";
+import Notificaciones from "./Notificaciones";
 import { useState } from "react";
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -58,7 +59,30 @@ const Navbar = () => {
           </Link>
           <div className="flex space-x-3">
             {menu.map((item, index) => (
-              <Dropdown
+              <div key={index}>
+                <Popover
+                  aria-labelledby="profile-popover"
+                  content={
+                    <div className="w-96">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 p-4 gap-4">
+                        {item.subItems.map((motor) => (
+                          <div key={motor.id}>
+                            <Link to={motor.to} onClick={toggleMenu}>
+                              {motor.texto}
+                            </Link>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  }
+                >
+                  <div className="text-slate-400 w-fit cursor-pointer hover:text-secondary transition flex items-center text-sm">
+                    {item.texto}
+                  </div>
+                </Popover>
+              </div>
+
+              /*   <Dropdown
                 key={index}
                 inline
                 label={
@@ -74,52 +98,14 @@ const Navbar = () => {
                     </Dropdown.Item>
                   ))}
                 </div>
-              </Dropdown>
+              </Dropdown> */
             ))}
           </div>
         </div>
-
-        {/* User Icon & Menu */}
-        <div>
-          <Dropdown
-            label={
-              <span className="text-4xl text-white">
-                <FaUserCog />
-              </span>
-            }
-            inline
-            className="relative"
-          >
-            {/* Dropdown Header */}
-            <Dropdown.Header className="flex flex-col items-start">
-              <div className="flex items-center w-full">
-                <img
-                  src="./dit.png" // Placeholder for your logo
-                  alt="Logo"
-                  className="w-16 h-10"
-                />
-                <span className="ml-3 font-bold">vpk desarrollo</span>
-              </div>
-              <div className="border-t-2 border-slate-100 w-full  my-3">
-                <span className="block  font-bold mt-2">
-                  Dit España Freelance
-                </span>
-                <span className="flex flex-col mt-2">
-                  <MdMarkEmailRead />
-                  Reservas: soporte@ditgestion.com
-                </span>
-                <span className="block mt-2">Dit España Freelance</span>
-                <span className="block mt-2">Dit España Freelance</span>
-                <span className="block mt-2">Dit España Freelance</span>
-              </div>
-            </Dropdown.Header>
-            {/* Dropdown Items */}
-            <Dropdown.Item>
-              <span className="text-sm">Cerrar sesión</span>
-            </Dropdown.Item>
-            {/* Optional divider */}
-            <Dropdown.Divider />
-          </Dropdown>
+        {/* Notificaciones y configuración de usuario, parte derecja de NavBar */}
+        <div className="flex gap-4">
+          <Notificaciones />
+          <Usuario />
         </div>
       </div>
     </nav>

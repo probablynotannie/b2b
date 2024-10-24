@@ -1,5 +1,6 @@
 import Sidebar from "../Sidebar";
 import Input_Personas from "../inputs/Hab_Adulto_Ninio";
+import Input_Personas2 from "../inputs/Hab_Adulto_Ninio2";
 import Input_Buscador from "../inputs/Buscador";
 import Input_Buscador2 from "../inputs/Buscador2";
 import Input_DateRange from "../inputs/DateRange";
@@ -20,6 +21,9 @@ function Hoteles() {
 
         <div className="col-span-2">
           <Input_Personas />
+        </div>
+        <div className="col-span-2">
+          <Input_Personas2 />
         </div>
       </div>
       <div className="absolute -bottom-5 right-5">
