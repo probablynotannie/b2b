@@ -17,13 +17,12 @@ const Navbar = () => {
       texto: "Motores",
       subItems: [
         { id: 0, texto: "Hoteles", to: "/" },
-        { id: 1, texto: "Hoteles 2", to: "/hoteles" },
-        { id: 2, texto: "Hoteles 3", to: "/hoteles2" },
-        { id: 3, texto: "Hoteles 4", to: "/hoteles3" },
+        { id: 4, texto: "Destinos", to: "/destinos" },
+        { id: 4, texto: "Cruceros", to: "/cruceros" },
+        { id: 4, texto: "Vuelo + hotel", to: "/vuelomashotel" },
         { id: 4, texto: "Coches", to: "/coches" },
-        { id: 5, texto: "Entradas", to: "/entradas" },
         { id: 6, texto: "Tickets", to: "/tickets" },
-        { id: 7, texto: "Cruceros", to: "/cruceros" },
+        { id: 5, texto: "Entradas", to: "/entradas" },
         { id: 8, texto: "Ferris", to: "/ferris" },
       ],
     },
@@ -57,16 +56,19 @@ const Navbar = () => {
           <Link to="/">
             <img src="./logo.png" className="w-full" alt="Logo" />
           </Link>
-          <div className="flex space-x-3">
+          <div className="flex space-x-5">
             {menu.map((item, index) => (
               <div key={index}>
                 <Popover
                   aria-labelledby="profile-popover"
                   content={
                     <div className="w-96">
-                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 p-4 gap-4">
+                      <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 py-3 px-1">
                         {item.subItems.map((motor) => (
-                          <div key={motor.id}>
+                          <div
+                            className="p-3 hover:bg-slate-200 hover:shadow transition"
+                            key={motor.id}
+                          >
                             <Link to={motor.to} onClick={toggleMenu}>
                               {motor.texto}
                             </Link>
@@ -76,29 +78,12 @@ const Navbar = () => {
                     </div>
                   }
                 >
+                 
                   <div className="text-slate-400 w-fit cursor-pointer hover:text-secondary transition flex items-center text-sm">
                     {item.texto}
                   </div>
                 </Popover>
               </div>
-
-              /*   <Dropdown
-                key={index}
-                inline
-                label={
-                  <span className="text-white font-semibold">{item.texto}</span>
-                }
-              >
-                <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-3 p-4 gap-4">
-                  {item.subItems.map((motor) => (
-                    <Dropdown.Item key={motor.id}>
-                      <Link to={motor.to} onClick={toggleMenu}>
-                        {motor.texto}
-                      </Link>
-                    </Dropdown.Item>
-                  ))}
-                </div>
-              </Dropdown> */
             ))}
           </div>
         </div>

@@ -5,7 +5,7 @@ import { IoIosBoat } from "react-icons/io";
 function Footer() {
   return (
     <footer className="flex flex-col items-center w-full pt-3 pb-5 font-semibold shadow-inner  bg-muted">
-      <div className="grid justify-between w-full grid-cols-2 px-10 md:grid-cols-3">
+      <div className="grid  justify-between w-full grid-cols-2 px-10 md:grid-cols-3">
         <span className="inline-block text-sm text-transparent titulo_footer text-secondary">
           &copy; 2023/2024 Dit Gestion
         </span>
