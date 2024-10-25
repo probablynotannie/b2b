@@ -1,5 +1,5 @@
 import Input_Destinos from "../inputs/Pais_Ciudad";
-import Sidebar from "../Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import Input_Mes from "../inputs/Mes";
 function Destinos() {
   return (

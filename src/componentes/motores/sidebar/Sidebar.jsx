@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaHotel } from "react-icons/fa";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { SiMentorcruise } from "react-icons/si";
@@ -8,19 +7,8 @@ import { IoTicket } from "react-icons/io5";
 import { FaTicketAlt } from "react-icons/fa";
 import { FaTrain } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-/* Componentes */
-import Coches from "./motores/Coches";
-import Cruceros from "./motores/Cruceros";
-import Destinos from "./motores/Destinos";
-import Entradas from "./motores/Entradas";
-import Ferris from "./motores/Ferris";
-import Hoteles from "./motores/Hoteles";
-import Tickets from "./motores/Tickets";
-import Vuelomashotel from "./motores/Vuelomashotel";
-import { Divider } from "@mantine/core";
 
-function Sidebar({ item }) {
-  const [activeComponent, setActiveComponent] = useState(0); // Default to first component
+function Sidebar() {
   const otros = [
     {
       id: 1,

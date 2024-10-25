@@ -1,13 +1,15 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 import Navbar from "./componentes/estructura/Navbar";
 import Hoteles from "./componentes/motores/Hoteles";
-import Sidebar from "./componentes/Sidebar";
 import Coches from "./componentes/motores/Coches";
 import Cruceros from "./componentes/motores/Cruceros";
 import Destinos from "./componentes/motores/Destinos";
 import Entradas from "./componentes/motores/Entradas";
 import Ferris from "./componentes/motores/Ferris";
 import Tickets from "./componentes/motores/Tickets";
+import Clientes from "./componentes/utilidades/Clientes";
+import Presupuestos from "./componentes/utilidades/Presupuestos";
+import EnvioPresupuestos from "./componentes/utilidades/EnvioPresupuestos";
 import Vuelomashotel from "./componentes/motores/Vuelomashotel";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -31,6 +33,9 @@ function App() {
             <Route path="/ferris" element={<Ferris />} />
             <Route path="/tickets" element={<Tickets />} />
             <Route path="/vueloHotel" element={<Vuelomashotel />} />
+            <Route path="/clientes" element={<Clientes />} />
+            <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
+            <Route path="/presupuestos" element={<Presupuestos />} />
           </Routes>
         </Router>
 

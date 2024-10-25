@@ -100,16 +100,15 @@ function SelectorPersonas() {
               <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
                 Adultos / Niños
               </div>
-              <div className="px-3 pb-5 max-h-[60vh] overflow-y-auto">
+              <div className="px-3 pb-5 max-h-[80vh] overflow-y-auto">
                 {roomData.map((room, roomIndex) => (
                   <div
-                    className="relative text-black bg-slate-100 shadow mt-8 p-2 py-5 rounded-lg"
+                    className="relative text-black bg-slate-100 shadow mt-10 p-2 py-5 rounded-lg"
                     key={room.id}
                   >
                     <span className="absolute -top-5 p-2 bg-primary text-white font-semibold rounded-lg shadow-lg">
                       Habitación {roomIndex + 1}
                     </span>
-
                     <div className="grid grid-cols-3 gap-2">
                       <div>
                         <span className="text-sm text-black">Adultos</span>

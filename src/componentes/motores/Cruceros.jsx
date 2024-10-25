@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import Input_Destinos from "../inputs/Destinos";
 import Input_Puertos from "../inputs/Puertos";
 import Input_Navieras from "../inputs/Navieras";

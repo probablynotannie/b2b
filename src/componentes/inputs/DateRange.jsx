@@ -60,7 +60,6 @@ const DateRange = () => {
       <div>
         {isOpen && (
           <div className="absolute z-50">
-            efefef
             <DatePicker
               selected={startDate}
               onChange={handleChange}

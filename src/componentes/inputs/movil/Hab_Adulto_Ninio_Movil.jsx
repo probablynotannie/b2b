@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
-import { Modal, Button } from "flowbite-react";
 import { CiCirclePlus } from "react-icons/ci";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
@@ -25,40 +24,35 @@ function SelectorPersonas({
 
   return (
     <div>
-      <div className="grid grid-cols-1 gap-3">
-        <div className="mt-4">
-          <div className="relative">
-            <div
-              onClick={openModal}
-              className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full"
-            >
-              {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
-              {totalChildren} Niños
-            </div>
-            <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
-              <MdMeetingRoom />
-            </div>
-          </div>
-        </div>
-
-        {/* Modal component */}
-        <Modal
-          className="h-full"
-          show={isOpen}
-          onClose={closeModal}
-          size="full"
+      <div className="relative">
+        <div
+          onClick={openModal}
+          className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full cursor-pointer"
         >
-          <Modal.Header className="bg-primary">
-            <h3 className="text-white font-semibold">Habitaciones</h3>
-          </Modal.Header>
-          <Modal.Body>
+          {habitacion} Habitaciones - {totalAdults} Adultos - {totalChildren}{" "}
+          Niños
+        </div>
+        <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+          <MdMeetingRoom />
+        </div>
+      </div>
+      {isOpen && (
+        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+          <div className="relative bg-slate-50 w-full h-full max-w-4xl overflow-auto">
+            <div className="sticky top-0 z-50 flex justify-between items-center mb-4 bg-primary rounded-t-xl p-5 ">
+              <h2 className="text-xl font-bold text-white">Habitaciones</h2>
+              <button onClick={closeModal} className="text-xl text-white">
+                &times;
+              </button>
+            </div>
+            <h3 className="text-lg font-semibold">Habitaciones</h3>
             <div className="px-3 pb-5">
               {roomData.map((room, roomIndex) => (
                 <div
-                  className="relative bg-slate-100 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"
+                  className="relative bg-slate-100 border border-slate-300 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"
                   key={room.id}
                 >
-                  <span className="absolute -top-3 border-2 bg-primary text-white rounded-lg p-2 font-semibold">
+                  <span className="absolute -top-5 border-2 bg-primary text-white rounded-lg p-2 font-semibold">
                     Habitación {roomIndex + 1}
                   </span>
                   <div className="grid grid-cols-6 gap-5">
@@ -135,7 +129,7 @@ function SelectorPersonas({
                       </div>
                     )}
                     {roomIndex !== 0 && (
-                      <div className="absolute -top-8 right-4 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
+                      <div className="absolute -top-10 right-4 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
                         <button
                           onClick={() => deleteRoom(room.id)}
                           className="text-xl"
@@ -148,26 +142,19 @@ function SelectorPersonas({
                 </div>
               ))}
               <div className="mt-10 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer">
-                <div
+                <button
+                  type="button"
                   onClick={addRoom}
-                  className="w-fit flex items-center space-x-1"
+                  className="w-full  flex justify-center items-center space-x-1 bg-secondary text-white p-3 rounded-lg shadow"
                 >
-                  <span>Agregar </span>
+                  <span>Agregar una habitación </span>
                   <CiCirclePlus className="text-lg" />
-                </div>
+                </button>
               </div>
             </div>
-          </Modal.Body>
-          <Modal.Footer className="flex justify-end">
-            <button
-              className="bg-primary p-3 px-6 text-white rounded-lg shadow font-semibold"
-              onClick={closeModal}
-            >
-              Cerrar
-            </button>
-          </Modal.Footer>
-        </Modal>
-      </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

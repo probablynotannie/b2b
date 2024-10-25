@@ -1,4 +1,4 @@
-import Sidebar from "../Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_Aeropuertos from "../inputs/Aeropuertos";
 import Input_HabAdNin from "../inputs/Hab_Adulto_Ninio2";

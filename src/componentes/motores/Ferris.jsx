@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Sidebar from "../Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import Input_Select from "../inputs/Select";
 import Input_Fecha from "../inputs/Fecha";
 import Input_DateRange from "../inputs/DateRange";

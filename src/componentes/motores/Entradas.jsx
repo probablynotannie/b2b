@@ -1,5 +1,5 @@
 import React from "react";
-import Sidebar from "../Sidebar";
+import Sidebar from "./sidebar/Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_Fecha from "../inputs/Fecha";
 import Input_adultoNinio from "../inputs/Adulto_Ninio";
