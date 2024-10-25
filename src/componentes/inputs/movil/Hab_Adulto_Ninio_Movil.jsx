@@ -94,16 +94,20 @@ function SelectorPersonas() {
           size="full"
         >
           <Modal.Header className="bg-primary">
-            <h3 className="text-white font-semibold">
-              Agrega las habitaciones que necesites
-            </h3>
+            <h3 className="text-white font-semibold">Habitaciones</h3>
           </Modal.Header>
           <Modal.Body>
             <div className="px-3 pb-5">
               {Array.from({ length: habitacion }).map((_, roomIndex) => (
-                <div className="text-black" key={roomIndex}>
+                <div
+                  className="relative bg-slate-100 rounded-lg shadow-lg mb-10 p-3 py-12  text-black"
+                  key={roomIndex}
+                >
+                  <span className="absolute -top-3 border-2 bg-primary text-white rounded-lg p-2 font-semibold">
+                    Habitación {roomIndex + 1}
+                  </span>
                   <div className="grid grid-cols-6 gap-5">
-                    <div>
+                    <div className="col-span-3 md:col-span-1">
                       <span className="text-sm text-black">Adultos</span>
                       <div className="relative">
                         <select
@@ -125,7 +129,7 @@ function SelectorPersonas() {
                         </div>
                       </div>
                     </div>
-                    <div>
+                    <div className="col-span-3 md:col-span-1">
                       <span className="text-sm text-black">Niños</span>
                       <div className="relative">
                         <select
@@ -148,7 +152,7 @@ function SelectorPersonas() {
 
                     {/* Child Age Inputs */}
                     {roomData[roomIndex].ninios > 0 && (
-                      <div className="col-span-3">
+                      <div className="col-span-6 md:col-span-3">
                         <span className="text-sm text-black">
                           Edad de los niños
                         </span>
@@ -156,10 +160,9 @@ function SelectorPersonas() {
                           {Array.from({
                             length: roomData[roomIndex].ninios,
                           }).map((_, childIndex) => (
-                            <input
+                            <select
                               key={childIndex}
                               required
-                              type="number"
                               id={`child-age-${roomIndex}-${childIndex}`}
                               value={
                                 roomData[roomIndex].ninioAges[childIndex] || ""
@@ -171,36 +174,43 @@ function SelectorPersonas() {
                                   e.target.value
                                 )
                               }
-                              className="mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                              placeholder="Edad"
-                            />
+                              className=" mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                            >
+                              <option value="" disabled>
+                                -
+                              </option>
+                              {Array.from({ length: 18 }).map((_, age) => (
+                                <option key={age} value={age}>
+                                  {age}
+                                </option>
+                              ))}
+                            </select>
                           ))}
                         </div>
                       </div>
                     )}
-                    <div className="flex items-center justify-center flex-col mt-5">
-                      {roomIndex !== 0 && (
+                    {roomIndex !== 0 && (
+                      <div className="absolute -bottom-5 right-5 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
                         <>
                           <button
                             onClick={() => deleteRoom(roomIndex)}
-                            className="text-red-500 hover:text-red-700 text-xl "
+                            className="text-xl "
                           >
                             <FaTrashAlt />
                           </button>
-                          <span className="text-red-400 font-semibold">Eliminar</span>
                         </>
-                      )}
-                    </div>
+                      </div>
+                    )}
                   </div>
                 </div>
               ))}
               <div
                 onClick={addRoom}
-                className="mt-2 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer"
+                className="mt-10 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer"
               >
                 <div className="w-fit flex items-center space-x-1">
                   <span>Agregar </span>
-                  <CiCirclePlus />
+                  <CiCirclePlus className="text-lg" />
                 </div>
               </div>
             </div>
