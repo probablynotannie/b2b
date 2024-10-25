@@ -6,67 +6,22 @@ import { CiCirclePlus } from "react-icons/ci";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
 
-function SelectorPersonas() {
-  const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState(
-    Array.from({ length: 1 }, () => ({ adultos: 1, ninios: 0, ninioAges: [] }))
-  );
-  const [isOpen, setIsOpen] = useState(false); // Modal visibility state
-
-  const addRoom = () => {
-    setHabitacion((prevCount) => prevCount + 1);
-    setRoomData((prevData) => [
-      ...prevData,
-      { adultos: 1, ninios: 0, ninioAges: [] },
-    ]);
-  };
-
-  const deleteRoom = (roomIndex) => {
-    setHabitacion((prevCount) => Math.max(prevCount - 1, 1));
-    setRoomData((prevData) =>
-      prevData.filter((_, index) => index !== roomIndex)
-    );
-  };
-
-  const onAdultosChange = (roomIndex, e) => {
-    const count = parseInt(e.target.value, 10);
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].adultos = count;
-    setRoomData(newRoomData);
-  };
-
-  const onNiniosChange = (roomIndex, e) => {
-    const count = parseInt(e.target.value, 10);
-    setRoomData((prevData) => {
-      const updatedData = [...prevData];
-      if (updatedData[roomIndex].ninioAges.length < count) {
-        updatedData[roomIndex].ninioAges = [
-          ...updatedData[roomIndex].ninioAges,
-          ...new Array(count - updatedData[roomIndex].ninioAges.length).fill(
-            ""
-          ),
-        ];
-      } else {
-        updatedData[roomIndex].ninioAges = updatedData[
-          roomIndex
-        ].ninioAges.slice(0, count);
-      }
-      updatedData[roomIndex].ninios = count;
-      return updatedData;
-    });
-  };
-
-  const handleAgeChange = (roomIndex, childIndex, age) => {
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].ninioAges[childIndex] = age;
-    setRoomData(newRoomData);
-  };
-
-  const totalAdults = roomData.reduce((acc, room) => acc + room.adultos, 0);
-  const totalChildren = roomData.reduce((acc, room) => acc + room.ninios, 0);
-
-  const openModal = () => setIsOpen(true); // Open modal
-  const closeModal = () => setIsOpen(false); // Close modal
+function SelectorPersonas({
+  habitacion,
+  setHabitacion,
+  roomData,
+  setRoomData,
+  addRoom,
+  onAdultosChange,
+  onNiniosChange,
+  totalAdults,
+  totalChildren,
+  deleteRoom,
+  handleAgeChange,
+}) {
+  const [isOpen, setIsOpen] = useState(false);
+  const openModal = () => setIsOpen(true);
+  const closeModal = () => setIsOpen(false);
 
   return (
     <div>
@@ -75,12 +30,12 @@ function SelectorPersonas() {
           <div className="relative">
             <div
               onClick={openModal}
-              className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm  pl-10 w-full"
+              className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full"
             >
               {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
               {totalChildren} Niños
             </div>
-            <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl ">
+            <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
               <MdMeetingRoom />
             </div>
           </div>
@@ -98,10 +53,10 @@ function SelectorPersonas() {
           </Modal.Header>
           <Modal.Body>
             <div className="px-3 pb-5">
-              {Array.from({ length: habitacion }).map((_, roomIndex) => (
+              {roomData.map((room, roomIndex) => (
                 <div
-                  className="relative bg-slate-100 rounded-lg shadow-lg mb-10 p-3 py-12  text-black"
-                  key={roomIndex}
+                  className="relative bg-slate-100 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"
+                  key={room.id}
                 >
                   <span className="absolute -top-3 border-2 bg-primary text-white rounded-lg p-2 font-semibold">
                     Habitación {roomIndex + 1}
@@ -111,18 +66,15 @@ function SelectorPersonas() {
                       <span className="text-sm text-black">Adultos</span>
                       <div className="relative">
                         <select
-                          onChange={(e) => onAdultosChange(roomIndex, e)}
-                          id={`adultos-${roomIndex}`}
+                          onChange={(e) => onAdultosChange(room.id, e)}
+                          value={room.adultos}
                           className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                         >
-                          <option defaultValue value={1}>
-                            1
-                          </option>
-                          <option value={2}>2</option>
-                          <option value={3}>3</option>
-                          <option value={4}>4</option>
-                          <option value={5}>5</option>
-                          <option value={6}>6</option>
+                          {[1, 2, 3, 4, 5, 6].map((num) => (
+                            <option key={num} value={num}>
+                              {num}
+                            </option>
+                          ))}
                         </select>
                         <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
                           <FaPerson />
@@ -133,16 +85,15 @@ function SelectorPersonas() {
                       <span className="text-sm text-black">Niños</span>
                       <div className="relative">
                         <select
-                          onChange={(e) => onNiniosChange(roomIndex, e)}
-                          id={`ninios-${roomIndex}`}
+                          onChange={(e) => onNiniosChange(room.id, e)}
+                          value={room.ninios}
                           className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                         >
-                          <option value={0} defaultValue>
-                            0
-                          </option>
-                          <option value={1}>1</option>
-                          <option value={2}>2</option>
-                          <option value={3}>3</option>
+                          {[0, 1, 2, 3].map((num) => (
+                            <option key={num} value={num}>
+                              {num}
+                            </option>
+                          ))}
                         </select>
                         <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
                           <FaChild />
@@ -151,30 +102,24 @@ function SelectorPersonas() {
                     </div>
 
                     {/* Child Age Inputs */}
-                    {roomData[roomIndex].ninios > 0 && (
+                    {room.ninios > 0 && (
                       <div className="col-span-6 md:col-span-3">
                         <span className="text-sm text-black">
                           Edad de los niños
                         </span>
                         <div className="grid grid-cols-3 gap-3">
-                          {Array.from({
-                            length: roomData[roomIndex].ninios,
-                          }).map((_, childIndex) => (
+                          {room.ninioAges.map((age, childIndex) => (
                             <select
                               key={childIndex}
-                              required
-                              id={`child-age-${roomIndex}-${childIndex}`}
-                              value={
-                                roomData[roomIndex].ninioAges[childIndex] || ""
-                              }
+                              value={age}
                               onChange={(e) =>
                                 handleAgeChange(
-                                  roomIndex,
+                                  room.id,
                                   childIndex,
                                   e.target.value
                                 )
                               }
-                              className=" mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                              className="mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
                             >
                               <option value="" disabled>
                                 -
@@ -191,24 +136,22 @@ function SelectorPersonas() {
                     )}
                     {roomIndex !== 0 && (
                       <div className="absolute -bottom-5 right-5 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
-                        <>
-                          <button
-                            onClick={() => deleteRoom(roomIndex)}
-                            className="text-xl "
-                          >
-                            <FaTrashAlt />
-                          </button>
-                        </>
+                        <button
+                          onClick={() => deleteRoom(room.id)}
+                          className="text-xl"
+                        >
+                          <FaTrashAlt />
+                        </button>
                       </div>
                     )}
                   </div>
                 </div>
               ))}
-              <div
-                onClick={addRoom}
-                className="mt-10 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer"
-              >
-                <div className="w-fit flex items-center space-x-1">
+              <div className="mt-10 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer">
+                <div
+                  onClick={addRoom}
+                  className="w-fit flex items-center space-x-1"
+                >
                   <span>Agregar </span>
                   <CiCirclePlus className="text-lg" />
                 </div>

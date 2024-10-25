@@ -5,59 +5,70 @@ import { Popover } from "flowbite-react";
 import { CiCirclePlus } from "react-icons/ci";
 import { MdMeetingRoom } from "react-icons/md";
 import VersionMovil from "./movil/Hab_Adulto_Ninio_Movil";
+import { FaTrashAlt } from "react-icons/fa";
+
 function SelectorPersonas() {
   const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState(
-    Array.from({ length: 1 }, () => ({ adultos: 1, ninios: 0, ninioAges: [] }))
-  );
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
 
   const addRoom = () => {
     setHabitacion((prevCount) => prevCount + 1);
     setRoomData((prevData) => [
       ...prevData,
-      { adultos: 1, ninios: 0, ninioAges: [] },
+      { id: Date.now() + Math.random(), adultos: 1, ninios: 0, ninioAges: [] },
     ]);
   };
 
-  const deleteRoom = (roomIndex) => {
-    setHabitacion((prevCount) => Math.max(prevCount - 1, 1));
-    setRoomData((prevData) =>
-      prevData.filter((_, index) => index !== roomIndex)
-    );
-  };
-
-  const onAdultosChange = (roomIndex, e) => {
-    const count = parseInt(e.target.value, 10);
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].adultos = count;
-    setRoomData(newRoomData);
-  };
-
-  const onNiniosChange = (roomIndex, e) => {
-    const count = parseInt(e.target.value, 10);
+  const deleteRoom = (roomId) => {
     setRoomData((prevData) => {
-      const updatedData = [...prevData];
-      if (updatedData[roomIndex].ninioAges.length < count) {
-        updatedData[roomIndex].ninioAges = [
-          ...updatedData[roomIndex].ninioAges,
-          ...new Array(count - updatedData[roomIndex].ninioAges.length).fill(
-            ""
-          ),
-        ];
-      } else {
-        updatedData[roomIndex].ninioAges = updatedData[
-          roomIndex
-        ].ninioAges.slice(0, count);
-      }
-      updatedData[roomIndex].ninios = count;
+      const updatedData = prevData.filter((room) => room.id !== roomId);
+      setHabitacion(Math.max(updatedData.length, 1)); // Update room count based on filtered data
       return updatedData;
     });
   };
+  const onAdultosChange = (roomId, e) => {
+    const count = parseInt(e.target.value, 10);
+    setRoomData((prevData) =>
+      prevData.map((room) =>
+        room.id === roomId ? { ...room, adultos: count } : room
+      )
+    );
+  };
 
-  const handleAgeChange = (roomIndex, childIndex, age) => {
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].ninioAges[childIndex] = age;
-    setRoomData(newRoomData);
+  const onNiniosChange = (roomId, e) => {
+    const count = parseInt(e.target.value, 10);
+    setRoomData((prevData) =>
+      prevData.map((room) =>
+        room.id === roomId
+          ? {
+              ...room,
+              ninios: count,
+              ninioAges: room.ninioAges
+                .slice(0, count)
+                .concat(
+                  new Array(Math.max(count - room.ninioAges.length, 0)).fill("")
+                ),
+            }
+          : room
+      )
+    );
+  };
+
+  const handleAgeChange = (roomId, childIndex, age) => {
+    setRoomData((prevData) =>
+      prevData.map((room) =>
+        room.id === roomId
+          ? {
+              ...room,
+              ninioAges: room.ninioAges.map((a, i) =>
+                i === childIndex ? age : a
+              ),
+            }
+          : room
+      )
+    );
   };
 
   const totalAdults = roomData.reduce((acc, room) => acc + room.adultos, 0);
@@ -65,11 +76,24 @@ function SelectorPersonas() {
 
   return (
     <div>
-      <div className=" lg:hidden">
-        <VersionMovil />
+      <div className="lg:hidden">
+        <VersionMovil
+          deleteRoom={deleteRoom}
+          totalAdults={totalAdults}
+          totalChildren={totalChildren}
+          habitacion={habitacion}
+          setHabitacion={setHabitacion}
+          roomData={roomData}
+          setRoomData={setRoomData}
+          addRoom={addRoom}
+          onAdultosChange={onAdultosChange}
+          onNiniosChange={onNiniosChange}
+          handleAgeChange={handleAgeChange}
+        />
       </div>
       <div className="hidden lg:grid grid-cols-1 gap-3">
         <Popover
+        placement="right"
           aria-labelledby="default-popover"
           content={
             <div className="w-96 text-sm">
@@ -77,25 +101,22 @@ function SelectorPersonas() {
                 Adultos / Niños
               </div>
               <div className="px-3 pb-5">
-                {Array.from({ length: habitacion }).map((_, roomIndex) => (
-                  <div className="text-black" key={roomIndex}>
+                {roomData.map((room, roomIndex) => (
+                  <div className="text-black" key={room.id}>
                     <div className="grid grid-cols-3 gap-2">
                       <div>
                         <span className="text-sm text-black">Adultos</span>
                         <div className="relative">
                           <select
-                            onChange={(e) => onAdultosChange(roomIndex, e)}
-                            id={`adultos-${roomIndex}`}
+                            onChange={(e) => onAdultosChange(room.id, e)}
+                            value={room.adultos}
                             className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                           >
-                            <option defaultValue value={1}>
-                              1
-                            </option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
-                            <option value={4}>4</option>
-                            <option value={5}>5</option>
-                            <option value={6}>6</option>
+                            {[1, 2, 3, 4, 5, 6].map((num) => (
+                              <option key={num} value={num}>
+                                {num}
+                              </option>
+                            ))}
                           </select>
                           <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
                             <FaPerson />
@@ -106,56 +127,44 @@ function SelectorPersonas() {
                         <span className="text-sm text-black">Niños</span>
                         <div className="relative">
                           <select
-                            onChange={(e) => onNiniosChange(roomIndex, e)}
-                            id={`ninios-${roomIndex}`}
+                            onChange={(e) => onNiniosChange(room.id, e)}
+                            value={room.ninios}
                             className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
                           >
-                            <option value={0} defaultValue>
-                              0
-                            </option>
-                            <option value={1}>1</option>
-                            <option value={2}>2</option>
-                            <option value={3}>3</option>
+                            {[0, 1, 2, 3].map((num) => (
+                              <option key={num} value={num}>
+                                {num}
+                              </option>
+                            ))}
                           </select>
                           <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
                             <FaChild />
                           </div>
                         </div>
                       </div>
-
-                      <div className="flex items-center justify-end flex-col">
-                        <span className="flex justify-end mt-3">
-                          {" "}
-                          Habitacion {roomIndex + 1}{" "}
-                        </span>
-                        {roomIndex !== 0 && (
+                      {roomIndex !== 0 && (
+                        <div className="flex items-center justify-end pb-2 flex-col">
                           <button
-                            onClick={() => deleteRoom(roomIndex)}
-                            className="text-red-500 hover:text-red-700 text-sm"
+                            onClick={() => deleteRoom(room.id)}
+                            className="text-red-500 hover:text-red-700 text-xl"
                           >
-                            Eliminar
+                            <FaTrashAlt />
                           </button>
-                        )}
-                      </div>
+                        </div>
+                      )}
                     </div>
                     <div>
-                      {roomData[roomIndex].ninios > 0 && (
+                      {room.ninios > 0 && (
                         <div className="grid grid-cols-3 gap-1 pb-2 mt-2">
-                          {Array.from({
-                            length: roomData[roomIndex].ninios,
-                          }).map((_, childIndex) => (
+                          {room.ninioAges.map((age, childIndex) => (
                             <div key={childIndex}>
                               <input
                                 required
                                 type="number"
-                                id={`child-age-${roomIndex}-${childIndex}`}
-                                value={
-                                  roomData[roomIndex].ninioAges[childIndex] ||
-                                  ""
-                                }
+                                value={age || ""}
                                 onChange={(e) =>
                                   handleAgeChange(
-                                    roomIndex,
+                                    room.id,
                                     childIndex,
                                     e.target.value
                                   )
@@ -172,9 +181,9 @@ function SelectorPersonas() {
                 ))}
                 <div
                   onClick={addRoom}
-                  className="mt-2 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer"
+                  className="text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
                 >
-                  <div className="w-fit flex items-center space-x-1">
+                  <div className="w-fit flex items-center space-x-1 font-semibold">
                     <span>Agregar </span>
                     <CiCirclePlus />
                   </div>

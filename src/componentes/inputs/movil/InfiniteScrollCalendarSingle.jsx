@@ -1,4 +1,4 @@
-import React, { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect } from "react";
 import {
   format,
   addMonths,
@@ -9,39 +9,39 @@ import {
   endOfMonth,
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
-import { es } from "date-fns/locale"; // Spanish locale
+import { es } from "date-fns/locale";
 
 const InfiniteScrollCalendar = () => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
 
-  // Initial load of multiple months (e.g., load 3 months at once)
+  //Cargas meses iniciales
   useEffect(() => {
     const initialMonths = [startOfMonth(new Date())];
     for (let i = 1; i < 3; i++) {
       initialMonths.push(addMonths(startOfMonth(new Date()), i));
     }
-    setMonths(initialMonths); // Load 3 months at start
+    setMonths(initialMonths);
   }, []);
 
-  // Load more months dynamically when scrolling
+  // Cargas meses en scroll
   const loadMoreMonths = useCallback(() => {
-    const lastMonth = months[months.length - 1]; // Get the last visible month
+    const lastMonth = months[months.length - 1]; // El ultimo mes visible
     const newMonths = [];
     for (let i = 1; i <= 3; i++) {
       newMonths.push(addMonths(lastMonth, i));
     }
-    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Append new months
+    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Nuevos meses
   }, [months]);
 
   // Handle date selection
   const handleDateClick = (date) => {
     setSelectedDate(date);
-    closeModal(); // Optionally close the modal after selecting a date
+    closeModal(); // Cerrar al seleccionar
   };
 
-  // Render days of the week
+  // Renderizar dias de mes
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
@@ -55,7 +55,7 @@ const InfiniteScrollCalendar = () => {
     );
   };
 
-  // Render the calendar for each month
+  // Renderizar calendario por cada mes
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
@@ -64,14 +64,14 @@ const InfiniteScrollCalendar = () => {
 
     return (
       <div key={month} className="mb-8">
-        {/* Month name above weekdays */}
+        {/* Nombre de mes */}
         <h3 className="text-lg font-bold text-center mb-2 text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
         </h3>
-        {renderWeekDays()} {/* Render weekdays for each month */}
+        {renderWeekDays()} {/* Renderizar las semanas por mes  */}
         <div className="grid grid-cols-7 gap-1">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="p-4"></div> // empty cells before first day
+            <div key={`empty-${i}`} className="p-4"></div> // Div vacio para primeros dias
           ))}
           {daysInMonth.map((day) => (
             <div
@@ -89,17 +89,15 @@ const InfiniteScrollCalendar = () => {
     );
   };
 
-  // Function to open the modal
   const openModal = () => {
     setIsModalOpen(true);
   };
 
-  // Function to close the modal
   const closeModal = () => {
     setIsModalOpen(false);
   };
 
-  // Load more months on scroll
+  // Cargas mas meses
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     if (scrollHeight - scrollTop <= clientHeight + 100) {
@@ -107,7 +105,7 @@ const InfiniteScrollCalendar = () => {
     }
   };
 
-  // Format selected date for display
+  // Froamtear fecha
   const formatSelectedDate = () => {
     if (selectedDate) {
       return format(selectedDate, "d 'de' MMMM 'de' yyyy", { locale: es });
@@ -119,7 +117,7 @@ const InfiniteScrollCalendar = () => {
     <div>
       <div
         onClick={openModal}
-        className="relative bg-slate-50 mt-2 border border-gray-300 text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
+        className="relative bg-slate-50  text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
       >
         {formatSelectedDate()}
         <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
@@ -138,7 +136,7 @@ const InfiniteScrollCalendar = () => {
                 &times;
               </button>
             </div>
-            {/* Scrollable calendar */}
+            {/* Scroll de calendario */}
             <div
               className="overflow-y-auto h-[calc(100%-80px)]"
               onScroll={handleScroll}
