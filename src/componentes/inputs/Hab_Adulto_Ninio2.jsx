@@ -93,16 +93,23 @@ function SelectorPersonas() {
       </div>
       <div className="hidden lg:grid grid-cols-1 gap-3">
         <Popover
-        placement="right"
+          placement="right"
           aria-labelledby="default-popover"
           content={
             <div className="w-96 text-sm">
               <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
                 Adultos / Niños
               </div>
-              <div className="px-3 pb-5">
+              <div className="px-3 pb-5 max-h-[60vh] overflow-y-auto">
                 {roomData.map((room, roomIndex) => (
-                  <div className="text-black" key={room.id}>
+                  <div
+                    className="relative text-black bg-slate-100 shadow mt-8 p-2 py-5 rounded-lg"
+                    key={room.id}
+                  >
+                    <span className="absolute -top-5 p-2 bg-primary text-white font-semibold rounded-lg shadow-lg">
+                      Habitación {roomIndex + 1}
+                    </span>
+
                     <div className="grid grid-cols-3 gap-2">
                       <div>
                         <span className="text-sm text-black">Adultos</span>
@@ -143,14 +150,12 @@ function SelectorPersonas() {
                         </div>
                       </div>
                       {roomIndex !== 0 && (
-                        <div className="flex items-center justify-end pb-2 flex-col">
-                          <button
-                            onClick={() => deleteRoom(room.id)}
-                            className="text-red-500 hover:text-red-700 text-xl"
-                          >
-                            <FaTrashAlt />
-                          </button>
-                        </div>
+                        <button
+                          onClick={() => deleteRoom(room.id)}
+                          className="absolute -top-5 cursor-pointer right-5 bg-white rounded border-2 border-red-500 p-2 text-red-500 hover:bg-red-500 hover:text-white transition  flex items-center justify-end pb-2 flex-col"
+                        >
+                          <FaTrashAlt />
+                        </button>
                       )}
                     </div>
                     <div>
@@ -184,7 +189,7 @@ function SelectorPersonas() {
                   className="text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
                 >
                   <div className="w-fit flex items-center space-x-1 font-semibold">
-                    <span>Agregar </span>
+                    <span>Agregar una habitación </span>
                     <CiCirclePlus />
                   </div>
                 </div>
@@ -192,7 +197,7 @@ function SelectorPersonas() {
             </div>
           }
         >
-          <div className="mt-4">
+          <div>
             <div className="relative">
               <div className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm  pl-10">
                 {habitacion} Habitaciones - {totalAdults} Adultos -{" "}

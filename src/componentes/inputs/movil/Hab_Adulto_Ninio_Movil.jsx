@@ -135,7 +135,7 @@ function SelectorPersonas({
                       </div>
                     )}
                     {roomIndex !== 0 && (
-                      <div className="absolute -bottom-5 right-5 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
+                      <div className="absolute -top-8 right-4 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
                         <button
                           onClick={() => deleteRoom(room.id)}
                           className="text-xl"
