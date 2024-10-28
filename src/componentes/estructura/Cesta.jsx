@@ -3,6 +3,7 @@ import { TiShoppingCart } from "react-icons/ti";
 import { useState } from "react";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 function Cesta() {
   const initialCompras = [
     {
@@ -38,6 +39,7 @@ function Cesta() {
     new Array(initialCompras.length).fill(false)
   );
   const [selectAll, setSelectAll] = useState(false);
+  const [popoverOpen, setPopoverOpen] = useState(false); // Track popover state
 
   const handleCheckboxChange = (index) => {
     const updatedSelections = [...selectedItems];
@@ -81,9 +83,14 @@ function Cesta() {
 
   const total = calculateTotal();
 
+  // Function to close popover
+  const closePopover = () => setPopoverOpen(false);
+
   return (
     <Popover
       aria-labelledby="profile-popover"
+      isOpen={popoverOpen} // Control popover open state
+      onClickOutside={() => setPopoverOpen(false)} // Close on outside click
       content={
         <div className="w-96 p-3">
           <div className="border-b-2 border-slate-100 pb-2 mb-2 flex items-center justify-between">
@@ -136,7 +143,7 @@ function Cesta() {
           </div>
           <div>
             <div className="text-sm">
-              <div className="mt-4 border-t-2 border-slate-100 pt-3">
+              <div className="mt-2 pt-3">
                 <div className="flex justify-between">
                   <div>
                     <div className="flex items-center">
@@ -156,7 +163,7 @@ function Cesta() {
                     <span className="font-bold text-secondary"> {total} €</span>
                   </div>
                 </div>
-                <Link to={"/cesta"}>
+                <Link to={"/cesta"} onClick={closePopover}>
                   <button className="mt-2 bg-primary hover:bg-slate-900 transition p-2 rounded-lg shadow text-white font-semibold w-full">
                     Ver cesta
                   </button>
@@ -167,7 +174,10 @@ function Cesta() {
         </div>
       }
     >
-      <div className="relative text-white w-fit cursor-pointer hover:text-secondary transition flex justify-center items-center">
+      <div
+        className="relative text-white w-fit cursor-pointer hover:text-secondary transition flex justify-center items-center"
+        onClick={() => setPopoverOpen(!popoverOpen)}
+      >
         <TiShoppingCart className="text-3xl" />
         <div className="absolute select-none -top-1 left-3 text-sm bg-secondary text-white rounded-full w-5 flex justify-center items-center font-bold">
           {compras.length}

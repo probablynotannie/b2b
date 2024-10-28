@@ -19,6 +19,11 @@ function Notificaciones() {
       titulo: "Reserva completado",
       texto: "Hola que tal estas jajaj",
     },
+    {
+      id: 4,
+      titulo: "Agotado",
+      texto: "El billete reservado para el día 27 de octubre para las entradas al festival de programación se han agotado. :(",
+    },
   ];
 
   return (
@@ -57,8 +62,11 @@ function Notificaciones() {
         </div>
       }
     >
-      <div className="text-slate-400  cursor-pointer hover:text-secondary transition flex items-center rounded-full justify-center h-10">
-        <CiBellOn className="text-3xl" />
+      <div className="relative text-slate-400 cursor-pointer hover:text-secondary transition flex items-center rounded-full justify-center h-10">
+        <CiBellOn className="text-4xl" />
+        <div className="absolute select-none -top-1 left-4 text-sm bg-secondary text-white rounded-full w-5 flex justify-center items-center font-bold">
+          {notificaciones.length}
+        </div>
       </div>
     </Popover>
   );
