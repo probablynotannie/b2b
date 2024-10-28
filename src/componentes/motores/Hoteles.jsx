@@ -2,6 +2,7 @@ import Sidebar from "./sidebar/Sidebar";
 import Input_Personas2 from "../inputs/Hab_Adulto_Ninio2";
 import Input_Buscador2 from "../inputs/Buscador2";
 import Input_DateRange from "../inputs/DateRange";
+import Input_Nacionalidad from "../inputs/Nacionalidad";
 function Hoteles() {
   return (
     <div className="grid grid-cols-7 gap-10  md:px-20 md:min-h-[78vh] min-h-[90vh] md:py-10">
@@ -26,7 +27,9 @@ function Hoteles() {
               <div className="col-span-2">
                 <Input_DateRange />
               </div>
-
+              <div className="col-span-2">
+                <Input_Nacionalidad />
+              </div>
               <div className="col-span-2">
                 <Input_Personas2 />
               </div>

@@ -198,7 +198,7 @@ function SelectorPersonas() {
         >
           <div>
             <div className="relative">
-              <div className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm  pl-10">
+              <div className="bg-white text-primary border-secondary border-2 p-2.5 rounded-lg text-sm  pl-10">
                 {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
                 {totalChildren} Niños
               </div>
