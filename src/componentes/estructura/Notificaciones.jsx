@@ -20,7 +20,7 @@ function Notificaciones() {
       texto: "Hola que tal estas jajaj",
     },
   ];
-  
+
   return (
     <Popover
       aria-labelledby="profile-popover"
@@ -38,9 +38,9 @@ function Notificaciones() {
             {notificaciones.map((notificacion) => (
               <div
                 key={notificacion.id}
-                className="bg-slate-50 rounded-xl mt-2 p-2 pt-1 shadow-sm grid grid-cols-6 space-x-2"
+                className="bg-slate-50 hover:bg-gray-200 transition cursor-pointer rounded-xl mt-2 p-2 pt-1 shadow-sm grid grid-cols-6 space-x-2"
               >
-                <div className="p-2 border-2 rounded-full  col-span-1 flex justify-center items-center">
+                <div className="bg-slate-700 rounded-full border text-white border-slate-300 flex justify-center items-center w-10 h-10">
                   <CiBellOn className="text-3xl " />
                 </div>
                 <div className="col-span-5">
@@ -48,7 +48,7 @@ function Notificaciones() {
                     {notificacion.titulo}
                   </h3>
                   <p className="text-xs line-clamp-2 text-slate-500">
-                    {notificacion.texto} aefaf
+                    {notificacion.texto}
                   </p>
                 </div>
               </div>
@@ -57,7 +57,7 @@ function Notificaciones() {
         </div>
       }
     >
-      <div className="text-slate-400 w-fit cursor-pointer hover:text-secondary transition flex items-center">
+      <div className="text-slate-400  cursor-pointer hover:text-secondary transition flex items-center rounded-full justify-center h-10">
         <CiBellOn className="text-3xl" />
       </div>
     </Popover>

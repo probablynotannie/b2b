@@ -41,24 +41,22 @@ body{
   font-size: 0.70rem;
 
 }
-/* Custom styling for Saturdays and Sundays */
 .weekend-day {
-  color: red; /* Make the text red for weekends */
+  color: red; 
 }
 .react-datepicker__day--in-range {
   border-radius: 50%;
-  background-color: rgb(53, 162, 252); /* Lighter color for dates in the range */
+  background-color: rgb(53, 162, 252); 
   color: white;
 }
-
-/* Other custom styles (optional) */
-.react-datepicker__day--selected {
-  background-color: #4a90e2; /* Custom background color for selected date */
-  color: white; /* Custom text color for selected date */
-  border-radius: 50%; /* Make the selected date round */
+.react-datepicker__day{
+  border-radius: 50%;
 }
-
-/* Additional range and selected date styles can remain unchanged */
+.react-datepicker__day--selected {
+  background-color: #4a90e2; 
+  color: white; 
+  border-radius: 50%; 
+}
 
 
 .full-screen-date-picker {
@@ -76,15 +74,26 @@ body{
     z-index: 9999;
   }
 }
+.react-datepicker__day:hover {
+  background-color: rgb(255, 122, 122); 
+  color: black; 
+  border-radius: 50%; 
+}
+
+.react-datepicker__day--in-range:hover {
+  border-radius: 50%;
+}
 
 
 
 
 
+/* Cesta.css */
 
+.swipe-item {
+  transition: transform 0.3s ease;
+}
 
-
-
-
-
-
+.swipe-item.slide-out {
+  transform: translateX(-100%);
+}

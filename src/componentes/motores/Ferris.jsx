@@ -32,7 +32,7 @@ function Ferris() {
             <h2 className="text-3xl font-bold">Buscador de ferris</h2>
             <div className="grid grid-cols-2 gap-3 mt-2 text-sm">
               <button type="button"
-                className={`p-2 rounded-lg font-bold ${
+                className={`p-2.5 rounded-lg font-bold ${
                   viaje === "ida" ? "bg-secondary" : "bg-gray-400"
                 }`}
                 onClick={() => handleviajeChange("ida")}

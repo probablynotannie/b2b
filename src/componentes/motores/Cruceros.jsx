@@ -24,19 +24,19 @@ function Cruceros() {
           <form>
             <h2 className="text-3xl font-bold ">Buscador de cruceros</h2>
             <div className="grid grid-cols-2 gap-2 mt-2">
-              <div className="">
+              <div className="col-span-2 md:col-span-1">
                 <Input_Destinos />
               </div>
-              <div>
+              <div className="col-span-2 md:col-span-1">
                 <Input_Puertos />
               </div>
-              <div>
+              <div className="col-span-2 md:col-span-1">
                 <Input_Navieras />
               </div>
-              <div>
+              <div className="md:col-span-1">
                 <Input_Mes />
               </div>
-              <div>
+              <div className="md:col-span-1">
                 <Input_Dias />
               </div>
               <div className="absolute -bottom-5 right-5">

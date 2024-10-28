@@ -12,7 +12,7 @@ function InputMes() {
         <div className="relative">
           <MonthPickerInput
             value={valor}
-            placeholder="Selecciona el mes"
+            placeholder="Mes"
             onChange={setValor}
             styles={{
               input: {

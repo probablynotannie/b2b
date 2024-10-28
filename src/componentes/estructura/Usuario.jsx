@@ -65,7 +65,7 @@ function Usuario() {
         </div>
       }
     >
-      <div className="text-white  w-fit cursor-pointer hover:text-secondary transition">
+      <div className="text-white  w-fit cursor-pointer hover:text-secondary transition flex justify-center items-center">
         <FaUserCog className="text-3xl" />
       </div>
     </Popover>

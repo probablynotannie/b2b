@@ -1,4 +1,3 @@
-import { FaHotel } from "react-icons/fa";
 import { FaMapMarkedAlt } from "react-icons/fa";
 import { SiMentorcruise } from "react-icons/si";
 import { IoAirplane } from "react-icons/io5";

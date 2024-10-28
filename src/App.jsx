@@ -6,6 +6,7 @@ import Cruceros from "./componentes/motores/Cruceros";
 import Destinos from "./componentes/motores/Destinos";
 import Entradas from "./componentes/motores/Entradas";
 import Ferris from "./componentes/motores/Ferris";
+import Cesta from "./componentes/reservas/CestaCompleta"
 import Tickets from "./componentes/motores/Tickets";
 import Clientes from "./componentes/utilidades/Clientes";
 import Presupuestos from "./componentes/utilidades/Presupuestos";
@@ -36,6 +37,7 @@ function App() {
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
             <Route path="/presupuestos" element={<Presupuestos />} />
+            <Route path="/cesta" element={<Cesta />} />
           </Routes>
         </Router>
 

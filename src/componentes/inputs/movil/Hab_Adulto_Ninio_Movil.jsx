@@ -27,7 +27,7 @@ function SelectorPersonas({
       <div className="relative">
         <div
           onClick={openModal}
-          className="bg-white text-primary border-secondary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full cursor-pointer"
+          className="bg-white text-primary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full cursor-pointer"
         >
           {habitacion} Habitaciones - {totalAdults} Adultos - {totalChildren}{" "}
           Niños
