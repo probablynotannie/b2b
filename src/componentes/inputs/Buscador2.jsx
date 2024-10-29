@@ -128,10 +128,10 @@ function Buscador() {
           )}
         </div>
       )}
-      <div className="absolute top-0 right-0 pointer-events-none text-slate-300 text-sm h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8">
+      <div className="absolute top-0 right-0 pointer-events-none text-slate-300 text-sm h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8">
         {suggestions.length}
       </div>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-lg">
+      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
         <FaSearch />
       </div>
     </div>

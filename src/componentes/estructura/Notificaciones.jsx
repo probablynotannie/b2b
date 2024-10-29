@@ -30,7 +30,7 @@ function Notificaciones() {
     <Popover
       aria-labelledby="profile-popover"
       content={
-        <div className="w-72 p-3">
+        <div className="w-96 p-3">
           <div className="border-b-2 border-slate-100 pb-2 mb-2 flex items-center justify-between">
             <span className="font-bold text-primary">Notificaciones</span>
             <img

@@ -56,7 +56,8 @@ function Usuario() {
               </ul>
 
               <div className="mt-4 flex justify-end border-t-2 border-slate-100 pt-3">
-                <button className="bg-primary hover:bg-slate-500 transition p-2 rounded-lg shadow text-white font-semibold">
+             
+                <button className="text-slate-400 hover:text-slate-700 transition p-2">
                   Cerrar sesión
                 </button>
               </div>

@@ -124,7 +124,7 @@ function SelectorPersonas() {
                               </option>
                             ))}
                           </select>
-                          <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+                          <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                             <FaPerson />
                           </div>
                         </div>
@@ -143,7 +143,7 @@ function SelectorPersonas() {
                               </option>
                             ))}
                           </select>
-                          <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl">
+                          <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                             <FaChild />
                           </div>
                         </div>
@@ -202,7 +202,7 @@ function SelectorPersonas() {
                 {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
                 {totalChildren} Niños
               </div>
-              <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-md rounded-bl-md flex items-center justify-center w-8 text-xl ">
+              <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl ">
                 <MdMeetingRoom />
               </div>
             </div>

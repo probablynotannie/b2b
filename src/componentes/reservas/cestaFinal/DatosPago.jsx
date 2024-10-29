@@ -1,5 +1,4 @@
-
-function DatosPago({ reserva }) {
+function DatosPago({ reserva, selectedPayment }) {
   const opcionesDePago = [
     {
       id: 0,
@@ -25,10 +24,10 @@ function DatosPago({ reserva }) {
   return (
     <div className="col-span-1 ">
       <div className=" shadow-xl  border-2 border-slate-200 rounded-xl">
-        <h3 className="font-semibold  p-5 text-white bg-secondary rounded-t-xl">
-          Resumen rapido
-        </h3>
-
+        <div className="p-5 border-b-2 bg-slate-700 rounded-t-xl">
+          <h3 className="font-bold text-white text-xl">Resumen</h3>
+          <p className="text-sm text-slate-300">Resumen corto de tu reserva</p>
+        </div>
         <div className="p-5 text-sm">
           <div>
             {reserva.map((reserva) => (
@@ -38,7 +37,12 @@ function DatosPago({ reserva }) {
               >
                 <div>
                   <h6 className="font-semibold">{reserva.nombre}</h6>
-                  <span className="text-slate-400">{reserva.fecha}</span>
+                  <span className="text-slate-400">
+                    {reserva.fecha}{" "}
+                    {reserva.fechaSalida && (
+                      <span> - {reserva.fechaSalida}</span>
+                    )}
+                  </span>
                 </div>
                 <div className="text-secondary font-semibold flex items-center">
                   {reserva.precio} €
@@ -47,8 +51,8 @@ function DatosPago({ reserva }) {
             ))}
           </div>
           <div className="mt-4 pt-5">
-            <button className="bg-slate-600 hover:bg-slate-700 transition rounded w-full p-3 text-white font-bold">
-            Pagar {totalPrice}€ 
+            <button className="bg-secondary hover:bg-red-500 transition rounded w-full p-3 text-white font-bold">
+              Pagar con {selectedPayment} {totalPrice}€
             </button>
           </div>
         </div>

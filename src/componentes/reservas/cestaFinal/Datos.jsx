@@ -1,13 +1,18 @@
 import React from "react";
-
+import Input_Texto from "../../inputs/Texto";
+import Input_Numero from "../../inputs/Numero";
+import Input_Email from "../../inputs/Email";
 function Datos() {
   return (
-    <div className="text-sm">
-      <div className="relative border-2 border-secondary p-5 mt-10">
-        <div className="absolute bg-white border-2 border-secondary p-3 text-secondary font-bold px-10 -top-5 right-5">
-          Datos
+    <div>
+      <h5 className="font-bold">Datos de contacto</h5>
+      <div className="relative mt-2">
+        <div className=" grid grid-cols-4 gap-3 text-sm  p-5 ">
+          <Input_Texto tipo="Nombre" />
+          <Input_Texto tipo="Apellido" />
+          <Input_Numero />
+          <Input_Email />
         </div>
-        efafea
       </div>
     </div>
   );

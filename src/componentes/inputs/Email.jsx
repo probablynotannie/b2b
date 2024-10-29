@@ -1,16 +1,17 @@
-import { FaUser } from "react-icons/fa";
-import { FaRegUser } from "react-icons/fa6";
+import { MdEmail } from "react-icons/md";
 
-function Input_Texto({ tipo }) {
+
+
+function Input_Texto() {
   return (
     <div className="relative">
       <input
-        placeholder={tipo ? tipo : "Datos"}
+        placeholder="Email"
         className="p-2.5 pl-10 text-sm border text-gray-700 border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400 overflow-hidden text-ellipsis whitespace-nowrap"
-        type="text"
+        type="email"
       />
       <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
-        <FaUser />
+        <MdEmail   />
       </div>
     </div>
   );
