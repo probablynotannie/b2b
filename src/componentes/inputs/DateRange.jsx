@@ -72,7 +72,7 @@ const DateRange = () => {
               minDate={new Date()}
               className="custom-input"
               wrapperClassName="custom-wrapper"
-              calendarClassName="my-custom-datepicker" // Custom class
+              calendarClassName="my-custom-datepicker"
             />
           </div>
         )}

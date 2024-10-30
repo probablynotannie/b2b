@@ -1,15 +1,6 @@
-import Datos from "./Datos";
 import ProductosReservados from "./ProductosReservados";
-import OpcionesPago from "./OpcionesPago";
-/* eslint react/prop-types: 0 */
 
-function ResumenCompra({
-  reserva,
-  toggleAccordion,
-  accordionOpen,
-  selectedPayment,
-  setSelectedPayment,
-}) {
+function ResumenCompra({ reserva, toggleAccordion, accordionOpen }) {
   return (
     <div className="col-span-2  shadow-xl border-2 border-slate-200 rounded-xl">
       <div className="p-5 border-b-2 bg-slate-700 rounded-t-xl">
@@ -21,11 +12,10 @@ function ResumenCompra({
         </p>
       </div>
       <div className="p-5 space-y-6">
-        <OpcionesPago
-          selectedPayment={selectedPayment}
-          setSelectedPayment={setSelectedPayment}
-        />
-        <Datos reserva={reserva} />
+        <p className="font-bold text-red-500">
+          Por favor, lee atentamente los datos importantes antes de hacer el
+          pago.
+        </p>
         <ProductosReservados
           reserva={reserva}
           toggleAccordion={toggleAccordion}

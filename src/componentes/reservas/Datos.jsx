@@ -1,7 +1,7 @@
 import React from "react";
-import Input_Texto from "../../inputs/Texto";
-import Input_Numero from "../../inputs/Numero";
-import Input_Email from "../../inputs/Email";
+import Input_Texto from "../inputs/Texto";
+import Input_Numero from "../inputs/Numero";
+import Input_Email from "../inputs/Email";
 function Datos() {
   return (
     <div>

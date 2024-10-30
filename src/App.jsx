@@ -6,12 +6,14 @@ import Cruceros from "./componentes/motores/Cruceros";
 import Destinos from "./componentes/motores/Destinos";
 import Entradas from "./componentes/motores/Entradas";
 import Ferris from "./componentes/motores/Ferris";
-import Cesta from "./componentes/reservas/cestaFinal/CestaCompleta"
+import Cesta from "./componentes/reservas/cestaFinal/CestaCompleta";
 import Tickets from "./componentes/motores/Tickets";
 import Clientes from "./componentes/utilidades/Clientes";
 import Presupuestos from "./componentes/utilidades/Presupuestos";
 import EnvioPresupuestos from "./componentes/utilidades/EnvioPresupuestos";
 import Vuelomashotel from "./componentes/motores/Vuelomashotel";
+import Producto from "./componentes/reservas/productos/Producto";
+import Datos from "./componentes/reservas/Contacto";
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 
@@ -38,6 +40,8 @@ function App() {
             <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
             <Route path="/presupuestos" element={<Presupuestos />} />
             <Route path="/cesta" element={<Cesta />} />
+            <Route path="/producto" element={<Producto />} />
+            <Route path="/datos" element={<Datos />} />
           </Routes>
         </Router>
 

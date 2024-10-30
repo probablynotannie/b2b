@@ -10,7 +10,7 @@ export default function ProductosReservados({
   return (
     <div>
       <div>
-        <h5 className="font-bold">Resumen de tu compra</h5>
+        <h5 className="font-bold">Tus productos ({reserva.length}) </h5>
       </div>
       {reserva.map((item, index) => (
         <div
@@ -44,7 +44,6 @@ export default function ProductosReservados({
                   <span className="block font-semibold">
                     Tipo: {item.texto}
                   </span>
-
                   <div className="flex items-center space-x-1">
                     <FaUser />
                     <span>{item.pax}x</span>
@@ -53,6 +52,7 @@ export default function ProductosReservados({
                 <span className="block text-slate-400">
                   Precio: {item.precio} €
                 </span>
+                <span className="text-slate-500">{item.localizacion}</span>
                 <p className="border-t-2 border-slate-100 mt-3 pt-3">
                   {item.descripcion}
                 </p>

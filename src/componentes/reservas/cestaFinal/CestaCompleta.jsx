@@ -8,6 +8,8 @@ function CestaCompleta() {
       texto: "Hotel",
       pax: 2,
       nombre: "Luxury appartments",
+      localizacion: "Barcelona, calle inventada nº 5",
+
       fecha: "21 de octubre",
       fechaSalida: "26 de octubre",
       img: "/hotel2.jpg",
@@ -22,9 +24,10 @@ function CestaCompleta() {
       texto: "Entradas",
       pax: 2,
       nombre: "Festival de libros",
+      localizacion: "Barcelona, calle inventada nº 5",
       fecha: "21 de octubre",
       img: "/banner_entradas.jpg",
-      precio: 36,
+      precio: 36.57,
       descripcion:
         "Entrada para el festival de libros de literatura fantástica.",
     },
@@ -33,6 +36,7 @@ function CestaCompleta() {
       texto: "Ferri",
       pax: 2,
       nombre: "Ferri",
+      localizacion: "Barcelona, calle inventada nº 5",
       fecha: "21 de octubre",
       img: "/banner_trenes.jpeg",
       precio: 142,
@@ -86,19 +90,21 @@ function CestaCompleta() {
 
   return (
     <div className="flex justify-center">
-      <div className="grid grid-cols-3 gap-16 container my-10 min-h-[70vh]">
+      <div className="grid grid-cols-3 gap-16 container my-10 min-h-[70vh] overflow-visible">
         <ResumenCompra
-          selectedPayment={selectedPayment}
-          setSelectedPayment={setSelectedPayment}
+
           reserva={reserva}
           toggleAccordion={toggleAccordion}
           accordionOpen={accordionOpen}
         />
-        <DatosPago
-          selectedPayment={selectedPayment}
-          reserva={reserva}
-          opcionesDePago={opcionesDePago}
-        />
+        <div>
+          <DatosPago
+            selectedPayment={selectedPayment}
+            reserva={reserva}
+            opcionesDePago={opcionesDePago}
+            setSelectedPayment={setSelectedPayment}
+          />
+        </div>
       </div>
     </div>
   );
