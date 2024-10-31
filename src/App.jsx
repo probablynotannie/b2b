@@ -44,7 +44,6 @@ function App() {
             <Route path="/datos" element={<Datos />} />
           </Routes>
         </Router>
-
         <div>
           <Footer />
         </div>

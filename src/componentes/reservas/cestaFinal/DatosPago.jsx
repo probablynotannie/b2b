@@ -39,20 +39,18 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment }) {
             </div>
             <div className="text-secondary font-semibold flex items-center">
               {reserva.precio.toFixed(2)} €{" "}
-              {/* Ensure individual price also has two decimals */}
             </div>
           </div>
         ))}
+        <div className="flex justify-between font-semibold mt-2">
+          <span>Total:</span>
+          <span>{totalPrice} €</span>
+        </div>
         <div className="mt-4 pt-5">
           <OpcionedPago
-            totalPrice={totalPrice}
             selectedPayment={selectedPayment}
             setSelectedPayment={setSelectedPayment}
           />
-          {/*     <button className="bg-secondary hover:scale-105 duration-300 transition rounded w-full p-3 text-white font-bold">
-            Pagar {selectedPayment && `con ${selectedPayment}`} {totalPrice}€
-
-          </button> */}
         </div>
       </div>
     </div>

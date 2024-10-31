@@ -24,7 +24,6 @@ function Contacto() {
       img: "/banner_destinos.jpg",
     },
   ];
-
   return (
     <div className="my-10 mb-20 flex justify-center min-h-[70vh]">
       <div className="container shadow-xl p-5 border-2 border-slate-200 rounded-xl">
@@ -40,8 +39,8 @@ function Contacto() {
                     backgroundSize: "cover",
                   }}
                 >
-                  <div className="bg-black rounded-xl w-full h-full bg-opacity-45 flex justify-center items-center flex-col">
-                    <h3 className="text-white font-bold text-4xl">
+                  <div className="bg-black rounded-xl w-full h-full bg-opacity-45  flex justify-center items-center flex-col ">
+                    <h3 className="text-white font-bold text-4xl ">
                       {reserva.type}
                     </h3>
                     <div className="flex flex-col justify-center items-center text-white">
@@ -62,8 +61,8 @@ function Contacto() {
         <div className="mt-10">
           <Datos />
         </div>
-        <div className="mt-3">
-          <button className="bg-secondary p-5 px-10 rounded-xl shadow-lg text-white font-bold">
+        <div className="mt-3 flex justify-end">
+          <button className="bg-secondary p-3 px-10 rounded-xl shadow-lg text-white font-bold">
             Siguiente paso
           </button>
         </div>
@@ -71,5 +70,4 @@ function Contacto() {
     </div>
   );
 }
-
 export default Contacto;

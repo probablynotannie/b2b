@@ -85,6 +85,7 @@ function Producto() {
   return (
     <div className="flex justify-center my-10">
       <div className="container ">
+        {/* Buscador */}
         <Buscador />
         {/* producto */}
         <div className="mt-10  p-5 ">
@@ -93,7 +94,6 @@ function Producto() {
               <h3 className="text-xl font-bold"> {producto.nombre}</h3>
               <div className="flex space-x-2 items-center">
                 <FaMapPin className="text-secondary" />
-
                 <span>{producto.ubicacion}</span>
               </div>
             </div>
@@ -104,30 +104,33 @@ function Producto() {
             </div>
           </div>
           <div className="grid grid-cols-5 gap-10 my-5 mt-10">
-            <div className="p-5 col-span-1  rounded-lg flex flex-col justify-between">
-              <div>
-                <div className="flex items-center space-x-3">
-                  <FaRegCalendarAlt className="text-xl" />
+            <section className="col-span-1 flex flex-col justify-between shadow-xl rounded-xl bg-primary px-2">
+              <div className="bg-primary p-3 text-white font-semibold rounded-t-xl border-b-2 border-white">
+                <h4>Resumen</h4>
+              </div>
+              <div className="p-5">
+                <div className="flex items-center space-x-3 mt-3">
+                  <FaRegCalendarAlt className="text-xl text-secondary" />
                   <span>-</span>
-                  <h4 className="text-slate-400">{producto.fecha}</h4>
+                  <h4 className="text-white font-semibold">{producto.fecha}</h4>
                 </div>
-                <div className="flex justify-center items-center my-1.5 text-slate-700">
+                <div className="flex justify-center items-center my-1.5 text-secondary">
                   <FaLongArrowAltDown />
                 </div>
                 <div className="flex items-center justify-end space-x-3">
-                  <h4 className="text-slate-400">{producto.fechaSalida}</h4>
+                  <h4 className="text-white font-semibold">{producto.fechaSalida}</h4>
                   <span>-</span>
-                  <FaRegCalendarAlt className="text-xl" />
+                  <FaRegCalendarAlt className="text-xl text-secondary" />
                 </div>
                 <div className="flex justify-between my-5">
-                  <div className="flex items-center space-x-1">
-                    <FaPerson className="text-lg text-slate-700" />
+                  <div className="flex items-center space-x-1 text-white text-sm font-semibold">
+                    <FaPerson className="text-lg text-secondary" />
                     <span> {producto.pax && producto.pax}</span>
                     <span>adulto{producto.pax !== 1 && "s"}</span>
                   </div>
                   {producto.pax_ninios && (
-                    <div className="flex items-center space-x-1">
-                      <FaChild className="text-lg text-slate-700" />
+                    <div className="flex items-center space-x-1 text-white text-sm font-semibold">
+                      <FaChild className="text-lg text-secondary" />
                       <span>
                         {producto.pax_ninios} niño
                         {producto.pax_ninios > 1 && "s"}
@@ -136,12 +139,13 @@ function Producto() {
                   )}
                 </div>
               </div>
-              <Map location={producto.ubicacion} />
-            </div>
-
-            <div className="h-[45vh] col-span-4 shadow-xl">
+              <div className="p-2">
+                <Map location={producto.ubicacion} />
+              </div>
+            </section>
+            <aside className="h-[45vh] col-span-4 shadow-xl">
               <Carousel imagenes={producto.imagenes} />
-            </div>
+            </aside>
           </div>
         </div>
       </div>

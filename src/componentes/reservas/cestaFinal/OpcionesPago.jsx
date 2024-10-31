@@ -1,7 +1,6 @@
-import React, { useState } from "react";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 
-function OpcionesPago({ selectedPayment, totalPrice }) {
+function OpcionesPago({ selectedPayment }) {
   return (
     <div>
       <h5 className="font-bold">Pagar con</h5>
@@ -14,7 +13,7 @@ function OpcionesPago({ selectedPayment, totalPrice }) {
         >
           <span className="flex justify-center items-center flex-col text-slate-500 font-semibold">
             <FaMoneyBillTransfer className="text-4xl text-green-700" />
-            Transferencia instantanea
+            Transferencia
           </span>
         </button>
 
