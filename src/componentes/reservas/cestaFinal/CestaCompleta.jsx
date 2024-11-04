@@ -28,6 +28,7 @@ function CestaCompleta() {
       fecha: "21 de octubre",
       img: "/banner_entradas.jpg",
       precio: 36.57,
+      importante: "Cositas importantes de las entradas no se",
       descripcion:
         "Entrada para el festival de libros de literatura fantástica.",
     },
@@ -40,6 +41,7 @@ function CestaCompleta() {
       fecha: "21 de octubre",
       img: "/banner_trenes.jpeg",
       precio: 142,
+      
       descripcion: "Viaje en ferry de Barcelona a Ibiza, incluye vehículo.",
     },
   ];
@@ -64,6 +66,8 @@ function CestaCompleta() {
       class: "h-[30px]",
     },
   ];
+  const [leido, setLeido] = useState({});
+
   const [selectedPayment, setSelectedPayment] = useState(null);
 
   //El primero en accordion esta abierto por default al entrar a la cesta
@@ -92,13 +96,16 @@ function CestaCompleta() {
     <div className="flex justify-center">
       <div className="grid grid-cols-3 gap-16 container my-10 min-h-[70vh] overflow-visible">
         <ResumenCompra
-
+          leido={leido}
+          setLeido={setLeido}
           reserva={reserva}
           toggleAccordion={toggleAccordion}
           accordionOpen={accordionOpen}
         />
         <div>
           <DatosPago
+            leido={leido}
+            setLeido={setLeido}
             selectedPayment={selectedPayment}
             reserva={reserva}
             opcionesDePago={opcionesDePago}

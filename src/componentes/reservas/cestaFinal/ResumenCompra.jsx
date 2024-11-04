@@ -1,6 +1,6 @@
 import ProductosReservados from "./ProductosReservados";
 
-function ResumenCompra({ reserva, toggleAccordion, accordionOpen }) {
+function ResumenCompra({ reserva, toggleAccordion, accordionOpen, leido, setLeido }) {
   return (
     <div className="col-span-2  shadow-xl border-2 border-slate-200 rounded-xl">
       <div className="p-5 border-b-2 bg-slate-700 rounded-t-xl">
@@ -13,10 +13,11 @@ function ResumenCompra({ reserva, toggleAccordion, accordionOpen }) {
       </div>
       <div className="p-5 space-y-6">
         <p className="font-bold text-red-500">
-          Por favor, lee atentamente los datos importantes antes de hacer el
-          pago.
+         Confirma infomación importante para poder continuar con el pago
         </p>
         <ProductosReservados
+          leido={leido}
+          setLeido={setLeido}
           reserva={reserva}
           toggleAccordion={toggleAccordion}
           accordionOpen={accordionOpen}

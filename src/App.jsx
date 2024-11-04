@@ -23,7 +23,7 @@ import Footer from "./componentes/estructura/Footer";
 function App() {
   return (
     <MantineProvider>
-      <div className=" bg-slate-50">
+      <>
         <Router>
           <Navbar />
           <Routes>
@@ -44,10 +44,8 @@ function App() {
             <Route path="/datos" element={<Datos />} />
           </Routes>
         </Router>
-        <div>
-          <Footer />
-        </div>
-      </div>
+        <Footer />
+      </>
     </MantineProvider>
   );
 }

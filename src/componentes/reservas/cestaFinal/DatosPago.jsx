@@ -1,18 +1,27 @@
-import { FaHotel, FaTicketAlt, FaShip } from "react-icons/fa";
+import {
+  FaHotel,
+  FaTicketAlt,
+  FaShip,
+  FaExclamationTriangle,
+} from "react-icons/fa";
 import OpcionedPago from "./OpcionesPago";
-function DatosPago({ reserva, selectedPayment, setSelectedPayment }) {
+
+function DatosPago({ reserva, selectedPayment, setSelectedPayment, leido }) {
   const totalPrice = reserva
     .reduce((total, item) => total + item.precio, 0)
-    .toFixed(2); // Ensure totalPrice has two decimals
-
+    .toFixed(2);
   const getIconForReserva = (texto) => {
     if (texto === "Hotel")
       return <FaHotel className="text-secondary text-lg" />;
     if (texto === "Ferri") return <FaShip className="text-secondary text-lg" />;
     if (texto === "Entradas")
       return <FaTicketAlt className="text-secondary text-lg" />;
-    return null; // Return null if no match
+    return null;
   };
+
+  const allLeido = reserva
+    .filter((item) => item.importante)
+    .every((item) => leido[item.id]);
 
   return (
     <div className="shadow-xl border-2 border-slate-200 rounded-xl sticky top-5">
@@ -47,10 +56,20 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment }) {
           <span>{totalPrice} €</span>
         </div>
         <div className="mt-4 pt-5">
-          <OpcionedPago
-            selectedPayment={selectedPayment}
-            setSelectedPayment={setSelectedPayment}
-          />
+          {allLeido ? (
+            <OpcionedPago
+              selectedPayment={selectedPayment}
+              setSelectedPayment={setSelectedPayment}
+            />
+          ) : (
+            <div className="relative p-3 pt-5 bg-red-100 shadow rounded-xl border-2 border-red-500 text-center font-semibold text-red-600">
+              Por favor, lee atentamente la información importante y confirma
+              que has leido todo antes de proceder a pago.
+              <div className="absolute -top-5  left-10 p-2 bg-red-500 text-white text-2xl rounded-full w-fit">
+                <FaExclamationTriangle className="animate-pulse" />
+              </div>
+            </div>
+          )}
         </div>
       </div>
     </div>

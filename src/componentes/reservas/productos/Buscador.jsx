@@ -5,7 +5,7 @@ import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../inputs/Hab_Adulto_Ninio2";
 function Buscador() {
   return (
-    <div className="border-2 min-h-28 rounded-lg shadow-lg p-5">
+    <div className="border-2 rounded-lg shadow-lg min-h-28 p-5">
       <h2 className="mb-4 font-bold text-xl">Buscador</h2>
       <div className="grid grid-cols-12 gap-3">
         <div className="col-span-4">
