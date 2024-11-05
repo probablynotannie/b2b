@@ -1,7 +1,9 @@
 import Buscador from "./Buscador";
 import Carousel from "./Imagenes_Carousel";
 import { FaPerson } from "react-icons/fa6";
-import Listado from "./habitaciones/Listado";
+import Listado from "../habitaciones/Listado";
+import Listado2 from "../habitaciones/Listado2";
+import Info from "../habitaciones/Info";
 import Map from "./Map"; // Import the Map component
 import {
   FaLongArrowAltDown,
@@ -140,7 +142,14 @@ function Producto() {
         </aside>
 
         <section className="col-span-5">
+          <Info />
+        </section>
+
+        <section className="col-span-5">
           <Listado />
+        </section>
+        <section className="col-span-5">
+          <Listado2 />
         </section>
       </article>
     </main>
