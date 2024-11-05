@@ -17,6 +17,8 @@ function Resultado() {
       direccion: "Avenida del Mar, 45, Alicante, España",
       estrellas: 4,
       foto: "/hotel1.jpg",
+      descripcion:
+        "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno. Disfruta de cómodas habitaciones, piscina al aire libre y acceso directo a la playa. Ideal para parejas y familias.",
     },
     {
       nombre: "Gran Hotel Madrid",
@@ -24,6 +26,8 @@ function Resultado() {
       direccion: "Calle Mayor, 12, Madrid, España",
       estrellas: 5,
       foto: "/hotel2.jpg",
+      descripcion:
+        "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital, a solo unos pasos de la famosa Puerta del Sol. Con elegantes habitaciones, un spa de clase mundial y un restaurante gourmet, es perfecto para quienes buscan una experiencia de alto nivel.",
     },
     {
       nombre: "Costa Bella",
@@ -31,6 +35,8 @@ function Resultado() {
       direccion: "Paseo Marítimo, 22, Barcelona, España",
       estrellas: 3,
       foto: "/hotel3.jpg",
+      descripcion:
+        "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona, ideal para explorar la ciudad y sus playas. Con un ambiente familiar y habitaciones cómodas, es perfecto para unas vacaciones asequibles cerca de las principales atracciones.",
     },
   ];
 
@@ -67,14 +73,6 @@ function Resultado() {
                 <FaMapPin className="text-slate-600 mr-2" />
                 {hotel.direccion}
               </span>
-              {/* 
-              <span className="text-slate-500 font-semibold flex items-center">
-                <FaPerson className="text-lg text-secondary" /> {reserva.pax}{" "}
-                adulto{reserva.pax !== 1 && "s"},
-                <FaChild className="text-lg text-secondary" /> {reserva.pax}{" "}
-                niños, <MdModeNight className="text-lg text-secondary" />
-                {reserva.noches} noches
-              </span> */}
               <div className="flex justify-between mt-2 text-secondary font-semibold text-sm">
                 <span className="flex items-center">
                   <FaPerson className="text-lg" /> {reserva.pax} adulto
@@ -89,7 +87,7 @@ function Resultado() {
                 </span>
               </div>
             </div>
-            <div></div>
+            <p className="text-slate-800 line-clamp-2">{hotel.descripcion}</p>
           </div>
           <button className="absolute bottom-5 right-5 p-3 bg-secondary text-white font-semibold rounded-xl shadow">
             Reservar
