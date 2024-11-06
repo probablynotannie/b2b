@@ -62,7 +62,7 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment, leido }) {
               setSelectedPayment={setSelectedPayment}
             />
           ) : (
-            <div className="relative p-3 pt-5 bg-red-100 shadow rounded-xl border-2 border-red-500 text-center font-semibold text-red-600">
+            <div className="relative p-3 pt-6 bg-red-100 shadow rounded-xl border-2 border-red-500 text-center text-red-600">
               Por favor, lee atentamente la información importante y confirma
               que has leido todo antes de proceder a pago.
               <div className="absolute -top-5  left-10 p-2 bg-red-500 text-white text-2xl rounded-full w-fit">

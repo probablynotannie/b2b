@@ -1,6 +1,21 @@
 import ProductosReservados from "./ProductosReservados";
+import { FaUser } from "react-icons/fa";
+import { MdMarkEmailRead } from "react-icons/md";
+import { BsFillTelephoneFill } from "react-icons/bs";
 
-function ResumenCompra({ reserva, toggleAccordion, accordionOpen, leido, setLeido }) {
+function ResumenCompra({
+  reserva,
+  toggleAccordion,
+  accordionOpen,
+  leido,
+  setLeido,
+}) {
+  const contacto = {
+    nombre: "Ana",
+    apellido: "Vachadze",
+    email: "vachadze123@gmail.com",
+    tel: "631694540",
+  };
   return (
     <div className="col-span-2  shadow-xl border-2 border-slate-200 rounded-xl">
       <div className="p-5 border-b-2 bg-slate-700 rounded-t-xl">
@@ -12,9 +27,28 @@ function ResumenCompra({ reserva, toggleAccordion, accordionOpen, leido, setLeid
         </p>
       </div>
       <div className="p-5 space-y-6">
-        <p className="font-bold text-red-500">
-         Confirma infomación importante para poder continuar con el pago
-        </p>
+        <h4 className="font-bold text-slate-800 text-md">
+          Reserva asociado/a a:
+        </h4>
+
+        <div className="grid grid-cols-3 gap-10">
+          <div className="flex items-center justify-center flex-col text-center text-sm text-secondary font-semibold">
+            <FaUser className="text-2xl text-secondary" />
+            <span>
+              {contacto.nombre} {contacto.apellido}
+            </span>
+          </div>
+          <div className="flex items-center justify-center flex-col text-center text-sm text-secondary font-semibold">
+            <MdMarkEmailRead className="text-3xl text-secondary" />
+
+            {contacto.email}
+          </div>
+          <div className="flex items-center justify-center flex-col text-center text-sm text-secondary font-semibold">
+            <BsFillTelephoneFill className="text-2xl text-secondary" />
+
+            {contacto.tel}
+          </div>
+        </div>
         <ProductosReservados
           leido={leido}
           setLeido={setLeido}

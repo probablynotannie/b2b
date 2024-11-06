@@ -6,7 +6,7 @@ import Input_hora from "../inputs/Hora";
 import Input_Edad from "../inputs/Edad";
 function Coches() {
   return (
-    <div className="grid grid-cols-7 gap-10  md:px-20 md:min-h-[78vh] min-h-[90vh] md:py-10">
+    <div className="grid grid-cols-8 gap-10  md:px-20 md:min-h-[78vh] min-h-[90vh] md:py-10">
       <Sidebar />
       <div
         className="relative flex items-center justify-center col-span-7 lg:col-span-5 xl:col-span-6 min-h-[68vh] md:rounded-lg md:shadow-lg"

@@ -42,7 +42,7 @@ function Resultado() {
 
   return (
     <section className="pb-12">
-      <div className="flex  flex-col lg:flex-row lg:justify-between">
+      <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl  border-2 lg:border-0 border-slate-200 mt-4 lg:mt-0">
         <h3 className="text-secondary font-semibold text-lg mb-3">
           Resultados ({hoteles.length})
         </h3>
@@ -75,7 +75,7 @@ function Resultado() {
           />
           <div className="p-5 lg:w-2/3">
             <div className="border-b-2 border-slate-100 pb-2">
-              <div className="flex justify-between w-full">
+              <div className="flex justify-between w-full ">
                 <h4 className="text-secondary font-semibold">{hotel.nombre}</h4>
                 <div className="flex text-secondary">
                   {[...Array(5)].map((_, i) =>

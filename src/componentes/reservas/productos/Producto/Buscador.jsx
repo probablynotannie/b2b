@@ -14,7 +14,7 @@ function Buscador() {
       {/* The search button */}
       <button
         onClick={toggleModal}
-        className="border-2 border-gray-100 text-slate-500 w-full text-start p-3 px-10 rounded-xl shadow-lg lg:hidden relative"
+        className="border-2 text-sm border-gray-100 text-slate-500 w-full text-start p-3 px-10 rounded-xl shadow-lg lg:hidden relative"
       >
         Cambiar busqueda actual
         <span className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
@@ -43,7 +43,7 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3   p-5">
+          <div className="grid grid-cols-12 gap-3 p-5">
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_Buscador />
             </div>

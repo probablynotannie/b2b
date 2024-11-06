@@ -26,7 +26,7 @@ function Aside() {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:hidden border-2 border-gray-200 rounded-xl p-3.5 text-slate-700 bg-white shadow-xl"
+        className="lg:hidden border-2 border-gray-200 rounded-xl p-3 text-slate-700 bg-white shadow-xl"
       >
         <IoMdOptions className="text-xl" />
         <span>
@@ -97,62 +97,66 @@ function SidebarContent({
   setRegimenes,
 }) {
   return (
-    <div className="p-6 ">
-      <h3 className="font-semibold text-secondary text-xl mb-2">Filtrado</h3>
-      <div>
-        <label
-          htmlFor="first_name"
-          className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-        >
-          Nombre de hotel
-        </label>
-        <input
-          type="text"
-          id="first_name"
-          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
-          required
-        />
+    <div>
+      <div className="flex justify-between items-center mb-4 bg-primary lg:bg-inherit p-5 lg:p-3 border-b-2 ">
+        <h3 className="font-semibold text-white lg:text-secondary text-xl ">Filtrado</h3>
       </div>
-      <div className="mt-3 flex">
-        <label className="inline-flex justify-between w-full items-center cursor-pointer">
-          <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
-            Reembolsable
-          </span>
+      <div className="p-6 lg:p-3">
+        <div>
+          <label
+            htmlFor="first_name"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Nombre de hotel
+          </label>
           <input
-            type="checkbox"
-            checked={reembolsable}
-            onChange={() => setReembolsable(!reembolsable)}
-            className="sr-only peer"
-          />
-          <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
-        </label>
-      </div>
-      <div className="mx-3 mt-5">
-        <PrecioRange
-          min={0}
-          max={500}
-          value={precioRange}
-          onChange={setPrecioRange}
-        />
-      </div>
-      <div className="mt-5">
-        <span className="text-sm font-semibold">Categoría de Hotel</span>
-        <div className="mt-2">
-          <Estrellas
-            onChange={(selectedStars) => setSelectedStars(selectedStars)}
+            type="text"
+            id="first_name"
+            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            required
           />
         </div>
-      </div>
-      <div className="mt-5">
-        <span className="text-sm font-semibold">Régimen</span>
-        <div className="mt-2">
-          <Regimenes selected={selectedRegimenes} onChange={setRegimenes} />
+        <div className="mt-3 flex">
+          <label className="inline-flex justify-between w-full items-center cursor-pointer">
+            <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
+              Reembolsable
+            </span>
+            <input
+              type="checkbox"
+              checked={reembolsable}
+              onChange={() => setReembolsable(!reembolsable)}
+              className="sr-only peer"
+            />
+            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+          </label>
         </div>
-      </div>
-      <div className="mt-5">
-        <span className="text-sm font-semibold">Localidades</span>
-        <div className="mt-2">
-          <Localidades selected={localidades} onChange={setLocalidades} />
+        <div className="mx-3 mt-5">
+          <PrecioRange
+            min={0}
+            max={500}
+            value={precioRange}
+            onChange={setPrecioRange}
+          />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold">Categoría de Hotel</span>
+          <div className="mt-2">
+            <Estrellas
+              onChange={(selectedStars) => setSelectedStars(selectedStars)}
+            />
+          </div>
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold">Régimen</span>
+          <div className="mt-2">
+            <Regimenes selected={selectedRegimenes} onChange={setRegimenes} />
+          </div>
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold">Localidades</span>
+          <div className="mt-2">
+            <Localidades selected={localidades} onChange={setLocalidades} />
+          </div>
         </div>
       </div>
     </div>
