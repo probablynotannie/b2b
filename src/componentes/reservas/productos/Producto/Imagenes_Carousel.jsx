@@ -1,7 +1,7 @@
 import { Carousel } from "flowbite-react";
 function Imagenes_Carousel({ imagenes }) {
   return (
-    <Carousel>
+    <Carousel className="">
       {imagenes.map((img) => (
         <img key={img.id} src={img.src} alt="..." />
       ))}

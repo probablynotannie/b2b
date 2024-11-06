@@ -134,6 +134,7 @@ const InfiniteScrollCalendar = () => {
               </h2>
               <button onClick={closeModal} className="text-xl text-white">
                 &times;
+                
               </button>
             </div>
             {/* Scroll de calendario */}

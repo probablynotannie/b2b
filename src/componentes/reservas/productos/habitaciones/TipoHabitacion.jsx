@@ -8,7 +8,7 @@ const DropdownCheckboxSelector = ({ minPrice, maxPrice }) => {
       <h6 className="font-bold text-lg text-secondary absolute -top-5 bg-white p-2 px-5 border-2 border-slate-300 rounded-lg shadow-xl">
         Filtrado
       </h6>
-      <div className="grid grid-cols-5 gap-10 mt-2">
+      <div className="grid lg:grid-cols-5 gap-10 mt-2">
         <Regimenes />
         <PriceRange min={minPrice} max={maxPrice} />
       </div>

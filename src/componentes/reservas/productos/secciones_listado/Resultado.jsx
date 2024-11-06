@@ -41,21 +41,39 @@ function Resultado() {
   ];
 
   return (
-    <section>
-      <h3 className="text-secondary font-semibold text-lg ">
-        Resultados ({hoteles.length}){" "}
-      </h3>
+    <section className="pb-12">
+      <div className="flex  flex-col lg:flex-row lg:justify-between">
+        <h3 className="text-secondary font-semibold text-lg mb-3">
+          Resultados ({hoteles.length})
+        </h3>
+        <div className="flex flex-col gap-5 md:flex-row md:justify-between">
+          <label className="inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" className="sr-only peer" />
+            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+            <span className="ms-3 text-sm font-medium text-slate-500 dark:text-gray-300">
+              Abrir enlace pestaña nueva
+            </span>
+          </label>
+          <label className="inline-flex items-center cursor-pointer">
+            <input type="checkbox" value="" className="sr-only peer" />
+            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+            <span className="ms-3 text-sm font-medium text-slate-500 dark:text-gray-300">
+              Mostrar Detalles Precios
+            </span>
+          </label>
+        </div>
+      </div>
       {hoteles.map((hotel, index) => (
         <article
           key={index}
-          className="shadow-lg hover:shadow-xl border-2 border-slate-100 rounded-xl transition mt-10 flex relative"
+          className="shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 rounded-xl transition mt-10 lg:flex flex-row relative lg:h-[25vh]"
         >
           <img
             src={hotel.foto}
-            className="h-[25vh] object-cover w-1/3 rounded-lg shadow border border-secondary"
+            className=" h-[25vh] lg:h-full object-cover w-full lg:w-1/3  lg:rounded-l-lg rounded-t-lg shadow border-2 lg:border border-secondary"
             alt={`Foto de ${hotel.nombre}`}
           />
-          <div className="p-5 w-2/3">
+          <div className="p-5 lg:w-2/3">
             <div className="border-b-2 border-slate-100 pb-2">
               <div className="flex justify-between w-full">
                 <h4 className="text-secondary font-semibold">{hotel.nombre}</h4>
@@ -73,7 +91,7 @@ function Resultado() {
                 <FaMapPin className="text-slate-600 mr-2" />
                 {hotel.direccion}
               </span>
-              <div className="flex justify-between mt-2 text-secondary font-semibold text-sm">
+              <div className="flex justify-between mt-2 text-slate-900 font-semibold text-sm">
                 <span className="flex items-center">
                   <FaPerson className="text-lg" /> {reserva.pax} adulto
                   {reserva.pax !== 1 && "s"}
@@ -87,11 +105,15 @@ function Resultado() {
                 </span>
               </div>
             </div>
-            <p className="text-slate-800 line-clamp-2">{hotel.descripcion}</p>
+            <p className="lg:text-slate-800 text-slate-500 line-clamp-2">
+              {hotel.descripcion}
+            </p>
+            <div className="flex justify-end mt-3">
+              <button className="w-full lg:w-fit  p-3 bg-secondary text-white font-semibold rounded-xl shadow">
+                Reservar
+              </button>
+            </div>
           </div>
-          <button className="absolute bottom-5 right-5 p-3 bg-secondary text-white font-semibold rounded-xl shadow">
-            Reservar
-          </button>
         </article>
       ))}
     </section>

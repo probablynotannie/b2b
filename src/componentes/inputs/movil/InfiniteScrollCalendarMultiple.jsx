@@ -132,7 +132,7 @@ const InfiniteScrollCalendar = () => {
     <div>
       <div
         onClick={openModal}
-        className="relative bg-slate-50  text-gray-500 text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
+        className="relative bg-white border border-slate-300 text-gray-500 rounded-l-lg text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
       >
         {formatDateRange()}
         <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
@@ -143,7 +143,7 @@ const InfiniteScrollCalendar = () => {
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white w-full h-full mx-auto  relative">
-            <div className="flex justify-between items-center mb-4 bg-primary rounded-t-xl p-5 ">
+            <div className="flex justify-between items-center mb-4 bg-primary p-5 ">
               <h2 className="text-xl font-bold text-white">
                 Selecciona el rango de fechas
               </h2>

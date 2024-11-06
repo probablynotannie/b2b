@@ -17,6 +17,10 @@ module.exports = {
         secondary: "#ff8c4c", // Naranja
         muted: "#e8ecf4", // Gris apagado
       },
+      container: {
+        center: true,
+        padding: '2rem',
+      }
     },
   },
   plugins: [

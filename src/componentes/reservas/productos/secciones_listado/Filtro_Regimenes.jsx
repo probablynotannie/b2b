@@ -1,23 +1,19 @@
 import React, { useState } from "react";
 
-function Regimenes() {
+function Regimenes({ selected, onChange }) {
   const options = [
     { id: 1, label: "Solo alojamiento" },
     { id: 2, label: "Alojamiento y desayuno" },
     { id: 3, label: "Pensión completa" },
   ];
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
-
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
-    setSelectedOptions((prev) => {
+    onChange((prev) => {
       if (prev.includes(value)) {
-        // If already selected, remove it from the array
-        return prev.filter((option) => option !== value);
+        return prev.filter((option) => option !== value); // Remove if selected
       } else {
-        // If not selected, add it to the array
-        return [...prev, value];
+        return [...prev, value]; // Add if not selected
       }
     });
   };
@@ -29,13 +25,14 @@ function Regimenes() {
           <input
             type="checkbox"
             id={`regimen_${option.id}`}
-            value={option.label} // Use the label as value
+            value={option.label}
+            checked={selected.includes(option.label)} // Check if selected
             onChange={handleCheckboxChange}
             className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary focus:ring-2"
           />
           <label
             htmlFor={`regimen_${option.id}`}
-            className="ml-2 text-sm  text-gray-900"
+            className="ml-2 text-sm text-gray-900"
           >
             {option.label}
           </label>

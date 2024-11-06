@@ -41,7 +41,7 @@ function CestaCompleta() {
       fecha: "21 de octubre",
       img: "/banner_trenes.jpeg",
       precio: 142,
-      
+
       descripcion: "Viaje en ferry de Barcelona a Ibiza, incluye vehículo.",
     },
   ];
@@ -95,14 +95,16 @@ function CestaCompleta() {
   return (
     <div className="flex justify-center">
       <div className="grid grid-cols-3 gap-16 container my-10 min-h-[70vh] overflow-visible">
-        <ResumenCompra
-          leido={leido}
-          setLeido={setLeido}
-          reserva={reserva}
-          toggleAccordion={toggleAccordion}
-          accordionOpen={accordionOpen}
-        />
-        <div>
+        <div className="col-span-3 lg:col-span-2">
+          <ResumenCompra
+            leido={leido}
+            setLeido={setLeido}
+            reserva={reserva}
+            toggleAccordion={toggleAccordion}
+            accordionOpen={accordionOpen}
+          />
+        </div>
+        <div className="col-span-3 lg:col-span-1">
           <DatosPago
             leido={leido}
             setLeido={setLeido}

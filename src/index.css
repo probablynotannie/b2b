@@ -2,11 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-#root{
+/* #root{
   display: flex;
   flex-direction: column;
   align-items: center;
-}
+} */
 .iconoMenu{
   font-size: 2rem;
   color: rgb(85, 85, 184);

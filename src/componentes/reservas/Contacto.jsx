@@ -25,13 +25,15 @@ function Contacto() {
     },
   ];
   return (
-    <div className="my-10 mb-20 flex justify-center min-h-[70vh]">
-      <div className="container shadow-xl p-5 border-2 border-slate-200 rounded-xl">
-        <div>
-          <h2 className="font-bold text-lg">Reservando</h2>
-          <div className="flex flex-wrap  mt-3 justify-between">
+    <main className="my-10 mb-20 flex justify-center min-h-[65vh] container border-2 border-slate-200 rounded-xl  shadow-xl">
+      <article className="w-full  ">
+        <section>
+          <Datos />
+        </section>
+        <section>
+          <div className="grid lg:grid-cols-3 grid-cols-1 mt-3 mb-10">
             {reserva.map((reserva) => (
-              <div key={reserva.id} className="w-4/12 px-3 min-h-48  ">
+              <div key={reserva.id} className=" px-3 min-h-48  ">
                 <div
                   className="bg-cover border-2 shadow-md  rounded-xl w-full h-full"
                   style={{
@@ -57,17 +59,15 @@ function Contacto() {
               </div>
             ))}
           </div>
-        </div>
-        <div className="mt-10">
-          <Datos />
-        </div>
-        <div className="mt-3 flex justify-end">
-          <button className="bg-secondary p-3 px-10 rounded-xl shadow-lg text-white font-bold">
+        </section>
+
+        <div className="my-10 flex justify-end">
+          <button className="bg-secondary lg:w-fit w-full p-3 px-10 rounded-xl shadow-lg text-white font-bold">
             Siguiente paso
           </button>
         </div>
-      </div>
-    </div>
+      </article>
+    </main>
   );
 }
 export default Contacto;

@@ -23,9 +23,7 @@ function Info() {
         con parking cubierto con coste adicional y bajo disponibilidad.
         Ofrecemos consigna y servicio de despertador gratuito.
       </p>
-      <div className="font-semibold w-16 text-secondary text-lg border-b-2 border-slate-200 my-4">
-        
-      </div>
+      <div className="font-semibold w-16 text-secondary text-lg border-b-2 border-slate-200 my-4"></div>
       <p>
         Hotel recién reformado situado en primera línea de mar y escasos metros
         del paseo marítimo y la playa cuenta con hall, recepción, restaurante
@@ -47,7 +45,7 @@ function Info() {
     </div>
   );
   return (
-    <Accordion className="w-full">
+    <Accordion className="w-full" collapseAll  >
       <Accordion.Panel>
         <Accordion.Title>Descripción del hotel</Accordion.Title>
         <Accordion.Content>{info}</Accordion.Content>

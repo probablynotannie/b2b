@@ -27,7 +27,7 @@ function SelectorPersonas({
       <div className="relative">
         <div
           onClick={openModal}
-          className="bg-white text-primary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full cursor-pointer"
+          className="<-50 bg-white text-primary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full cursor-pointer"
         >
           {habitacion} Habitaciones - {totalAdults} Adultos - {totalChildren}{" "}
           Niños
@@ -39,14 +39,13 @@ function SelectorPersonas({
       {isOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="relative bg-slate-50 w-full h-full max-w-4xl overflow-auto">
-            <div className="sticky top-0 z-50 flex justify-between items-center mb-4 bg-primary rounded-t-xl p-5 ">
+            <div className="sticky top-0 z-50 flex justify-between items-center mb-4 bg-primary p-5 ">
               <h2 className="text-xl font-bold text-white">Habitaciones</h2>
               <button onClick={closeModal} className="text-xl text-white">
                 &times;
               </button>
             </div>
-            <h3 className="text-lg font-semibold">Habitaciones</h3>
-            <div className="px-3 pb-5">
+            <div className="px-3 pb-5 mt-12">
               {roomData.map((room, roomIndex) => (
                 <div
                   className="relative bg-slate-100 border border-slate-300 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"

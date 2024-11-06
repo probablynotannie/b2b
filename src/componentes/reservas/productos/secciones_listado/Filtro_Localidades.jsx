@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function Regimenes() {
+function Localidades({ selected, onChange }) {
   const options = [
     { id: 1, label: "Alicante" },
     { id: 2, label: "Almería" },
@@ -29,11 +29,10 @@ function Regimenes() {
     { id: 25, label: "Zaragoza" },
   ];
 
-  const [selectedOptions, setSelectedOptions] = useState([]);
-
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
-    setSelectedOptions((prev) => {
+    onChange((prev) => {
+      // Toggle the selected locality
       if (prev.includes(value)) {
         return prev.filter((option) => option !== value);
       } else {
@@ -50,12 +49,13 @@ function Regimenes() {
             type="checkbox"
             id={`localidad_${option.id}`}
             value={option.label}
+            checked={selected.includes(option.label)} // Check if the option is selected
             onChange={handleCheckboxChange}
-            className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+            className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary focus:ring-2"
           />
           <label
             htmlFor={`localidad_${option.id}`}
-            className="ml-2 text-sm  text-gray-900"
+            className="ml-2 text-sm text-gray-900"
           >
             {option.label}
           </label>
@@ -65,4 +65,4 @@ function Regimenes() {
   );
 }
 
-export default Regimenes;
+export default Localidades;

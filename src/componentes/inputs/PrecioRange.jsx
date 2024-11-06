@@ -1,11 +1,10 @@
-// src/PriceRangeSlider.js
 import React, { useState } from "react";
 import { Range, getTrackBackground } from "react-range";
 
 const PriceRangeSlider = ({ min, max }) => {
-    
   const [values, setValues] = useState([min ? min : 0, max ? max : 100]);
   const MAX = max;
+
   return (
     <div>
       <div className="flex justify-between items-center mb-2">
@@ -27,30 +26,40 @@ const PriceRangeSlider = ({ min, max }) => {
         min={min}
         max={MAX}
         onChange={(values) => setValues(values)}
-        renderTrack={({ props, children }) => (
-          <div
-            {...props}
-            className="w-full h-1 rounded-full "
-            style={{
-              background: getTrackBackground({
-                values,
-                colors: ["#ccc", "#ff8c4c", "#ccc"],
-                min: min,
-                max: MAX,
-              }),
-            }}
-          >
-            {children}
-          </div>
-        )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            className="w-5 h-5 bg-slate-500 rounded-full flex items-center justify-center shadow-lg"
-          >
-            <div className="w-2.5 h-2.5 bg-white rounded-full" />
-          </div>
-        )}
+        renderTrack={({ props, children }) => {
+          // Destructure to exclude `key` from props
+          const { key, ...restProps } = props;
+
+          return (
+            <div
+              {...restProps} // Spread remaining props
+              className="w-full h-1 rounded-full"
+              style={{
+                background: getTrackBackground({
+                  values,
+                  colors: ["#ccc", "#ff8c4c", "#ccc"],
+                  min: min,
+                  max: MAX,
+                }),
+              }}
+            >
+              {children}
+            </div>
+          );
+        }}
+        renderThumb={({ props }) => {
+          // Destructure to exclude `key` from props
+          const { key, ...restProps } = props;
+
+          return (
+            <div
+              {...restProps} // Spread remaining props
+              className="w-5 h-5 bg-slate-500 rounded-full flex items-center justify-center shadow-lg"
+            >
+              <div className="w-2.5 h-2.5 bg-white rounded-full" />
+            </div>
+          );
+        }}
       />
     </div>
   );
