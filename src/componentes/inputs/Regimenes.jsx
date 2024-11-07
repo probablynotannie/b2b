@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { FaBowlFood } from "react-icons/fa6";
 
 const Regimenes = () => {
   const options = [
@@ -32,16 +33,20 @@ const Regimenes = () => {
 
   return (
     <div>
-      <button
-        type="button"
-        onClick={toggleDropdown}
-        className="shadow p-2 w-full border-2 bg-white font-semibold text-slate-700  rounded-lg"
-        aria-haspopup="true"
-        aria-expanded={isOpen}
-      >
-        Elige regimen
-      </button>
-
+      <div>
+        <button
+          type="button"
+          onClick={toggleDropdown}
+          className="relative shadow p-2 w-full border-2 border-slate-100 bg-white font-semibold text-slate-700  rounded-lg"
+          aria-haspopup="true"
+          aria-expanded={isOpen}
+        >
+          Elige regimen
+          <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
+            <FaBowlFood />
+          </div>
+        </button>
+      </div>
       {isOpen && (
         <div
           className="absolute z-10 w-fit mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
@@ -74,7 +79,6 @@ const Regimenes = () => {
           </ul>
         </div>
       )}
-     
     </div>
   );
 };

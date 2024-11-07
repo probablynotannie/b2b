@@ -83,7 +83,7 @@ function ReservaFinalizada() {
             </span>
           </p>
           <div>
-            <section className="mt-5 grid grid-cols-3 gap-16  ">
+            <section className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3 lg::gap-16  ">
               {reserva.map((reserva, index) => (
                 <div
                   className="border-l-4 border-secondary bg-gray-50 shadow-inner rounded-r-xl text-sm p-3  border-y  border-y-slate-200 flexflex-col"

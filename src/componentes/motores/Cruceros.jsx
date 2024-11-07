@@ -8,7 +8,7 @@ import Input_Dias from "../inputs/SelectorDias";
 
 function Cruceros() {
   return (
-    <div className="grid grid-cols-10 gap-10 lg:px-20 md:min-h-[78vh] min-h-[90vh] lg:py-10">
+    <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
       <div
         className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"

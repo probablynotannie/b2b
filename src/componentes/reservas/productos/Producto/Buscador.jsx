@@ -33,7 +33,7 @@ function Buscador() {
           className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
         >
-          <div className="">
+          <div>
             <div className="w-full h-full mx-auto  relative">
               <div className="flex justify-between items-center mb-4 bg-primary p-5 ">
                 <h2 className="text-xl font-bold text-white">Buscador</h2>

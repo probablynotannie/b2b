@@ -26,7 +26,7 @@ function Resultado() {
       precio: 180,
       direccion: "Calle Mayor, 12, Madrid, España",
       estrellas: 5,
-      fotos: ["/hotel2.jpg", "/hotel2.jpg", "/hotel2-3.jpg"],
+      fotos: ["/hotel2.jpg", "/hotel3.jpg", "/hotel1.jpg"],
       descripcion:
         "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital...",
     },
@@ -35,7 +35,7 @@ function Resultado() {
       precio: 95,
       direccion: "Paseo Marítimo, 22, Barcelona, España",
       estrellas: 3,
-      fotos: ["/hotel3.jpg", "/hotel3.jpg"],
+      fotos: ["/hotel3.jpg", "/hotel2.jpg"],
       descripcion:
         "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona...",
     },

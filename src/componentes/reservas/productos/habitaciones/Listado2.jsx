@@ -85,9 +85,15 @@ function Listado() {
       precio: "30.00",
     },
   ];
-
+  const prices = habitaciones.map((habitacion) =>
+    parseFloat(habitacion.precio)
+  );
+  const minPrice = Math.min(...prices);
+  const maxPrice = Math.max(...prices);
   return (
     <div className="space-y-10">
+         <TipoHabitacion minPrice={minPrice} maxPrice={maxPrice} />
+
       <table className="w-full ">
         <thead>
           <tr>
