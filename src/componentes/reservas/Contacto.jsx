@@ -25,12 +25,12 @@ function Contacto() {
     },
   ];
   return (
-    <main className="mt-16 mb-20 flex justify-center min-h-[65vh] container px-5 ">
+    <main className="my-10flex justify-center h-[75vh] container  ">
       <article className="w-full border-2  border-slate-200 rounded-xl shadow-xl">
         <section>
           <Datos />
         </section>
-        <section className="pt-10 mt-10 mb-10 border-t-2 border-slate-100 mx-5">
+        <section className="pt-10  mb-10 border-t-2 border-slate-100 mx-5">
           <h3 className="text-lg font-semibold ml-4 ">
             Tus productos ({reserva.length}){" "}
           </h3>

@@ -94,7 +94,11 @@ export default function ProductosReservados({
                 </p>
                 {item.importante && (
                   <div>
-                    <p className="text-sm text-red-500 font-semibold mt-5">
+                    <p
+                      className={`text-sm font-semibold mt-5 ${
+                        leido[item.id] ? "text-slate-400" : "text-red-500"
+                      }`}
+                    >
                       {item.importante}
                     </p>
                     <div className="flex justify-end">
@@ -106,7 +110,7 @@ export default function ProductosReservados({
                           Confirmo que he leído y acepto las condiciones
                         </button>
                       ) : (
-                        <button className="bg-primary p-3 mt-5 rounded-lg shadow-xl text-white font-semibold">
+                        <button className="bg-slate-700 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold">
                           Aceptado! :)
                         </button>
                       )}

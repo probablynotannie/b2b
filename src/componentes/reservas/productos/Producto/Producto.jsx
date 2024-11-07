@@ -79,7 +79,7 @@ function Producto() {
 
   return (
     <main className="flex justify-center flex-col my-10">
-      <div className="container mx-auto px-5" >
+      <div className="container mx-auto " >
         <Buscador />
         <div className="flex justify-between border-b-2 border-slate-100 pb-5 md:mt-10 p-5 ">
           <div>

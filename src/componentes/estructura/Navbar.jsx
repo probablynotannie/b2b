@@ -5,7 +5,7 @@ import Notificaciones from "./Notificaciones";
 import Cesta from "./Cesta";
 const Navbar = () => {
   return (
-    <header className="bg-primary shadow-md w-full lg:px-20">
+    <header className=" bg-primary shadow-md w-full lg:px-20 ">
       <nav className=" mx-auto px-4 py-4 flex justify-between items-center">
         <div className="flex space-x-3 items-center">
           <Link className="hidden md:block" to="/">

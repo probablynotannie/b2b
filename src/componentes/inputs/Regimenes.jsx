@@ -1,11 +1,10 @@
-// src/Regimenes.js
 import React, { useState } from "react";
 
 const Regimenes = () => {
   const options = [
-    { id: 1, label: "Solo alojamiento" },
-    { id: 2, label: "Alojamiento y desayuno" },
-    { id: 3, label: "Pension completa" },
+    { id: 1, tipo: "SA", label: "Solo alojamiento" },
+    { id: 2, tipo: "AD", label: "Alojamiento y desayuno" },
+    { id: 3, tipo: "PC", label: "Pension completa" },
   ];
 
   const [selectedOptions, setSelectedOptions] = useState([]);
@@ -25,12 +24,18 @@ const Regimenes = () => {
     setIsOpen(!isOpen);
   };
 
+  // Map selected options to their labels
+  const selectedLabels = options
+    .filter((option) => selectedOptions.includes(option.id))
+    .map((option) => option.label)
+    .join(", ");
+
   return (
     <div>
       <button
         type="button"
         onClick={toggleDropdown}
-        className="shadow-xl p-2 w-full border-2 bg-white font-semibold text-slate-600 border-slate-500 rounded-lg"
+        className="shadow p-2 w-full border-2 bg-white font-semibold text-slate-700  rounded-lg"
         aria-haspopup="true"
         aria-expanded={isOpen}
       >
@@ -56,7 +61,7 @@ const Regimenes = () => {
                   id={`checkbox-${option.id}`}
                   checked={selectedOptions.includes(option.id)}
                   onChange={handleCheckboxChange}
-                  className="mr-2 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                  className="mr-2 w-4 h-4 text-secondary border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
                 />
                 <label
                   htmlFor={`checkbox-${option.id}`}
@@ -69,6 +74,7 @@ const Regimenes = () => {
           </ul>
         </div>
       )}
+     
     </div>
   );
 };

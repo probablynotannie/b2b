@@ -5,32 +5,32 @@ import Input_DateRange from "../inputs/DateRange";
 import Input_Nacionalidad from "../inputs/Nacionalidad";
 function Hoteles() {
   return (
-    <div className="grid grid-cols-8 gap-10  md:px-20 md:min-h-[78vh] min-h-[90vh] md:py-10">
+    <div className="grid grid-cols-10 gap-10 lg:px-28 md:min-h-[78vh] min-h-[90vh] lg:py-10 ">
       <Sidebar />
       <div
-        className="relative flex items-center justify-center col-span-7 lg:col-span-5 xl:col-span-6 min-h-[68vh] md:rounded-lg md:shadow-lg"
+        className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
         style={{
           backgroundImage: `url(/banner_hoteles.jpg)`,
           backgroundSize: "cover",
         }}
       >
         <div
-          className={`bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10`}
+          className={`absolute  z-0 bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10 `}
         ></div>
-        <div className="absolute md:top-32 md:left-20 bg-CajaForms  bg-opacity-80 text-white px-4 md:px-10 w-11/12 md:w-2/3 xl:w-1/3 h-fit py-5 pb-16 rounded-lg shadow-xl">
+        <div className="relative   xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-1/3 h-fit py-5 pb-16 rounded-lg shadow-xl">
           <form>
             <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
-            <div className="grid grid-cols-2 gap-2  mt-2">
-              <div className="col-span-2">
+            <div className="grid grid-cols-1 gap-2  mt-2">
+              <div>
                 <Input_Buscador2 />
               </div>
-              <div className="col-span-2">
+              <div>
                 <Input_DateRange />
               </div>
-              <div className="col-span-2">
+              <div>
                 <Input_Nacionalidad />
               </div>
-              <div className="col-span-2">
+              <div>
                 <Input_Personas2 />
               </div>
             </div>

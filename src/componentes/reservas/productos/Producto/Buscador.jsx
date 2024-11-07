@@ -16,7 +16,7 @@ function Buscador() {
         onClick={toggleModal}
         className="border-2 text-sm border-gray-100 text-slate-500 w-full text-start p-3 px-10 rounded-xl shadow-lg lg:hidden relative"
       >
-        Cambiar busqueda actual
+        Cambiar busqueda
         <span className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
           <FaSearch />
         </span>
@@ -27,7 +27,7 @@ function Buscador() {
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        onClick={toggleModal} // Close modal when clicking outside
+        // Close modal when clicking outside
       >
         <div
           className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg"
@@ -58,6 +58,15 @@ function Buscador() {
                 <FaSearch className="text-white text-xl" />
               </button>
             </div>
+            <div className="flex flex-col justify-center items-center col-span-12 ">
+              <button
+                className="text-2xl rounded-full w-[50px] h-[50px] border-2 mt-10 text-slate-300 border-slate-300"
+                onClick={toggleModal}
+              >
+                X
+              </button>
+              <span className="text-slate-400">Cerrar</span>
+            </div>
           </div>
         </div>
       </div>
@@ -72,11 +81,11 @@ function Buscador() {
           <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <Input_DateRange />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3">
             <Input_Hab_Adulto_Ninio />
           </div>
-          <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
-            <button className="bg-primary flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
+          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
+            <button className="bg-primary flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>
           </div>

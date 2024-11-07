@@ -55,7 +55,7 @@ function Sidebar() {
   ];
 
   return (
-    <div className="hidden lg:flex col-span-7 lg:col-span-2 xl:col-span-2 xl:flex flex-row flex-wrap md:flex-col justify-around border-2 border-slate-100 px-5 rounded-xl shadow-lg mb-2">
+    <div className="hidden lg:flex col-span-7 lg:col-span-3 xl:col-span-2 xl:flex flex-row flex-wrap md:flex-col justify-around border-2 border-slate-100 px-5 rounded-xl shadow-lg mb-2">
       <div className="flex gap-3 items-center ">
         <div className="border-2 bg-primary p-3 rounded-full">
           <FaHotel className="text-2xl text-white" />

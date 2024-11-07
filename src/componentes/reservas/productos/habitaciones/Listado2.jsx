@@ -88,7 +88,6 @@ function Listado() {
 
   return (
     <div className="space-y-10">
-      <TipoHabitacion />
       <table className="w-full ">
         <thead>
           <tr>

@@ -130,16 +130,17 @@ const InfiniteScrollCalendar = () => {
 
   return (
     <div>
-      <div
-        onClick={openModal}
-        className="relative bg-white border border-slate-300 text-gray-500 rounded-l-lg text-sm rounded-md p-2.5 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
-      >
-        {formatDateRange()}
-        <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-          <FaCalendarAlt />
+      <div className="relative">
+        <div
+          onClick={openModal}
+          className=" bg-white border border-slate-300 text-gray-500 rounded-l-lg text-sm rounded-md p-3 pl-10 w-full cursor-pointer overflow-hidden flex items-center"
+        >
+          {formatDateRange()}
+          <div className="absolute top-0 left-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+            <FaCalendarAlt />
+          </div>
         </div>
       </div>
-
       {isModalOpen && (
         <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
           <div className="bg-white w-full h-full mx-auto  relative">

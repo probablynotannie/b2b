@@ -28,9 +28,12 @@ const PriceRangeSlider = ({ min, max }) => {
         min={min}
         max={MAX}
         onChange={(values) => setValues(values)}
-        renderTrack={({ props, children }) => (
+        renderTrack={({ props: trackProps, children }) => (
           <div
-            {...props}
+            {...{
+              ...trackProps,
+              key: undefined, // Remove the key property
+            }}
             className="w-full h-1 rounded-full"
             style={{
               background: getTrackBackground({
@@ -44,9 +47,12 @@ const PriceRangeSlider = ({ min, max }) => {
             {children}
           </div>
         )}
-        renderThumb={({ props }) => (
+        renderThumb={({ props: thumbProps }) => (
           <div
-            {...props}
+            {...{
+              ...thumbProps,
+              key: undefined, // Remove the key property
+            }}
             className="w-5 h-5 bg-slate-500 rounded-full flex items-center justify-center shadow-lg"
           >
             <div className="w-2.5 h-2.5 bg-white rounded-full" />

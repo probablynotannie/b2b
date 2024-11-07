@@ -3,6 +3,7 @@ import { FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
+import { Carousel } from "flowbite-react";
 
 function Resultado() {
   const reserva = {
@@ -16,27 +17,27 @@ function Resultado() {
       precio: 120,
       direccion: "Avenida del Mar, 45, Alicante, España",
       estrellas: 4,
-      foto: "/hotel1.jpg",
+      fotos: ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg"], // multiple images
       descripcion:
-        "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno. Disfruta de cómodas habitaciones, piscina al aire libre y acceso directo a la playa. Ideal para parejas y familias.",
+        "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno...",
     },
     {
       nombre: "Gran Hotel Madrid",
       precio: 180,
       direccion: "Calle Mayor, 12, Madrid, España",
       estrellas: 5,
-      foto: "/hotel2.jpg",
+      fotos: ["/hotel2.jpg", "/hotel2.jpg", "/hotel2-3.jpg"],
       descripcion:
-        "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital, a solo unos pasos de la famosa Puerta del Sol. Con elegantes habitaciones, un spa de clase mundial y un restaurante gourmet, es perfecto para quienes buscan una experiencia de alto nivel.",
+        "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital...",
     },
     {
       nombre: "Costa Bella",
       precio: 95,
       direccion: "Paseo Marítimo, 22, Barcelona, España",
       estrellas: 3,
-      foto: "/hotel3.jpg",
+      fotos: ["/hotel3.jpg", "/hotel3.jpg"],
       descripcion:
-        "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona, ideal para explorar la ciudad y sus playas. Con un ambiente familiar y habitaciones cómodas, es perfecto para unas vacaciones asequibles cerca de las principales atracciones.",
+        "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona...",
     },
   ];
 
@@ -68,11 +69,19 @@ function Resultado() {
           key={index}
           className="shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 rounded-xl transition mt-10 lg:flex flex-row relative lg:h-[25vh]"
         >
-          <img
-            src={hotel.foto}
-            className=" h-[25vh] lg:h-full object-cover w-full lg:w-1/3  lg:rounded-l-lg rounded-t-lg shadow border-2 lg:border border-secondary"
-            alt={`Foto de ${hotel.nombre}`}
-          />
+          {/* Carousel for hotel images */}
+          <div className="w-full h-[25vh] lg:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
+            <Carousel slide={false} indicators={true}>
+              {hotel.fotos.map((foto, idx) => (
+                <img
+                  key={idx}
+                  src={foto}
+                  alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
+                  className="h-[25vh] lg:h-full w-full object-cover"
+                />
+              ))}
+            </Carousel>
+          </div>
           <div className="p-5 lg:w-2/3">
             <div className="border-b-2 border-slate-100 pb-2">
               <div className="flex justify-between w-full ">
@@ -105,7 +114,7 @@ function Resultado() {
                 </span>
               </div>
             </div>
-            <p className="lg:text-slate-800 text-slate-500 line-clamp-2">
+            <p className="lg:text-slate-600 text-sm text-slate-500 line-clamp-2">
               {hotel.descripcion}
             </p>
             <div className="flex justify-end mt-3">

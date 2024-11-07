@@ -34,7 +34,7 @@ const DateRange = () => {
 
   return (
     <div>
-      <div className="relative hidden md:block">
+      <div className="relative hidden lg:block">
         <input
           type="text"
           readOnly
@@ -54,7 +54,7 @@ const DateRange = () => {
           <FaCalendarAlt />
         </div>
       </div>
-      <div className="md:hidden">
+      <div className="lg:hidden">
         <InfiniteScrollCalendar />
       </div>
       <div>

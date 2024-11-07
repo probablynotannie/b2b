@@ -13,7 +13,7 @@ function Datos() {
             actualización
           </p>
         </div>
-        <div className=" grid grid-cols-2 lg:grid-cols-4 gap-3  text-sm mt-12">
+        <div className=" grid md:grid-cols-2 lg:grid-cols-4 gap-3  text-sm mt-12">
           <Input_Texto tipo="Nombre" />
           <Input_Texto tipo="Apellido/s" />
           <Input_Numero />

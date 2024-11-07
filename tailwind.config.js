@@ -17,6 +17,16 @@ module.exports = {
         secondary: "#ff8c4c", // Naranja
         muted: "#e8ecf4", // Gris apagado
       },
+      keyframes: {
+        colorChange: {
+          '0%': { backgroundColor: 'black' }, // Start with primary color
+          '50%': { backgroundColor: 'lightgray' }, // Midway with secondary color
+          '100%': { backgroundColor: 'black' }, // End with tertiary color
+        },
+      },
+      animation: {
+        colorChange: 'colorChange 5s infinite alternate',
+      },
       container: {
         center: true,
         padding: '2vw',

@@ -2,11 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* #root{
+#root{
   display: flex;
   flex-direction: column;
-  align-items: center;
-} */
+ justify-content: space-between;
+ 
+ min-height: 100vh;
+
+}
 .iconoMenu{
   font-size: 2rem;
   color: rgb(85, 85, 184);

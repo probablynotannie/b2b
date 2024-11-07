@@ -71,7 +71,7 @@ function CestaCompleta() {
   const [selectedPayment, setSelectedPayment] = useState(null);
 
   //El primero en accordion esta abierto por default al entrar a la cesta
-  const [accordionOpen, setAccordionOpen] = useState(
+ /*  const [accordionOpen, setAccordionOpen] = useState(
     reserva.map((_, index) => index === 0)
   );
 
@@ -79,10 +79,10 @@ function CestaCompleta() {
     setAccordionOpen((prevState) =>
       prevState.map((isOpen, i) => (i === index ? !isOpen : isOpen))
     );
-  };
+  }; */
 
   //para tener el primero en accordion cerrado
-  /*   const [accordionOpen, setAccordionOpen] = useState(
+    const [accordionOpen, setAccordionOpen] = useState(
     new Array(reserva.length).fill(false)
   );
 
@@ -90,7 +90,7 @@ function CestaCompleta() {
     const updatedAccordion = [...accordionOpen];
     updatedAccordion[index] = !updatedAccordion[index];
     setAccordionOpen(updatedAccordion);
-  }; */
+  };
 
   return (
     <div className="flex justify-center">

@@ -26,12 +26,14 @@ function Aside() {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:hidden border-2 border-gray-200 rounded-xl p-3 text-slate-700 bg-white shadow-xl"
+        className="lg:hidden relative border-2 border-gray-200 rounded-xl p-3 text-slate-700 bg-white shadow-xl"
       >
         <IoMdOptions className="text-xl" />
-        <span>
-          {getActiveFiltersCount() > 0 && `(${getActiveFiltersCount()})`}
-        </span>
+        {getActiveFiltersCount() > 0 && (
+          <span className="absolute rounded-full bg-secondary text-xs text-white font-bold p-2 -top-7 border">
+            {`(${getActiveFiltersCount()})`}
+          </span>
+        )}
       </button>
       <div className="hidden lg:block">
         <SidebarContent
@@ -99,7 +101,9 @@ function SidebarContent({
   return (
     <div>
       <div className="flex justify-between items-center mb-4 bg-primary lg:bg-inherit p-5 lg:p-3 border-b-2 ">
-        <h3 className="font-semibold text-white lg:text-secondary text-xl ">Filtrado</h3>
+        <h3 className="font-semibold text-white lg:text-secondary text-xl ">
+          Filtrado
+        </h3>
       </div>
       <div className="p-6 lg:p-3">
         <div>

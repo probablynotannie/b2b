@@ -1,19 +1,36 @@
 import { FaFacebookF } from "react-icons/fa";
 import { BsTwitterX } from "react-icons/bs";
 import { IoIosBoat } from "react-icons/io";
+import { MdEmail } from "react-icons/md";
+import { BsFillTelephoneFill } from "react-icons/bs";
+import { FaClock } from "react-icons/fa6";
 
 function Footer() {
   return (
-    <footer className="flex flex-col items-center w-full pt-3 pb-5 font-semibold shadow-inner  bg-muted">
-      <div className="grid  justify-between w-full grid-cols-2 px-10 md:grid-cols-3">
-        <span className="inline-block text-sm text-transparent titulo_footer text-secondary">
+    <footer className="flex flex-col items-center justify-center w-full pt-4 pb-6 font-semibold shadow-inner bg-muted min-h-[8vh]">
+      <div className="grid w-full px-6 gap-y-4 md:gap-y-0 md:grid-cols-3">
+        <span className="text-xs text-center md:text-start md:text-sm text-slate-700">
           &copy; 2023/2024 Dit Gestion
         </span>
-        <span className="justify-center hidden text-3xl text-primary  md:flex">
-          <IoIosBoat />
-        </span>
-        <ul className="flex justify-end gap-1">
-          <li className="bg-blue-900 rounded-full animate-bounce animate-infinite animate-delay-[300ms] text-white w-[25px] h-[25px] flex justify-center items-center hover:scale-125 transition">
+
+        {/* Center section with links */}
+        <div className="flex flex-col items-center md:items-center md:flex-row md:justify-center">
+          <ul className="flex gap-4 text-sm">
+            <li className="text-primary cursor-pointer hover:underline">
+              Aviso Legal
+            </li>
+            <span className="hidden md:flex text-3xl text-primary">
+              <IoIosBoat />
+            </span>
+            <li className="text-primary cursor-pointer hover:underline">
+              Contacto
+            </li>
+          </ul>
+        </div>
+
+        {/* Social media icons */}
+        <div className="flex justify-center gap-2 md:justify-end">
+          <li className="bg-blue-900 rounded-full text-white w-8 h-8 flex justify-center items-center hover:scale-110 transition">
             <a
               target="_blank"
               rel="noreferrer"
@@ -22,36 +39,12 @@ function Footer() {
               <FaFacebookF />
             </a>
           </li>
-          <li className="animate-bounce animate-infinite bg-black dark:bg-white  rounded-full  text-white w-[25px] h-[25px] flex justify-center items-center hover:scale-125 transition">
-            <a
-              target="_blank"
-              rel="noreferrer"
-              href="https://www.facebook.com/login/?next=https%3A%2F%2Fwww.facebook.com%2F%3Flocale%3Des_ES"
-            >
+          <li className="bg-black dark:bg-white rounded-full text-white w-8 h-8 flex justify-center items-center hover:scale-110 transition">
+            <a target="_blank" rel="noreferrer" href="https://twitter.com">
               <BsTwitterX />
             </a>
           </li>
-        </ul>
-      </div>
-      <div className="flex flex-col w-full p-3 px-10 text-sm text-center md:justify-between md:flex-row md:text-start text-slate-500 md:gap-6">
-        <ul>
-          <li>
-            <a href="/">Aviso Legal</a>
-          </li>
-          <li>Tel: 953 49 30 28</li>
-          <li>Email: ditgestion@info.com</li>
-        </ul>
-        <ul>
-          <li>
-            <a href="/">Contacto</a>
-          </li>
-          <li>Dirección: Astigarrako Bidea, 2, 5 derecha, 20180, Gipuzkoa</li>
-          <li>Horario: 953 49 30 28</li>
-        </ul>
-        <ul>
-          <li>Copyright: Dit Gestion 2023-2024</li>
-          <li>Web: Dit Gestion</li>
-        </ul>
+        </div>
       </div>
     </footer>
   );
