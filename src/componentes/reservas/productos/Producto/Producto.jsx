@@ -3,6 +3,7 @@ import Carousel from "./Imagenes_Carousel";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "../habitaciones/Listado";
 import Listado2 from "../habitaciones/Listado2";
+import Images from "../habitaciones/Imagenes";
 import Info from "../habitaciones/Info";
 import Map from "./Map"; // Import the Map component
 import {
@@ -98,7 +99,7 @@ function Producto() {
           </button>
         </div>
         <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10">
-          <section className=" col-span-5 lg:col-span-1 flex flex-col justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 shadow-xl">
+          <section className=" col-span-5 lg:col-span-2 flex flex-col justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 shadow-xl">
             <h4 className="p-3 font-bold text-cen rounded-t-xl border-b-2 border-slate-100 dark:border-slate-700  text-secondary">
               Resumen
             </h4>
@@ -155,10 +156,10 @@ function Producto() {
             </div>
           </section>
 
-          <aside className="h-full lg:col-span-4 col-span-5 lg:shadow-xl">
-            <Carousel imagenes={producto.imagenes} />
+          <aside className="h-full lg:col-span-3 col-span-5 ">
+            <h4 className="font-bold text-lg mb-3">Imagenes</h4>
+            <Images />
           </aside>
-
           <section className="col-span-5">
             <Info />
           </section>
@@ -167,6 +168,10 @@ function Producto() {
           </section>
           <section className="col-span-5">
             <Listado />
+          </section>
+          <section className="col-span-5">
+            <h4 className="font-bold text-lg mb-3">Imagenes</h4>
+            <Images />
           </section>
         </article>
       </div>
