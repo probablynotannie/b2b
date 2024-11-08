@@ -13,16 +13,12 @@ function InputMes() {
           <MonthPickerInput
             value={valor}
             placeholder="Mes"
-            onChange={setValor}
-            styles={{
-              input: {
-                padding: "0.6rem",
-                paddingLeft: "2.6rem",
-                borderRadius: "8px",
-              },
+            classNames={{
+              input: "border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer",
             }}
+            onChange={setValor}
           />
-          <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+          <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
             <FaCalendarAlt />
           </div>
         </div>

@@ -81,7 +81,7 @@ function CestaCompleta() {
     );
   }; */
 
-  //para tener el primero en accordion cerrado
+  //para dejar todos los productos de acordeon cerrados
     const [accordionOpen, setAccordionOpen] = useState(
     new Array(reserva.length).fill(false)
   );

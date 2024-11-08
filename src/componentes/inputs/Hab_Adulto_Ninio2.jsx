@@ -97,26 +97,28 @@ function SelectorPersonas() {
           aria-labelledby="default-popover"
           content={
             <div className="w-96 text-sm">
-              <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
+              <div className="bg-primary dark:bg-slate-900 text-white h-14 flex items-center pl-4 font-semibold">
                 Adultos / Niños
               </div>
               <div className="px-3 pb-5 max-h-[80vh] overflow-y-auto">
                 {roomData.map((room, roomIndex) => (
                   <div
-                    className="relative text-black bg-slate-100 shadow mt-10 p-2 py-5 rounded-lg"
+                    className="relative text-black dark:text-slate-400 bg-slate-100 dark:bg-slate-700 dark:shadow-inner dark:shadow-slate-600 shadow mt-10 p-2 py-5 rounded-lg"
                     key={room.id}
                   >
-                    <span className="absolute -top-5 p-2 bg-primary text-white font-semibold rounded-lg shadow-lg">
+                    <span className="absolute -top-5 p-2 bg-primary dark:bg-slate-900 text-white font-semibold rounded-lg shadow-lg">
                       Habitación {roomIndex + 1}
                     </span>
                     <div className="grid grid-cols-3 gap-2">
                       <div>
-                        <span className="text-sm text-black">Adultos</span>
+                        <span className="text-sm text-black dark:text-slate-400">
+                          Adultos
+                        </span>
                         <div className="relative">
                           <select
                             onChange={(e) => onAdultosChange(room.id, e)}
                             value={room.adultos}
-                            className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                           >
                             {[1, 2, 3, 4, 5, 6].map((num) => (
                               <option key={num} value={num}>
@@ -124,18 +126,20 @@ function SelectorPersonas() {
                               </option>
                             ))}
                           </select>
-                          <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                          <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                             <FaPerson />
                           </div>
                         </div>
                       </div>
                       <div>
-                        <span className="text-sm text-black">Niños</span>
+                        <span className="text-sm text-black dark:text-slate-400">
+                          Niños
+                        </span>
                         <div className="relative">
                           <select
                             onChange={(e) => onNiniosChange(room.id, e)}
                             value={room.ninios}
-                            className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                           >
                             {[0, 1, 2, 3].map((num) => (
                               <option key={num} value={num}>
@@ -143,7 +147,7 @@ function SelectorPersonas() {
                               </option>
                             ))}
                           </select>
-                          <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                          <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                             <FaChild />
                           </div>
                         </div>
@@ -151,7 +155,7 @@ function SelectorPersonas() {
                       {roomIndex !== 0 && (
                         <button
                           onClick={() => deleteRoom(room.id)}
-                          className="absolute -top-5 cursor-pointer right-5 bg-white rounded border-2 border-red-500 p-2 text-red-500 hover:bg-red-500 hover:text-white transition  flex items-center justify-end pb-2 flex-col"
+                          className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-red-500 hover:text-white transition  flex items-center justify-end pb-2 flex-col"
                         >
                           <FaTrashAlt />
                         </button>
@@ -173,7 +177,7 @@ function SelectorPersonas() {
                                     e.target.value
                                   )
                                 }
-                                className="mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                                 placeholder="Edad"
                               />
                             </div>
@@ -185,11 +189,11 @@ function SelectorPersonas() {
                 ))}
                 <div
                   onClick={addRoom}
-                  className="text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
+                  className="text-black dark:text-slate-400  hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-700 mt-5 pt-2"
                 >
                   <div className="w-fit flex items-center space-x-1 font-semibold">
                     <span>Agregar una habitación </span>
-                    <CiCirclePlus />
+                    <CiCirclePlus className="dark:text-secondary text-lg" />
                   </div>
                 </div>
               </div>
@@ -198,11 +202,11 @@ function SelectorPersonas() {
         >
           <div>
             <div className="relative">
-              <div className="bg-white text-primary  border-2 p-2.5 rounded-lg text-sm  pl-10">
+              <div className="bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary text-primary  border-2 p-2.5 rounded-lg text-sm  pl-10">
                 {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
                 {totalChildren} Niños
               </div>
-              <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl ">
+              <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                 <MdMeetingRoom />
               </div>
             </div>

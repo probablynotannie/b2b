@@ -26,7 +26,7 @@ function Aside() {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:hidden relative border-2 border-gray-200 rounded-xl p-3 text-slate-700 bg-white shadow-xl"
+        className="lg:hidden relative border-2 border-gray-200 dark:border-slate-600 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 dark:text-slate-500 shadow-xl"
       >
         <IoMdOptions className="text-xl" />
         {getActiveFiltersCount() > 0 && (
@@ -54,10 +54,10 @@ function Aside() {
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
-          onClick={() => setIsModalOpen(false)} // Close when clicking outside
+          onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="relative bg-white w-full h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
+            className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
             onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
           >
             {/* Close Button */}
@@ -100,29 +100,29 @@ function SidebarContent({
 }) {
   return (
     <div>
-      <div className="flex justify-between items-center mb-4 bg-primary lg:bg-inherit p-5 lg:p-3 border-b-2 ">
+      <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
         <h3 className="font-semibold text-white lg:text-secondary text-xl ">
           Filtrado
         </h3>
       </div>
-      <div className="p-6 lg:p-3">
+      <div className="p-6 lg:p-3 lg:pt-1">
         <div>
           <label
             htmlFor="first_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-slate-400"
           >
             Nombre de hotel
           </label>
           <input
             type="text"
             id="first_name"
-            className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5"
+            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full"
             required
           />
         </div>
         <div className="mt-3 flex">
-          <label className="inline-flex justify-between w-full items-center cursor-pointer">
-            <span className="text-sm font-medium text-gray-900 dark:text-gray-300">
+          <label className="inline-flex justify-between w-full items-center">
+            <span className="text-sm font-medium text-gray-900 dark:text-secondary">
               Reembolsable
             </span>
             <input
@@ -131,7 +131,7 @@ function SidebarContent({
               onChange={() => setReembolsable(!reembolsable)}
               className="sr-only peer"
             />
-            <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
           </label>
         </div>
         <div className="mx-3 mt-5">
@@ -143,7 +143,9 @@ function SidebarContent({
           />
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold">Categoría de Hotel</span>
+          <span className="text-sm font-semibold dark:text-secondary">
+            Categoría de Hotel
+          </span>
           <div className="mt-2">
             <Estrellas
               onChange={(selectedStars) => setSelectedStars(selectedStars)}
@@ -151,13 +153,17 @@ function SidebarContent({
           </div>
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold">Régimen</span>
+          <span className="text-sm font-semibold dark:text-secondary">
+            Régimen
+          </span>
           <div className="mt-2">
             <Regimenes selected={selectedRegimenes} onChange={setRegimenes} />
           </div>
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold">Localidades</span>
+          <span className="text-sm font-semibold dark:text-secondary">
+            Localidades
+          </span>
           <div className="mt-2">
             <Localidades selected={localidades} onChange={setLocalidades} />
           </div>

@@ -26,28 +26,28 @@ export default function ProductosReservados({
   return (
     <div>
       <div>
-        <h5 className="font-bold">Tus productos ({reserva.length}) </h5>
+        <h5 className="font-bold dark:text-slate-400">Tus productos ({reserva.length}) </h5>
       </div>
       {reserva.map((item, index) => (
         <div
           key={item.id}
-          className="pb-3 mb-3 shadow-md border-2 border-slate-200 rounded-xl mt-5 transition"
+          className="pb-3 mb-3 shadow-md border-2 bg-white dark:bg-slate-700 dark:border-slate-700 border-slate-200 rounded-xl mt-5 transition"
         >
           <div
             onClick={() => toggleAccordion(index)}
             className="flex justify-between items-center cursor-pointer transition p-3"
           >
             <div>
-              <h4 className="font-semibold text-md">{item.nombre}</h4>
-              <span className="text-primary font-semibold">{item.precio}€</span>
-              <span className="block text-gray-400">
+              <h4 className="font-semibold text-md dark:text-slate-200">{item.nombre}</h4>
+              <span className="text-primary font-semibold dark:text-secondary">{item.precio}€</span>
+              <span className="block text-gray-400 dark:text-slate-300">
                 {item.fecha}{" "}
                 {item.fechaSalida && <span> - {item.fechaSalida} </span>}
               </span>
               {item.importante && (
                 <>
                   {!leido[item.id] ? (
-                    <div className="flex space-x-2 text-red-500 ">
+                    <div className="flex space-x-2 text-red-500 dark:font-semibold">
                       <FaExclamationTriangle className="text-xl mb-2" />
                       <span>
                         Confirma que has leído la información importante de este
@@ -55,7 +55,7 @@ export default function ProductosReservados({
                       </span>
                     </div>
                   ) : (
-                    <div className="flex space-x-2 text-green-700 ">
+                    <div className="flex space-x-2 text-green-700 dark:text-green-500 dark:font-semibold">
                       <FaCheckCircle className="text-xl mb-2" />
                       <span>Se han aceptado los terminos.</span>
                     </div>
@@ -85,11 +85,11 @@ export default function ProductosReservados({
                     <span>{item.pax}x</span>
                   </div>
                 </div>
-                <span className="block text-slate-400">
+                <span className="block text-slate-400 dark:text-slate-300 font-semibold">
                   Precio: {item.precio} €
                 </span>
-                <span className="text-slate-500">{item.localizacion}</span>
-                <p className="border-t-2 border-slate-100 mt-3 pt-3">
+                <span className="text-slate-500 dark:text-slate-400">{item.localizacion}</span>
+                <p className="border-t-2 dark:text-slate-400 border-slate-100 mt-3 pt-3">
                   {item.descripcion}
                 </p>
                 {item.importante && (
@@ -105,12 +105,12 @@ export default function ProductosReservados({
                       {!leido[item.id] ? (
                         <button
                           onClick={() => handleLeidoToggle(item.id)}
-                          className="bg-red-400 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold"
+                          className="bg-red-400 dark:bg-slate-800 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold"
                         >
                           Confirmo que he leído y acepto las condiciones
                         </button>
                       ) : (
-                        <button className="bg-slate-700 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold">
+                        <button className="bg-slate-700 dark:bg-green-600 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold">
                           Aceptado! :)
                         </button>
                       )}

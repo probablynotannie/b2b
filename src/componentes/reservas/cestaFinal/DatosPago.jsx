@@ -24,24 +24,26 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment, leido }) {
     .every((item) => leido[item.id]);
 
   return (
-    <div className="shadow-xl border-2 border-slate-200 rounded-xl sticky top-5">
-      <div className="p-5 border-b-2 bg-slate-700 rounded-t-xl">
+    <div className="shadow-xl border-2 border-slate-200 dark:border-slate-600 rounded-xl sticky top-5">
+      <div className="p-5 border-b-2 dark:border-slate-600 bg-slate-700 dark:bg-slate-900 rounded-t-xl">
         <h3 className="font-bold text-white text-xl">Resumen</h3>
         <p className="text-sm text-slate-300">Resumen corto de tu reserva</p>
       </div>
-      <div className="p-5 text-sm">
+      <div className="p-5 text-sm bg-white dark:bg-slate-800">
         {reserva.map((reserva) => (
           <div
             key={reserva.id}
-            className="py-3 border-b-2 border-slate-100 flex justify-between"
+            className="py-3 border-b-2 border-slate-100 dark:border-slate-700 flex justify-between"
           >
             <div>
               <div className="flex items-center space-x-2">
                 {getIconForReserva(reserva.texto)}
 
-                <h6 className="font-semibold">{reserva.nombre}</h6>
+                <h6 className="font-semibold dark:text-secondary">
+                  {reserva.nombre}
+                </h6>
               </div>
-              <span className="text-slate-400">
+              <span className="text-slate-400 dark:text-slate-300">
                 {reserva.fecha}
                 {reserva.fechaSalida && ` - ${reserva.fechaSalida}`}
               </span>
@@ -51,21 +53,21 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment, leido }) {
             </div>
           </div>
         ))}
-        <div className="flex justify-between font-semibold mt-2">
+        <div className="flex justify-between font-semibold mt-2 dark:text-slate-200">
           <span>Total:</span>
           <span>{totalPrice} €</span>
         </div>
-        <div className="mt-4 pt-5">
+        <div className="mt-4 pt-5 dark:text-slate-200">
           {allLeido ? (
             <OpcionedPago
               selectedPayment={selectedPayment}
               setSelectedPayment={setSelectedPayment}
             />
           ) : (
-            <div className="relative p-3 pt-6 bg-red-100 shadow rounded-xl border-2 border-red-500 text-center text-red-600">
+            <div className="relative p-3 pt-6  bg-red-100 dark:bg-red-400 shadow rounded-xl border-2 border-red-500 dark:border-red-700 text-center text-red-600 dark:text-red-100">
               Por favor, lee atentamente la información importante y confirma
               que has leido todo antes de proceder a pago.
-              <div className="absolute -top-5  left-10 p-2 bg-red-500 text-white text-2xl rounded-full w-fit">
+              <div className="absolute -top-5  left-10 p-2 bg-red-500 dark:bg-red-700 text-white text-2xl rounded-full w-fit">
                 <FaExclamationTriangle className="animate-pulse" />
               </div>
             </div>

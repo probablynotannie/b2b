@@ -27,19 +27,19 @@ function SelectorPersonas({
       <div className="relative">
         <div
           onClick={openModal}
-          className="<-50 bg-white text-primary border-2 mt-1 p-2.5 rounded-lg text-sm pl-10 w-full cursor-pointer"
+          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
         >
           {habitacion} Habitaciones - {totalAdults} Adultos - {totalChildren}{" "}
           Niños
         </div>
-        <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
           <MdMeetingRoom />
         </div>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="relative bg-slate-50 w-full h-full max-w-4xl overflow-auto">
-            <div className="sticky top-0 z-50 flex justify-between items-center mb-4 bg-primary p-5 ">
+        <div className="fixed inset-0 bg-black  bg-opacity-50 flex justify-center items-center z-50">
+          <div className="relative bg-slate-50 dark:bg-slate-800 w-full h-full max-w-4xl overflow-auto">
+            <div className="sticky top-0 z-50 flex justify-between items-center mb-4 bg-primary dark:bg-slate-900 p-5 ">
               <h2 className="text-xl font-bold text-white">Habitaciones</h2>
               <button onClick={closeModal} className="text-xl text-white">
                 &times;
@@ -48,7 +48,7 @@ function SelectorPersonas({
             <div className="px-3 pb-5 mt-12">
               {roomData.map((room, roomIndex) => (
                 <div
-                  className="relative bg-slate-100 border border-slate-300 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"
+                  className="relative bg-slate-100 dark:bg-slate-700 border border-slate-300 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"
                   key={room.id}
                 >
                   <span className="absolute -top-5 border-2 bg-primary text-white rounded-lg p-2 font-semibold">
@@ -56,12 +56,12 @@ function SelectorPersonas({
                   </span>
                   <div className="grid grid-cols-6 gap-5">
                     <div className="col-span-3 md:col-span-1">
-                      <span className="text-sm text-black">Adultos</span>
+                      <span className="text-sm text-black dark:text-slate-300">Adultos</span>
                       <div className="relative">
                         <select
                           onChange={(e) => onAdultosChange(room.id, e)}
                           value={room.adultos}
-                          className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                         >
                           {[1, 2, 3, 4, 5, 6].map((num) => (
                             <option key={num} value={num}>
@@ -69,18 +69,18 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <div className="absolute dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                           <FaPerson />
                         </div>
                       </div>
                     </div>
                     <div className="col-span-3 md:col-span-1">
-                      <span className="text-sm text-black">Niños</span>
+                      <span className="text-sm text-black dark:text-slate-300">Niños</span>
                       <div className="relative">
                         <select
                           onChange={(e) => onNiniosChange(room.id, e)}
                           value={room.ninios}
-                          className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
                         >
                           {[0, 1, 2, 3].map((num) => (
                             <option key={num} value={num}>
@@ -88,7 +88,7 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <div className="absolute dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                           <FaChild />
                         </div>
                       </div>
@@ -112,7 +112,7 @@ function SelectorPersonas({
                                   e.target.value
                                 )
                               }
-                              className="mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                             >
                               <option value="" disabled>
                                 -
@@ -128,7 +128,8 @@ function SelectorPersonas({
                       </div>
                     )}
                     {roomIndex !== 0 && (
-                      <div className="absolute -top-10 right-4 flex items-center justify-center border-2 border-red-500 p-2 bg-white text-red-500 rounded shadow-xl mt-5">
+                      <div                           className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-red-500 hover:text-white transition  flex items-center justify-end pb-2 flex-col"
+>
                         <button
                           onClick={() => deleteRoom(room.id)}
                           className="text-xl"

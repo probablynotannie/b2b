@@ -78,15 +78,19 @@ function Producto() {
   };
 
   return (
-    <main className="flex justify-center flex-col my-10">
-      <div className="container mx-auto ">
+    <main className="flex justify-center flex-col my-10  px-5 md:px-0">
+      <div className=" container">
         <Buscador />
-        <div className="flex justify-between border-b-2 border-slate-100 pb-5 md:mt-10 p-5 ">
+        <div className="dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
           <div>
-            <h3 className="text-xl font-bold">{producto.nombre}</h3>
+            <h3 className="text-xl font-bold dark:text-white">
+              {producto.nombre}
+            </h3>
             <div className="flex space-x-2 items-center">
               <FaMapPin className="text-secondary text-lg" />
-              <span className="text-sm">{producto.ubicacion}</span>
+              <span className="text-sm dark:text-slate-400">
+                {producto.ubicacion}
+              </span>
             </div>
           </div>
           <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
@@ -94,37 +98,50 @@ function Producto() {
           </button>
         </div>
         <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10">
-          <section className="bg-slate-600 col-span-5 lg:col-span-1 flex flex-col justify-between border-2 rounded-lg shadow-lg px-2">
-            <header className="p-3 text-white font-semibold rounded-t-xl border-b-2 border-slate-200">
-              <h4>Resumen</h4>
-            </header>
-            <div className="px-5 text-white border-b-2 border-slate-700 mx-2 mt-3">
-              <div className="flex items-center space-x-3 mt-3">
-                <FaRegCalendarAlt className="text-xl text-secondary" />
-                <span>-</span>
-                <time className="font-semibold" dateTime={producto.fecha}>
-                  {producto.fecha}
-                </time>
+          <section className=" col-span-5 lg:col-span-1 flex flex-col justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 shadow-xl">
+            <h4 className="p-3 font-bold text-cen rounded-t-xl border-b-2 border-slate-100 dark:border-slate-700  text-secondary">
+              Resumen
+            </h4>
+            <div className="text-slateo-700 border-b-2 border-slate-700 mx-2 mt-3 text-sm">
+              <span className="font-semibold dark:text-slate-400">Entrada</span>
+              <div className="relative">
+                <input
+                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                  type="text"
+                  disabled
+                  value={producto.fecha}
+                />
+
+                <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <FaRegCalendarAlt />
+                </div>
               </div>
-              <div className="flex justify-center items-center my-1.5 text-secondary">
-                <FaLongArrowAltDown />
+
+              <span className="block mt-2 font-semibold dark:text-slate-400">
+                Salida
+              </span>
+
+              <div className="relative">
+                <input
+                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                  type="text"
+                  disabled
+                  value={producto.fechaSalida}
+                />
+                <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <FaRegCalendarAlt />
+                </div>
               </div>
-              <div className="flex items-center justify-end space-x-3">
-                <time className="font-semibold" dateTime={producto.fechaSalida}>
-                  {producto.fechaSalida}
-                </time>
-                <span>-</span>
-                <FaRegCalendarAlt className="text-xl text-secondary" />
-              </div>
-              <div className="flex justify-between my-5">
-                <div className="flex items-center space-x-1 text-sm font-semibold">
+
+              <div className="flex justify-between my-3">
+                <div className="flex items-center space-x-1 text-sm font-semibold dark:text-slate-100">
                   <FaPerson className="text-xl text-secondary" />
 
                   <span>{producto.pax}</span>
                   <span>adulto{producto.pax !== 1 && "s"}</span>
                 </div>
                 {producto.pax_ninios > 0 && (
-                  <div className="flex items-center space-x-1 text-sm font-semibold">
+                  <div className="flex items-center space-x-1 text-sm font-semibold dark:text-slate-100">
                     <FaChild className="text-lg text-secondary" />
                     <span>
                       {producto.pax_ninios} niño{producto.pax_ninios > 1 && "s"}
@@ -138,7 +155,7 @@ function Producto() {
             </div>
           </section>
 
-          <aside className="h-[45vh] lg:col-span-4 col-span-5 lg:shadow-xl">
+          <aside className="h-full lg:col-span-4 col-span-5 lg:shadow-xl">
             <Carousel imagenes={producto.imagenes} />
           </aside>
 

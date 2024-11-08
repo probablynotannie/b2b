@@ -47,12 +47,13 @@ function Vehiculos() {
                 <div className="relative">
                   <select
                     onChange={handleAmountChange}
-                    className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0"
+                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+
                   >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                     <FaCar />
                   </div>
                 </div>
@@ -65,7 +66,8 @@ function Vehiculos() {
                       <div className="relative">
                         <select
                           onChange={handleSecondSelectChange}
-                          className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0"
+                                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+
                         >
                           <option value="Turismo. altura menor a 2 metros">
                             Turismo. altura menor a 2 metros
@@ -87,7 +89,7 @@ function Vehiculos() {
                           <option value="Autocaravana">Autocaravana</option>
                           <option value="Bicicleta">Bicicleta</option>
                         </select>
-                        <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                           <FaCarSide />
                         </div>
                       </div>
@@ -98,7 +100,8 @@ function Vehiculos() {
                           <span>Longitud</span>
 
                           <div className="relative">
-                            <select className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0">
+                            <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+>
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
@@ -111,7 +114,8 @@ function Vehiculos() {
                         <div>
                           <span>Altura</span>
                           <div className="relative">
-                            <select className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0">
+                            <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+>
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
@@ -126,7 +130,8 @@ function Vehiculos() {
                           <div className="relative col-span-2">
                             <select
                               onChange={handleLastDropdownChange}
-                              className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0"
+                                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+
                             >
                               <option value={0}>No</option>
                               <option value={1}>
@@ -137,7 +142,7 @@ function Vehiculos() {
                               </option>
                               <option value={3}>Caravana</option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                               <FaTrailer />
                             </div>
                           </div>
@@ -147,7 +152,8 @@ function Vehiculos() {
                             <div>
                               <span>Longirud remolque</span>
                               <div className="relative">
-                                <select className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0">
+                                <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+>
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>
@@ -160,7 +166,8 @@ function Vehiculos() {
                             <div>
                               <span>Altura remolque</span>
                               <div className="relative">
-                                <select className="w-full rounded-lg border-gray-300 text-slate-950 pl-10 focus:border-0">
+                                <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+>
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>
@@ -181,13 +188,12 @@ function Vehiculos() {
           </div>
         }
       >
-        <div className="border border-gray-300 bg-white text-gray-700 p-2.5 rounded-lg pl-10 text-sm">
+        <div className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
           Vehiculos
         </div>
       </Popover>
-
-      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-        <FaCar />
+      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <FaCar />{" "}
       </div>
     </div>
   );

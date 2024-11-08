@@ -71,7 +71,7 @@ function SelectorPersonas() {
           <option value={2}>2</option>
           <option value={3}>3</option>
         </select>
-        <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl ">
+        <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
           <MdMeetingRoom />
         </div>
       </div>
@@ -105,7 +105,8 @@ function SelectorPersonas() {
                               <option value={5}>5</option>
                               <option value={6}>6</option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+
+                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <FaPerson />
                             </div>
                           </div>
@@ -125,7 +126,8 @@ function SelectorPersonas() {
                               <option value={2}>2</option>
                               <option value={3}>3</option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+
+                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <FaChild />
                             </div>
                           </div>

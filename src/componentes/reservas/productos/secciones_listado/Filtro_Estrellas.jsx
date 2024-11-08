@@ -27,7 +27,7 @@ const Estrellas = ({ onChange }) => {
               type="checkbox"
               value={starValue}
               onChange={handleChange}
-              className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary focus:ring-2"
+              className="w-4 h-4 text-secondary bg-gray-100 dark:bg-slate-700 dark:border-slate-600 border-gray-300 rounded focus:ring-secondary focus:ring-2"
             />
             <label
               htmlFor={`hotel_estrellas${starValue}`}

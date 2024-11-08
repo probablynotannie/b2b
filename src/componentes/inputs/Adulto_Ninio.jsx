@@ -46,7 +46,7 @@ function SelectorPersonas() {
                   <select
                     onChange={onAdultosChange}
                     id="habitaciones"
-                    className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500  w-full p-2.5"
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                   >
                     <option value={1}>1</option>
                     <option value={2} selected>
@@ -57,8 +57,7 @@ function SelectorPersonas() {
                     <option value={5}>5</option>
                     <option value={6}>6</option>
                   </select>
-
-                  <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                     <FaPerson />
                   </div>
                 </div>
@@ -69,7 +68,7 @@ function SelectorPersonas() {
                   <select
                     onChange={onNiniosChange}
                     id="habitaciones"
-                    className="pl-12 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500  w-full p-2.5"
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                   >
                     <option value={0} selected>
                       0
@@ -78,8 +77,7 @@ function SelectorPersonas() {
                     <option value={2}>2</option>
                     <option value={3}>3</option>
                   </select>
-
-                  <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                     <FaChild />
                   </div>
                 </div>
@@ -95,7 +93,7 @@ function SelectorPersonas() {
                           onChange={(e) =>
                             handleAgeChange(index, e.target.value)
                           }
-                          className="mt-1 block w-full px-3 py-2 border border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
                           placeholder="Edad"
                         />
                       </div>
@@ -107,11 +105,11 @@ function SelectorPersonas() {
           </div>
         }
       >
-        <div className="border border-gray-300 bg-white text-gray-700 p-2.5 rounded-lg pl-10 text-sm">
+        <div className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
           {adultos} adultos {ninios} niños
         </div>
       </Popover>
-      <div className="absolute top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl ">
+      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
         <MdPeopleAlt />
       </div>
     </div>

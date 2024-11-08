@@ -90,7 +90,7 @@ function Listado() {
       <div className="grid grid-cols-4  gap-5 ">
         {habitaciones.map((habitacion) => (
           <div
-            className="col-span-4 md:col-span-2 lg:col-span-1 relative mt-5 border-2 bg-slate-700 hover:bg-slate-800 group  transition rounded-lg flex flex-col items-center shadow-xl p-3 pb-10"
+            className="col-span-4 md:col-span-2 lg:col-span-1 relative mt-5 border-2 bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-900 hover:bg-slate-800 group  transition rounded-lg flex flex-col items-center shadow-xl p-3 pb-10"
             key={habitacion.id}
           >
             <button className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white font-semibold border-2 border-white p-3 px-7 rounded-lg transition group-hover:shadow-xl">

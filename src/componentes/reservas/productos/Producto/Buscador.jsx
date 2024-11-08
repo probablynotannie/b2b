@@ -14,10 +14,10 @@ function Buscador() {
       {/* The search button */}
       <button
         onClick={toggleModal}
-        className="border-2 text-sm border-gray-100 text-slate-500 w-full text-start p-3 px-10 rounded-xl shadow-lg lg:hidden relative"
+        className="relative border-2 dark:border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
       >
         Cambiar busqueda
-        <span className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-2 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
           <FaSearch />
         </span>
       </button>
@@ -30,20 +30,20 @@ function Buscador() {
         // Close modal when clicking outside
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg"
+          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
         >
           <div>
-            <div className="w-full h-full mx-auto  relative">
-              <div className="flex justify-between items-center mb-4 bg-primary p-5 ">
-                <h2 className="text-xl font-bold text-white">Buscador</h2>
+            <div className="w-full h-full mx-auto  relative ">
+              <div className="flex justify-between items-center mb-4 bg-primary dark:bg-slate-900  p-5 ">
+                <h2 className="text-xl font-bold text-white ">Buscador</h2>
                 <button onClick={toggleModal} className="text-xl text-white">
                   &times;
                 </button>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3 p-5">
+          <div className="grid grid-cols-12 gap-3 p-5 ">
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_Buscador />
             </div>
@@ -54,7 +54,7 @@ function Buscador() {
               <Input_Hab_Adulto_Ninio />
             </div>
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
-              <button className="bg-primary flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
+              <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
                 <FaSearch className="text-white text-xl" />
               </button>
             </div>
@@ -72,8 +72,8 @@ function Buscador() {
       </div>
 
       {/* For smaller screens, show as normal layout (not a modal) */}
-      <div className="hidden lg:block border-2 rounded-xl shadow-lg min-h-28 p-5 ">
-        <h2 className="mb-4 font-bold text-xl">Buscador</h2>
+      <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
+        <h2 className="mb-4 font-bold text-xl dark:text-secondary">Buscador</h2>
         <div className="grid grid-cols-12 gap-3">
           <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <Input_Buscador />
@@ -85,7 +85,7 @@ function Buscador() {
             <Input_Hab_Adulto_Ninio />
           </div>
           <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
-            <button className="bg-primary flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
+            <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>
           </div>

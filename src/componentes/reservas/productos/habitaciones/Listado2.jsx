@@ -95,29 +95,29 @@ function Listado() {
          <TipoHabitacion minPrice={minPrice} maxPrice={maxPrice} />
 
       <table className="w-full ">
-        <thead>
+        <thead className="bg-slate-700   dark:bg-slate-900">
           <tr>
-            <th className="flex items-center text-start py-3 text-white font-semibold pl-4 bg-slate-700  ">
+            <th className="flex items-center text-start py-3 text-white font-semibold pl-4 ">
               <FaBed className="mr-2 text-xl" /> Tipo habitación
             </th>
-            <th className="text-start py-3 text-white font-semibold pl-4 bg-slate-700">
+            <th className="text-start py-3 text-white font-semibold pl-4 ">
               Reembolso
             </th>
-            <th className="text-start py-3 text-white font-semibold  pl-4 bg-slate-700">
+            <th className="text-start py-3 text-white font-semibold  pl-4 ">
               Regimen
             </th>
-            <th className="text-start py-3 text-white font-semibold pl-4 bg-slate-700">
+            <th className="text-start py-3 text-white font-semibold pl-4 ">
               Precio
             </th>
-            <th className="text-start py-3 text-white font-semibold  pl-4 bg-slate-700">
+            <th className="text-start py-3 text-white font-semibold  pl-4 ">
               Acciones
             </th>
           </tr>
         </thead>
-        <tbody>
+        <tbody className="dark:bg-slate-800">
           {habitaciones.map((habitacion) => (
             <tr className="border-b-2 border-slate-100" key={habitacion.id}>
-              <td className="p-3 font-semibold">{habitacion.nombre}</td>
+              <td className="p-3 font-semibold dark:text-secondary">{habitacion.nombre}</td>
               <td className="p-3 ">
                 {habitacion.reembolso === "SI" ? (
                   <div className="flex flex-col items-center space-x-3">
@@ -150,10 +150,10 @@ function Listado() {
                   </div>
                 )}
               </td>
-              <td className="p-3 text-sm text-slate-500">
+              <td className="p-3 text-sm text-slate-500 dark:text-slate-400">
                 {habitacion.regimen}
               </td>
-              <td className="p-3 text-sm "> {habitacion.precio}€ </td>
+              <td className="p-3 text-sm dark:text-green-400"> {habitacion.precio}€ </td>
               <td className="p-3 flex justify-end space-x-2">
                 <button className="px-6">
                   <FaFilePdf className="text-xl text-secondary hover:scale-125 transition hover:shadow-xl" />

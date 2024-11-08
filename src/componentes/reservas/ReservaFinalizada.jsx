@@ -58,11 +58,13 @@ function ReservaFinalizada() {
           </div>
         </div>
         <div></div>
-        <div className="border-2 border-slate-100 shadow-xl mt-5 p-5 rounded-lg ">
-          <h3 className="font-semibold text-lg">Resumen de compra</h3>
+        <div className="border-2 border-slate-100 dark:border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
+          <h3 className="font-semibold text-lg dark:text-white">
+            Resumen de compra
+          </h3>
           <p className="text-slate-500 mt-3">
             La reserva{" "}
-            <span className="font-semibold  text-black shadow-inn ">
+            <span className="font-semibold  text-black dark:text-white shadow-inn ">
               {" "}
               {numReserva}{" "}
             </span>{" "}
@@ -86,19 +88,21 @@ function ReservaFinalizada() {
             <section className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3 lg::gap-16  ">
               {reserva.map((reserva, index) => (
                 <div
-                  className="border-l-4 border-secondary bg-gray-50 shadow-inner rounded-r-xl text-sm p-3  border-y  border-y-slate-200 flexflex-col"
+                  className="border-l-4 border-secondary bg-gray-50 dark:bg-slate-700 dark:border-y-slate-700 shadow-inner rounded-r-xl text-sm p-3  border-y  border-y-slate-200  flex flex-col"
                   key={index}
                 >
-                  <span className="font-semibold"> {reserva.precio}€ </span>
+                  <span className="font-semibold dark:text-white">
+                    {" "}
+                    {reserva.precio}€{" "}
+                  </span>
 
-                  <p className="text-slate-500">
+                  <p className="text-slate-500 dark:text-slate-400">
                     {" "}
                     {reserva.fecha}{" "}
                     {reserva.fechaSalida && `- ${reserva.fechaSalida}`}{" "}
                   </p>
 
                   <h4 className="font-semibold text-secondary">
-                    {" "}
                     {reserva.nombre}{" "}
                   </h4>
                 </div>
@@ -109,7 +113,7 @@ function ReservaFinalizada() {
             <button className="hover:shadow-xl transition bg-slate-700 p-3 rounded-lg shadow-lg text-white font-semibold">
               Volver a la página principal
             </button>
-            <button className="hover:shadow-xl transition bg-secondary p-3 rounded-lg shadow-lg text-white font-semibold">
+            <button className="hover:shadow-xl transition bg-secondary dark:bg-secondaryDark p-3 rounded-lg shadow-lg text-white font-semibold">
               Descargar PDF
             </button>
           </div>

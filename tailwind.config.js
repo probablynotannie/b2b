@@ -2,6 +2,8 @@ const flowbite = require("flowbite-react/tailwind");
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  darkMode: 'selector',
+
   content: [
     // ...
     './index.html',
@@ -15,6 +17,7 @@ module.exports = {
         CajaForms: '#1e293b', // Gris oscuro
         primary: '#1e293b', // Gris oscuro de navbar 
         secondary: "#ff8c4c", // Naranja
+        secondaryDark: "#cf500c", // Naranja
         muted: "#e8ecf4", // Gris apagado
       },
       keyframes: {

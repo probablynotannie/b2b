@@ -48,14 +48,14 @@ function Bonificacion() {
                   <select
                     value={selectedValue}
                     onChange={handleSelectChange}
-                    className="rounded-lg w-full border-slate-300 pl-10"
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                   >
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
                     <option value={4}>4</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                     <MdPeopleAlt />
                   </div>
                 </div>
@@ -71,7 +71,7 @@ function Bonificacion() {
                       onChange={(e) =>
                         handleAgeChange(index + 1, e.target.value)
                       }
-                      className="rounded-lg w-full border-slate-300 pl-4"
+                      className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                     />
                   </div>
                 ))}
@@ -79,7 +79,7 @@ function Bonificacion() {
 
               <div>
                 <span>Residente?</span>
-                <select className="rounded-lg w-full border-slate-300">
+                <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
                   <option value={0}>---</option>
                   <option value={"Residente"}>
                     Residente en Ceuta o Melilla
@@ -89,7 +89,7 @@ function Bonificacion() {
 
               <div>
                 <span>Municipio?</span>
-                <select className="rounded-lg w-full border-slate-300">
+                <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
                   <option value={"---"}>---</option>
                   <option value={"Ceuta"}>Ceuta</option>
                   <option value={"Melilla"}>Melilla</option>
@@ -101,7 +101,7 @@ function Bonificacion() {
                 <select
                   value={selectedForce}
                   onChange={handleForceChange}
-                  className="rounded-lg w-full border-slate-300"
+                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                 >
                   <option value={"---"}>---</option>
                   <option value={"ejercito_tierra"}>Ejército de tierra</option>
@@ -114,7 +114,7 @@ function Bonificacion() {
               {selectedForce === "ejercito_tierra" && (
                 <div>
                   <span>Especialidad Tierra</span>
-                  <select className="rounded-lg w-full border-slate-300">
+                  <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
                     <option value={"infanteria"}>Infantería</option>
                     <option value={"artilleria"}>Artillería</option>
                     <option value={"caballeria"}>Caballería</option>
@@ -125,7 +125,7 @@ function Bonificacion() {
               {selectedForce === "ejercito_aire" && (
                 <div>
                   <span>Especialidad Aire</span>
-                  <select className="rounded-lg w-full border-slate-300">
+                  <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
                     <option value={"tropa_marineria"}>
                       Militares de tropa y marinería
                     </option>
@@ -142,7 +142,7 @@ function Bonificacion() {
               {selectedForce === "fuerza_naval" && (
                 <div>
                   <span>Especialidad Naval</span>
-                  <select className="rounded-lg w-full border-slate-300">
+                  <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
                     <option value={"tropa_marineria"}>
                       Militares de tropa y marinería
                     </option>
@@ -155,18 +155,16 @@ function Bonificacion() {
                   </select>
                 </div>
               )}
-
-         
             </div>
           </div>
         }
       >
-        <div className="border border-gray-300 bg-white text-gray-700 p-2.5 rounded-lg pl-10 text-sm">
+        <div className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
           Bonificación/es
         </div>
       </Popover>
 
-      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
         <MdPeopleAlt />
       </div>
     </div>

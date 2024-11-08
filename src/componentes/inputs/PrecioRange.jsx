@@ -11,13 +11,13 @@ const PriceRangeSlider = ({ min, max }) => {
     <div>
       <div className="flex justify-between items-center mb-2">
         <div className="grid grid-cols-3 items-center w-1/3">
-          <span className="text-slate-700 font-semibold text-sm text-start">
+          <span className="text-slate-700 dark:text-slate-400 font-semibold text-sm text-start">
             {values[0]}€
           </span>
         </div>
-        <div className="text-center w-1/3 text-xs">Rango precio</div>
+        <div className="text-center w-1/3 text-xs dark:text-white">Rango precio</div>
         <div className="flex flex-col items-end w-1/3">
-          <span className="text-slate-700 font-semibold text-sm">
+          <span className="text-slate-700 dark:text-slate-400 font-semibold text-sm">
             {values[1]}€
           </span>
         </div>
@@ -32,7 +32,7 @@ const PriceRangeSlider = ({ min, max }) => {
           <div
             {...{
               ...trackProps,
-              key: undefined, // Remove the key property
+              key: undefined,
             }}
             className="w-full h-1 rounded-full"
             style={{
@@ -51,7 +51,7 @@ const PriceRangeSlider = ({ min, max }) => {
           <div
             {...{
               ...thumbProps,
-              key: undefined, // Remove the key property
+              key: undefined,
             }}
             className="w-5 h-5 bg-slate-500 rounded-full flex items-center justify-center shadow-lg"
           >

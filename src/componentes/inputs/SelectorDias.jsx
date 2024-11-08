@@ -6,7 +6,8 @@ function SelectorDias() {
     <div className="relative">
       <select
         id="habitaciones"
-        className="pl-11 bg-white border border-gray-300 text-slate-950 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500  w-full p-2.5"
+        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+
       >
         <option value={0} selected>
           Cualquier duración

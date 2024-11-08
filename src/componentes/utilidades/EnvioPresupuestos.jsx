@@ -14,7 +14,7 @@ function Clientes() {
         <div
           className={`bg-indigo-800 w-full h-full bg-opacity-55 rounded-lg shadow-lg px-10`}
         ></div>
-        <div className="absolute md:top-32 md:left-20 bg-CajaForms  bg-opacity-80 text-white px-4 md:px-10 w-11/12 md:w-2/3 xl:w-1/3 h-fit py-5 pb-16 rounded-lg shadow-xl">
+        <div className="absolute md:top-32 md:left-20 bg-CajaForms  bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 xl:w-1/3 h-fit py-5 pb-16 rounded-lg shadow-xl">
           <form></form>
         </div>
       </div>

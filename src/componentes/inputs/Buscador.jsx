@@ -67,7 +67,8 @@ function Buscador() {
         value={inputValue}
         onChange={handleInputChange}
         placeholder="Destino"
-        className="p-2.5 pl-10 text-sm border text-gray-700 border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400 overflow-hidden text-ellipsis whitespace-nowrap"
+        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+
       />
       {isDropdownOpen && (
         <ul className="absolute z-10 w-full bg-white border mt-2 border-gray-300 rounded-lg max-h-60 overflow-auto">
@@ -106,7 +107,7 @@ function Buscador() {
           )}
         </ul>
       )}
-      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
+      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
         <FaSearch />
       </div>
     </div>

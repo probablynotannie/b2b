@@ -40,7 +40,8 @@ function Navieras({ destinations = destinationData }) {
       <select
         value={selectedDestination}
         onChange={handleDestinationChange}
-        className="w-full p-2.5 border border-gray-300 focus:outline-none text-slate-950 text-sm focus:border-gray-400 pl-10 rounded-lg box-border" // Added w-full and box-border
+        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+
       >
         {/* Default option */}
         <option value="">Todos los Navieras</option>
@@ -56,9 +57,11 @@ function Navieras({ destinations = destinationData }) {
           </optgroup>
         ))}
       </select>
-      <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
-        <FaTrainSubway />
-      </div>
+
+      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <FaTrainSubway />                 
+       </div>
+ 
     </div>
   );
 }

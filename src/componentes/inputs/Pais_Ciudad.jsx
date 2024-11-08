@@ -51,7 +51,7 @@ function SelectorPaisCiudad() {
   return (
     <div className="relative w-full">
       <button
-        className="bg-white border px-2 pl-9 border-gray-300 text-slate-950 text-sm rounded-lg w-full py-3 flex items-center justify-between"
+        className="bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border px-2 pl-9 border-gray-300 text-slate-950 text-sm rounded-lg w-full py-3 flex items-center justify-between"
         type="button"
         onClick={toggleDropdown}
       >
@@ -76,9 +76,10 @@ function SelectorPaisCiudad() {
           />
         </svg>
       </button>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
+      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
         <FaMap />
       </div>
+
       {isDropdownOpen && (
         <div className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 shadow w-full">
           <ul className="py-2 text-sm text-gray-700">

@@ -28,14 +28,14 @@ function Ferris() {
           className={`absolute  z-0 bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10 `}
         ></div>
         <div 
-        className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-1/3 h-fit py-5 pb-16 rounded-lg shadow-xl"
+        className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-1/3 h-fit py-5 pb-16 rounded-lg shadow-xl"
         >
           <form>
             <h2 className="text-3xl font-bold">Buscador de ferris</h2>
             <div className="grid grid-cols-2 gap-3 mt-2 text-sm">
               <button type="button"
                 className={`p-2.5 rounded-lg font-bold ${
-                  viaje === "ida" ? "bg-secondary" : "bg-gray-400"
+                  viaje === "ida" ? "bg-secondary" : "bg-gray-400 dark:bg-slate-600"
                 }`}
                 onClick={() => handleviajeChange("ida")}
               >
@@ -43,7 +43,7 @@ function Ferris() {
               </button>
               <button type="button"
                 className={`p-2 rounded-lg font-bold ${
-                  viaje === "ida_vuelta" ? "bg-secondary" : "bg-gray-400"
+                  viaje === "ida_vuelta" ? "bg-secondary" : "bg-gray-400 dark:bg-slate-600"
                 }`}
                 onClick={() => handleviajeChange("ida_vuelta")}
               >
