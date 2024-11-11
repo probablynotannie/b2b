@@ -1,22 +1,16 @@
 import Buscador from "./Buscador";
-import Carousel from "./Imagenes_Carousel";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "../habitaciones/Listado";
 import Listado2 from "../habitaciones/Listado2";
 import Images from "../habitaciones/Imagenes";
 import Info from "../habitaciones/Info";
-import Map from "./Map"; // Import the Map component
-import {
-  FaLongArrowAltDown,
-  FaMapPin,
-  FaRegCalendarAlt,
-  FaChild,
-} from "react-icons/fa";
+import Map from "./Map";
+import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
 
 function Producto() {
   const producto = {
     id: 0,
-    nombre: "Luxury apartments",
+    nombre: "Apartamentos sol y mar",
     ubicacion: "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     precio: 364,
     fecha: "21 de octubre",
@@ -103,7 +97,7 @@ function Producto() {
             <h4 className="p-3 font-bold text-cen rounded-t-xl border-b-2 border-slate-100 dark:border-slate-700  text-secondary">
               Resumen
             </h4>
-            <div className="text-slateo-700 border-b-2 border-slate-700 mx-2 mt-3 text-sm">
+            <div className="text-slateo-700 mx-2 mt-3 text-sm">
               <span className="font-semibold dark:text-slate-400">Entrada</span>
               <div className="relative">
                 <input
@@ -112,16 +106,13 @@ function Producto() {
                   disabled
                   value={producto.fecha}
                 />
-
                 <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                   <FaRegCalendarAlt />
                 </div>
               </div>
-
               <span className="block mt-2 font-semibold dark:text-slate-400">
                 Salida
               </span>
-
               <div className="relative">
                 <input
                   className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
@@ -151,14 +142,14 @@ function Producto() {
                 )}
               </div>
             </div>
-            <div className="p-2">
+            {/*   <div className="p-2">
               <Map location={producto.ubicacion} />
-            </div>
+            </div> */}
           </section>
-
           <aside className="h-full lg:col-span-3 col-span-5 ">
-            <h4 className="font-bold text-lg mb-3">Imagenes</h4>
-            <Images />
+            {/*     <h4 className="font-bold text-lg mb-3">Imagenes</h4>
+            <Images /> */}
+            <Map location={producto.ubicacion} />
           </aside>
           <section className="col-span-5">
             <Info />

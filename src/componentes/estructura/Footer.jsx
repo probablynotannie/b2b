@@ -12,15 +12,14 @@ function Footer() {
         <span className="text-xs text-center md:text-start md:text-sm text-slate-700 dark:text-slate-400 ">
           &copy; 2023/2024 Dit Gestion
         </span>
-
         <div className="flex flex-col items-center md:items-center md:flex-row md:justify-center ">
           <ul className="flex gap-4 text-sm">
             <li className="dark:text-slate-400 cursor-pointer hover:underline">
               Aviso Legal
             </li>
-            <span className="hidden md:flex text-3xl dark:text-secondary">
+            <li className="hidden md:flex text-3xl dark:text-secondary">
               <IoIosBoat />
-            </span>
+            </li>
             <li className="dark:text-slate-400 cursor-pointer hover:underline">
               Contacto
             </li>

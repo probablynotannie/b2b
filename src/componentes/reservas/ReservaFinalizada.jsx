@@ -62,53 +62,10 @@ function ReservaFinalizada() {
           <h3 className="font-semibold text-lg dark:text-white">
             Resumen de compra
           </h3>
-          <p className="text-slate-500 mt-3">
-            La reserva{" "}
-            <span className="font-semibold  text-black dark:text-white shadow-inn ">
-              {" "}
-              {numReserva}{" "}
-            </span>{" "}
-            se ha completado con éxito a nombre de{" "}
-            <span className="font-semibold text-secondary">
-              {" "}
-              {reservante.nombre} {reservante.apellido}{" "}
-            </span>
-            con email:
-            <span className="font-semibold text-secondary">
-              {" "}
-              {reservante.email}{" "}
-            </span>
-            y teléfono de contacto:{" "}
-            <span className="font-semibold text-secondary">
-              {" "}
-              {reservante.tel}{" "}
-            </span>
-          </p>
-          <div>
-            <section className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3 lg::gap-16  ">
-              {reserva.map((reserva, index) => (
-                <div
-                  className="border-l-4 border-secondary bg-gray-50 dark:bg-slate-700 dark:border-y-slate-700 shadow-inner rounded-r-xl text-sm p-3  border-y  border-y-slate-200  flex flex-col"
-                  key={index}
-                >
-                  <span className="font-semibold dark:text-white">
-                    {" "}
-                    {reserva.precio}€{" "}
-                  </span>
 
-                  <p className="text-slate-500 dark:text-slate-400">
-                    {" "}
-                    {reserva.fecha}{" "}
-                    {reserva.fechaSalida && `- ${reserva.fechaSalida}`}{" "}
-                  </p>
-
-                  <h4 className="font-semibold text-secondary">
-                    {reserva.nombre}{" "}
-                  </h4>
-                </div>
-              ))}
-            </section>
-          </div>
+          <section className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3 lg::gap-16  ">
+            Holi
+          </section>
           <div className="flex justify-end flex-row gap-x-5 mt-10">
             <button className="hover:shadow-xl transition bg-slate-700 p-3 rounded-lg shadow-lg text-white font-semibold">
               Volver a la página principal
