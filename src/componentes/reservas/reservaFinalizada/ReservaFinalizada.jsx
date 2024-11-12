@@ -1,12 +1,7 @@
 import React from "react";
+import Datos from "./Datos";
 
 function ReservaFinalizada() {
-  const reservante = {
-    nombre: "Ana",
-    apellido: "Vachadze",
-    tel: "631694540",
-    email: "vachadze123@gmail.com",
-  };
   const numReserva = "HJGO1759175";
   const reserva = [
     {
@@ -42,13 +37,14 @@ function ReservaFinalizada() {
           <img
             src="/completado.jpg"
             className="w-full h-full object-cover rounded-lg shadow-lg"
+            alt="Imagen de reserva completada"
           />
           <div className="bg-black rounded-lg shadow-lg bg-opacity-45 top-0 absolute w-full h-full flex items-center justify-center">
             <div>
               <h2 className="text-white font-bold text-6xl">
                 Reserva completada con éxito
               </h2>
-              <span className="block text-center text-white  mt-2">
+              <span className="block text-center text-white text-4xl mt-2">
                 Núm:
                 <span className=" font-bold ml-2 text-center">
                   {numReserva}
@@ -57,20 +53,22 @@ function ReservaFinalizada() {
             </div>
           </div>
         </div>
-        <div></div>
         <div className="border-2 border-slate-100 dark:border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
-          <h3 className="font-semibold text-lg dark:text-white">
-            Resumen de compra
-          </h3>
-
-          <section className="mt-5 grid md:grid-cols-2 lg:grid-cols-3 gap-3 lg::gap-16  ">
-            Holi
+          <div className="flex justify-between dark:text-white">
+            <h3 className="font-semibold text-lg">Resumen de compra</h3>
+            <span className="block text-center mt-2">
+              Reserva:
+              <span className=" font-bold ml-2 text-center">{numReserva}</span>
+            </span>
+          </div>
+          <section>
+            <Datos />
           </section>
           <div className="flex justify-end flex-row gap-x-5 mt-10">
             <button className="hover:shadow-xl transition bg-slate-700 p-3 rounded-lg shadow-lg text-white font-semibold">
               Volver a la página principal
             </button>
-            <button className="hover:shadow-xl transition bg-secondary dark:bg-secondaryDark p-3 rounded-lg shadow-lg text-white font-semibold">
+            <button className="hover:shadow-xl transition bg-secondary p-3 rounded-lg shadow-lg text-white font-semibold">
               Descargar PDF
             </button>
           </div>

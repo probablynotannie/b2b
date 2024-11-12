@@ -7,7 +7,7 @@ import Destinos from "./componentes/motores/Destinos";
 import Entradas from "./componentes/motores/Entradas";
 import Ferris from "./componentes/motores/Ferris";
 import Cesta from "./componentes/reservas/cestaFinal/CestaCompleta";
-import ReservaFinalizada from "./componentes/reservas/ReservaFinalizada";
+import ReservaFinalizada from "./componentes/reservas/reservaFinalizada/ReservaFinalizada";
 import Tickets from "./componentes/motores/Tickets";
 import Clientes from "./componentes/utilidades/Clientes";
 import Presupuestos from "./componentes/utilidades/Presupuestos";

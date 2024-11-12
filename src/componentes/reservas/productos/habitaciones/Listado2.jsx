@@ -126,7 +126,7 @@ function Listado() {
         </thead>
         <tbody className="dark:bg-slate-800">
           {habitaciones.map((habitacion) => (
-            <tr className="border-b-2 border-slate-100" key={habitacion.id}>
+            <tr className="border-b-2 border-slate-100 dark:border-slate-700" key={habitacion.id}>
               <td className="p-3 font-semibold dark:text-secondary">
                 {habitacion.nombre}
               </td>
@@ -136,7 +136,7 @@ function Listado() {
               <td className="p-3 ">
                 {habitacion.reembolso === "SI" ? (
                   <div className="flex flex-col items-center space-x-3 ">
-                    <span className="bg-green-50 flex items-center text-slate-600 rounded-lg  text-sm gap-2 p-2 font-semibold flex-row">
+                    <span className="bg-green-50 dark:bg-green-700 dark:text-white flex items-center text-slate-600 rounded-lg  text-sm gap-2 p-2 font-semibold flex-row">
                       <FaCheck className="text-md " />
                       Reembolsable
                     </span>
@@ -146,9 +146,9 @@ function Listado() {
                   </div>
                 ) : (
                   <div className="flex flex-col items-center space-x-3 ">
-                    <span className="bg-red-50 flex items-center text-slate-600 rounded-lg  text-sm gap-2 p-1 font-semibold flex-row">
-                      <RxCross2 className="text-2xl text-red-600" />
-                      Reembolsable
+                    <span className="bg-red-50 dark:bg-red-500 dark:text-white flex items-center text-slate-600 rounded-lg  text-sm gap-2 p-1 font-semibold flex-row">
+                      <RxCross2 className="text-2xl text-red-600 dark:text-red-300" />
+                      No Reembolsable
                     </span>
                     {Array.isArray(habitacion.reembolso_penalizacion) ? (
                       <>
