@@ -8,14 +8,11 @@ function Datos() {
     tel: "631694540",
   };
   return (
-    <Tabs aria-label="Default tabs" variant="default">
-      <Tabs.Item active title="Contacto" icon={""}></Tabs.Item>
-      <Tabs.Item title="Dashboard" icon={""}>
-        This is . Clicking another tab will toggle the visibility of this one
-        for the next. The tab JavaScript swaps classes to control the content
-        visibility and styling.
-      </Tabs.Item>
-    </Tabs>
+    <>
+      <div className="flex justify-end gap-5 mt-5">
+        <div className="border-2 min-h-48 w-1/3"></div>
+      </div>
+    </>
   );
 }
 

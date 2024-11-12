@@ -62,6 +62,17 @@ function ReservaFinalizada() {
             </span>
           </div>
           <section>
+          </section>
+        </div>
+        <div className="border-2 border-slate-100 dark:border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
+          <div className="flex justify-between dark:text-white">
+            <h3 className="font-semibold text-lg">Contacto</h3>
+            <span className="block text-center mt-2">
+              Reserva:
+              <span className=" font-bold ml-2 text-center">{numReserva}</span>
+            </span>
+          </div>
+          <section>
             <Datos />
           </section>
           <div className="flex justify-end flex-row gap-x-5 mt-10">
