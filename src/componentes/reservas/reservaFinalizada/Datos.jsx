@@ -8,11 +8,19 @@ function Datos() {
     tel: "631694540",
   };
   return (
-    <>
-      <div className="flex justify-end gap-5 mt-5">
-        <div className="border-2 min-h-48 w-1/3"></div>
+    <div className="mt-10">
+      <h3 className="text-lg font-bold dark:text-slate-300">
+        Datos de contacto
+      </h3>
+      <div /* className="border-2 border-slate-100 dark:border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800" */
+      >
+        <div></div>
+        {contacto.nombre}
+        {contacto.apellido}
+        {contacto.email}
+        {contacto.tel}
       </div>
-    </>
+    </div>
   );
 }
 
