@@ -88,16 +88,16 @@ function ReservaFinalizada() {
 
       <section className="border-2 border-slate-100 dark:border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
         <header className=" dark:text-white">
-          <div className="flex justify-between">
+          <div className="flex flex-col md:flex-row justify-between ">
             <h3 className="font-semibold text-lg">
               Resumen de compra ( {reserva.type} )
             </h3>
-            <span className="block text-center mt-2">
+            <span className="block mt-2">
               Reserva:
               <span className="font-bold ml-2 text-center">{numReserva}</span>
             </span>
           </div>
-          <div className="flex flex-row gap-3">
+          <div className="flex flex-col md:flex-row md:gap-3">
             <div>
               <span className="font-semibold text-secondary"> fecha:</span>
               <span className="lowercase"> {reserva.fecha}</span>
