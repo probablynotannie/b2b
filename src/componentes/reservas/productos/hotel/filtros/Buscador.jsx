@@ -1,8 +1,8 @@
 import { useState } from "react";
-import Input_Buscador from "../../../inputs/Buscador2";
-import Input_DateRange from "../../../inputs/DateRange";
+import Input_Buscador from "../../../../inputs/Buscador2";
+import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
-import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio2";
+import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio2";
 
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal

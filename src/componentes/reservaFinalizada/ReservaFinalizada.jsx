@@ -112,6 +112,7 @@ function ReservaFinalizada() {
               </div>
             )}
           </div>
+          <Datos />
         </header>
       </section>
 
@@ -121,17 +122,16 @@ function ReservaFinalizada() {
       <section>
         <Hotel hotel={hotel} />
       </section>
-      <section>
-        <Datos />
+      <section className="mt-10">
+        <div className="reservation-actions flex justify-end flex-row gap-x-5 mt-5">
+          <button className="hover:shadow-xl transition bg-slate-700 p-3 rounded-lg shadow-lg text-white font-semibold">
+            Volver a la página principal
+          </button>
+          <button className="hover:shadow-xl transition bg-secondary p-3 rounded-lg shadow-lg text-white font-semibold">
+            Descargar PDF
+          </button>
+        </div>
       </section>
-      <div className="reservation-actions flex justify-end flex-row gap-x-5 mt-10">
-        <button className="hover:shadow-xl transition bg-slate-700 p-3 rounded-lg shadow-lg text-white font-semibold">
-          Volver a la página principal
-        </button>
-        <button className="hover:shadow-xl transition bg-secondary p-3 rounded-lg shadow-lg text-white font-semibold">
-          Descargar PDF
-        </button>
-      </div>
     </main>
   );
 }

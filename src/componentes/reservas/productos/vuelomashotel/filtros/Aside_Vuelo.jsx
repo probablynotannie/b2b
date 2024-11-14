@@ -1,5 +1,5 @@
 import { useState } from "react";
-import PrecioRange from "../../../inputs/PrecioRange";
+import PrecioRange from "../../../../inputs/PrecioRange";
 import Estrellas from "./Filtro_Estrellas";
 import Regimenes from "./Filtro_Regimenes";
 import Localidades from "./Filtro_Localidades";
@@ -18,7 +18,7 @@ function Aside() {
     if (reembolsable) count += 1;
     if (localidades.length > 0) count += 1;
     if (selectedStars.length > 0) count += 1;
-    if (selectedRegimenes.length > 0) count += 1; // Include regimen in active filters count
+    if (selectedRegimenes.length > 0) count += 1;
     return count;
   };
 
@@ -45,8 +45,8 @@ function Aside() {
           setPrecioRange={setPrecioRange}
           selectedStars={selectedStars}
           setSelectedStars={setSelectedStars}
-          selectedRegimenes={selectedRegimenes} // Pass selectedRegimenes here
-          setRegimenes={setRegimenes} // Pass setRegimenes here
+          selectedRegimenes={selectedRegimenes}
+          setRegimenes={setRegimenes}
         />
       </div>
 
@@ -58,7 +58,7 @@ function Aside() {
         >
           <div
             className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
-            onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
+            onClick={(e) => e.stopPropagation()}
           >
             {/* Close Button */}
             <button
@@ -76,8 +76,8 @@ function Aside() {
               setPrecioRange={setPrecioRange}
               selectedStars={selectedStars}
               setSelectedStars={setSelectedStars}
-              selectedRegimenes={selectedRegimenes} // Pass selectedRegimenes here
-              setRegimenes={setRegimenes} // Pass setRegimenes here
+              selectedRegimenes={selectedRegimenes}
+              setRegimenes={setRegimenes}
             />
           </div>
         </div>
@@ -93,7 +93,6 @@ function SidebarContent({
   setLocalidades,
   precioRange,
   setPrecioRange,
-  selectedStars,
   setSelectedStars,
   selectedRegimenes,
   setRegimenes,

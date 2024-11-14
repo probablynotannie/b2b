@@ -1,6 +1,6 @@
-import Buscador from "./Producto/Buscador";
-import Aside from "./secciones_listado/Aside";
-import Resultado from "./secciones_listado/Resultado";
+import Buscador from "./filtros/Buscador";
+import Aside from "./filtros/Aside";
+import Resultado from "./Resultado";
 function Productos() {
   return (
     <main className=" flex justify-center flex-colmy-10 items-center container my-10">

@@ -1,10 +1,9 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaCheck } from "react-icons/fa";
-
 function Listado() {
   const habitaciones = [
     {
@@ -34,11 +33,11 @@ function Listado() {
       nombre: "Habitación doble estándar",
       reembolso: "NO",
       reembolso_penalizacion: [
-        "A partir de 05/11/2024 penalización de 50.00€",
-        "A partir de 10/11/2024 penalización de 65.00€",
-        "A partir de 11/11/2024 penalización de 69.00€",
-        "A partir de 12/11/2024 penalización de 73.00€",
-        "A partir de 13/11/2024 penalización de 75.00€",
+        "A partir de 05/11/2024 penalización de 75.00€",
+        "A partir de 10/11/2024 penalización de 68.00€",
+        "A partir de 11/11/2024 penalización de 66.00€",
+        "A partir de 12/11/2024 penalización de 65.00€",
+        "A partir de 13/11/2024 penalización de 50.00€",
       ],
       regimen: "Media pensión",
       precio: "80.00",
@@ -126,7 +125,10 @@ function Listado() {
         </thead>
         <tbody className="dark:bg-slate-800">
           {habitaciones.map((habitacion) => (
-            <tr className="border-b-2 border-slate-100 dark:border-slate-700" key={habitacion.id}>
+            <tr
+              className="border-b-2 border-slate-100 dark:border-slate-700"
+              key={habitacion.id}
+            >
               <td className="p-3 font-semibold dark:text-secondary">
                 {habitacion.nombre}
               </td>
@@ -192,7 +194,6 @@ function Listado() {
                   </div>
                 )}
               </td>
-      
 
               <td className="p-3 flex justify-end space-x-2">
                 <button className="flex items-center justify-center transition font-semibold w-[50px] bg-slate-400  rounded-lg shadow-md hover:shadow-lg text-white">
