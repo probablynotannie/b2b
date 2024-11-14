@@ -1,4 +1,4 @@
-import Aside from "./filtros/Aside";
+import Aside from "./filtros/Aside_Vuelo";
 import MasVuelos from "./MasVuelos";
 
 function Vuelos() {

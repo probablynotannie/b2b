@@ -8,7 +8,7 @@ function FlightSelectionPage() {
   const flightSets = [
     {
       id: 1,
-      aerolinea: "EuroAir",
+      aerolinea: "Euro Air",
       outboundDate: "2024-11-22",
       returnDate: "2024-11-28",
       outboundFlights: [
@@ -218,12 +218,11 @@ function FlightSelection({
   };
 
   return (
-    <div className="p-4 mx-auto border rounded-md shadow">
+    <div className="p-4 mx-auto border rounded-xl shadow-lg">
       <header className="flex justify-between items-center p-4 border-b">
         <h2 className="text-lg font-semibold">{aerolinea}</h2>
       </header>
-
-      <div className="mt-4">
+      <div>
         <div className="bg-slate-200 p-4 rounded-t-lg">
           <h3 className="text-slate-600 text-sm flex items-center gap-2">
             <FaPlaneDeparture /> ida {outboundDate}
