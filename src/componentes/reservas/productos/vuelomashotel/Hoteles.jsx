@@ -1,7 +1,7 @@
 import Aside from "./filtros/Aside";
 import Resultado from "./Resultado";
 import Vuelos from "./VueloSeleccionados";
-import MasVUelos from "./MasVuelos";
+import MasVUelos from "./Vuelos";
 import Buscador from "./filtros/Buscador";
 import { Tabs } from "flowbite-react";
 function Productos() {

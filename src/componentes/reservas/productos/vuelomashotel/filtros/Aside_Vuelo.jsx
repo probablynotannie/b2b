@@ -36,18 +36,7 @@ function Aside() {
         )}
       </button>
       <div className="hidden lg:block">
-        <SidebarContent
-          reembolsable={reembolsable}
-          setReembolsable={setReembolsable}
-          localidades={localidades}
-          setLocalidades={setLocalidades}
-          precioRange={precioRange}
-          setPrecioRange={setPrecioRange}
-          selectedStars={selectedStars}
-          setSelectedStars={setSelectedStars}
-          selectedRegimenes={selectedRegimenes}
-          setRegimenes={setRegimenes}
-        />
+        <SidebarContent />
       </div>
 
       {/* Modal for medium screens and below */}
@@ -60,25 +49,13 @@ function Aside() {
             className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 text-xl right-4 text-white hover:text-gray-700"
             >
               ×
             </button>
-            <SidebarContent
-              reembolsable={reembolsable}
-              setReembolsable={setReembolsable}
-              localidades={localidades}
-              setLocalidades={setLocalidades}
-              precioRange={precioRange}
-              setPrecioRange={setPrecioRange}
-              selectedStars={selectedStars}
-              setSelectedStars={setSelectedStars}
-              selectedRegimenes={selectedRegimenes}
-              setRegimenes={setRegimenes}
-            />
+            <SidebarContent />
           </div>
         </div>
       )}
@@ -86,17 +63,7 @@ function Aside() {
   );
 }
 
-function SidebarContent({
-  reembolsable,
-  setReembolsable,
-  localidades,
-  setLocalidades,
-  precioRange,
-  setPrecioRange,
-  setSelectedStars,
-  selectedRegimenes,
-  setRegimenes,
-}) {
+function SidebarContent() {
   return (
     <div>
       <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
@@ -105,67 +72,20 @@ function SidebarContent({
         </h3>
       </div>
       <div className="p-6 lg:p-3 lg:pt-1">
-        <div>
-          <label
-            htmlFor="first_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-slate-400"
-          >
-            Nombre de hotel
-          </label>
+        <span className="font-semibold">Número de escalas</span>
+        <div className="flex items-center mb-4">
           <input
-            type="text"
-            id="first_name"
-            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full"
-            required
+            id="sin_escalas"
+            type="checkbox"
+            value=""
+            className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
-        </div>
-        <div className="mt-3 flex">
-          <label className="inline-flex justify-between w-full items-center">
-            <span className="text-sm font-medium text-gray-900 dark:text-secondary">
-              Reembolsable
-            </span>
-            <input
-              type="checkbox"
-              checked={reembolsable}
-              onChange={() => setReembolsable(!reembolsable)}
-              className="sr-only peer"
-            />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+          <label
+            htmlFor="sin_escalas"
+            className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+          >
+            Directo
           </label>
-        </div>
-        <div className="mx-3 mt-5">
-          <PrecioRange
-            min={0}
-            max={500}
-            value={precioRange}
-            onChange={setPrecioRange}
-          />
-        </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondary">
-            Categoría de Hotel
-          </span>
-          <div className="mt-2">
-            <Estrellas
-              onChange={(selectedStars) => setSelectedStars(selectedStars)}
-            />
-          </div>
-        </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondary">
-            Régimen
-          </span>
-          <div className="mt-2">
-            <Regimenes selected={selectedRegimenes} onChange={setRegimenes} />
-          </div>
-        </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondary">
-            Localidades
-          </span>
-          <div className="mt-2">
-            <Localidades selected={localidades} onChange={setLocalidades} />
-          </div>
         </div>
       </div>
     </div>
