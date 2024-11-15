@@ -9,11 +9,13 @@ function FlightSelectionPage() {
     {
       id: 1,
       aerolinea: "Euro Air",
+      incrementoPrecio: 1590,
       outboundDate: "2024-11-22",
       returnDate: "2024-11-28",
       outboundFlights: [
         {
           id: 1,
+          plazasDisponibles: 5,
           departure: "8:30",
           salida: "BIL",
           llegada: "MAD",
@@ -25,6 +27,7 @@ function FlightSelectionPage() {
         },
         {
           id: 2,
+          plazasDisponibles: 8,
           departure: "10:00",
           arrival: "11:05",
           salida: "MAD",
@@ -38,6 +41,7 @@ function FlightSelectionPage() {
       returnFlights: [
         {
           id: 1,
+          plazasDisponibles: 10,
           departure: "6:40",
           arrival: "7:40",
           salida: "BIL",
@@ -49,6 +53,7 @@ function FlightSelectionPage() {
         },
         {
           id: 2,
+          plazasDisponibles: "12",
           departure: "8:00",
           arrival: "9:00",
           salida: "MAD",
@@ -63,11 +68,13 @@ function FlightSelectionPage() {
     {
       id: 2,
       aerolinea: "Aerolinea Falso",
+      incrementoPrecio: 159,
       outboundDate: "2024-12-01",
       returnDate: "2024-12-07",
       outboundFlights: [
         {
           id: 1,
+          plazasDisponibles: 3,
           departure: "9:00",
           arrival: "10:05",
           salida: "BIL",
@@ -79,6 +86,7 @@ function FlightSelectionPage() {
         },
         {
           id: 2,
+          plazasDisponibles: 3,
           departure: "11:00",
           arrival: "12:05",
           salida: "MAD",
@@ -92,6 +100,7 @@ function FlightSelectionPage() {
       returnFlights: [
         {
           id: 1,
+          plazasDisponibles: 8,
           departure: "7:00",
           arrival: "8:00",
           salida: "BIL",
@@ -103,6 +112,7 @@ function FlightSelectionPage() {
         },
         {
           id: 2,
+          plazasDisponibles: 5,
           departure: "9:00",
           arrival: "10:00",
           salida: "MAD",
@@ -123,6 +133,7 @@ function FlightSelectionPage() {
           flightSetId={flightSet.id}
           aerolinea={flightSet.aerolinea}
           outboundDate={flightSet.outboundDate}
+          incrementoPrecio={flightSet.incrementoPrecio}
           returnDate={flightSet.returnDate}
           outboundFlights={flightSet.outboundFlights}
           returnFlights={flightSet.returnFlights}
@@ -138,8 +149,8 @@ function FlightSelectionPage() {
 
 function FlightSelection({
   flightSetId,
-  aerolinea,
   outboundDate,
+  incrementoPrecio,
   returnDate,
   outboundFlights,
   returnFlights,
@@ -150,8 +161,8 @@ function FlightSelection({
 }) {
   const FlightOption = ({ flight, selected, onSelect }) => (
     <div
-      className={`flex items-center justify-between p-4 border-b ${
-        selected ? "bg-slate-100" : ""
+      className={`flex items-center justify-between p-4 border-b dark:border-slate-800 ${
+        selected ? "bg-slate-100 dark:bg-slate-700" : ""
       }`}
       onClick={() => onSelect(flightSetId, flight.id)}
     >
@@ -159,29 +170,42 @@ function FlightSelection({
         type="radio"
         checked={selected}
         onChange={() => onSelect(flightSetId, flight.id)}
-        className="mr-3"
+        className="mr-3 text-secondary"
       />
       <img src="./logo.png" alt="Airline logo" className="w-12" />
       <div className="flex-1">
-        <p className="text-sm font-semibold flex items-center">
+        <p className="text-sm font-semibold flex items-center dark:text-slate-300">
           {flight.departure}{" "}
-          <span className="text-slate-400">{flight.salida}</span>{" "}
-          <FaLongArrowAltRight className="mx-1 text-slate-600" />
+          <span className="text-slate-400 dark:text-slate-400 ml-1">
+            {flight.salida}
+          </span>{" "}
+          <FaLongArrowAltRight className="mx-1 text-slate-600 dark:text-orange-400" />
           {flight.arrival}{" "}
-          <span className="text-slate-400">{flight.llegada}</span>
+          <span className="text-slate-400 dark:text-slate-400 ml-1">
+            {flight.llegada}
+          </span>
         </p>
-        <span className="text-sm">{flight.duration}</span>
-        <p className="text-xs text-red-500">¡Últimas plazas!</p>
+        <span className="text-sm dark:text-slate-400">{flight.duration}</span>
+        {flight.plazasDisponibles <= 5 ? (
+          <p className="text-red-500 text-xs"> ¡Últimas plazas! </p>
+        ) : (
+          flight.plazasDisponibles > 5 &&
+          flight.plazasDisponibles <= 8 && (
+            <p className="text-orange-400 text-xs">
+              Quedan {flight.plazasDisponibles} plazas
+            </p>
+          )
+        )}
       </div>
       <div className="text-sm text-end">
         {flight.escalas > 0 ? (
           <div>
-            <span>
+            <span className="dark:text-secondary dark:font-semibold">
               {flight.escalas > 1
                 ? `${flight.escalas} Escalas`
                 : `${flight.escalas} Escala`}
             </span>
-            <div className="text-xs mt-1 text-slate-500">
+            <div className="text-xs mt-1 text-slate-500 dark:text-slate-400">
               {flight.escalaSitio.map((sitio, index) => (
                 <div key={index}>
                   <span>{flight.escalaDuracion[index]}</span> -{" "}
@@ -191,7 +215,9 @@ function FlightSelection({
             </div>
           </div>
         ) : (
-          <span className="font-bold text-green-700">Directo</span>
+          <span className="font-bold text-green-700 dark:text-green-400">
+            Directo
+          </span>
         )}
       </div>
     </div>
@@ -218,15 +244,16 @@ function FlightSelection({
   };
 
   return (
-    <div className="p-4 mx-auto border rounded-xl shadow-lg">
-      <header className="flex justify-between items-center p-4 border-b">
-        <h2 className="text-lg font-semibold">{aerolinea}</h2>
-      </header>
+    <div className="p-4 dark:bg-slate-800 dark:border-slate-700 mx-auto border rounded-xl shadow-lg">
       <div>
-        <div className="bg-slate-200 p-4 rounded-t-lg">
-          <h3 className="text-slate-600 text-sm flex items-center gap-2">
-            <FaPlaneDeparture /> ida {outboundDate}
-          </h3>
+        <h4 className="text-2xl text-end font-bold dark:text-green-400 rounded-lg shadow-l w-fit  p-2">
+          +{incrementoPrecio}€
+        </h4>
+        <div className="bg-slate-200 dark:bg-slate-900 p-4 rounded-t-lg mt-3">
+          <span className="text-slate-600 dark:text-slate-300 text-sm flex items-center gap-2">
+            <FaPlaneDeparture className="text-lg text-slate-600 dark:text-slate-300" />{" "}
+            ida {outboundDate}
+          </span>
         </div>
         {outboundFlights.map((flight) => (
           <FlightOption
@@ -240,11 +267,11 @@ function FlightSelection({
             onSelect={handleOutboundSelection}
           />
         ))}
-
-        <div className="bg-slate-200 p-4 mt-4 rounded-t-lg">
-          <h3 className="text-slate-600 text-sm flex items-center gap-2">
-            <FaPlaneArrival /> vuelta {returnDate}
-          </h3>
+        <div className="bg-slate-200 dark:bg-slate-900  p-4 mt-4 rounded-t-lg">
+          <span className="text-slate-600  dark:text-slate-300 text-sm flex items-center gap-2">
+            <FaPlaneArrival className="text-lg text-slate-600 dark:text-slate-300" />{" "}
+            vuelta {returnDate}
+          </span>
         </div>
         {returnFlights.map((flight) => (
           <FlightOption
@@ -259,7 +286,6 @@ function FlightSelection({
           />
         ))}
       </div>
-
       <footer className="mt-4 text-center text-slate-500 text-xs">
         Tasas y gastos de gestión incluidos. El precio incluye gastos de gestión
         y/o descuento, en función del medio de pago seleccionado.

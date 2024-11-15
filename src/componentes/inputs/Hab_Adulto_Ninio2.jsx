@@ -155,7 +155,7 @@ function SelectorPersonas() {
                       {roomIndex !== 0 && (
                         <button
                           onClick={() => deleteRoom(room.id)}
-                          className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-red-500 hover:text-white transition  flex items-center justify-end pb-2 flex-col"
+                          className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-danger hover:text-white transition  flex items-center justify-end pb-2 flex-col"
                         >
                           <FaTrashAlt />
                         </button>

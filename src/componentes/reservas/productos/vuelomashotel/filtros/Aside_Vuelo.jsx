@@ -70,7 +70,7 @@ function SidebarContent() {
         </h3>
       </div>
       <div className="p-6 lg:p-3 lg:pt-1">
-        <span className="font-semibold">Número de escalas</span>
+        <span className="font-semibold dark:text-white">Número de escalas</span>
         <div className="flex items-center mb-4">
           <input
             id="sin_escalas"

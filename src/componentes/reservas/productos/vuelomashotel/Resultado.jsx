@@ -95,7 +95,7 @@ function Resultado() {
             </Carousel>
           </div>
           <div className="p-5 lg:w-2/3">
-            <div className="border-b-2 border-slate-100 pb-2">
+            <div className="border-b-2 border-slate-100 dark:border-slate-700  pb-2">
               <div className="flex justify-between w-full ">
                 <h4 className="text-secondary font-semibold">
                   {hotel.nombre}
@@ -117,7 +117,7 @@ function Resultado() {
                 <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
                 {hotel.direccion}
               </span>
-              <div className="flex justify-between mt-2 text-slate-900 dark:text-slate-500 font-semibold text-sm">
+              <div className="flex justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
                 <span className="flex items-center">
                   <FaPerson className="text-lg" /> {reserva.pax} adulto
                   {reserva.pax !== 1 && "s"}
@@ -135,7 +135,7 @@ function Resultado() {
                 </span>
               </div>
             </div>
-            <p className="lg:text-slate-600 dark:text-slate-400 text-sm text-slate-500 line-clamp-2">
+            <p className="lg:text-slate-600 mt-2 dark:text-slate-400 text-sm text-slate-500 line-clamp-2">
               {hotel.descripcion}
             </p>
             <div className="flex justify-end mt-3">

@@ -124,7 +124,7 @@ function Listado() {
             <span className="text-slate-400 text-sm">{habitacion.regimen}</span>
 
             {habitacion.reembolso === "No" && (
-              <span className="bg-red-500 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded mt-1">
+              <span className="bg-danger text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded mt-1">
                 No reembolsable
               </span>
             )}
@@ -140,13 +140,13 @@ function Listado() {
                       .map((penalizacion, index) => (
                         <span
                           key={index}
-                          className="text-red-400 font-semibold text-xs"
+                          className="text-danger_text font-semibold text-xs"
                         >
                           {penalizacion}
                         </span>
                       ))
                   ) : (
-                    <span className="text-red-400 font-semibold text-xs">
+                    <span className="text-danger_text font-semibold text-xs">
                       {habitacion.reembolso_penalizacion}
                     </span>
                   )}
@@ -175,14 +175,14 @@ function Listado() {
                 (penalizacion, index) => (
                   <div
                     key={index}
-                    className="text-red-400 font-semibold text-sm"
+                    className="text-danger_text font-semibold text-sm"
                   >
                     {penalizacion}
                   </div>
                 )
               )
             ) : (
-              <div className="text-red-400 font-semibold text-sm">
+              <div className="text-danger_text font-semibold text-sm">
                 {selectedHabitacion?.reembolso_penalizacion}
               </div>
             )}

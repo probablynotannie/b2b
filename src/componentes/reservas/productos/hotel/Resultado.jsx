@@ -5,7 +5,7 @@ import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
 import { Carousel } from "flowbite-react";
 import { FaDoorOpen } from "react-icons/fa";
-import { Button, Modal } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import { useState } from "react";
 
 function Resultado() {
@@ -26,7 +26,7 @@ function Resultado() {
       fotos: ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg"],
       descripcion:
         "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno...",
-      amenities: ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+      extras: ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
     },
     {
       nombre: "Gran Hotel Madrid",
@@ -36,8 +36,8 @@ function Resultado() {
       estrellas: 5,
       fotos: ["/hotel2.jpg", "/hotel3.jpg", "/hotel1.jpg"],
       descripcion:
-        "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital...",
-      amenities: ["Wi-Fi", "Desayuno incluido", "Gimnasio", "Restaurante"],
+        "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital que tiene un miradot increibla hacia el rio falso jaja :D ",
+      extras: ["Wi-Fi", "Desayuno incluido", "Gimnasio", "Restaurante"],
     },
     {
       nombre: "Costa Bella",
@@ -48,16 +48,16 @@ function Resultado() {
       fotos: ["/hotel3.jpg", "/hotel2.jpg"],
       descripcion:
         "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona...",
-      amenities: ["Wi-Fi", "Piscina", "Desayuno incluido", "Frente al mar"],
+      extras: ["Wi-Fi", "Piscina", "Desayuno incluido", "Frente al mar"],
     },
   ];
 
   const [openModal, setOpenModal] = useState(null);
 
   return (
-    <section className="pb-12">
+    <section className="pb-12 mt-5">
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl  border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg mb-3">
+        <h3 className="text-secondary font-semibold text-lg ">
           Resultados ({hoteles.length})
         </h3>
         <div className="flex flex-col gap-5 md:flex-row md:justify-between">
@@ -95,7 +95,7 @@ function Resultado() {
             </Carousel>
           </div>
           <div className="p-5 lg:w-2/3">
-            <div className="border-b-2 border-slate-100 pb-2">
+            <div className="border-b-2 border-slate-100 dark:border-slate-700  pb-2">
               <div className="flex justify-between w-full ">
                 <h4 className="text-secondary font-semibold">
                   {hotel.nombre}
@@ -117,7 +117,7 @@ function Resultado() {
                 <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
                 {hotel.direccion}
               </span>
-              <div className="flex justify-between mt-2 text-slate-900 dark:text-slate-500 font-semibold text-sm">
+              <div className="flex justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
                 <span className="flex items-center">
                   <FaPerson className="text-lg" /> {reserva.pax} adulto
                   {reserva.pax !== 1 && "s"}
@@ -135,7 +135,7 @@ function Resultado() {
                 </span>
               </div>
             </div>
-            <p className="lg:text-slate-600 dark:text-slate-400 text-sm text-slate-500 line-clamp-2">
+            <p className="lg:text-slate-600 mt-2 dark:text-slate-400 text-sm text-slate-500 line-clamp-2">
               {hotel.descripcion}
             </p>
             <div className="flex justify-end mt-3">
@@ -155,14 +155,14 @@ function Resultado() {
                 </Modal.Header>
                 <Modal.Body className="bg-white dark:bg-slate-900">
                   <div className="space-y-6">
-                    <p className="text-base leading-relaxed text-gray-500 dark:text-gray-400">
+                    <p className="leading-relaxed text-gray-500 dark:text-gray-400">
                       {hotel.descripcion}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
                       <strong>Precio por noche:</strong> ${hotel.precio}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      <strong>Amenities:</strong> {hotel.amenities.join(", ")}
+                      <strong>extras:</strong> {hotel.extras.join(", ")}
                     </p>
                   </div>
                 </Modal.Body>

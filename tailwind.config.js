@@ -18,6 +18,11 @@ module.exports = {
         primary: '#1e293b', // Gris oscuro de navbar 
         secondary: "#ff8c4c", // Naranja
         secondaryDark: "#cf500c", // Naranja
+        danger: "#f84048", // texto rojo fondo
+        danger_text: "#ea756f", //texto rojo
+        success: "",
+        text: "",
+        text_dark: "",
         muted: "#e8ecf4", // Gris apagado
       },
       keyframes: {

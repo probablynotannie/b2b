@@ -142,13 +142,13 @@ function Listado() {
                       <FaCheck className="text-md " />
                       Reembolsable
                     </span>
-                    <span className="text-sm text-red-400 mt-2 font-semibold">
+                    <span className="text-sm text-danger_text mt-2 font-semibold">
                       {habitacion.reembolso_penalizacion}
                     </span>
                   </div>
                 ) : (
                   <div className="flex flex-col items-center space-x-3 ">
-                    <span className="bg-red-50 dark:bg-red-500 dark:text-white flex items-center text-slate-600 rounded-lg  text-sm gap-2 p-1 font-semibold flex-row">
+                    <span className="bg-red-50 dark:bg-danger dark:text-white flex items-center text-slate-600 rounded-lg  text-sm gap-2 p-1 font-semibold flex-row">
                       <RxCross2 className="text-2xl text-red-600 dark:text-red-300" />
                       No Reembolsable
                     </span>
@@ -159,7 +159,7 @@ function Listado() {
                           .map((penalizacion, index) => (
                             <span
                               key={index}
-                              className="text-sm text-red-400 mt-2 font-semibold"
+                              className="text-sm text-danger_text mt-2 font-semibold"
                             >
                               {penalizacion}
                             </span>
@@ -170,7 +170,7 @@ function Listado() {
                             .map((penalizacion, index) => (
                               <span
                                 key={index}
-                                className="text-sm text-red-400 mt-2 font-semibold"
+                                className="text-sm text-danger_text mt-2 font-semibold"
                               >
                                 {penalizacion}
                               </span>
@@ -187,7 +187,7 @@ function Listado() {
                         )}
                       </>
                     ) : (
-                      <span className="text-sm text-red-400 mt-2 font-semibold">
+                      <span className="text-sm text-danger_text mt-2 font-semibold">
                         {habitacion.reembolso_penalizacion}
                       </span>
                     )}

@@ -112,7 +112,7 @@ function ReservaFinalizada() {
               </div>
             )}
           </div>
-          <Datos />
+          <Datos/>
         </header>
       </section>
 
@@ -124,7 +124,7 @@ function ReservaFinalizada() {
       </section>
       <section className="mt-10">
         <div className="reservation-actions flex justify-end flex-row gap-x-5 mt-5">
-          <button className="hover:shadow-xl transition bg-slate-700 p-3 rounded-lg shadow-lg text-white font-semibold">
+          <button className="hover:shadow-xl transition bg-slate-700 dark:bg-slate-800 p-3 rounded-lg shadow-lg text-white font-semibold">
             Volver a la página principal
           </button>
           <button className="hover:shadow-xl transition bg-secondary p-3 rounded-lg shadow-lg text-white font-semibold">

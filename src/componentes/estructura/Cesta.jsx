@@ -145,7 +145,7 @@ function Cesta() {
                   </div>
                   <div className="flex flex-col justify-between">
                     <button onClick={() => handleRemoveItem(index)}>
-                      <FaRegTrashAlt className="text-lg text-red-400" />
+                      <FaRegTrashAlt className="text-lg text-danger_text" />
                     </button>
                     <input
                       checked={selectedItems[index]}

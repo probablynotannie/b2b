@@ -128,7 +128,7 @@ function SelectorPersonas({
                       </div>
                     )}
                     {roomIndex !== 0 && (
-                      <div                           className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-red-500 hover:text-white transition  flex items-center justify-end pb-2 flex-col"
+                      <div                           className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-danger hover:text-white transition  flex items-center justify-end pb-2 flex-col"
 >
                         <button
                           onClick={() => deleteRoom(room.id)}

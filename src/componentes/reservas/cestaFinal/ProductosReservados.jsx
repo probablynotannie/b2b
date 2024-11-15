@@ -105,7 +105,7 @@ export default function ProductosReservados({
                       {!leido[item.id] ? (
                         <button
                           onClick={() => handleLeidoToggle(item.id)}
-                          className="bg-red-400 dark:bg-slate-800 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold"
+                          className="bg-danger_text dark:bg-slate-800 p-3 mt-5 rounded-lg shadow-xl text-white font-semibold"
                         >
                           Confirmo que he leído y acepto las condiciones
                         </button>

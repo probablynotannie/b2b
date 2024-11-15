@@ -64,10 +64,10 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment, leido }) {
               setSelectedPayment={setSelectedPayment}
             />
           ) : (
-            <div className="relative p-3 pt-6  bg-red-100 dark:bg-red-400 shadow rounded-xl border-2 border-red-500 dark:border-red-700 text-center text-red-600 dark:text-red-100">
+            <div className="relative p-3 pt-6  bg-red-100 dark:bg-danger_text shadow rounded-xl border-2 border-red-500 dark:border-red-700 text-center text-red-600 dark:text-red-100">
               Por favor, lee atentamente la información importante y confirma
               que has leido todo antes de proceder a pago.
-              <div className="absolute -top-5  left-10 p-2 bg-red-500 dark:bg-red-700 text-white text-2xl rounded-full w-fit">
+              <div className="absolute -top-5  left-10 p-2 bg-danger dark:bg-red-700 text-white text-2xl rounded-full w-fit">
                 <FaExclamationTriangle className="animate-pulse" />
               </div>
             </div>
