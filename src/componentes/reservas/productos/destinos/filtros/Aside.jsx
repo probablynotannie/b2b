@@ -1,6 +1,13 @@
 import { useState } from "react";
 import PrecioRange from "../../../../inputs/PrecioRange";
-
+import Dias from "../../../../inputs/SelectorDias";
+import Viajeros from "./Viajeros";
+import Regimenes from "./Regimenes";
+import Categoria from "./Categoria";
+import Inspiracion from "./Inspiracion";
+import Ciudades from "./Ciudades";
+import Paises from "./Paises";
+import Proveedores from "./Proveedores";
 import { IoMdOptions } from "react-icons/io";
 
 function Aside() {
@@ -64,9 +71,42 @@ function SidebarContent({ values, setValues }) {
             required
           />
         </div>
-
         <div className="mx-3 mt-5">
           <PrecioRange values={values} setValues={setValues} />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Duración</span>
+          <Dias />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">
+            Régimen de alimentación
+          </span>
+          <Regimenes />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Viajeros</span>
+          <Viajeros />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Categorias</span>
+          <Categoria />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Isnpiración</span>
+          <Inspiracion />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Proveedores</span>
+          <Proveedores />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Proveedores</span>
+          <Ciudades />
+        </div>
+        <div className="mt-5">
+          <span className="text-sm font-semibold block mb-1">Proveedores</span>
+          <Paises />
         </div>
       </div>
     </div>
