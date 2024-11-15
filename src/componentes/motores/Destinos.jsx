@@ -1,6 +1,7 @@
-import Input_Destinos from "../inputs/Pais_Ciudad";
 import Sidebar from "./sidebar/Sidebar";
 import Input_Mes from "../inputs/Mes";
+import Input_Destinos from "../inputs/Pais_Ciudad";
+
 function Destinos() {
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
