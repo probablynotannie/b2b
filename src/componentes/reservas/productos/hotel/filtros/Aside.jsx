@@ -6,10 +6,10 @@ import Localidades from "./Filtro_Localidades";
 import { IoMdOptions } from "react-icons/io";
 
 function Aside() {
+  const [values, setValues] = useState([0, 500]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reembolsable, setReembolsable] = useState(false);
   const [localidades, setLocalidades] = useState([]);
-  const [precioRange, setPrecioRange] = useState({ min: 0, max: 500 });
   const [selectedStars, setSelectedStars] = useState([]);
   const [selectedRegimenes, setRegimenes] = useState([]);
 
@@ -40,9 +40,9 @@ function Aside() {
           reembolsable={reembolsable}
           setReembolsable={setReembolsable}
           localidades={localidades}
+          values={values}
+          setValues={setValues}
           setLocalidades={setLocalidades}
-          precioRange={precioRange}
-          setPrecioRange={setPrecioRange}
           selectedStars={selectedStars}
           setSelectedStars={setSelectedStars}
           selectedRegimenes={selectedRegimenes} // Pass selectedRegimenes here
@@ -71,9 +71,9 @@ function Aside() {
               reembolsable={reembolsable}
               setReembolsable={setReembolsable}
               localidades={localidades}
+              values={values}
+              setValues={setValues}
               setLocalidades={setLocalidades}
-              precioRange={precioRange}
-              setPrecioRange={setPrecioRange}
               selectedStars={selectedStars}
               setSelectedStars={setSelectedStars}
               selectedRegimenes={selectedRegimenes} // Pass selectedRegimenes here
@@ -91,8 +91,8 @@ function SidebarContent({
   setReembolsable,
   localidades,
   setLocalidades,
-  precioRange,
-  setPrecioRange,
+  values,
+  setValues,
   setSelectedStars,
   selectedRegimenes,
   setRegimenes,
@@ -134,12 +134,7 @@ function SidebarContent({
           </label>
         </div>
         <div className="mx-3 mt-5">
-          <PrecioRange
-            min={0}
-            max={500}
-            value={precioRange}
-            onChange={setPrecioRange}
-          />
+          <PrecioRange values={values} setValues={setValues} />
         </div>
         <div className="mt-5">
           <span className="text-sm font-semibold dark:text-secondary">

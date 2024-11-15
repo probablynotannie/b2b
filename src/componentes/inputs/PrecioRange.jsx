@@ -1,9 +1,9 @@
 import React, { useState, useEffect } from "react";
 import { Range, getTrackBackground } from "react-range";
 
-const PriceRangeSlider = ({ min, max }) => {
-  const [values, setValues] = useState([min ? min : 0, max ? max : 100]);
-  const MAX = max;
+const PriceRangeSlider = ({values,setValues}) => {
+  const [MAX] = useState(values[1]);
+  const [MIN] = useState(values[0]);
   useEffect(() => {
     return () => {};
   }, []);
@@ -15,7 +15,9 @@ const PriceRangeSlider = ({ min, max }) => {
             {values[0]}€
           </span>
         </div>
-        <div className="text-center w-1/3 text-xs dark:text-white">Rango precio</div>
+        <div className="text-center w-1/3 text-xs dark:text-white">
+          Rango precio
+        </div>
         <div className="flex flex-col items-end w-1/3">
           <span className="text-slate-700 dark:text-slate-400 font-semibold text-sm">
             {values[1]}€
@@ -25,7 +27,7 @@ const PriceRangeSlider = ({ min, max }) => {
       <Range
         values={values}
         step={1}
-        min={min}
+        min={MIN}
         max={MAX}
         onChange={(values) => setValues(values)}
         renderTrack={({ props: trackProps, children }) => (
@@ -39,7 +41,7 @@ const PriceRangeSlider = ({ min, max }) => {
               background: getTrackBackground({
                 values,
                 colors: ["#ccc", "#ff8c4c", "#ccc"],
-                min: min,
+                min: MIN,
                 max: MAX,
               }),
             }}
