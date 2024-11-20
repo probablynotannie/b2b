@@ -17,7 +17,7 @@ module.exports = {
         CajaForms: '#1e293b', // Gris oscuro
         primary: '#1e293b', // Gris oscuro de navbar 
         secondary: "#ff8c4c", // Naranja
-        secondaryDark: "#cf500c", // Naranja
+        secondaryDark: "#ff8c4c", // Naranja
         danger: "#f84048", // texto rojo fondo
         danger_text: "#ea756f", //texto rojo
         success: "",

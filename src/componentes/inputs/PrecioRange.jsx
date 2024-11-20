@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { Range, getTrackBackground } from "react-range";
 
-const PriceRangeSlider = ({values,setValues}) => {
+const PriceRangeSlider = ({ values, setValues }) => {
   const [MAX] = useState(values[1]);
   const [MIN] = useState(values[0]);
   useEffect(() => {

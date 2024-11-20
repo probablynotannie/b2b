@@ -202,7 +202,7 @@ function FlightSelection({
       <div className="text-sm text-end">
         {flight.escalas > 0 ? (
           <div>
-            <span className="dark:text-secondary dark:font-semibold">
+            <span className="dark:text-secondaryDark dark:font-semibold">
               {flight.escalas > 1
                 ? `${flight.escalas} Escalas`
                 : `${flight.escalas} Escala`}

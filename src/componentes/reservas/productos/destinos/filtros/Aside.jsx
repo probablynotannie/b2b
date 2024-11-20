@@ -71,41 +71,41 @@ function SidebarContent({ values, setValues }) {
             required
           />
         </div>
-        <div className="mx-3 mt-5">
+        <div className="mx-3 mt-5 dark:text-secondaryDark">
           <PrecioRange values={values} setValues={setValues} />
         </div>
-        <div className="mt-5">
+        <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">Duración</span>
           <Dias />
         </div>
-        <div className="mt-5">
+        <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">
             Régimen de alimentación
           </span>
           <Regimenes />
         </div>
-        <div className="mt-5">
+        <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">Viajeros</span>
           <Viajeros />
         </div>
-        <div className="mt-5">
+        <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">Categorias</span>
           <Categoria />
         </div>
-        <div className="mt-5">
+        <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">Isnpiración</span>
           <Inspiracion />
         </div>
-        <div className="mt-5">
+        <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">Proveedores</span>
           <Proveedores />
         </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold block mb-1">Proveedores</span>
+        <div className="mt-5 dark:text-secondaryDark">
+          <span className="text-sm font-semibold block mb-1">Ciudades</span>
           <Ciudades />
         </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold block mb-1">Proveedores</span>
+        <div className="mt-5 dark:text-secondaryDark">
+          <span className="text-sm font-semibold block mb-1">Paises</span>
           <Paises />
         </div>
       </div>

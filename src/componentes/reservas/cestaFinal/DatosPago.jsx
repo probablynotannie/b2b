@@ -39,7 +39,7 @@ function DatosPago({ reserva, selectedPayment, setSelectedPayment, leido }) {
               <div className="flex items-center space-x-2">
                 {getIconForReserva(reserva.texto)}
 
-                <h6 className="font-semibold dark:text-secondary">
+                <h6 className="font-semibold dark:text-secondaryDark">
                   {reserva.nombre}
                 </h6>
               </div>

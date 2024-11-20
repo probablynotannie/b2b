@@ -121,7 +121,7 @@ function SidebarContent({
         </div>
         <div className="mt-3 flex">
           <label className="inline-flex justify-between w-full items-center">
-            <span className="text-sm font-medium text-gray-900 dark:text-secondary">
+            <span className="text-sm font-medium text-gray-900 dark:text-secondaryDark">
               Reembolsable
             </span>
             <input
@@ -137,7 +137,7 @@ function SidebarContent({
           <PrecioRange values={values} setValues={setValues} />
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondary">
+          <span className="text-sm font-semibold dark:text-secondaryDark">
             Categoría de Hotel
           </span>
           <div className="mt-2">
@@ -147,7 +147,7 @@ function SidebarContent({
           </div>
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondary">
+          <span className="text-sm font-semibold dark:text-secondaryDark">
             Régimen
           </span>
           <div className="mt-2">
@@ -155,7 +155,7 @@ function SidebarContent({
           </div>
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondary">
+          <span className="text-sm font-semibold dark:text-secondaryDark">
             Localidades
           </span>
           <div className="mt-2">

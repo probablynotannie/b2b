@@ -193,7 +193,7 @@ function SelectorPersonas() {
                 >
                   <div className="w-fit flex items-center space-x-1 font-semibold">
                     <span>Agregar una habitación </span>
-                    <CiCirclePlus className="dark:text-secondary text-lg" />
+                    <CiCirclePlus className="dark:text-secondaryDark text-lg" />
                   </div>
                 </div>
               </div>

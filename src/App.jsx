@@ -17,12 +17,13 @@ import Busqueda_Tickets from "./componentes/motores/Tickets";
 import Busqueda_Vuelomashotel from "./componentes/motores/Vuelomashotel";
 
 /* LISTADOS */
-import ListadoHoteles from "./componentes/reservas/productos/hotel/Hoteles";
+import ListadoHoteles from "./componentes/reservas/productos/hotel/Resultado";
 import ListadoVueloMasHotel from "./componentes/reservas/productos/vuelomashotel/Resultado";
-import ListadoDestinos from "./componentes/reservas/productos/destinos/Destinos";
+import ListadoDestinos from "./componentes/reservas/productos/destinos/Resultado";
 
 /* PRODUCTO */
 import Hotel from "./componentes/reservas/productos/hotel/habitacion/Hotel";
+import Destino from "./componentes/reservas/productos/destinos//destino/Destino";
 
 /* RESERVA */
 import Cesta from "./componentes/reservas/cestaFinal/CestaCompleta";
@@ -61,7 +62,7 @@ function App() {
             {/* PRODUCTO  */}
             <Route path="/hotel" element={<Hotel />} />
             <Route path="/hotelMasVuelo" element={<Hotel />} />
-            <Route path="/destinos" element={<Hotel />} />
+            <Route path="/destino" element={<Destino />} />
 
             {/*  */}
             <Route path="/clientes" element={<Clientes />} />

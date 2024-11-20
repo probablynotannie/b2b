@@ -159,16 +159,22 @@ function Resultado() {
                       {hotel.descripcion}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      <strong>Precio por noche:</strong> ${hotel.precio}
+                      <span className="font-semibold text-primary">
+                        Precio por noche:
+                      </span>{" "}
+                      {hotel.precio}€
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      <strong>extras:</strong> {hotel.extras.join(", ")}
+                      <span className="font-semibold text-primary">
+                        extras:
+                      </span>{" "}
+                      {hotel.extras.join(", ")}
                     </p>
                   </div>
                 </Modal.Body>
                 <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
                   <button
-                    className="p-3 px-5 bg-slate-700  dark:bg-secondary font-bold rounded-xl text-white"
+                    className="p-3 px-5 bg-slate-700  dark:bg-secondaryDark font-bold rounded-xl text-white"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar

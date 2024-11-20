@@ -32,18 +32,18 @@ function ResumenCompra({
         </h4>
 
         <div className="grid grid-cols-2 md:grid-cols-3 gap-y-10 md:gap-10 ">
-          <div className="flex items-center justify-center flex-col md:text-center text-sm text-slate-400 dark:text-secondary font-semibold">
+          <div className="flex items-center justify-center flex-col md:text-center text-sm text-slate-400 dark:text-secondaryDark font-semibold">
             <FaUser className="text-2xl text-secondary mb-2 md:mb-0" />
             <span>
               {contacto.nombre} {contacto.apellido}
             </span>
           </div>
-          <div className="flex items-center justify-center flex-col md:text-center text-sm text-slate-400 dark:text-secondary font-semibold">
+          <div className="flex items-center justify-center flex-col md:text-center text-sm text-slate-400 dark:text-secondaryDark font-semibold">
             <MdMarkEmailRead className="text-3xl text-secondary" />
 
             {contacto.email}
           </div>
-          <div className="flex items-center justify-center flex-col md:text-center text-sm text-slate-400 dark:text-secondary font-semibold">
+          <div className="flex items-center justify-center flex-col md:text-center text-sm text-slate-400 dark:text-secondaryDark font-semibold">
             <BsFillTelephoneFill className="text-2xl text-secondary" />
 
             {contacto.tel}

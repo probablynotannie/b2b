@@ -39,7 +39,7 @@ export default function ProductosReservados({
           >
             <div>
               <h4 className="font-semibold text-md dark:text-slate-200">{item.nombre}</h4>
-              <span className="text-primary font-semibold dark:text-secondary">{item.precio}€</span>
+              <span className="text-primary font-semibold dark:text-secondaryDark">{item.precio}€</span>
               <span className="block text-gray-400 dark:text-slate-300">
                 {item.fecha}{" "}
                 {item.fechaSalida && <span> - {item.fechaSalida} </span>}

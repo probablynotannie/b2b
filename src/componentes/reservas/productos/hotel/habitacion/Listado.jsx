@@ -133,7 +133,6 @@ function Listado() {
             {habitacion.reembolso === "No" &&
               habitacion.reembolso_penalizacion && (
                 <div className="flex flex-col mt-2">
-                  
                   {Array.isArray(habitacion.reembolso_penalizacion) ? (
                     habitacion.reembolso_penalizacion
                       .slice(0, 2)

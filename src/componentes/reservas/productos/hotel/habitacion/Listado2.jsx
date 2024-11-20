@@ -96,10 +96,10 @@ function Listado() {
   );
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
-
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id); // Toggle the expanded state
   };
+
 
   return (
     <div className="space-y-10">
@@ -129,7 +129,7 @@ function Listado() {
               className="border-b-2 border-slate-100 dark:border-slate-700"
               key={habitacion.id}
             >
-              <td className="p-3 font-semibold dark:text-secondary">
+              <td className="p-3 font-semibold dark:text-secondaryDark">
                 {habitacion.nombre}
               </td>
               <td className="p-3 text-sm text-slate-500 dark:text-slate-400">

@@ -17,7 +17,7 @@ function Footer() {
             <li className="dark:text-slate-400 cursor-pointer hover:underline">
               Aviso Legal
             </li>
-            <li className="hidden md:flex text-3xl dark:text-secondary">
+            <li className="hidden md:flex text-3xl dark:text-secondaryDark">
               <IoIosBoat />
             </li>
             <li className="dark:text-slate-400 cursor-pointer hover:underline">
