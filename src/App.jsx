@@ -18,7 +18,7 @@ import Busqueda_Vuelomashotel from "./componentes/motores/Vuelomashotel";
 
 /* LISTADOS */
 import ListadoHoteles from "./componentes/reservas/productos/hotel/Hoteles";
-import ListadoVueloMasHotel from "./componentes/reservas/productos/vuelomashotel/hoteles";
+import ListadoVueloMasHotel from "./componentes/reservas/productos/vuelomashotel/Resultado";
 import ListadoDestinos from "./componentes/reservas/productos/destinos/Destinos";
 
 /* PRODUCTO */

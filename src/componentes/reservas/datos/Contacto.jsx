@@ -12,16 +12,9 @@ function Contacto() {
     {
       id: 1,
       nombre: "Barcelona - Madrid",
-      type: "Tren",
+      type: "Vuelo",
       fecha: "21 de octubre",
       img: "/banner_avion.jpg",
-    },
-    {
-      id: 2,
-      nombre: "Festival de libros",
-      type: "Entradas",
-      fecha: "21 de octubre",
-      img: "/banner_destinos.jpg",
     },
   ];
   return (
@@ -38,10 +31,11 @@ function Contacto() {
             {reserva.map((reserva) => (
               <div key={reserva.id} className=" px-3 min-h-48  ">
                 <div
-                  className="bg-cover border-2 dark:border-slate-800 dark:shadow-md dark:shadow-slate-700 shadow-md rounded-xl w-full h-full"
+                  className="bg-cover border-2 dark:border-slate-800 dark:shadow-md dark:shadow-slate-700  shadow-md rounded-xl w-full h-full"
                   style={{
                     backgroundImage: `url(${reserva.img})`,
                     backgroundSize: "cover",
+                    backgroundPosition: "center",
                   }}
                 >
                   <div className="bg-black rounded-xl w-full h-full bg-opacity-45  flex justify-center items-center flex-col ">

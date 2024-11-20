@@ -126,7 +126,9 @@ function FlightSelectionPage() {
     },
   ];
   return (
-    <div className="p-4 mx-auto space-y-8">
+    <div className=" mx-auto space-y-8">
+      <h3 className="text-secondary font-semibold text-lg mb-10">Resultados</h3>
+
       {flightSets.map((flightSet) => (
         <FlightSelection
           key={flightSet.id}
@@ -244,52 +246,54 @@ function FlightSelection({
   };
 
   return (
-    <div className="p-4 dark:bg-slate-800 dark:border-slate-700 mx-auto border rounded-xl shadow-lg">
-      <div>
-        <h4 className="text-2xl text-end font-bold dark:text-green-400 rounded-lg shadow-l w-fit  p-2">
-          +{incrementoPrecio}€
-        </h4>
-        <div className="bg-slate-200 dark:bg-slate-900 p-4 rounded-t-lg mt-3">
-          <span className="text-slate-600 dark:text-slate-300 text-sm flex items-center gap-2">
-            <FaPlaneDeparture className="text-lg text-slate-600 dark:text-slate-300" />{" "}
-            ida {outboundDate}
-          </span>
+    <div>
+      <div className="p-4 dark:bg-slate-800 dark:border-slate-700 mx-auto border rounded-xl shadow-lg">
+        <div>
+          <h4 className="text-2xl text-end font-bold text-orange-400 dark:text-green-400 rounded-lg shadow-l w-fit  p-2">
+            +{incrementoPrecio}€
+          </h4>
+          <div className="bg-slate-200 dark:bg-slate-900 p-4 rounded-t-lg mt-3">
+            <span className="text-slate-600 dark:text-slate-300 text-sm flex items-center gap-2">
+              <FaPlaneDeparture className="text-lg text-slate-600 dark:text-slate-300" />{" "}
+              ida {outboundDate}
+            </span>
+          </div>
+          {outboundFlights.map((flight) => (
+            <FlightOption
+              key={flight.id}
+              flight={flight}
+              selected={
+                selectedOutboundFlight &&
+                selectedOutboundFlight.flightSetId === flightSetId &&
+                selectedOutboundFlight.flightId === flight.id
+              }
+              onSelect={handleOutboundSelection}
+            />
+          ))}
+          <div className="bg-slate-200 dark:bg-slate-900  p-4 mt-4 rounded-t-lg">
+            <span className="text-slate-600  dark:text-slate-300 text-sm flex items-center gap-2">
+              <FaPlaneArrival className="text-lg text-slate-600 dark:text-slate-300" />{" "}
+              vuelta {returnDate}
+            </span>
+          </div>
+          {returnFlights.map((flight) => (
+            <FlightOption
+              key={flight.id}
+              flight={flight}
+              selected={
+                selectedReturnFlight &&
+                selectedReturnFlight.flightSetId === flightSetId &&
+                selectedReturnFlight.flightId === flight.id
+              }
+              onSelect={handleReturnSelection}
+            />
+          ))}
         </div>
-        {outboundFlights.map((flight) => (
-          <FlightOption
-            key={flight.id}
-            flight={flight}
-            selected={
-              selectedOutboundFlight &&
-              selectedOutboundFlight.flightSetId === flightSetId &&
-              selectedOutboundFlight.flightId === flight.id
-            }
-            onSelect={handleOutboundSelection}
-          />
-        ))}
-        <div className="bg-slate-200 dark:bg-slate-900  p-4 mt-4 rounded-t-lg">
-          <span className="text-slate-600  dark:text-slate-300 text-sm flex items-center gap-2">
-            <FaPlaneArrival className="text-lg text-slate-600 dark:text-slate-300" />{" "}
-            vuelta {returnDate}
-          </span>
-        </div>
-        {returnFlights.map((flight) => (
-          <FlightOption
-            key={flight.id}
-            flight={flight}
-            selected={
-              selectedReturnFlight &&
-              selectedReturnFlight.flightSetId === flightSetId &&
-              selectedReturnFlight.flightId === flight.id
-            }
-            onSelect={handleReturnSelection}
-          />
-        ))}
+        <footer className="mt-4 text-center text-slate-500 text-xs">
+          Tasas y gastos de gestión incluidos. El precio incluye gastos de
+          gestión y/o descuento, en función del medio de pago seleccionado.
+        </footer>
       </div>
-      <footer className="mt-4 text-center text-slate-500 text-xs">
-        Tasas y gastos de gestión incluidos. El precio incluye gastos de gestión
-        y/o descuento, en función del medio de pago seleccionado.
-      </footer>
     </div>
   );
 }
