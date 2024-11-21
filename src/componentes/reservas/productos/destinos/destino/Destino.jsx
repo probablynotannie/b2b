@@ -7,13 +7,99 @@ function Destino() {
   const producto = {
     nombre: "Hamburgo y su puerto",
     ubicacion: "Hamburgo",
+    img: "/destinos/destinoBanner.jpg",
+    pax: {
+      adultos: 2,
+      ninio: 0,
+      senior: 0,
+    },
+    itinerarioViaje: [
+      {
+        id: 0,
+        dia: 1,
+        ciudad: "Viena",
+        descripcion:
+          "Llegada a Viena y traslado al hotel. Entrega de todas las informaciones.",
+        alojamiento: "Viena",
+        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
+        actividades:
+          "Visita Panorámica de Viena - en grupo - guia local en español",
+      },
+      {
+        id: 0,
+        dia: 2,
+        ciudad: "Viena",
+        descripcion:
+          "Siguiendo el anillo Ringstrasse, realizaremos una interesante panorámica a pie, donde podrán admirar los numerosos edificios que aquí se encuentran. Como ejemplos de estos, mencionamos: la Ópera del Estado, los Museos de Historia del Arte e Historia de la Naturaleza, el Barrio de los Museos, el Palacio Imperial (la antigua residencia invernal del Emperador), el Parlamento, el Ayuntamiento y el Teatro Burgtheater. Tarde libre dedicada a las visitas opcionales.",
+        alojamiento: "Munich",
+        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
+        actividades:
+          "Visita Panorámica de Viena - en grupo - guia local en español",
+      },
+      {
+        id: 0,
+        dia: 3,
+        ciudad: "Viena",
+        descripcion:
+          "Traslado a la estación de tren en Viena por cuenta propia, por la mañana seguiremos en tren hacia Múnich, la capital bavara, llegada y traslado al Hotel de Munich por cuenta propia, resto del día libre para realizar actividades opcionales.",
+        alojamiento: "Munich",
+        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
+        actividades: "Tren Viena - Munich (Segunda Clase) - tickets incluidos",
+      },
+      {
+        id: 0,
+        dia: 4,
+        ciudad: "Viena",
+        descripcion:
+          "Por la mañana realizamos un paseo a pie empezando en la Karlstor, pasaremos por la iglesia St. Michael, donde se encuentran los restos de “el Rey Loco”, la Marienplatz, con el Ayuntamiento y su famoso carrillón, la Frauenkirche y su huella del diablo, la Plaza de la Ópera, el Feldherrnhalle o monumento a los generales bávaros, la Bürgersaalkirche, la Residencia Real y la Iglesia de San Pedro hasta cubrir todos los puntos de interés del centro histórico, así como los rincones más escondidos.",
+        alojamiento: "Viena",
+        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
+        regimen: "Desayuno",
+      },
+      {
+        id: 0,
+        dia: 5,
+        ciudad: "Viena",
+        descripcion:
+          "Tiempo libre hasta la hora indicada, recogida en el hotel y traslado al aeropuerto.",
+        alojamiento: "Viena",
+        actividades:
+          "Visita Panorámica de Munich - en grupo - guia local en español",
+      },
+    ],
+    noches: [
+      {
+        id: 1,
+        name: "Dresde",
+        country: "Alemania",
+        nights: 1,
+        lat: 51.0504,
+        lng: 13.7373,
+      },
+      {
+        id: 2,
+        name: "Berlín",
+        country: "Alemania",
+        nights: 2,
+        lat: 52.52,
+        lng: 13.405,
+      },
+      {
+        id: 3,
+        name: "Praga",
+        country: "República Checa",
+        nights: 3,
+        lat: 50.0755,
+        lng: 14.4378,
+      },
+    ],
     precio: 254,
     dias: 4,
     hotel: "Hoteles 3*",
     desayunos: 3,
     banner: "",
     descripcion:
-      "En este viaje tendrá la oportunidad de conocer Hamburgo, la ciudad con los 2500 puentes, también conocida como la Venecia del Norte.",
+      "Descubra en un solo viaje la capital de Austria, Viena, y la ciudad con la mejor calidad de vida de Alemania, Munich. Viena, la capital mundial de la música y Munich, la capital de la región de Baviera que cuenta con una notable belleza arquitectónica y natural. Dos ciudades diferentes y las dos muy interesantes.",
     itinerario: [
       {
         id: 0,
@@ -61,10 +147,10 @@ function Destino() {
         </div>
       </header>
       <article className=" my-5 mt-10 grid grid-cols-3 gap-10">
-        <section className="col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 h-[90vh] ">
+        <section className="col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[90vh] dark:bg-slate-800 ">
           <Detalles producto={producto} />
         </section>
-        <section className="col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 h-fit sticky top-5">
+        <section className="col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-5 dark:bg-slate-800 ">
           <Resumen producto={producto} />
         </section>
       </article>

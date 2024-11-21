@@ -3,6 +3,7 @@ import Input_Personas2 from "../inputs/Hab_Adulto_Ninio2";
 import Input_Buscador2 from "../inputs/Buscador2";
 import Input_DateRange from "../inputs/DateRange";
 import Input_Nacionalidad from "../inputs/Nacionalidad";
+import { Link } from "react-router-dom";
 function Hoteles() {
   return (
     <div className="h-{100vh} p-0">
@@ -36,9 +37,11 @@ function Hoteles() {
                 </div>
               </div>
               <div className="absolute -bottom-5 right-5">
-                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                  Buscar
-                </button>
+                <Link to="/listadoHoteles">
+                  <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
+                    Buscar
+                  </button>
+                </Link>
               </div>
             </form>
           </div>
