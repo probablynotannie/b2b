@@ -33,13 +33,13 @@ function Fechas({ dias }) {
   return (
     <article className="container my-5 mt-10 grid grid-cols-3 gap-10">
       <section className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
-        <span className="font-semibold">Selecciona el rango de fechas</span>
+        <span className="font-semibold dark:text-white">Selecciona el rango de fechas</span>
         <Input_Fecha
           onDateChange={handleDateChange}
           dias={diasL}
           prices={prices}
         />
-        <p className="flex justify-between mt-2 text-slate-500">
+        <p className="flex justify-between mt-2 text-slate-500 dark:text-slate-400">
           <span>
             {dates.startDate
               ? dates.startDate.toLocaleDateString("es-ES", {
@@ -57,7 +57,7 @@ function Fechas({ dias }) {
                 })
               : "Fecha vuelta"}
           </span>
-          <span className="font-semibold text-green-700">
+          <span className="font-semibold text-green-700 dark:text-green-500">
             {dates.startDatePrice ? `${dates.startDatePrice}€` : "Precio"}
           </span>
         </p>
