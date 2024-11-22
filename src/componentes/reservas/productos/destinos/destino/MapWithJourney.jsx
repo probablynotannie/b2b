@@ -19,10 +19,10 @@ const MapWithJourney = ({ destino }) => {
         style={{ height: "100%", width: "100%" }}
         zoomControl={false} // Disable default zoom control
       >
-        <TileLayer
-          url="https://{s}.tile.jawg.io/jawg-lagoon/{z}/{x}/{y}{r}.png?access-token=YOUR_API_KEY"
-          attribution='&copy; <a href="https://www.jawg.io/">Jawg Maps</a> contributors &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-        />
+     <TileLayer
+  url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+  attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+/>
         {destino.noches.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
             <Tooltip permanent offset={[0, -20]}>

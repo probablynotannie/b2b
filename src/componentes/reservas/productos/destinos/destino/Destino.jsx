@@ -1,13 +1,30 @@
+import { useState } from "react";
 import { FaMapPin, FaClock } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import { MdRestaurant } from "react-icons/md";
 import Detalles from "./Detalles";
 import Resumen from "./Resumen";
+
 function Destino() {
   const producto = {
     nombre: "Hamburgo y su puerto",
     ubicacion: "Hamburgo",
     img: "/destinos/destinoBanner.jpg",
+    incluidos: [
+      "Translado de llegada",
+      "Translado de salida",
+      "2 desayunos",
+      "Hoteles",
+      "Régimen alimenticio",
+      "Visitas y guias segun se especifique",
+    ],
+    no_incluidos: [
+      "Vuelos internacionales",
+      "Vuelos internos no detallados",
+      "Transporte entre ciudades",
+      "Tasas de aeropuerto",
+      "Tasas del país",
+    ],
     pax: {
       adultos: 2,
       ninio: 0,
@@ -93,9 +110,17 @@ function Destino() {
         lng: 14.4378,
       },
     ],
-    precio: 254,
+    hotelPrecio: [
+      {
+        precio: 257,
+        hotel: "Hotel 3*",
+      },
+      {
+        precio: 458,
+        hotel: "Hotel 4*",
+      },
+    ],
     dias: 4,
-    hotel: "Hoteles 3*",
     desayunos: 3,
     banner: "",
     descripcion:
@@ -112,46 +137,59 @@ function Destino() {
       },
     ],
   };
+  // State to track selected hotel option
+  const [selectedHotel, setSelectedHotel] = useState(producto.hotelPrecio[0]);
+
+  // Handler to update selected hotel
+  const handleHotelChange = (e) => {
+    const selectedOption = producto.hotelPrecio.find(
+      (hotel) => hotel.hotel === e.target.value
+    );
+    setSelectedHotel(selectedOption);
+  };
+
   return (
-    <article className="container min-h-[80vh] ">
-      <header className="dark:bg-slate-800 dark:rounded-xl  border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
+    <article className="container my-10 lg:mb-10 lg:mt-auto ">
+      <header className="dark:bg-slate-800 dark:rounded-xl border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5">
         <div className="flex justify-between">
           <div>
             <h1 className="text-xl font-bold dark:text-white">
               {producto.nombre}
             </h1>
-            <div className="flex items-center">
-              <p className="flex items-center font-semibold ">
-                <span className="mr-2 flex items-center  text-slate-600 dark:text-slate-400 text-sm">
-                  <FaMapPin className="text-secondary text-lg" />
-                  {producto.ubicacion}
-                </span>
-                <span className="mr-2 flex items-center  text-slate-600 dark:text-slate-400 text-sm">
-                  <FaClock className="mr-2 text-secondary text-lg" />{" "}
-                  {producto.dias} días
-                </span>
-                <span className="mr-2 flex items-center  text-slate-600 dark:text-slate-400 text-sm">
-                  <FaBed className="mr-2 text-secondary text-lg" />
-                  {producto.hotel} Hoteles
-                </span>
-                <span className="mr-2 flex items-center  text-slate-600 dark:text-slate-400 text-sm">
-                  <MdRestaurant className="mr-2 text-secondary text-lg" />
-                  {producto.desayunos} desayunos
-                </span>
-              </p>
-            </div>
+            <p className="flex items-center flex-wrap  font-semibold">
+              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
+                <FaMapPin className="text-secondary text-lg" />
+                {producto.ubicacion}
+              </span>
+              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
+                <FaClock className="mr-2 text-secondary text-lg" />
+                {producto.dias} días
+              </span>
+              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
+                <FaBed className="mr-2 text-secondary text-lg" />
+                {selectedHotel.hotel}
+              </span>
+              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
+                <MdRestaurant className="mr-2 text-secondary text-lg" />
+                {producto.desayunos} desayunos
+              </span>
+            </p>
           </div>
           <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
-            PVP desde {producto.precio}€
+            PVP desde {selectedHotel.precio}€
           </button>
         </div>
       </header>
-      <article className=" my-5 mt-10 grid grid-cols-3 gap-10">
-        <section className="col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[90vh] dark:bg-slate-800 ">
+      <article className="my-5 mt-10 grid grid-cols-3 gap-10">
+        <section className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[90vh] dark:bg-slate-800">
           <Detalles producto={producto} />
         </section>
-        <section className="col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-5 dark:bg-slate-800 ">
-          <Resumen producto={producto} />
+        <section className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-5 dark:bg-slate-800">
+          <Resumen
+            handleHotelChange={handleHotelChange}
+            setSelectedHotel={setSelectedHotel.hotel}
+            producto={{ ...producto, precio: selectedHotel.precio }}
+          />
         </section>
       </article>
     </article>

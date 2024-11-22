@@ -74,9 +74,9 @@ function Producto() {
 
   return (
     <main className="flex justify-center flex-col my-10  px-5 md:px-0">
-      <div className=" container">
+      <div className="container">
         <Buscador />
-        <div className="dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
+        <div className="mt-5 dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
           <div>
             <h3 className="text-xl font-bold dark:text-white">
               {producto.nombre}
@@ -145,10 +145,10 @@ function Producto() {
               </div>
             </div>
           </section>
-          <aside className="h-full lg:col-span-4 col-span-5 ">
+          <aside className="h-full lg:col-span-4 col-span-5 mt-5 lg:mt-0">
             <Map location={producto.ubicacion} />
           </aside>
-          <section className="col-span-5">
+          <section className="col-span-5 mt-10 mb-5 lg:my-5">
             <Info />
           </section>
           <section className="col-span-5">

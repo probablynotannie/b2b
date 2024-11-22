@@ -17,11 +17,11 @@ const MapWithJourney = ({ destino }) => {
         center={positions[0]}
         zoom={6}
         style={{ height: "90%", width: "100%" }}
-        zoomControl={false} // Disable default zoom control
+        zoomControl={false}
       >
         <TileLayer
-          url="https://{s}.tile.jawg.io/jawg-lagoon/{z}/{x}/{y}{r}.png?access-token=YOUR_API_KEY"
-          attribution='&copy; <a href="https://www.jawg.io/">Jawg Maps</a> contributors &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
         {destino.noches.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>

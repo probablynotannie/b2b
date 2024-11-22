@@ -2,17 +2,33 @@ import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
-
-function Resumen({ producto }) {
+import { Link } from "react-router-dom";
+function Resumen({ producto, selectedHotel, handleHotelChange }) {
   return (
     <>
       <h2 className="text-xl font-bold dark:text-slate-300">
         {producto.nombre}
       </h2>
+      <div className="mt-4">
+        <label className="text-slate-700 dark:text-slate-300 font-semibold">
+          Seleccione categoría de hotel:
+        </label>
+        <select
+          className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+          value={selectedHotel}
+          onChange={handleHotelChange}
+        >
+          {producto.hotelPrecio.map((option) => (
+            <option key={option.hotel} value={option.hotel}>
+              {option.hotel} - {option.precio}€
+            </option>
+          ))}
+        </select>
+      </div>
       <div className="mt-5 border-t-2 border-slate-100 dark:border-slate-600 pt-3">
-        <div className="flex justify-between dark:text-slate-300">
+        <div className="flex justify-between dark:text-slate-300 text-slate-500">
           <span>PAX</span>
-          <ul className="flex gap-2 dark:text-slate-300 text-slate-600">
+          <ul className="flex gap-2 dark:text-slate-300 ">
             {producto.pax.adultos !== 0 && (
               <li className="flex items-center">
                 {producto.pax.adultos}x
@@ -34,7 +50,7 @@ function Resumen({ producto }) {
             )}
           </ul>
         </div>
-        <p className="dark:text-slate-300 flex justify-between">
+        <p className="dark:text-slate-300 flex justify-between text-slate-500">
           <span>PVP Desde (por persona)</span>
           <span>
             {producto.precio}
@@ -58,10 +74,12 @@ function Resumen({ producto }) {
         </button>
       </div>
       <div className="mt-4">
-        <button className="bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
-          <FaCalendarAlt className="dark:text-white text-xl mr-2" />
-          Ver fechas y precios
-        </button>
+        <Link to="/fecha">
+          <button className="bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
+            <FaCalendarAlt className="dark:text-white text-xl mr-2" />
+            Ver fechas y precios
+          </button>
+        </Link>
       </div>
     </>
   );

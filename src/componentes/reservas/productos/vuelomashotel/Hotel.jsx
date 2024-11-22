@@ -92,7 +92,7 @@ function Producto() {
             Reservar
           </button>
         </div>
-        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
+        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10">
           <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
             <h4 className="p-3 font-bold text-cen rounded-t-xl   text-secondary">
               Resumen

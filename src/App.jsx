@@ -23,7 +23,10 @@ import ListadoDestinos from "./componentes/reservas/productos/destinos/Resultado
 
 /* PRODUCTO */
 import Hotel from "./componentes/reservas/productos/hotel/habitacion/Hotel";
-import Destino from "./componentes/reservas/productos/destinos//destino/Destino";
+import Destino from "./componentes/reservas/productos/destinos/destino/Destino";
+
+/* Componentes */
+import Fecha from "./componentes/reservas/productos/destinos/destino/Fechas";
 
 /* RESERVA */
 import Cesta from "./componentes/reservas/cestaFinal/CestaCompleta";
@@ -65,6 +68,7 @@ function App() {
             <Route path="/destino" element={<Destino />} />
 
             {/*  */}
+            <Route path="/fecha" element={<Fecha />} />
             <Route path="/clientes" element={<Clientes />} />
             <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
             <Route path="/presupuestos" element={<Presupuestos />} />
