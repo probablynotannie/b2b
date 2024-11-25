@@ -26,7 +26,7 @@ import Hotel from "./componentes/reservas/productos/hotel/habitacion/Hotel";
 import Destino from "./componentes/reservas/productos/destinos/destino/Destino";
 
 /* Componentes */
-import Fecha from "./componentes/reservas/productos/destinos/destino/Fechas";
+import Fecha from "./componentes/reservas/productos/destinos/destino/reserva/Fechas";
 
 /* RESERVA */
 import Cesta from "./componentes/reservas/cestaFinal/CestaCompleta";
