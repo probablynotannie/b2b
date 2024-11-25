@@ -24,11 +24,7 @@ function Fechas({ dias }) {
       "Tasas de aeropuerto",
       "Tasas del país",
     ],
-    pax: {
-      adultos: 2,
-      ninio: 0,
-      senior: 0,
-    },
+    pax: 2,
     itinerarioViaje: [
       {
         id: 0,
@@ -156,9 +152,9 @@ function Fechas({ dias }) {
     "2024-12-13": 158,
   };
   return (
-    <article className="container my-5 mt-10 grid grid-cols-3 gap-10">
+    <article className="container mt-10 grid grid-cols-3 gap-10">
       <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
-        <h1 className="font-semibold dark:text-white text-xl">
+        <h1 className="font-semibold dark:text-white text-2xl">
           Selecciona el rango de fechas
         </h1>
         <Input_Fecha
@@ -189,15 +185,19 @@ function Fechas({ dias }) {
             {dates.startDatePrice ? `${dates.startDatePrice}€` : "Precio"}
           </span>
         </p>
-        <section>
-          <Info />
-        </section>
-        <section>
-          <Pasajeros />
-        </section>
-        <section>
-          <Pago />
-        </section>
+        {dates.startDate && (
+          <>
+            <section>
+              <Info />
+            </section>
+            {/*  <section>
+              <Pasajeros />
+            </section>
+            <section>
+              <Pago />
+            </section> */}
+          </>
+        )}
       </main>
       <aside className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
         <Aside dates={dates} producto={producto} />

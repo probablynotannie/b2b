@@ -19,9 +19,11 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const [endDate, setEndDate] = useState(null);
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [lockedIdaPrice, setLockedIdaPrice] = useState(null);
 
-  const modalRef = useRef(null); // Create a reference for the modal container
+  const todayRef = useRef(null);
+  const modalRef = useRef(null);
 
   const TRIP_DAYS = dias;
   const today = new Date();
@@ -32,6 +34,15 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       initialMonths.push(addMonths(startOfMonth(today), i));
     }
     setMonths(initialMonths);
+  }, []);
+
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
   }, []);
 
   useEffect(() => {
@@ -98,6 +109,12 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     }
   }, [startDate, endDate, prices]);
 
+  const scrollToToday = () => {
+    if (todayRef.current) {
+      todayRef.current.scrollIntoView({ behavior: "smooth", block: "center" });
+    }
+  };
+
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
@@ -116,7 +133,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-
+  
     return (
       <div key={month} className="mb-8">
         <h3 className="text-lg font-bold text-center mb-2 text-secondary">
@@ -129,52 +146,40 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
           ))}
           {daysInMonth.map((day) => {
             const formattedDate = format(day, "yyyy-MM-dd");
-            let price = null;
-            if (isBefore(day, today)) {
-              price = null;
-            } else if (isSameDay(day, startDate)) {
-              price = prices[formattedDate];
-            } else if (
-              !startDate ||
-              (startDate && !endDate) ||
-              (startDate && endDate && (day < startDate || day > endDate))
-            ) {
-              price = prices[formattedDate];
-            }
-
             const isDateDisabled =
               !prices[formattedDate] || isBefore(day, today);
             const isTodayDay = isToday(day);
-
+  
             return (
               <div
                 key={day}
+                ref={isTodayDay ? todayRef : null}
                 className={`p-4 text-center rounded-lg cursor-pointer text-black text-sm relative ${
                   isTodayDay
                     ? "bg-blue-500 dark:bg-secondaryDark text-white"
                     : ""
                 } ${
                   isSameDay(day, startDate)
-                    ? "bg-secondary dark:bg-slate-900 text-white "
+                    ? "bg-secondary dark:bg-slate-900 text-white"
                     : isSameDay(day, endDate)
                     ? "bg-secondary dark:bg-slate-900 text-white"
                     : startDate && endDate && day > startDate && day < endDate
                     ? "bg-orange-100 dark:bg-slate-600 dark:text-white"
-                    : "dark:text-slate-100 "
-                } ${isDateDisabled ? "text-slate-400  cursor-no-drop" : ""}`}
+                    : "dark:text-slate-100"
+                } ${isDateDisabled ? "text-slate-400 cursor-no-drop" : ""}`}
                 onClick={() => !isDateDisabled && handleDateClick(day)}
               >
                 <div>{format(day, "d")}</div>
-                {price && (
+                {!isBefore(day, today) && prices[formattedDate] && (
                   <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs text-center">
                     <span
                       className={`text-slate-900 dark:text-secondaryDark ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
-                          ? "text-white font-bold" // Highlight the price color for selected date
+                          ? "text-white font-bold"
                           : ""
                       }`}
                     >
-                      {price}€
+                      {prices[formattedDate]}€
                     </span>
                   </div>
                 )}
@@ -185,32 +190,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       </div>
     );
   };
-
-  const openModal = () => {
-    setIsModalOpen(true);
-  };
-
-  const closeModal = () => {
-    setIsModalOpen(false);
-  };
-
-  const handleScroll = (e) => {
-    const { scrollTop, scrollHeight, clientHeight } = e.target;
-    if (scrollHeight - scrollTop <= clientHeight + 100) {
-      loadMoreMonths();
-    }
-  };
-
-  const formatDateRange = () => {
-    if (startDate && endDate) {
-      return `${format(startDate, "dd/MM/yyyy")} - ${format(
-        endDate,
-        "dd/MM/yyyy"
-      )}`;
-    }
-    return "Selecciona un rango de fechas";
-  };
-
+  
   const resetSelection = () => {
     setStartDate(null);
     setEndDate(null);
@@ -223,45 +203,90 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   };
   return (
     <div>
-      <div className="relative">
-        <div
-          onClick={openModal}
-          className="border bg-white  dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-        >
-          {formatDateRange()}
-          <div className="absolute top-0 left-0 pointer-events-none dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-            <FaCalendarAlt />
+      {isMobile ? (
+        <>
+          <div className="relative">
+            <div
+              onClick={() => setIsModalOpen(true)}
+              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+            >
+              {startDate && endDate
+                ? `${format(startDate, "dd/MM/yyyy")} - ${format(
+                    endDate,
+                    "dd/MM/yyyy"
+                  )}`
+                : "Selecciona un rango de fechas"}
+              <div className="absolute top-0 left-0 bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                <FaCalendarAlt />
+              </div>
+            </div>
           </div>
-        </div>
-      </div>
-      {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div
-            ref={modalRef} // Attach the ref to the modal container
-            className="bg-white dark:bg-slate-700 w-full md:w-[90vw] md:h-[90vh] lg:w-[60vw] lg:h-[90vh] xl:w-[60vw] xl:h-[90vh] h-full mx-auto relative"
-          >
-            <div className="flex justify-between items-center mb-4 bg-primary p-5">
-              <h2 className="text-xl font-bold text-white">
-                Selecciona fechas
-              </h2>
-              <button onClick={closeModal} className="text-xl text-white">
-                &times;
+          {isModalOpen && (
+            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+              <div
+                ref={modalRef}
+                className="bg-white dark:bg-slate-700 w-full h-full mx-auto relative"
+              >
+                <div className="flex justify-between items-center mb-4 bg-primary p-5">
+                  <h2 className="text-xl font-bold text-white">
+                    Selecciona fechas
+                  </h2>
+                  <button
+                    onClick={() => setIsModalOpen(false)}
+                    className="text-xl text-white"
+                  >
+                    &times;
+                  </button>
+                </div>
+                <button
+                  onClick={resetSelection}
+                  className="absolute top-5 right-10 bg-red-500 text-white py-1 px-3 rounded-lg"
+                >
+                  Borrar
+                </button>
+                <div
+                  className="custom-scrollbar overflow-y-auto h-[calc(100%-85px)] p-4"
+                  onScroll={(e) => {
+                    const { scrollTop, scrollHeight, clientHeight } = e.target;
+                    if (scrollHeight - scrollTop <= clientHeight + 100) {
+                      loadMoreMonths();
+                    }
+                  }}
+                >
+                  {months.map((month) => renderMonth(month))}
+                </div>
+              </div>
+            </div>
+          )}
+        </>
+      ) : (
+        <div className="p-4 bg-gray-100 dark:bg-slate-700 rounded-lg shadow">
+          <div className="flex justify-end items-center mb-4">
+            <div className="flex space-x-4">
+              <button
+                onClick={scrollToToday}
+                className="bg-blue-500 text-white py-1 px-3 rounded-lg"
+              >
+                Hoy
+              </button>
+              <button
+                onClick={resetSelection}
+                className="bg-red-500 text-white py-1 px-3 rounded-lg"
+              >
+                Borrar
               </button>
             </div>
-
-            {/* Reset Button */}
-            <button
-              onClick={resetSelection}
-              className="absolute top-5 right-10 bg-red-500 text-white py-1 px-3 rounded-lg"
-            >
-              Borrar
-            </button>
-            <div
-              className="custom-scrollbar overflow-y-auto h-[calc(100%-85px)] p-4"
-              onScroll={handleScroll}
-            >
-              {months.map((month) => renderMonth(month))}
-            </div>
+          </div>
+          <div
+            className="custom-scrollbar overflow-y-auto h-[360px]"
+            onScroll={(e) => {
+              const { scrollTop, scrollHeight, clientHeight } = e.target;
+              if (scrollHeight - scrollTop <= clientHeight + 100) {
+                loadMoreMonths();
+              }
+            }}
+          >
+            {months.map((month) => renderMonth(month))}
           </div>
         </div>
       )}

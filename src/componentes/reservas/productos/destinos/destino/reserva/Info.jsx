@@ -37,7 +37,7 @@ function Info() {
         {condiciones.map((condicion, index) => (
           <Card
             key={index}
-            className={`max-w-sm hover:shadow-xl  transition dark:bg-slate-700 ${
+            className={`max-w-sm hover:shadow-xl  transition dark:bg-slate-700 dark:hover:bg-slate-900 ${
               index === 0 ? "bg-green-100" : "bg-orange-100"
             } `}
           >
@@ -50,7 +50,7 @@ function Info() {
           </Card>
         ))}
       </div>
-      <Card className="my-10 mx-10 hover:shadow-xl transition bg-red-100 dark:bg-slate-700 p-6">
+      <Card className="my-10 mx-10 hover:shadow-xl transition bg-red-100 dark:bg-slate-700 dark:hover:bg-slate-900 p-6">
         <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
           {cancelacion.titulo}
         </h5>

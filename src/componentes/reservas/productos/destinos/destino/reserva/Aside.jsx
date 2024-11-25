@@ -3,14 +3,11 @@ import { FaPerson, FaChild } from "react-icons/fa6";
 import { format } from "date-fns"; // Importing format from date-fns
 import { es } from "date-fns/locale"; // Importing Spanish locale
 import { ImSpoonKnife } from "react-icons/im";
-import { FaPercent } from "react-icons/fa";
+import { FaPercent, FaEuroSign } from "react-icons/fa";
 
 function Aside({ dates, producto }) {
   const pvp = dates.startDatePrice;
-  const precio =
-    producto.pax.adultos * dates.startDatePrice +
-    producto.pax.ninio * dates.startDatePrice +
-    producto.pax.senior * dates.startDatePrice;
+  const precio = producto.pax * dates.startDatePrice;
 
   return (
     <div className="sticky top-5">
@@ -26,22 +23,10 @@ function Aside({ dates, producto }) {
           <div className="text-sm border-b-2 border-slate-100 dark:border-slate-700 text-slate-500 dark:text-slate-400 py-2">
             <div className="grid grid-cols-2 justify-between mt-2 ">
               <ul className="flex gap-2 dark:text-slate-300">
-                {producto.pax.adultos !== 0 && (
+                {producto.pax !== 0 && (
                   <li className="flex items-center">
                     <FaPerson className="text-secondary dark:text-secondary" />
-                    {producto.pax.adultos}x
-                  </li>
-                )}
-                {producto.pax.ninio !== 0 && (
-                  <li className="flex items-center">
-                    <FaChild className="text-secondary dark:text-secondary" />
-                    {producto.pax.ninio}x
-                  </li>
-                )}
-                {producto.pax.senior !== 0 && (
-                  <li className="flex items-center">
-                    <FaPerson className="text-secondary dark:text-secondary" />
-                    {producto.pax.senior}x
+                    {producto.pax}x
                   </li>
                 )}
               </ul>
@@ -90,7 +75,7 @@ function Aside({ dates, producto }) {
               Margen
             </p>
             <p className="flex flex-col justify-center items-center text-sm text-slate-400 dark:text-slate-500">
-              <FaPercent className="text-secondary dark:text-secondaryDark" />
+              <FaEuroSign className="text-secondary dark:text-secondaryDark" />
               <span className="text-secondary font-semibold text-lg">
                 {precio}
               </span>

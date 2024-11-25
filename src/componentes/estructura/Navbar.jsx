@@ -27,7 +27,6 @@ const Navbar = () => {
           <Link className="hidden md:block" to="/">
             <img src="./logo.png" className="w-full" alt="Logo" />
           </Link>
-
           <Menu />
         </div>
 

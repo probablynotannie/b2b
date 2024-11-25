@@ -170,7 +170,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                     <span
                       className={`text-slate-900 dark:text-secondaryDark ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
-                          ? "text-white font-bold" // Highlight the price color for selected date
+                          ? "text-white font-bold" 
                           : ""
                       }`}
                     >

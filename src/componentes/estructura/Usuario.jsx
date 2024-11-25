@@ -22,7 +22,7 @@ function Usuario() {
           </div>
           <div>
             <div className="text-sm">
-              <ul className="space-y-1 text-sm">
+              <ul className="space-y-3 text-sm">
                 <li className="flex items-center gap-1 text-slate-600">
                   <span className="text-secondary">
                     <FaStar />
