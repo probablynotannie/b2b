@@ -4,8 +4,9 @@ import Aside from "./Aside";
 import Pago from "./Pago";
 import Pasajeros from "./Pasajeros";
 import Info from "./Info";
-function Fechas({ dias }) {
-  const producto = {
+
+function Fechas() {
+  const [producto, setProducto] = useState({
     nombre: "Hamburgo y su puerto",
     ubicacion: "Hamburgo",
     img: "/destinos/destinoBanner.jpg",
@@ -25,6 +26,7 @@ function Fechas({ dias }) {
       "Tasas del país",
     ],
     pax: 2,
+    habitaciones: [],
     itinerarioViaje: [
       {
         id: 0,
@@ -48,36 +50,6 @@ function Fechas({ dias }) {
         actividades:
           "Visita Panorámica de Viena - en grupo - guia local en español",
       },
-      {
-        id: 0,
-        dia: 3,
-        ciudad: "Viena",
-        descripcion:
-          "Traslado a la estación de tren en Viena por cuenta propia, por la mañana seguiremos en tren hacia Múnich, la capital bavara, llegada y traslado al Hotel de Munich por cuenta propia, resto del día libre para realizar actividades opcionales.",
-        alojamiento: "Munich",
-        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
-        actividades: "Tren Viena - Munich (Segunda Clase) - tickets incluidos",
-      },
-      {
-        id: 0,
-        dia: 4,
-        ciudad: "Viena",
-        descripcion:
-          "Por la mañana realizamos un paseo a pie empezando en la Karlstor, pasaremos por la iglesia St. Michael, donde se encuentran los restos de “el Rey Loco”, la Marienplatz, con el Ayuntamiento y su famoso carrillón, la Frauenkirche y su huella del diablo, la Plaza de la Ópera, el Feldherrnhalle o monumento a los generales bávaros, la Bürgersaalkirche, la Residencia Real y la Iglesia de San Pedro hasta cubrir todos los puntos de interés del centro histórico, así como los rincones más escondidos.",
-        alojamiento: "Viena",
-        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
-        regimen: "Desayuno",
-      },
-      {
-        id: 0,
-        dia: 5,
-        ciudad: "Viena",
-        descripcion:
-          "Tiempo libre hasta la hora indicada, recogida en el hotel y traslado al aeropuerto.",
-        alojamiento: "Viena",
-        actividades:
-          "Visita Panorámica de Munich - en grupo - guia local en español",
-      },
     ],
     noches: [
       {
@@ -96,14 +68,6 @@ function Fechas({ dias }) {
         lat: 52.52,
         lng: 13.405,
       },
-      {
-        id: 3,
-        name: "Praga",
-        country: "República Checa",
-        nights: 3,
-        lat: 50.0755,
-        lng: 14.4378,
-      },
     ],
     hotelPrecio: [
       {
@@ -119,7 +83,7 @@ function Fechas({ dias }) {
     desayunos: 3,
     banner: "",
     descripcion:
-      "Descubra en un solo viaje la capital de Austria, Viena, y la ciudad con la mejor calidad de vida de Alemania, Munich. Viena, la capital mundial de la música y Munich, la capital de la región de Baviera que cuenta con una notable belleza arquitectónica y natural. Dos ciudades diferentes y las dos muy interesantes.",
+      "Descubra en un solo viaje la capital de Austria, Viena, y la ciudad con la mejor calidad de vida de Alemania, Munich.",
     itinerario: [
       {
         id: 0,
@@ -131,6 +95,64 @@ function Fechas({ dias }) {
         tarjeta: "Tarjeta Hamburg Card - tickets incluidos",
       },
     ],
+  });
+
+  const addRoom = () => {
+    setProducto((prevState) => {
+      const updatedHabitaciones = [
+        ...prevState.habitaciones,
+        { id: Date.now(), pax: 2 },
+      ];
+
+      const totalPax = updatedHabitaciones.reduce(
+        (sum, hab) => sum + hab.pax,
+        2
+      );
+
+      const totalPrice = totalPax * 100;
+
+      return {
+        ...prevState,
+        habitaciones: updatedHabitaciones,
+        pax: totalPax,
+        precio: totalPrice,
+      };
+    });
+  };
+  // Delete Room Function
+  const deleteRoom = (id) => {
+    setProducto((prevState) => {
+      const updatedHabitaciones = prevState.habitaciones.filter(
+        (habitacion) => habitacion.id !== id
+      );
+      const totalPax = updatedHabitaciones.reduce(
+        (sum, hab) => sum + hab.pax,
+        2
+      );
+      return {
+        ...prevState,
+        habitaciones: updatedHabitaciones,
+        pax: totalPax,
+      };
+    });
+  };
+
+  // Handle Room Type Change
+  const handleRoomTypeChange = (id, pax) => {
+    setProducto((prevState) => {
+      const updatedHabitaciones = prevState.habitaciones.map((habitacion) =>
+        habitacion.id === id ? { ...habitacion, pax } : habitacion
+      );
+      const totalPax = updatedHabitaciones.reduce(
+        (sum, hab) => sum + hab.pax,
+        2
+      );
+      return {
+        ...prevState,
+        habitaciones: updatedHabitaciones,
+        pax: totalPax,
+      };
+    });
   };
 
   const [dates, setDates] = useState({
@@ -138,7 +160,7 @@ function Fechas({ dias }) {
     endDate: null,
     startDatePrice: null,
   });
-  const diasL = 4;
+
   const prices = {
     "2024-11-2": 300,
     "2024-11-9": 280,
@@ -151,6 +173,7 @@ function Fechas({ dias }) {
     "2024-12-10": 158,
     "2024-12-13": 158,
   };
+
   return (
     <article className="container mt-10 grid grid-cols-3 gap-10">
       <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
@@ -159,7 +182,7 @@ function Fechas({ dias }) {
         </h1>
         <Input_Fecha
           dates={dates}
-          dias={diasL}
+          dias={producto.dias}
           prices={prices}
           setDates={setDates}
         />
@@ -190,17 +213,18 @@ function Fechas({ dias }) {
             <section>
               <Info />
             </section>
-            {/*  <section>
-              <Pasajeros />
-            </section>
-            <section>
-              <Pago />
-            </section> */}
           </>
         )}
       </main>
       <aside className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
-        <Aside dates={dates} producto={producto} />
+        <Aside
+          dates={dates}
+          setProducto={setProducto}
+          handleRoomTypeChange={handleRoomTypeChange}
+          addRoom={addRoom}
+          producto={producto}
+          deleteRoom={deleteRoom}
+        />
       </aside>
     </article>
   );
