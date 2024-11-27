@@ -2,7 +2,7 @@ import Buscador from "../filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "./Listado";
 import Listado2 from "./Listado2";
-import Images from "./Imagenes";
+import Imagenes from "./Imagenes";
 import Info from "./Info";
 import Map from "../Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
@@ -159,7 +159,7 @@ function Producto() {
           </section>
           <section className="col-span-5">
             <h4 className="font-bold text-lg mb-3">Imagenes</h4>
-            <Images />
+            <Imagenes />
           </section>
         </article>
       </div>
