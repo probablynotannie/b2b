@@ -1,60 +1,95 @@
+import { useState } from "react";
 import Datos from "./Datos";
+
 function Contacto() {
-  const reserva = [
-    {
-      id: 0,
-      type: "Hotel",
-      nombre: "Luxury appartments",
-      fecha: "21 de octubre",
-      fechaSalida: "28 de octubre",
-      img: "/banner_hoteles.jpg",
+  const [reserva, setReserva] = useState({
+    type: "hotelmasvuelo",
+    producto: "Hotel más vuelo",
+    nombre: "Hamburgo y su puerto",
+    fechaIda: "30 de noviembre 2024",
+    fechaVuelta: "3 de diciembre 2024",
+    adultos: 3,
+    ninios: 0,
+    seniors: 0,
+  });
+
+  const typeToBackground = {
+    destino: {
+      image: "/banner_hoteles.jpg",
+      position: "50% 30%",
     },
-    {
-      id: 1,
-      nombre: "Barcelona - Madrid",
-      type: "Vuelo",
-      fecha: "21 de octubre",
-      img: "/banner_avion.jpg",
+    hotel: {
+      image: "/banner_destinos.jpg",
+      position: "50% 80%",
     },
-  ];
+    vuelo: {
+      image: "/banner_avion.jpg",
+      position: "50% 45%",
+    },
+    hotelmasvuelo: {
+      image: "/banner_avion.jpg",
+      position: "50% 45%",
+    },
+    entradas: {
+      image: "/banner_entradas.jpg",
+      position: "50% 45%",
+    },
+    coche: {
+      image: "/banner_coches.jpg",
+      position: "50% 45%",
+    },
+    ferri: {
+      image: "/banner_trenes.jpg",
+      position: "50% 45%",
+    },
+    crucero: {
+      image: "/banner_cruise.jfif",
+      position: "50% 45%",
+    },
+  };
+
+  const defaultBackground = {
+    image: "/banner_destinos.jpg",
+    position: "center center",
+  };
+
+  const { image: backgroundImageUrl, position: backgroundPosition } =
+    typeToBackground[reserva.type] || defaultBackground;
+
   return (
     <main className="my-10 flex justify-center container min-h-[68vh]">
-      <article className="w-full border-2  border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
+      <article className="w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
         <section>
           <Datos />
         </section>
-        <section className="pt-10  mb-10 border-t-2 border-slate-100 dark:border-slate-700 mx-5">
+        <section className="pt-10 mb-10 border-t-2 border-slate-100 dark:border-slate-700 mx-5">
           <h3 className="text-lg font-semibold ml-4 dark:text-white">
-            Tus productos ({reserva.length}){" "}
+            Tus productos
           </h3>
-          <div className="grid lg:grid-cols-3 gap-3 grid-cols-1 mt-3">
-            {reserva.map((reserva) => (
-              <div key={reserva.id} className=" px-3 min-h-48  ">
-                <div
-                  className="bg-cover border-2 dark:border-slate-800 dark:shadow-md dark:shadow-slate-700  shadow-md rounded-xl w-full h-full"
-                  style={{
-                    backgroundImage: `url(${reserva.img})`,
-                    backgroundSize: "cover",
-                    backgroundPosition: "center",
-                  }}
-                >
-                  <div className="bg-black rounded-xl w-full h-full bg-opacity-45  flex justify-center items-center flex-col ">
-                    <h4 className="text-white font-bold text-4xl">
-                      {reserva.type}
-                    </h4>
-                    <div className="flex flex-col justify-center items-center text-white">
-                      <span className=" font-semibold ">{reserva.nombre}</span>
-                      <span className="block  text-slate-300">
-                        {reserva.fecha}
-                        {reserva.fechaSalida && (
-                          <span> - {reserva.fechaSalida} </span>
-                        )}
-                      </span>
-                    </div>
-                  </div>
+          <div className="px-3 min-h-48">
+            <div
+              className="bg-cover border-2 dark:border-slate-800 dark:shadow-md dark:shadow-slate-700 shadow-md rounded-xl w-full h-full"
+              style={{
+                backgroundImage: `url(${backgroundImageUrl})`,
+                backgroundSize: "cover",
+                backgroundPosition: backgroundPosition,
+              }}
+            >
+              <div className="bg-black rounded-xl w-full h-[30vh] bg-opacity-45 flex justify-center items-center flex-col">
+                <h4 className="text-white font-bold text-4xl">
+                  {reserva.producto}
+                </h4>
+                <div className="flex flex-col justify-center items-center text-white">
+                  <span className="font-semibold">{reserva.nombre}</span>
+                  <span className="block text-slate-300">
+                    {reserva.fechaIda}
+                    {reserva.fechaVuelta && (
+                      <span> - {reserva.fechaVuelta}</span>
+                    )}
+                  </span>
                 </div>
               </div>
-            ))}
+            </div>
           </div>
         </section>
         <div className="my-10 mx-8 flex justify-end">
@@ -66,4 +101,5 @@ function Contacto() {
     </main>
   );
 }
+
 export default Contacto;

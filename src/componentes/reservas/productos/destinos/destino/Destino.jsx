@@ -6,6 +6,7 @@ import Detalles from "./Detalles";
 import Resumen from "./Resumen";
 
 function Destino() {
+  const [reserva, setReserva] = useState();
   const producto = {
     nombre: "Hamburgo y su puerto",
     ubicacion: "Hamburgo",
@@ -24,6 +25,31 @@ function Destino() {
       "Transporte entre ciudades",
       "Tasas de aeropuerto",
       "Tasas del país",
+    ],
+    notas: [
+      {
+        id: 0,
+        title: "Incluye",
+        datos: [
+          "Todas las entradas a los lugares notables, museos y galerías.",
+          "Agua mineral todos los días durante el transporte",
+        ],
+      },
+
+      {
+        id: 1,
+        title: "Importante",
+        datos: [
+          "Servicios de guía de habla hispana (*excepto el día de llegada a Armenia, el día de salida de Georgia).",
+          "En caso de cambios drásticos entre la moneda nacional y extranjera, mantenemos el derecho de revisión de precios.",
+          "La mayoría de los museos están cerrados los Lunes, festivos oficiales y locales.",
+          "El orden de las visitas puede ser modificado según las condiciones climáticas, de tiempo y consideración de guía en algunos paises no se recomiendan las habitaciones triples.",
+          "En algunos paises no se recomiendan las habitaciones triples.",
+          "Una vez realizada la reserva, el hotel de programa no tuviera disponibilidad se ofrecera un hotel de caracteristicas similares.",
+          "Si los horarios de los vuelos de llegada y salida no coinciden con horarios laborables, el operador puede cobrar un suplemento por traslado nocturno.",
+          "El orden de las visitas puede variar.Se informara en destino.",
+        ],
+      },
     ],
     pax: {
       adultos: 2,

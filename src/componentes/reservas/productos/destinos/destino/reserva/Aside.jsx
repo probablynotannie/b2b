@@ -6,7 +6,8 @@ import { ImSpoonKnife } from "react-icons/im";
 import { FaPercent, FaEuroSign, FaRegTrashAlt } from "react-icons/fa";
 import { Popover } from "flowbite-react";
 import { MdMeetingRoom } from "react-icons/md";
-import { CiCirclePlus } from "react-icons/ci";
+import { FaPlusCircle } from "react-icons/fa";
+import { Link } from "react-router-dom";
 function Aside({ dates, producto, handleRoomTypeChange, addRoom, deleteRoom }) {
   const pvp = dates.startDatePrice;
   const precio = producto.pax * dates.startDatePrice;
@@ -116,15 +117,17 @@ function Aside({ dates, producto, handleRoomTypeChange, addRoom, deleteRoom }) {
                         className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
                       >
                         <div className="w-fit flex items-center space-x-1 font-semibold">
+                          <FaPlusCircle className="dark:text-secondaryDark" />
+
                           <span>Agregar una habitación </span>
-                          <CiCirclePlus className="dark:text-secondaryDark text-lg" />
                         </div>
                       </div>
                     </div>
                   </div>
                 }
               >
-                <button className="mt-2">
+                <button className="mt-2 flex items-center dark:hover:text-slate-200 hover:text-slate-700 transition">
+                  <FaPlusCircle className="text-secondary dark:text-secondaryDark mr-2" />
                   Agregar una habitación ( {producto.habitaciones.length + 1} )
                 </button>
               </Popover>
@@ -155,11 +158,11 @@ function Aside({ dates, producto, handleRoomTypeChange, addRoom, deleteRoom }) {
             </p>
           </div>
           <div className="grid grid-cols-3 justify-around w-full text-center"></div>
-          <div className="flex justify-end mt-5">
-            <button className="bg-secondary w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
+          <Link to="/datos">
+            <button className="bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
               TOTAL: {precio}€
             </button>
-          </div>
+          </Link>
           <div className="flex justify-center text-slate-400 dark:text-slate-400 mt-2">
             <button>Descargar la oferta</button>
           </div>

@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Input_Fecha from "../../../../../inputs/DateRangePrice";
 import Aside from "./Aside";
 import Pago from "./Pago";
@@ -25,6 +25,30 @@ function Fechas() {
       "Tasas de aeropuerto",
       "Tasas del país",
     ],
+    notas: [
+      {
+        id: 0,
+        title: "Incluye",
+        datos: [
+          "Todas las entradas a los lugares notables, museos y galerías.",
+          "Agua mineral todos los días durante el transporte",
+        ],
+      },
+      {
+        id: 1,
+        title: "Importante",
+        datos: [
+          "Servicios de guía de habla hispana (*excepto el día de llegada a Armenia, el día de salida de Georgia).",
+          "En caso de cambios drásticos entre la moneda nacional y extranjera, mantenemos el derecho de revisión de precios.",
+          "La mayoría de los museos están cerrados los Lunes, festivos oficiales y locales.",
+          "El orden de las visitas puede ser modificado según las condiciones climáticas, de tiempo y consideración de guía en algunos paises no se recomiendan las habitaciones triples.",
+          "En algunos paises no se recomiendan las habitaciones triples.",
+          "Una vez realizada la reserva, el hotel de programa no tuviera disponibilidad se ofrecera un hotel de caracteristicas similares.",
+          "Si los horarios de los vuelos de llegada y salida no coinciden con horarios laborables, el operador puede cobrar un suplemento por traslado nocturno.",
+          "El orden de las visitas puede variar.Se informara en destino.",
+        ],
+      },
+    ],
     pax: 2,
     habitaciones: [],
     itinerarioViaje: [
@@ -40,7 +64,7 @@ function Fechas() {
           "Visita Panorámica de Viena - en grupo - guia local en español",
       },
       {
-        id: 0,
+        id: 1,
         dia: 2,
         ciudad: "Viena",
         descripcion:
@@ -97,6 +121,48 @@ function Fechas() {
     ],
   });
 
+  const [reserva, setReserva] = useState({
+    type: "destino",
+    producto: "Destino",
+    nombre: producto.nombre,
+    fechaIda: "",
+    fechaVuelta: "",
+    adultos: producto.pax,
+  });
+
+  const [dates, setDates] = useState({
+    startDate: null,
+    endDate: null,
+    startDatePrice: null,
+  });
+
+  const prices = {
+    "2024-11-2": 300,
+    "2024-11-9": 280,
+    "2024-11-16": 150,
+    "2024-11-19": 503,
+    "2024-11-26": 860,
+    "2024-11-30": 268,
+    "2024-12-03": 305,
+    "2024-12-06": 158,
+    "2024-12-10": 158,
+    "2024-12-13": 158,
+  };
+
+  // Update reserva whenever dates or product pax changes
+  useEffect(() => {
+    setReserva((prevReserva) => ({
+      ...prevReserva,
+      fechaIda: dates.startDate
+        ? dates.startDate.toISOString().split("T")[0]
+        : "",
+      fechaVuelta: dates.endDate
+        ? dates.endDate.toISOString().split("T")[0]
+        : "",
+      adultos: producto.pax,
+    }));
+  }, [dates, producto.pax]);
+
   const addRoom = () => {
     setProducto((prevState) => {
       const updatedHabitaciones = [
@@ -119,7 +185,7 @@ function Fechas() {
       };
     });
   };
-  // Delete Room Function
+
   const deleteRoom = (id) => {
     setProducto((prevState) => {
       const updatedHabitaciones = prevState.habitaciones.filter(
@@ -137,7 +203,6 @@ function Fechas() {
     });
   };
 
-  // Handle Room Type Change
   const handleRoomTypeChange = (id, pax) => {
     setProducto((prevState) => {
       const updatedHabitaciones = prevState.habitaciones.map((habitacion) =>
@@ -153,25 +218,6 @@ function Fechas() {
         pax: totalPax,
       };
     });
-  };
-
-  const [dates, setDates] = useState({
-    startDate: null,
-    endDate: null,
-    startDatePrice: null,
-  });
-
-  const prices = {
-    "2024-11-2": 300,
-    "2024-11-9": 280,
-    "2024-11-16": 150,
-    "2024-11-19": 503,
-    "2024-11-26": 860,
-    "2024-11-30": 268,
-    "2024-12-03": 305,
-    "2024-12-06": 158,
-    "2024-12-10": 158,
-    "2024-12-13": 158,
   };
 
   return (
@@ -209,11 +255,9 @@ function Fechas() {
           </span>
         </p>
         {dates.startDate && (
-          <>
-            <section>
-              <Info />
-            </section>
-          </>
+          <section>
+            <Info />
+          </section>
         )}
       </main>
       <aside className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">

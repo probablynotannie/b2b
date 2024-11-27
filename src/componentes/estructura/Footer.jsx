@@ -5,12 +5,10 @@ function FooterComponent() {
     <Footer className="mt-16 bg-slate-100 dark:bg-primary" container>
       <div className="w-full text-center">
         <div className="w-full justify-between sm:flex sm:items-center sm:justify-between">
-          <Footer.Brand
-            href="/"
-            src="./logo.png"
-            alt="Flowbite Logo"
-            name="Haiku"
-          />
+          <span className="text-secondary dark:text-secondary text-2xl font-bold">
+            {" "}
+            Haiku
+          </span>
           <Footer.LinkGroup>
             <Footer.Link href="#">Contacto</Footer.Link>
             <Footer.Link href="#">Privacidad</Footer.Link>

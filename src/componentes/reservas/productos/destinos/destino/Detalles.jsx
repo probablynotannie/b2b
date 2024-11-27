@@ -1,6 +1,7 @@
 import MapWithJourney from "./MapWithJourney";
 import Itinerario from "./Itinerario";
 import Incluidos from "./Incluidos";
+import Importante from "./Importante";
 function Detalles({ producto }) {
   return (
     <>
@@ -33,6 +34,9 @@ function Detalles({ producto }) {
         </div>
         <div className="h-64 mt-1">
           <MapWithJourney destino={producto} />
+        </div>
+        <div className="mt-10">
+          <Importante destino={producto} />
         </div>
       </section>
     </>
