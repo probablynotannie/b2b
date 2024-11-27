@@ -2,7 +2,7 @@ import Buscador from "../filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "./Listado";
 import Listado2 from "./Listado2";
-import Imagenes from "./Imagenes";
+import Imagenes from "./Imgs";
 import Info from "./Info";
 import Map from "../Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
