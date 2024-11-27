@@ -1,9 +1,9 @@
 import Buscador from "../filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
-import Listado from "../habitacion/Listado";
-import Listado2 from "../habitacion/Listado2";
-import Images from "../habitacion/Imagenes";
-import Info from "../habitacion/Info";
+import Listado from "./Listado";
+import Listado2 from "./Listado2";
+import Images from "./Imagenes";
+import Info from "./Info";
 import Map from "../Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
 
