@@ -1,8 +1,7 @@
 import { useState, useEffect } from "react";
 import Input_Fecha from "../../../../../inputs/DateRangePrice";
 import Aside from "./Aside";
-import Pago from "./Pago";
-import Pasajeros from "./Pasajeros";
+
 import Info from "./Info";
 
 function Fechas() {
@@ -64,7 +63,7 @@ function Fechas() {
           "Visita Panorámica de Viena - en grupo - guia local en español",
       },
       {
-        id: 1,
+        id: 0,
         dia: 2,
         ciudad: "Viena",
         descripcion:
@@ -73,6 +72,36 @@ function Fechas() {
         hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
         actividades:
           "Visita Panorámica de Viena - en grupo - guia local en español",
+      },
+      {
+        id: 0,
+        dia: 3,
+        ciudad: "Viena",
+        descripcion:
+          "Traslado a la estación de tren en Viena por cuenta propia, por la mañana seguiremos en tren hacia Múnich, la capital bavara, llegada y traslado al Hotel de Munich por cuenta propia, resto del día libre para realizar actividades opcionales.",
+        alojamiento: "Munich",
+        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
+        actividades: "Tren Viena - Munich (Segunda Clase) - tickets incluidos",
+      },
+      {
+        id: 0,
+        dia: 4,
+        ciudad: "Viena",
+        descripcion:
+          "Por la mañana realizamos un paseo a pie empezando en la Karlstor, pasaremos por la iglesia St. Michael, donde se encuentran los restos de “el Rey Loco”, la Marienplatz, con el Ayuntamiento y su famoso carrillón, la Frauenkirche y su huella del diablo, la Plaza de la Ópera, el Feldherrnhalle o monumento a los generales bávaros, la Bürgersaalkirche, la Residencia Real y la Iglesia de San Pedro hasta cubrir todos los puntos de interés del centro histórico, así como los rincones más escondidos.",
+        alojamiento: "Viena",
+        hotel: "Garten- & Kunsthotel Gabriel o similar 3*",
+        regimen: "Desayuno",
+      },
+      {
+        id: 0,
+        dia: 5,
+        ciudad: "Viena",
+        descripcion:
+          "Tiempo libre hasta la hora indicada, recogida en el hotel y traslado al aeropuerto.",
+        alojamiento: "Viena",
+        actividades:
+          "Visita Panorámica de Munich - en grupo - guia local en español",
       },
     ],
     noches: [
@@ -91,6 +120,14 @@ function Fechas() {
         nights: 2,
         lat: 52.52,
         lng: 13.405,
+      },
+      {
+        id: 3,
+        name: "Praga",
+        country: "República Checa",
+        nights: 3,
+        lat: 50.0755,
+        lng: 14.4378,
       },
     ],
     hotelPrecio: [
@@ -123,11 +160,10 @@ function Fechas() {
 
   const [reserva, setReserva] = useState({
     type: "destino",
-    producto: "Destino",
     nombre: producto.nombre,
     fechaIda: "",
     fechaVuelta: "",
-    adultos: producto.pax,
+    precio: 0,
   });
 
   const [dates, setDates] = useState({
@@ -149,17 +185,19 @@ function Fechas() {
     "2024-12-13": 158,
   };
 
-  // Update reserva whenever dates or product pax changes
   useEffect(() => {
+    const formatFecha = (date) => {
+      if (!date) return "";
+      const options = { day: "numeric", month: "long", year: "numeric" };
+      return new Intl.DateTimeFormat("es-ES", options).format(date);
+    };
+
     setReserva((prevReserva) => ({
       ...prevReserva,
-      fechaIda: dates.startDate
-        ? dates.startDate.toISOString().split("T")[0]
-        : "",
-      fechaVuelta: dates.endDate
-        ? dates.endDate.toISOString().split("T")[0]
-        : "",
+      fechaIda: dates.startDate ? formatFecha(dates.startDate) : "",
+      fechaVuelta: dates.endDate ? formatFecha(dates.endDate) : "",
       adultos: producto.pax,
+      precio: producto.pax * dates.startDatePrice,
     }));
   }, [dates, producto.pax]);
 
@@ -260,7 +298,7 @@ function Fechas() {
           </section>
         )}
       </main>
-      <aside className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
+      <aside className="col-span-3 lg:col-span-1 sticky top-5 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
         <Aside
           dates={dates}
           setProducto={setProducto}
@@ -268,10 +306,10 @@ function Fechas() {
           addRoom={addRoom}
           producto={producto}
           deleteRoom={deleteRoom}
+          reserva={reserva}
         />
       </aside>
     </article>
   );
 }
-
 export default Fechas;

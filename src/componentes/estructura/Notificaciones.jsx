@@ -22,7 +22,8 @@ function Notificaciones() {
     {
       id: 4,
       titulo: "Agotado",
-      texto: "El billete reservado para el día 27 de octubre para las entradas al festival de programación se han agotado. :(",
+      texto:
+        "El billete reservado para el día 27 de octubre para las entradas al festival de programación se han agotado. :(",
     },
   ];
 
@@ -43,16 +44,16 @@ function Notificaciones() {
             {notificaciones.map((notificacion) => (
               <div
                 key={notificacion.id}
-                className="bg-slate-50 hover:bg-gray-200 transition cursor-pointer rounded-xl mt-2 p-2 pt-1 shadow-sm grid grid-cols-6 space-x-2"
+                className="bg-slate-50 hover:bg-gray-200 dark:bg-slate-700 dark:hover:bg-slate-600 transition cursor-pointer rounded-xl mt-2 p-2 pt-1 shadow-sm grid grid-cols-6 items-center space-x-2"
               >
-                <div className="bg-slate-700 rounded-full border text-white border-slate-300 flex justify-center items-center w-10 h-10">
+                <div className="bg-slate-700 dark:bg-slate-800 rounded-full border text-white border-slate-300 dark:border-slate-800 flex justify-center items-center w-10 h-10">
                   <CiBellOn className="text-3xl " />
                 </div>
                 <div className="col-span-5">
                   <h3 className="text-sm font-semibold text-secondary">
                     {notificacion.titulo}
                   </h3>
-                  <p className="text-xs line-clamp-2 text-slate-500">
+                  <p className="text-xs line-clamp-2 text-slate-500 dark:text-slate-300">
                     {notificacion.texto}
                   </p>
                 </div>

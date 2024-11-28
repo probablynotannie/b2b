@@ -1,17 +1,13 @@
 import { useState } from "react";
 import Datos from "./Datos";
+import { Link } from "react-router-dom";
+import { useLocation } from "react-router-dom";
+
 
 function Contacto() {
-  const [reserva, setReserva] = useState({
-    type: "hotelmasvuelo",
-    producto: "Hotel más vuelo",
-    nombre: "Hamburgo y su puerto",
-    fechaIda: "30 de noviembre 2024",
-    fechaVuelta: "3 de diciembre 2024",
-    adultos: 3,
-    ninios: 0,
-    seniors: 0,
-  });
+  const location = useLocation();
+  const reserva = location.state; 
+
 
   const typeToBackground = {
     destino: {
@@ -80,7 +76,7 @@ function Contacto() {
                   {reserva.producto}
                 </h4>
                 <div className="flex flex-col justify-center items-center text-white">
-                  <span className="font-semibold">{reserva.nombre}</span>
+                  <span className="font-semibold text-4xl">{reserva.nombre}</span>
                   <span className="block text-slate-300">
                     {reserva.fechaIda}
                     {reserva.fechaVuelta && (
@@ -93,9 +89,11 @@ function Contacto() {
           </div>
         </section>
         <div className="my-10 mx-8 flex justify-end">
-          <button className="bg-secondary dark:bg-slate-900 lg:w-fit w-full p-3 px-10 rounded-xl shadow-lg hover:shadow-xl dark:shadow-slate-800 transition text-white font-bold">
-            Siguiente
-          </button>
+          <Link to="/cesta">
+            <button className="bg-secondary dark:bg-slate-900 lg:w-fit w-full p-3 px-10 rounded-xl shadow-lg hover:shadow-xl dark:shadow-slate-800 transition text-white font-bold">
+              Siguiente
+            </button>
+          </Link>
         </div>
       </article>
     </main>

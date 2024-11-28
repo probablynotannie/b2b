@@ -4,7 +4,9 @@ import { FaBed } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaCheck } from "react-icons/fa";
-function Listado() {
+import { Link } from "react-router-dom";
+
+function Listado({reserva}) {
   const habitaciones = [
     {
       id: 0,
@@ -99,7 +101,6 @@ function Listado() {
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id); // Toggle the expanded state
   };
-
 
   return (
     <div className="space-y-10">
@@ -199,9 +200,11 @@ function Listado() {
                 <button className="flex items-center justify-center transition font-semibold w-[50px] bg-slate-400  rounded-lg shadow-md hover:shadow-lg text-white">
                   <FaFilePdf />
                 </button>
-                <button className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
-                  {habitacion.precio}€
-                </button>
+                <Link to={"/datos"} state={reserva}>
+                  <button className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
+                    {habitacion.precio}€
+                  </button>
+                </Link>
               </td>
             </tr>
           ))}

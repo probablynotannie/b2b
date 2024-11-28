@@ -12,17 +12,17 @@ const MapWithJourney = ({ destino }) => {
   const positions = destino.noches.map(({ lat, lng }) => [lat, lng]);
 
   return (
-    <div className="w-full h-full z-0 mb-0">
+    <div className="w-full h-full mb-0">
       <MapContainer
         center={positions[0]}
         zoom={6}
         style={{ height: "100%", width: "100%" }}
         zoomControl={false} // Disable default zoom control
       >
-     <TileLayer
-  url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
-  attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-/>
+        <TileLayer
+          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
+          attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+        />
         {destino.noches.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
             <Tooltip permanent offset={[0, -20]}>

@@ -1,3 +1,4 @@
+import { useState } from "react";
 import Buscador from "../filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "./Listado";
@@ -6,7 +7,7 @@ import Imagenes from "./Imgs";
 import Info from "./Info";
 import Map from "../Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
 function Producto() {
   const producto = {
     id: 0,
@@ -71,7 +72,13 @@ function Producto() {
       },
     ],
   };
-
+  const reserva = {
+    type: "hotel",
+    nombre: producto.nombre,
+    fechaIda: producto.fecha,
+    fechaVuelta: producto.fechaSalida,
+    precio: producto.precio,
+  };
   return (
     <main className="flex justify-center flex-col my-10  px-5 md:px-0">
       <div className="container">
@@ -152,13 +159,13 @@ function Producto() {
             <Info />
           </section>
           <section className="col-span-5">
-            <Listado2 />
+            <Listado2 reserva={reserva} />
           </section>
           <section className="col-span-5">
-            <Listado />
+            <Listado reserva={reserva} />
           </section>
           <section className="col-span-5">
-            <h4 className="font-bold text-lg mb-3">Imagenes</h4>
+            <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>
             <Imagenes />
           </section>
         </article>

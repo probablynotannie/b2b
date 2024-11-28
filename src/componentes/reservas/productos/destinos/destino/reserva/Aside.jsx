@@ -8,7 +8,14 @@ import { Popover } from "flowbite-react";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaPlusCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
-function Aside({ dates, producto, handleRoomTypeChange, addRoom, deleteRoom }) {
+function Aside({
+  dates,
+  producto,
+  handleRoomTypeChange,
+  addRoom,
+  deleteRoom,
+  reserva,
+}) {
   const pvp = dates.startDatePrice;
   const precio = producto.pax * dates.startDatePrice;
 
@@ -114,7 +121,7 @@ function Aside({ dates, producto, handleRoomTypeChange, addRoom, deleteRoom }) {
                       ))}
                       <div
                         onClick={addRoom}
-                        className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
+                        className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2"
                       >
                         <div className="w-fit flex items-center space-x-1 font-semibold">
                           <FaPlusCircle className="dark:text-secondaryDark" />
@@ -158,7 +165,10 @@ function Aside({ dates, producto, handleRoomTypeChange, addRoom, deleteRoom }) {
             </p>
           </div>
           <div className="grid grid-cols-3 justify-around w-full text-center"></div>
-          <Link to="/datos">
+          <Link 
+          to="/datos" 
+          state={reserva}
+          >
             <button className="bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
               TOTAL: {precio}€
             </button>

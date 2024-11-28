@@ -9,7 +9,6 @@ function CestaCompleta() {
       pax: 2,
       nombre: "Luxury appartments",
       localizacion: "Barcelona, calle inventada nº 5",
-
       fecha: "21 de octubre",
       fechaSalida: "26 de octubre",
       img: "/hotel2.jpg",
@@ -32,20 +31,7 @@ function CestaCompleta() {
       descripcion:
         "Entrada para el festival de libros de literatura fantástica.",
     },
-    {
-      id: 2,
-      texto: "Ferri",
-      pax: 2,
-      nombre: "Ferri",
-      localizacion: "Barcelona, calle inventada nº 5",
-      fecha: "21 de octubre",
-      img: "/banner_trenes.jpeg",
-      precio: 142,
-
-      descripcion: "Viaje en ferry de Barcelona a Ibiza, incluye vehículo.",
-    },
   ];
-
   const opcionesDePago = [
     {
       id: 0,
@@ -66,12 +52,12 @@ function CestaCompleta() {
       class: "h-[30px]",
     },
   ];
-  const [leido, setLeido] = useState({});
 
+  const [leido, setLeido] = useState({});
   const [selectedPayment, setSelectedPayment] = useState(null);
 
   //El primero en accordion esta abierto por default al entrar a la cesta
- /*  const [accordionOpen, setAccordionOpen] = useState(
+  /*  const [accordionOpen, setAccordionOpen] = useState(
     reserva.map((_, index) => index === 0)
   );
 
@@ -81,8 +67,7 @@ function CestaCompleta() {
     );
   }; */
 
-  //para dejar todos los productos de acordeon cerrados
-    const [accordionOpen, setAccordionOpen] = useState(
+  const [accordionOpen, setAccordionOpen] = useState(
     new Array(reserva.length).fill(false)
   );
 
