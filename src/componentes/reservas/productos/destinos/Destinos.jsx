@@ -198,38 +198,38 @@ function Resultado() {
           Resultados ({destinos.length})
         </h3>
       </div>
-      <Link to="/destino">
-        {destinos.map((destino, index) => (
-          <article
-            key={index}
-            className="cursor-pointer bg-white flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
-          >
-            <div className="relative w-full">
-              {activeMap === destino.id ? (
-                <div className="h-[25vh]   rounded-t-lg flex items-center justify-center">
-                  <MapWithJourney destino={destino} />
-                </div>
-              ) : (
-                <div className="relative h-[25vh] rounded-t-lg">
-                  <div className="bg-indigo-700 bg-opacity-40 w-full h-full rounded-t-lg absolute" />
-                  <img
-                    src={destino.imagen}
-                    alt="destino"
-                    className="w-full object-cover h-full border-y-2 border-secondary rounded-t-lg dark:border-slate-800"
-                  />
-                </div>
-              )}
-              <button
-                onClick={() => toggleMap(destino.id)}
-                className="flex items-center font-semibold bg-secondary text-white px-2 p-1 rounded-bl-lg absolute top-0 right-0"
-              >
-                {activeMap === destino.id ? "Ocultar mapa" : "Mostrar mapa"}
-                <FaMapPin className="text-white ml-2" />
-              </button>
-              <span className="text-xl font-bold bg-secondary text-white px-2 p-1 rounded-br-lg absolute top-0">
-                {destino.precio}€
-              </span>
-            </div>
+      {destinos.map((destino, index) => (
+        <article
+          key={index}
+          className="cursor-pointer bg-white flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
+        >
+          <div className="relative w-full">
+            {activeMap === destino.id ? (
+              <div className="h-[25vh]   rounded-t-lg flex items-center justify-center">
+                <MapWithJourney destino={destino} />
+              </div>
+            ) : (
+              <div className="relative h-[25vh] rounded-t-lg">
+                <div className="bg-indigo-700 bg-opacity-40 w-full h-full rounded-t-lg absolute" />
+                <img
+                  src={destino.imagen}
+                  alt="destino"
+                  className="w-full object-cover h-full border-y-2 border-secondary rounded-t-lg dark:border-slate-800"
+                />
+              </div>
+            )}
+            <button
+              onClick={() => toggleMap(destino.id)}
+              className="flex items-center font-semibold bg-secondary text-white px-2 p-1 rounded-bl-lg absolute top-0 right-0"
+            >
+              {activeMap === destino.id ? "Ocultar mapa" : "Mostrar mapa"}
+              <FaMapPin className="text-white ml-2" />
+            </button>
+            <span className="text-xl font-bold bg-secondary text-white px-2 p-1 rounded-br-lg absolute top-0">
+              {destino.precio}€
+            </span>
+          </div>
+          <Link to="/destino">
             <div className="px-5 py-3 dark:text-slate-300">
               <div className="flex justify-between items-center">
                 <h4 className="dark:text-secondaryDark font-semibold text-secondary">
@@ -286,9 +286,9 @@ function Resultado() {
                 </span>
               </p>
             </div>
-          </article>
-        ))}
-      </Link>
+          </Link>
+        </article>
+      ))}
     </section>
   );
 }
