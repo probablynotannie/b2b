@@ -13,7 +13,6 @@ function Usuario() {
         <div className="w-64 p-3">
           <div className="border-b-2 border-slate-100 pb-2 mb-2 flex items-center justify-between">
             <span className="font-bold text-primary">vpk desarrollo</span>
-
             <img
               className="h-10 w-16 rounded-full"
               src="../../dit.png"
@@ -54,9 +53,7 @@ function Usuario() {
                   <span>Modificar margenes</span>
                 </li>
               </ul>
-
               <div className="mt-4 flex justify-end border-t-2 border-slate-100 pt-3">
-             
                 <button className="text-slate-400 hover:text-slate-700 transition p-2">
                   Cerrar sesión
                 </button>

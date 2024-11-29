@@ -1,13 +1,11 @@
-import { useState } from "react";
 import Datos from "./Datos";
 import { Link } from "react-router-dom";
 import { useLocation } from "react-router-dom";
 
-
 function Contacto() {
   const location = useLocation();
-  const reserva = location.state; 
-
+  const reserva = location.state;
+  console.log("reserva", reserva);
 
   const typeToBackground = {
     destino: {
@@ -76,13 +74,15 @@ function Contacto() {
                   {reserva.producto}
                 </h4>
                 <div className="flex flex-col justify-center items-center text-white">
-                  <span className="font-semibold text-4xl">{reserva.nombre}</span>
-                  <span className="block text-slate-300">
-                    {reserva.fechaIda}
+                  <span className="font-semibold text-4xl text-center">
+                    {reserva.nombre}
+                  </span>
+                  <p className="text-slate-300 text-center px-4">
+                    <span className="block">{reserva.fechaIda}</span>
                     {reserva.fechaVuelta && (
                       <span> - {reserva.fechaVuelta}</span>
                     )}
-                  </span>
+                  </p>
                 </div>
               </div>
             </div>

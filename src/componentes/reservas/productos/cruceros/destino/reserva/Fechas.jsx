@@ -1,14 +1,11 @@
-import { useState } from "react";
-import { FaMapPin, FaClock } from "react-icons/fa";
-import { FaBed } from "react-icons/fa6";
-import { MdRestaurant } from "react-icons/md";
-import Detalles from "./Detalles";
-import Resumen from "./Resumen";
-import Head from "../../../estructura/ProductoHeader";
+import { useState, useEffect } from "react";
+import Input_Fecha from "../../../../../inputs/DateRangePrice";
+import Aside from "./Aside";
 
-function Destino() {
-  const [reserva, setReserva] = useState();
-  const producto = {
+import Info from "./Info";
+
+function Fechas() {
+  const [producto, setProducto] = useState({
     nombre: "Hamburgo y su puerto",
     ubicacion: "Hamburgo",
     img: "/destinos/destinoBanner.jpg",
@@ -36,7 +33,6 @@ function Destino() {
           "Agua mineral todos los días durante el transporte",
         ],
       },
-
       {
         id: 1,
         title: "Importante",
@@ -52,11 +48,8 @@ function Destino() {
         ],
       },
     ],
-    pax: {
-      adultos: 2,
-      ninio: 0,
-      senior: 0,
-    },
+    pax: 2,
+    habitaciones: [],
     itinerarioViaje: [
       {
         id: 0,
@@ -151,7 +144,7 @@ function Destino() {
     desayunos: 3,
     banner: "",
     descripcion:
-      "Descubra en un solo viaje la capital de Austria, Viena, y la ciudad con la mejor calidad de vida de Alemania, Munich. Viena, la capital mundial de la música y Munich, la capital de la región de Baviera que cuenta con una notable belleza arquitectónica y natural. Dos ciudades diferentes y las dos muy interesantes.",
+      "Descubra en un solo viaje la capital de Austria, Viena, y la ciudad con la mejor calidad de vida de Alemania, Munich.",
     itinerario: [
       {
         id: 0,
@@ -163,64 +156,160 @@ function Destino() {
         tarjeta: "Tarjeta Hamburg Card - tickets incluidos",
       },
     ],
-  };
-  // State to track selected hotel option
-  const [selectedHotel, setSelectedHotel] = useState(producto.hotelPrecio[0]);
+  });
 
-  // Handler to update selected hotel
-  const handleHotelChange = (e) => {
-    const selectedOption = producto.hotelPrecio.find(
-      (hotel) => hotel.hotel === e.target.value
-    );
-    setSelectedHotel(selectedOption);
+  const [reserva, setReserva] = useState({
+    type: "destino",
+    nombre: producto.nombre,
+    fechaIda: "",
+    fechaVuelta: "",
+    precio: 0,
+  });
+
+  const [dates, setDates] = useState({
+    startDate: null,
+    endDate: null,
+    startDatePrice: null,
+  });
+
+  const prices = {
+    "2024-11-2": 300,
+    "2024-11-9": 280,
+    "2024-11-16": 150,
+    "2024-11-19": 503,
+    "2024-11-26": 860,
+    "2024-11-30": 268,
+    "2024-12-03": 305,
+    "2024-12-06": 158,
+    "2024-12-10": 158,
+    "2024-12-13": 158,
+  };
+
+  useEffect(() => {
+    const formatFecha = (date) => {
+      if (!date) return "";
+      const options = { day: "numeric", month: "long", year: "numeric" };
+      return new Intl.DateTimeFormat("es-ES", options).format(date);
+    };
+
+    setReserva((prevReserva) => ({
+      ...prevReserva,
+      fechaIda: dates.startDate ? formatFecha(dates.startDate) : "",
+      fechaVuelta: dates.endDate ? formatFecha(dates.endDate) : "",
+      adultos: producto.pax,
+      precio: producto.pax * dates.startDatePrice,
+    }));
+  }, [dates, producto.pax]);
+
+  const addRoom = () => {
+    setProducto((prevState) => {
+      const updatedHabitaciones = [
+        ...prevState.habitaciones,
+        { id: Date.now(), pax: 2 },
+      ];
+
+      const totalPax = updatedHabitaciones.reduce(
+        (sum, hab) => sum + hab.pax,
+        2
+      );
+
+      const totalPrice = totalPax * 100;
+
+      return {
+        ...prevState,
+        habitaciones: updatedHabitaciones,
+        pax: totalPax,
+        precio: totalPrice,
+      };
+    });
+  };
+
+  const deleteRoom = (id) => {
+    setProducto((prevState) => {
+      const updatedHabitaciones = prevState.habitaciones.filter(
+        (habitacion) => habitacion.id !== id
+      );
+      const totalPax = updatedHabitaciones.reduce(
+        (sum, hab) => sum + hab.pax,
+        2
+      );
+      return {
+        ...prevState,
+        habitaciones: updatedHabitaciones,
+        pax: totalPax,
+      };
+    });
+  };
+
+  const handleRoomTypeChange = (id, pax) => {
+    setProducto((prevState) => {
+      const updatedHabitaciones = prevState.habitaciones.map((habitacion) =>
+        habitacion.id === id ? { ...habitacion, pax } : habitacion
+      );
+      const totalPax = updatedHabitaciones.reduce(
+        (sum, hab) => sum + hab.pax,
+        2
+      );
+      return {
+        ...prevState,
+        habitaciones: updatedHabitaciones,
+        pax: totalPax,
+      };
+    });
   };
 
   return (
-    <article className="container my-10 lg:mb-10 lg:mt-auto ">
-      <header className="dark:bg-slate-800 dark:rounded-xl border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5">
-        <div className="flex justify-between">
-          <div>
-            <h1 className="text-xl font-bold dark:text-white">
-              {producto.nombre}
-            </h1>
-            <p className="flex items-center flex-wrap  font-semibold">
-              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-                <FaMapPin className="text-secondary text-lg" />
-                {producto.ubicacion}
-              </span>
-              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-                <FaClock className="mr-2 text-secondary text-lg" />
-                {producto.dias} días
-              </span>
-              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-                <FaBed className="mr-2 text-secondary text-lg" />
-                {selectedHotel.hotel}
-              </span>
-              <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-                <MdRestaurant className="mr-2 text-secondary text-lg" />
-                {producto.desayunos} desayunos
-              </span>
-            </p>
-          </div>
-          <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
-            PVP desde {selectedHotel.precio}€
-          </button>
-        </div>
-      </header>
-      <article className="my-5 mt-10 grid grid-cols-3 gap-10">
-        <section className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[90vh] dark:bg-slate-800">
-          <Detalles producto={producto} />
-        </section>
-        <section className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-5 dark:bg-slate-800">
-          <Resumen
-            handleHotelChange={handleHotelChange}
-            setSelectedHotel={setSelectedHotel.hotel}
-            producto={{ ...producto, precio: selectedHotel.precio }}
-          />
-        </section>
-      </article>
+    <article className="container mt-10 grid grid-cols-3 gap-10">
+      <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
+        <h1 className="font-semibold dark:text-white text-2xl">
+          Selecciona el rango de fechas
+        </h1>
+        <Input_Fecha
+          dates={dates}
+          dias={producto.dias}
+          prices={prices}
+          setDates={setDates}
+        />
+        <p className="flex justify-between mt-2 text-slate-500 dark:text-slate-400">
+          <span>
+            {dates.startDate
+              ? dates.startDate.toLocaleDateString("es-ES", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })
+              : "Fecha ida"}{" "}
+            -{" "}
+            {dates.endDate
+              ? dates.endDate.toLocaleDateString("es-ES", {
+                  day: "numeric",
+                  month: "long",
+                  year: "numeric",
+                })
+              : "Fecha vuelta"}
+          </span>
+          <span className="font-semibold text-secondary dark:text-secondaryDark">
+            {dates.startDatePrice ? `${dates.startDatePrice}€` : "Precio"}
+          </span>
+        </p>
+        {dates.startDate && (
+          <section>
+            <Info />
+          </section>
+        )}
+      </main>
+      <aside className="col-span-3 lg:col-span-1 sticky top-5 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
+        <Aside
+          dates={dates}
+          setProducto={setProducto}
+          handleRoomTypeChange={handleRoomTypeChange}
+          addRoom={addRoom}
+          producto={producto}
+          deleteRoom={deleteRoom}
+          reserva={reserva}
+        />
+      </aside>
     </article>
   );
 }
-
-export default Destino;
+export default Fechas;

@@ -4,7 +4,6 @@ import { FaBed } from "react-icons/fa6";
 import { MdRestaurant } from "react-icons/md";
 import Detalles from "./Detalles";
 import Resumen from "./Resumen";
-import Head from "../../../estructura/ProductoHeader";
 
 function Destino() {
   const [reserva, setReserva] = useState();

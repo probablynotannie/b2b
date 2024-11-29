@@ -1,4 +1,3 @@
-import { useState } from "react";
 import Buscador from "../filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "./Listado";
@@ -7,7 +6,7 @@ import Imagenes from "./Imgs";
 import Info from "./Info";
 import Map from "../Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Head from "../../../estructura/ProductoHeader";
 function Producto() {
   const producto = {
     id: 0,
@@ -83,22 +82,12 @@ function Producto() {
     <main className="flex justify-center flex-col my-10  px-5 md:px-0">
       <div className="container">
         <Buscador />
-        <div className="mt-5 dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
-          <div>
-            <h3 className="text-xl font-bold dark:text-white">
-              {producto.nombre}
-            </h3>
-            <div className="flex space-x-2 items-center">
-              <FaMapPin className="text-secondary text-lg" />
-              <span className="text-sm dark:text-slate-400">
-                {producto.ubicacion}
-              </span>
-            </div>
-          </div>
-          <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
-            Reservar
-          </button>
-        </div>
+        <Head
+          nombre={producto.nombre}
+          descripcion={producto.ubicacion}
+          boton="Reservar"
+        />
+
         <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
           <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
             <h4 className="p-3 font-bold text-cen rounded-t-xl   text-secondary">

@@ -1,10 +1,11 @@
-import Buscador from "./filtros/Buscador";
+import { useState } from "react";
+import Buscador from "../filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
-import Listado from "./habitacion/Listado";
-import Listado2 from "./habitacion/Listado2";
-import Images from "./habitacion/Imagenes";
-import Info from "./habitacion/Info";
-import Map from "./Map";
+import Listado from "./Listado";
+import Listado2 from "./Listado2";
+import Imagenes from "./Imgs";
+import Info from "./Info";
+import Map from "../Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
 import { Link } from "react-router-dom";
 function Producto() {
@@ -71,12 +72,18 @@ function Producto() {
       },
     ],
   };
-
+  const reserva = {
+    type: "hotelmasvuelo",
+    nombre: producto.nombre,
+    fechaIda: producto.fecha,
+    fechaVuelta: producto.fechaSalida,
+    precio: producto.precio,
+  };
   return (
     <main className="flex justify-center flex-col my-10  px-5 md:px-0">
-      <div className=" container">
+      <div className="container">
         <Buscador />
-        <div className="dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
+        <div className="mt-5 dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
           <div>
             <h3 className="text-xl font-bold dark:text-white">
               {producto.nombre}
@@ -88,13 +95,11 @@ function Producto() {
               </span>
             </div>
           </div>
-          <Link to="/datos">
-            <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
-              Reservar
-            </button>
-          </Link>
+          <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
+            Reservar
+          </button>
         </div>
-        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10">
+        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
           <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
             <h4 className="p-3 font-bold text-cen rounded-t-xl   text-secondary">
               Resumen
@@ -147,21 +152,21 @@ function Producto() {
               </div>
             </div>
           </section>
-          <aside className="h-full lg:col-span-4 col-span-5 ">
+          <aside className="h-full lg:col-span-4 col-span-5 mt-5 lg:mt-0">
             <Map location={producto.ubicacion} />
           </aside>
-          <section className="col-span-5">
+          <section className="col-span-5 mt-10 mb-5 lg:my-5">
             <Info />
           </section>
           <section className="col-span-5">
-            <Listado2 />
+            <Listado2 reserva={reserva} />
           </section>
           <section className="col-span-5">
-            <Listado />
+            <Listado reserva={reserva} />
           </section>
           <section className="col-span-5">
-            <h4 className="font-bold text-lg mb-3">Imagenes</h4>
-            <Images />
+            <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>
+            <Imagenes />
           </section>
         </article>
       </div>

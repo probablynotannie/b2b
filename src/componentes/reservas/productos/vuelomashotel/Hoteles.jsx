@@ -7,7 +7,7 @@ import { Carousel } from "flowbite-react";
 import { FaDoorOpen } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { useState } from "react";
-
+import { Link } from "react-router-dom";
 function Resultado() {
   const reserva = {
     pax: 2,
@@ -181,9 +181,11 @@ function Resultado() {
                   </button>
                 </Modal.Footer>
               </Modal>
-              <button className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow">
-                Reservar
-              </button>
+              <Link to="/hotelmasvuelo">
+                <button className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow">
+                  Reservar
+                </button>
+              </Link>
             </div>
           </div>
         </article>
