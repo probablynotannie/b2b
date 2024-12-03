@@ -4,188 +4,8 @@ import { MdRestaurant } from "react-icons/md";
 import { useState } from "react";
 import MapWithJourney from "./filtros/MapWithJourney";
 import { Link } from "react-router-dom";
+import destinos from "./Destinos.json";
 function Resultado() {
-  const destinos = [
-    {
-      id: "OMT31259089",
-      map: "https://goo.gl/maps/example1",
-      precio: 1200,
-      noches: [
-        {
-          id: 1,
-          name: "Dresde",
-          country: "Alemania",
-          nights: 1,
-          lat: 51.0504,
-          lng: 13.7373,
-        },
-        {
-          id: 2,
-          name: "Berlín",
-          country: "Alemania",
-          nights: 2,
-          lat: 52.52,
-          lng: 13.405,
-        },
-        {
-          id: 3,
-          name: "Praga",
-          country: "República Checa",
-          nights: 3,
-          lat: 50.0755,
-          lng: 14.4378,
-        },
-      ],
-      titulo: "Aventura en la Gran Barrera de Coral",
-      imagen: "/destinos/cairns.png",
-      noches_en: ["Cairns", "Port Douglas", "Fitzroy Island"],
-      sitio_noches: [
-        "Gran Barrera de Coral",
-        "Daintree Rainforest",
-        "Playa de Fitzroy Island",
-      ],
-      dias: 5,
-      categorias: "Económico",
-      comidas: "Desayuno, Almuerzo",
-      agencia: "Coral Reef Adventures",
-    },
-    {
-      id: "OMT312513508",
-      map: "https://goo.gl/maps/example2",
-      precio: 850,
-      noches: [
-        {
-          id: 1,
-          name: "Dresde",
-          country: "Alemania",
-          nights: 1,
-          lat: 51.0504,
-          lng: 13.7373,
-        },
-        {
-          id: 2,
-          name: "Berlín",
-          country: "Alemania",
-          nights: 2,
-          lat: 52.52,
-          lng: 13.405,
-        },
-        {
-          id: 3,
-          name: "Praga",
-          country: "República Checa",
-          nights: 3,
-          lat: 50.0755,
-          lng: 14.4378,
-        },
-      ],
-      titulo: "Escapada Romántica en Cairns",
-      imagen: "/destinos/cairns.png",
-      noches_en: ["Cairns", "Green Island", "Palm Cove"],
-      sitio_noches: [
-        "Laguna Esplanade",
-        "Green Island Resort",
-        "Palm Cove Beach",
-      ],
-      dias: "OMT312513506",
-      categorias: "Confort",
-      comidas: "Desayuno",
-      agencia: "Tropical Getaways",
-    },
-    {
-      id: "OMT31258952",
-      map: "https://goo.gl/maps/example3",
-      precio: 500,
-      noches: [
-        {
-          id: 1,
-          name: "Dresde",
-          country: "Alemania",
-          nights: 1,
-          lat: 51.0504,
-          lng: 13.7373,
-        },
-        {
-          id: 2,
-          name: "Berlín",
-          country: "Alemania",
-          nights: 2,
-          lat: 52.52,
-          lng: 13.405,
-        },
-        {
-          id: 3,
-          name: "Praga",
-          country: "República Checa",
-          nights: 3,
-          lat: 50.0755,
-          lng: 14.4378,
-        },
-      ],
-      titulo: "Relax en las Playas de Cairns",
-      imagen: "/destinos/cairns.png",
-      noches_en: ["Cairns", "Trinity Beach", "Mission Beach"],
-      sitio_noches: ["Playa Trinity", "Cascadas Crystal", "Playa Mission"],
-      dias: 7,
-      categorias: "Confort",
-      comidas: "Todo Incluido",
-      agencia: "Cairns Beach Resorts",
-    },
-    {
-      id: "OGL31752659",
-      map: "https://goo.gl/maps/example4",
-      precio: 1100,
-
-      titulo: "Safari en la Selva Tropical de Daintree",
-      imagen: "/destinos/cairns.png",
-      noches_en: ["Cairns", "Daintree Rainforest", "Mossman Gorge"],
-      sitio_noches: [
-        "Parque Nacional Daintree",
-        "Río Daintree",
-        "Garganta Mossman",
-      ],
-      dias: "OMT312519457",
-      categorias: "Confort",
-      comidas: "Desayuno, Cena",
-      agencia: "Wildlife Tours Cairns",
-    },
-    {
-      id: "ES30556032",
-      map: "https://goo.gl/maps/example5",
-      precio: 950,
-      noches: [
-        {
-          id: 1,
-          name: "Dresde",
-          country: "Alemania",
-          nights: 1,
-          lat: 51.0504,
-          lng: 13.7373,
-        },
-        {
-          id: 3,
-          name: "Praga",
-          country: "República Checa",
-          nights: 3,
-          lat: 50.0755,
-          lng: 14.4378,
-        },
-      ],
-      titulo: "Exploración en Cairns y Alrededores",
-      imagen: "/destinos/cairns.png",
-      noches_en: ["Cairns", "Kuranda", "Atherton Tablelands"],
-      sitio_noches: [
-        "Mercado de Kuranda",
-        "Cataratas Barron",
-        "Meseta Atherton",
-      ],
-      dias: 5,
-      categorias: "Económico",
-      comidas: "Desayuno",
-      agencia: "Zen Explorers",
-    },
-  ];
-
   const [activeMap, setActiveMap] = useState(null);
   const toggleMap = (id) => {
     setActiveMap((prev) => (prev === id ? null : id));
@@ -212,7 +32,7 @@ function Resultado() {
               <div className="relative h-[25vh] rounded-t-lg">
                 <div className="bg-indigo-700 bg-opacity-40 w-full h-full rounded-t-lg absolute" />
                 <img
-                  src={destino.imagen}
+                  src={destino.img}
                   alt="destino"
                   className="w-full object-cover h-full border-y-2 border-secondary rounded-t-lg dark:border-slate-800"
                 />
@@ -229,7 +49,7 @@ function Resultado() {
               {destino.precio}€
             </span>
           </div>
-          <Link to="/destino">
+          <Link to="/destino" state={destino}>
             <div className="px-5 py-3 dark:text-slate-300">
               <div className="flex justify-between items-center">
                 <h4 className="dark:text-secondaryDark font-semibold text-secondary">

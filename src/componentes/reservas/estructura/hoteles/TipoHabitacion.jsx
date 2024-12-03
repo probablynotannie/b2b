@@ -1,5 +1,5 @@
-import Regimenes from "../../../../inputs/Regimenes";
-import PriceRange from "../../../../inputs/PrecioRange";
+import Regimenes from "../../../inputs/Regimenes";
+import PriceRange from "../../../inputs/PrecioRange";
 import { useState } from "react";
 const DropdownCheckboxSelector = ({ minPrice, maxPrice }) => {
   const [values, setValues] = useState([minPrice, maxPrice]);

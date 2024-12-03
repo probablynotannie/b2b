@@ -78,7 +78,7 @@ function Contacto() {
                     {reserva.nombre}
                   </span>
                   <p className="text-slate-300 text-center px-4">
-                    <span className="block">{reserva.fechaIda}</span>
+                    <span>{reserva.fechaIda}</span>
                     {reserva.fechaVuelta && (
                       <span> - {reserva.fechaVuelta}</span>
                     )}

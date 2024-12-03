@@ -1,0 +1,137 @@
+[
+  {
+    "id": 0,
+    "recorrido": "España - Marruecos",
+    "pax": [
+      {
+        "id": "adultos",
+        "pax": 2
+      },
+      {
+        "id": "ninios",
+        "pax": 1
+      }
+    ],
+    "tasas": 50,
+    "titulo": "8 días a bordo de MSC Lirica",
+    "crucero": "/cruceros/crucero.jpg",
+    "nombreCrucero": "MSC Lirica",
+    "logo": "/cruceros/msc.jpg",
+    "incluidos": [
+      "Piscina",
+      "Limpieza diaria",
+      "Club para niños",
+      "Descuentos en tiendas a bordo"
+    ],
+    "descripcion": "Este crucero es muy elegante y hospitalario, aquí se puede vivir unas vacaciones inolvidables. Cuando se entra por primera vez en el Beverly Hills Bar o en el Lord Nelson Pub se puede admirar la clase y la perfección de los mismos tomando copas con amigos. Por la noche, el teatro Broadway donde se puede asistir a espectáculos, está la Discoteca Blue Club y salón de baile y está el Casino Las Vegas.",
+    "itinerario": [
+      {
+        "id": 0,
+        "img": "/cruceros/it1/gc.jpg",
+        "destino": "Gran Canaria"
+      },
+      {
+        "id": 1,
+        "img": "/cruceros/it1/agadir.jpg",
+        "destino": "Agadir"
+      },
+      {
+        "id": 2,
+        "img": "/cruceros/it1/rabat.jpg",
+        "destino": "Rabat"
+      },
+      {
+        "id": 3,
+        "img": "/cruceros/it1/malaga.jpg",
+        "destino": "Málaga"
+      }
+    ],
+    "precios": [
+      {
+        "id": 1,
+        "title": "Cabina Interior",
+        "preciosConFechas": [
+          { "fecha": "02/12", "price": 375 },
+          { "fecha": "09/12", "price": 652 },
+          { "fecha": "10/12", "price": 500 },
+          { "fecha": "11/12", "price": 652 }
+        ],
+        "subPrecios": [
+          {
+            "tituloSubPrecio": "Interior en oferta IV",
+            "preciosConFechas": [
+              { "fecha": "10/12", "price": 583 },
+              { "fecha": "11/12", "price": 375 },
+              { "fecha": "12/12", "price": 375 }
+            ]
+          },
+          {
+            "tituloSubPrecio": "Interior I1",
+            "preciosConFechas": [
+              { "fecha": "10/12", "price": 562 },
+              { "fecha": "11/12", "price": 143 },
+              { "fecha": "12/12", "price": 800 }
+            ]
+          },
+          {
+            "tituloSubPrecio": "Interior I2",
+            "preciosConFechas": [
+              { "fecha": "10/12", "price": 562 },
+              { "fecha": "11/12", "price": 143 },
+              { "fecha": "12/12", "price": 800 }
+            ]
+          },
+          {
+            "tituloSubPrecio": "Interior I3",
+            "preciosConFechas": [
+              { "fecha": "09/12", "price": 150 },
+              { "fecha": "10/12", "price": 100 },
+              { "fecha": "11/12", "price": 100 },
+              { "fecha": "12/12", "price": 800 }
+            ]
+          }
+        ]
+      },
+      {
+        "id": 2,
+        "title": "Cabina Exterior",
+        "preciosConFechas": [
+          { "fecha": "14/10", "price": 632 },
+          { "fecha": "21/10", "price": 820 },
+          { "fecha": "28/10", "price": 424 },
+          { "fecha": "04/11", "price": 395 },
+          { "fecha": "11/11", "price": 345 },
+          { "fecha": "09/12", "price": 750 }
+        ],
+        "subPrecios": []
+      },
+      {
+        "id": 3,
+        "title": "Cabina con Balcón",
+        "preciosConFechas": [
+          { "fecha": "04/11", "price": 424 },
+          { "fecha": "11/11", "price": 375 },
+          { "fecha": "25/11", "price": 785 },
+          { "fecha": "09/12", "price": 865 },
+          { "fecha": "10/12", "price": 305 },
+          { "fecha": "11/12", "price": 320 },
+          { "fecha": "12/12", "price": 500 }
+        ],
+        "subPrecios": []
+      },
+      {
+        "id": 4,
+        "title": "Suite",
+        "preciosConFechas": [
+          { "fecha": "14/10", "price": 2087 },
+          { "fecha": "21/10", "price": 2038 },
+          { "fecha": "28/10", "price": 1939 },
+          { "fecha": "04/11", "price": 1939 },
+          { "fecha": "11/11", "price": 1000 },
+          { "fecha": "12/12", "price": 1200 }
+        ],
+        "subPrecios": []
+      }
+    ]
+  }
+]

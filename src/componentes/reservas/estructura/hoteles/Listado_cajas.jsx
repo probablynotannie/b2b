@@ -3,98 +3,13 @@ import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
-function Listado({reserva}) {
+function Listado({ reserva, habitaciones }) {
   const [selectedHabitacion, setSelectedHabitacion] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const habitaciones = [
-    {
-      id: 0,
-      nombre: "Cama en dormitorio compartido",
-      reembolso: "No",
-      reembolso_penalizacion: "A partir de 04/11/2024 penalización de 37.36€",
-      regimen: "Alojamiento y desayuno",
-      precio: "42.67",
-    },
-    {
-      id: 1,
-      nombre: "Habitación privada",
-      reembolso: "Sí",
-      regimen: "Alojamiento y desayuno",
-      precio: "60.00",
-    },
-    {
-      id: 2,
-      nombre: "Suite con vistas al mar",
-      reembolso: "Sí",
-      regimen: "Todo incluido",
-      precio: "120.50",
-    },
-    {
-      id: 3,
-      nombre: "Habitación doble estándar",
-      reembolso: "No",
-      reembolso_penalizacion: [
-        "A partir de 05/11/2024 penalización de 50.00€",
-        "A partir de 06/11/2024 penalización de 52.00€",
-        "A partir de 07/11/2024 penalización de 53.00€",
-        "A partir de 08/11/2024 penalización de 54.00€",
-      ],
-      regimen: "Media pensión",
-      precio: "80.00",
-    },
-    {
-      id: 4,
-      nombre: "Habitación individual económica",
-      reembolso: "Sí",
-      regimen: "Solo alojamiento",
-      precio: "35.00",
-    },
-    {
-      id: 5,
-      nombre: "Habitación familiar",
-      reembolso: "No",
-      reembolso_penalizacion: "A partir de 06/11/2024 penalización de 70.00€",
-      regimen: "Alojamiento y desayuno",
-      precio: "95.00",
-    },
-    {
-      id: 6,
-      nombre: "Apartamento con cocina",
-      reembolso: "Sí",
-      regimen: "Solo alojamiento",
-      precio: "105.00",
-    },
-    {
-      id: 7,
-      nombre: "Habitación deluxe con balcón",
-      reembolso: "No",
-      reembolso_penalizacion: "A partir de 07/11/2024 penalización de 90.00€",
-      regimen: "Todo incluido",
-      precio: "150.00",
-    },
-    {
-      id: 8,
-      nombre: "Cabaña en la montaña",
-      reembolso: "Sí",
-      regimen: "Media pensión",
-      precio: "110.00",
-    },
-    {
-      id: 9,
-      nombre: "Cama en dormitorio mixto",
-      reembolso: "No",
-      reembolso_penalizacion: "A partir de 04/11/2024 penalización de 20.00€",
-      regimen: "Alojamiento y desayuno",
-      precio: "30.00",
-    },
-  ];
-
   const openModal = (habitacion) => {
     setSelectedHabitacion(habitacion);
     setIsModalOpen(true);
   };
-
   const closeModal = () => {
     setIsModalOpen(false);
   };
@@ -123,13 +38,17 @@ function Listado({reserva}) {
             </h3>
             <span className="text-slate-400 text-sm">{habitacion.regimen}</span>
 
-            {habitacion.reembolso === "No" && (
+            {habitacion.reembolso === "NO" ? (
               <span className="bg-danger text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded mt-1">
-                No reembolsable
+                No reembolsablee
+              </span>
+            ) : (
+              <span className="bg-green-700 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded mt-1">
+                Reembolsable
               </span>
             )}
 
-            {habitacion.reembolso === "No" &&
+            {habitacion.reembolso === "NO" &&
               habitacion.reembolso_penalizacion && (
                 <div className="flex flex-col mt-2">
                   {Array.isArray(habitacion.reembolso_penalizacion) ? (

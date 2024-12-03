@@ -1,76 +1,17 @@
-import Buscador from "../filtros/Buscador";
+import Buscador from "./filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
-import Listado from "./Listado";
-import Listado2 from "./Listado2";
-import Imagenes from "./Imgs";
-import Info from "./Info";
-import Map from "../Map";
+import Listado from "../../estructura/hoteles/Listado_cajas";
+import Listado2 from "../../estructura/hoteles/Listado";
+import Imagenes from "../../estructura/hoteles/Imgs";
+import Info from "../../estructura/hoteles/Info";
+import Map from "../../estructura/hoteles/Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
-import Head from "../../../estructura/ProductoHeader";
+import Head from "../../estructura/ProductoHeader";
+import { useLocation } from "react-router-dom";
 function Producto() {
-  const producto = {
-    id: 0,
-    nombre: "Apartamentos sol y mar",
-    ubicacion: "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
-    precio: 364,
-    fecha: "21 de octubre",
-    fechaSalida: "28 de octubre",
-    pax: 2,
-    pax_ninios: 1,
-    descripcion:
-      "HB-000273 El Hotel Sorra d’Or Beach Club se encuentra ubicado en Malgrat de Mar, pueblo costero de la Costa del Maresme...",
-    imagenes: [
-      { id: 0, src: "/hotel1.jpg" },
-      { id: 1, src: "/hotel2.jpg" },
-      { id: 2, src: "/hotel3.jpg" },
-      { id: 3, src: "/hotel4.jpg" },
-    ],
-    img: "/hotel2.jpg",
-    habitaciones: [
-      {
-        id: 0,
-        nombre: "Economy Double",
-        regimen: "Alojamiento y desayuno",
-        precio: 54,
-      },
-      {
-        id: 1,
-        nombre: "Economy Double",
-        regimen: "Alojamiento y desayuno",
-        precio: 54,
-      },
-      {
-        id: 2,
-        nombre: "Standard Double",
-        regimen: "Alojamiento y desayuno",
-        precio: 88,
-      },
-      {
-        id: 3,
-        nombre: "Standard Pool View",
-        regimen: "Alojamiento y desayuno",
-        precio: 63,
-      },
-      {
-        id: 4,
-        nombre: "Economy Sea View",
-        regimen: "Alojamiento y desayuno",
-        precio: 67,
-      },
-      {
-        id: 5,
-        nombre: "Standard Pool View",
-        regimen: "Alojamiento y desayuno",
-        precio: 78,
-      },
-      {
-        id: 6,
-        nombre: "Standard Sea View",
-        regimen: "Alojamiento y desayuno",
-        precio: 84,
-      },
-    ],
-  };
+  const location = useLocation();
+  const producto = location.state;
+
   const reserva = {
     type: "hotel",
     nombre: producto.nombre,
@@ -84,7 +25,12 @@ function Producto() {
         <Buscador />
         <Head
           nombre={producto.nombre}
-          descripcion={producto.ubicacion}
+          descripcion={
+            <p className="flex items-center">
+              <FaMapPin className="text-secondary text-lg" />
+              {producto.ubicacion}
+            </p>
+          }
           boton="Reservar"
         />
 
@@ -145,17 +91,20 @@ function Producto() {
             <Map location={producto.ubicacion} />
           </aside>
           <section className="col-span-5 mt-10 mb-5 lg:my-5">
-            <Info />
+            <Info
+              titulo={"Descripción del hotel"}
+              descripcion={producto.descripcion}
+            />
           </section>
           <section className="col-span-5">
-            <Listado2 reserva={reserva} />
+            <Listado2 reserva={reserva} habitaciones={producto.habitaciones} />
           </section>
           <section className="col-span-5">
-            <Listado reserva={reserva} />
+            <Listado reserva={reserva} habitaciones={producto.habitaciones} />
           </section>
           <section className="col-span-5">
             <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>
-            <Imagenes />
+            <Imagenes imagenes={producto.habitacionImgs} />
           </section>
         </article>
       </div>

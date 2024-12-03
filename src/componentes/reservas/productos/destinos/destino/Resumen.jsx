@@ -35,19 +35,6 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
                 <FaPerson className="text-secondary dark:text-secondary ml-1" />
               </li>
             )}
-            {producto.pax.ninio !== 0 && (
-              <li className="flex items-center">
-                {producto.pax.ninio}x
-                <FaChild className="text-secondary dark:text-secondary ml-1" />
-              </li>
-            )}
-
-            {producto.pax.senior !== 0 && (
-              <li className="flex items-center">
-                {producto.pax.senior}x
-                <FaPerson className="text-secondary dark:text-secondary ml-1" />
-              </li>
-            )}
           </ul>
         </div>
         <p className="dark:text-slate-300 flex justify-between text-slate-500">
@@ -60,9 +47,8 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
         <p className=" text-secondary  flex justify-between font-bold mt-2 border-t-2 border-slate-100 dark:border-slate-600 pt-3">
           <span>Total</span>
           <span>
-            {producto.pax.adultos * producto.precio +
-              producto.pax.ninio * producto.precio +
-              producto.pax.senior * producto.precio}
+            {producto.pax * producto.precio}
+
             <span className="text-secondary font-bold ml-1">€</span>
           </span>
         </p>
@@ -74,7 +60,7 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
         </button>
       </div>
       <div className="mt-4">
-        <Link to="/fecha" state={{ producto }}>
+        <Link to="/fecha" state={producto}>
           <button className="bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
             <FaCalendarAlt className="dark:text-white text-xl mr-2" />
             Ver fechas y precios

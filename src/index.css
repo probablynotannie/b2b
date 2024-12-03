@@ -156,3 +156,7 @@ body {
 .custom-scrollbar::-webkit-scrollbar-thumb:hover {
   background-color: #555; /* Darker thumb color on hover */
 }
+.modal {
+  z-index: 1000; /* Ensure it overlays all other components */
+  position: fixed;
+}

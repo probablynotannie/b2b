@@ -5,6 +5,7 @@ function Vuelos() {
   const vuelos = [
     {
       id: 0,
+      precio: 78,
       salida: "Bilbao, España",
       llegada: "Barcelona (Todos los aeropuertos), España",
       salida_corto: "BIO",
@@ -24,6 +25,7 @@ function Vuelos() {
     },
     {
       id: 1,
+      precio: 95,
       salida: "Barcelona (Todos los aeropuertos), España",
       llegada: "Bilbao, España",
       salida_corto: "BCN",
@@ -42,19 +44,7 @@ function Vuelos() {
       fecha: new Date(2024, 10, 28),
     },
   ];
-  const formatFullMonth = (date) => {
-    return date.toLocaleDateString("es-ES", { month: "long" });
-  };
-  const formatShortDate = (date) => {
-    return date.toLocaleDateString("es-ES", {
-      weekday: "short",
-      day: "2-digit",
-      month: "short",
-    });
-  };
-  const getTotalPax = (pax) => {
-    return (pax.adultos || 0) + (pax.ninio || 0);
-  };
+
   const calculateDuration = (horaSalida, horaLlegada) => {
     const referenceDate = new Date("2024-11-01");
     const [salidaHours, salidaMinutes] = horaSalida.split(":").map(Number);
@@ -80,7 +70,7 @@ function Vuelos() {
         Vuelo seleccionado
       </h3>
       <div className="mt-10">
-        <div className="border-y-2 border-slate-100 shadow-lg border-2 rounded-xl dark:border-slate-700 dark:bg-slate-800">
+        <div className="border-y-2 border-slate-100 shadow-lg border-2 rounded-xl dark:border-slate-700  dark:bg-slate-800">
           {vuelos.map((vuelo, index) => (
             <div
               key={vuelo.id}
@@ -107,7 +97,10 @@ function Vuelos() {
                   alt="logo de la aerolinea"
                   className="w-12"
                 />
-                <span>{vuelo.compania}</span>
+                <span className="text-sm">{vuelo.compania}</span>
+                <span className="text-green-700 dark:text-green-400 font-bold">
+                  {vuelo.precio}€
+                </span>
               </div>
               {/* Flight Times */}
               <div className="flex items-center justify-center flex-col">

@@ -22,9 +22,10 @@ import ListadoDestinos from "../reservas/productos/destinos/Resultado";
 import ListadoCruceros from "../reservas/productos/cruceros/Resultado";
 
 /* PRODUCTO */
-import Hotel from "../reservas/productos/hotel/habitacion/Hotel";
+import Hotel from "../reservas/productos/hotel/Hotel";
 import HotelMasVuelo from "../reservas/productos/vuelomashotel/seleccion/Hotel";
 import Destino from "../reservas/productos/destinos/destino/Destino";
+import Crucero from "../reservas/productos/cruceros/Crucero";
 
 /*Componentes */
 import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
@@ -65,6 +66,7 @@ function Header() {
         <Route path="/hotel" element={<Hotel />} />
         <Route path="/hotelMasVuelo" element={<HotelMasVuelo />} />
         <Route path="/destino" element={<Destino />} />
+        <Route path="/crucero" element={<Crucero />} />
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />
         <Route path="/clientes" element={<Clientes />} />

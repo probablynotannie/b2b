@@ -1,31 +1,32 @@
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import Input_Destinos from "../../../../inputs/Destinos";
+import Input_Puertos from "../../../../inputs/Puertos";
+import Input_Navieras from "../../../../inputs/Navieras";
 import Input_Mes from "../../../../inputs/Mes";
-import Input_Destinos from "../../../../inputs/Pais_Ciudad";
-function Buscador() {
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
+import Input_Duracion from "../../../../inputs/SelectorDias";
+import { FaSearch } from "react-icons/fa";
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
+function Buscador() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
 
   return (
     <>
       {/* The search button */}
       <button
         onClick={toggleModal}
-        className="relative border-2 dark:border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
+        className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
       >
         Cambiar busqueda
         <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
           <FaSearch />
         </span>
       </button>
-
-      {/* Modal for md screens and above */}
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        // Close modal when clicking outside
       >
         <div
           className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
@@ -43,10 +44,19 @@ function Buscador() {
           </div>
           <div className="grid grid-cols-12 gap-3 p-5 ">
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <Input_Destinos />
+            </div>
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <Input_Puertos />
+            </div>
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <Input_Navieras />
+            </div>
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_Mes />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Destinos />
+              <Input_Duracion />
             </div>
 
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
@@ -66,17 +76,29 @@ function Buscador() {
           </div>
         </div>
       </div>
+
       {/* For smaller screens, show as normal layout (not a modal) */}
       <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
-        <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">Buscador</h2>
+        <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
+          Buscador
+        </h2>
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-5">
-            <Input_Mes />
-          </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-5">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
             <Input_Destinos />
           </div>
-          <div className="flex lg:justify-end justify-end">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <Input_Puertos />
+          </div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <Input_Navieras />
+          </div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <Input_Mes />
+          </div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <Input_Duracion />
+          </div>
+          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>

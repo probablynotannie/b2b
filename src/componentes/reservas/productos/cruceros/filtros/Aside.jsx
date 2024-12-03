@@ -24,7 +24,7 @@ function Aside() {
         >
           <div
             className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
+            onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
           >
             <button
               onClick={() => setIsModalOpen(false)}
@@ -49,7 +49,7 @@ function SidebarContent({ values, setValues }) {
         </h3>
       </div>
       <div className="p-6 lg:p-3 lg:pt-1">
-        <div className="mx-3 mt-5 dark:text-secondaryDark">
+        <div className="mx-3 mt-5">
           <PrecioRange values={values} setValues={setValues} />
         </div>
       </div>

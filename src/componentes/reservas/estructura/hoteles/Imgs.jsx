@@ -1,22 +1,6 @@
 import { useState, useEffect } from "react";
 
-// Array de URLs de imágenes
-const imageUrls = [
-  "/hotel1.jpg",
-  "/hotel2.jpg",
-  "/hotel3.jpg",
-  "/hotel4.jpg",
-  "/hotel3.jpg",
-  "/hotel1.jpg",
-  "/hotel4.jpg",
-  "/hotel1.jpg",
-  "/hotel2.jpg",
-  "/hotel3.jpg",
-  "/hotel4.jpg",
-  "/hotel1.jpg",
-];
-
-function Imagenes() {
+function Imagenes({ imagenes }) {
   const [selectedImageIndex, setSelectedImageIndex] = useState(null);
   const openModal = (index) => {
     setSelectedImageIndex(index);
@@ -29,13 +13,13 @@ function Imagenes() {
   // Función para ir a la imagen anterior
   const goToPrevious = () => {
     setSelectedImageIndex(
-      (prevIndex) => (prevIndex - 1 + imageUrls.length) % imageUrls.length
+      (prevIndex) => (prevIndex - 1 + imagenes.length) % imagenes.length
     );
   };
 
   // Función para ir a la siguiente imagen
   const goToNext = () => {
-    setSelectedImageIndex((prevIndex) => (prevIndex + 1) % imageUrls.length);
+    setSelectedImageIndex((prevIndex) => (prevIndex + 1) % imagenes.length);
   };
 
   // UseEffect para escuchar los eventos del teclado
@@ -65,7 +49,7 @@ function Imagenes() {
   return (
     <div>
       <div className="columns-2 md:columns-4 gap-4 space-y-4">
-        {imageUrls.map((url, index) => (
+        {imagenes.map((url, index) => (
           <img
             key={index}
             className="w-full rounded-lg break-inside-avoid transition cursor-pointer"
@@ -87,7 +71,7 @@ function Imagenes() {
 
           <div className="flex flex-col items-center space-y-4 md:space-y-0 md:flex-col md:space-x-4">
             <img
-              src={imageUrls[selectedImageIndex]}
+              src={imagenes[selectedImageIndex]}
               alt={`Large view of Gallery Image ${selectedImageIndex + 1}`}
               className="w-[80vw] h-[80vh] object-cover max-h-[80vh] rounded-lg"
             />
