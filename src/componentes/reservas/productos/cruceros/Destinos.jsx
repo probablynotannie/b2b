@@ -6,12 +6,14 @@ import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 
 function Resultado() {
-  const [activeMap, setActiveMap] = useState(null);
+  const [activeMap, setActiveMap] = useState({});
 
   const toggleMap = (id) => {
-    setActiveMap((prev) => (prev === id ? null : id));
+    setActiveMap((prev) => ({
+      ...prev,
+      [id]: !prev[id],
+    }));
   };
-
   const getNextAvailableDatesByCabin = (preciosConFechas) => {
     const today = new Date();
     const availableDates = preciosConFechas
@@ -101,17 +103,14 @@ function Resultado() {
         </h3>
       </div>
       {Destinos.map((destino, index) => {
-        // Find the lowest price for the current destino
         const precioMasBajo = encontrarPrecioMasBajo(destino.precios);
-
         return (
           <article
             key={index}
             className="cursor-pointer bg-slate-100 flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-700 rounded-xl transition mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
           >
             <div className="relative w-full">
-              {/* Display the image, map button, and price */}
-              {activeMap === destino.id ? (
+              {activeMap[destino.id] ? (
                 <div className="h-[25vh] border-t-2 rounded-t-lg border-secondary flex flex-col items-center justify-center">
                   <MapWithJourney destino={destino} />
                 </div>
@@ -127,8 +126,6 @@ function Resultado() {
                       {destino.nombreCrucero}
                     </div>
                   </div>
-
-                  {/* Display destinations */}
                   {destino.itinerario
                     .slice(0, 4)
                     .map((destination, index, array) => (
@@ -140,6 +137,12 @@ function Resultado() {
                                 bg-cover bg-center 
                                 flex justify-center items-center 
                                 ${index >= 2 ? "hidden sm:flex" : ""} 
+                           ${
+                             index === array.length - 3
+                               ? " rounded-tr-xl sm:rounded-tr-none"
+                               : ""
+                           }
+
                                 ${
                                   index === array.length - 1
                                     ? "rounded-tr-xl"
@@ -152,7 +155,13 @@ function Resultado() {
                         <div
                           className={`md:text-xl text-white ${
                             index === array.length - 1 ? "rounded-tr-xl" : ""
-                          }  bg-slate-800 bg-opacity-45 p-2 w-full h-full flex justify-center items-center flex-col font-semibold text-center`}
+                          } 
+                           ${
+                             index === array.length - 3
+                               ? " rounded-tr-xl sm:rounded-tr-none"
+                               : ""
+                           }
+                          bg-slate-800 bg-opacity-45 p-2 w-full h-full flex justify-center items-center flex-col font-semibold text-center`}
                         >
                           {destination.destino}
                         </div>
@@ -166,15 +175,14 @@ function Resultado() {
 
               <button
                 onClick={() => toggleMap(destino.id)}
-                className={`
-                flex items-center font-semibold  ${
-                  activeMap === 0
+                className={`flex items-center font-semibold ${
+                  activeMap[destino.id]
                     ? "bg-slate-700 text-white"
                     : "bg-white text-slate-700"
-                }   px-2 p-1 rounded-full absolute top-5 right-5`}
+                } px-2 p-1 rounded-full absolute top-5 right-5`}
               >
-                {activeMap === destino.id ? "Ocultar" : "Mapa"}
-                <FaMapPin className=" ml-2" />
+                {activeMap[destino.id] ? "Ocultar" : "Mapa"}
+                <FaMapPin className="ml-2" />
               </button>
             </div>
             <Link to="/crucero" state={destino}>
@@ -218,7 +226,7 @@ function Resultado() {
             </Link>
             <div className="hidden md:flex justify-end">
               <Link to="/crucero" state={destino}>
-                <button className="text-center w-full md:w-fit flex flex-col items-center justify-center font-bold bg-secondary text-white p-2 px-4 rounded-br-lg rounded-tl-xl">
+                <button className="text-center w-full md:w-fit flex flex-col items-center justify-center font-bold bg-slate-700 dark:bg-slate-900 text-white p-2 px-4 rounded-br-lg rounded-tl-xl">
                   Desde{" "}
                   {typeof precioMasBajo === "number"
                     ? `${precioMasBajo}€`

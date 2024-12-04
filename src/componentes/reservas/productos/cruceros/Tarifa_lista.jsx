@@ -1,6 +1,32 @@
-import React, { useState, useRef } from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { FaChevronRight, FaChevronLeft } from "react-icons/fa";
 import { GiCruiser } from "react-icons/gi";
+
+// Función para formatear las fechas solo cuando se visualiza la selección
+const formatDate = (dateString) => {
+  const [day, month, year] = dateString
+    .split("/")
+    .map((num) => parseInt(num, 10));
+
+  // Array de nombres de meses en español
+  const months = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
+  ];
+
+  // Devolver la fecha en formato "4 de marzo de 1999"
+  return `${day} de ${months[month - 1]} de ${year}`;
+};
 
 const getAvailableDatesFromToday = (precios) => {
   const today = new Date();
@@ -8,10 +34,13 @@ const getAvailableDatesFromToday = (precios) => {
 
   precios.forEach((row) => {
     row.preciosConFechas.forEach((price) => {
-      const [day, month] = price.fecha
+      const [day, month, year] = price.fecha
         .split("/")
         .map((num) => parseInt(num, 10));
-      const currentDate = new Date(today.getFullYear(), month - 1, day);
+
+      const priceYear = year || today.getFullYear();
+      const currentDate = new Date(priceYear, month - 1, day);
+
       if (currentDate >= today && price.price !== "-") {
         availableDates.add(price.fecha);
       }
@@ -19,19 +48,31 @@ const getAvailableDatesFromToday = (precios) => {
   });
 
   return Array.from(availableDates).sort((a, b) => {
-    const [dayA, monthA] = a.split("/").map((num) => parseInt(num, 10));
-    const [dayB, monthB] = b.split("/").map((num) => parseInt(num, 10));
-    const dateA = new Date(today.getFullYear(), monthA - 1, dayA);
-    const dateB = new Date(today.getFullYear(), monthB - 1, dayB);
+    const [dayA, monthA, yearA] = a.split("/").map((num) => parseInt(num, 10));
+    const [dayB, monthB, yearB] = b.split("/").map((num) => parseInt(num, 10));
+
+    const dateA = new Date(yearA, monthA - 1, dayA);
+    const dateB = new Date(yearB, monthB - 1, dayB);
+
     return dateA - dateB;
   });
 };
 
-const Tarifa_lista = ({ precios, setPrecio }) => {
+const Tarifa_lista = ({
+  precios,
+  setPrecio,
+  selectedPrice,
+  setSelectedPrice,
+  selectedCabinId,
+  setSelectedCabinId,
+  selectedDate,
+  setSelectedDate,
+}) => {
   const [expandedRows, setExpandedRows] = useState({});
-  const [selectedPrice, setSelectedPrice] = useState(null);
+
   const tableContainerRef = useRef(null);
   const headerRef = useRef(null);
+  const [scrollAmount, setScrollAmount] = useState(0);
 
   const availableDates = getAvailableDatesFromToday(precios);
 
@@ -43,33 +84,62 @@ const Tarifa_lista = ({ precios, setPrecio }) => {
   };
 
   const scrollToColumn = (direction) => {
-    if (tableContainerRef.current && headerRef.current) {
-      const columnWidth = headerRef.current.getBoundingClientRect().width;
-      tableContainerRef.current.scrollBy({
-        left: direction === "left" ? -columnWidth / 4 : columnWidth / 4,
-        behavior: "smooth",
+    if (tableContainerRef.current) {
+      const columnWidth =
+        tableContainerRef.current.scrollWidth / availableDates.length;
+      const maxScroll =
+        tableContainerRef.current.scrollWidth -
+        tableContainerRef.current.clientWidth;
+
+      setScrollAmount((prev) => {
+        let newScrollAmount = prev;
+        if (direction === "right") {
+          newScrollAmount = Math.min(prev + columnWidth, maxScroll);
+        } else {
+          newScrollAmount = Math.max(prev - columnWidth, 0);
+        }
+        tableContainerRef.current.scrollTo({
+          left: newScrollAmount,
+          behavior: "smooth",
+        });
+        return newScrollAmount;
       });
     }
   };
 
-  const findLowestPrice = (prices) => {
-    const validPrices = prices.filter(
-      (price) => price !== "-" && price !== "-€"
-    );
-    return Math.min(...validPrices);
+  const handlePriceClick = (price, cabinId, date) => {
+    if (price !== "-") {
+      setSelectedPrice(price);
+      setSelectedCabinId(cabinId);
+      setSelectedDate(date);
+      setPrecio(price);
+    }
   };
 
-  const findHighestPrice = (prices) => {
-    const validPrices = prices.filter(
-      (price) => price !== "-" && price !== "-€"
-    );
-    return Math.max(...validPrices);
-  };
+  // Encontrar el título de la cabina seleccionada
+  const selectedCabin = precios.find((row) => row.id === selectedCabinId);
+  const cabinTitle = selectedCabin ? selectedCabin.title : "N/A";
 
   return (
     <div className="container mx-auto p-4">
-      <div className="flex flex-col space-y-2 mb-5">
-        <div className="flex justify-center space-x-4">
+      {selectedPrice && selectedDate && selectedCabinId && (
+        <div className="mb-4 text-center">
+          <h3 className="text-xl font-semibold text-gray-800 dark:text-gray-100">
+            Información seleccionada:
+          </h3>
+          <p className="text-sm text-gray-600 dark:text-gray-400">
+            <strong>Cabina:</strong> {cabinTitle}
+            <br />
+            <strong>Fecha:</strong> {formatDate(selectedDate)} <br />
+            <strong>Precio:</strong> {selectedPrice}€
+          </p>
+        </div>
+      )}
+      <div className="flex justify-between">
+        <p className="text-secondary font-semibold">
+          Los precios no incluyen ni translado al barco ni bebidas
+        </p>
+        <div className="flex justify-end space-x-4">
           <div className="flex items-center space-x-2 text-sm">
             <div className="h-[10px] bg-red-400 w-[10px] rounded-full"></div>
             <span className="dark:text-slate-300">Precio más alto</span>
@@ -79,47 +149,41 @@ const Tarifa_lista = ({ precios, setPrecio }) => {
             <span className="dark:text-slate-300">Precio más bajo</span>
           </div>
         </div>
-        <div className="text-center text-sm text-orange-400 font-semibold">
-          <span>Los precios no incluyen ni translado al barco ni bebidas</span>
-        </div>
       </div>
-
       <div
         ref={tableContainerRef}
-        className="scrollable-container border-x border-slate-200 dark:border-slate-900"
+        className="scrollable-container custom-scrollbar border-x border-slate-200 dark:border-slate-900 overflow-x-auto"
+        style={{
+          maxWidth: "100%",
+          overflowX: "auto",
+          scrollSnapType: "x mandatory",
+        }}
       >
         <table className="min-w-full bg-white dark:bg-slate-700">
           <thead className="bg_particles dark:bg-slate-800">
             <tr ref={headerRef}>
-              <th className="sticky bg_particles  left-0 min-w-[15vw] px-4 py-2 text-left border dark:border-slate-600 dark:bg-slate-900 dark:text-white flex flex-row items-center">
+              <th className="sticky bg-slate-200 left-0 min-w-[15vw] px-4 py-2 text-left border dark:border-slate-600 dark:bg-slate-900 dark:text-white flex flex-row items-center">
                 <GiCruiser className="mr-2 text-2xl" />
                 Cabina
               </th>
               {availableDates.map((date, index) => (
                 <th
                   key={index}
-                  className="min-w-[10vw] px-4 py-2 border dark:border-slate-600 dark:bg-slate-900 dark:text-white text-center"
+                  className="min-w-[10vw] px-4 py-2 border bg-slate-200 dark:border-slate-600 dark:bg-slate-900 dark:text-white text-center"
                 >
-                  {date}
+                  {date} {/* No formatear la fecha en el encabezado */}
                 </th>
               ))}
             </tr>
           </thead>
           <tbody>
             {precios.map((row) => {
-              const lowestPrice = findLowestPrice(
-                row.preciosConFechas.map((item) => item.price)
-              );
-              const highestPrice = findHighestPrice(
-                row.preciosConFechas.map((item) => item.price)
-              );
-
               return (
                 <React.Fragment key={row.id}>
-                  <tr className="cursor-pointer hover:bg-slate-100">
+                  <tr className="cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-900">
                     <td
                       onClick={() => toggleRow(row.id)}
-                      className="sticky left-0 bg-white dark:border-slate-600 dark:bg-slate-800 hover:bg-slate-100 min-w-[120px] px-4 py-2 border dark:text-slate-300"
+                      className="sticky left-0  bg-white dark:border-slate-600 dark:bg-slate-800 border-r-2  hover:bg-slate-100 dark:hover:bg-slate-900 min-w-[120px] px-4 py-2 border dark:text-slate-300"
                     >
                       <span className="mr-2 text-secondary font-bold">
                         {expandedRows[row.id] ? "-" : "+"}
@@ -131,39 +195,25 @@ const Tarifa_lista = ({ precios, setPrecio }) => {
                         (item) => item.fecha === date
                       );
                       const price = priceItem ? priceItem.price : "-";
-
                       return (
                         <td
                           key={date}
-                          className={`min-w-[100px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 cursor-pointer ${
-                            price === lowestPrice
-                              ? "text-green-500 font-semibold"
-                              : price === highestPrice
-                              ? "text-red-500 font-semibold"
-                              : "dark:text-slate-300"
-                          } ${price === selectedPrice ? "bg-blue-100" : ""}`}
-                          onClick={() => {
-                            if (price !== "-") {
-                              setPrecio(price);
-                              setSelectedPrice(price);
-                            }
-                          }}
+                          className={`cursor-pointer min-w-[100px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 dark:text-slate-200 transition ${
+                            selectedPrice === price &&
+                            selectedCabinId === row.id &&
+                            selectedDate === date
+                              ? "bg-blue-100 dark:bg-green-400 dark:text-white"
+                              : ""
+                          }`}
+                          onClick={() => handlePriceClick(price, row.id, date)}
                         >
-                          {price !== "-" ? `${price}€` : " - "}
+                          {price !== "-" ? `${price}€` : "-"}
                         </td>
                       );
                     })}
                   </tr>
-
                   {expandedRows[row.id] &&
                     row.subPrecios.map((subRow, index) => {
-                      const subLowestPrice = findLowestPrice(
-                        subRow.preciosConFechas.map((item) => item.price)
-                      );
-                      const subHighestPrice = findHighestPrice(
-                        subRow.preciosConFechas.map((item) => item.price)
-                      );
-
                       return (
                         <tr key={index}>
                           <td className="sticky left-0 bg-white min-w-[120px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 pl-8">
@@ -183,22 +233,15 @@ const Tarifa_lista = ({ precios, setPrecio }) => {
                               <td
                                 key={date}
                                 className={`cursor-pointer min-w-[100px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 transition ${
-                                  subPrice === subLowestPrice
-                                    ? "text-green-500 font-semibold"
-                                    : subPrice === subHighestPrice
-                                    ? "text-red-500 font-semibold"
-                                    : "dark:text-slate-200"
-                                } ${
-                                  subPrice === selectedPrice
+                                  selectedPrice === subPrice &&
+                                  selectedCabinId === row.id &&
+                                  selectedDate === date
                                     ? "bg-blue-100"
                                     : ""
                                 }`}
-                                onClick={() => {
-                                  if (subPrice !== "-") {
-                                    setPrecio(subPrice);
-                                    setSelectedPrice(subPrice);
-                                  }
-                                }}
+                                onClick={() =>
+                                  handlePriceClick(subPrice, row.id, date)
+                                }
                               >
                                 {subPrice !== "-" ? `${subPrice}€` : " - "}
                               </td>
@@ -213,22 +256,22 @@ const Tarifa_lista = ({ precios, setPrecio }) => {
           </tbody>
         </table>
       </div>
-
-      <div className="flex justify-end mt-5">
-        <div className="flex items-center mb-2">
-          <button
-            onClick={() => scrollToColumn("left")}
-            className="p-2 bg-secondary text-white rounded-l hover:bg-secondary"
-          >
-            <FaChevronLeft />
-          </button>
-          <button
-            onClick={() => scrollToColumn("right")}
-            className="p-2 bg-secondary text-white rounded-r hover:bg-secondary"
-          >
-            <FaChevronRight />
-          </button>
-        </div>
+      <div className="flex justify-between mt-2">
+        <button
+          className="px-4 py-2 bg-gray-300 dark:bg-slate-900 dark:text-white text-sm text-gray-700 rounded-md"
+          onClick={() => scrollToColumn("left")}
+        >
+          <FaChevronLeft />
+        </button>
+        <p className="text-sm text-slate-500 dark:text-slate-400">
+          Los precios no incluyen ni translado al barco ni bebidas
+        </p>
+        <button
+          className="px-4 py-2 bg-gray-300 dark:bg-slate-900 dark:text-white text-sm text-gray-700 rounded-md"
+          onClick={() => scrollToColumn("right")}
+        >
+          <FaChevronRight />
+        </button>
       </div>
     </div>
   );

@@ -13,7 +13,6 @@ function Buscador() {
 
   return (
     <>
-      {/* The search button */}
       <button
         onClick={toggleModal}
         className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
@@ -24,7 +23,7 @@ function Buscador() {
         </span>
       </button>
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
@@ -77,7 +76,7 @@ function Buscador() {
         </div>
       </div>
 
-      <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
+      <div className="hidden lg:block border-2  dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
         <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
           Buscador
         </h2>
