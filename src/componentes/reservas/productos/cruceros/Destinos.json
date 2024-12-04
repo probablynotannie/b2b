@@ -28,22 +28,30 @@
       {
         "id": 0,
         "img": "/cruceros/it1/gc.jpg",
-        "destino": "Gran Canaria"
+        "destino": "Gran Canaria",
+        "lat": 28.123545,
+        "lng": -15.436257
       },
       {
         "id": 1,
         "img": "/cruceros/it1/agadir.jpg",
-        "destino": "Agadir"
+        "destino": "Agadir",
+        "lat": 30.427755,
+        "lng": -9.598107
       },
       {
         "id": 2,
         "img": "/cruceros/it1/rabat.jpg",
-        "destino": "Rabat"
+        "destino": "Rabat",
+        "lat": 34.020882,
+        "lng": -6.84165
       },
       {
         "id": 3,
         "img": "/cruceros/it1/malaga.jpg",
-        "destino": "Málaga"
+        "destino": "Málaga",
+        "lat": 36.721302,
+        "lng": -4.421636
       }
     ],
     "precios": [

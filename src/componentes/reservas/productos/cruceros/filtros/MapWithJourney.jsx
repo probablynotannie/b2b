@@ -9,10 +9,10 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
 
 const MapWithJourney = ({ destino }) => {
-  const positions = destino.noches.map(({ lat, lng }) => [lat, lng]);
+  const positions = destino.itinerario.map(({ lat, lng }) => [lat, lng]);
 
   return (
-    <div className="w-full h-full z-0 mb-0">
+    <div className="rounded-xl overflow-hidden w-full h-full z-0">
       <MapContainer
         center={positions[0]}
         zoom={6}
@@ -23,14 +23,10 @@ const MapWithJourney = ({ destino }) => {
           url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
           attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
         />
-        {destino.noches.map((location) => (
+        {destino.itinerario.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
             <Tooltip permanent offset={[0, -20]}>
-              <strong>{location.name}</strong>
-              <br />
-              {location.country}
-              <br />
-              {location.nights} noche(s)
+              <strong>{location.destino}</strong>
             </Tooltip>
           </Marker>
         ))}

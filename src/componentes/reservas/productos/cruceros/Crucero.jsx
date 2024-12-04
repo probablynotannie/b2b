@@ -27,7 +27,6 @@ function Producto() {
     const randomIndex = Math.floor(Math.random() * colors.length);
     return colors[randomIndex];
   }
-
   const adultos = producto.pax[0].pax;
   const ninios = producto.pax[1].pax;
   const [precio, setPrecio] = useState(0);

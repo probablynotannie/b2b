@@ -30,7 +30,7 @@ function Buscador() {
       >
         <div
           className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
+          onClick={(e) => e.stopPropagation()}
         >
           <div>
             <div className="w-full h-full mx-auto  relative ">
@@ -77,7 +77,6 @@ function Buscador() {
         </div>
       </div>
 
-      {/* For smaller screens, show as normal layout (not a modal) */}
       <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
         <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
           Buscador
