@@ -129,7 +129,7 @@ function Producto() {
               setPrecio={setPrecio}
               precios={producto.precios}
             />
-            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4">
+            <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-5">
               {cabinPhotos.map((photo, index) => (
                 <img
                   key={index}
@@ -144,15 +144,15 @@ function Producto() {
               selectedCabinId &&
               pasajeros.length !== 0 && (
                 <div className="mb-4 text-center mt-10 bg-slate-50 dark:bg-transparent dark:border-0 border-2 border-slate-100 shadow-lg rounded-lg p-5">
-                  <p className="text-sm text-gray-700 dark:text-slate-300">
-                    Ida: {formatDate(selectedDate)} | Vuelta:{" "}
-                    {endDate ? formatDate(endDate) : "Fecha no seleccionada"}
-                  </p>
                   <Link to="/datos" state={reserva}>
-                    <button className="bg-secondary p-3 px-8 rounded-xl shadow-lg text-white font-bold">
+                    <button className="bg-secondary p-3 px-8 rounded-xl shadow-md text-white font-bold">
                       Total: {selectedPrice * pasajeros.length}€
                     </button>
                   </Link>
+                  <p className="text-sm dark:text-slate-300 mt-3 font-semibold text-slate-500">
+                    Ida: {formatDate(selectedDate)} | Vuelta:{" "}
+                    {endDate ? formatDate(endDate) : "Fecha no seleccionada"}
+                  </p>
                 </div>
               )}
           </section>

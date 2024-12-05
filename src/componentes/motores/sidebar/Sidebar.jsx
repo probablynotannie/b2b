@@ -5,50 +5,64 @@ import { IoAirplane } from "react-icons/io5";
 import { FaCarOn } from "react-icons/fa6";
 import { IoTicket } from "react-icons/io5";
 import { FaTicketAlt } from "react-icons/fa";
-import { FaTrain } from "react-icons/fa6";
 import { Link } from "react-router-dom";
+import { FaFerry } from "react-icons/fa6";
 
 function Sidebar() {
   const otros = [
     {
       id: 1,
-      icono: <FaMapMarkedAlt className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <FaMapMarkedAlt className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Destinos",
       to: "/destinos",
     },
     {
       id: 2,
-      icono: <SiMentorcruise className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <SiMentorcruise className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Cruceros",
       to: "/cruceros",
     },
     {
       id: 3,
-      icono: <IoAirplane className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <IoAirplane className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Vuelo+Hotel",
       to: "/vueloHotel",
     },
     {
       id: 4,
-      icono: <FaCarOn className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <FaCarOn className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Coches",
       to: "/coches",
     },
     {
       id: 5,
-      icono: <IoTicket className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <IoTicket className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Tickets",
       to: "/tickets",
     },
     {
       id: 6,
-      icono: <FaTicketAlt className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <FaTicketAlt className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Entradas",
       to: "/entradas",
     },
     {
       id: 7,
-      icono: <FaTrain className="text-2xl text-white dark:text-secondaryDark" />,
+      icono: (
+        <FaFerry className="text-2xl text-white dark:text-secondaryDark" />
+      ),
       texto: "Ferris",
       to: "/ferris",
     },

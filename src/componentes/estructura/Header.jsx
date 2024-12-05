@@ -12,8 +12,13 @@ import Busqueda_Cruceros from "../motores/Cruceros";
 import Busqueda_Destinos from "../motores/Destinos";
 import Busqueda_Entradas from "../motores/Entradas";
 import Busqueda_Ferris from "../motores/Ferris";
+import Busqueda_Trenes from "../motores/Trenes";
+import Busqueda_Circuitos from "../motores/Circuitos";
 import Busqueda_Tickets from "../motores/Tickets";
 import Busqueda_Vuelomashotel from "../motores/Vuelomashotel";
+import Busqueda_hotelmasferris from "../motores/hotelmasferris";
+import Busqueda_hotelmasactividades from "../motores/hotelmasactividades";
+import Busqueda_Seguros from "../motores/Seguros";
 
 /* LISTADOS */
 import ListadoHoteles from "../reservas/productos/hotel/Resultado";
@@ -49,8 +54,16 @@ function Header() {
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/cruceros" element={<Busqueda_Cruceros />} />
         <Route path="/destinos" element={<Busqueda_Destinos />} />
+        <Route path="/circuitos" element={<Busqueda_Circuitos />} />
         <Route path="/entradas" element={<Busqueda_Entradas />} />
+        <Route path="/seguros" element={<Busqueda_Seguros />} />
+        <Route path="/hotelmasferris" element={<Busqueda_hotelmasferris />} />
+        <Route
+          path="/hotelmasactividades"
+          element={<Busqueda_hotelmasactividades />}
+        />
         <Route path="/ferris" element={<Busqueda_Ferris />} />
+        <Route path="/trenes" element={<Busqueda_Trenes />} />
         <Route path="/tickets" element={<Busqueda_Tickets />} />
         <Route path="/vueloHotel" element={<Busqueda_Vuelomashotel />} />
         <Route path="/cesta" element={<Cesta />} />

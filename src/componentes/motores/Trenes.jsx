@@ -3,13 +3,11 @@ import Sidebar from "./sidebar/Sidebar";
 import Input_Select from "../inputs/Select";
 import Input_Fecha from "../inputs/Fecha";
 import Input_DateRange from "../inputs/DateRange";
-import Input_Vehiculos from "../inputs/Vehiculos";
-import Input_Bonificacion from "../inputs/Bonificacion";
+import Input_Bonificacion from "../inputs/Pasajeros_Descuentos";
 
 function Ferris() {
-  const [viaje, setViaje] = useState("ida"); // State to track which trip type is selected
+  const [viaje, setViaje] = useState("ida");
 
-  // Function to handle button click and set trip type
   const handleviajeChange = (type) => {
     setViaje(type);
   };
@@ -20,16 +18,16 @@ function Ferris() {
       <div
         className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
         style={{
-          backgroundImage: `url(/banner_ferris.jpg)`,
+          backgroundImage: `url(/banner_trenes.jpeg)`,
           backgroundSize: "cover",
         }}
       >
         <div
-          className={`absolute z-0 bg-indigo-800 w-full h-full bg-opacity-55 rounded-lg shadow-lg px-10 `}
+          className={`absolute  z-0 bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10 `}
         ></div>
         <div className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-fit h-fit py-5 pb-16 rounded-lg shadow-xl">
           <form>
-            <h2 className="text-3xl font-bold">Buscador de ferris</h2>
+            <h2 className="text-3xl font-bold">Buscador de trenes</h2>
             <div className="grid grid-cols-2 gap-3 mt-2 text-sm">
               <button
                 type="button"
@@ -75,11 +73,7 @@ function Ferris() {
               <div>
                 <Input_Bonificacion />
               </div>
-              <div>
-                <Input_Vehiculos />
-              </div>
             </div>
-
             <div className="absolute -bottom-5 right-5">
               <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
                 Buscar

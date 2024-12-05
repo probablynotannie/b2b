@@ -47,8 +47,7 @@ function Vehiculos() {
                 <div className="relative">
                   <select
                     onChange={handleAmountChange}
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                   >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
@@ -66,8 +65,7 @@ function Vehiculos() {
                       <div className="relative">
                         <select
                           onChange={handleSecondSelectChange}
-                                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                         >
                           <option value="Turismo. altura menor a 2 metros">
                             Turismo. altura menor a 2 metros
@@ -100,8 +98,7 @@ function Vehiculos() {
                           <span>Longitud</span>
 
                           <div className="relative">
-                            <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
->
+                            <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
@@ -114,8 +111,7 @@ function Vehiculos() {
                         <div>
                           <span>Altura</span>
                           <div className="relative">
-                            <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
->
+                            <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
@@ -130,8 +126,7 @@ function Vehiculos() {
                           <div className="relative col-span-2">
                             <select
                               onChange={handleLastDropdownChange}
-                                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-
+                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                             >
                               <option value={0}>No</option>
                               <option value={1}>
@@ -152,8 +147,7 @@ function Vehiculos() {
                             <div>
                               <span>Longirud remolque</span>
                               <div className="relative">
-                                <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
->
+                                <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>
@@ -166,8 +160,7 @@ function Vehiculos() {
                             <div>
                               <span>Altura remolque</span>
                               <div className="relative">
-                                <select           className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
->
+                                <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>

@@ -34,6 +34,7 @@ function Bonificacion() {
   return (
     <div className="relative w-full">
       <Popover
+        placement="right"
         aria-labelledby="area-popover"
         open={open}
         onOpenChange={setOpen}

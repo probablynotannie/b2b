@@ -11,7 +11,7 @@ function Vuelomashotel() {
       <div
         className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
         style={{
-          backgroundImage: `url(/banner_avion.jpg)`,
+          backgroundImage: `url(/banner_actividades2.jpg)`,
           backgroundSize: "cover",
         }}
       >
@@ -21,16 +21,13 @@ function Vuelomashotel() {
         <div className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-fit h-fit py-5 pb-16 rounded-lg shadow-xl">
           <form>
             <h2 className="lg:text-3xl text-xl font-bold ">
-              Buscador de vuelo + hotel
+              Buscador de vuelo + actividades
             </h2>
             <div className="grid grid-cols-2 gap-2 mt-2">
               <div className="col-span-2">
                 <Input_Buscador />
               </div>
-              <div className="col-span-2 lg:col-span-1">
-                <Input_Aeropuertos />
-              </div>
-              <div className="col-span-2 lg:col-span-1">
+              <div className="col-span-2">
                 <Input_DateRange />
               </div>
               <div className="col-span-2">

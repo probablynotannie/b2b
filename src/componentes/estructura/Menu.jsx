@@ -26,6 +26,11 @@ const Dropdown = () => {
         { id: 5, texto: "Tickets", to: "/tickets" },
         { id: 6, texto: "Entradas", to: "/entradas" },
         { id: 7, texto: "Ferris", to: "/ferris" },
+        { id: 8, texto: "Trenes", to: "/trenes" },
+        { id: 8, texto: "Seguros", to: "/seguros" },
+        { id: 9, texto: "Hotel + actividades", to: "/hotelmasactividades" },
+        { id: 10, texto: "Hotel + ferris", to: "/hotelmasferris" },
+        { id: 11, texto: "Circuitos", to: "/circuitos" },
       ],
     },
     {
@@ -56,7 +61,9 @@ const Dropdown = () => {
   // Close dropdown if clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
-      const dropdownElement = Object.values(dropdownRefs.current).find(ref => ref && ref.contains(event.target));
+      const dropdownElement = Object.values(dropdownRefs.current).find(
+        (ref) => ref && ref.contains(event.target)
+      );
       if (!dropdownElement) {
         setOpenDropdown(null); // Close all dropdowns
       }
@@ -71,7 +78,11 @@ const Dropdown = () => {
   return (
     <div className="flex md:space-x-4">
       {menu.map((category) => (
-        <div key={category.key} className="relative inline-block" ref={el => dropdownRefs.current[category.key] = el}>
+        <div
+          key={category.key}
+          className="relative inline-block"
+          ref={(el) => (dropdownRefs.current[category.key] = el)}
+        >
           <div
             onClick={() => toggleDropdown(category.key)}
             className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 md:px-5 py-2.5 text-center inline-flex items-center "
@@ -82,10 +93,16 @@ const Dropdown = () => {
 
           {openDropdown === category.key && ( // Only show the dropdown if it is the currently open one
             <div
-              className={`absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow ${category.key=== 'utilidades' ? 'w-40' : 'w-40 md:w-96'}`}
+              className={`absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow ${
+                category.key === "utilidades" ? "w-40" : "w-40 md:w-96"
+              }`}
             >
               <ul
-                className={`py-2 text-sm text-gray-700  ${category.key === 'utilidades' ? 'grid md:grid-cols-1' : ' md:grid grid-cols-2'}`}
+                className={`py-2 text-sm text-gray-700  ${
+                  category.key === "utilidades"
+                    ? "grid md:grid-cols-1"
+                    : " md:grid grid-cols-2"
+                }`}
                 aria-labelledby={`${category.key}DropdownButton`}
               >
                 {category.subItems.map((subItem) => (
