@@ -58,48 +58,80 @@
           "/hotel1.jpg"
         ],
         "preciosConFechas": [
-          { "fecha": "02/12/2024", "price": 375 },
-          { "fecha": "09/12/2025", "price": 652 },
-          { "fecha": "10/12/2024", "price": 500 },
-          { "fecha": "11/12/2024", "price": 652 },
-          { "fecha": "11/13/2024", "price": 652 },
-          { "fecha": "11/14/2024", "price": 652 },
-          { "fecha": "11/15/2024", "price": 652 },
-          { "fecha": "05/12/2025", "price": 1200 }
+          { "fecha": "11/12/2024", "price": 290 },
+          { "fecha": "12/12/2024", "price": 350 },
+          { "fecha": "13/12/2024", "price": 210 },
+          { "fecha": "14/12/2024", "price": 1500 },
+          { "fecha": "15/12/2025", "price": 600 },
+          { "fecha": "16/12/2024", "price": 470 },
+          { "fecha": "17/12/2024", "price": 950 },
+          { "fecha": "18/12/2024", "price": 320 },
+          { "fecha": "02/01/2025", "price": 700 },
+          { "fecha": "10/02/2025", "price": 600 }
         ],
         "subPrecios": [
           {
+            "id": 1,
             "tituloSubPrecio": "Interior en oferta IV",
             "preciosConFechas": [
-              { "fecha": "10/12/2024", "price": 583 },
-              { "fecha": "11/12/2024", "price": 375 },
-              { "fecha": "12/12/2024", "price": 375 },
-              { "fecha": "05/12/2025", "price": 1200 }
+              { "fecha": "11/12/2024", "price": 399 },
+              { "fecha": "12/12/2024", "price": 258 },
+              { "fecha": "13/12/2024", "price": 750 },
+              { "fecha": "14/12/2024", "price": 980 },
+              { "fecha": "15/12/2025", "price": 450 },
+              { "fecha": "16/12/2024", "price": 530 },
+              { "fecha": "17/12/2024", "price": 620 },
+              { "fecha": "18/12/2024", "price": 570 },
+              { "fecha": "02/01/2025", "price": 650 },
+              { "fecha": "10/02/2025", "price": 700 }
             ]
           },
           {
+            "id": 2,
             "tituloSubPrecio": "Interior I1",
             "preciosConFechas": [
-              { "fecha": "10/12/2024", "price": 562 },
-              { "fecha": "11/12/2024", "price": 143 },
-              { "fecha": "12/12/2024", "price": 800 }
+              { "fecha": "11/12/2024", "price": 168 },
+              { "fecha": "12/12/2024", "price": 950 },
+              { "fecha": "13/12/2024", "price": 560 },
+              { "fecha": "05/12/2024", "price": 110 },
+              { "fecha": "15/12/2025", "price": 560 },
+              { "fecha": "16/12/2024", "price": 400 },
+              { "fecha": "17/12/2024", "price": 500 },
+              { "fecha": "18/12/2024", "price": 600 },
+              { "fecha": "02/01/2025", "price": 420 },
+              { "fecha": "10/02/2025", "price": 510 }
             ]
           },
           {
+            "id": 3,
             "tituloSubPrecio": "Interior I2",
             "preciosConFechas": [
-              { "fecha": "10/12/2024", "price": 562 },
-              { "fecha": "11/12/2024", "price": 143 },
-              { "fecha": "12/12/2024", "price": 800 }
+              { "fecha": "11/12/2024", "price": 150 },
+              { "fecha": "12/12/2024", "price": 359 },
+              { "fecha": "13/12/2024", "price": 400 },
+              { "fecha": "05/12/2024", "price": 860 },
+              { "fecha": "15/12/2025", "price": 900 },
+              { "fecha": "16/12/2024", "price": 450 },
+              { "fecha": "17/12/2024", "price": 530 },
+              { "fecha": "18/12/2024", "price": 410 },
+              { "fecha": "02/01/2025", "price": 390 },
+              { "fecha": "10/02/2025", "price": 430 }
             ]
           },
           {
+            "id": 4,
             "tituloSubPrecio": "Interior I3",
             "preciosConFechas": [
-              { "fecha": "09/12/2024", "price": 150 },
-              { "fecha": "10/12/2024", "price": 100 },
-              { "fecha": "11/12/2024", "price": 100 },
-              { "fecha": "12/12/2024", "price": 800 }
+              { "fecha": "11/12/2024", "price": 150 },
+              { "fecha": "12/12/2024", "price": 359 },
+              { "fecha": "13/12/2024", "price": 400 },
+              { "fecha": "14/12/2024", "price": 860 },
+              { "fecha": "15/12/2025", "price": 900 },
+              { "fecha": "16/12/2024", "price": 780 },
+              { "fecha": "17/12/2024", "price": 530 },
+              { "fecha": "18/12/2024", "price": 590 },
+              { "fecha": "02/01/2025", "price": 670 },
+              { "fecha": "10/02/2025", "price": 710 }
             ]
           }
         ]
@@ -109,61 +141,119 @@
         "title": "Cabina Exterior",
         "habitacionImgs": ["/hotel1.jpg", "/hotel2.jpg"],
         "preciosConFechas": [
-          { "fecha": "14/10/2024", "price": 632 },
-          { "fecha": "21/10/2024", "price": 820 },
-          { "fecha": "28/10/2024", "price": 424 },
-          { "fecha": "04/11/2024", "price": 395 },
-          { "fecha": "11/11/2024", "price": 345 },
-          { "fecha": "09/12/2024", "price": 750 },
-          { "fecha": "05/12/2025", "price": 1200 }
+          { "fecha": "11/12/2024", "price": 505 },
+          { "fecha": "12/12/2024", "price": 680 },
+          { "fecha": "13/12/2024", "price": 750 },
+          { "fecha": "14/12/2024", "price": 450 },
+          { "fecha": "15/12/2025", "price": 1200 },
+          { "fecha": "16/12/2024", "price": 700 },
+          { "fecha": "17/12/2024", "price": 800 },
+          { "fecha": "18/12/2024", "price": 900 },
+          { "fecha": "02/01/2025", "price": 950 },
+          { "fecha": "10/02/2025", "price": 1000 }
         ],
-        "subPrecios": []
+        "subPrecios": [
+          {
+            "id": 1,
+            "tituloSubPrecio": "Exterior en oferta IV",
+            "preciosConFechas": [
+              { "fecha": "10/12/2024", "price": 200 },
+              { "fecha": "11/12/2024", "price": 250 },
+              { "fecha": "12/12/2024", "price": 4800 },
+              { "fecha": "05/12/2025", "price": 900 },
+              { "fecha": "16/12/2024", "price": 300 },
+              { "fecha": "17/12/2024", "price": 400 },
+              { "fecha": "18/12/2024", "price": 250 },
+              { "fecha": "01/01/2025", "price": 550 }
+            ]
+          }
+        ]
       },
       {
         "id": 3,
         "title": "Cabina con Balcón",
-        "habitacionImgs": [
-          "/hotel1.jpg",
-          "/hotel2.jpg",
-          "/hotel3.jpg",
-          "/hotel4.jpg",
-          "/hotel3.jpg"
-        ],
+        "habitacionImgs": ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg"],
         "preciosConFechas": [
-          { "fecha": "04/11/2024", "price": 424 },
-          { "fecha": "11/11/2024", "price": 375 },
-          { "fecha": "25/11/2024", "price": 785 },
-          { "fecha": "09/12/2024", "price": 865 },
-          { "fecha": "10/12/2024", "price": 305 },
-          { "fecha": "11/12/2024", "price": 320 },
-          { "fecha": "12/12/2024", "price": 500 },
-          { "fecha": "05/12/2025", "price": 1200 }
+          { "fecha": "11/12/2024", "price": 510 },
+          { "fecha": "12/12/2024", "price": 480 },
+          { "fecha": "13/12/2024", "price": 670 },
+          { "fecha": "14/12/2024", "price": 390 },
+          { "fecha": "15/12/2025", "price": 950 },
+          { "fecha": "16/12/2024", "price": 790 },
+          { "fecha": "17/12/2024", "price": 650 },
+          { "fecha": "18/12/2024", "price": 690 },
+          { "fecha": "02/01/2025", "price": 850 },
+          { "fecha": "10/02/2025", "price": 920 }
         ],
-        "subPrecios": []
+        "subPrecios": [
+          {
+            "id": 1,
+            "tituloSubPrecio": "Balcón I1",
+            "preciosConFechas": [
+              { "fecha": "11/12/2024", "price": 300 },
+              { "fecha": "12/12/2024", "price": 360 },
+              { "fecha": "13/12/2024", "price": 450 },
+              { "fecha": "14/12/2024", "price": 540 },
+              { "fecha": "15/12/2025", "price": 700 },
+              { "fecha": "16/12/2024", "price": 620 },
+              { "fecha": "17/12/2024", "price": 700 },
+              { "fecha": "18/12/2024", "price": 640 },
+              { "fecha": "02/01/2025", "price": 800 },
+              { "fecha": "10/02/2025", "price": 830 }
+            ]
+          },
+          {
+            "id": 2,
+            "tituloSubPrecio": "Balcón II",
+            "preciosConFechas": [
+              { "fecha": "11/12/2024", "price": 550 },
+              { "fecha": "12/12/2024", "price": 670 },
+              { "fecha": "13/12/2024", "price": 700 },
+              { "fecha": "14/12/2024", "price": 950 },
+              { "fecha": "15/12/2025", "price": 1300 },
+              { "fecha": "16/12/2024", "price": 700 },
+              { "fecha": "17/12/2024", "price": 850 },
+              { "fecha": "18/12/2024", "price": 910 },
+              { "fecha": "02/01/2025", "price": 960 },
+              { "fecha": "10/02/2025", "price": 1050 }
+            ]
+          }
+        ]
       },
       {
         "id": 4,
         "title": "Suite",
-        "habitacionImgs": [
-          "/hotel1.jpg",
-          "/hotel2.jpg",
-          "/hotel3.jpg",
-          "/hotel4.jpg",
-          "/hotel3.jpg",
-          "/hotel1.jpg",
-          "/hotel4.jpg",
-          "/hotel1.jpg"
-        ],
+        "habitacionImgs": ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg", "/hotel4.jpg"],
         "preciosConFechas": [
-          { "fecha": "14/10/2024", "price": 2087 },
-          { "fecha": "21/10/2024", "price": 2038 },
-          { "fecha": "28/10/2024", "price": 1939 },
-          { "fecha": "04/11/2024", "price": 1939 },
-          { "fecha": "11/11/2024", "price": 1000 },
-          { "fecha": "12/12/2024", "price": 1200 },
-          { "fecha": "05/12/2025", "price": 1200 }
+          { "fecha": "11/12/2024", "price": 800 },
+          { "fecha": "12/12/2024", "price": 1000 },
+          { "fecha": "13/12/2024", "price": 1300 },
+          { "fecha": "14/12/2024", "price": 1500 },
+          { "fecha": "15/12/2025", "price": 1800 },
+          { "fecha": "16/12/2024", "price": 1700 },
+          { "fecha": "17/12/2024", "price": 1900 },
+          { "fecha": "18/12/2024", "price": 2100 },
+          { "fecha": "02/01/2025", "price": 2200 },
+          { "fecha": "10/02/2025", "price": 2400 }
         ],
-        "subPrecios": []
+        "subPrecios": [
+          {
+            "id": 1,
+            "tituloSubPrecio": "Suite en oferta IV",
+            "preciosConFechas": [
+              { "fecha": "11/12/2024", "price": 1200 },
+              { "fecha": "12/12/2024", "price": 1300 },
+              { "fecha": "13/12/2024", "price": 1500 },
+              { "fecha": "14/12/2024", "price": 1800 },
+              { "fecha": "15/12/2025", "price": 2000 },
+              { "fecha": "16/12/2024", "price": 1600 },
+              { "fecha": "17/12/2024", "price": 1700 },
+              { "fecha": "18/12/2024", "price": 1900 },
+              { "fecha": "02/01/2025", "price": 2100 },
+              { "fecha": "10/02/2025", "price": 2200 }
+            ]
+          }
+        ]
       }
     ]
   }

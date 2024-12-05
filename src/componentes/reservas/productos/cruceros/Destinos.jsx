@@ -95,6 +95,23 @@ function Resultado() {
       return "No upcoming departures";
     }
   }
+  function getBackgroundColorClass(precios) {
+    const today = new Date();
+    const nextDepartureDate = getNextDeparture(precios);
+    if (nextDepartureDate === "No upcoming departures") return "bg-gray-400";
+
+    const nextDate = new Date(
+      nextDepartureDate.split(" ")[2], // Year
+      new Date(nextDepartureDate).getMonth(), // Month
+      parseInt(nextDepartureDate.split(" ")[0]) // Day
+    );
+
+    const daysLeft = Math.ceil((nextDate - today) / (1000 * 60 * 60 * 24));
+
+    if (daysLeft <= 3) return "bg-red-700";
+    if (daysLeft <= 7) return "bg-yellow-500";
+    return "bg-green-500";
+  }
   return (
     <section className="pb-12 mt-5">
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">

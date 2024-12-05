@@ -90,8 +90,8 @@ function Producto() {
           }
           boton="Reservar"
         />
-        <article className="mt-5">
-          <section className="flex flex-col md:flex-row gap-10">
+        <article className="mt-5 dark:bg-slate-800 rounded-lg">
+          <section className="flex flex-col md:flex-row gap-10 p-5 border-b-2 border-slate-100 dark:border-slate-700 ">
             <img
               src={producto.crucero}
               alt="imagen crucero"
@@ -116,9 +116,10 @@ function Producto() {
               </div>
             </div>
           </section>
-          <section className="dark:bg-slate-800 rounded-lg">
+          <section>
             <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
             <Tarifas
+              tasas={producto.tasas}
               selectedPrice={selectedPrice}
               setSelectedPrice={setSelectedPrice}
               selectedDate={selectedDate}
