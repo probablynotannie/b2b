@@ -223,7 +223,12 @@
       {
         "id": 4,
         "title": "Suite",
-        "habitacionImgs": ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg", "/hotel4.jpg"],
+        "habitacionImgs": [
+          "/hotel1.jpg",
+          "/hotel2.jpg",
+          "/hotel3.jpg",
+          "/hotel4.jpg"
+        ],
         "preciosConFechas": [
           { "fecha": "11/12/2024", "price": 800 },
           { "fecha": "12/12/2024", "price": 1000 },
