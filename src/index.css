@@ -162,3 +162,10 @@ body {
 .scrollbar-hidden {
   scrollbar-width: none; 
 }
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}

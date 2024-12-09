@@ -1,21 +1,28 @@
 import { useState } from "react";
 import Input_Buscador from "../../../../inputs/Buscador2";
 import Input_DateRange from "../../../../inputs/DateRange";
+import Input_Hora from "../../../../inputs/Hora";
+import Input_Edad from "../../../../inputs/Edad";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio2";
-import Input_Aeropuertos from "../../../../inputs/Aeropuertos";
 
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
+  const [isEntregaCiudadChecked, setIsEntregaCiudadChecked] = useState(false); // State for the checkbox
 
   const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
+
+  // Handle the checkbox change
+  const handleCheckboxChange = (event) => {
+    setIsEntregaCiudadChecked(event.target.checked);
+  };
 
   return (
     <>
       {/* The search button */}
       <button
         onClick={toggleModal}
-        className="relative border-2 dark:border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
+        className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
       >
         Cambiar busqueda
         <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
@@ -31,7 +38,7 @@ function Buscador() {
         // Close modal when clicking outside
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
+          className="bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
         >
           <div>
@@ -52,11 +59,22 @@ function Buscador() {
               <Input_DateRange />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Aeropuertos />
+              <Input_Hora />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-3">
-              <Input_Hab_Adulto_Ninio />
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <Input_Hora />
             </div>
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <Input_Edad />
+            </div>
+
+            {/* Conditional render based on checkbox */}
+            {isEntregaCiudadChecked && (
+              <div className="col-span-12 md:col-span-6 lg:col-span-4">
+                <Input_Buscador />
+              </div>
+            )}
+
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
               <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
                 <FaSearch className="text-white text-xl" />
@@ -75,26 +93,49 @@ function Buscador() {
         </div>
       </div>
 
-      {/* For smaller screens, show as normal layout (not a modal) */}
       <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
         <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3 ">
+          <div className="col-span-12 md:col-span-6 lg:col-span-3">
             <Input_Buscador />
+            <div className="flex items-center mb-4">
+              <input
+                id="entrega_ciudad"
+                type="checkbox"
+                checked={isEntregaCiudadChecked}
+                onChange={handleCheckboxChange}
+                className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              />
+              <label
+                htmlFor="entrega_ciudad"
+                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+              >
+                Entrega en la misma ciudad
+              </label>
+            </div>
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
+          {isEntregaCiudadChecked && (
+            <div className="col-span-12 md:col-span-6 lg:col-span-3">
+              <Input_Buscador />
+            </div>
+          )}
+          <div className="col-span-12 md:col-span-6 lg:col-span-2">
             <Input_DateRange />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
-            <Input_Aeropuertos />
+          <div className="col-span-12 md:col-span-6 lg:col-span-1">
+            <Input_Hora />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
-            <Input_Hab_Adulto_Ninio />
+          <div className="col-span-12 md:col-span-6 lg:col-span-1">
+            <Input_Hora />
           </div>
-          <div className="flex lg:justify-end justify-end lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
-            <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
+          <div className="col-span-12 md:col-span-6 lg:col-span-1">
+            <Input_Edad />
+          </div>
+
+          <div className="flex lg:justify-end justify-end  lg:col-span-1 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
+            <button className="bg-primary dark:bg-slate-900  flex justify-center items-center h-fit p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>
           </div>

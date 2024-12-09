@@ -12,12 +12,16 @@ const MapWithJourney = ({ destino }) => {
   const positions = destino.noches.map(({ lat, lng }) => [lat, lng]);
 
   return (
-    <div className="w-full h-full z-0 mb-0">
+    <div className="w-full h-full z-0 mb-0 ">
       <MapContainer
         center={positions[0]}
         zoom={6}
-        style={{ height: "90%", width: "100%" }}
+        style={{
+          height: "90%",
+          width: "100%",
+        }}
         zoomControl={false}
+        className=""
       >
         <TileLayer
           url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"

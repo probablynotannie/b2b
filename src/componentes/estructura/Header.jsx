@@ -25,12 +25,14 @@ import ListadoHoteles from "../reservas/productos/hotel/Resultado";
 import ListadoVueloMasHotel from "../reservas/productos/vuelomashotel/Resultado";
 import ListadoDestinos from "../reservas/productos/destinos/Resultado";
 import ListadoCruceros from "../reservas/productos/cruceros/Resultado";
+import ListadoCoches from "../reservas/productos/coches/Resultado";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
 import HotelMasVuelo from "../reservas/productos/vuelomashotel/seleccion/Hotel";
 import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/Crucero";
+import Coche from "../reservas/productos/coches/Coche";
 
 /*Componentes */
 import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
@@ -69,6 +71,7 @@ function Header() {
         <Route path="/cesta" element={<Cesta />} />
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />
+        <Route path="/listadoCoches" element={<ListadoCoches />} />
         <Route path="/listadoDestinos" element={<ListadoDestinos />} />
         <Route path="/listadoCruceros" element={<ListadoCruceros />} />
         <Route
@@ -80,6 +83,7 @@ function Header() {
         <Route path="/hotelMasVuelo" element={<HotelMasVuelo />} />
         <Route path="/destino" element={<Destino />} />
         <Route path="/crucero" element={<Crucero />} />
+        <Route path="/coche" element={<Coche />} />
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />
         <Route path="/clientes" element={<Clientes />} />

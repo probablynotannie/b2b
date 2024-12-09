@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaTrainSubway } from "react-icons/fa6";
 
 // Sample data to be passed as props
-const destinationData = [
+const destinos = [
   {
     label: "Destacados",
     options: [
@@ -26,7 +26,7 @@ const destinationData = [
   },
 ];
 
-function Navieras({ destinations = destinationData }) {
+function Navieras({ destinations = destinos }) {
   const [selectedDestination, setSelectedDestination] = useState("");
 
   const handleDestinationChange = (event) => {

@@ -12,8 +12,8 @@ function Resultado() {
   };
 
   return (
-    <section className="pb-12 mt-5">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">
+    <section className="pb-12">
+      <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
         <h3 className="text-secondary font-semibold text-lg ">
           Resultados ({destinos.length})
         </h3>
@@ -21,7 +21,7 @@ function Resultado() {
       {destinos.map((destino, index) => (
         <article
           key={index}
-          className="cursor-pointer bg-white flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
+          className="cursor-pointer bg-white flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-5 lg:mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
         >
           <div className="relative w-full">
             {activeMap === destino.id ? (

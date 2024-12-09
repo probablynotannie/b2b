@@ -1,0 +1,132 @@
+[
+  {
+    "precio": 16,
+    "nombre": "Audi A4",
+    "img": "/coches/audia4.jpg",
+    "capacidad": 4,
+    "maletero": 1,
+    "puertas": 3,
+    "AC": true,
+    "tipo": "Auto",
+    "combustible": true,
+    "cancelaciones": {
+      "17/12/2024": 50,
+      "19/12/2024": 80
+    },
+    "detalles": [
+      "Kilometraje limitado a 2000 Km por alquiler",
+      "El cargo por Kilometraje adicional es de 0.45 EUR por km",
+      "Seguro de colisión CDW (con franquicia)",
+      "Seguro de robo TPW (con franquicia)",
+      "Seguro a terceros",
+      "Impuestos locales",
+      "Tasas aeroportuarias"
+    ],
+    "seguroFranquicia": 200,
+    "noShow": "100% del total del alquiler",
+    "extras": [
+      {
+        "extra": "GPS",
+        "precio": 10,
+        "cantidad": 2
+      },
+      {
+        "extra": "Sillita de Bebé (hasta 13kg aprox)",
+        "precio": 11,
+        "cantidad": 2
+      },
+      {
+        "extra": "Sillita de Niño/a (9-18 kg aprox)",
+        "precio": 11,
+        "cantidad": 4
+      },
+      {
+        "extra": "Elevador (15-36 kg aprox)",
+        "precio": 11,
+        "cantidad": 0
+      }
+    ],
+    "recogida": {
+      "lugar": "Airport El Prat",
+      "horario": [
+        {
+          "dia": "Lunes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Martes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Miercoles",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Jueves",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Viernes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Sabado",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        },
+        {
+          "dia": "Domingo",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        }
+      ],
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    },
+    "devolucion": {
+      "lugar": "Airport El Prat",
+      "horario": [
+        {
+          "dia": "Lunes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Martes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Miercoles",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Jueves",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Viernes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Sabado",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        },
+        {
+          "dia": "Domingo",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        }
+      ],
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    }
+  }
+]

@@ -20,8 +20,8 @@ function Resultado() {
   const [openModal, setOpenModal] = useState(null);
 
   return (
-    <section className="pb-12 mt-5">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl  border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">
+    <section className="pb-12 mt-10">
+      <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl  border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">
         <h3 className="text-secondary font-semibold text-lg ">
           Resultados ({hoteles.length})
         </h3>

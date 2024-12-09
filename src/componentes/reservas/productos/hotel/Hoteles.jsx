@@ -9,6 +9,7 @@ import { Modal } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import hoteles from "./Hoteles.json";
+
 function Resultado() {
   const reserva = {
     pax: 2,
@@ -18,31 +19,25 @@ function Resultado() {
   };
 
   const [openModal, setOpenModal] = useState(null);
+  const [openInNewTab, setOpenInNewTab] = useState(false);
 
   return (
-    <section className="pb-12 mt-5">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl  border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">
+    <section className="pb-12">
+      <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
         <h3 className="text-secondary font-semibold text-lg ">
           Resultados ({hoteles.length})
         </h3>
         <div className="flex flex-col gap-5 md:flex-row md:justify-between">
           <label className="inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+            <input
+              type="checkbox"
+              className="sr-only peer"
+              checked={openInNewTab}
+              onChange={(e) => setOpenInNewTab(e.target.checked)}
+            />
+            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
             <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
               Abrir enlace pestaña nueva
-            </span>
-          </label>
-          <label className="inline-flex items-center cursor-pointer">
-            <input
-              id="mapa"
-              type="checkbox"
-              value=""
-              className="sr-only peer"
-            />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
-            <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Mostrar en mapa
             </span>
           </label>
         </div>
@@ -65,8 +60,8 @@ function Resultado() {
             </Carousel>
           </div>
           <div className="p-5 lg:w-2/3">
-            <div className="border-b-2 border-slate-200 dark:border-slate-700  pb-2">
-              <div className="flex justify-between w-full ">
+            <div className="border-b-2 border-slate-200 dark:border-slate-700 pb-2">
+              <div className="flex justify-between w-full">
                 <h4 className="text-secondary font-semibold">
                   {hotel.nombre}
                   <span className="text-sm ml-1 text-slate-400 font-normal">
@@ -93,7 +88,7 @@ function Resultado() {
                   {reserva.pax !== 1 && "s"}
                 </span>
                 <span className="flex items-center">
-                  <FaChild className="text-lg" /> {reserva.pax} niño
+                  <FaChild className="text-lg" /> {reserva.pax_ninios} niño
                 </span>
                 <span className="flex items-center">
                   <FaDoorOpen className="text-lg mr-1" /> {reserva.habitaciones}
@@ -132,13 +127,13 @@ function Resultado() {
                       <strong>Precio por noche:</strong> ${hotel.precio}
                     </p>
                     <p className="text-sm text-gray-500 dark:text-gray-400">
-                      <strong>extras:</strong> {hotel.extras.join(", ")}
+                      <strong>Extras:</strong> {hotel.extras.join(", ")}
                     </p>
                   </div>
                 </Modal.Body>
                 <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
                   <button
-                    className="p-3 px-5 bg-slate-700  dark:bg-secondaryDark font-bold rounded-xl text-white"
+                    className="p-3 px-5 bg-slate-700 dark:bg-secondaryDark font-bold rounded-xl text-white"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar

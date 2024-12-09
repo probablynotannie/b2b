@@ -7,10 +7,33 @@ import Input_Duracion from "../../../../inputs/SelectorDias";
 import { FaSearch } from "react-icons/fa";
 
 function Buscador() {
+  const [destino, setDestino] = useState("");
+
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-
+  const destinos = [
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
+  ];
   return (
     <>
       <button
@@ -28,7 +51,7 @@ function Buscador() {
         }`}
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
+          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl  dark:bg-slate-800 "
           onClick={(e) => e.stopPropagation()}
         >
           <div>
@@ -43,7 +66,11 @@ function Buscador() {
           </div>
           <div className="grid grid-cols-12 gap-3 p-5 ">
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Destinos />
+              <Input_Destinos
+                destinos={destinos}
+                destino={destino}
+                setDestino={setDestino}
+              />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_Puertos />
@@ -76,27 +103,31 @@ function Buscador() {
         </div>
       </div>
 
-      <div className="hidden lg:block border-2  dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
+      <div className="hidden lg:block border-2  dark:border-slate-800 rounded-xl shadow-inner min-h-28 p-5 bg-white dark:bg-slate-800">
         <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
-            <Input_Destinos />
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+            <Input_Destinos
+              destinos={destinos}
+              destino={destino}
+              setDestino={setDestino}
+            />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
             <Input_Puertos />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
             <Input_Navieras />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
             <Input_Mes />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
             <Input_Duracion />
           </div>
-          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
+          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>

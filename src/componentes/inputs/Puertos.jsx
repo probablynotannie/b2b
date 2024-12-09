@@ -2,7 +2,7 @@ import { useState } from "react";
 import { FaAnchor } from "react-icons/fa";
 
 // Sample data to be passed as props
-const destinationData = [
+const destinos = [
   {
     label: "Destacados",
     options: [
@@ -26,7 +26,7 @@ const destinationData = [
   },
 ];
 
-function Puertos({ destinations = destinationData }) {
+function Puertos({ destinations = destinos }) {
   const [selectedDestination, setSelectedDestination] = useState("");
 
   const handleDestinationChange = (event) => {

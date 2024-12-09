@@ -1,16 +1,16 @@
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
-import Hoteles from "./Destinos";
+import Hoteles from "./Coches";
 function Productos() {
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div
-        className="w-full bg-cover bg-center p-8 relative shadow-xl"
+        className="w-full bg-cover bg-bottom p-8 relative shadow-xl"
         style={{
-          backgroundImage: "url('/banner_hoteles.jpg')",
+          backgroundImage: "url('/banner_coches_listado.jpg')",
         }}
       >
-        <div className="bg-indigo-400 dark:bg-black text-pink-600 bg-opacity-50 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+        <div className="bg-orange-300 dark:bg-black text-pink-600 bg-opacity-45 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
         <div className="flex">
           <div className="container relative z-10">
             <Buscador />

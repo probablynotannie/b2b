@@ -7,7 +7,6 @@ import { FaChevronRight } from "react-icons/fa";
 
 function Resultado() {
   const [activeMap, setActiveMap] = useState({});
-
   const toggleMap = (id) => {
     setActiveMap((prev) => ({
       ...prev,
@@ -37,14 +36,12 @@ function Resultado() {
     let precioMasBajo = Infinity;
 
     precios.forEach((cabina) => {
-      // Recorremos los precios principales
       cabina.preciosConFechas.forEach((precio) => {
         if (precio.price < precioMasBajo) {
           precioMasBajo = precio.price;
         }
       });
 
-      // Recorremos los subPrecios si existen
       cabina.subPrecios?.forEach((subPrecio) => {
         subPrecio.preciosConFechas.forEach((precio) => {
           if (precio.price < precioMasBajo) {
@@ -59,13 +56,11 @@ function Resultado() {
   function getNextDeparture(precios) {
     const today = new Date();
 
-    // Helper function to parse dates
     const parseDate = (dateStr) => {
       const [day, month] = dateStr.split("/").map(Number);
       return new Date(today.getFullYear(), month - 1, day);
     };
 
-    // Collect all dates
     const allDates = [];
 
     precios.forEach((cabin) => {
@@ -79,7 +74,6 @@ function Resultado() {
       });
     });
 
-    // Find the closest future date
     const nextDate = allDates
       .filter((date) => date >= today)
       .sort((a, b) => a - b)[0];
@@ -95,26 +89,10 @@ function Resultado() {
       return "No upcoming departures";
     }
   }
-  function getBackgroundColorClass(precios) {
-    const today = new Date();
-    const nextDepartureDate = getNextDeparture(precios);
-    if (nextDepartureDate === "No upcoming departures") return "bg-gray-400";
 
-    const nextDate = new Date(
-      nextDepartureDate.split(" ")[2], // Year
-      new Date(nextDepartureDate).getMonth(), // Month
-      parseInt(nextDepartureDate.split(" ")[0]) // Day
-    );
-
-    const daysLeft = Math.ceil((nextDate - today) / (1000 * 60 * 60 * 24));
-
-    if (daysLeft <= 3) return "bg-red-700";
-    if (daysLeft <= 7) return "bg-yellow-500";
-    return "bg-green-500";
-  }
   return (
-    <section className="pb-12 mt-5">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 mt-4 lg:mt-0">
+    <section className="pb-12 md:mt-5">
+      <div className="lg:flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600  lg:mt-0">
         <h3 className="text-secondary font-semibold text-lg">
           Resultados ({Destinos.length})
         </h3>
@@ -124,7 +102,7 @@ function Resultado() {
         return (
           <article
             key={index}
-            className="cursor-pointer bg-slate-100 flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-700 rounded-xl transition mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
+            className="cursor-pointer bg-slate-100 flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-700 rounded-xl transition mt-5 lg:mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
           >
             <div className="relative w-full">
               {activeMap[destino.id] ? (
@@ -209,7 +187,7 @@ function Resultado() {
                 <p className="text-slate-500 dark:text-slate-400 text-sm my-3 line-clamp-3">
                   {destino.descripcion}
                 </p>
-                <div className="grid grid-cols-2 lg:grid-cols-5 gap-5">
+                <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 mb-3">
                   {destino.precios.map((cabina) => {
                     const nextDateEntry = getNextAvailableDatesByCabin(
                       cabina.preciosConFechas
