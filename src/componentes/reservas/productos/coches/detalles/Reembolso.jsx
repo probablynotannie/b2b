@@ -61,12 +61,12 @@ function Reembolso({ contratar, setContratar, reembolso }) {
         <button
           onClick={() => setContratar((val) => !val)}
           className={`rounded-lg ${
-            contratar
+            contratar === false
               ? "bg-green-500 dark:bg-green-700"
               : "bg-red-500 dark:bg-red-700"
           } text-white p-2 w-full font-bold mt-3`}
         >
-          {contratar ? "Contratar" : "Quitar"}
+          {contratar === false ? "Contratar" : "Quitar"}
         </button>
       </div>
       <Modal show={openModal} onClose={() => setOpenModal(false)}>

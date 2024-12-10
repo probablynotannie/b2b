@@ -11,7 +11,6 @@ export default class Gasolina extends Component {
           </h3>
           <BsFillFuelPumpFill className="text-xl text-secondary" />
         </div>
-        <h3>Política de gasolina</h3>
         <p>
           Igual-Igual: el cliente tiene que devolver el coche con la misma
           cantidad de combustible con la que se lo entregaron. Si se devuelve el
