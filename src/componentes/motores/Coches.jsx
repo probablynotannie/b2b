@@ -1,9 +1,9 @@
-import React from "react";
 import Sidebar from "./sidebar/Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_DateRange from "../inputs/DateRange";
 import Input_hora from "../inputs/Hora";
 import Input_Edad from "../inputs/Edad";
+import { Link } from "react-router-dom";
 function Coches() {
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
@@ -49,9 +49,11 @@ function Coches() {
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">
-              <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                Buscar
-              </button>
+              <Link to={"/listadocoches"}>
+                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
+                  Buscar
+                </button>
+              </Link>
             </div>
           </form>
         </div>

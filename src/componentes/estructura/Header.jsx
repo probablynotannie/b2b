@@ -32,10 +32,11 @@ import Hotel from "../reservas/productos/hotel/Hotel";
 import HotelMasVuelo from "../reservas/productos/vuelomashotel/seleccion/Hotel";
 import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/Crucero";
-import Coche from "../reservas/productos/coches/Coche";
+import Coche from "../reservas/productos/coches/detalles/Coche";
 
 /*Componentes */
 import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
+import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* RESERVA */
 import Cesta from "../reservas/cestaFinal/CestaCompleta";
@@ -90,6 +91,7 @@ function Header() {
         <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
         <Route path="/presupuestos" element={<Presupuestos />} />
         <Route path="/datos" element={<Datos />} />
+        <Route path="/condiciones_de_reserva" element={<Condiciones />} />
         <Route path="/completada" element={<ReservaFinalizada />} />
       </Routes>
     </>

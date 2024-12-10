@@ -1,12 +1,20 @@
+import { useState } from "react";
 import Listado from "./Listado";
+import Cajas from "./Cajas"; // Import the alternate component
 import coches from "./Coches.json";
+
 function Resultado() {
-  const dias = 7;
+  const [mostrarEnCajas, setMostrarEnCajas] = useState(false); // State to track checkbox
+
   const reserva = {
     pax: 2,
     pax_ninios: 1,
     habitaciones: 2,
     noches: 7,
+  };
+
+  const handleCheckboxChange = (event) => {
+    setMostrarEnCajas(event.target.checked); // Update state on toggle
   };
 
   return (
@@ -17,15 +25,21 @@ function Resultado() {
         </h3>
         <div className="flex flex-col gap-5 md:flex-row md:justify-between">
           <label className="inline-flex items-center cursor-pointer">
-            <input type="checkbox" value="" className="sr-only peer" />
+            <input
+              type="checkbox"
+              value=""
+              className="sr-only peer"
+              checked={mostrarEnCajas}
+              onChange={handleCheckboxChange}
+            />
             <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
             <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Mostrar detalles
+              Mostrar en cajas
             </span>
           </label>
         </div>
       </div>
-      <Listado coches={coches} dias={dias} />
+      {mostrarEnCajas ? <Cajas coches={coches} /> : <Listado coches={coches} />}
     </section>
   );
 }

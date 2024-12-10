@@ -11,14 +11,13 @@ import { MdSevereCold } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Modal } from "flowbite-react";
 import { useState } from "react";
-function Listado({ coches, dias }) {
-  const [openModal, setOpenModal] = useState(false);
-  const [activeTab, setActiveTab] = useState(null); // Updated to track active tab per car
+function Listado({ coches }) {
+  const [activeTab, setActiveTab] = useState("tarifas");
+  const [activeModalCar, setActiveModalCar] = useState(null); // Store active car's index
 
   return (
     <>
       {coches.map((coche, index) => {
-        // Define dynamic tabs for each car
         const tabs = [
           {
             id: "tarifas",
@@ -34,7 +33,7 @@ function Listado({ coches, dias }) {
                 </p>
                 <p>
                   TOTAL:
-                  <strong>{dias * coche.precio}€</strong>
+                  <strong>{coche.precio}€</strong>
                 </p>
               </>
             ),
@@ -180,15 +179,15 @@ function Listado({ coches, dias }) {
             className="bg-slate-100 dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl"
             key={index}
           >
-            <article className="lg:flex flex-row border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 relative min-h-[15vh]">
-              <div className="w-full h-[25vh] lg:h-auto lg:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
+            <article className="xl:flex flex-row border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 relative min-h-[15vh]">
+              <div className="w-full h-[25vh] lg:h-auto xl:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
                 <img
-                  className="w-full h-full"
+                  className="w-full h-full object-cover"
                   src={coche.img}
                   alt={coche.nombre}
                 />
               </div>
-              <div className="p-5 lg:w-2/3">
+              <div className="p-5 xl:w-2/3">
                 <div className="border-b-2 border-slate-200 dark:border-slate-700 pb-2">
                   <div className="flex justify-between w-full">
                     <h4 className="text-secondary font-semibold">
@@ -220,7 +219,7 @@ function Listado({ coches, dias }) {
                       {coche.AC === true ? "SÍ" : "NO"}
                     </span>
                     <span className="flex items-center">
-                      <FaCar className="text-lg mr-1" /> {coche.tipo}
+                      <FaCar className="text-lg mr-1" /> {coche.cambio}
                     </span>
                   </div>
                 </div>
@@ -260,105 +259,99 @@ function Listado({ coches, dias }) {
                     </span>
                   </li>
                 </ul>
-                <div className="flex justify-end mt-3 gap-3">
+                <div className="flex flex-col md:flex-row justify-end mt-3 gap-3">
                   <button
-                    onClick={() => setOpenModal(true)}
+                    onClick={() => setActiveModalCar(index)}
                     className="w-full lg:w-fit p-3 bg-slate-500 text-white font-semibold rounded-xl shadow"
                   >
                     Detalles
                   </button>
-                  <Link to="/hotel" state={coche}>
-                    <button className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow">
-                      Desde {dias * coche.precio}€
-                    </button>
+                  <Link
+                    to="/coche"
+                    state={coche}
+                    className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow text-center"
+                  >
+                    <button>Desde {coche.dias * coche.precio}€</button>
                   </Link>
                 </div>
               </div>
             </article>
-            <Modal show={openModal} onClose={() => setOpenModal(false)}>
-              <Modal.Header>{coche.nombre}</Modal.Header>
-              <Modal.Body>
-                <div className="space-y-6">
-                  <img
-                    src={coche.img}
-                    alt={coche.nombre}
-                    className="h-[30vh] w-full object-cover"
-                  />
-                  <div className="flex justify-between w-full">
-                    <span className="text-xl ml-1 dark:text-green-400 font-bold">
-                      {coche.precio}€/día
-                    </span>
-                  </div>
-
-                  <div className="grid grid-cols-5 gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
-                    <span className="flex items-center p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition mr-1">
-                      <FaPerson className="text-lg" />
-                      {coche.capacidad}
-                    </span>
-                    <span className="flex items-center p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition mr-1">
-                      <MdLuggage className="text-lg" />
-                      {coche.maletero}
-                    </span>
-                    <span className="flex items-center p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
-                      <GiCarDoor className="text-lg mr-1" />
-                      {coche.puertas}
-                    </span>
-                    <span className="flex items-center p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
-                      <MdSevereCold className="text-lg mr-1" />
-                      {coche.AC === true ? "SÍ" : "NO"}
-                    </span>
-                    <span className="flex items-center p-2 bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
-                      <FaCar className="text-lg mr-1" /> {coche.tipo}
-                    </span>
-                  </div>
-                  <section className="pb-12 mt-5">
-                    <div className="md:flex">
-                      <ul className="flex-column space-y-4 text-sm font-medium text-slate-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
-                        {tabs.map((tab) => (
-                          <li key={tab.id}>
-                            <button
-                              className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
-                                activeTab === tab.id
-                                  ? "text-white bg-secondary dark:bg-slate-900"
-                                  : "bg-gray-50 dark:bg-gray-800 dark:text-gray-400"
-                              }`}
-                              onClick={() => setActiveTab(tab.id)}
-                            >
-                              {tab.label}
-                            </button>
-                          </li>
-                        ))}
-                      </ul>
-                      <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
-                        {tabs.map((tab) =>
-                          activeTab === tab.id ? (
-                            <div key={tab.id}>
-                              <h3 className="text-lg font-bold text-secondary dark:text-white mb-2">
-                                {tab.label}
-                              </h3>
-                              <p>{tab.content}</p>
-                            </div>
-                          ) : null
-                        )}
-                      </div>
+            {activeModalCar === index && (
+              <Modal show={true} onClose={() => setActiveModalCar(null)}>
+                <Modal.Header>{coche.nombre}</Modal.Header>
+                <Modal.Body>
+                  <div className="space-y-6">
+                    <img
+                      src={coche.img}
+                      alt={coche.nombre}
+                      className="h-[35vh] object-center w-full object-cover shadow-md rounded-md"
+                    />
+                    <div className="grid grid-cols-5 gap-2 justify-between text-slate-900 dark:text-slate-400 font-semibold text-sm">
+                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition mr-1">
+                        <FaPerson className="text-lg" />
+                        {coche.capacidad}
+                      </span>
+                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition mr-1">
+                        <MdLuggage className="text-lg" />
+                        {coche.maletero}
+                      </span>
+                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
+                        <GiCarDoor className="text-lg mr-1" />
+                        {coche.puertas}
+                      </span>
+                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
+                        <MdSevereCold className="text-lg mr-1" />
+                        {coche.AC === true ? "SÍ" : "NO"}
+                      </span>
+                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
+                        <FaCar className="text-lg mr-1" /> {coche.cambio}
+                      </span>
                     </div>
-                  </section>
-                </div>
-              </Modal.Body>
-              <Modal.Footer>
-                <button
-                  className="w-full lg:w-fit p-3 bg-slate-500 text-white font-semibold rounded-xl shadow"
-                  onClick={() => setOpenModal(false)}
-                >
-                  Cerrar
-                </button>
-                <Link to="/coche" state={coche}>
-                  <button className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow">
-                    Desde {dias * coche.precio}€
+                    <section className="pb-12 mt-5">
+                      <div className="md:flex">
+                        <ul className="flex-column space-y-4 text-sm font-medium text-slate-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+                          {tabs.map((tab) => (
+                            <li key={tab.id}>
+                              <button
+                                className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+                                  activeTab === tab.id
+                                    ? "text-white bg-secondary dark:bg-slate-900"
+                                    : "bg-gray-50 dark:bg-gray-800 dark:text-gray-400"
+                                }`}
+                                onClick={() => setActiveTab(tab.id)}
+                              >
+                                {tab.label}
+                              </button>
+                            </li>
+                          ))}
+                        </ul>
+
+                        <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                          {tabs.map((tab) =>
+                            activeTab === tab.id ? (
+                              <div key={tab.id}>
+                                <h3 className="text-lg font-bold text-secondary dark:text-white mb-2">
+                                  {tab.label}
+                                </h3>
+                                <p>{tab.content}</p>
+                              </div>
+                            ) : null
+                          )}
+                        </div>
+                      </div>
+                    </section>
+                  </div>
+                </Modal.Body>
+                <Modal.Footer className="flex flex-col md:flex-row gap-5">
+                  <button
+                    className="w-full lg:w-fit p-3 bg-slate-500 text-white font-semibold rounded-xl shadow"
+                    onClick={() => setActiveModalCar(null)} // Close modal
+                  >
+                    Cerrar
                   </button>
-                </Link>
-              </Modal.Footer>
-            </Modal>
+                </Modal.Footer>
+              </Modal>
+            )}
           </main>
         );
       })}
