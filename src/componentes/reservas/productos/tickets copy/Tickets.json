@@ -1,0 +1,52 @@
+[
+  {
+    "id": 1,
+    "titulo": "Royal Palace of Madrid - Guided Tour",
+    "descripcion_corta": "Discover the history and beauty of the Royal Palace with an expert guide. Learn about Spain’s royal family and architectural heritage.",
+    "tipoPrecio": "Neto",
+    "precio": 25.0,
+    "img": "/royal_palace.jpg",
+    "incluido": ["Guía profesional", "Entrada rápida", "Auriculares"],
+    "excluidas": ["Transporte", "Propinas"]
+  },
+  {
+    "id": 2,
+    "titulo": "Flamenco Night - Live Show with Tapas",
+    "descripcion_corta": "Enjoy an authentic Flamenco show while savoring delicious Spanish tapas in a traditional venue.",
+    "tipoPrecio": "Neto",
+    "precio": 45.0,
+    "img": "/flamenco_show.jpg",
+    "incluido": ["Espectáculo en vivo", "Cena de tapas"],
+    "excluidas": ["Bebidas alcohólicas", "Transporte"]
+  },
+  {
+    "id": 3,
+    "titulo": "Toledo Day Trip from Madrid",
+    "descripcion_corta": "Explore the medieval city of Toledo with a professional guide, including visits to historic landmarks and stunning architecture.",
+    "tipoPrecio": "Neto",
+    "precio": 60.0,
+    "img": "/toledo_trip.jpg",
+    "incluido": ["Transporte ida y vuelta", "Guía oficial", "Entradas"],
+    "excluidas": ["Comida", "Propinas"]
+  },
+  {
+    "id": 4,
+    "titulo": "Prado Museum - Skip-the-Line Guided Tour",
+    "descripcion_corta": "Discover masterpieces from world-renowned artists with a knowledgeable guide in Spain’s most famous museum.",
+    "tipoPrecio": "Neto",
+    "precio": 35.0,
+    "img": "/prado_museum.jpg",
+    "incluido": ["Entrada sin colas", "Guía experto", "Auriculares"],
+    "excluidas": ["Transporte", "Propinas"]
+  },
+  {
+    "id": 5,
+    "titulo": "Madrid Tapas and Wine Tasting Tour",
+    "descripcion_corta": "Experience the flavors of Spain with a guided tour of Madrid’s best tapas and wine spots, guided by a local expert.",
+    "tipoPrecio": "Neto",
+    "precio": 50.0,
+    "img": "/tapas_tour.jpg",
+    "incluido": ["Cata de vinos", "Variedad de tapas", "Guía local"],
+    "excluidas": ["Extras personales", "Propinas"]
+  }
+]

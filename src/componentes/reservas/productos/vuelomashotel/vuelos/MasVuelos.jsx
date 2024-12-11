@@ -10,7 +10,9 @@ function FlightSelectionPage({
 }) {
   return (
     <div className="mx-auto space-y-8">
-      <h3 className="text-secondary font-semibold text-lg mb-10">Resultados</h3>
+      <h3 className="text-secondary font-semibold text-lg mb-10 hidden md:block">
+        Resultados
+      </h3>
       {flightSets.map((flightSet) => (
         <FlightSelection
           key={flightSet.id}

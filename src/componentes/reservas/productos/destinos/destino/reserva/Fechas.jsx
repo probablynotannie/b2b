@@ -3,18 +3,17 @@ import Input_Fecha from "../../../../../inputs/DateRangePrice";
 import Aside from "./Aside";
 import Info from "./Info";
 import { useLocation } from "react-router-dom";
-
 function Fechas() {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const location = useLocation();
   const producto = location.state;
 
-  // Ensure the 'habitaciones' key exists in the producto (as an empty array if missing)
   const productoWithHabitaciones = {
     ...producto,
-    habitaciones: producto.habitaciones || [], // Ensure habitaciones is an empty array if not present
+    habitaciones: producto.habitaciones || [],
   };
 
-  // Use the updated producto object with habitaciones added
   const [localProducto, setLocalProducto] = useState(productoWithHabitaciones);
 
   const [reserva, setReserva] = useState({
@@ -31,7 +30,6 @@ function Fechas() {
     startDatePrice: null,
   });
 
-  // Update reserva whenever dates or pax change
   useEffect(() => {
     const formatFecha = (date) => {
       if (!date) return "";

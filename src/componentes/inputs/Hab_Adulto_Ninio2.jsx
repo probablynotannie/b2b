@@ -24,7 +24,7 @@ function SelectorPersonas() {
   const deleteRoom = (roomId) => {
     setRoomData((prevData) => {
       const updatedData = prevData.filter((room) => room.id !== roomId);
-      setHabitacion(Math.max(updatedData.length, 1)); // Update room count based on filtered data
+      setHabitacion(Math.max(updatedData.length, 1));
       return updatedData;
     });
   };
@@ -97,7 +97,7 @@ function SelectorPersonas() {
           aria-labelledby="default-popover"
           content={
             <div className="w-96 text-sm">
-              <div className="bg-primary dark:bg-slate-900 text-white h-14 flex items-center pl-4 font-semibold">
+              <div className="bg-primary  dark:bg-slate-900 text-white h-14 flex items-center pl-4 font-semibold">
                 Adultos / Niños
               </div>
               <div className="px-3 pb-5 max-h-[80vh] overflow-y-auto">
@@ -189,7 +189,7 @@ function SelectorPersonas() {
                 ))}
                 <div
                   onClick={addRoom}
-                  className="text-black dark:text-slate-400  hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-700 mt-5 pt-2"
+                  className="text-black dark:text-slate-400  hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
                 >
                   <div className="w-fit flex items-center space-x-1 font-semibold">
                     <span>Agregar una habitación </span>

@@ -5,7 +5,6 @@ import { useLocation } from "react-router-dom";
 function Contacto() {
   const location = useLocation();
   const reserva = location.state;
-  console.log("reserva", reserva);
 
   const typeToBackground = {
     destino: {
@@ -53,7 +52,6 @@ function Contacto() {
   return (
     <main className="my-10 flex justify-center container min-h-[68vh]">
       <article className="w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
-        {reserva.precio}
         <section>
           <Datos />
         </section>

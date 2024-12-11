@@ -4,7 +4,10 @@ import Input_Aeropuertos from "../inputs/Aeropuertos";
 import Input_HabAdNin from "../inputs/Hab_Adulto_Ninio2";
 import Input_DateRange from "../inputs/DateRange";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Vuelomashotel() {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -28,7 +31,12 @@ function Vuelomashotel() {
                 <Input_Buscador />
               </div>
               <div className="col-span-2">
-                <Input_DateRange />
+                <Input_DateRange
+                  startDate={startDate}
+                  endDate={endDate}
+                  setStartDate={setStartDate}
+                  setEndDate={setEndDate}
+                />
               </div>
               <div className="col-span-2">
                 <Input_HabAdNin />

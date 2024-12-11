@@ -7,7 +7,8 @@ import Input_Bonificacion from "../inputs/Pasajeros_Descuentos";
 
 function Ferris() {
   const [viaje, setViaje] = useState("ida");
-
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const handleviajeChange = (type) => {
     setViaje(type);
   };
@@ -66,7 +67,12 @@ function Ferris() {
                 </div>
               ) : (
                 <div className="col-span-2">
-                  <Input_DateRange />
+                  <Input_DateRange
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                  />
                 </div>
               )}
 

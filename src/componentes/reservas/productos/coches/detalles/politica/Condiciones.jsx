@@ -8,15 +8,15 @@ function Condiciones_alquiler() {
         <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
           Condiciones de alquiler
         </h3>
-        <MdCarRental className="text-2xl text-secondary" />
+        <MdCarRental className="text-2xl text-slate-700 dark:text-slate-300 " />
       </div>
-      <div className="max-w-7xl mx-auto bg-white shadow-md rounded-lg p-8">
-        <h1 className="text-2xl font-bold text-secondary mb-6">
+      <div className="max-w-7xl mx-auto bg-white dark:bg-slate-900 shadow-md rounded-lg p-8">
+        <h1 className="text-2xl font-bold text-slate-700 dark:text-slate-300  mb-6">
           Drivalia España - Documentación Necesaria
         </h1>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-secondary">
+          <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 ">
             Documentación necesaria
           </h2>
           <p className="mt-2">
@@ -35,7 +35,7 @@ function Condiciones_alquiler() {
             permiso nacional está escrito con caracteres distintos a los del
             país donde se recoge el vehículo.
           </p>
-          <p className="mt-2 text-red-600 font-semibold">
+          <p className="mt-2 text-red-600 dark:text-red-700 font-semibold">
             IMPORTANTE: Es responsabilidad del conductor asegurarse de que
             dispone del permiso de conducir adecuado para el país en el que va a
             conducir.
@@ -43,7 +43,7 @@ function Condiciones_alquiler() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-secondary">
+          <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 ">
             Requisitos del permiso de conducir
           </h2>
           <p className="mt-2">
@@ -59,7 +59,9 @@ function Condiciones_alquiler() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-secondary">Depósito</h2>
+          <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 ">
+            Depósito
+          </h2>
           <p className="mt-2">
             El depósito mínimo requerido varía según el tipo de vehículo:
           </p>
@@ -80,14 +82,13 @@ function Condiciones_alquiler() {
               JS (LFAV): <span className="font-bold">3000.00 EUR</span>
             </li>
           </ul>
-          <p className="mt-2 text-red-600 font-semibold">
+          <p className="mt-2 text-red-600 dark:text-red-700 font-semibold">
             Para conductores menores de 25 años, el depósito será siempre entre
             1000 EUR y 2000 EUR dependiendo del grupo de coches.
           </p>
         </section>
-
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-secondary">
+          <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 ">
             Formas de pago
           </h2>
           <p className="mt-2">Se aceptan las siguientes formas de pago:</p>
@@ -96,7 +97,7 @@ function Condiciones_alquiler() {
             <li>Tarjeta de crédito Visa</li>
           </ul>
           <p className="mt-2">No se aceptan:</p>
-          <ul className="list-disc pl-6 mt-2 text-red-600">
+          <ul className="list-disc pl-6 mt-2 text-red-600 dark:text-red-700">
             <li>Cheques</li>
             <li>Efectivo</li>
             <li>Tarjetas de crédito American Express</li>
@@ -110,7 +111,7 @@ function Condiciones_alquiler() {
         </section>
 
         <section className="mb-8">
-          <h2 className="text-xl font-semibold text-secondary">
+          <h2 className="text-xl font-semibold text-slate-700 dark:text-slate-300 ">
             Restricciones de edad
           </h2>
           <p className="mt-2">
@@ -135,7 +136,7 @@ function Condiciones_alquiler() {
           </ul>
         </section>
 
-        <footer className="mt-10 text-center text-gray-600 text-sm">
+        <footer className="mt-10 text-center text-gray-600 dark:text-slate-500 text-sm">
           <p>
             Lea atentamente los términos y condiciones antes de firmar el
             contrato.

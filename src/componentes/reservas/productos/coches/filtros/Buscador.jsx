@@ -4,15 +4,28 @@ import Input_DateRange from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
 import Input_Edad from "../../../../inputs/Edad";
 import { FaSearch } from "react-icons/fa";
-import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio2";
-
 function Buscador() {
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
-  const [isEntregaCiudadChecked, setIsEntregaCiudadChecked] = useState(false); // State for the checkbox
+  const [horaRecogida, setHoraRecogida] = useState(new Date());
+  const [horaDevolucion, setHoraDevolucion] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [edad, setEdad] = useState();
+  const [destino, setDestino] = useState();
+  const [devolucion, setDevolucion] = useState();
+  const destinos = [
+    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
+    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+  ];
 
-  const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
-
-  // Handle the checkbox change
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [isEntregaCiudadChecked, setIsEntregaCiudadChecked] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const handleCheckboxChange = (event) => {
     setIsEntregaCiudadChecked(event.target.checked);
   };
@@ -33,7 +46,7 @@ function Buscador() {
       {/* Modal for md screens and above */}
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
-          isModalOpen ? "opacity-100" : "opacity-0 pointer-events-none"
+          isModalOpen ? "opacity-100 z-50 " : "opacity-0 pointer-events-none"
         }`}
         // Close modal when clicking outside
       >
@@ -53,25 +66,38 @@ function Buscador() {
           </div>
           <div className="grid grid-cols-12 gap-3 p-5 ">
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Buscador />
+              <Input_Buscador
+                destinos={destinos}
+                destino={destino}
+                setDestino={setDestino}
+              />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_DateRange />
+              <Input_DateRange
+                startDate={startDate}
+                endDate={endDate}
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
+              />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Hora />
+              <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Hora />
+              <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Edad />
+              <Input_Edad edad={edad} setEdad={setEdad} />
             </div>
 
             {/* Conditional render based on checkbox */}
             {isEntregaCiudadChecked && (
               <div className="col-span-12 md:col-span-6 lg:col-span-4">
-                <Input_Buscador />
+                <Input_Buscador
+                  destinos={destinos}
+                  destino={devolucion}
+                  setDestino={setDevolucion}
+                />
               </div>
             )}
 
@@ -99,7 +125,11 @@ function Buscador() {
         </h2>
         <div className="grid grid-cols-12 gap-3">
           <div className="col-span-12 md:col-span-6 lg:col-span-3">
-            <Input_Buscador />
+            <Input_Buscador
+              destinos={destinos}
+              destino={destino}
+              setDestino={setDestino}
+            />
             <div className="flex items-center mb-4">
               <input
                 id="entrega_ciudad"
@@ -118,20 +148,29 @@ function Buscador() {
           </div>
           {isEntregaCiudadChecked && (
             <div className="col-span-12 md:col-span-6 lg:col-span-3">
-              <Input_Buscador />
+              <Input_Buscador
+                destinos={destinos}
+                destino={devolucion}
+                setDestino={setDevolucion}
+              />
             </div>
           )}
           <div className="col-span-12 md:col-span-6 lg:col-span-2">
-            <Input_DateRange />
+            <Input_DateRange
+              startDate={startDate}
+              endDate={endDate}
+              setStartDate={setStartDate}
+              setEndDate={setEndDate}
+            />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-1">
-            <Input_Hora />
+            <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-1">
-            <Input_Hora />
+            <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-1">
-            <Input_Edad />
+            <Input_Edad edad={edad} setEdad={setEdad} />
           </div>
 
           <div className="flex lg:justify-end justify-end  lg:col-span-1 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">

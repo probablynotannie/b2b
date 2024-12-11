@@ -1,16 +1,18 @@
 import { useState } from "react";
 import { Popover } from "flowbite-react";
-import { MdMeetingRoom } from "react-icons/md";
 import { MdPeopleAlt } from "react-icons/md";
 import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 
-function SelectorPersonas() {
+function SelectorPersonas({
+  adultos,
+  setAdultos,
+  ninios,
+  setNinios,
+  ninioAges,
+  setNinioAges,
+}) {
   const [open, setOpen] = useState(false);
-
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [ninioAges, setNinioAges] = useState([]);
 
   function onAdultosChange(e) {
     let resultado = e.target.value;
@@ -20,7 +22,6 @@ function SelectorPersonas() {
     const count = parseInt(e.target.value, 10);
     setNinios(count);
 
-    // Create an array of empty strings with the length of selected ninio count
     setNinioAges(new Array(count).fill(""));
   }
   const handleAgeChange = (index, age) => {
@@ -36,12 +37,12 @@ function SelectorPersonas() {
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-primary h-14 flex items-center pl-4 font-semibold">
+            <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
               Adultos / Niños
             </div>
             <div className=" w-72 space-y-3 p-4 text-sm text-gray-500">
               <div>
-                <span className="text-sm">Adultos</span>
+                <span className="text-sm">Adultos {ninios} </span>
                 <div className="relative">
                   <select
                     onChange={onAdultosChange}

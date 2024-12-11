@@ -158,7 +158,12 @@ function Reembolso({ contratar, setContratar, reembolso }) {
           </div>
         </Modal.Body>
         <Modal.Footer>
-          <button onClick={() => setOpenModal(false)}>Cerrar</button>
+          <button
+            className="dark:text-slate-200"
+            onClick={() => setOpenModal(false)}
+          >
+            Cerrar
+          </button>
         </Modal.Footer>
       </Modal>
     </div>

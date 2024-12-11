@@ -1,39 +1,17 @@
 import { useState } from "react";
-import PrecioRange from "../../../../inputs/PrecioRange";
-import Estrellas from "./Filtro_Estrellas";
-import Regimenes from "./Filtro_Regimenes";
-import Localidades from "./Filtro_Localidades";
+
 import { IoMdOptions } from "react-icons/io";
 
 function Aside() {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [reembolsable, setReembolsable] = useState(false);
-  const [localidades, setLocalidades] = useState([]);
-  const [precioRange, setPrecioRange] = useState({ min: 0, max: 500 });
-  const [selectedStars, setSelectedStars] = useState([]);
-  const [selectedRegimenes, setRegimenes] = useState([]);
-
-  const getActiveFiltersCount = () => {
-    let count = 0;
-    if (reembolsable) count += 1;
-    if (localidades.length > 0) count += 1;
-    if (selectedStars.length > 0) count += 1;
-    if (selectedRegimenes.length > 0) count += 1;
-    return count;
-  };
 
   return (
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:hidden relative border-2 border-gray-200 dark:border-slate-600 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 dark:text-slate-500 shadow-xl"
+        className="lg:hidden w-full flex gap-2 relative border-2 border-gray-200 dark:border-slate-600 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 dark:text-slate-500 shadow-xl"
       >
-        <IoMdOptions className="text-xl" />
-        {getActiveFiltersCount() > 0 && (
-          <span className="absolute rounded-full bg-secondary text-xs text-white font-bold p-2 -top-7 border">
-            {`(${getActiveFiltersCount()})`}
-          </span>
-        )}
+        <IoMdOptions className="text-xl" /> Filtro vuelos
       </button>
       <div className="hidden lg:block">
         <SidebarContent />

@@ -4,7 +4,13 @@ import Input_DateRange from "../inputs/DateRange";
 import Input_hora from "../inputs/Hora";
 import Input_Edad from "../inputs/Edad";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Coches() {
+  const [edad, setEdad] = useState();
+  const [horaRecogida, setHoraRecogida] = useState(new Date());
+  const [horaDevolucion, setHoraDevolucion] = useState(new Date());
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -27,25 +33,30 @@ function Coches() {
               </div>
 
               <div className="col-span-3">
-                <Input_DateRange />
+                <Input_DateRange
+                  startDate={startDate}
+                  endDate={endDate}
+                  setStartDate={setStartDate}
+                  setEndDate={setEndDate}
+                />
               </div>
               <div>
                 <span className="block mb-1 text-sm font-semibold">
                   Recogida
                 </span>
-                <Input_hora />
+                <Input_hora hora={horaRecogida} setHora={setHoraRecogida} />
               </div>
               <div>
                 <span className="block mb-1 text-sm font-semibold">
                   Devolución
                 </span>
-                <Input_hora />
+                <Input_hora hora={horaDevolucion} setHora={setHoraDevolucion} />
               </div>
               <div>
                 <span className="block mb-1 text-sm font-semibold">
                   Edad conductor
                 </span>
-                <Input_Edad />
+                <Input_Edad edad={edad} setEdad={setEdad} />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">

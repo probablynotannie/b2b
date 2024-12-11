@@ -1,6 +1,7 @@
 [
   {
-    "precio": 16,
+    "id": 0,
+    "precio": 13,
     "nombre": "Audi A4",
     "img": "/coches/audia4.jpg",
     "capacidad": 4,
@@ -140,7 +141,8 @@
     }
   },
   {
-    "precio": 16,
+    "id": 1,
+    "precio": 14,
     "nombre": "BMW X6",
     "img": "/coches/bmwx6.jpg",
     "capacidad": 4,
@@ -280,6 +282,7 @@
     }
   },
   {
+    "id": 2,
     "precio": 16,
     "nombre": "BMW X6",
     "img": "/coches/audia4.jpg",

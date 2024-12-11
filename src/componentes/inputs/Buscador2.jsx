@@ -3,32 +3,18 @@ import { FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 
-// Datos de sugerencias actualizados con tipos
-const suggestionsData = [
-  { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-  { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-  { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-  { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-  { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-  { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-  { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-  { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-];
-
-function Buscador() {
-  const [inputValue, setInputValue] = useState("");
+function Buscador({ destinos, destino, setDestino }) {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
-
   const searchBoxRef = useRef(null);
   const handleInputChange = (event) => {
     const value = event.target.value;
-    setInputValue(value);
+    setDestino(value);
     setLoading(true);
     if (value) {
       setTimeout(() => {
-        const filteredSuggestions = suggestionsData.filter((suggestion) =>
+        const filteredSuggestions = destinos.filter((suggestion) =>
           suggestion.name.toLowerCase().includes(value.toLowerCase())
         );
         setSuggestions(filteredSuggestions);
@@ -42,7 +28,7 @@ function Buscador() {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setInputValue(suggestion.name);
+    setDestino(suggestion.name);
     setSuggestions([]);
     setIsDropdownOpen(false);
   };
@@ -76,7 +62,7 @@ function Buscador() {
     <div className="relative" ref={searchBoxRef}>
       <input
         type="text"
-        value={inputValue}
+        value={destino}
         onChange={handleInputChange}
         placeholder="Destino"
         className="p-2.5 pl-10 text-sm border dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 text-gray-700 border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400 overflow-hidden text-ellipsis whitespace-nowrap"
@@ -123,7 +109,7 @@ function Buscador() {
             </div>
           ) : (
             <div className="p-4 flex justify-center items-center flex-col text-center text-slate-500">
-              No hay ningún resultado para &quot;{inputValue}&quot;
+              No hay ningún resultado para &quot;{destino}&quot;
             </div>
           )}
         </div>

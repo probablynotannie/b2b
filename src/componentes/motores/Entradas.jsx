@@ -1,9 +1,12 @@
-import React from "react";
+import {useState} from "react";
 import Sidebar from "./sidebar/Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_Fecha from "../inputs/Fecha";
 import Input_adultoNinio from "../inputs/Adulto_Ninio";
 function Entradas() {
+  const [adultos, setAdultos] = useState(2);
+  const [ninios, setNinios] = useState(0);
+  const [ninioAges, setNinioAges] = useState([]);
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -29,7 +32,13 @@ function Entradas() {
                 <Input_Fecha />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <Input_adultoNinio />
+                <Input_adultoNinio
+                  adultos={adultos}
+                  setAdultos={setAdultos}
+                  setNinios={setNinios}
+                  ninios={ninios}
+                  ninioAges={ninioAges}
+                />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">

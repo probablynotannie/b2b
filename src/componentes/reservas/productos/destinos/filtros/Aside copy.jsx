@@ -13,6 +13,7 @@ import { IoMdOptions } from "react-icons/io";
 function Aside() {
   const [values, setValues] = useState([0, 500]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+  const [duracion, setDuracion] = useState("");
 
   return (
     <>
@@ -40,7 +41,12 @@ function Aside() {
             >
               ×
             </button>
-            <SidebarContent values={values} setValues={setValues} />
+            <SidebarContent
+              values={values}
+              setValues={setValues}
+              duracion={duracion}
+              setDuracion={setDuracion}
+            />
           </div>
         </div>
       )}
@@ -48,7 +54,7 @@ function Aside() {
   );
 }
 
-function SidebarContent({ values, setValues }) {
+function SidebarContent({ values, setValues, duracion, setDuracion }) {
   return (
     <div>
       <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
@@ -76,7 +82,7 @@ function SidebarContent({ values, setValues }) {
         </div>
         <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">Duración</span>
-          <Dias />
+          <Dias duracion={duracion} setDuracion={setDuracion} />
         </div>
         <div className="mt-5 dark:text-secondaryDark">
           <span className="text-sm font-semibold block mb-1">

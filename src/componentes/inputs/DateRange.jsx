@@ -1,4 +1,4 @@
-import { useState, useRef, useEffect } from "react";
+import { useState, useRef } from "react";
 import DatePicker from "react-datepicker";
 import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
@@ -6,9 +6,7 @@ import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Modal } from "flowbite-react"; // Importing Flowbite modal
 import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
-const DateRange = () => {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isSwiping = useRef(false);
 

@@ -8,6 +8,31 @@ import { Link } from "react-router-dom";
 import { useState } from "react";
 function Cruceros() {
   const [destino, setDestino] = useState("");
+  const [mes, setMes] = useState();
+  const [duracion, setDuracion] = useState("");
+  const listadoNavieras = [
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
+  ];
   const destinos = [
     {
       label: "Destacados",
@@ -31,6 +56,32 @@ function Cruceros() {
       ],
     },
   ];
+  const listadoPuertos = [
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
+  ];
+  const [puerto, setPuerto] = useState("");
+  const [naviera, setNaviera] = useState("");
+
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -56,16 +107,24 @@ function Cruceros() {
                 />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <Input_Puertos />
+                <Input_Puertos
+                  destinos={listadoPuertos}
+                  puerto={puerto}
+                  setPuerto={setPuerto}
+                />
               </div>
               <div className="col-span-2 md:col-span-1">
-                <Input_Navieras />
+                <Input_Navieras
+                  naviera={naviera}
+                  setNaviera={setNaviera}
+                  destinos={listadoNavieras}
+                />
               </div>
               <div className="md:col-span-1">
-                <Input_Mes />
+                <Input_Mes mes={mes} setMes={setMes} />
               </div>
               <div className="md:col-span-1">
-                <Input_Dias />
+                <Input_Dias duracion={duracion} setDuracion={setDuracion} />
               </div>
               <div className="absolute -bottom-5 right-5">
                 <Link to="/listadocruceros">

@@ -1,10 +1,41 @@
 import Sidebar from "./sidebar/Sidebar";
-import Input_Buscador from "../inputs/Pais_Ciudad";
+import Input_Destinos from "../inputs/Pais_Ciudad";
+import {
+  FaGlobeAfrica,
+  FaGlobeAsia,
+  FaGlobeEurope,
+  FaGlobeAmericas,
+} from "react-icons/fa";
 import Input_Vehiculos from "../inputs/Vehiculos";
 import Input_Bonificaciones from "../inputs/Bonificacion";
 import Input_DateRange from "../inputs/DateRange";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Vuelomashotel() {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [selectedContinent, setSelectedContinent] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState("");
+  const continents = [
+    { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
+    { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
+    { name: "Asia", shortName: "AS", flag: <FaGlobeAsia /> },
+    { name: "Europa", shortName: "EU", flag: <FaGlobeEurope /> },
+    { name: "Oceanía", shortName: "OC", flag: <FaGlobeEurope /> },
+    {
+      name: "Haiku",
+      shortName: "HK",
+      flag: <img src="../../logo.png" alt="logo" className="w-5 h-4" />,
+    },
+  ];
+  const regions = {
+    AF: ["Nigeria", "Africa", "Egipto"],
+    AM: ["USA", "Canada", "Mexico"],
+    AS: ["China", "Japón", "India"],
+    EU: ["Alemania", "Francia", "Italia"],
+    OC: ["Australia", "Fiji"],
+    HK: ["Hola", "Haiku", "Vuela"],
+  };
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -25,7 +56,12 @@ function Vuelomashotel() {
             </h2>
             <div className="grid grid-cols-2 gap-2 mt-2">
               <div className="col-span-2 lg:col-span-2">
-                <Input_DateRange />
+                <Input_DateRange
+                  startDate={startDate}
+                  endDate={endDate}
+                  setStartDate={setStartDate}
+                  setEndDate={setEndDate}
+                />
               </div>
               <div className="col-span-2 lg:col-span-1">
                 <Input_Bonificaciones />
@@ -34,7 +70,14 @@ function Vuelomashotel() {
                 <Input_Vehiculos />
               </div>
               <div className="col-span-2 lg:col-span-2">
-                <Input_Buscador />
+                <Input_Destinos
+                  continents={continents}
+                  regions={regions}
+                  setSelectedContinent={setSelectedContinent}
+                  selectedContinent={selectedContinent}
+                  selectedRegion={selectedRegion}
+                  setSelectedRegion={setSelectedRegion}
+                />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">

@@ -76,7 +76,7 @@ const Dropdown = () => {
   }, []);
 
   return (
-    <div className="flex md:space-x-4">
+    <div className="flex md:space-x-4 ">
       {menu.map((category) => (
         <div
           key={category.key}

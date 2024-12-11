@@ -1,37 +1,15 @@
 import { useState } from "react";
-import {
-  FaGlobeAfrica,
-  FaGlobeAsia,
-  FaGlobeEurope,
-  FaGlobeAmericas,
-} from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
-
-function SelectorPaisCiudad() {
-  const [selectedContinent, setSelectedContinent] = useState(null);
-  const [selectedRegion, setSelectedRegion] = useState("");
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+function SelectorPaisCiudad({
+  selectedContinent,
+  setSelectedContinent,
+  selectedRegion,
+  setSelectedRegion,
+  regions,
+  continents,
+}) {
   const [step, setStep] = useState(1);
-  const continents = [
-    { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
-    { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
-    { name: "Asia", shortName: "AS", flag: <FaGlobeAsia /> },
-    { name: "Europa", shortName: "EU", flag: <FaGlobeEurope /> },
-    { name: "Oceanía", shortName: "OC", flag: <FaGlobeEurope /> },
-    {
-      name: "Haiku",
-      shortName: "HK",
-      flag: <img src="../../logo.png" className="w-5 h-4" />,
-    },
-  ];
-  const regions = {
-    AF: ["Nigeria", "Africa", "Egipto"],
-    AM: ["USA", "Canada", "Mexico"],
-    AS: ["China", "Japón", "India"],
-    EU: ["Alemania", "Francia", "Italia"],
-    OC: ["Australia", "Fiji"],
-    HK: ["Hola", "Haiku", "Vuela"],
-  };
+  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
     if (!isDropdownOpen) {

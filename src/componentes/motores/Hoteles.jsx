@@ -4,7 +4,21 @@ import Input_Buscador2 from "../inputs/Buscador2";
 import Input_DateRange from "../inputs/DateRange";
 import Input_Nacionalidad from "../inputs/Nacionalidad";
 import { Link } from "react-router-dom";
+import { useState } from "react";
 function Hoteles() {
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const destinos = [
+    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
+    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+  ];
+  const [destino, setDestino] = useState("");
   return (
     <div className="h-{100vh} p-0">
       <div className="grid  grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
@@ -24,10 +38,18 @@ function Hoteles() {
               <h2 className="text-3xl font-bold ">Buscador de hoteles</h2>
               <div className="grid grid-cols-1 gap-2  mt-2">
                 <div>
-                  <Input_Buscador2 />
+                  <Input_Buscador2
+                    destinos={destinos}
+                    destino={destino}
+                    setDestino={setDestino}
+                  />
                 </div>
                 <div>
-                  <Input_DateRange />
+                  <Input_DateRange 
+                   startDate={startDate}
+                   endDate={endDate}
+                   setStartDate={setStartDate}
+                   setEndDate={setEndDate} />
                 </div>
                 <div>
                   <Input_Nacionalidad />

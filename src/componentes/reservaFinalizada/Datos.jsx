@@ -10,10 +10,7 @@ function Datos() {
     tel: "631694540",
   };
   return (
-    <div
-      /* className="grid grid-cols-4 gap-10" */
-      className="rounded-lg bg-white dark:bg-slate-800 flex gap-10"
-    >
+    <div className="rounded-lg bg-white dark:bg-slate-800 flex gap-10">
       <div className="flex justify-center items-center font-semibold text-slate-400 gap-1">
         <span className="text-secondary">
           <FaRegUser />

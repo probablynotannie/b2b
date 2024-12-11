@@ -15,7 +15,7 @@ import Gasolina from "./politica/Gasolina";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { useState } from "react";
 function Detalles({ coche }) {
-  const [activeTab, setActiveTab] = useState("condiciones");
+  const [activeTab, setActiveTab] = useState("franquicia");
 
   function formatFecha(fecha) {
     const meses = [
@@ -130,6 +130,18 @@ function Detalles({ coche }) {
           <ul className="flex space-x-4 text-sm font-medium text-slate-500 dark:text-slate-400">
             <li>
               <button
+                onClick={() => setActiveTab("franquicia")}
+                className={`px-4 py-3 rounded-lg ${
+                  activeTab === "franquicia"
+                           ? "bg-secondary text-white dark:bg-secondaryDark"
+                    : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
+                }`}
+              >
+                Política de Franquicia
+              </button>
+            </li>
+            <li>
+              <button
                 onClick={() => setActiveTab("condiciones")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "condiciones"
@@ -140,25 +152,14 @@ function Detalles({ coche }) {
                 Condiciones de alquiler
               </button>
             </li>
-            <li>
-              <button
-                onClick={() => setActiveTab("franquicia")}
-                className={`px-4 py-3 rounded-lg ${
-                  activeTab === "franquicia"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
-                    : "bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
-                }`}
-              >
-                Política de Franquicia
-              </button>
-            </li>
+
             <li>
               <button
                 onClick={() => setActiveTab("gasolina")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "gasolina"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
-                    : "bg-slate-50 dark:bg-slate-800 hover:bg-slate-100 dark:hover:bg-slate-700"
+                             ? "bg-secondary text-white dark:bg-secondaryDark"
+                    : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
                 Política sobre gasolina
@@ -168,16 +169,17 @@ function Detalles({ coche }) {
         </div>
         {/* Tab Content */}
         <div className="mt-4 p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-900 rounded-lg">
-          {activeTab === "condiciones" && (
-            <div>
-              <Condiciones />
-            </div>
-          )}
           {activeTab === "franquicia" && (
             <div>
               <Politica />
             </div>
           )}
+          {activeTab === "condiciones" && (
+            <div>
+              <Condiciones />
+            </div>
+          )}
+
           {activeTab === "gasolina" && (
             <div>
               <Gasolina />

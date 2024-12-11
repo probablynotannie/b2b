@@ -6,15 +6,16 @@ import { FaGlobe } from "react-icons/fa";
 import { FaUserShield } from "react-icons/fa";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPerson } from "react-icons/fa6";
-
+import Input_selectNum from "../inputs/SelectorNums";
 function Seguros() {
   const [seguro, setSeguro] = useState();
   const [destinosSeguro, setDestinoSeguro] = useState();
   const [residente, setResidente] = useState();
-  const [passengers, setPassengers] = useState(1);
-  const handlePassengerChange = (event) => {
-    setPassengers(parseInt(event.target.value, 10));
-  };
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
+  const [pasajeros, setPasajeros] = useState(1);
+  const maxPasajeros = 10;
+
   const destinos = [
     {
       id: 0,
@@ -119,7 +120,12 @@ function Seguros() {
                 />
               </div>
               <div>
-                <Input_dateRange />
+                <Input_dateRange
+                  startDate={startDate}
+                  endDate={endDate}
+                  setStartDate={setStartDate}
+                  setEndDate={setEndDate}
+                />
               </div>
               <div>
                 <Input_Select
@@ -131,22 +137,13 @@ function Seguros() {
                 />
               </div>
               <div className="relative">
-                <select
-                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-                  defaultValue="" // Default selected value
-                  onChange={handlePassengerChange} // No need for "value" if using "defaultValue"
-                >
-                  <option value="">Núm pasajeros</option>
-                  {Array.from({ length: 10 }, (_, index) => (
-                    <option key={index + 1} value={index + 1}>
-                      {index + 1}
-                    </option>
-                  ))}
-                </select>
-
-                <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-                  <FaPerson />
-                </div>
+                <Input_selectNum
+                  placeholder={"Núm pasajeros"}
+                  valor={pasajeros}
+                  setValor={setPasajeros}
+                  num={maxPasajeros}
+                  icono={<FaPerson />}
+                />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">

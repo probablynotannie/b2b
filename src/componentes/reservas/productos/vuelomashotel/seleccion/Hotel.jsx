@@ -11,7 +11,6 @@ import { useLocation } from "react-router-dom";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
-  console.log(producto);
   const reserva = {
     type: "hotel",
     nombre: producto.nombre,

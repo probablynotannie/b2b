@@ -31,7 +31,7 @@ function Producto() {
   };
   return (
     <div className="grid lg:grid-cols-3 gap-y-10 lg:gap-16 container my-10 min-h-[70vh] overflow-visible mt-10">
-      <section className="shadow-lg hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:border-slate-700 border-slate-100 col-span-2 p-3">
+      <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:border-slate-700 border-slate-100 col-span-2 p-3">
         <Detalles coche={producto} />
       </section>
       <aside className="w-full flex flex-col gap-10">
@@ -55,7 +55,7 @@ function Producto() {
         <Link
           to={"/datos"}
           state={reserva}
-          className="p-3 shadow-lg hover:shadow-xl dark:bg-slate-800 rounded-lg bg-secondary text-white  font-bold"
+          className="p-3 shadow-lg hover:shadow-xl dark:bg-secondaryDark rounded-lg bg-secondary text-white  font-bold"
         >
           <button>Reservar {precio}€</button>
         </Link>

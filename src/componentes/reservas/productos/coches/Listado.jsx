@@ -11,9 +11,9 @@ import { MdSevereCold } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { Modal } from "flowbite-react";
 import { useState } from "react";
-function Listado({ coches }) {
+function Listado({ coches, handleCompareChange, selectedCars }) {
   const [activeTab, setActiveTab] = useState("tarifas");
-  const [activeModalCar, setActiveModalCar] = useState(null); // Store active car's index
+  const [activeModalCar, setActiveModalCar] = useState(null);
 
   return (
     <>
@@ -180,7 +180,10 @@ function Listado({ coches }) {
             key={index}
           >
             <article className="xl:flex flex-row border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 relative min-h-[15vh]">
-              <div className="w-full h-[25vh] lg:h-auto xl:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
+              <div className="w-full h-[25vh] lg:h-auto xl:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden relative group ">
+                <div className="bg-black rounded-t-lg bg-opacity-0 transition-opacity duration-500 delay-200 absolute top-0 w-full h-full group-hover:flex justify-center items-center text-5xl group-hover:bg-opacity-45 text-white font-bold hidden">
+                  {coche.precio * coche.dias}€
+                </div>
                 <img
                   className="w-full h-full object-cover"
                   src={coche.img}
@@ -193,14 +196,43 @@ function Listado({ coches }) {
                     <h4 className="text-secondary font-semibold">
                       {coche.nombre}
                     </h4>
-                    <span className="text-sm ml-1 dark:text-green-400 font-bold">
-                      {coche.precio}€/día
+                    <div>
+                      <span className="text-sm ml-1 dark:text-green-400 font-bold">
+                        {coche.precio}€/día
+                      </span>
+                    </div>
+                  </div>
+                  <div className="flex justify-between w-full">
+                    <span className="text-slate-400 dark:text-slate-400 text-sm flex items-center mb-2">
+                      <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+                      {coche.recogida.lugar} - {coche.devolucion.lugar}
+                    </span>
+                    <span className=" bg-slate-800 dark:bg-green-700 h-fit p-[3px] rounded-lg text-white text-xs">
+                      {coche.tipo}
                     </span>
                   </div>
-                  <span className="text-slate-400 dark:text-slate-400 text-sm flex items-center mb-2">
-                    <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
-                    {coche.recogida.lugar} - {coche.devolucion.lugar}
-                  </span>
+                  <div>
+                    <div className="flex items-center mb-4">
+                      <input
+                        id={`checkbox-${coche.id}`}
+                        type="checkbox"
+                        value=""
+                        checked={selectedCars.some(
+                          (car) => car.id === coche.id
+                        )}
+                        onChange={(e) =>
+                          handleCompareChange(coche, e.target.checked)
+                        }
+                        className="w-4 h-4 text-secondary dark:text-secondaryDark bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondaryDark dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                      />
+                      <label
+                        htmlFor={`checkbox-${coche.id}`}
+                        className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                      >
+                        Comparar
+                      </label>
+                    </div>
+                  </div>
                   <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
                     <span className="flex items-center mr-1">
                       <FaPerson className="text-lg" />

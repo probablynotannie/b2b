@@ -5,12 +5,14 @@ import coches from "./Coches.json";
 
 function Resultado() {
   const [mostrarEnCajas, setMostrarEnCajas] = useState(false); // State to track checkbox
+  const [selectedCars, setSelectedCars] = useState([]);
 
-  const reserva = {
-    pax: 2,
-    pax_ninios: 1,
-    habitaciones: 2,
-    noches: 7,
+  const handleCompareChange = (coche, isChecked) => {
+    if (isChecked) {
+      setSelectedCars((prev) => [...prev, coche]);
+    } else {
+      setSelectedCars((prev) => prev.filter((car) => car.id !== coche.id));
+    }
   };
 
   const handleCheckboxChange = (event) => {
@@ -34,12 +36,21 @@ function Resultado() {
             />
             <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
             <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Mostrar en cajas
+              Comparar {selectedCars.length}
             </span>
           </label>
         </div>
       </div>
-      {mostrarEnCajas ? <Cajas coches={coches} /> : <Listado coches={coches} />}
+      {mostrarEnCajas ? (
+        <Cajas coches={coches} selectedCars={selectedCars} />
+      ) : (
+        <Listado
+          coches={coches}
+          setSelectedCars={setSelectedCars}
+          selectedCars={selectedCars}
+          handleCompareChange={handleCompareChange}
+        />
+      )}
     </section>
   );
 }

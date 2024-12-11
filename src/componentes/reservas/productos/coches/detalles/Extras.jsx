@@ -25,7 +25,7 @@ function Precio({ coche, extras, setExtras }) {
   return (
     <div className="relative">
       <div className="flex justify-between">
-        <h2 className="font-semibold">Extras</h2>
+        <h2 className="font-semibold dark:text-white">Extras</h2>
         <span className="font-bold  bg-green-500 dark:bg-green-700 text-white rounded-lg text-sm p-1 px-2">
           {extras.toFixed(2)}€
         </span>
@@ -33,7 +33,7 @@ function Precio({ coche, extras, setExtras }) {
       {coche.extras.map((extra) => (
         <div className="grid grid-cols-1 gap-2" key={extra.id}>
           <div className="relative flex justify-between items-center mt-3">
-            <span className="w-full p-2 font-bold text-secondary">
+            <span className="w-full p-2 font-bold text-slate-600 dark:text-slate-400">
               {extra.id === "GPS" && "GPS"}
               {extra.id === "sillitabebe" && "Sillita bebé"}
               {extra.id === "sillitaninio" && "Sillita niño"}
