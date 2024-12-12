@@ -1,15 +1,37 @@
 import { useState } from "react";
 import Input_Destinos from "../../../../inputs/Destinos";
-import Input_DateRange from "../../../../inputs/DateRange";
-import Input_selectNum from "../../../../inputs/SelectorNums";
-import Input_adultoNinio from "../../../../inputs/Adulto_Ninio";
+import Input_DateRange from "../../../../inputs/Fecha";
 import { FaSearch } from "react-icons/fa";
-import { FaMoon } from "react-icons/fa";
 
 function Buscador() {
-  const [destino, setDestino] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const [destino, setDestino] = useState("");
+  const [origen, setOrigen] = useState("");
+
+  const origenes = [
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
+  ];
   const destinos = [
     {
       label: "Destacados",
@@ -33,14 +55,7 @@ function Buscador() {
       ],
     },
   ];
-  const [noches, setNoches] = useState();
-  const maxNoches = 8;
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [ninioAges, setNinioAges] = useState([]);
-  console.log(startDate + " - " + endDate);
+  const [fecha, setFecha] = useState(null);
 
   return (
     <>
@@ -81,31 +96,14 @@ function Buscador() {
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+              <Input_Destinos
+                destinos={origenes}
+                destino={origen}
+                setDestino={setOrigen}
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_selectNum
-                valor={noches}
-                setValor={setNoches}
-                num={maxNoches}
-                placeholder={"Noches"}
-                icono={<FaMoon />}
-              />
-            </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_adultoNinio
-                adultos={adultos}
-                setAdultos={setAdultos}
-                setNinios={setNinios}
-                ninios={ninios}
-                ninioAges={ninioAges}
-                setNinioAges={setNinioAges}
-              />
+              <Input_DateRange fecha={fecha} setFecha={setFecha} />
             </div>
 
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
@@ -138,34 +136,18 @@ function Buscador() {
               setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3">
-            <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-4">
+            <Input_Destinos
+              destinos={origenes}
+              destino={origen}
+              setDestino={setOrigen}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-2 xl:col-span-2">
-            <Input_selectNum
-              valor={noches}
-              setValor={setNoches}
-              num={maxNoches}
-              placeholder={"Noches"}
-              icono={<FaMoon />}
-            />
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
+            <Input_DateRange fecha={fecha} setFecha={setFecha} />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-2 xl:col-span-2">
-            <Input_adultoNinio
-              adultos={adultos}
-              setAdultos={setAdultos}
-              setNinios={setNinios}
-              ninios={ninios}
-              ninioAges={ninioAges}
-              setNinioAges={setNinioAges}
-            />
-          </div>
-          <div className="flex lg:justify-end justify-end  lg:col-span-2 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
+          <div className="col-span-12 md:col-span-6 lg:col-span-1 xl:col-span-1"></div>
+          <div className="flex lg:justify-end justify-end  lg:col-span-1 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>

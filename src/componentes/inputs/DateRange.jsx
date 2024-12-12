@@ -4,7 +4,6 @@ import "react-datepicker/dist/react-datepicker.css";
 import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
-import { Modal } from "flowbite-react"; // Importing Flowbite modal
 import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
 const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
   const [isOpen, setIsOpen] = useState(false);
@@ -53,7 +52,12 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
         </div>
       </div>
       <div className="lg:hidden">
-        <InfiniteScrollCalendar />
+        <InfiniteScrollCalendar
+          startDate={startDate}
+          setStartDate={setStartDate}
+          endDate={endDate}
+          setEndDate={setEndDate}
+        />
       </div>
       <div>
         {isOpen && (

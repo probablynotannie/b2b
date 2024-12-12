@@ -7,6 +7,7 @@ import { FaUserShield } from "react-icons/fa";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPerson } from "react-icons/fa6";
 import Input_selectNum from "../inputs/SelectorNums";
+import { Link } from "react-router-dom";
 function Seguros() {
   const [seguro, setSeguro] = useState();
   const [destinosSeguro, setDestinoSeguro] = useState();
@@ -147,9 +148,11 @@ function Seguros() {
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">
-              <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                Buscar
-              </button>
+              <Link to={"/seguro"}>
+                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
+                  Buscar
+                </button>
+              </Link>
             </div>
           </form>
         </div>

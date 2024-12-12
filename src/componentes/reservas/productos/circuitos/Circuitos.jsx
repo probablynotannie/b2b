@@ -1,26 +1,18 @@
 import { Link } from "react-router-dom";
-function Resultado({tickets}) {
+import { FaCheckCircle } from "react-icons/fa";
+function Resultado({ entradas }) {
   return (
     <section className="pb-12 md:mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {tickets.map((actividad, index) => (
+      {entradas.map((actividad, index) => (
         <Link
-          to={"/actividad"}
+          to={"/circuito"}
           state={actividad}
           className="border-2 bg-white dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition cursor-pointer"
           key={index}
         >
-          <span
-            className={`absolute rotate-45 bg-blue-500 rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg ${
-              actividad.tipoPrecio === "Neto"
-                ? "bg-green-300 text-green-800"
-                : "bg-red-500 text-red-200"
-            }`}
-          >
-            {actividad.tipoPrecio}
-          </span>
           <div className="relative ">
             <img
-              className="h-[25vh] w-full object-cover  rounded-t-lg"
+              className="h-[25vh] w-full object-cover object-top  rounded-t-lg"
               src={actividad.img}
               alt={actividad.titulo}
             />
@@ -30,9 +22,17 @@ function Resultado({tickets}) {
             <h1 className="font-semibold text-slate-600 dark:text-slate-300">
               {actividad.titulo}
             </h1>
-            <p className="text-sm dark:text-slate-400">
-              {actividad.descripcion_corta}
-            </p>
+            <ul className="text-xs pl-5">
+              {actividad.incluido.slice(0, 5).map((incluido, index) => (
+                <li
+                  key={index}
+                  className="flex items-center gap-2 dark:text-slate-300"
+                >
+                  <FaCheckCircle className="text-green-800 dark:text-green-400" />
+                  <span>{incluido}</span>
+                </li>
+              ))}
+            </ul>
             <p className="mt-3 text-lg">
               <span className="text-slate-400 text-sm mr-1">Desde:</span>
               <span className="font-bold text-green-600 dark:text-green-400">

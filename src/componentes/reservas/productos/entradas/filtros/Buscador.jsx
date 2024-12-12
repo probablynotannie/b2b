@@ -1,10 +1,8 @@
 import { useState } from "react";
 import Input_Destinos from "../../../../inputs/Destinos";
-import Input_DateRange from "../../../../inputs/DateRange";
-import Input_selectNum from "../../../../inputs/SelectorNums";
+import Input_DateRange from "../../../../inputs/Fecha";
 import Input_adultoNinio from "../../../../inputs/Adulto_Ninio";
 import { FaSearch } from "react-icons/fa";
-import { FaMoon } from "react-icons/fa";
 
 function Buscador() {
   const [destino, setDestino] = useState("");
@@ -33,15 +31,11 @@ function Buscador() {
       ],
     },
   ];
-  const [noches, setNoches] = useState();
-  const maxNoches = 8;
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [fecha, setFecha] = useState(null);
   const [adultos, setAdultos] = useState(2);
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
-  console.log(startDate + " - " + endDate);
-
+  console.log(fecha);
   return (
     <>
       <button
@@ -81,21 +75,7 @@ function Buscador() {
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
-              />
-            </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_selectNum
-                valor={noches}
-                setValor={setNoches}
-                num={maxNoches}
-                placeholder={"Noches"}
-                icono={<FaMoon />}
-              />
+              <Input_DateRange fecha={fecha} setFecha={setFecha} />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_adultoNinio
@@ -107,7 +87,6 @@ function Buscador() {
                 setNinioAges={setNinioAges}
               />
             </div>
-
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
               <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
                 <FaSearch className="text-white text-xl" />
@@ -139,22 +118,9 @@ function Buscador() {
             />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3">
-            <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
-            />
+            <Input_DateRange fecha={fecha} setFecha={setFecha} />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-2 xl:col-span-2">
-            <Input_selectNum
-              valor={noches}
-              setValor={setNoches}
-              num={maxNoches}
-              placeholder={"Noches"}
-              icono={<FaMoon />}
-            />
-          </div>
+
           <div className="col-span-12 md:col-span-6 lg:col-span-2 xl:col-span-2">
             <Input_adultoNinio
               adultos={adultos}

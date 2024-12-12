@@ -19,49 +19,51 @@ function Conductor({ coche }) {
         />
       </div>
       <div className="mt-3">
-        <form className="grid grid-cols-2 gap-2">
-          <div className="relative">
-            <select
-              id="tituloConductor"
-              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
-            >
-              <option selected>Titulo</option>
-              <option value="US">Sr</option>
-              <option value="CA">Sra</option>
-              <option value="N/A">Sin especificar</option>
-            </select>
-            <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-              <IoPersonSharp />
+        <form>
+          <div className="grid grid-cols-2 gap-2 border-y-2 border-slate-100 dark:border-slate-700 p-3 mb-2">
+            <div className="relative">
+              <select
+                id="tituloConductor"
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+              >
+                <option selected>Titulo</option>
+                <option value="US">Sr</option>
+                <option value="CA">Sra</option>
+                <option value="N/A">Sin especificar</option>
+              </select>
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                <IoPersonSharp />
+              </div>
             </div>
-          </div>
-          <div className="relative">
-            <input
-              id="num_vuelo"
-              placeholder="N vuelo"
-              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
-            />
-            <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-              <FaPlane />
+            <div className="relative">
+              <input
+                id="num_vuelo"
+                placeholder="N vuelo"
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+              />
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                <FaPlane />
+              </div>
             </div>
-          </div>
-          <div className="relative">
-            <input
-              id="nombre_conductor"
-              placeholder="Nombre"
-              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
-            />
-            <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
-              No
+            <div className="relative">
+              <input
+                id="nombre_conductor"
+                placeholder="Nombre"
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+              />
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
+                No
+              </div>
             </div>
-          </div>
-          <div className="relative">
-            <input
-              id="apellido_conductor"
-              placeholder="Apellido/s"
-              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
-            />
-            <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
-              Ap
+            <div className="relative">
+              <input
+                id="apellido_conductor"
+                placeholder="Apellido/s"
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+              />
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
+                Ap
+              </div>
             </div>
           </div>
           <div className="col-span-2 flex items-center mb-4">

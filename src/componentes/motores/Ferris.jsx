@@ -14,6 +14,7 @@ function Ferris() {
   const handleviajeChange = (type) => {
     setViaje(type);
   };
+  const [fecha, setFecha] = useState(null);
 
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
@@ -65,7 +66,7 @@ function Ferris() {
               </div>
               {viaje === "ida" ? (
                 <div>
-                  <Input_Fecha />
+                  <Input_Fecha fecha={fecha} setFecha={setFecha} />
                 </div>
               ) : (
                 <div className="col-span-2">

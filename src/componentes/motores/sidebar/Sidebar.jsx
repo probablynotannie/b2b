@@ -69,7 +69,7 @@ function Sidebar() {
   ];
 
   return (
-    <div className="bg-white dark:text-slate-300 dark:bg-slate-800 hidden lg:flex col-span-7 lg:col-span-3 xl:col-span-2 xl:flex flex-row flex-wrap md:flex-col justify-around border-2 border-slate-100 dark:border-slate-600 px-5 rounded-xl shadow-lg mb-2">
+    <div className="bg-white dark:text-slate-300 py-3 dark:bg-slate-800 hidden lg:flex col-span-7 lg:col-span-3 xl:col-span-2 xl:flex flex-row flex-wrap md:flex-col justify-around border-2 border-slate-100 dark:border-slate-600 px-5 rounded-xl shadow-lg mb-2">
       <div className="flex gap-3 items-center ">
         <div className="border-2 bg-primary p-3 rounded-full dark:bg-slate-700 dark:border-slate-600">
           <FaHotel className="text-2xl text-white dark:text-secondaryDark " />
@@ -79,7 +79,7 @@ function Sidebar() {
         </Link>
       </div>
       {otros.map((otro, index) => (
-        <div className="flex gap-3 items-center " key={index}>
+        <div className="flex gap-3 items-center mt-3" key={index}>
           <div className="border-2 bg-primary dark:bg-slate-700 dark:border-slate-600 p-3 rounded-full">
             {otro.icono}
           </div>

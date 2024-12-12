@@ -25,7 +25,7 @@ function Resultado() {
         >
           <div className="relative w-full">
             {activeMap === destino.id ? (
-              <div className="h-[25vh]   rounded-t-lg flex items-center justify-center">
+              <div className="h-[25vh] rounded-t-lg flex items-center justify-center">
                 <MapWithJourney destino={destino} />
               </div>
             ) : (

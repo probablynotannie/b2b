@@ -5,49 +5,47 @@ import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaWheelchair } from "react-icons/fa";
 
-function SelectorPersonas() {
+function SelectorPersonas({
+  adultos,
+  setAdultos,
+  ninios,
+  setNinios,
+  ninioAges,
+  setNinioAges,
+  descuentos,
+  setDescuentos,
+  discapacidad,
+  setDiscapacidad,
+  selectedDiscapacidad,
+  setSelectedDiscapacidad,
+}) {
   const [open, setOpen] = useState(false);
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [ninioAges, setNinioAges] = useState([]);
-  const [descuentos, setDescuentos] = useState(false);
-  const [discapacidad, setDiscapacidad] = useState(false);
-  const [selectedDiscapacidad, setSelectedDiscapacidad] = useState({
-    adultos: [],
-    ninios: [],
-  });
 
-  // Handle Adultos count change
   function onAdultosChange(e) {
-    const resultado = parseInt(e.target.value, 10); // Convert to integer
+    const resultado = parseInt(e.target.value, 10);
     setAdultos(resultado);
   }
 
-  // Handle Niños count change
   function onNiniosChange(e) {
     const count = parseInt(e.target.value, 10);
     setNinios(count);
-    setNinioAges(new Array(count).fill("")); // Reset ages when changing count
+    setNinioAges(new Array(count).fill(""));
   }
 
-  // Handle Age Change for each niño
   const handleAgeChange = (index, age) => {
     const newAges = [...ninioAges];
     newAges[index] = age;
     setNinioAges(newAges);
   };
 
-  // Handle Descuentos checkbox toggle
   const handleDescuentoChange = () => {
     setDescuentos(!descuentos);
   };
 
-  // Handle Discapacidad checkbox toggle
   const handleDiscapacidadChange = () => {
     setDiscapacidad(!discapacidad);
   };
 
-  // Handle selection of people with disabilities
   const handleDiscapacidadSelection = (type, index) => {
     const newSelection = { ...selectedDiscapacidad };
     if (newSelection[type].includes(index)) {
@@ -67,11 +65,10 @@ function SelectorPersonas() {
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-primary h-14 flex items-center pl-4 font-semibold">
+            <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
               Adultos / Niños
             </div>
-            <div className="w-72 space-y-3 p-4 text-sm text-gray-500">
-              {/* Adultos */}
+            <div className="px-3 pb-5 max-h-[60vh] overflow-y-auto w-72">
               <div>
                 <span className="text-sm">Adultos</span>
                 <div className="relative">
@@ -135,8 +132,6 @@ function SelectorPersonas() {
                   </div>
                 )}
               </div>
-
-              {/* Descuentos checkbox */}
               <div className="flex justify-between">
                 <div>
                   <label className="inline-flex items-center cursor-pointer">
@@ -152,8 +147,6 @@ function SelectorPersonas() {
                     </span>
                   </label>
                 </div>
-
-                {/* Discapacidad checkbox */}
                 <div>
                   <label className="inline-flex items-center cursor-pointer">
                     <input
@@ -170,7 +163,6 @@ function SelectorPersonas() {
                 </div>
               </div>
 
-              {/* Render discount options */}
               {descuentos && (
                 <div className="space-y-4 mt-4">
                   {[...Array(adultos)].map((_, index) => (
@@ -220,7 +212,7 @@ function SelectorPersonas() {
                       <span className="w-1/3 dark:text-white">
                         Niño {index + 1}:
                       </span>
-                      <select className="border text-sm p-2 rounded-lg dark:bg-slate-700 dark:text-slate-200">
+                      <select className="border text-sm p-2 rounded-lg dark:bg-slate-700 dark:text-slate-200 w-1/2">
                         <option value="0">Ninguno</option>
                         <option value="des_familia_num_gen">
                           Familia numerosa general

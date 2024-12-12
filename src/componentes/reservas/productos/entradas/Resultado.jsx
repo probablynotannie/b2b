@@ -1,22 +1,18 @@
 import { useState } from "react";
 import Buscador from "./filtros/Buscador";
-import Tickets from "./Tickets";
-import tickets from "./Tickets.json";
-
+import Tickets from "./Entradas";
+import tickets from "./Entradas.json";
 function Productos() {
   const [searchTerm, setSearchTerm] = useState("");
-  const [filteredTickets, setFilteredTickets] = useState(tickets);
-
+  const [filteredEntradas, setFilteredEntradas] = useState(tickets);
   const handleSearchChange = (event) => {
     const value = event.target.value.toLowerCase();
     setSearchTerm(value);
-
     const filtered = tickets.filter((ticket) =>
       ticket.titulo.toLowerCase().includes(value)
     );
-    setFilteredTickets(filtered);
+    setFilteredEntradas(filtered);
   };
-
   return (
     <main className="flex justify-center flex-col items-center mb-10 min-h-[0vh]">
       <div
@@ -48,7 +44,7 @@ function Productos() {
             <option selected>Todos</option>
           </select>
         </div>
-        <Tickets tickets={filteredTickets} />
+        <Tickets entradas={filteredEntradas} />
       </article>
     </main>
   );

@@ -1,8 +1,8 @@
 import { Link } from "react-router-dom";
-function Resultado({tickets}) {
+function Resultado({ entradas }) {
   return (
     <section className="pb-12 md:mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-      {tickets.map((actividad, index) => (
+      {entradas.map((actividad, index) => (
         <Link
           to={"/actividad"}
           state={actividad}
@@ -20,7 +20,7 @@ function Resultado({tickets}) {
           </span>
           <div className="relative ">
             <img
-              className="h-[25vh] w-full object-cover  rounded-t-lg"
+              className="h-[25vh] w-full object-cover object-top  rounded-t-lg"
               src={actividad.img}
               alt={actividad.titulo}
             />
@@ -30,7 +30,7 @@ function Resultado({tickets}) {
             <h1 className="font-semibold text-slate-600 dark:text-slate-300">
               {actividad.titulo}
             </h1>
-            <p className="text-sm dark:text-slate-400">
+            <p className="text-sm dark:text-slate-400 line-clamp-3">
               {actividad.descripcion_corta}
             </p>
             <p className="mt-3 text-lg">

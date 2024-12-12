@@ -1,12 +1,24 @@
-import {useState} from "react";
+import { useState } from "react";
 import Sidebar from "./sidebar/Sidebar";
-import Input_Buscador from "../inputs/Buscador";
+import Input_Buscador from "../inputs/Buscador2";
 import Input_Fecha from "../inputs/Fecha";
 import Input_adultoNinio from "../inputs/Adulto_Ninio";
 function Entradas() {
   const [adultos, setAdultos] = useState(2);
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
+  const [fecha, setFecha] = useState(null);
+  const destinos = [
+    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
+    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+  ];
+  const [destino, setDestino] = useState("");
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -25,11 +37,14 @@ function Entradas() {
             <h2 className="text-3xl font-bold ">Buscador de entradas</h2>
             <div className="grid grid-cols-2 gap-2 mt-2 ">
               <div className="col-span-2">
-                <Input_Buscador />
+                <Input_Buscador
+                  destino={destino}
+                  setDestino={setDestino}
+                  destinos={destinos}
+                />
               </div>
-
               <div className="col-span-2 md:col-span-1">
-                <Input_Fecha />
+                <Input_Fecha fecha={fecha} setFecha={setFecha} />
               </div>
               <div className="col-span-2 md:col-span-1">
                 <Input_adultoNinio
@@ -38,6 +53,7 @@ function Entradas() {
                   setNinios={setNinios}
                   ninios={ninios}
                   ninioAges={ninioAges}
+                  setNinioAges={setNinioAges}
                 />
               </div>
             </div>

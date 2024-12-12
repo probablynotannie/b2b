@@ -1,6 +1,5 @@
 import Sidebar from "./sidebar/Sidebar";
 import Input_Destinos from "../inputs/Destinos";
-import Input_Origen from "../inputs/Destinos";
 import { useState } from "react";
 function Coches() {
   const [destino, setDestino] = useState("");
@@ -73,7 +72,7 @@ function Coches() {
                 destino={destino}
                 setDestino={setDestino}
               />
-              <Input_Origen
+              <Input_Destinos
                 destinos={origenes}
                 destino={origen}
                 setDestino={setOrigen}

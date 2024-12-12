@@ -3,7 +3,7 @@ import Sidebar from "./sidebar/Sidebar";
 import Input_Buscador from "../inputs/Buscador";
 import Input_DateRange from "../inputs/DateRange";
 import Input_AdultoNInio from "../inputs/Adulto_Ninio";
-
+import { Link } from "react-router-dom";
 function Tickets() {
   const [adultos, setAdultos] = useState(2);
   const [ninios, setNinios] = useState(0);
@@ -51,9 +51,11 @@ function Tickets() {
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">
-              <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                Buscar
-              </button>
+              <Link to={"/listadoTickets"}>
+                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
+                  Buscar
+                </button>
+              </Link>
             </div>
           </form>
         </div>

@@ -1,0 +1,42 @@
+[
+  {
+    "id": 1,
+    "titulo": "Entrada a Loro Parque (Colegios Y Asociaciones 20)",
+    "descripcion_corta": "LORO PARQUE es un zoológico ubicado en la isla de Tenerife, España. Se encuentra en la localidad de Puerto de la Cruz, en la costa norte de ...",
+    "tipoPrecio": "Neto",
+    "precio": 25.0,
+    "img": "/entradas/loros.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Entrada a Loro Parque (Colegios Y Asociaciones 20)",
+    "descripcion_corta": "LORO PARQUE es un zoológico ubicado en la isla de Tenerife, España. Se encuentra en la localidad de Puerto de la Cruz, en la costa norte de.",
+    "tipoPrecio": "PVP",
+    "precio": 45.0,
+    "img": "/entradas/loros.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Entrada a Siam Park (All Inclusive)",
+    "descripcion_corta": "SIAM PARK es un parque acuático situado en la Costa Adeje de Tenerife y está considerado como uno de los mejores parques acuáticos del mundo.",
+    "tipoPrecio": "Neto",
+    "precio": 60.0,
+    "img": "/entradas/siamPark.avif"
+  },
+  {
+    "id": 4,
+    "titulo": "Entrada a Siam Park (All Inclusive)",
+    "descripcion_corta": "SIAM PARK es un parque acuático situado en la Costa Adeje de Tenerife y está considerado como uno de los mejores parques acuáticos del mundo.",
+    "tipoPrecio": "PVP",
+    "precio": 35.0,
+    "img": "/entradas/siamPark.avif"
+  },
+  {
+    "id": 5,
+    "titulo": "Entrada a Siam Park (All Inclusive)",
+    "descripcion_corta": "SIAM PARK es un parque acuático situado en la Costa Adeje de Tenerife y está considerado como uno de los mejores parques acuáticos del mundo...",
+    "tipoPrecio": "Neto",
+    "precio": 50.0,
+    "img": "/entradas/siamPark.avif"
+  }
+]

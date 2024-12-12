@@ -60,7 +60,7 @@ function Productos() {
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
         <div
-          className="w-full bg-cover bg-center p-8 relative shadow-xl"
+          className="w-full bg-cover bg-center p-8 relative shadow-md"
           style={{
             backgroundImage: "url('/banner_avion.jpg')",
           }}

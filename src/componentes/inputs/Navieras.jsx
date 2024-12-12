@@ -1,4 +1,4 @@
-import { FaTrainSubway } from "react-icons/fa6";
+import { FaShip } from "react-icons/fa";
 
 function Navieras({ destinos, naviera, setNaviera }) {
   const handleDestinationChange = (event) => {
@@ -24,7 +24,7 @@ function Navieras({ destinos, naviera, setNaviera }) {
         ))}
       </select>
       <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-        <FaTrainSubway />
+        <FaShip />
       </div>
     </div>
   );

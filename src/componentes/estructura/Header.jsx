@@ -27,6 +27,9 @@ import ListadoDestinos from "../reservas/productos/destinos/Resultado";
 import ListadoCruceros from "../reservas/productos/cruceros/Resultado";
 import ListadoCoches from "../reservas/productos/coches/Resultado";
 import ListadoTickets from "../reservas/productos/tickets/Resultado";
+import ListadoEntradas from "../reservas/productos/entradas/Resultado";
+import ListadoTrenes from "../reservas/productos/trenes/Resultado";
+import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
@@ -34,7 +37,9 @@ import HotelMasVuelo from "../reservas/productos/vuelomashotel/seleccion/Hotel";
 import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
+import Seguro from "../reservas/productos/seguro/Resultado";
 import Actividad from "../reservas/productos/tickets/Ticket";
+import Tren from "../reservas/productos/trenes/Tren";
 
 /*Componentes */
 import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
@@ -74,16 +79,21 @@ function Header() {
         <Route path="/cesta" element={<Cesta />} />
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />
+        <Route path="/listadoTrenes" element={<ListadoTrenes />} />
         <Route path="/listadoCoches" element={<ListadoCoches />} />
         <Route path="/listadoDestinos" element={<ListadoDestinos />} />
         <Route path="/listadoTickets" element={<ListadoTickets />} />
+        <Route path="/listadoCircuitos" element={<ListadoCircuitos />} />
         <Route path="/listadoCruceros" element={<ListadoCruceros />} />
+        <Route path="/listadoEntradas" element={<ListadoEntradas />} />
         <Route
           path="/listadoHotelMasVuelo"
           element={<ListadoVueloMasHotel />}
         />
         {/* PRODUCTO  */}
         <Route path="/hotel" element={<Hotel />} />
+        <Route path="/tren" element={<Tren />} />
+        <Route path="/seguro" element={<Seguro />} />
         <Route path="/hotelMasVuelo" element={<HotelMasVuelo />} />
         <Route path="/destino" element={<Destino />} />
         <Route path="/crucero" element={<Crucero />} />

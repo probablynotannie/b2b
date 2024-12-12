@@ -1,67 +1,49 @@
 import { useState } from "react";
 import Input_Destinos from "../../../../inputs/Destinos";
-import Input_Puertos from "../../../../inputs/Puertos";
-import Input_Navieras from "../../../../inputs/Navieras";
-import Input_Mes from "../../../../inputs/Mes";
-import Input_Duracion from "../../../../inputs/SelectorDias";
+import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
+import Input_Descuentos from "../../../../inputs/Pasajeros_Descuentos";
 
 function Buscador() {
-  const [destino, setDestino] = useState("");
-  const [puerto, setPuerto] = useState("");
-  const [naviera, setNaviera] = useState("");
-  const [duracion, setDuracion] = useState("");
-  const listadoNavieras = [
-    {
-      label: "Destacados",
-      options: [
-        { value: "Mediterraneo", label: "Mediterraneo" },
-        {
-          value: "Norte de Europa y Fiordos",
-          label: "Norte de Europa y Fiordos",
-        },
-        { value: "Posicionales", label: "Posicionales" },
-      ],
-    },
-    {
-      label: "Resto",
-      options: [
-        { value: "Africa", label: "Africa" },
-        { value: "Caribe", label: "Caribe" },
-        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
-        { value: "Persian Gulf", label: "Persian Gulf" },
-        { value: "Round World", label: "Round World" },
-      ],
-    },
-  ];
-  const listadoPuertos = [
-    {
-      label: "Destacados",
-      options: [
-        { value: "Mediterraneo", label: "Mediterraneo" },
-        {
-          value: "Norte de Europa y Fiordos",
-          label: "Norte de Europa y Fiordos",
-        },
-        { value: "Posicionales", label: "Posicionales" },
-      ],
-    },
-    {
-      label: "Resto",
-      options: [
-        { value: "Africa", label: "Africa" },
-        { value: "Caribe", label: "Caribe" },
-        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
-        { value: "Persian Gulf", label: "Persian Gulf" },
-        { value: "Round World", label: "Round World" },
-      ],
-    },
-  ];
-
-  const [mes, setMes] = useState();
+  const [adultos, setAdultos] = useState(2);
+  const [ninios, setNinios] = useState(0);
+  const [ninioAges, setNinioAges] = useState([]);
+  const [descuentos, setDescuentos] = useState(false);
+  const [discapacidad, setDiscapacidad] = useState(false);
+  const [selectedDiscapacidad, setSelectedDiscapacidad] = useState({
+    adultos: [],
+    ninios: [],
+  });
+  const [startDate, setStartDate] = useState(null);
+  const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const [destino, setDestino] = useState("");
+  const [origen, setOrigen] = useState("");
   const destinos = [
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
+  ];
+  const origenes = [
     {
       label: "Destacados",
       options: [
@@ -86,6 +68,7 @@ function Buscador() {
   ];
   return (
     <>
+      {/* The search button */}
       <button
         onClick={toggleModal}
         className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
@@ -95,13 +78,14 @@ function Buscador() {
           <FaSearch />
         </span>
       </button>
+
       <div
-        className={`fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl  dark:bg-slate-800 "
+          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
           onClick={(e) => e.stopPropagation()}
         >
           <div>
@@ -123,26 +107,36 @@ function Buscador() {
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Puertos
-                destinos={listadoPuertos}
-                puerto={puerto}
-                setPuerto={setPuerto}
+              <Input_Destinos
+                destinos={origenes}
+                destino={origen}
+                setDestino={setOrigen}
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Navieras
-                destinos={listadoNavieras}
-                naviera={naviera}
-                setNaviera={setNaviera}
+              <Input_DateRange
+                startDate={startDate}
+                endDate={endDate}
+                setStartDate={setStartDate}
+                setEndDate={setEndDate}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Mes mes={mes} setMes={setMes} />
+            <div className="col-span-12 md:col-span-6 lg:col-span-3">
+              <Input_Descuentos
+                adultos={adultos}
+                ninios={ninios}
+                setAdultos={setAdultos}
+                setNinios={setNinios}
+                ninioAges={ninioAges}
+                setNinioAges={setNinioAges}
+                descuentos={descuentos}
+                setDescuentos={setDescuentos}
+                discapacidad={discapacidad}
+                setDiscapacidad={setDiscapacidad}
+                selectedDiscapacidad={selectedDiscapacidad}
+                setSelectedDiscapacidad={setSelectedDiscapacidad}
+              />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Duracion duracion={duracion} setDuracion={setDuracion} />
-            </div>
-
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
               <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
                 <FaSearch className="text-white text-xl" />
@@ -161,39 +155,50 @@ function Buscador() {
         </div>
       </div>
 
-      <div className="hidden lg:block border-2  dark:border-slate-800 rounded-xl shadow-inner min-h-28 p-5 bg-white dark:bg-slate-800">
+      <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
         <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+          <div className="col-span-12 md:col-span-6 lg:col-span-2">
             <Input_Destinos
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
-            <Input_Puertos
-              destinos={listadoPuertos}
-              puerto={puerto}
-              setPuerto={setPuerto}
+          <div className="col-span-12 md:col-span-6 lg:col-span-2">
+            <Input_Destinos
+              destinos={origenes}
+              destino={origen}
+              setDestino={setOrigen}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
-            <Input_Navieras
-              destinos={listadoNavieras}
-              naviera={naviera}
-              setNaviera={setNaviera}
+          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <Input_DateRange
+              startDate={startDate}
+              endDate={endDate}
+              setStartDate={setStartDate}
+              setEndDate={setEndDate}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
-            <Input_Mes mes={mes} setMes={setMes} />
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3">
+            <Input_Descuentos
+              adultos={adultos}
+              ninios={ninios}
+              setAdultos={setAdultos}
+              setNinios={setNinios}
+              ninioAges={ninioAges}
+              setNinioAges={setNinioAges}
+              descuentos={descuentos}
+              setDescuentos={setDescuentos}
+              discapacidad={discapacidad}
+              setDiscapacidad={setDiscapacidad}
+              selectedDiscapacidad={selectedDiscapacidad}
+              setSelectedDiscapacidad={setSelectedDiscapacidad}
+            />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
-            <Input_Duracion duracion={duracion} setDuracion={setDuracion} />
-          </div>
-          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
+          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>

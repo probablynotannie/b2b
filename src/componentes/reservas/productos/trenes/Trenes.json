@@ -1,0 +1,3159 @@
+{
+  "idas": [
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e356a5",
+      "price": 86.5,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 553,
+      "departureStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "departureTime": "2024-07-23 07:24",
+      "arrivalStationName": "BARCELONA-SANTS",
+      "arrivalTime": "2024-07-23 16:37",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Renfe_Operadora.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "17050",
+          "type": "train",
+          "departureTime": "2024-07-23 07:24",
+          "departurePosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-23 16:37",
+          "arrivalPosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "duration": 553,
+          "companyName": "REG.EXP.",
+          "transportId": "17050",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": false,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "VR010||-||_||-||_",
+          "groupId": "VR010",
+          "groupColor": "#7e0559",
+          "name": "Adulto Ida",
+          "desc": "Adulto Ida",
+          "price": 86.5,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Adulto Ida",
+                  "price": 43.25,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Adulto Ida",
+                  "price": 43.25,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "17050",
+          "name": "REG.EXP."
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    },
+    {
+      "id": "320757062-2981001-1721292089362-01||-||6698d53b765ff",
+      "price": 241.6,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 150,
+      "departureStationName": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+      "departureTime": "2024-07-23 18:00",
+      "arrivalStationName": "BARCELONA-SANTS",
+      "arrivalTime": "2024-07-23 20:30",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03181",
+          "type": "train",
+          "departureTime": "2024-07-23 18:00",
+          "departurePosition": {
+            "id": "60000",
+            "name": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.70494,
+            "latitude": 40.42068,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-23 20:30",
+          "arrivalPosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "duration": 150,
+          "companyName": "AVE",
+          "transportId": "03181",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "60000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": false,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL04VCO||-||C04",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 241.6,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||CL04VCO||-||C04",
+                  "name": "Básico",
+                  "price": 120.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||CL04VCO||-||C04",
+                  "name": "Básico",
+                  "price": 120.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE04VCO||-||C04",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 268.4,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||CE04VCO||-||C04",
+                  "name": "Elige",
+                  "price": 134.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||CE04VCO||-||C04",
+                  "name": "Elige",
+                  "price": 134.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 285.6,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 142.8,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 142.8,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB06VCO||-||B06",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 323.6,
+          "cancelations": ["20240723-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 161.8,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 161.8,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 23/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03181",
+          "name": "AVE"
+        }
+      ],
+      "specialInfo": "El coche 7 de este tren es PetFriendly por lo que podrían viajar dos perros de hasta 40 kg en las primeras y últimas plazas de ese coche, en clase Elige Estándar, con una antelación de compra de hasta 24 h antes de la salida del tren.",
+      "extraData": [],
+      "hash": "6698d5022acbe"
+    },
+    {
+      "id": "320757062-2981001-1721292089362-01||-||6698d53b74b16",
+      "price": 280,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 170,
+      "departureStationName": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+      "departureTime": "2024-07-23 14:30",
+      "arrivalStationName": "BARCELONA-SANTS",
+      "arrivalTime": "2024-07-23 17:20",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03143",
+          "type": "train",
+          "departureTime": "2024-07-23 14:30",
+          "departurePosition": {
+            "id": "60000",
+            "name": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.70494,
+            "latitude": 40.42068,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-23 17:20",
+          "arrivalPosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "duration": 170,
+          "companyName": "AVE",
+          "transportId": "03143",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "60000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": false,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 242,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB06VCO||-||B06",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 280,
+          "cancelations": ["20240723-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 23/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03143",
+          "name": "AVE"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022acbe"
+    }
+  ],
+  "vueltas": [
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e39326",
+      "price": 86.4,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 1,
+      "duration": 411,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 06:45",
+      "arrivalStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "arrivalTime": "2024-07-27 13:36",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03930",
+          "type": "train",
+          "departureTime": "2024-07-27 06:45",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 08:35",
+          "arrivalPosition": {
+            "id": "04040",
+            "name": "ZARAGOZA-DELICIAS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -0.9112,
+            "latitude": 41.658661,
+            "countryCode": ""
+          },
+          "duration": 110,
+          "companyName": "AVE",
+          "transportId": "03930",
+          "isDeparture": true,
+          "isArrival": false
+        },
+        {
+          "id": "switching_6698d53e3a3b6",
+          "type": "switching",
+          "departureTime": "2024-07-27 08:35",
+          "departurePosition": [],
+          "arrivalTime": "2024-07-27 08:57",
+          "arrivalPosition": [],
+          "duration": 22,
+          "companyName": "",
+          "transportId": "",
+          "isDeparture": false,
+          "isArrival": false
+        },
+        {
+          "id": "17503",
+          "type": "train",
+          "departureTime": "2024-07-27 08:57",
+          "departurePosition": {
+            "id": "04040",
+            "name": "ZARAGOZA-DELICIAS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -0.9112,
+            "latitude": 41.658661,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 13:36",
+          "arrivalPosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "duration": 279,
+          "companyName": "REGIONAL",
+          "transportId": "17503",
+          "isDeparture": false,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL10VCO||-||C11",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 86.4,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||_||-||C11",
+                  "name": "Básico",
+                  "price": 21.6,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Básico",
+                  "price": 21.6,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||_||-||C11",
+                  "name": "Básico",
+                  "price": 21.6,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Básico",
+                  "price": 21.6,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE10VCO||-||C11",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 98,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||_||-||C11",
+                  "name": "Elige",
+                  "price": 24.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige",
+                  "price": 24.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||_||-||C11",
+                  "name": "Elige",
+                  "price": 24.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige",
+                  "price": 24.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE05VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 183.2,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||_||-||B06",
+                  "name": "Elige Confort",
+                  "price": 45.8,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige Confort",
+                  "price": 45.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||_||-||B06",
+                  "name": "Elige Confort",
+                  "price": 45.8,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige Confort",
+                  "price": 45.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03930",
+          "name": "AVE"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "17503",
+          "name": "REGIONAL"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    },
+
+    {
+      "id": "320757062-2981001-1721292089362-01||-||6698d53b7af2a",
+      "price": 181.9,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 165,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 09:00",
+      "arrivalStationName": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+      "arrivalTime": "2024-07-27 11:45",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03092",
+          "type": "train",
+          "departureTime": "2024-07-27 09:00",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 11:45",
+          "arrivalPosition": {
+            "id": "60000",
+            "name": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.70494,
+            "latitude": 40.42068,
+            "countryCode": ""
+          },
+          "duration": 165,
+          "companyName": "AVE",
+          "transportId": "03092",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "60000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL05VCO||-||C05",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 181.9,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||CL05VCO||-||C05",
+                  "name": "Básico",
+                  "price": 90.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||CL05VCO||-||C05",
+                  "name": "Básico",
+                  "price": 90.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE05VCO||-||C05",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 204.7,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||CE05VCO||-||C05",
+                  "name": "Elige",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||CE05VCO||-||C05",
+                  "name": "Elige",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 242,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB06VCO||-||B06",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 280,
+          "cancelations": ["20240727-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 27/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03092",
+          "name": "AVE"
+        }
+      ],
+      "specialInfo": "El coche 7 de este tren es PetFriendly por lo que podrían viajar dos perros de hasta 40 kg en las primeras y últimas plazas de ese coche, en clase Elige Estándar, con una antelación de compra de hasta 24 h antes de la salida del tren.",
+      "extraData": [],
+      "hash": "6698d5022acbe"
+    },
+    {
+      "id": "320757062-2981001-1721292089362-01||-||6698d53b7ca3e",
+      "price": 181.9,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 175,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 12:50",
+      "arrivalStationName": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+      "arrivalTime": "2024-07-27 15:45",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Renfe_Operadora.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "09730",
+          "type": "train",
+          "departureTime": "2024-07-27 12:50",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 15:45",
+          "arrivalPosition": {
+            "id": "60000",
+            "name": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.70494,
+            "latitude": 40.42068,
+            "countryCode": ""
+          },
+          "duration": 175,
+          "companyName": "AVE INT",
+          "transportId": "09730",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "60000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL05VCO||-||C05",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 181.9,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||CL05VCO||-||C05",
+                  "name": "Básico",
+                  "price": 90.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||CL05VCO||-||C05",
+                  "name": "Básico",
+                  "price": 90.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE05VCO||-||C05",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 204.7,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||CE05VCO||-||C05",
+                  "name": "Elige",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||CE05VCO||-||C05",
+                  "name": "Elige",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE05VCO||-||B05",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 272.2,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||BE05VCO||-||B05",
+                  "name": "Elige Confort",
+                  "price": 136.1,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||BE05VCO||-||B05",
+                  "name": "Elige Confort",
+                  "price": 136.1,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB05VCO||-||B05",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 310.2,
+          "cancelations": ["20240727-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||BB05VCO||-||B05",
+                  "name": "Prémium",
+                  "price": 155.1,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||BB05VCO||-||B05",
+                  "name": "Prémium",
+                  "price": 155.1,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 27/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "09730",
+          "name": "AVE INT"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022acbe"
+    },
+    {
+      "id": "320757062-2981001-1721292089362-01||-||6698d53b80497",
+      "price": 204.7,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 165,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 21:00",
+      "arrivalStationName": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+      "arrivalTime": "2024-07-27 23:45",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03212",
+          "type": "train",
+          "departureTime": "2024-07-27 21:00",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 23:45",
+          "arrivalPosition": {
+            "id": "60000",
+            "name": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.70494,
+            "latitude": 40.42068,
+            "countryCode": ""
+          },
+          "duration": 165,
+          "companyName": "AVE",
+          "transportId": "03212",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "60000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL04VCO||-||C04",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 204.7,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||CL04VCO||-||C04",
+                  "name": "Básico",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||CL04VCO||-||C04",
+                  "name": "Básico",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE04VCO||-||C04",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 227.4,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||CE04VCO||-||C04",
+                  "name": "Elige",
+                  "price": 113.7,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||CE04VCO||-||C04",
+                  "name": "Elige",
+                  "price": 113.7,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 242,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB06VCO||-||B06",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 280,
+          "cancelations": ["20240727-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 27/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03212",
+          "name": "AVE"
+        }
+      ],
+      "specialInfo": "El coche 7 de este tren es PetFriendly por lo que podrían viajar dos perros de hasta 40 kg en las primeras y últimas plazas de ese coche, en clase Elige Estándar, con una antelación de compra de hasta 24 h antes de la salida del tren.",
+      "extraData": [],
+      "hash": "6698d5022acbe"
+    },
+    {
+      "id": "320757062-2981001-1721292089362-01||-||6698d53b7d7a4",
+      "price": 204.7,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 165,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 15:00",
+      "arrivalStationName": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+      "arrivalTime": "2024-07-27 17:45",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03152",
+          "type": "train",
+          "departureTime": "2024-07-27 15:00",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 17:45",
+          "arrivalPosition": {
+            "id": "60000",
+            "name": "MADRID PTA. ATOCHA - ALMUDENA GRANDES",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.70494,
+            "latitude": 40.42068,
+            "countryCode": ""
+          },
+          "duration": 165,
+          "companyName": "AVE",
+          "transportId": "03152",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "60000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL04VCO||-||C04",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 204.7,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||CL04VCO||-||C04",
+                  "name": "Básico",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||CL04VCO||-||C04",
+                  "name": "Básico",
+                  "price": 102.35,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE04VCO||-||C04",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 227.4,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||CE04VCO||-||C04",
+                  "name": "Elige",
+                  "price": 113.7,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||CE04VCO||-||C04",
+                  "name": "Elige",
+                  "price": 113.7,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 242,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||BE06VCO||-||B06",
+                  "name": "Elige Confort",
+                  "price": 121,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB06VCO||-||B06",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 280,
+          "cancelations": ["20240727-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||BB06VCO||-||B06",
+                  "name": "Prémium",
+                  "price": 140,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 27/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03152",
+          "name": "AVE"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022acbe"
+    },
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e3b57c",
+      "price": 207.8,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 1,
+      "duration": 383,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 08:15",
+      "arrivalStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "arrivalTime": "2024-07-27 14:38",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Renfe_Operadora.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "01081",
+          "type": "train",
+          "departureTime": "2024-07-27 08:15",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 10:13",
+          "arrivalPosition": {
+            "id": "65300",
+            "name": "CASTELLÓ",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -0.052266,
+            "latitude": 39.988259,
+            "countryCode": ""
+          },
+          "duration": 118,
+          "companyName": "EUROMED",
+          "transportId": "01081",
+          "isDeparture": true,
+          "isArrival": false
+        },
+        {
+          "id": "switching_6698d53e3c028",
+          "type": "switching",
+          "departureTime": "2024-07-27 10:13",
+          "departurePosition": [],
+          "arrivalTime": "2024-07-27 11:26",
+          "arrivalPosition": [],
+          "duration": 73,
+          "companyName": "",
+          "transportId": "",
+          "isDeparture": false,
+          "isArrival": false
+        },
+        {
+          "id": "05721",
+          "type": "train",
+          "departureTime": "2024-07-27 11:26",
+          "departurePosition": {
+            "id": "65300",
+            "name": "CASTELLÓ",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -0.052266,
+            "latitude": 39.988259,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 14:38",
+          "arrivalPosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "duration": 192,
+          "companyName": "AVE",
+          "transportId": "05721",
+          "isDeparture": false,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL04VCO||-||C04",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 207.8,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||_||-||C04",
+                  "name": "Básico",
+                  "price": 51.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N1010||-||_||-||C06",
+                  "name": "Básico",
+                  "price": 51.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||_||-||C04",
+                  "name": "Básico",
+                  "price": 51.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N1010||-||_||-||C06",
+                  "name": "Básico",
+                  "price": 51.95,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE04VCO||-||C04",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 229.2,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||_||-||C04",
+                  "name": "Elige",
+                  "price": 57.3,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N2010||-||_||-||C06",
+                  "name": "Elige",
+                  "price": 57.3,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||_||-||C04",
+                  "name": "Elige",
+                  "price": 57.3,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N2010||-||_||-||C06",
+                  "name": "Elige",
+                  "price": 57.3,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 248,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||_||-||B06",
+                  "name": "Elige Confort",
+                  "price": 62,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "N3010||-||_||-||B08",
+                  "name": "Elige Confort",
+                  "price": 62,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||_||-||B06",
+                  "name": "Elige Confort",
+                  "price": 62,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "N3010||-||_||-||B08",
+                  "name": "Elige Confort",
+                  "price": 62,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N4010||-||BB06VCO||-||B06",
+          "groupId": "N4010",
+          "groupColor": "#d62d61",
+          "name": "Prémium",
+          "desc": "Prémium",
+          "price": 308.8,
+          "cancelations": ["20240727-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N4010||-||_||-||B06",
+                  "name": "Prémium",
+                  "price": 77.2,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "N4010||-||_||-||B08",
+                  "name": "Prémium",
+                  "price": 77.2,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N4010||-||_||-||B06",
+                  "name": "Prémium",
+                  "price": 77.2,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "N4010||-||_||-||B08",
+                  "name": "Prémium",
+                  "price": 77.2,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 27/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "01081",
+          "name": "EUROMED"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "05721",
+          "name": "AVE"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    },
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e3fb8a",
+      "price": 208,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 1,
+      "duration": 393,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 16:10",
+      "arrivalStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "arrivalTime": "2024-07-27 22:43",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Renfe_Operadora.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "01161",
+          "type": "train",
+          "departureTime": "2024-07-27 16:10",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 19:02",
+          "arrivalPosition": {
+            "id": "03216",
+            "name": "VALENCIA JOAQUÍN SOROLLA",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -0.3817,
+            "latitude": 39.4602,
+            "countryCode": ""
+          },
+          "duration": 172,
+          "companyName": "EUROMED",
+          "transportId": "01161",
+          "isDeparture": true,
+          "isArrival": false
+        },
+        {
+          "id": "switching_6698d53e400f8",
+          "type": "switching",
+          "departureTime": "2024-07-27 19:02",
+          "departurePosition": [],
+          "arrivalTime": "2024-07-27 20:21",
+          "arrivalPosition": [],
+          "duration": 79,
+          "companyName": "",
+          "transportId": "",
+          "isDeparture": false,
+          "isArrival": false
+        },
+        {
+          "id": "05791",
+          "type": "train",
+          "departureTime": "2024-07-27 20:21",
+          "departurePosition": {
+            "id": "03216",
+            "name": "VALENCIA JOAQUÍN SOROLLA",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -0.3817,
+            "latitude": 39.4602,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 22:43",
+          "arrivalPosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "duration": 142,
+          "companyName": "Intercit",
+          "transportId": "05791",
+          "isDeparture": false,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL04VCO||-||C04",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 208,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||_||-||C04",
+                  "name": "Básico",
+                  "price": 52,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N1010||-||_||-||C03",
+                  "name": "Básico",
+                  "price": 52,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||_||-||C04",
+                  "name": "Básico",
+                  "price": 52,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N1010||-||_||-||C03",
+                  "name": "Básico",
+                  "price": 52,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE04VCO||-||C04",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 226,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||_||-||C04",
+                  "name": "Elige",
+                  "price": 56.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N2010||-||_||-||C03",
+                  "name": "Elige",
+                  "price": 56.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||_||-||C04",
+                  "name": "Elige",
+                  "price": 56.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "N2010||-||_||-||C03",
+                  "name": "Elige",
+                  "price": 56.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE06VCO||-||B06",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 237.2,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||_||-||B06",
+                  "name": "Elige Confort",
+                  "price": 59.3,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "N2010||-||_||-||C03",
+                  "name": "Elige Confort",
+                  "price": 59.3,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||_||-||B06",
+                  "name": "Elige Confort",
+                  "price": 59.3,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "N2010||-||_||-||C03",
+                  "name": "Elige Confort",
+                  "price": 59.3,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "01161",
+          "name": "EUROMED"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "05791",
+          "name": "Intercit"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    },
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e3c9e6",
+      "price": 267.2,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 1,
+      "duration": 542,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 08:35",
+      "arrivalStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "arrivalTime": "2024-07-27 17:37",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03940",
+          "type": "train",
+          "departureTime": "2024-07-27 08:35",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 12:21",
+          "arrivalPosition": {
+            "id": "37200",
+            "name": "CIUDAD REAL",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.9134245,
+            "latitude": 38.9852579,
+            "countryCode": ""
+          },
+          "duration": 226,
+          "companyName": "AVE",
+          "transportId": "03940",
+          "isDeparture": true,
+          "isArrival": false
+        },
+        {
+          "id": "switching_6698d53e3cff8",
+          "type": "switching",
+          "departureTime": "2024-07-27 12:21",
+          "departurePosition": [],
+          "arrivalTime": "2024-07-27 14:35",
+          "arrivalPosition": [],
+          "duration": 134,
+          "companyName": "",
+          "transportId": "",
+          "isDeparture": false,
+          "isArrival": false
+        },
+        {
+          "id": "17041",
+          "type": "train",
+          "departureTime": "2024-07-27 14:35",
+          "departurePosition": {
+            "id": "37200",
+            "name": "CIUDAD REAL",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.9134245,
+            "latitude": 38.9852579,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 17:37",
+          "arrivalPosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "duration": 182,
+          "companyName": "MD",
+          "transportId": "17041",
+          "isDeparture": false,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL03VCO||-||C03",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 267.2,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||_||-||C03",
+                  "name": "Básico",
+                  "price": 66.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Básico",
+                  "price": 66.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||_||-||C03",
+                  "name": "Básico",
+                  "price": 66.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Básico",
+                  "price": 66.8,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE03VCO||-||C03",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 288.8,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||_||-||C03",
+                  "name": "Elige",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||_||-||C03",
+                  "name": "Elige",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE05VCO||-||B05",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 309.6,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||_||-||B05",
+                  "name": "Elige Confort",
+                  "price": 77.4,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige Confort",
+                  "price": 77.4,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||_||-||B05",
+                  "name": "Elige Confort",
+                  "price": 77.4,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige Confort",
+                  "price": 77.4,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03940",
+          "name": "AVE"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "17041",
+          "name": "MD"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    },
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e3d837",
+      "price": 288.8,
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 1,
+      "duration": 542,
+      "departureStationName": "BARCELONA-SANTS",
+      "departureTime": "2024-07-27 08:35",
+      "arrivalStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "arrivalTime": "2024-07-27 17:37",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Ave.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "03990",
+          "type": "train",
+          "departureTime": "2024-07-27 08:35",
+          "departurePosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 12:21",
+          "arrivalPosition": {
+            "id": "37200",
+            "name": "CIUDAD REAL",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.9134245,
+            "latitude": 38.9852579,
+            "countryCode": ""
+          },
+          "duration": 226,
+          "companyName": "AVE",
+          "transportId": "03990",
+          "isDeparture": true,
+          "isArrival": false
+        },
+        {
+          "id": "switching_6698d53e3de6f",
+          "type": "switching",
+          "departureTime": "2024-07-27 12:21",
+          "departurePosition": [],
+          "arrivalTime": "2024-07-27 14:35",
+          "arrivalPosition": [],
+          "duration": 134,
+          "companyName": "",
+          "transportId": "",
+          "isDeparture": false,
+          "isArrival": false
+        },
+        {
+          "id": "17041",
+          "type": "train",
+          "departureTime": "2024-07-27 14:35",
+          "departurePosition": {
+            "id": "37200",
+            "name": "CIUDAD REAL",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.9134245,
+            "latitude": 38.9852579,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-27 17:37",
+          "arrivalPosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "duration": 182,
+          "companyName": "MD",
+          "transportId": "17041",
+          "isDeparture": false,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": true,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "N1010||-||CL02VCO||-||C02",
+          "groupId": "N1010",
+          "groupColor": "#7e0559",
+          "name": "Básico",
+          "desc": "Básico",
+          "price": 288.8,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N1010||-||_||-||C02",
+                  "name": "Básico",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Básico",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N1010||-||_||-||C02",
+                  "name": "Básico",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Básico",
+                  "price": 72.2,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N2010||-||CE02VCO||-||C02",
+          "groupId": "N2010",
+          "groupColor": "#3d80af",
+          "name": "Elige",
+          "desc": "Elige",
+          "price": 310.2,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N2010||-||_||-||C02",
+                  "name": "Elige",
+                  "price": 77.55,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige",
+                  "price": 77.55,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N2010||-||_||-||C02",
+                  "name": "Elige",
+                  "price": 77.55,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige",
+                  "price": 77.55,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        },
+        {
+          "id": "N3010||-||BE04VCO||-||B04",
+          "groupId": "N3010",
+          "groupColor": "#ba1e60",
+          "name": "Elige Confort",
+          "desc": "Elige Confort",
+          "price": 338,
+          "cancelations": ["20240718-1|30"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "N3010||-||_||-||B04",
+                  "name": "Elige Confort",
+                  "price": 84.5,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige Confort",
+                  "price": 84.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "N3010||-||_||-||B04",
+                  "name": "Elige Confort",
+                  "price": 84.5,
+                  "groupId": "P",
+                  "groupName": "Preferente",
+                  "discountId": null
+                },
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Elige Confort",
+                  "price": 84.5,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 30%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "03990",
+          "name": "AVE"
+        },
+        {
+          "id": "",
+          "name": ""
+        },
+        {
+          "id": "17041",
+          "name": "MD"
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    }
+  ]
+}

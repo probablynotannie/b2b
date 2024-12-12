@@ -32,10 +32,10 @@ function Detalles({ producto }) {
         <div className="mt-1">
           <Itinerario destino={producto} />
         </div>
-        <div className="h-64 mt-1 z-0">
+        <div className="h-64 mt-1 ">
           <MapWithJourney destino={producto} />
         </div>
-        <div className="mt-10 z-50">
+        <div className="mt-10 ">
           <Importante destino={producto} />
         </div>
       </section>

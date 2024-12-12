@@ -9,6 +9,17 @@ function Ferris() {
   const [viaje, setViaje] = useState("ida");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [fecha, setFecha] = useState(null);
+  const [adultos, setAdultos] = useState(2);
+  const [ninios, setNinios] = useState(0);
+  const [ninioAges, setNinioAges] = useState([]);
+  const [descuentos, setDescuentos] = useState(false);
+  const [discapacidad, setDiscapacidad] = useState(false);
+  const [selectedDiscapacidad, setSelectedDiscapacidad] = useState({
+    adultos: [],
+    ninios: [],
+  });
+
   const handleviajeChange = (type) => {
     setViaje(type);
   };
@@ -63,7 +74,7 @@ function Ferris() {
               </div>
               {viaje === "ida" ? (
                 <div>
-                  <Input_Fecha />
+                  <Input_Fecha fecha={fecha} setFecha={setFecha} />
                 </div>
               ) : (
                 <div className="col-span-2">
@@ -77,7 +88,20 @@ function Ferris() {
               )}
 
               <div>
-                <Input_Bonificacion />
+                <Input_Bonificacion
+                  adultos={adultos}
+                  ninios={ninios}
+                  setAdultos={setAdultos}
+                  setNinios={setNinios}
+                  ninioAges={ninioAges}
+                  setNinioAges={setNinioAges}
+                  descuentos={descuentos}
+                  setDescuentos={setDescuentos}
+                  discapacidad={discapacidad}
+                  setDiscapacidad={setDiscapacidad}
+                  selectedDiscapacidad={selectedDiscapacidad}
+                  setSelectedDiscapacidad={setSelectedDiscapacidad}
+                />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">

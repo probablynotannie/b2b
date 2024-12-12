@@ -1,0 +1,28 @@
+[
+  {
+    "id": 1,
+    "titulo": "Combinado Cantabria Y Asturias",
+    "incluido": [
+      "Autocar durante todo el recorrido",
+      "3 noches en Asturias y 3 noches en Cantabria en hotel de 2*/3*",
+      "Estancia en régimen según programa",
+      "Bebidas incluidas (agua/vino) en almuerzos y cenas",
+      "Asistente en destino durante todo el circuito"
+    ],
+    "precio": 25.0,
+    "img": "/circuitos/cantabria.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Asturias Paraíso Natural Con Mariña Lucense",
+    "incluido": [
+      "Autocar durante todo el recorrido",
+      "3 noches en Asturias y 3 noches en Cantabria en hotel de 2*/3*",
+      "Estancia en régimen según programa",
+      "Bebidas incluidas (agua/vino) en almuerzos y cenas",
+      "Asistente en destino durante todo el circuito"
+    ],
+    "precio": 45.0,
+    "img": "/circuitos/asturia.jpg"
+  }
+]
