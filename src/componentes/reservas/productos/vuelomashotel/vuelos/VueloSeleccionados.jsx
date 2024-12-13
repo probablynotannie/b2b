@@ -55,7 +55,7 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
       <div className="mt-10 shadow-lg rounded-xl border-2 border-slate-100 dark:border-slate-700">
         <div className=" border-slate-100  rounded-t-xl  dark:bg-slate-800">
           <div
-            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 hover:bg-slate-100 dark:hover:bg-slate-800 transition relative ${"border-b-2 border-slate-100 dark:border-slate-600 "}`}
+            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 hover:bg-slate-100 rounded-t-xl dark:hover:bg-slate-900 transition relative ${"border-b-2 border-slate-100 dark:border-slate-600 "}`}
           >
             <span className="absolute -top-5 left-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
               <FaPlaneDeparture />
@@ -74,7 +74,6 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
                 {selectedOutboundFlight.flight.precio} €
               </span>
             </div>
-
             <div className="flex flex-col items-center dark:text-slate-200">
               <h4 className="font-semibold">
                 {selectedOutboundFlight.flight.departure} -{" "}
@@ -107,9 +106,9 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
             </div>
           </div>
         </div>
-        <div className=" dark:bg-slate-800">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 hover:bg-slate-100 dark:hover:bg-slate-800 transition relative">
-            <span className="absolute -bottom-5 right-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
+        <div className=" rounded-b-xl dark:bg-slate-800">
+          <div className="grid  grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 hover:bg-slate-100  rounded-b-xl dark:hover:bg-slate-900 transition relative">
+            <span className="absolute -bottom-5 right-3 p-2 text-2xl  bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
               <FaPlaneArrival />
             </span>
 
