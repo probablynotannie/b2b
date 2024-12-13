@@ -15,7 +15,7 @@ function Precios({ precios, titulo, icono }) {
                 {precio.texto}
               </td>
               {precio.precio && (
-                <td className=" text-end p-2 font-semibold">
+                <td className=" text-end p-2 font-semibold text-green-700">
                   {typeof precio.precio === "number" ? (
                     <span>{precio.precio.toFixed(2)}€</span>
                   ) : (

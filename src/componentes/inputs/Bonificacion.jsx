@@ -4,29 +4,23 @@ import { MdPeopleAlt } from "react-icons/md";
 
 function Bonificacion() {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(1); // State to track dropdown value
-  const [ages, setAges] = useState({}); // State to track ages for each input field
-  const [selectedForce, setSelectedForce] = useState(""); // Track the value of the last dropdown
-
-  // Function to handle dropdown change
+  const [selectedValue, setSelectedValue] = useState(1);
+  const [ages, setAges] = useState({});
+  const [selectedForce, setSelectedForce] = useState("");
   const handleSelectChange = (e) => {
     const value = Number(e.target.value);
     setSelectedValue(value);
-
-    // Reset the ages state when the dropdown value changes
     const newAges = {};
     for (let i = 1; i <= value; i++) {
-      newAges[i] = ""; // Initialize each age input
+      newAges[i] = "";
     }
     setAges(newAges);
   };
 
-  // Function to handle age input change
   const handleAgeChange = (index, value) => {
     setAges((prev) => ({ ...prev, [index]: value }));
   };
 
-  // Function to handle the last dropdown for military forces
   const handleForceChange = (e) => {
     setSelectedForce(e.target.value);
   };
@@ -40,7 +34,7 @@ function Bonificacion() {
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-primary h-14 flex items-center pl-4 font-semibold">
+            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
               Tipo de bonificacion
             </div>
             <div className="w-96 space-y-3 p-4 text-sm text-gray-500">

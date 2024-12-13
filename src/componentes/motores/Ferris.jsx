@@ -7,10 +7,17 @@ import Input_Vehiculos from "../inputs/Vehiculos";
 import Input_Bonificacion from "../inputs/Bonificacion";
 
 function Ferris() {
-  const [viaje, setViaje] = useState("ida"); // State to track which trip type is selected
+  const [viaje, setViaje] = useState("ida");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  // Function to handle button click and set trip type
+  const [vehiculos, setNumVehiculos] = useState(0);
+  const [tipoVehiculo, setTipoVehiculo] = useState("");
+  const [remolque, setRemolque] = useState("0");
+  const [longitud, setLongitud] = useState(0);
+  const [altura, setAltura] = useState(0);
+  const [longitudRemolque, setLongitudRemolque] = useState(0);
+  const [alturaRemolque, setAlturaRemolque] = useState(0);
+
   const handleviajeChange = (type) => {
     setViaje(type);
   };
@@ -83,7 +90,22 @@ function Ferris() {
                 <Input_Bonificacion />
               </div>
               <div>
-                <Input_Vehiculos />
+                <Input_Vehiculos
+                  vehiculos={vehiculos}
+                  setNumVehiculos={setNumVehiculos}
+                  tipoVehiculo={tipoVehiculo}
+                  setTipoVehiculo={setTipoVehiculo}
+                  remolque={remolque}
+                  setRemolque={setRemolque}
+                  longitud={longitud}
+                  setLongitud={setLongitud}
+                  altura={altura}
+                  setAltura={setAltura}
+                  longitudRemolque={longitudRemolque}
+                  setLongitudRemolque={setLongitudRemolque}
+                  alturaRemolque={alturaRemolque}
+                  setAlturaRemolque={setAlturaRemolque}
+                />
               </div>
             </div>
 

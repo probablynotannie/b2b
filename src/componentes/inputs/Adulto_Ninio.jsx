@@ -37,7 +37,7 @@ function SelectorPersonas({
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
+            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
               Adultos / Niños
             </div>
             <div className=" w-72 space-y-3 p-4 text-sm text-gray-500">

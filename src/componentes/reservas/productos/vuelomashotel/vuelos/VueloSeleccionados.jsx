@@ -3,24 +3,22 @@ import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
   if (!selectedOutboundFlight || !selectedReturnFlight) {
     return (
-      <div className="flex justify-center items-center h-screen">
+      <div className="flex justify-center items-center h-[10vh]">
         <p className="text-lg text-gray-500">Cargando...</p>
       </div>
     );
   }
   const formatDate = (dateString) => {
-    const date = new Date(dateString); // Create a Date object from the date string
+    const date = new Date(dateString);
     const options = {
       day: "numeric",
       month: "long",
       year: "numeric",
     };
 
-    // Format the date in Spanish locale
     return date.toLocaleDateString("es-ES", options);
   };
 
-  // Example usage
   const salida = formatDate(selectedOutboundFlight.flight.outboundDate);
   const vuelta = formatDate(selectedReturnFlight.flight.returnDate);
   const calculateDuration = (horaSalida, horaLlegada) => {
@@ -29,7 +27,7 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
     const [llegadaHours, llegadaMinutes] = horaLlegada.split(":").map(Number);
     const salidaDate = new Date(
       referenceDate.setHours(salidaHours, salidaMinutes, 0, 0)
-    ); // Set hours and minutes
+    );
     const llegadaDate = new Date(
       referenceDate.setHours(llegadaHours, llegadaMinutes, 0, 0)
     );

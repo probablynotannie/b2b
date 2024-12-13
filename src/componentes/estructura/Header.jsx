@@ -29,6 +29,7 @@ import ListadoCoches from "../reservas/productos/coches/Resultado";
 import ListadoTickets from "../reservas/productos/tickets/Resultado";
 import ListadoEntradas from "../reservas/productos/entradas/Resultado";
 import ListadoTrenes from "../reservas/productos/trenes/Resultado";
+import ListadoFerris from "../reservas/productos/ferris/Resultado";
 import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
 
 /* PRODUCTO */
@@ -83,6 +84,7 @@ function Header() {
         <Route path="/listadoCoches" element={<ListadoCoches />} />
         <Route path="/listadoDestinos" element={<ListadoDestinos />} />
         <Route path="/listadoTickets" element={<ListadoTickets />} />
+        <Route path="/listadoFerris" element={<ListadoFerris />} />
         <Route path="/listadoCircuitos" element={<ListadoCircuitos />} />
         <Route path="/listadoCruceros" element={<ListadoCruceros />} />
         <Route path="/listadoEntradas" element={<ListadoEntradas />} />

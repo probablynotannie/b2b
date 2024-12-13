@@ -6,29 +6,47 @@ import { FaArrowsAltV } from "react-icons/fa";
 import { FaTrailer } from "react-icons/fa";
 import { FaCarSide } from "react-icons/fa6";
 
-function Vehiculos() {
+function Vehiculos({
+  vehiculos,
+  setNumVehiculos,
+  tipoVehiculo,
+  setTipoVehiculo,
+  remolque,
+  setRemolque,
+  longitud,
+  setLongitud,
+  altura,
+  setAltura,
+  alturaRemolque,
+  setAlturaRemolque,
+  longitudRemolque,
+  setLongitudRemolque,
+}) {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(0);
-  const [secondSelectValue, setSecondSelectValue] = useState("");
-  const [lastDropdownValue, setLastDropdownValue] = useState("0");
-
   function handleAmountChange(e) {
-    setSelectedValue(Number(e.target.value));
+    setNumVehiculos(Number(e.target.value));
   }
+  const handleLongitudRemolqueChange = (e) => {
+    setLongitudRemolque(e.target.value);
+  };
 
+  const handleAlturaRemolqueChange = (e) => {
+    setAlturaRemolque(e.target.value);
+  };
+  const handleLongitudChange = (e) => {
+    setLongitud(e.target.value);
+  };
+  const handleAlturaChange = (e) => {
+    setAltura(e.target.value);
+  };
   function handleSecondSelectChange(e) {
-    setSecondSelectValue(e.target.value);
+    setTipoVehiculo(e.target.value);
   }
-
   function handleLastDropdownChange(e) {
-    setLastDropdownValue(e.target.value);
+    setRemolque(e.target.value);
   }
-
-  // Mirar si esta seleccionada alguna de las opciones de moto
-  const isMotoSelectedInSecond = secondSelectValue.includes("Moto");
-
-  // Mirar si esta seleccionada no en remolques
-  const isNoSelectedInLast = lastDropdownValue === "0";
+  const isMotoSelectedInSecond = tipoVehiculo.includes("Moto");
+  const isNoSelectedInLast = remolque === "0";
 
   return (
     <div className="relative w-full">
@@ -38,7 +56,7 @@ function Vehiculos() {
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-primary h-14 flex items-center pl-4 font-semibold">
+            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
               Tipo de vehiculo
             </div>
             <div className="w-96 space-y-3 p-4 text-sm text-gray-500">
@@ -57,8 +75,7 @@ function Vehiculos() {
                   </div>
                 </div>
               </div>
-
-              {selectedValue === 1 && (
+              {vehiculos === 1 && (
                 <>
                   <div className="grid grid-cols-2 gap-2">
                     <div className=" col-span-2">
@@ -98,7 +115,11 @@ function Vehiculos() {
                           <span>Longitud</span>
 
                           <div className="relative">
-                            <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+                            <select
+                              value={longitud}
+                              onChange={handleLongitudChange}
+                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                            >
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
@@ -111,7 +132,11 @@ function Vehiculos() {
                         <div>
                           <span>Altura</span>
                           <div className="relative">
-                            <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+                            <select
+                              value={altura}
+                              onChange={handleAlturaChange}
+                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                            >
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
@@ -147,7 +172,11 @@ function Vehiculos() {
                             <div>
                               <span>Longirud remolque</span>
                               <div className="relative">
-                                <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+                                <select
+                                  value={longitudRemolque}
+                                  onChange={handleLongitudRemolqueChange}
+                                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                                >
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>
@@ -160,7 +189,11 @@ function Vehiculos() {
                             <div>
                               <span>Altura remolque</span>
                               <div className="relative">
-                                <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+                                <select
+                                  value={alturaRemolque}
+                                  onChange={handleAlturaRemolqueChange}
+                                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                                >
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>

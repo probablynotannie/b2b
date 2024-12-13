@@ -1,0 +1,110 @@
+[
+  {
+    "id":0,
+    "ida": {
+      "barco": "./ferris/barco.jpg",
+      "ferry": "Por decidir",
+      "ruta": "Ibiza - Barcelona",
+      "departure_port": "Ibiza",
+      "arrival_port": "Barcelona",
+      "departure_time": "10:45",
+      "arrival_time": "19:15",
+      "travel_time": "8h 30m",
+      "precios": [
+        {
+          "id": "zona_cafeteria",
+          "tipo": "Cafeteria",
+          "precio": 50
+        },
+        {
+          "id": "butaca_sirena",
+          "tipo": "Butaca Sirena",
+          "precio": 68
+        },
+        {
+          "id": "butaca_neptunp",
+          "tipo": "Butaca Neptuno",
+          "precio": 75
+        },
+        {
+          "id": "camarote_cuadruple_ext",
+          "tipo": "Camarote Cuadruple Ext",
+          "precio": 135
+        }
+      ]
+    },
+    "vuelta": {
+      "barco": "./ferris/barco.jpg",
+      "ferry": "Por decidir",
+      "ruta": "Barcelona - Ibiza",
+      "departure_port": "Barcelona",
+      "arrival_port": "Ibiza",
+      "departure_time": "21:45",
+      "arrival_time": "06:15",
+      "travel_time": "8h 30m",
+      "precios": [
+        {
+          "id": "zona_cafeteria",
+          "tipo": "Cafeteria",
+          "precio": 49
+        },
+        {
+          "id": "butaca_sirena",
+          "tipo": "Butaca Sirena",
+          "precio": 70
+        },
+        {
+          "id": "butaca_neptunp",
+          "tipo": "Butaca Neptuno",
+          "precio": 89
+        }
+      ]
+    }
+  },
+
+  {
+    "id":1,
+    "ida": {
+      "barco": "./ferris/barco2.jpg",
+      "ruta": "Ibiza - Barcelona",
+      "departure_port": "Ibiza",
+      "arrival_port": "Barcelona",
+      "departure_time": "10:45",
+      "arrival_time": "19:15",
+      "travel_time": "8h 30m",
+      "precios": [
+        {
+          "id": "zona_comun",
+          "tipo": "Asiento en zonas comunes",
+          "precio": 25
+        },
+        {
+          "id": "butaca_turista",
+          "tipo": "Butaca Turista",
+          "precio": 35
+        }
+      ]
+    },
+    "vuelta": {
+      "barco": "./ferris/barco2.jpg",
+      "ruta": "Barcelona - Ibiza",
+      "departure_port": "Barcelona",
+      "arrival_port": "Ibiza",
+      "departure_time": "21:45",
+      "arrival_time": "06:15",
+      "travel_time": "8h 30m",
+      "precios": [
+        {
+          "id": "zona_cafeteria",
+          "tipo": "Cafeteria",
+          "precio": 62
+        },
+        {
+          "id": "butaca_sirena",
+          "tipo": "Butaca Sirena",
+          "precio": 80
+        }
+      ]
+    }
+  }
+]

@@ -155,7 +155,7 @@ function Buscador() {
               icono={<FaMoon />}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-2 xl:col-span-2">
+          <div className="col-span-12 md:col-span-6 lg:col-span-2 xl:col-span-3">
             <Input_adultoNinio
               adultos={adultos}
               setAdultos={setAdultos}

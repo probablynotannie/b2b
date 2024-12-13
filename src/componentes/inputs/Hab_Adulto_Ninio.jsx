@@ -82,7 +82,7 @@ function SelectorPersonas() {
               aria-labelledby="default-popover"
               content={
                 <div className="w-64 text-sm">
-                  <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
+                  <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
                     Adultos / Niños
                   </div>
                   <div className="px-3">

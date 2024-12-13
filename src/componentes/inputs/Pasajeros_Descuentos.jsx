@@ -31,21 +31,17 @@ function SelectorPersonas({
     setNinios(count);
     setNinioAges(new Array(count).fill(""));
   }
-
   const handleAgeChange = (index, age) => {
     const newAges = [...ninioAges];
     newAges[index] = age;
     setNinioAges(newAges);
   };
-
   const handleDescuentoChange = () => {
     setDescuentos(!descuentos);
   };
-
   const handleDiscapacidadChange = () => {
     setDiscapacidad(!discapacidad);
   };
-
   const handleDiscapacidadSelection = (type, index) => {
     const newSelection = { ...selectedDiscapacidad };
     if (newSelection[type].includes(index)) {
@@ -55,7 +51,6 @@ function SelectorPersonas({
     }
     setSelectedDiscapacidad(newSelection);
   };
-
   return (
     <div className="relative w-full">
       <Popover
@@ -65,10 +60,10 @@ function SelectorPersonas({
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-primary text-white h-14 flex items-center pl-4 font-semibold">
+            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
               Adultos / Niños
             </div>
-            <div className="px-3 pb-5 max-h-[60vh] overflow-y-auto w-72">
+            <div className="px-3 pb-5 max-h-[60vh] overflow-y-auto w-72  ">
               <div>
                 <span className="text-sm">Adultos</span>
                 <div className="relative">
@@ -132,7 +127,7 @@ function SelectorPersonas({
                   </div>
                 )}
               </div>
-              <div className="flex justify-between">
+              <div className="flex justify-between mt-3">
                 <div>
                   <label className="inline-flex items-center cursor-pointer">
                     <input

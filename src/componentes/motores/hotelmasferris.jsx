@@ -16,6 +16,13 @@ function Vuelomashotel() {
   const [endDate, setEndDate] = useState(null);
   const [selectedContinent, setSelectedContinent] = useState(null);
   const [selectedRegion, setSelectedRegion] = useState("");
+  const [vehiculos, setNumVehiculos] = useState(0);
+  const [tipoVehiculo, setTipoVehiculo] = useState("");
+  const [remolque, setRemolque] = useState("0");
+  const [longitud, setLongitud] = useState(0);
+  const [longitudRemolque, setLongitudRemolque] = useState(0);
+  const [alturaRemolque, setAlturaRemolque] = useState(0);
+  const [altura, setAltura] = useState(0);
   const continents = [
     { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
     { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
@@ -67,7 +74,22 @@ function Vuelomashotel() {
                 <Input_Bonificaciones />
               </div>
               <div className="col-span-2 lg:col-span-1">
-                <Input_Vehiculos />
+                <Input_Vehiculos
+                  vehiculos={vehiculos}
+                  setNumVehiculos={setNumVehiculos}
+                  tipoVehiculo={tipoVehiculo}
+                  setTipoVehiculo={setTipoVehiculo}
+                  remolque={remolque}
+                  setRemolque={setRemolque}
+                  longitud={longitud}
+                  setLongitud={setLongitud}
+                  altura={altura}
+                  setAltura={setAltura}
+                  longitudRemolque={longitudRemolque}
+                  setLongitudRemolque={setLongitudRemolque}
+                  alturaRemolque={alturaRemolque}
+                  setAlturaRemolque={setAlturaRemolque}
+                />
               </div>
               <div className="col-span-2 lg:col-span-2">
                 <Input_Destinos
