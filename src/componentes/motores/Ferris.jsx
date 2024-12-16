@@ -17,6 +17,8 @@ function Ferris() {
   const [altura, setAltura] = useState(0);
   const [longitudRemolque, setLongitudRemolque] = useState(0);
   const [alturaRemolque, setAlturaRemolque] = useState(0);
+  const [ages, setAges] = useState({});
+  const [pasajeros, setPasajeros] = useState(1);
 
   const handleviajeChange = (type) => {
     setViaje(type);
@@ -87,7 +89,13 @@ function Ferris() {
               )}
 
               <div>
-                <Input_Bonificacion />
+                <Input_Bonificacion
+                  ages={ages}
+                  setAges={setAges}
+                  pasajeros={pasajeros}
+                  setPasajeros={setPasajeros}
+        
+                />
               </div>
               <div>
                 <Input_Vehiculos

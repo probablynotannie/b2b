@@ -13,47 +13,56 @@ function Productos() {
   const [selectedReturnFlight, setSelectedReturnFlight] = useState(null);
 
   useEffect(() => {
-    const cheapestFlights = flightSets.map((flightSet) => {
-      const cheapestOutbound = flightSet.outboundFlights.reduce((prev, curr) =>
-        prev.plazasDisponibles < curr.plazasDisponibles ? prev : curr
-      );
-      const cheapestReturn = flightSet.returnFlights.reduce((prev, curr) =>
-        prev.plazasDisponibles < curr.plazasDisponibles ? prev : curr
-      );
-
-      return { flightSetId: flightSet.id, cheapestOutbound, cheapestReturn };
-    });
-
-    const cheapestFlightSet = cheapestFlights.reduce((prev, curr) =>
-      prev.cheapestOutbound.plazasDisponibles +
-        prev.cheapestReturn.plazasDisponibles <
-      curr.cheapestOutbound.plazasDisponibles +
-        curr.cheapestReturn.plazasDisponibles
-        ? prev
-        : curr
-    );
-
-    const selectedOutboundFlight = {
-      flightSetId: cheapestFlightSet.flightSetId,
-      flightId: cheapestFlightSet.cheapestOutbound.id,
-      flight: cheapestFlightSet.cheapestOutbound,
-      flightSet: flightSets.find(
-        (set) => set.id === cheapestFlightSet.flightSetId
-      ),
+    const findCheapestCombination = () => {
+      let cheapestCombination = null;
+      flightSets.forEach((flightSet) => {
+        flightSet.outboundFlights.forEach((outboundFlight) => {
+          flightSet.returnFlights.forEach((returnFlight) => {
+            const totalPrice = outboundFlight.precio + returnFlight.precio;
+            if (
+              !cheapestCombination ||
+              totalPrice < cheapestCombination.totalPrice
+            ) {
+              cheapestCombination = {
+                flightSetId: flightSet.id,
+                totalPrice,
+                outbound: {
+                  flightId: outboundFlight.id,
+                  flight: outboundFlight,
+                },
+                return: {
+                  flightId: returnFlight.id,
+                  flight: returnFlight,
+                },
+              };
+            }
+          });
+        });
+      });
+      return cheapestCombination;
     };
+    const cheapestFlightSet = findCheapestCombination();
+    if (cheapestFlightSet) {
+      const ida = {
+        flightSetId: cheapestFlightSet.flightSetId,
+        flightId: cheapestFlightSet.outbound.flightId,
+        flight: cheapestFlightSet.outbound.flight,
+        flightSet: flightSets.find(
+          (set) => set.id === cheapestFlightSet.flightSetId
+        ),
+      };
+      const vuelta = {
+        flightSetId: cheapestFlightSet.flightSetId,
+        flightId: cheapestFlightSet.return.flightId,
+        flight: cheapestFlightSet.return.flight,
+        flightSet: flightSets.find(
+          (set) => set.id === cheapestFlightSet.flightSetId
+        ),
+      };
 
-    const selectedReturnFlight = {
-      flightSetId: cheapestFlightSet.flightSetId,
-      flightId: cheapestFlightSet.cheapestReturn.id,
-      flight: cheapestFlightSet.cheapestReturn,
-      flightSet: flightSets.find(
-        (set) => set.id === cheapestFlightSet.flightSetId
-      ),
-    };
-
-    // Set the selected flights
-    setSelectedOutboundFlight(selectedOutboundFlight);
-    setSelectedReturnFlight(selectedReturnFlight);
+      setSelectedOutboundFlight(ida);
+      setSelectedReturnFlight(vuelta);
+    }
   }, []);
 
   return (

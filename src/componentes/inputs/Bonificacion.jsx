@@ -2,14 +2,15 @@ import { useState } from "react";
 import { Popover } from "flowbite-react";
 import { MdPeopleAlt } from "react-icons/md";
 
-function Bonificacion() {
+function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
   const [open, setOpen] = useState(false);
-  const [selectedValue, setSelectedValue] = useState(1);
-  const [ages, setAges] = useState({});
-  const [selectedForce, setSelectedForce] = useState("");
+  console.log(ages);
+  const [fuerza, setFuerza] = useState("");
+  const [especialidad, setEspecialidad] = useState("");
+
   const handleSelectChange = (e) => {
     const value = Number(e.target.value);
-    setSelectedValue(value);
+    setPasajeros(value);
     const newAges = {};
     for (let i = 1; i <= value; i++) {
       newAges[i] = "";
@@ -20,9 +21,12 @@ function Bonificacion() {
   const handleAgeChange = (index, value) => {
     setAges((prev) => ({ ...prev, [index]: value }));
   };
-
   const handleForceChange = (e) => {
-    setSelectedForce(e.target.value);
+    setFuerza(e.target.value);
+    setEspecialidad("");
+  };
+  const handleEspecialidadChange = (e) => {
+    setEspecialidad(e.target.value);
   };
 
   return (
@@ -41,7 +45,7 @@ function Bonificacion() {
               <div>
                 <div className="relative">
                   <select
-                    value={selectedValue}
+                    value={pasajeros}
                     onChange={handleSelectChange}
                     className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                   >
@@ -50,14 +54,14 @@ function Bonificacion() {
                     <option value={3}>3</option>
                     <option value={4}>4</option>
                   </select>
-                  <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                  <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                     <MdPeopleAlt />
                   </div>
                 </div>
               </div>
 
               <div className="grid grid-cols-4 gap-2">
-                {Array.from({ length: selectedValue }).map((_, index) => (
+                {Array.from({ length: pasajeros }).map((_, index) => (
                   <div key={index} className="relative">
                     <input
                       type="number"
@@ -94,7 +98,7 @@ function Bonificacion() {
               <div>
                 <span>Fuerza militar?</span>
                 <select
-                  value={selectedForce}
+                  value={fuerza}
                   onChange={handleForceChange}
                   className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
                 >
@@ -106,10 +110,14 @@ function Bonificacion() {
                   <option value={"fuerza_general"}>Family General</option>
                 </select>
               </div>
-              {selectedForce === "ejercito_tierra" && (
+              {fuerza === "ejercito_tierra" && (
                 <div>
                   <span>Especialidad Tierra</span>
-                  <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
+                  <select
+                    value={especialidad}
+                    onChange={handleEspecialidadChange}
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
+                  >
                     <option value={"infanteria"}>Infantería</option>
                     <option value={"artilleria"}>Artillería</option>
                     <option value={"caballeria"}>Caballería</option>
@@ -117,10 +125,14 @@ function Bonificacion() {
                 </div>
               )}
 
-              {selectedForce === "ejercito_aire" && (
+              {fuerza === "ejercito_aire" && (
                 <div>
                   <span>Especialidad Aire</span>
-                  <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
+                  <select
+                    value={especialidad}
+                    onChange={handleEspecialidadChange}
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
+                  >
                     <option value={"tropa_marineria"}>
                       Militares de tropa y marinería
                     </option>
@@ -134,10 +146,14 @@ function Bonificacion() {
                 </div>
               )}
 
-              {selectedForce === "fuerza_naval" && (
+              {fuerza === "fuerza_naval" && (
                 <div>
                   <span>Especialidad Naval</span>
-                  <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
+                  <select
+                    value={especialidad}
+                    onChange={handleEspecialidadChange}
+                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
+                  >
                     <option value={"tropa_marineria"}>
                       Militares de tropa y marinería
                     </option>
@@ -159,7 +175,7 @@ function Bonificacion() {
         </div>
       </Popover>
 
-      <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
         <MdPeopleAlt />
       </div>
     </div>

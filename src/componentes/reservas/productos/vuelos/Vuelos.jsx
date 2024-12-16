@@ -2,12 +2,7 @@ import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
 import flightSets from "./Vuelos.json";
 
-function FlightSelectionPage({
-  selectedOutboundFlight,
-  setSelectedOutboundFlight,
-  selectedReturnFlight,
-  setSelectedReturnFlight,
-}) {
+function FlightSelectionPage({ ida, setIda, vuelta, setVuelta }) {
   return (
     <div className="mx-auto space-y-8 mt-10">
       <h3 className="text-secondary font-semibold text-lg mb-10 hidden md:block">
@@ -22,10 +17,10 @@ function FlightSelectionPage({
           returnDate={flightSet.returnDate}
           outboundFlights={flightSet.outboundFlights}
           returnFlights={flightSet.returnFlights}
-          selectedOutboundFlight={selectedOutboundFlight}
-          selectedReturnFlight={selectedReturnFlight}
-          setSelectedOutboundFlight={setSelectedOutboundFlight}
-          setSelectedReturnFlight={setSelectedReturnFlight}
+          ida={ida}
+          vuelta={vuelta}
+          setIda={setIda}
+          setVuelta={setVuelta}
           flightSets={flightSets}
         />
       ))}
@@ -39,19 +34,15 @@ function FlightSelection({
   returnDate,
   outboundFlights,
   returnFlights,
-  selectedOutboundFlight,
-  selectedReturnFlight,
-  setSelectedOutboundFlight,
-  setSelectedReturnFlight,
+  ida,
+  vuelta,
+  setIda,
+  setVuelta,
   flightSets,
 }) {
   const totalPrice =
-    (selectedOutboundFlight?.flightSetId === flightSetId
-      ? selectedOutboundFlight.flight.precio
-      : 0) +
-    (selectedReturnFlight?.flightSetId === flightSetId
-      ? selectedReturnFlight.flight.precio
-      : 0);
+    (ida?.flightSetId === flightSetId ? ida.flight.precio : 0) +
+    (vuelta?.flightSetId === flightSetId ? vuelta.flight.precio : 0);
 
   const FlightOption = ({ flight, selected, onSelect }) => (
     <div
@@ -126,14 +117,11 @@ function FlightSelection({
       (flight) => flight.id === flightId
     );
 
-    if (
-      selectedReturnFlight &&
-      selectedReturnFlight.flightSetId !== flightSetId
-    ) {
-      setSelectedReturnFlight(null);
+    if (vuelta && vuelta.flightSetId !== flightSetId) {
+      setVuelta(null);
     }
 
-    setSelectedOutboundFlight({
+    setIda({
       flightSetId,
       flightId,
       flight: selectedFlight,
@@ -147,14 +135,11 @@ function FlightSelection({
       (flight) => flight.id === flightId
     );
 
-    if (
-      selectedOutboundFlight &&
-      selectedOutboundFlight.flightSetId !== flightSetId
-    ) {
-      setSelectedOutboundFlight(null);
+    if (ida && ida.flightSetId !== flightSetId) {
+      setIda(null);
     }
 
-    setSelectedReturnFlight({
+    setVuelta({
       flightSetId,
       flightId,
       flight: selectedFlight,
@@ -180,9 +165,9 @@ function FlightSelection({
               key={flight.id}
               flight={flight}
               selected={
-                selectedOutboundFlight &&
-                selectedOutboundFlight.flightSetId === flightSetId &&
-                selectedOutboundFlight.flightId === flight.id
+                ida &&
+                ida.flightSetId === flightSetId &&
+                ida.flightId === flight.id
               }
               onSelect={handleOutboundSelection}
             />
@@ -198,9 +183,9 @@ function FlightSelection({
               key={flight.id}
               flight={flight}
               selected={
-                selectedReturnFlight &&
-                selectedReturnFlight.flightSetId === flightSetId &&
-                selectedReturnFlight.flightId === flight.id
+                vuelta &&
+                vuelta.flightSetId === flightSetId &&
+                vuelta.flightId === flight.id
               }
               onSelect={handleReturnSelection}
             />

@@ -1,7 +1,6 @@
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
-
-function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
-  if (!selectedOutboundFlight || !selectedReturnFlight) {
+function Vuelos({ ida, vuelta }) {
+  if (!ida || !vuelta) {
     return (
       <div className="flex justify-center items-center h-[10vh]">
         <p className="text-lg text-gray-500">Cargando...</p>
@@ -15,23 +14,20 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
       month: "long",
       year: "numeric",
     };
-
     return date.toLocaleDateString("es-ES", options);
   };
-
-  const salida = formatDate(selectedOutboundFlight.flight.outboundDate);
-  const vuelta = formatDate(selectedReturnFlight.flight.returnDate);
-  const calculateDuration = (horaSalida, horaLlegada) => {
-    const referenceDate = new Date("2024-11-01");
+  const vueloIda = formatDate(ida.flight.outboundDate);
+  const vueloVuelta = formatDate(vuelta.flight.returnDate);
+  const duracion = (horaSalida, horaLlegada) => {
+    const fechaReferencia = new Date("2024-11-01");
     const [salidaHours, salidaMinutes] = horaSalida.split(":").map(Number);
     const [llegadaHours, llegadaMinutes] = horaLlegada.split(":").map(Number);
     const salidaDate = new Date(
-      referenceDate.setHours(salidaHours, salidaMinutes, 0, 0)
+      fechaReferencia.setHours(salidaHours, salidaMinutes, 0, 0)
     );
     const llegadaDate = new Date(
-      referenceDate.setHours(llegadaHours, llegadaMinutes, 0, 0)
+      fechaReferencia.setHours(llegadaHours, llegadaMinutes, 0, 0)
     );
-
     if (llegadaDate < salidaDate) {
       llegadaDate.setDate(llegadaDate.getDate() + 1);
     }
@@ -40,18 +36,17 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
     const minutes = Math.floor((duration % (1000 * 60 * 60)) / (1000 * 60));
     return `${hours}h ${minutes}m`;
   };
-
   return (
     <div>
-      <h3 className="text-secondary font-semibold text-lg mb-3">
-        Vuelo seleccionado{" "}
-        <span>
-          (
-          {selectedOutboundFlight.flight.precio +
-            selectedReturnFlight.flight.precio}
-          € )
-        </span>
-      </h3>
+      <div className="flex justify-between">
+        <h3 className="text-secondary font-semibold text-lg mb-3">
+          Vuelo seleccionado
+          <span>({ida.flight.precio + vuelta.flight.precio}€ )</span>
+        </h3>
+        <button className="bg-slate-500 font-bold text-white px-2 p-1 rounded-lg">
+          Reservar
+        </button>
+      </div>
       <div className="mt-10 shadow rounded-xl border-2 border-slate-100 dark:border-slate-700">
         <div className=" border-slate-100  rounded-t-xl  dark:bg-slate-800">
           <div
@@ -62,38 +57,32 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
             </span>
             <div className="flex flex-col items-center justify-center dark:text-slate-400">
               <img
-                src={selectedOutboundFlight.flight.logo}
+                src={ida.flight.logo}
                 alt="logo aerolinea"
                 className="w-[50px] h-[30px]"
               />
-              <span className="text-sm">
-                {selectedOutboundFlight.flight.aerolinea}
-              </span>
+              <span className="text-sm">{ida.flight.aerolinea}</span>
               <span className="text-green-700 dark:text-green-400 font-bold">
-                {selectedOutboundFlight.flight.precio} €
+                {ida.flight.precio} €
               </span>
             </div>
             <div className="flex flex-col items-center dark:text-slate-200">
               <h4 className="font-semibold">
-                {selectedOutboundFlight.flight.departure} -{" "}
-                {selectedOutboundFlight.flight.arrival}
+                {ida.flight.departure} - {ida.flight.arrival}
               </h4>
-              <span className="text-sm">{salida}</span>
+              <span className="text-sm">{vueloIda}</span>
             </div>
             <div className="flex flex-col items-center dark:text-slate-200">
               <h4 className="font-semibold">Duración</h4>
               <span className="text-sm">
-                {calculateDuration(
-                  selectedOutboundFlight.flight.departure,
-                  selectedOutboundFlight.flight.arrival
-                )}
+                {duracion(ida.flight.departure, ida.flight.arrival)}
               </span>
             </div>
             <div className="text-sm flex flex-row justify-between items-center ">
               <div className="text-center flex flex-col items-center w-full ">
-                {selectedOutboundFlight.flight.escalas > 0 ? (
+                {ida.flight.escalas > 0 ? (
                   <span className="font-semibold bg-orange-400 px-2 p-1 rounded-full text-white dark:text-green-100">
-                    {selectedOutboundFlight.flight.escalas} Escala
+                    {ida.flight.escalas} Escala
                   </span>
                 ) : (
                   <span className="font-semibold bg-green-500 px-2 p-1 rounded-full text-white dark:text-green-100">
@@ -110,42 +99,34 @@ function Vuelos({ selectedOutboundFlight, selectedReturnFlight }) {
             <span className="absolute -bottom-5 right-3 p-2 text-2xl  bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
               <FaPlaneArrival />
             </span>
-
             <div className="flex flex-col items-center justify-center dark:text-slate-400">
               <img
-                src={selectedReturnFlight.flight.logo}
+                src={vuelta.flight.logo}
                 alt="logo aerolinea"
                 className="w-[50px] h-[30px]"
               />
-              <span className="text-sm">
-                {selectedReturnFlight.flight.aerolinea}
-              </span>
+              <span className="text-sm">{vuelta.flight.aerolinea}</span>
               <span className="text-green-700 dark:text-green-400 font-bold">
-                {selectedReturnFlight.flight.precio} €
+                {vuelta.flight.precio} €
               </span>
             </div>
-
             <div className="flex flex-col items-center dark:text-slate-200">
               <h4 className="font-semibold">
-                {selectedReturnFlight.flight.departure} -
-                {selectedReturnFlight.flight.arrival}
+                {vuelta.flight.departure} -{vuelta.flight.arrival}
               </h4>
-              <span className="text-sm">{vuelta}</span>
+              <span className="text-sm">{vueloVuelta}</span>
             </div>
             <div className="flex flex-col items-center dark:text-slate-200">
               <h4 className="font-semibold">Duración</h4>
               <span className="text-sm">
-                {calculateDuration(
-                  selectedReturnFlight.flight.departure,
-                  selectedReturnFlight.flight.arrival
-                )}
+                {duracion(vuelta.flight.departure, vuelta.flight.arrival)}
               </span>
             </div>
             <div className="text-sm flex flex-row justify-between items-center ">
               <div className="text-center flex flex-col items-center w-full ">
-                {selectedReturnFlight.flight.escalas > 0 ? (
+                {vuelta.flight.escalas > 0 ? (
                   <span className="font-semibold bg-orange-400 px-2 p-1 rounded-full text-white dark:text-green-100">
-                    {selectedReturnFlight.flight.escalas} Escala
+                    {vuelta.flight.escalas} Escala
                   </span>
                 ) : (
                   <span className="font-semibold bg-green-500 px-2 p-1 rounded-full text-white dark:text-green-100">

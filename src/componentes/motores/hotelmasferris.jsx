@@ -23,6 +23,9 @@ function Vuelomashotel() {
   const [longitudRemolque, setLongitudRemolque] = useState(0);
   const [alturaRemolque, setAlturaRemolque] = useState(0);
   const [altura, setAltura] = useState(0);
+  const [ages, setAges] = useState({});
+  const [pasajeros, setPasajeros] = useState(1);
+
   const continents = [
     { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
     { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
@@ -71,7 +74,12 @@ function Vuelomashotel() {
                 />
               </div>
               <div className="col-span-2 lg:col-span-1">
-                <Input_Bonificaciones />
+                <Input_Bonificaciones
+                  ages={ages}
+                  setAges={setAges}
+                  pasajeros={pasajeros}
+                  setPasajeros={setPasajeros}
+                />
               </div>
               <div className="col-span-2 lg:col-span-1">
                 <Input_Vehiculos

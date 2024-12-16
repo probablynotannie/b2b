@@ -5,11 +5,11 @@ function FerrySelectionPage() {
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [openFerrySets, setOpenFerrySets] = useState([]);
-  const calculateTotalPrice = () => {
+  function calculateTotalPrice() {
     const outboundPrice = ida ? ida.precio : 0;
     const returnPrice = vuelta ? vuelta.precio : 0;
     return outboundPrice + returnPrice;
-  };
+  }
   const toggleDropdown = (id) => {
     setOpenFerrySets((prev) =>
       prev.includes(id) ? prev.filter((setId) => setId !== id) : [...prev, id]
@@ -87,16 +87,21 @@ function FerrySelectionPage() {
                   : "max-h-0 "
               }`}
             >
-              <div className="p-4 border-t">
-                <h4 className="text-md font-bold text-slate-800 mb-3">
-                  Ida: {ferrySet.ida.ruta}
-                </h4>
+              <div className="p-4 border-t dark:border-slate-700">
+                <div className="flex justify-between">
+                  <span className="text-md font-bold text-slate-800 dark:text-slate-400 mb-3">
+                    Ida: {ferrySet.ida.ruta}
+                  </span>
+                  <span className="text-slate-800 dark:text-slate-400 text-sm">
+                    {ferrySet.ida.departure_time} - {ferrySet.ida.arrival_time}
+                  </span>
+                </div>
                 {ferrySet.ida.precios.map((option) => (
                   <div
                     key={option.id}
-                    className={`flex items-center gap-4 p-2 border-b ${
+                    className={`flex items-center gap-4  p-2 border-b dark:border-slate-700 ${
                       ida?.id === option.id && ida.ferryId === ferrySet.id
-                        ? "bg-blue-50"
+                        ? "bg-blue-50 dark:bg-slate-900"
                         : ""
                     }`}
                   >
@@ -109,30 +114,36 @@ function FerrySelectionPage() {
                       onChange={() =>
                         handleSelection("ida", ferrySet.id, option)
                       }
-                      className="h-4 w-4 text-secondary focus:ring-secondary border-slate-300"
+                      className="h-4 w-4 text-secondary focus:ring-secondary border-slate-300 dark:border-slate-700"
                     />
                     <FaShip className="text-blue-500" />
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-300">
                         {option.tipo}
                       </p>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-slate-600 dark:text-slate-500">
                         Precio: {option.precio}€
                       </p>
                     </div>
                   </div>
                 ))}
               </div>
-              <div className="p-4 border-t">
-                <h4 className="text-md font-bold text-slate-800 mb-3">
-                  Vuelta: {ferrySet.vuelta.ruta}
-                </h4>
+              <div className="p-4 border-t dark:border-slate-700">
+                <div className="flex justify-between">
+                  <span className="text-md font-bold text-slate-800 dark:text-slate-400 mb-3">
+                    Ida: {ferrySet.vuelta.ruta}
+                  </span>
+                  <span className="text-slate-800 dark:text-slate-400 text-sm">
+                    {ferrySet.vuelta.departure_time} -{" "}
+                    {ferrySet.vuelta.arrival_time}
+                  </span>
+                </div>
                 {ferrySet.vuelta.precios.map((option) => (
                   <div
                     key={option.id}
-                    className={`flex items-center gap-4 p-2 border-b ${
+                    className={`flex items-center gap-4 p-2 border-b dark:border-slate-700 ${
                       vuelta?.id === option.id && vuelta.ferryId === ferrySet.id
-                        ? "bg-blue-50"
+                        ? "bg-blue-50 dark:bg-slate-900"
                         : ""
                     }`}
                   >
@@ -146,19 +157,24 @@ function FerrySelectionPage() {
                       onChange={() =>
                         handleSelection("vuelta", ferrySet.id, option)
                       }
-                      className="h-4 w-4 text-secondary focus:ring-secondary border-slate-300"
+                      className="h-4 w-4 text-secondary focus:ring-secondary border-slate-300 dark:border-slate-700"
                     />
                     <FaShip className="text-blue-500" />
                     <div>
-                      <p className="text-sm font-semibold text-slate-800">
+                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-300">
                         {option.tipo}
                       </p>
-                      <p className="text-sm text-slate-600">
+                      <p className="text-sm text-slate-600 dark:text-slate-500">
                         Precio: {option.precio}€
                       </p>
                     </div>
                   </div>
                 ))}
+                <div className="flex justify-end mt-2">
+                  <button className="font-semibold bg-slate-200 p-2 rounded-md">
+                    Reservar por {calculateTotalPrice()}€
+                  </button>
+                </div>
               </div>
             </div>
           </div>

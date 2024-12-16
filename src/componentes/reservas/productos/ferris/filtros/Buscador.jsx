@@ -1,29 +1,66 @@
 import { useState } from "react";
-import Input_Buscador from "../../../../inputs/Buscador2";
+import Input_Destinos from "../../../../inputs/Destinos";
 import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
-import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio2";
+import Input_Bonificaciones from "../../../../inputs/Bonificacion";
 
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
-  const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const [destino, setDestino] = useState("");
-
+  const [origen, setOrigen] = useState("");
+  const [ages, setAges] = useState({});
+  const [pasajeros, setPasajeros] = useState(1);
   const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
+  ];
+  const origenes = [
+    {
+      label: "Destacados",
+      options: [
+        { value: "Mediterraneo", label: "Mediterraneo" },
+        {
+          value: "Norte de Europa y Fiordos",
+          label: "Norte de Europa y Fiordos",
+        },
+        { value: "Posicionales", label: "Posicionales" },
+      ],
+    },
+    {
+      label: "Resto",
+      options: [
+        { value: "Africa", label: "Africa" },
+        { value: "Caribe", label: "Caribe" },
+        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
+        { value: "Persian Gulf", label: "Persian Gulf" },
+        { value: "Round World", label: "Round World" },
+      ],
+    },
   ];
   return (
     <>
-      {/* The search button */}
       <button
         onClick={toggleModal}
         className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
@@ -33,7 +70,6 @@ function Buscador() {
           <FaSearch />
         </span>
       </button>
-
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
@@ -55,10 +91,18 @@ function Buscador() {
           </div>
           <div className="grid grid-cols-12 gap-3 p-5 ">
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Buscador
+              <Input_Destinos
                 destinos={destinos}
                 destino={destino}
                 setDestino={setDestino}
+              />
+            </div>
+            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+              <Input_Destinos
+                destinos={origenes}
+                destino={origen}
+                setDestino={setOrigen}
+                placeholder="Opcional"
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
@@ -70,7 +114,12 @@ function Buscador() {
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-3">
-              <Input_Hab_Adulto_Ninio />
+              <Input_Bonificaciones
+                ages={ages}
+                setAges={setAges}
+                pasajeros={pasajeros}
+                setPasajeros={setPasajeros}
+              />
             </div>
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
               <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
@@ -95,14 +144,22 @@ function Buscador() {
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
-            <Input_Buscador
+          <div className="col-span-12 md:col-span-6 lg:col-span-2">
+            <Input_Destinos
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="col-span-12 md:col-span-6 lg:col-span-2">
+            <Input_Destinos
+              destinos={origenes}
+              destino={origen}
+              setDestino={setOrigen}
+              placeholder="Opcional"
+            />
+          </div>
+          <div className="col-span-12 md:col-span-6 lg:col-span-3">
             <Input_DateRange
               startDate={startDate}
               endDate={endDate}
@@ -111,7 +168,12 @@ function Buscador() {
             />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3">
-            <Input_Hab_Adulto_Ninio />
+            <Input_Bonificaciones
+              ages={ages}
+              setAges={setAges}
+              pasajeros={pasajeros}
+              setPasajeros={setPasajeros}
+            />
           </div>
           <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
