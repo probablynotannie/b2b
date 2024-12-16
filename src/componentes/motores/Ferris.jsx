@@ -5,7 +5,7 @@ import Input_Fecha from "../inputs/Fecha";
 import Input_DateRange from "../inputs/DateRange";
 import Input_Vehiculos from "../inputs/Vehiculos";
 import Input_Bonificacion from "../inputs/Bonificacion";
-
+import { Link } from "react-router-dom";
 function Ferris() {
   const [viaje, setViaje] = useState("ida");
   const [startDate, setStartDate] = useState(null);
@@ -110,9 +110,11 @@ function Ferris() {
             </div>
 
             <div className="absolute -bottom-5 right-5">
-              <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                Buscar
-              </button>
+              <Link to={"/listadoFerris"}>
+                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
+                  Buscar
+                </button>
+              </Link>
             </div>
           </form>
         </div>

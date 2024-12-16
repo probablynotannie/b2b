@@ -4,6 +4,7 @@
     "tarifa": "mini",
     "cambios": true,
     "cancelaciones": true,
+    "compania": "/ferris/ferry1.png",
     "ida": {
       "barco": "./ferris/barco.jpg",
       "ferry": "Por decidir",
@@ -70,6 +71,7 @@
     "tarifa": "general",
     "cambios": true,
     "cancelaciones": false,
+    "compania": "/ferris/ferry2.png",
     "ida": {
       "barco": "./ferris/barco2.jpg",
       "ruta": "Ibiza - Barcelona",

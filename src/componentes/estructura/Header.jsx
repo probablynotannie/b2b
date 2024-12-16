@@ -31,6 +31,7 @@ import ListadoEntradas from "../reservas/productos/entradas/Resultado";
 import ListadoTrenes from "../reservas/productos/trenes/Resultado";
 import ListadoFerris from "../reservas/productos/ferris/Resultado";
 import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
+import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
@@ -88,6 +89,7 @@ function Header() {
         <Route path="/listadoCircuitos" element={<ListadoCircuitos />} />
         <Route path="/listadoCruceros" element={<ListadoCruceros />} />
         <Route path="/listadoEntradas" element={<ListadoEntradas />} />
+        <Route path="/listadoVuelos" element={<ListadoVuelos />} />
         <Route
           path="/listadoHotelMasVuelo"
           element={<ListadoVueloMasHotel />}
