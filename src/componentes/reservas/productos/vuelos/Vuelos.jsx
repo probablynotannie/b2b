@@ -1,14 +1,13 @@
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 import { FaLongArrowAltRight } from "react-icons/fa";
-import flightSets from "./Vuelos.json";
 
-function FlightSelectionPage({ ida, setIda, vuelta, setVuelta }) {
+function FlightSelectionPage({ ida, setIda, vuelta, setVuelta, vuelos }) {
   return (
     <div className="mx-auto space-y-8 mt-10">
       <h3 className="text-secondary font-semibold text-lg mb-10 hidden md:block">
         Resultados
       </h3>
-      {flightSets.map((flightSet) => (
+      {vuelos.map((flightSet) => (
         <FlightSelection
           key={flightSet.id}
           flightSetId={flightSet.id}
@@ -21,7 +20,7 @@ function FlightSelectionPage({ ida, setIda, vuelta, setVuelta }) {
           vuelta={vuelta}
           setIda={setIda}
           setVuelta={setVuelta}
-          flightSets={flightSets}
+          vuelos={vuelos}
         />
       ))}
     </div>
@@ -38,7 +37,7 @@ function FlightSelection({
   vuelta,
   setIda,
   setVuelta,
-  flightSets,
+  vuelos,
 }) {
   const totalPrice =
     (ida?.flightSetId === flightSetId ? ida.flight.precio : 0) +
@@ -112,7 +111,7 @@ function FlightSelection({
   );
 
   const handleOutboundSelection = (flightSetId, flightId) => {
-    const selectedFlightSet = flightSets.find((set) => set.id === flightSetId);
+    const selectedFlightSet = vuelos.find((set) => set.id === flightSetId);
     const selectedFlight = selectedFlightSet.outboundFlights.find(
       (flight) => flight.id === flightId
     );
@@ -130,7 +129,7 @@ function FlightSelection({
   };
 
   const handleReturnSelection = (flightSetId, flightId) => {
-    const selectedFlightSet = flightSets.find((set) => set.id === flightSetId);
+    const selectedFlightSet = vuelos.find((set) => set.id === flightSetId);
     const selectedFlight = selectedFlightSet.returnFlights.find(
       (flight) => flight.id === flightId
     );

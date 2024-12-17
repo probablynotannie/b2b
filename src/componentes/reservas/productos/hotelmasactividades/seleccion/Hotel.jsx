@@ -1,100 +1,39 @@
-import Buscador from "./filtros/Buscador";
+import Buscador from "../Buscador";
 import { FaPerson } from "react-icons/fa6";
-import Listado from "./habitacion/Listado";
-import Listado2 from "./habitacion/Listado2";
-import Images from "./habitacion/Imagenes";
-import Info from "./habitacion/Info";
-import Map from "./Map";
+import Listado from "../../../estructura/hoteles/Listado_cajas";
+import Listado2 from "../../../estructura/hoteles/Listado";
+import Imagenes from "../../../estructura/hoteles/Imgs";
+import Info from "../../../estructura/hoteles/Info";
+import Map from "../../../estructura/hoteles/Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import Head from "../../../estructura/ProductoHeader";
+import { useLocation } from "react-router-dom";
 function Producto() {
-  const producto = {
-    id: 0,
-    nombre: "Apartamentos sol y mar",
-    ubicacion: "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
-    precio: 364,
-    fecha: "21 de octubre",
-    fechaSalida: "28 de octubre",
-    pax: 2,
-    pax_ninios: 1,
-    descripcion:
-      "HB-000273 El Hotel Sorra d’Or Beach Club se encuentra ubicado en Malgrat de Mar, pueblo costero de la Costa del Maresme...",
-    imagenes: [
-      { id: 0, src: "/hotel1.jpg" },
-      { id: 1, src: "/hotel2.jpg" },
-      { id: 2, src: "/hotel3.jpg" },
-      { id: 3, src: "/hotel4.jpg" },
-    ],
-    img: "/hotel2.jpg",
-    habitaciones: [
-      {
-        id: 0,
-        nombre: "Economy Double",
-        regimen: "Alojamiento y desayuno",
-        precio: 54,
-      },
-      {
-        id: 1,
-        nombre: "Economy Double",
-        regimen: "Alojamiento y desayuno",
-        precio: 54,
-      },
-      {
-        id: 2,
-        nombre: "Standard Double",
-        regimen: "Alojamiento y desayuno",
-        precio: 88,
-      },
-      {
-        id: 3,
-        nombre: "Standard Pool View",
-        regimen: "Alojamiento y desayuno",
-        precio: 63,
-      },
-      {
-        id: 4,
-        nombre: "Economy Sea View",
-        regimen: "Alojamiento y desayuno",
-        precio: 67,
-      },
-      {
-        id: 5,
-        nombre: "Standard Pool View",
-        regimen: "Alojamiento y desayuno",
-        precio: 78,
-      },
-      {
-        id: 6,
-        nombre: "Standard Sea View",
-        regimen: "Alojamiento y desayuno",
-        precio: 84,
-      },
-    ],
+  const location = useLocation();
+  const producto = location.state;
+  const reserva = {
+    type: "hotel",
+    nombre: producto.nombre,
+    fechaIda: producto.fecha,
+    fechaVuelta: producto.fechaSalida,
+    precio: producto.precio,
   };
-
   return (
     <main className="flex justify-center flex-col my-10  px-5 md:px-0">
-      <div className=" container">
+      <div className="container">
         <Buscador />
-        <div className="dark:bg-slate-800 dark:rounded-xl flex justify-between border-b-2 border-slate-100 dark:border-slate-800 pb-5 md:mt-10 p-5 ">
-          <div>
-            <h3 className="text-xl font-bold dark:text-white">
-              {producto.nombre}
-            </h3>
-            <div className="flex space-x-2 items-center">
+        <Head
+          nombre={producto.nombre}
+          descripcion={
+            <p className="flex items-center">
               <FaMapPin className="text-secondary text-lg" />
-              <span className="text-sm dark:text-slate-400">
-                {producto.ubicacion}
-              </span>
-            </div>
-          </div>
-          <Link to="/datos">
-            <button className="hidden md:block rounded-xl shadow-md hover:shadow-lg transition p-3 bg-secondary text-white font-bold">
-              Reservar
-            </button>
-          </Link>
-        </div>
-        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10">
+              {producto.ubicacion}
+            </p>
+          }
+          boton="Reservar"
+        />
+
+        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
           <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
             <h4 className="p-3 font-bold text-cen rounded-t-xl   text-secondary">
               Resumen
@@ -147,21 +86,24 @@ function Producto() {
               </div>
             </div>
           </section>
-          <aside className="h-full lg:col-span-4 col-span-5 ">
+          <aside className="h-full lg:col-span-4 col-span-5 mt-5 lg:mt-0">
             <Map location={producto.ubicacion} />
           </aside>
-          <section className="col-span-5">
-            <Info />
+          <section className="col-span-5 mt-10 mb-5 lg:my-5">
+            <Info
+              titulo={"Descripción del hotel"}
+              descripcion={producto.descripcion}
+            />
           </section>
           <section className="col-span-5">
-            <Listado2 />
+            <Listado2 reserva={reserva} habitaciones={producto.habitaciones} />
           </section>
           <section className="col-span-5">
-            <Listado />
+            <Listado reserva={reserva} habitaciones={producto.habitaciones} />
           </section>
           <section className="col-span-5">
-            <h4 className="font-bold text-lg mb-3">Imagenes</h4>
-            <Images />
+            <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>
+            <Imagenes imagenes={producto.habitacionImgs} />
           </section>
         </article>
       </div>

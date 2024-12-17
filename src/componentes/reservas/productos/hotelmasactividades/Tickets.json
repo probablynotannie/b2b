@@ -1,0 +1,55 @@
+[
+  {
+    "id": 1,
+    "titulo": "Palacio Real de Madrid - Visita Guiada",
+    "descripcion_corta": "Descubre la historia y la belleza del Palacio Real con un guía experto. Aprende sobre la familia real española y el patrimonio arquitectónico.",
+    "tipoPrecio": "Neto",
+    "precio": 25.0,
+    "img": "/banner_circuitos.jpg",
+    "incluido": ["Guía profesional", "Entrada rápida", "Auriculares"],
+    "excluidas": ["Transporte", "Propinas"]
+  },
+  {
+    "id": 2,
+    "titulo": "Noche de Flamenco - Espectáculo en Vivo con Tapas",
+    "descripcion_corta": "Disfruta de un auténtico espectáculo de Flamenco mientras saboreas deliciosas tapas españolas en un lugar tradicional.",
+    "tipoPrecio": "PVP",
+    "precio": 45.0,
+    "img": "/banner_entradas.jpg",
+
+    "incluido": ["Espectáculo en vivo", "Cena de tapas"],
+    "excluidas": ["Bebidas alcohólicas", "Transporte"]
+  },
+  {
+    "id": 3,
+    "titulo": "Excursión de un Día a Toledo desde Madrid",
+    "descripcion_corta": "Explora la ciudad medieval de Toledo con un guía profesional, incluyendo visitas a monumentos históricos y arquitectura impresionante.",
+    "tipoPrecio": "Neto",
+    "precio": 60.0,
+    "img": "/banner_actividades2.jpg",
+
+    "incluido": ["Transporte ida y vuelta", "Guía oficial", "Entradas"],
+    "excluidas": ["Comida", "Propinas"]
+  },
+  {
+    "id": 4,
+    "titulo": "Museo del Prado - Visita Guiada sin Colas",
+    "descripcion_corta": "Descubre obras maestras de artistas mundialmente famosos con un guía experto en el museo más famoso de España.",
+    "tipoPrecio": "PVP",
+    "precio": 35.0,
+    "img": "/banner_destinos.jpg",
+
+    "incluido": ["Entrada sin colas", "Guía experto", "Auriculares"],
+    "excluidas": ["Transporte", "Propinas"]
+  },
+  {
+    "id": 5,
+    "titulo": "Tour de Tapas y Cata de Vinos en Madrid",
+    "descripcion_corta": "Experimenta los sabores de España con un tour guiado por los mejores lugares de tapas y vinos en Madrid, acompañado por un guía local.",
+    "tipoPrecio": "Neto",
+    "precio": 50.0,
+    "img": "/banner2.jpg",
+    "incluido": ["Cata de vinos", "Variedad de tapas", "Guía local"],
+    "excluidas": ["Extras personales", "Propinas"]
+  }
+]

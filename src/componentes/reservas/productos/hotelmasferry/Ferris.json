@@ -65,6 +65,7 @@
       ]
     }
   },
+
   {
     "id": 1,
     "tarifa": "general",
@@ -89,27 +90,6 @@
           "id": "butaca_turista",
           "tipo": "Butaca Turista",
           "precio": 35
-        }
-      ]
-    },
-    "vuelta": {
-      "barco": "./ferris/barco2.jpg",
-      "ruta": "Barcelona - Ibiza",
-      "departure_port": "Barcelona",
-      "arrival_port": "Ibiza",
-      "departure_time": "21:45",
-      "arrival_time": "06:15",
-      "travel_time": "8h 30m",
-      "precios": [
-        {
-          "id": "zona_cafeteria",
-          "tipo": "Cafeteria",
-          "precio": 62
-        },
-        {
-          "id": "butaca_sirena",
-          "tipo": "Butaca Sirena",
-          "precio": 80
         }
       ]
     }

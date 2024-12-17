@@ -8,9 +8,8 @@ import { FaDoorOpen } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import hoteles from "./Hoteles.json";
 
-function Resultado() {
+function Resultado({ hoteles }) {
   const reserva = {
     pax: 2,
     pax_ninios: 1,

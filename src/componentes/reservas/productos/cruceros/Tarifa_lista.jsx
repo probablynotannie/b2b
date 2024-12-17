@@ -4,12 +4,10 @@ import { GiCruiser } from "react-icons/gi";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaEuroSign } from "react-icons/fa";
-
 const formatDate = (dateString) => {
   const [day, month, year] = dateString
     .split("/")
     .map((num) => parseInt(num, 10));
-
   const months = [
     "enero",
     "febrero",
@@ -24,14 +22,11 @@ const formatDate = (dateString) => {
     "noviembre",
     "diciembre",
   ];
-
   return `${day} de ${months[month - 1]} de ${year}`;
 };
-
 const getAvailableDatesFromToday = (precios) => {
   const today = new Date();
   const availableDates = new Set();
-
   precios.forEach((row) => {
     row.preciosConFechas.forEach((price) => {
       const [day, month, year] = price.fecha
@@ -45,7 +40,6 @@ const getAvailableDatesFromToday = (precios) => {
       }
     });
   });
-
   return Array.from(availableDates).sort((a, b) => {
     const [dayA, monthA, yearA] = a.split("/").map((num) => parseInt(num, 10));
     const [dayB, monthB, yearB] = b.split("/").map((num) => parseInt(num, 10));
@@ -67,17 +61,13 @@ const Tarifa_lista = ({
 }) => {
   const [expandedRows, setExpandedRows] = useState({});
   const tableContainerRef = useRef(null);
-  const [scrollAmount, setScrollAmount] = useState(0);
-
   const availableDates = getAvailableDatesFromToday(precios);
-
   const toggleRow = (rowId) => {
     setExpandedRows((prev) => ({
       ...prev,
       [rowId]: !prev[rowId],
     }));
   };
-
   const scrollToColumn = (direction) => {
     if (tableContainerRef.current) {
       const columnWidth =
@@ -85,23 +75,19 @@ const Tarifa_lista = ({
       const maxScroll =
         tableContainerRef.current.scrollWidth -
         tableContainerRef.current.clientWidth;
-
-      setScrollAmount((prev) => {
-        let newScrollAmount = prev;
-        if (direction === "right") {
-          newScrollAmount = Math.min(prev + columnWidth, maxScroll);
-        } else {
-          newScrollAmount = Math.max(prev - columnWidth, 0);
-        }
-        tableContainerRef.current.scrollTo({
-          left: newScrollAmount,
-          behavior: "smooth",
-        });
-        return newScrollAmount;
+      const currentScroll = tableContainerRef.current.scrollLeft;
+      let newScrollAmount = currentScroll;
+      if (direction === "right") {
+        newScrollAmount = Math.min(currentScroll + columnWidth, maxScroll);
+      } else {
+        newScrollAmount = Math.max(currentScroll - columnWidth, 0);
+      }
+      tableContainerRef.current.scrollTo({
+        left: newScrollAmount,
+        behavior: "smooth",
       });
     }
   };
-
   const handlePriceClick = (
     price,
     cabinId,
@@ -111,7 +97,6 @@ const Tarifa_lista = ({
   ) => {
     if (price !== "-") {
       if (isSubrow) {
-        // If it's a subrow, set the subrow title
         setSelectedSubrowTitle(subrowTitle);
         if (
           !(
@@ -126,8 +111,7 @@ const Tarifa_lista = ({
           setPrecio(price);
         }
       } else {
-        // Main row selection
-        setSelectedSubrowTitle(null); // Reset the subrow title
+        setSelectedSubrowTitle(null);
         if (
           !(
             selectedPrice === price &&
@@ -144,39 +128,37 @@ const Tarifa_lista = ({
     }
   };
   const [selectedSubrowTitle, setSelectedSubrowTitle] = useState(null);
-
   const selectedCabin = precios.find((row) => row.id === selectedCabinId);
   const cabinTitle = selectedCabin ? selectedCabin.title : "N/A";
-
-  // Function to find the lowest price from an array of prices
   const findLowestPrice = (prices) => {
-    const validPrices = prices.filter(
-      (price) => price !== "-" && price !== "-€"
-    );
-    return Math.min(...validPrices);
+    const validPrices = prices
+      .filter((price) => price !== "-" && price !== "-€" && !isNaN(price))
+      .map((price) => parseFloat(price));
+    return validPrices.length > 0 ? Math.min(...validPrices) : null;
   };
-
-  // Function to find the highest price from an array of prices
   const findHighestPrice = (prices) => {
-    const validPrices = prices.filter(
-      (price) => price !== "-" && price !== "-€"
-    );
-    return Math.max(...validPrices);
+    const validPrices = prices
+      .filter((price) => price !== "-" && price !== "-€" && !isNaN(price))
+      .map((price) => parseFloat(price));
+    return validPrices.length > 0 ? Math.max(...validPrices) : null;
   };
-
-  // Function to get the price range of a cabin and its subrows
   const getCabinAndSubrowPriceRange = (prices) => {
     let allPrices = [];
     prices.forEach((price) => {
-      if (price.price !== "-") allPrices.push(price.price);
+      if (
+        price.price !== "-" &&
+        price.price !== "-€" &&
+        !isNaN(parseFloat(price.price))
+      ) {
+        allPrices.push(parseFloat(price.price));
+      }
     });
-
+    const lowestPrice = findLowestPrice(allPrices);
     return {
-      lowestPrice: findLowestPrice(allPrices),
+      lowestPrice: lowestPrice,
       highestPrice: findHighestPrice(allPrices),
     };
   };
-
   return (
     <div className="container mx-auto p-4">
       <div className="flex flex-wrap justify-between dark:text-slate-200">
@@ -194,11 +176,11 @@ const Tarifa_lista = ({
           <div className="flex flex-wrap md:grid-cols-3 justify-center flex-row text-sm gap-3">
             <p className="flex items-center gap-1">
               <MdMeetingRoom className="text-md text-secondary dark:text-secondaryDark" />
-              {cabinTitle} {/* Display main cabin title */}
+              {cabinTitle}
               {selectedSubrowTitle && (
                 <span className="text-sm text-gray-600 dark:text-gray-400">
                   - {selectedSubrowTitle}
-                </span> // Display subrow title if available
+                </span>
               )}
             </p>
             <p className="flex items-center gap-1 dark:text-slate-200">
@@ -222,7 +204,7 @@ const Tarifa_lista = ({
         }}
       >
         <table className="min-w-full bg-white dark:bg-slate-700">
-          <thead className="bg_particles dark:bg-slate-800">
+          <thead className=" dark:bg-slate-800">
             <tr>
               <th className="sticky bg-slate-200 left-0 min-w-[15vw] px-4 py-2 text-left border dark:border-slate-600 dark:bg-slate-900 dark:text-white flex flex-row items-center">
                 <GiCruiser className="mr-2 text-2xl" />
@@ -243,7 +225,6 @@ const Tarifa_lista = ({
               const { lowestPrice, highestPrice } = getCabinAndSubrowPriceRange(
                 row.preciosConFechas
               );
-
               return (
                 <React.Fragment key={row.id}>
                   <tr className="cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-900">
@@ -261,15 +242,13 @@ const Tarifa_lista = ({
                         (item) => item.fecha === date
                       );
                       const price = priceItem ? priceItem.price : "-";
-
                       const isLowest = price === lowestPrice;
                       const isHighest = price === highestPrice;
                       const priceClass = isLowest
-                        ? "text-green-600 font-semibold"
+                        ? "text-green-600 dark:text-green-300 font-semibold"
                         : isHighest
                         ? "text-red-600 font-semibold"
                         : "dark:text-slate-200";
-
                       return (
                         <td
                           key={date}
@@ -282,20 +261,17 @@ const Tarifa_lista = ({
                           }`}
                           onClick={() =>
                             handlePriceClick(price, row.id, date, false)
-                          } // Mark as main row
+                          }
                         >
                           {price !== "-" ? `${price}€` : "-"}
                         </td>
                       );
                     })}
                   </tr>
-
-                  {/* Subrows */}
                   {expandedRows[row.id] &&
                     row.subPrecios.map((subRow, subIndex) => {
                       const { lowestPrice, highestPrice } =
                         getCabinAndSubrowPriceRange(subRow.preciosConFechas);
-
                       return (
                         <tr key={subIndex}>
                           <td className="sticky left-0 bg-white min-w-[120px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 pl-8">
@@ -313,7 +289,7 @@ const Tarifa_lista = ({
 
                             const subPriceClass =
                               subPrice === lowestPrice
-                                ? " text-green-600 font-semibold"
+                                ? "text-green-600 font-semibold"
                                 : subPrice === highestPrice
                                 ? "text-red-600 font-semibold"
                                 : "dark:text-slate-200";
@@ -321,15 +297,14 @@ const Tarifa_lista = ({
                               <td
                                 key={date}
                                 className={`cursor-pointer min-w-[100px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 transition ${subPriceClass} `}
-                                onClick={
-                                  () =>
-                                    handlePriceClick(
-                                      subPrice,
-                                      row.id,
-                                      date,
-                                      true,
-                                      subRow.tituloSubPrecio
-                                    ) // Pass subrow title
+                                onClick={() =>
+                                  handlePriceClick(
+                                    subPrice,
+                                    row.id,
+                                    date,
+                                    true,
+                                    subRow.tituloSubPrecio
+                                  )
                                 }
                               >
                                 {subPrice !== "-" ? `${subPrice}€` : " - "}
@@ -344,6 +319,14 @@ const Tarifa_lista = ({
             })}
           </tbody>
         </table>
+      </div>
+      <div className="flex justify-between items-center mt-4">
+        <button onClick={() => scrollToColumn("left")} className="text-lg">
+          <FaChevronLeft />
+        </button>
+        <button onClick={() => scrollToColumn("right")} className="text-lg">
+          <FaChevronRight />
+        </button>
       </div>
     </div>
   );

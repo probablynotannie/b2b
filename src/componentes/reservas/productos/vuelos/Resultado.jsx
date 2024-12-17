@@ -4,16 +4,15 @@ import VueloSeleccionado from "./VueloSeleccionados";
 import { useEffect, useState } from "react";
 import flightSets from "./Vuelos.json";
 import Buscador from "./filtros/Buscador";
+import vuelos from "./Vuelos.json";
+
 function Vuelos() {
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   useEffect(() => {
     const findCheapestCombination = () => {
       let cheapestCombination = null;
-
-      // Iterar por todos los conjuntos de vuelos
       flightSets.forEach((flightSet) => {
-        // Iterar todas las combinaciones de vuelos de ida y vuelta
         flightSet.outboundFlights.forEach((outboundFlight) => {
           flightSet.returnFlights.forEach((returnFlight) => {
             const totalPrice = outboundFlight.precio + returnFlight.precio;
@@ -22,7 +21,6 @@ function Vuelos() {
               !cheapestCombination ||
               totalPrice < cheapestCombination.totalPrice
             ) {
-              // Guardar la combinación más barata encontrada
               cheapestCombination = {
                 flightSetId: flightSet.id,
                 totalPrice,
@@ -44,8 +42,6 @@ function Vuelos() {
     };
 
     const cheapestFlightSet = findCheapestCombination();
-
-    // Configurar los vuelos seleccionados
     if (cheapestFlightSet) {
       const ida = {
         flightSetId: cheapestFlightSet.flightSetId,
@@ -94,6 +90,7 @@ function Vuelos() {
         <section className="col-span-9 lg:col-span-6 p-3">
           <VueloSeleccionado ida={ida} vuelta={vuelta} />
           <MasVuelos
+            vuelos={vuelos}
             ida={ida}
             setIda={setIda}
             vuelta={vuelta}

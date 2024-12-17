@@ -1,9 +1,9 @@
 import { useState } from "react";
-import Input_Buscador from "../../../../inputs/Buscador2";
-import Input_DateRange from "../../../../inputs/DateRange";
+import Input_Buscador from "../../../inputs/Buscador2";
+import Input_DateRange from "../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
-import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio2";
-import Input_Aeropuertos from "../../../../inputs/Aeropuertos";
+import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio2";
+import Input_Aeropuertos from "../../../inputs/Aeropuertos";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -33,16 +33,14 @@ function Buscador() {
         </span>
       </button>
 
-      {/* Modal for md screens and above */}
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        // Close modal when clicking outside
       >
         <div
           className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
+          onClick={(e) => e.stopPropagation()}
         >
           <div>
             <div className="w-full h-full mx-auto  relative ">

@@ -16,6 +16,7 @@ module.exports = {
         inputIcon: '#ff8c4c', // Naranja
         CajaForms: '#1e293b', // Gris oscuro
         primary: '#1e293b', // Gris oscuro de navbar 
+        elegido: '#ffecdc', // Gris oscuro de navbar 
         secondary: "#ff8c4c", // Naranja
         secondaryDark: "#ff8c4c", // Naranja
         danger: "#f84048", // texto rojo fondo

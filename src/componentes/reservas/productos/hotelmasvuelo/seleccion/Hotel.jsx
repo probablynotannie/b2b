@@ -1,0 +1,114 @@
+import Buscador from "../Buscador";
+import { FaPerson } from "react-icons/fa6";
+import Listado from "../../../estructura/hoteles/Listado_cajas";
+import Listado2 from "../../../estructura/hoteles/Listado";
+import Imagenes from "../../../estructura/hoteles/Imgs";
+import Info from "../../../estructura/hoteles/Info";
+import Map from "../../../estructura/hoteles/Map";
+import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
+import Head from "../../../estructura/ProductoHeader";
+import { useLocation } from "react-router-dom";
+function Producto() {
+  const location = useLocation();
+  const producto = location.state;
+  const reserva = {
+    type: "hotel",
+    nombre: producto.nombre,
+    fechaIda: producto.fecha,
+    fechaVuelta: producto.fechaSalida,
+    precio: producto.precio,
+  };
+  return (
+    <main className="flex justify-center flex-col my-10  px-5 md:px-0">
+      <div className="container">
+        <Buscador />
+        <Head
+          nombre={producto.nombre}
+          descripcion={
+            <p className="flex items-center">
+              <FaMapPin className="text-secondary text-lg" />
+              {producto.ubicacion}
+            </p>
+          }
+          boton="Reservar"
+        />
+
+        <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
+          <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
+            <h4 className="p-3 font-bold text-cen rounded-t-xl   text-secondary">
+              Resumen
+            </h4>
+            <div className="flex justify-between pb-2 border-b-2 border-slate-100  dark:border-slate-700">
+              <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
+                <FaPerson className="text-xl text-secondary" />
+                <span className="text-white">{producto.pax}</span>
+                <span className="text-white">
+                  adulto{producto.pax !== 1 && "s"}
+                </span>
+              </div>
+              {producto.pax_ninios > 0 && (
+                <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
+                  <FaChild className="text-lg text-secondary" />
+                  <span className="text-white">
+                    {producto.pax_ninios} niño{producto.pax_ninios > 1 && "s"}
+                  </span>
+                </div>
+              )}
+            </div>
+            <div className="text-slateo-700 mx-2 mt-3 text-sm ">
+              <span className="font-semibold dark:text-slate-400 text-white">
+                Entrada
+              </span>
+              <div className="relative">
+                <input
+                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                  type="text"
+                  disabled
+                  value={producto.fecha}
+                />
+                <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <FaRegCalendarAlt />
+                </div>
+              </div>
+              <span className="block mt-2 font-semibold text-white dark:text-slate-400">
+                Salida
+              </span>
+              <div className="relative">
+                <input
+                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                  type="text"
+                  disabled
+                  value={producto.fechaSalida}
+                />
+                <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <FaRegCalendarAlt />
+                </div>
+              </div>
+            </div>
+          </section>
+          <aside className="h-full lg:col-span-4 col-span-5 mt-5 lg:mt-0">
+            <Map location={producto.ubicacion} />
+          </aside>
+          <section className="col-span-5 mt-10 mb-5 lg:my-5">
+            <Info
+              titulo={"Descripción del hotel"}
+              descripcion={producto.descripcion}
+            />
+          </section>
+          <section className="col-span-5">
+            <Listado2 reserva={reserva} habitaciones={producto.habitaciones} />
+          </section>
+          <section className="col-span-5">
+            <Listado reserva={reserva} habitaciones={producto.habitaciones} />
+          </section>
+          <section className="col-span-5">
+            <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>
+            <Imagenes imagenes={producto.habitacionImgs} />
+          </section>
+        </article>
+      </div>
+    </main>
+  );
+}
+
+export default Producto;

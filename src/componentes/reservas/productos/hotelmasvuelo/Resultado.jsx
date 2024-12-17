@@ -1,21 +1,21 @@
 import { useState, useEffect } from "react";
-import Aside from "./filtros/Aside";
-import Resultado from "./Hoteles";
-import Vuelos from "./vuelos/VueloSeleccionados";
-import MasVUelos from "./vuelos/Vuelos";
-import Buscador from "./filtros/Buscador";
+import Aside from "../hotel/filtros/Aside";
+import Resultado from "../hotel/Hoteles";
+import Vuelos from "../vuelos/VueloSeleccionados";
+import MasVuelos from "./Vuelos";
+import Buscador from "./Buscador";
 import { FaHotel } from "react-icons/fa";
 import { FaPlane } from "react-icons/fa";
-import flightSets from "./vuelos/Vuelos.json";
+import vuelos from "./Vuelos.json";
+import hoteles from "./Hoteles.json";
 function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
-  const [selectedOutboundFlight, setSelectedOutboundFlight] = useState(null);
-  const [selectedReturnFlight, setSelectedReturnFlight] = useState(null);
-
+  const [ida, setIda] = useState(null);
+  const [vuelta, setVuelta] = useState(null);
   useEffect(() => {
     const findCheapestCombination = () => {
       let cheapestCombination = null;
-      flightSets.forEach((flightSet) => {
+      vuelos.forEach((flightSet) => {
         flightSet.outboundFlights.forEach((outboundFlight) => {
           flightSet.returnFlights.forEach((returnFlight) => {
             const totalPrice = outboundFlight.precio + returnFlight.precio;
@@ -47,7 +47,7 @@ function Productos() {
         flightSetId: cheapestFlightSet.flightSetId,
         flightId: cheapestFlightSet.outbound.flightId,
         flight: cheapestFlightSet.outbound.flight,
-        flightSet: flightSets.find(
+        flightSet: vuelos.find(
           (set) => set.id === cheapestFlightSet.flightSetId
         ),
       };
@@ -55,16 +55,14 @@ function Productos() {
         flightSetId: cheapestFlightSet.flightSetId,
         flightId: cheapestFlightSet.return.flightId,
         flight: cheapestFlightSet.return.flight,
-        flightSet: flightSets.find(
+        flightSet: vuelos.find(
           (set) => set.id === cheapestFlightSet.flightSetId
         ),
       };
-
-      setSelectedOutboundFlight(ida);
-      setSelectedReturnFlight(vuelta);
+      setIda(ida);
+      setVuelta(vuelta);
     }
   }, []);
-
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
@@ -113,22 +111,18 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                <Vuelos
-                  selectedOutboundFlight={selectedOutboundFlight}
-                  selectedReturnFlight={selectedReturnFlight}
-                />
-                <Resultado />
+                <Vuelos ida={ida} vuelta={vuelta} />
+                <Resultado hoteles={hoteles} />
               </section>
             </>
           )}
-
           {activeTab === "Vuelos" && (
-            <MasVUelos
-              texto={"holi"}
-              selectedOutboundFlight={selectedOutboundFlight}
-              setSelectedOutboundFlight={setSelectedOutboundFlight}
-              selectedReturnFlight={selectedReturnFlight}
-              setSelectedReturnFlight={setSelectedReturnFlight}
+            <MasVuelos
+              vuelos={vuelos}
+              ida={ida}
+              setIda={setIda}
+              vuelta={vuelta}
+              setVuelta={setVuelta}
             />
           )}
         </article>
@@ -136,5 +130,4 @@ function Productos() {
     </main>
   );
 }
-
 export default Productos;

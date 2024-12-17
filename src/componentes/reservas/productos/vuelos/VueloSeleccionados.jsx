@@ -37,7 +37,7 @@ function Vuelos({ ida, vuelta }) {
     return `${hours}h ${minutes}m`;
   };
   return (
-    <div>
+    <div className="mb-5">
       <div className="flex justify-between">
         <h3 className="text-secondary font-semibold text-lg mb-3">
           Vuelo seleccionado

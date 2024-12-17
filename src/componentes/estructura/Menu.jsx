@@ -1,18 +1,14 @@
 import { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
-
 const Dropdown = () => {
-  const [openDropdown, setOpenDropdown] = useState(null); // Track the currently open dropdown
+  const [openDropdown, setOpenDropdown] = useState(null);
   const dropdownRefs = useRef({});
-
   const toggleDropdown = (category) => {
-    setOpenDropdown((prev) => (prev === category ? null : category)); // Toggle dropdown or close if it's already open
+    setOpenDropdown((prev) => (prev === category ? null : category));
   };
-
   const handleItemClick = () => {
-    setOpenDropdown(null); // Close the dropdown when a sub-item is clicked
+    setOpenDropdown(null);
   };
-
   const menu = [
     {
       key: "motores",
@@ -31,6 +27,7 @@ const Dropdown = () => {
         { id: 9, texto: "Hotel + actividades", to: "/hotelmasactividades" },
         { id: 10, texto: "Hotel + ferris", to: "/hotelmasferris" },
         { id: 11, texto: "Circuitos", to: "/circuitos" },
+        { id: 12, texto: "Vuelos", to: "/vuelos" },
       ],
     },
     {
@@ -57,18 +54,15 @@ const Dropdown = () => {
       ],
     },
   ];
-
-  // Close dropdown if clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       const dropdownElement = Object.values(dropdownRefs.current).find(
         (ref) => ref && ref.contains(event.target)
       );
       if (!dropdownElement) {
-        setOpenDropdown(null); // Close all dropdowns
+        setOpenDropdown(null);
       }
     };
-
     document.addEventListener("mousedown", handleClickOutside);
     return () => {
       document.removeEventListener("mousedown", handleClickOutside);
@@ -77,6 +71,7 @@ const Dropdown = () => {
 
   return (
     <div className="flex md:space-x-4 ">
+      
       {menu.map((category) => (
         <div
           key={category.key}
@@ -91,7 +86,7 @@ const Dropdown = () => {
             {category.texto}
           </div>
 
-          {openDropdown === category.key && ( // Only show the dropdown if it is the currently open one
+          {openDropdown === category.key && (
             <div
               className={`absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow ${
                 category.key === "utilidades" ? "w-40" : "w-40 md:w-96"

@@ -1,4 +1,4 @@
-import Buscador from "../filtros/Buscador";
+import Buscador from "../Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado from "../../../estructura/hoteles/Listado_cajas";
 import Listado2 from "../../../estructura/hoteles/Listado";

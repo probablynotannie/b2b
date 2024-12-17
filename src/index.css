@@ -173,3 +173,7 @@ body {
 .leaflet-container {
   z-index: 10;
 }
+.scroll-to-top {
+  background-color: transparent;
+  box-shadow: none;
+}

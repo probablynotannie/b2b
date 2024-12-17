@@ -1,13 +1,17 @@
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
-import Hoteles from "./Ferris";
+import Ferris from "./Ferris";
+import ferris from "./Ferris.json";
+import { useState } from "react";
 function Productos() {
+  const [ida, setIda] = useState(null);
+  const [vuelta, setVuelta] = useState(null);
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div
         className="w-full bg-cover bg-center p-8 relative shadow-md"
         style={{
-          backgroundImage: "url('/banner_hoteles.jpg')",
+          backgroundImage: "url('/banner_cruise.jfif')",
         }}
       >
         <div className="bg-orange-200 dark:bg-black text-pink-600 bg-opacity-45 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
@@ -25,7 +29,13 @@ function Productos() {
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3">
-          <Hoteles />
+          <Ferris
+            ferris={ferris}
+            ida={ida}
+            setIda={setIda}
+            vuelta={vuelta}
+            setVuelta={setVuelta}
+          />
         </section>
       </article>
     </main>

@@ -50,21 +50,6 @@ function SidebarContent({ values, setValues }) {
         </h3>
       </div>
       <div className="p-6 lg:p-3 lg:pt-1">
-        <div>
-          <label
-            htmlFor="first_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-slate-400"
-          >
-            Nombre de hotel
-          </label>
-          <input
-            type="text"
-            id="first_name"
-            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full"
-            required
-          />
-        </div>
-
         <div className="mx-3 mt-5">
           <PrecioRange values={values} setValues={setValues} />
         </div>
