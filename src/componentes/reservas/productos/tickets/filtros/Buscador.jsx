@@ -40,7 +40,6 @@ function Buscador() {
   const [adultos, setAdultos] = useState(2);
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
-  console.log(startDate + " - " + endDate);
 
   return (
     <>

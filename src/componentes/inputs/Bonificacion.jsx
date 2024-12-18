@@ -1,13 +1,10 @@
 import { useState } from "react";
 import { Popover } from "flowbite-react";
 import { MdPeopleAlt } from "react-icons/md";
-
-function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
+function Bonificacion({ ages, setAges, pasajeros, setPasajeros }) {
   const [open, setOpen] = useState(false);
-  console.log(ages);
   const [fuerza, setFuerza] = useState("");
   const [especialidad, setEspecialidad] = useState("");
-
   const handleSelectChange = (e) => {
     const value = Number(e.target.value);
     setPasajeros(value);
@@ -17,7 +14,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
     }
     setAges(newAges);
   };
-
   const handleAgeChange = (index, value) => {
     setAges((prev) => ({ ...prev, [index]: value }));
   };
@@ -28,7 +24,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
   const handleEspecialidadChange = (e) => {
     setEspecialidad(e.target.value);
   };
-
   return (
     <div className="relative w-full">
       <Popover
@@ -59,7 +54,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
                   </div>
                 </div>
               </div>
-
               <div className="grid grid-cols-4 gap-2">
                 {Array.from({ length: pasajeros }).map((_, index) => (
                   <div key={index} className="relative">
@@ -75,7 +69,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
                   </div>
                 ))}
               </div>
-
               <div>
                 <span>Residente?</span>
                 <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
@@ -85,7 +78,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
                   </option>
                 </select>
               </div>
-
               <div>
                 <span>Municipio?</span>
                 <select className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer">
@@ -94,7 +86,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
                   <option value={"Melilla"}>Melilla</option>
                 </select>
               </div>
-
               <div>
                 <span>Fuerza militar?</span>
                 <select
@@ -124,7 +115,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
                   </select>
                 </div>
               )}
-
               {fuerza === "ejercito_aire" && (
                 <div>
                   <span>Especialidad Aire</span>
@@ -145,7 +135,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
                   </select>
                 </div>
               )}
-
               {fuerza === "fuerza_naval" && (
                 <div>
                   <span>Especialidad Naval</span>
@@ -174,7 +163,6 @@ function Bonificacion({ ages, setAges,pasajeros, setPasajeros }) {
           Bonificación/es
         </div>
       </Popover>
-
       <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
         <MdPeopleAlt />
       </div>

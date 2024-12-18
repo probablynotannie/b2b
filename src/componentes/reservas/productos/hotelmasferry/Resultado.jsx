@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Resultado from "../hotel/Hoteles";
 import MasFerris from "./Ferris";
@@ -12,41 +12,8 @@ function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
-  useEffect(() => {
-    if (ferris.length > 0) {
-      let cheapestSet = null;
-      let minTotalPrice = Infinity;
-      ferris.forEach((ferrySet) => {
-        const minIda = ferrySet.ida.precios.reduce((min, option) =>
-          option.precio < min.precio ? option : min
-        );
-        const minVuelta = ferrySet.vuelta
-          ? ferrySet.vuelta.precios.reduce((min, option) =>
-              option.precio < min.precio ? option : min
-            )
-          : null;
-        const totalPrice = minIda.precio + (minVuelta ? minVuelta.precio : 0);
-        if (totalPrice < minTotalPrice) {
-          cheapestSet = {
-            id: ferrySet.id,
-            ida: minIda,
-            vuelta: minVuelta,
-          };
-          minTotalPrice = totalPrice;
-        }
-      });
-
-      if (cheapestSet) {
-        setIda({ ferryId: cheapestSet.id, ...cheapestSet.ida });
-        if (cheapestSet.vuelta) {
-          setVuelta({ ferryId: cheapestSet.id, ...cheapestSet.vuelta });
-        } else {
-          setVuelta(null);
-        }
-      }
-    }
-  }, [ferris]);
-
+  const [ferry, setFerry] = useState({});
+  console.log(ferry)
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
@@ -95,7 +62,7 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                <Ferrys ida={ida} vuelta={vuelta} />
+                <Ferrys ferry={ferry} />
                 <Resultado hoteles={hoteles} />
               </section>
             </>
@@ -103,6 +70,8 @@ function Productos() {
           {activeTab === "Vuelos" && (
             <MasFerris
               ferris={ferris}
+              ferry={ferry}
+              setFerry={setFerry}
               ida={ida}
               setIda={setIda}
               vuelta={vuelta}

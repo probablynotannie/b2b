@@ -13,7 +13,6 @@ import { FaRegTrashAlt } from "react-icons/fa";
 function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
-  console.log(selectedHotel)
   const [actividades, setActividades] = useState([]);
   const reserva = {
     pax: 2,

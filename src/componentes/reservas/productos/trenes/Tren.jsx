@@ -2,7 +2,6 @@ import { useLocation } from "react-router-dom";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
-  console.log(producto[0]);
   const ida = producto[0];
   const vuelta = producto[1] && producto[1];
   const reserva = {

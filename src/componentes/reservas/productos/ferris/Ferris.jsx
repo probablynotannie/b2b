@@ -1,96 +1,115 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaShip } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-
-function Ferris({ ida, setIda, vuelta, setVuelta, ferris }) {
-  console.log(ida);
-
+function Ferris({ ferris, ida, setIda, vuelta, setVuelta, ferry, setFerry }) {
   const [openFerrySets, setOpenFerrySets] = useState([]);
-
-  useEffect(() => {
-    if (ferris.length > 0) {
-      let cheapestSet = null;
-      let minTotalPrice = Infinity;
-
-      ferris.forEach((ferrySet) => {
-        const minIda = ferrySet.ida.precios.reduce((min, option) =>
-          option.precio < min.precio ? option : min
-        );
-        const minVuelta = ferrySet.vuelta
-          ? ferrySet.vuelta.precios.reduce((min, option) =>
-              option.precio < min.precio ? option : min
-            )
-          : null;
-
-        const totalPrice = minIda.precio + (minVuelta ? minVuelta.precio : 0);
-        if (totalPrice < minTotalPrice) {
-          cheapestSet = {
-            id: ferrySet.id,
-            ida: minIda,
-            vuelta: minVuelta,
-          };
-          minTotalPrice = totalPrice;
-        }
-      });
-
-      if (cheapestSet) {
-        setIda({
-          ferryId: cheapestSet.id,
-          id: cheapestSet.ida.id,
-          precio: cheapestSet.ida.precio,
-          tipo: cheapestSet.ida.tipo,
-        });
-
-        if (cheapestSet.vuelta) {
-          setVuelta({
-            ferryId: cheapestSet.id,
-            id: cheapestSet.vuelta.id,
-            precio: cheapestSet.vuelta.precio,
-            tipo: cheapestSet.vuelta.tipo,
-          });
-        } else {
-          setVuelta(null);
-        }
-      }
-    }
-  }, [ferris]);
-
   function calculateTotalPrice() {
     const outboundPrice = ida ? ida.precio : 0;
     const returnPrice = vuelta ? vuelta.precio : 0;
     return outboundPrice + returnPrice;
   }
-
   const toggleDropdown = (id) => {
     setOpenFerrySets((prev) =>
       prev.includes(id) ? prev.filter((setId) => setId !== id) : [...prev, id]
     );
   };
-
+  const updateFerryState = (type, ferryId, ferryOption) => ({
+    ferryId,
+    id: ferryOption.id,
+    precio: ferryOption.precio,
+    tipo: ferryOption.tipo,
+  });
   const handleSelection = (type, ferryId, ferryOption) => {
-    if (type === "ida") {
-      if (vuelta?.ferryId !== ferryId) {
-        setVuelta(null); 
+    setFerry((prevFerry) => {
+      const ferrySeleccionado = ferris.find((ferry) => ferry.id === ferryId);
+      if (!ferrySeleccionado) return prevFerry;
+      const nuevoFerry = { ...prevFerry };
+      const precioSeleccionado = ferrySeleccionado[type]?.precios.find(
+        (price) => price.id === ferryOption.id
+      );
+      if (!precioSeleccionado) return prevFerry;
+      if (type === "ida") {
+        if (prevFerry.vuelta?.ferryId !== ferryId) {
+          nuevoFerry.vuelta = null;
+          setVuelta(null);
+        }
+        const idaActualizado = updateFerryState(
+          type,
+          ferryId,
+          precioSeleccionado
+        );
+        nuevoFerry.ida = {
+          ...ferrySeleccionado.ida,
+          ...idaActualizado,
+        };
+        setIda(nuevoFerry.ida);
+      } else if (type === "vuelta") {
+        if (prevFerry.ida?.ferryId !== ferryId) {
+          nuevoFerry.ida = null;
+          setIda(null);
+        }
+        const vueltaActualizado = updateFerryState(
+          type,
+          ferryId,
+          precioSeleccionado
+        );
+        nuevoFerry.vuelta = {
+          ...ferrySeleccionado.vuelta,
+          ...vueltaActualizado,
+        };
+        setVuelta(nuevoFerry.vuelta);
       }
-      setIda({
-        ferryId,
-        id: ferryOption.id,
-        precio: ferryOption.precio,
-        tipo: ferryOption.tipo,
-      });
-    } else if (type === "vuelta") {
-      if (ida?.ferryId !== ferryId) {
-        setIda(null);
-      }
-      setVuelta({
-        ferryId,
-        id: ferryOption.id,
-        precio: ferryOption.precio,
-        tipo: ferryOption.tipo,
-      });
-    }
+      nuevoFerry.id = ferrySeleccionado.id;
+      nuevoFerry.tarifa = ferrySeleccionado.tarifa;
+      nuevoFerry.compania = ferrySeleccionado.compania;
+      nuevoFerry.cambio = ferrySeleccionado.cambio;
+      nuevoFerry.cancelaciones = ferrySeleccionado.cancelaciones;
+      return nuevoFerry;
+    });
   };
-
+  const selectionEverything = (type, ferryId, ferryOption) => {
+    setFerry((prevFerry) => {
+      const ferrySeleccionado = ferris.find((ferry) => ferry.id === ferryId);
+      if (!ferrySeleccionado) return prevFerry;
+      const nuevoFerry = { ...prevFerry };
+      const precioSeleccionado = ferrySeleccionado[type]?.precios.find(
+        (price) => price.id === ferryOption.id
+      );
+      if (!precioSeleccionado) return prevFerry;
+      if (type === "ida") {
+        if (prevFerry.vuelta?.ferryId !== ferryId) {
+          nuevoFerry.vuelta = null;
+          setVuelta(null);
+        }
+        const idaActualizado = updateFerryState(
+          type,
+          ferryId,
+          precioSeleccionado
+        );
+        nuevoFerry.ida = {
+          ...ferrySeleccionado.ida,
+          ...idaActualizado,
+        };
+        setIda(nuevoFerry.ida);
+      } else if (type === "vuelta") {
+        if (prevFerry.ida?.ferryId !== ferryId) {
+          nuevoFerry.ida = null;
+          setIda(null);
+        }
+        const vueltaActualizado = updateFerryState(
+          type,
+          ferryId,
+          precioSeleccionado
+        );
+        nuevoFerry.vuelta = {
+          ...ferrySeleccionado.vuelta,
+          ...vueltaActualizado,
+        };
+        setVuelta(nuevoFerry.vuelta);
+      }
+      return { ...nuevoFerry, ...ferrySeleccionado };
+    });
+  };
   return (
     <section>
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
@@ -178,7 +197,7 @@ function Ferris({ ida, setIda, vuelta, setVuelta, ferris }) {
                         ida?.id === option.id && ida.ferryId === ferrySet.id
                       }
                       onChange={() =>
-                        handleSelection("ida", ferrySet.id, option)
+                        handleSelection("ida", ferrySet.id, option, ferrySet)
                       }
                       className="h-4 w-4 text-green-500 dark:text-green-400 focus:ring-green-400  border-slate-300 dark:border-slate-700"
                     />
@@ -209,7 +228,8 @@ function Ferris({ ida, setIda, vuelta, setVuelta, ferris }) {
                     <div
                       key={option.id}
                       className={`flex items-center gap-4 p-2 border-b dark:border-slate-700 ${
-                        vuelta?.id === option.id && vuelta.ferryId === ferrySet.id
+                        vuelta?.id === option.id &&
+                        vuelta.ferryId === ferrySet.id
                           ? "bg-blue-50 dark:bg-slate-900"
                           : ""
                       }`}
@@ -222,7 +242,12 @@ function Ferris({ ida, setIda, vuelta, setVuelta, ferris }) {
                           vuelta.ferryId === ferrySet.id
                         }
                         onChange={() =>
-                          handleSelection("vuelta", ferrySet.id, option)
+                          handleSelection(
+                            "vuelta",
+                            ferrySet.id,
+                            option,
+                            ferrySet
+                          )
                         }
                         className="h-4 w-4 text-green-500 dark:text-green-400 focus:ring-green-400  border-slate-300 dark:border-slate-700"
                       />
@@ -253,5 +278,4 @@ function Ferris({ ida, setIda, vuelta, setVuelta, ferris }) {
     </section>
   );
 }
-
 export default Ferris;

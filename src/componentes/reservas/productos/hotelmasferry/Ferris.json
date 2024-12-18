@@ -9,11 +9,11 @@
       "barco": "./ferris/barco.jpg",
       "ferry": "Por decidir",
       "ruta": "Ibiza - Barcelona",
-      "departure_port": "Ibiza",
-      "arrival_port": "Barcelona",
-      "departure_time": "10:45",
-      "arrival_time": "19:15",
-      "travel_time": "8h 30m",
+      "puerto_origen": "Ibiza",
+      "puerto_destino": "Barcelona",
+      "hora_salida": "10:45",
+      "hora_llegada": "19:15",
+      "duracion_viaje": "8h 30m",
       "precios": [
         {
           "id": "zona_cafeteria",
@@ -41,11 +41,11 @@
       "barco": "./ferris/barco.jpg",
       "ferry": "Por decidir",
       "ruta": "Barcelona - Ibiza",
-      "departure_port": "Barcelona",
-      "arrival_port": "Ibiza",
-      "departure_time": "21:45",
-      "arrival_time": "06:15",
-      "travel_time": "8h 30m",
+      "puerto_origen": "Barcelona",
+      "puerto_destino": "Ibiza",
+      "hora_salida": "21:45",
+      "hora_llegada": "06:15",
+      "duracion_viaje": "8h 30m",
       "precios": [
         {
           "id": "zona_cafeteria",
@@ -65,7 +65,6 @@
       ]
     }
   },
-
   {
     "id": 1,
     "tarifa": "general",
@@ -75,11 +74,11 @@
     "ida": {
       "barco": "./ferris/barco2.jpg",
       "ruta": "Ibiza - Barcelona",
-      "departure_port": "Ibiza",
-      "arrival_port": "Barcelona",
-      "departure_time": "10:45",
-      "arrival_time": "19:15",
-      "travel_time": "8h 30m",
+      "puerto_origen": "Ibiza",
+      "puerto_destino": "Barcelona",
+      "hora_salida": "10:45",
+      "hora_llegada": "19:15",
+      "duracion_viaje": "8h 30m",
       "precios": [
         {
           "id": "zona_comun",
@@ -90,6 +89,27 @@
           "id": "butaca_turista",
           "tipo": "Butaca Turista",
           "precio": 35
+        }
+      ]
+    },
+    "vuelta": {
+      "barco": "./ferris/barco2.jpg",
+      "ruta": "Barcelona - Ibiza",
+      "puerto_origen": "Barcelona",
+      "puerto_destino": "Ibiza",
+      "hora_salida": "21:45",
+      "hora_llegada": "06:15",
+      "duracion_viaje": "8h 30m",
+      "precios": [
+        {
+          "id": "zona_cafeteria",
+          "tipo": "Cafeteria",
+          "precio": 62
+        },
+        {
+          "id": "butaca_sirena",
+          "tipo": "Butaca Sirena",
+          "precio": 80
         }
       ]
     }

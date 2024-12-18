@@ -7,7 +7,6 @@ import { Carousel } from "flowbite-react";
 import { FaDoorOpen } from "react-icons/fa";
 
 function Cesta({ hotel, actividades, reserva }) {
-  console.log(hotel);
   return (
     <div className="min-h-[30vh]">
       {hotel && (

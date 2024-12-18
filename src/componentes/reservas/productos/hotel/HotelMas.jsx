@@ -22,7 +22,6 @@ function Resultado({ hoteles, selectedHotel, setHotel }) {
   };
   const [openModal, setOpenModal] = useState(null);
   const [openInNewTab, setOpenInNewTab] = useState(false);
-
   return (
     <section className="pb-12">
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">

@@ -98,14 +98,14 @@ function Buscador() {
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3 ">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3 ">
             <Input_Buscador
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
             <Input_DateRange
               startDate={startDate}
               endDate={endDate}
@@ -113,13 +113,13 @@ function Buscador() {
               setEndDate={setEndDate}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
+          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
             <Input_Aeropuertos />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
             <Input_Hab_Adulto_Ninio />
           </div>
-          <div className="flex lg:justify-end justify-end lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
+          <div className="flex lg:justify-end justify-end lg:col-span-2 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
               <FaSearch className="text-white text-xl" />
             </button>
