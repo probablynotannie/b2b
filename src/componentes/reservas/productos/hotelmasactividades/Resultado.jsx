@@ -1,15 +1,16 @@
 import { useState } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Resultado from "../hotel/HotelMas";
-import Entradas from "../tickets/Tickets";
+import Entradas from "../tickets/TicketsMas";
 import Buscador from "./Buscador";
 import { FaHotel } from "react-icons/fa";
 import { PiMaskHappyFill } from "react-icons/pi";
 import Cesta from "./Cesta";
 import entradas from "./Tickets.json";
 import hoteles from "./Hoteles.json";
-import { FaRegTrashAlt } from "react-icons/fa";
+import { BsFillBasket2Fill } from "react-icons/bs";
 
+import { FaCheck } from "react-icons/fa";
 function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
@@ -39,37 +40,56 @@ function Productos() {
             </aside>
           </div>
         </div>
-        <div className="flex space-x-4 mb-6 col-span-9 container mt-10">
-          <button
-            className={`px-4 py-2 border-b-2 flex items-center ${
-              activeTab === "Resultados"
-                ? "border-secondary text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
-            }`}
-            onClick={() => setActiveTab("Resultados")}
-          >
-            <FaHotel className="mr-1" /> Resultados
-          </button>
-          <button
-            className={`px-4 py-2 border-b-2 flex items-center ${
-              activeTab === "Vuelos"
-                ? "border-secondary text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
-            }`}
-            onClick={() => setActiveTab("Vuelos")}
-          >
-            <PiMaskHappyFill className="mr-1" /> Cambiar Actividades
-          </button>
-          <button
-            className={`px-4 py-2 border-b-2 flex items-center ${
-              activeTab === "Cesta"
-                ? "border-secondary text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
-            }`}
-            onClick={() => setActiveTab("Cesta")}
-          >
-            <FaRegTrashAlt className="mr-1" /> Cesta
-          </button>
+        <div className="flex items-center space-x-4 mb-6 col-span-9 container mt-10">
+          <div className="flex items-center relative">
+            <button
+              className={`px-4 py-2 border-b-2 flex items-center ${
+                activeTab === "Resultados"
+                  ? "border-secondary text-secondary font-bold "
+                  : " text-slate-700 dark:text-slate-200 border-none"
+              }`}
+              onClick={() => setActiveTab("Resultados")}
+            >
+              <FaHotel className="mr-1" /> Hoteles
+            </button>
+            {selectedHotel && (
+              <FaCheck className="text-xs text-secondary dark:text-secondaryDark absolute -top-1 right-4" />
+            )}
+          </div>
+          <div className="flex items-center relative">
+            <button
+              className={`px-4 py-2 border-b-2 flex items-center ${
+                activeTab === "Vuelos"
+                  ? "border-secondary text-secondary font-bold "
+                  : " text-slate-700 dark:text-slate-200 border-none"
+              }`}
+              onClick={() => setActiveTab("Vuelos")}
+            >
+              <PiMaskHappyFill className="mr-1" /> Actividades
+            </button>
+            {actividades.length > 0 && (
+              <FaCheck className="text-xs text-secondary dark:text-secondaryDark absolute -top-1 right-4" />
+            )}
+          </div>
+          <div className="flex items-center relative">
+            {(selectedHotel || actividades.length > 0) && (
+              <>
+                <span className="-mt-1 ml-1 p-[10px] bg-secondary rounded-full flex items-center justify-center text-white font-bold absolute top-0 left-2 text-xs  w-[2px] h-[2px]">
+                  {selectedHotel ? 1 + actividades.length : actividades.length}
+                </span>
+              </>
+            )}
+            <button
+              className={`px-4 py-2 border-b-2 flex items-center ${
+                activeTab === "Cesta"
+                  ? "border-secondary text-secondary font-bold "
+                  : " text-slate-700 dark:text-slate-200 border-none"
+              }`}
+              onClick={() => setActiveTab("Cesta")}
+            >
+              <BsFillBasket2Fill className="mr-1 text-lg" /> Cesta
+            </button>
+          </div>
         </div>
         <article className="grid grid-cols-9 lg:gap-8 xs:gap-28 container">
           {activeTab === "Resultados" && (
@@ -78,7 +98,6 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                {actividades.length === 0 ? "Selecciona actividades" : "Guay!"}
                 <Resultado
                   hoteles={hoteles}
                   selectedHotel={selectedHotel}
@@ -89,11 +108,23 @@ function Productos() {
           )}
         </article>
         <div className="container">
-          {activeTab === "Vuelos" && <Entradas tickets={entradas} />}
+          {activeTab === "Vuelos" && (
+            <Entradas
+              tickets={entradas}
+              actividades={actividades}
+              setActividades={setActividades}
+            />
+          )}
         </div>
         <div className="container">
           {activeTab === "Cesta" && (
-            <Cesta hotel={selectedHotel} actividades={actividades} reserva={reserva} />
+            <Cesta
+              hotel={selectedHotel}
+              actividades={actividades}
+              reserva={reserva}
+              setHotel={setHotel}
+              setActividades={setActividades}
+            />
           )}
         </div>
       </div>

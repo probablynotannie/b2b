@@ -2,54 +2,91 @@
   {
     "id": 1,
     "titulo": "Palacio Real de Madrid - Visita Guiada",
-    "descripcion_corta": "Descubre la historia y la belleza del Palacio Real con un guía experto. Aprende sobre la familia real española y el patrimonio arquitectónico.",
+    "descripcion_corta": "Descubre la historia y la belleza del Palacio Real con un guía experto.",
     "tipoPrecio": "Neto",
     "precio": 25.0,
     "img": "/banner_circuitos.jpg",
     "incluido": ["Guía profesional", "Entrada rápida", "Auriculares"],
-    "excluidas": ["Transporte", "Propinas"]
+    "excluidas": ["Transporte", "Propinas"],
+    "fechasDisponibles": {
+      "19-12-2024": ["10:00", "11:00", "12:00", "13:00"],
+      "20-12-2024": ["14:00", "15:00", "16:00", "17:00"]
+    },
+    "tiposEntradas": {
+      "adulto": { "precio": 25.0, "maxEntradas": 10 },
+      "niño": { "precio": 15.0, "maxEntradas": 5 }
+    }
   },
   {
     "id": 2,
     "titulo": "Noche de Flamenco - Espectáculo en Vivo con Tapas",
-    "descripcion_corta": "Disfruta de un auténtico espectáculo de Flamenco mientras saboreas deliciosas tapas españolas en un lugar tradicional.",
+    "descripcion_corta": "Disfruta de un auténtico espectáculo de Flamenco mientras saboreas tapas españolas.",
     "tipoPrecio": "PVP",
     "precio": 45.0,
     "img": "/banner_entradas.jpg",
-
     "incluido": ["Espectáculo en vivo", "Cena de tapas"],
-    "excluidas": ["Bebidas alcohólicas", "Transporte"]
+    "excluidas": ["Bebidas alcohólicas", "Transporte"],
+    "fechasDisponibles": {
+      "19-12-2024": ["20:00", "21:00", "22:00"],
+      "20-12-2024": ["19:00", "20:00", "21:00"]
+    },
+    "tiposEntradas": {
+      "adulto": { "precio": 45.0, "maxEntradas": 5 },
+      "niño": { "precio": 30.0, "maxEntradas": 3 }
+    }
   },
   {
     "id": 3,
     "titulo": "Excursión de un Día a Toledo desde Madrid",
-    "descripcion_corta": "Explora la ciudad medieval de Toledo con un guía profesional, incluyendo visitas a monumentos históricos y arquitectura impresionante.",
+    "descripcion_corta": "Explora la ciudad medieval de Toledo con visitas a monumentos históricos.",
     "tipoPrecio": "Neto",
     "precio": 60.0,
     "img": "/banner_actividades2.jpg",
-
     "incluido": ["Transporte ida y vuelta", "Guía oficial", "Entradas"],
-    "excluidas": ["Comida", "Propinas"]
+    "excluidas": ["Comida", "Propinas"],
+    "fechasDisponibles": {
+      "19-12-2024": ["08:00", "09:00", "10:00"],
+      "20-12-2024": ["07:30", "08:30", "09:30"]
+    },
+    "tiposEntradas": {
+      "adulto": { "precio": 60.0, "maxEntradas": 15 },
+      "niño": { "precio": 40.0, "maxEntradas": 8 }
+    }
   },
   {
     "id": 4,
     "titulo": "Museo del Prado - Visita Guiada sin Colas",
-    "descripcion_corta": "Descubre obras maestras de artistas mundialmente famosos con un guía experto en el museo más famoso de España.",
+    "descripcion_corta": "Descubre obras maestras de artistas famosos con un guía experto.",
     "tipoPrecio": "PVP",
     "precio": 35.0,
     "img": "/banner_destinos.jpg",
-
     "incluido": ["Entrada sin colas", "Guía experto", "Auriculares"],
-    "excluidas": ["Transporte", "Propinas"]
+    "excluidas": ["Transporte", "Propinas"],
+    "fechasDisponibles": {
+      "19-12-2024": ["09:00", "10:00", "11:00"],
+      "20-12-2024": ["15:00", "16:00", "17:00"]
+    },
+    "tiposEntradas": {
+      "adulto": { "precio": 25.0, "maxEntradas": 10 },
+      "niño": { "precio": 8.0, "maxEntradas": 6 }
+    }
   },
   {
     "id": 5,
     "titulo": "Tour de Tapas y Cata de Vinos en Madrid",
-    "descripcion_corta": "Experimenta los sabores de España con un tour guiado por los mejores lugares de tapas y vinos en Madrid, acompañado por un guía local.",
+    "descripcion_corta": "Experimenta los sabores de España con un tour guiado por tapas y vinos.",
     "tipoPrecio": "Neto",
     "precio": 50.0,
     "img": "/banner2.jpg",
     "incluido": ["Cata de vinos", "Variedad de tapas", "Guía local"],
-    "excluidas": ["Extras personales", "Propinas"]
+    "excluidas": ["Extras personales", "Propinas"],
+    "fechasDisponibles": {
+      "19-12-2024": ["18:00", "19:00", "20:00"],
+      "20-12-2024": ["18:30", "19:30", "20:30"]
+    },
+    "tiposEntradas": {
+      "adulto": { "precio": 50.0, "maxEntradas": 10 },
+      "niño": { "precio": 35.0, "maxEntradas": 4 }
+    }
   }
 ]

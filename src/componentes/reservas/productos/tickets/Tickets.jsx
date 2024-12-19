@@ -6,7 +6,7 @@ function Resultado({tickets}) {
         <Link
           to={"/actividad"}
           state={actividad}
-          className="border-2 bg-white dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition cursor-pointer"
+          className="border-2 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition cursor-pointer"
           key={index}
         >
           <span

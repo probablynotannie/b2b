@@ -1,6 +1,5 @@
 import { FaCheck } from "react-icons/fa";
 import { FaBan } from "react-icons/fa";
-
 function ferris({ ferry }) {
   return (
     <>
@@ -43,5 +42,4 @@ function ferris({ ferry }) {
     </>
   );
 }
-
 export default ferris;

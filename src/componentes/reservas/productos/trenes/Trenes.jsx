@@ -19,7 +19,7 @@ function Resultado({ trenes, setTren, tipo }) {
       {trenes.map((tren, index) => (
         <article
           key={index}
-          className="lg:flex flex-row bg-slate-100 dark:bg-slate-800 shadow-lg lg:shadow-md hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl mt-8 relative transition-all duration-300 hover:scale-105"
+          className="lg:flex flex-row bg-slate-100 dark:bg-slate-800 shadow-lg lg:shadow-md hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl mt-8 relative transition-all hover:scale-[102%] duration-300"
         >
           <div className="p-6 w-full">
             <div className="w-full relative">

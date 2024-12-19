@@ -20,7 +20,6 @@ function Listado({ reserva, habitaciones }) {
         minPrice={Math.min(...habitaciones.map((h) => parseFloat(h.precio)))}
         maxPrice={Math.max(...habitaciones.map((h) => parseFloat(h.precio)))}
       />
-
       <div className="grid grid-cols-4 gap-5">
         {habitaciones.map((habitacion) => (
           <div

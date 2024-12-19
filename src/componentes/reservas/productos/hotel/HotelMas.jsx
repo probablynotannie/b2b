@@ -43,13 +43,12 @@ function Resultado({ hoteles, selectedHotel, setHotel }) {
           </label>
         </div>
       </div>
-
       {hoteles.map((hotel, index) => (
         <article
           key={index}
           className={`lg:flex flex-row transition mt-10 relative min-h-[15vh] rounded-xl ${
-            selectedHotel === hotel
-              ? "bg-elegido border-secondary"
+            selectedHotel?.id === hotel.id
+              ? "bg-elegido dark:bg-slate-900 border-secondary"
               : "bg-slate-100 dark:bg-slate-800 border-slate-100 dark:border-slate-800"
           } shadow-xl lg:shadow-lg hover:shadow-xl border-2`}
         >
@@ -111,7 +110,7 @@ function Resultado({ hoteles, selectedHotel, setHotel }) {
             </p>
             <div className="flex justify-end mt-3">
               <button
-                className="px-3 w-full lg:w-fit mr-2 bg-slate-700 dark:bg-slate-600 text-white font-semibold rounded-xl shadow"
+                className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow"
                 onClick={() => setOpenModal(index)}
               >
                 Detalles
@@ -192,12 +191,20 @@ function Resultado({ hoteles, selectedHotel, setHotel }) {
                       </section>
                       <section className="col-span-5">
                         <Listado2
+                          seleccion={"seleccionar"}
+                          hotel={hotel}
+                          setHotel={setHotel}
+                          setOpenModal={setOpenModal}
                           reserva={reserva}
                           habitaciones={hotel.habitaciones}
                         />
                       </section>
                       <section className="col-span-5">
                         <Listado
+                          seleccion={"seleccionar"}
+                          hotel={hotel}
+                          setHotel={setHotel}
+                          setOpenModal={setOpenModal}
                           reserva={reserva}
                           habitaciones={hotel.habitaciones}
                         />
@@ -213,19 +220,13 @@ function Resultado({ hoteles, selectedHotel, setHotel }) {
                 </Modal.Body>
                 <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
                   <button
-                    className="p-3 px-5 bg-slate-700 dark:bg-secondaryDark font-bold rounded-xl text-white"
+                    className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar
                   </button>
                 </Modal.Footer>
               </Modal>
-              <button
-                className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow"
-                onClick={() => setHotel(hotel)}
-              >
-                Reservar
-              </button>
             </div>
           </div>
         </article>

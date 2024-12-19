@@ -6,15 +6,22 @@ import { RxCross2 } from "react-icons/rx";
 import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
-function Listado({ reserva, habitaciones }) {
-  const [expandedPenaltyId, setExpandedPenaltyId] = useState(null); // State to track which room's penalties are expanded
+function Listado({
+  reserva,
+  habitaciones,
+  seleccion,
+  hotel,
+  setHotel,
+  setOpenModal,
+}) {
+  const [expandedPenaltyId, setExpandedPenaltyId] = useState(null);
   const prices = habitaciones.map((habitacion) =>
     parseFloat(habitacion.precio)
   );
   const minPrice = Math.min(...prices);
   const maxPrice = Math.max(...prices);
   const handleTogglePenalties = (id) => {
-    setExpandedPenaltyId(expandedPenaltyId === id ? null : id); // Toggle the expanded state
+    setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
   };
 
   return (
@@ -33,7 +40,6 @@ function Listado({ reserva, habitaciones }) {
             <th className="text-center py-3 text-white font-semibold pl-4 ">
               Reembolso
             </th>
-
             <th className="text-end px-5 py-3 text-white font-semibold pl-4 ">
               Reservar
             </th>
@@ -110,16 +116,27 @@ function Listado({ reserva, habitaciones }) {
                   </div>
                 )}
               </td>
-
               <td className="p-3 flex justify-end space-x-2">
                 <button className="flex items-center justify-center transition font-semibold w-[50px] bg-slate-400  rounded-lg shadow-md hover:shadow-lg text-white">
                   <FaFilePdf />
                 </button>
-                <Link to={"/datos"} state={reserva}>
-                  <button className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
+                {seleccion === "seleccionar" ? (
+                  <button
+                    className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white"
+                    onClick={() => {
+                      setHotel({ ...hotel, precio: habitacion.precio }); // Update hotel state
+                      setOpenModal(null); // Close the modal
+                    }}
+                  >
                     {habitacion.precio}€
                   </button>
-                </Link>
+                ) : (
+                  <Link to={"/datos"} state={reserva}>
+                    <button className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
+                      {habitacion.precio}€
+                    </button>
+                  </Link>
+                )}
               </td>
             </tr>
           ))}
@@ -128,5 +145,4 @@ function Listado({ reserva, habitaciones }) {
     </div>
   );
 }
-
 export default Listado;
