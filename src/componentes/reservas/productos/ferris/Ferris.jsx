@@ -1,13 +1,23 @@
 import { useState } from "react";
 import { FaShip } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
-function Ferris({ ferris, ida, setIda, vuelta, setVuelta, ferry, setFerry }) {
+function Ferris({
+  ferris,
+  ida,
+  setIda,
+  vuelta,
+  setVuelta,
+  ferry,
+  setFerry,
+  seleccion,
+}) {
   const [openFerrySets, setOpenFerrySets] = useState([]);
   function calculateTotalPrice() {
     const outboundPrice = ida ? ida.precio : 0;
     const returnPrice = vuelta ? vuelta.precio : 0;
     return outboundPrice + returnPrice;
   }
+  console.log(seleccion);
   const toggleDropdown = (id) => {
     setOpenFerrySets((prev) =>
       prev.includes(id) ? prev.filter((setId) => setId !== id) : [...prev, id]
@@ -264,13 +274,15 @@ function Ferris({ ferris, ida, setIda, vuelta, setVuelta, ferry, setFerry }) {
                   ))}
                 </div>
               )}
-              <div className="flex justify-end mt-2 p-3">
-                {ida?.ferryId === ferrySet.id && (
-                  <button className="font-semibold bg-secondary text-white p-2 rounded-md">
-                    Reservar por {calculateTotalPrice()}€
-                  </button>
-                )}
-              </div>
+              {seleccion !== true && (
+                <div className="flex justify-end mt-2 p-3">
+                  {ida?.ferryId === ferrySet.id && (
+                    <button className="font-semibold bg-secondary text-white p-2 rounded-md">
+                      Reservar por {calculateTotalPrice()}€
+                    </button>
+                  )}
+                </div>
+              )}
             </div>
           </div>
         );

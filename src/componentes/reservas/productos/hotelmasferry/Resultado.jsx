@@ -1,19 +1,26 @@
 import { useState } from "react";
 import Aside from "../hotel/filtros/Aside";
-import Resultado from "../hotel/Hoteles";
+import Resultado from "../hotel/HotelMas";
 import MasFerris from "./Ferris";
-import Ferrys from "./FerrySeleccionado";
 import Buscador from "./Buscador";
 import { FaHotel } from "react-icons/fa";
 import { FaShip } from "react-icons/fa";
 import ferris from "./Ferris.json";
 import hoteles from "./Hoteles.json";
+import { BsFillBasket2Fill } from "react-icons/bs";
+import Cesta from "./Cesta";
 function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
+  const [selectedHotel, setHotel] = useState();
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [ferry, setFerry] = useState({});
-  console.log(ferry)
+  const reserva = {
+    pax: 2,
+    pax_ninios: 1,
+    habitaciones: 2,
+    noches: 7,
+  };
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
@@ -54,6 +61,16 @@ function Productos() {
           >
             <FaShip className="mr-1" /> Cambiar Ferry
           </button>
+          <button
+            className={`px-4 py-2 border-b-2 flex items-center ${
+              activeTab === "Cesta"
+                ? "border-secondary text-secondary font-bold "
+                : " text-slate-700 dark:text-slate-200 border-none"
+            }`}
+            onClick={() => setActiveTab("Cesta")}
+          >
+            <BsFillBasket2Fill className="mr-1" /> Cesta
+          </button>
         </div>
         <article className="grid grid-cols-9 lg:gap-8 xs:gap-28 container">
           {activeTab === "Resultados" && (
@@ -62,13 +79,17 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                <Ferrys ferry={ferry} />
-                <Resultado hoteles={hoteles} />
+                <Resultado
+                  hoteles={hoteles}
+                  selectedHotel={selectedHotel}
+                  setHotel={setHotel}
+                />
               </section>
             </>
           )}
           {activeTab === "Vuelos" && (
             <MasFerris
+              seleccion={true}
               ferris={ferris}
               ferry={ferry}
               setFerry={setFerry}
@@ -76,6 +97,14 @@ function Productos() {
               setIda={setIda}
               vuelta={vuelta}
               setVuelta={setVuelta}
+            />
+          )}
+          {activeTab === "Cesta" && (
+            <Cesta
+              ferry={ferry}
+              hotel={selectedHotel}
+              reserva={reserva}
+              setHotel={setHotel}
             />
           )}
         </article>

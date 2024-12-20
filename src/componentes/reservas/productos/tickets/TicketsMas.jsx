@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import { Modal } from "flowbite-react";
+
 function Resultado({ tickets, actividades, setActividades }) {
   const [activeActividad, setActiveActividad] = useState(null);
   const [fechaSeleccionada, setFechaSeleccionada] = useState("");
@@ -8,7 +9,7 @@ function Resultado({ tickets, actividades, setActividades }) {
     adulto: 0,
     niño: 0,
   });
-  const [isSelected, setIsSelected] = useState(false);
+
   useEffect(() => {
     if (activeActividad) {
       const actividad = actividades.find(
@@ -30,10 +31,10 @@ function Resultado({ tickets, actividades, setActividades }) {
           adulto: 0,
           niño: 0,
         });
-        setIsSelected(false);
       }
     }
   }, [activeActividad, actividades]);
+
   const calculateTotalPrice = () => {
     if (activeActividad) {
       const adultoPrice = activeActividad.tiposEntradas.adulto.precio;
@@ -45,6 +46,7 @@ function Resultado({ tickets, actividades, setActividades }) {
     }
     return 0;
   };
+
   const handleSelectActividad = (actividad) => {
     const totalTickets =
       entradasSeleccionadas.adulto + entradasSeleccionadas.niño;
@@ -58,14 +60,21 @@ function Resultado({ tickets, actividades, setActividades }) {
       alert("Por favor selecciona una fecha y una hora.");
       return;
     }
+
     const totalPrice = calculateTotalPrice();
+
     const actividadConDetalles = {
       ...actividad,
       fechaSeleccionada,
       horaSeleccionada,
       entradasSeleccionadas,
       precioTotal: totalPrice,
+      paxReserva: {
+        adultos: entradasSeleccionadas.adulto,
+        ninios: entradasSeleccionadas.niño,
+      },
     };
+
     setActividades((prevActividades) => {
       const isAlreadySelected = prevActividades.some(
         (item) => item.titulo === actividad.titulo
@@ -78,15 +87,21 @@ function Resultado({ tickets, actividades, setActividades }) {
         return [...prevActividades, actividadConDetalles];
       }
     });
-    setIsSelected(true);
+
     setActiveActividad(null);
   };
+  console.log(actividades);
   const handleTicketChange = (type, value) => {
     setEntradasSeleccionadas((prev) => ({
       ...prev,
       [type]: Number(value),
     }));
   };
+
+  const isSelected = activeActividad
+    ? actividades.some((item) => item.titulo === activeActividad.titulo)
+    : false;
+
   return (
     <section className="pb-12 md:mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {tickets.map((actividad, index) => {
@@ -145,13 +160,11 @@ function Resultado({ tickets, actividades, setActividades }) {
             <div className="space-y-6">
               <p>{activeActividad.descripcion_corta}</p>
 
-              {isSelected && (
+              {isSelected ? (
                 <div>
                   {fechaSeleccionada} - {horaSeleccionada}
                 </div>
-              )}
-
-              {!isSelected && (
+              ) : (
                 <>
                   <label htmlFor="fecha" className="block font-semibold">
                     Fecha:
@@ -173,33 +186,26 @@ function Resultado({ tickets, actividades, setActividades }) {
                   </select>
                 </>
               )}
-              {fechaSeleccionada && (
+              {fechaSeleccionada && !isSelected && (
                 <>
-                  {!isSelected && (
-                    <>
-                      <label
-                        htmlFor="hora"
-                        className="block font-semibold mt-4"
-                      >
-                        Hora:
-                      </label>
-                      <select
-                        id="hora"
-                        className="w-full border p-2 rounded-lg"
-                        value={horaSeleccionada}
-                        onChange={(e) => setHoraSeleccionada(e.target.value)}
-                      >
-                        <option value="">Selecciona una hora</option>
-                        {activeActividad.fechasDisponibles[
-                          fechaSeleccionada
-                        ].map((hora) => (
-                          <option key={hora} value={hora}>
-                            {hora}
-                          </option>
-                        ))}
-                      </select>
-                    </>
-                  )}
+                  <label htmlFor="hora" className="block font-semibold mt-4">
+                    Hora:
+                  </label>
+                  <select
+                    id="hora"
+                    className="w-full border p-2 rounded-lg"
+                    value={horaSeleccionada}
+                    onChange={(e) => setHoraSeleccionada(e.target.value)}
+                  >
+                    <option value="">Selecciona una hora</option>
+                    {activeActividad.fechasDisponibles[fechaSeleccionada].map(
+                      (hora) => (
+                        <option key={hora} value={hora}>
+                          {hora}
+                        </option>
+                      )
+                    )}
+                  </select>
                 </>
               )}
               {fechaSeleccionada && horaSeleccionada && (
@@ -251,7 +257,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                       </div>
                       <div>
                         <label htmlFor="niño" className="block text-sm">
-                          Niños:({activeActividad.tiposEntradas.niño.precio}€)
+                          Niños ({activeActividad.tiposEntradas.niño.precio}€)
                         </label>
                         <select
                           id="niño"
@@ -279,8 +285,6 @@ function Resultado({ tickets, actividades, setActividades }) {
                   )}
                 </div>
               )}
-
-              {/* Display the total price */}
               {fechaSeleccionada && horaSeleccionada && (
                 <div className="mt-6 font-semibold text-lg">
                   <p>Total: {calculateTotalPrice()}€</p>
@@ -299,11 +303,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               className="p-3 bg-secondary text-white font-semibold rounded-lg shadow"
               onClick={() => handleSelectActividad(activeActividad)}
             >
-              {actividades.some(
-                (item) => item.titulo === activeActividad.titulo
-              )
-                ? "Eliminar actividad"
-                : "Seleccionar"}
+              {isSelected ? "Eliminar actividad" : "Seleccionar"}
             </button>
           </Modal.Footer>
         </Modal>
