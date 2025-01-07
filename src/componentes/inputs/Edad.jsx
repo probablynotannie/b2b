@@ -1,7 +1,7 @@
 import { MdPerson } from "react-icons/md";
 
 function Edad({ edad, setEdad }) {
-  const ages = Array.from({ length: 56 }, (_, i) => i + 25);
+  const ages = Array.from({ length: 100 }, (_, i) => i + 1);
 
   const handleChange = (event) => {
     setEdad(event.target.value);

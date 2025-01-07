@@ -21,14 +21,7 @@ function Producto() {
     basePrice += totalExtras;
     setPrecio(basePrice);
   }, [contratar, totalExtras, producto.precio, producto.dias, reembolso]);
-
-  const reserva = {
-    type: "hotel",
-    nombre: producto.nombre,
-    fechaIda: producto.recogida.fecha,
-    fechaVuelta: producto.devolucion.fecha,
-    precio: precio,
-  };
+  const [selectedExtras, setSelectedExtras] = useState([]);
   return (
     <div className="grid lg:grid-cols-3 gap-y-10 lg:gap-16 container my-10 min-h-[70vh] overflow-visible mt-10">
       <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:border-slate-700 border-slate-100 col-span-2 p-3">
@@ -49,12 +42,14 @@ function Producto() {
           <Precio
             coche={producto}
             extras={totalExtras}
+            selectedExtras={selectedExtras}
+            setSelectedExtras={setSelectedExtras}
             setExtras={setTotalExtras}
           />
         </section>
         <Link
-          to={"/datos"}
-          state={reserva}
+          to={"/datosCoche"}
+          state={{ producto, selectedExtras }}
           className="p-3 shadow-lg hover:shadow-xl dark:bg-secondaryDark rounded-lg bg-secondary text-white  font-bold"
         >
           <button>Reservar {precio}€</button>

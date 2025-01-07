@@ -51,10 +51,15 @@ import Tren from "../reservas/productos/trenes/Tren";
 import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
 import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
+/* CESTA */
+import ReservaCoche from "../reservas/productos/coches/reserva/ReservaFinal";
+
 /* RESERVA */
 import Cesta from "../reservas/cestaFinal/CestaCompleta";
 import ReservaFinalizada from "../reservaFinalizada/ReservaFinalizada";
 import Datos from "../reservas/datos/Contacto";
+import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
+import DatosCoche from "../reservas/productos/coches/reserva/Datos";
 
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -109,7 +114,6 @@ function Header() {
         />
         {/* PRODUCTO  */}
         <Route path="/hotel" element={<Hotel />} />
-        <Route path="/vuelo" element={<Vuelo />} />
         <Route path="/hotelMasFerry" element={<HotelMasFerry />} />
         <Route path="/tren" element={<Tren />} />
         <Route path="/seguro" element={<Seguro />} />
@@ -118,12 +122,18 @@ function Header() {
         <Route path="/crucero" element={<Crucero />} />
         <Route path="/coche" element={<Coche />} />
         <Route path="/actividad" element={<Actividad />} />
+        {/* Reserva */}
+        <Route path="/reservaCoche" element={<ReservaCoche />} />
+        <Route path="/reservavuelo" element={<Vuelo />} />
+
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />
         <Route path="/clientes" element={<Clientes />} />
         <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
         <Route path="/presupuestos" element={<Presupuestos />} />
         <Route path="/datos" element={<Datos />} />
+        <Route path="/datosVuelo" element={<DatosVuelo />} />
+        <Route path="/datosCoche" element={<DatosCoche />} />
         <Route path="/condiciones_de_reserva" element={<Condiciones />} />
         <Route path="/completada" element={<ReservaFinalizada />} />
       </Routes>

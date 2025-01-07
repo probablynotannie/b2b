@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaGlobe } from "react-icons/fa";
 
 const nacionalidades = [
@@ -14,12 +14,15 @@ const nacionalidades = [
   "Australiano",
   "Austriaco",
   "Azerbaiyano",
-  // Agrega más nacionalidades según sea necesario
 ];
 
-const InputNacionalidad = () => {
-  const [valorInput, setValorInput] = useState("");
+const InputNacionalidad = ({ value, setValue }) => {
+  const [valorInput, setValorInput] = useState(value);
   const [sugerencias, setSugerencias] = useState([]);
+
+  useEffect(() => {
+    setValorInput(value);
+  }, [value]);
 
   const manejarCambio = (e) => {
     const valor = e.target.value;
@@ -38,10 +41,11 @@ const InputNacionalidad = () => {
   const manejarClickSugerencia = (sugerencia) => {
     setValorInput(sugerencia);
     setSugerencias([]);
+    setValue(sugerencia);
   };
 
   return (
-    <div className="relative text-black ">
+    <div className="relative text-black">
       <input
         type="text"
         value={valorInput}
@@ -62,7 +66,7 @@ const InputNacionalidad = () => {
           ))}
         </ul>
       )}
-      <div className="absolute dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 top-0 pointer-events-none  bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="absolute dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
         <FaGlobe />
       </div>
     </div>

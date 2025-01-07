@@ -45,7 +45,7 @@ function Vuelos({ ida, vuelta, cesta }) {
             Vuelo seleccionado
             <span>({ida.flight.precio + vuelta.flight.precio}€ )</span>
           </h3>
-          <Link to={"/vuelo"} state={{ ida, vuelta }}>
+          <Link to={"/datosVuelo"} state={{ ida, vuelta }}>
             <button className="bg-slate-500 font-bold text-white px-2 p-1 rounded-lg">
               Reservar
             </button>

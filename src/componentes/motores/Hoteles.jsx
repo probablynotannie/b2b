@@ -8,6 +8,7 @@ import { useState } from "react";
 function Hoteles() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [nacionalidad, setNacionalidad] = useState();
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -45,14 +46,18 @@ function Hoteles() {
                   />
                 </div>
                 <div>
-                  <Input_DateRange 
-                   startDate={startDate}
-                   endDate={endDate}
-                   setStartDate={setStartDate}
-                   setEndDate={setEndDate} />
+                  <Input_DateRange
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                  />
                 </div>
                 <div>
-                  <Input_Nacionalidad />
+                  <Input_Nacionalidad
+                    value={nacionalidad}
+                    setValue={setNacionalidad}
+                  />
                 </div>
                 <div>
                   <Input_Personas2 />
