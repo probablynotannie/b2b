@@ -37,6 +37,7 @@ import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
+import Vuelo from "../reservas/productos/vuelos/Vuelo";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
 import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/Hotel";
 import Destino from "../reservas/productos/destinos/destino/Destino";
@@ -108,6 +109,7 @@ function Header() {
         />
         {/* PRODUCTO  */}
         <Route path="/hotel" element={<Hotel />} />
+        <Route path="/vuelo" element={<Vuelo />} />
         <Route path="/hotelMasFerry" element={<HotelMasFerry />} />
         <Route path="/tren" element={<Tren />} />
         <Route path="/seguro" element={<Seguro />} />

@@ -42,7 +42,7 @@ function Vuelomashotel() {
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">
-              <Link to="/listadoHotelMasVuelo">
+              <Link to="/listadoVuelos">
                 <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
                   Buscar
                 </button>

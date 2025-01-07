@@ -1,5 +1,6 @@
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
-function Vuelos({ ida, vuelta }) {
+import { Link } from "react-router-dom";
+function Vuelos({ ida, vuelta, cesta }) {
   if (!ida || !vuelta) {
     return (
       <div className="flex justify-center items-center h-[10vh]">
@@ -38,15 +39,19 @@ function Vuelos({ ida, vuelta }) {
   };
   return (
     <div className="mb-5">
-      <div className="flex justify-between">
-        <h3 className="text-secondary font-semibold text-lg mb-3">
-          Vuelo seleccionado
-          <span>({ida.flight.precio + vuelta.flight.precio}€ )</span>
-        </h3>
-        <button className="bg-slate-500 font-bold text-white px-2 p-1 rounded-lg">
-          Reservar
-        </button>
-      </div>
+      {cesta !== true && (
+        <div className="flex justify-between">
+          <h3 className="text-secondary font-semibold text-lg mb-3">
+            Vuelo seleccionado
+            <span>({ida.flight.precio + vuelta.flight.precio}€ )</span>
+          </h3>
+          <Link to={"/vuelo"} state={{ ida, vuelta }}>
+            <button className="bg-slate-500 font-bold text-white px-2 p-1 rounded-lg">
+              Reservar
+            </button>
+          </Link>
+        </div>
+      )}
       <div className="mt-10 shadow rounded-xl border-2 border-slate-100 dark:border-slate-700">
         <div className=" border-slate-100  rounded-t-xl  dark:bg-slate-800">
           <div
@@ -80,16 +85,29 @@ function Vuelos({ ida, vuelta }) {
             </div>
             <div className="text-sm flex flex-row justify-between items-center ">
               <div className="text-center flex flex-col items-center w-full ">
-                {ida.flight.escalas > 0 ? (
-                  <span className="font-semibold bg-orange-400 px-2 p-1 rounded-full text-white dark:text-green-100">
-                    {ida.flight.escalas} Escala
-                  </span>
-                ) : (
-                  <span className="font-semibold bg-green-500 px-2 p-1 rounded-full text-white dark:text-green-100">
-                    {" "}
-                    Directo
-                  </span>
-                )}
+                <div className="text-sm text-end">
+                  {ida.flight.escalas > 0 ? (
+                    <div>
+                      <span className="dark:text-secondaryDark dark:font-semibold">
+                        {ida.flight.escalas > 1
+                          ? `${ida.flight.escalas} Escalas`
+                          : `${ida.flight.escalas} Escala`}
+                      </span>
+                      <div className="text-xs mt-1 text-slate-500 dark:text-slate-400">
+                        {ida.flight.escalaSitio.map((sitio, index) => (
+                          <div key={index}>
+                            <span>{ida.flight.escalaDuracion[index]}</span> -{" "}
+                            <span>{sitio}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <span className="font-bold text-green-700 dark:text-green-400">
+                      Directo
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
@@ -124,16 +142,29 @@ function Vuelos({ ida, vuelta }) {
             </div>
             <div className="text-sm flex flex-row justify-between items-center ">
               <div className="text-center flex flex-col items-center w-full ">
-                {vuelta.flight.escalas > 0 ? (
-                  <span className="font-semibold bg-orange-400 px-2 p-1 rounded-full text-white dark:text-green-100">
-                    {vuelta.flight.escalas} Escala
-                  </span>
-                ) : (
-                  <span className="font-semibold bg-green-500 px-2 p-1 rounded-full text-white dark:text-green-100">
-                    {" "}
-                    Directo
-                  </span>
-                )}
+                <div className="text-sm text-end">
+                  {vuelta.flight.escalas > 0 ? (
+                    <div>
+                      <span className="dark:text-secondaryDark dark:font-semibold">
+                        {vuelta.flight.escalas > 1
+                          ? `${vuelta.flight.escalas} Escalas`
+                          : `${vuelta.flight.escalas} Escala`}
+                      </span>
+                      <div className="text-xs mt-1 text-slate-500 dark:text-slate-400">
+                        {vuelta.flight.escalaSitio.map((sitio, index) => (
+                          <div key={index}>
+                            <span>{vuelta.flight.escalaDuracion[index]}</span> -{" "}
+                            <span>{sitio}</span>
+                          </div>
+                        ))}
+                      </div>
+                    </div>
+                  ) : (
+                    <span className="font-bold text-green-700 dark:text-green-400">
+                      Directo
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
           </div>
