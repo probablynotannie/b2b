@@ -58,17 +58,9 @@ function Producto() {
       const newEndDate = calculateEndDate(selectedDate, producto.dias);
       setEndDate(newEndDate);
     } else {
-      setEndDate(""); // Reset endDate if no date is selected
+      setEndDate("");
     }
   }, [selectedDate, producto.dias]);
-
-  const reserva = {
-    type: "crucero",
-    nombre: producto.titulo,
-    fechaIda: selectedDate,
-    fechaVuelta: endDate || "Fecha no seleccionada", // Fallback for no selected date
-    precio: precio,
-  };
 
   const selectedCabin = producto.precios.find(
     (row) => row.id === selectedCabinId
@@ -144,7 +136,17 @@ function Producto() {
               selectedCabinId &&
               pasajeros.length !== 0 && (
                 <div className="mb-4 text-center mt-10 bg-slate-50 dark:bg-transparent dark:border-0 border-2 border-slate-100 shadow-lg rounded-lg p-5">
-                  <Link to="/datos" state={reserva}>
+                  <Link
+                    to="/datoscrucero"
+                    state={{
+                      producto,
+                      cabinPhotos,
+                      pasajeros,
+                      selectedDate,
+                      endDate,
+                      selectedPrice,
+                    }}
+                  >
                     <button className="bg-secondary p-3 px-8 rounded-xl shadow-md text-white font-bold">
                       Total: {selectedPrice * pasajeros.length}€
                     </button>

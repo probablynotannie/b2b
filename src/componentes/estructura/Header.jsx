@@ -60,6 +60,7 @@ import ReservaFinalizada from "../reservaFinalizada/ReservaFinalizada";
 import Datos from "../reservas/datos/Contacto";
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
 import DatosCoche from "../reservas/productos/coches/reserva/Datos";
+import DatosCrucero from "../reservas/productos/cruceros/reserva/Datos";
 
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -134,6 +135,7 @@ function Header() {
         <Route path="/datos" element={<Datos />} />
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
+        <Route path="/datosCrucero" element={<DatosCrucero />} />
         <Route path="/condiciones_de_reserva" element={<Condiciones />} />
         <Route path="/completada" element={<ReservaFinalizada />} />
       </Routes>
