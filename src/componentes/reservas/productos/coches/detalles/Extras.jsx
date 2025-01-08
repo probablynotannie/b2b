@@ -22,15 +22,14 @@ function Precio({
         0
       );
       setExtras(total);
-      const updatedSelectedExtras = updatedQuantities[extraId]
-        ? [
-            ...selectedExtras.filter((extra) => extra.id !== extraId),
-            { id: extraId, quantity },
-          ]
-        : selectedExtras.filter((extra) => extra.id !== extraId);
-
+      const updatedSelectedExtras = coche.extras
+        .filter((extra) => updatedQuantities[extra.id] > 0)
+        .map((extra) => ({
+          id: extra.id,
+          quantity: updatedQuantities[extra.id],
+          price: extra.precio * updatedQuantities[extra.id],
+        }));
       setSelectedExtras(updatedSelectedExtras);
-
       return updatedQuantities;
     });
   };

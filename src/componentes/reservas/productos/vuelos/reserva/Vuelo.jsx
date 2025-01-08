@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-import VueloSeleccionados from "./VueloSeleccionados";
-import Pasajeros from "./reserva/Pasajeros";
+import VueloSeleccionados from "../VueloSeleccionados";
+import Pasajeros from "./Pasajeros";
 import { FaUser } from "react-icons/fa";
 import { MdEmail, MdPhoneAndroid } from "react-icons/md";
 
@@ -16,17 +16,24 @@ function Vuelo() {
       </p>
     );
   }
-  console.log(pasajeros);
   return (
-    <main className="grid grid-cols-3 min-h-[55vh] items-start container gap-12">
-      <section className="col-span-2 shadow-lg rounded-lg min-h-[15vh] border border-slate-100 dark:border-slate-700 dark:bg-slate-900 p-5">
+    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
+      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
         <h1 className="font-bold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-800 pb-2">
           Vuelo de ida y vuelta
         </h1>
         <VueloSeleccionados ida={ida} vuelta={vuelta} cesta={true} />
         <Pasajeros pasajeros={pasajeros} />
       </section>
-      <article className="col-span-1 shadow-lg rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+      <article className="col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+          Reservando vuelo
+        </h2>
+        <img
+          src="/banner_avion.jpg"
+          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
+          alt="Reserva vuelo"
+        />
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Datos de contacto
         </h2>
@@ -54,5 +61,4 @@ function Vuelo() {
     </main>
   );
 }
-
 export default Vuelo;

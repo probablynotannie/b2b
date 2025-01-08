@@ -7,7 +7,8 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 function Vuelo() {
   const location = useLocation();
-  const { producto, selectedExtras } = location.state || {};
+  const { producto, selectedExtras, conductor, reembolso, precio } =
+    location.state || {};
   function formatFecha(fecha) {
     const meses = [
       "enero",
@@ -46,6 +47,7 @@ function Vuelo() {
             {extra.id === "elevador" && "Elevador"}: {extra.quantity}x
           </span>
         ))}
+      {reembolso && <span> + Reembolso franquicia total </span>}
     </div>
   );
   const handleSubmit = (event) => {
@@ -73,14 +75,27 @@ function Vuelo() {
           <Reserva
             img={img}
             position={"center"}
-            tipo={"Vuelo"}
+            tipo={"Coche"}
             itinerario={itinerario}
             fechaIda={fechaIda}
             fechaVuelta={fechaVuelta}
             extras={extras}
           />
           <div className="flex justify-end">
-            <Link to={"/reservaCoche"} state={{ producto, selectedExtras }}>
+            <Link
+              to={"/reservaCoche"}
+              state={{
+                producto,
+                selectedExtras,
+                nombre,
+                apellido,
+                numero,
+                email,
+                reembolso,
+                conductor,
+                precio,
+              }}
+            >
               <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
                 Reservar
               </button>
@@ -91,5 +106,4 @@ function Vuelo() {
     </main>
   );
 }
-
 export default Vuelo;

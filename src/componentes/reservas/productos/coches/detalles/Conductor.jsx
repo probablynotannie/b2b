@@ -1,7 +1,16 @@
+import React, { useState } from "react";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPlane } from "react-icons/fa6";
-import { Link } from "react-router-dom";
-function Conductor({ coche }) {
+
+function Conductor({ coche, conductor,setConductor }) {
+
+  const handleChange = (e) => {
+    const { id, value } = e.target;
+    setConductor((prevData) => ({
+      ...prevData,
+      [id]: value,
+    }));
+  };
   return (
     <div>
       <h2 className="font-semibold text-lg dark:text-white">
@@ -23,13 +32,15 @@ function Conductor({ coche }) {
           <div className="grid grid-cols-2 gap-2 border-y-2 border-slate-100 dark:border-slate-700 p-3 mb-2">
             <div className="relative">
               <select
-                id="tituloConductor"
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+                id="titulo"
+                value={conductor.titulo}
+                onChange={handleChange}
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               >
-                <option selected>Titulo</option>
-                <option value="US">Sr</option>
-                <option value="CA">Sra</option>
-                <option value="N/A">Sin especificar</option>
+                <option value="">Titulo</option>
+                <option value="Sr">Sr</option>
+                <option value="Sra">Sra</option>
+                <option value="Sin especificar">Sin especificar</option>
               </select>
               <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                 <IoPersonSharp />
@@ -37,9 +48,11 @@ function Conductor({ coche }) {
             </div>
             <div className="relative">
               <input
-                id="num_vuelo"
+                id="numVuelo"
                 placeholder="N vuelo"
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+                value={conductor.numVuelo}
+                onChange={handleChange}
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               />
               <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                 <FaPlane />
@@ -47,9 +60,11 @@ function Conductor({ coche }) {
             </div>
             <div className="relative">
               <input
-                id="nombre_conductor"
+                id="nombre"
                 placeholder="Nombre"
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+                value={conductor.nombre}
+                onChange={handleChange}
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               />
               <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
                 No
@@ -57,9 +72,11 @@ function Conductor({ coche }) {
             </div>
             <div className="relative">
               <input
-                id="apellido_conductor"
+                id="apellido"
                 placeholder="Apellido/s"
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full "
+                value={conductor.apellido}
+                onChange={handleChange}
+                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               />
               <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
                 Ap
@@ -70,7 +87,6 @@ function Conductor({ coche }) {
             <input
               id="default-checkbox"
               type="checkbox"
-              value=""
               className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
             />
             <label

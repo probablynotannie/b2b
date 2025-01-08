@@ -10,7 +10,6 @@ function Vuelo() {
   const location = useLocation();
   const navigate = useNavigate();
   const { ida, vuelta } = location.state || {};
-
   const [email, setEmail] = useState("");
   const [nombre, setNombre] = useState("");
   const [apellido, setApellido] = useState("");
@@ -23,7 +22,6 @@ function Vuelo() {
       nacionalidad: "",
     }))
   );
-
   function formatFecha(fechaISO) {
     const meses = [
       "enero",
@@ -43,14 +41,12 @@ function Vuelo() {
     const mes = meses[parseInt(month, 10) - 1];
     return `${parseInt(day, 10)} de ${mes} de ${year}`;
   }
-
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
   const fechaIda = formatFecha(ida.flight.outboundDate);
   const fechaVuelta = vuelta?.flight?.returnDate
     ? formatFecha(vuelta.flight.returnDate)
     : null;
-
   const handlePassengerChange = (index, field, value) => {
     setPasajeros((prevpasajeros) => {
       const updatedpasajeros = [...prevpasajeros];
@@ -58,7 +54,6 @@ function Vuelo() {
       return updatedpasajeros;
     });
   };
-
   const renderPassengerFields = () => {
     return pasajeros.map((passenger, index) => (
       <div
@@ -89,7 +84,6 @@ function Vuelo() {
       </div>
     ));
   };
-
   const handleSubmit = (event) => {
     event.preventDefault();
     console.log({
@@ -99,17 +93,17 @@ function Vuelo() {
       numero,
       pasajeros,
     });
-
     navigate("/reservavuelo", {
       state: { ida, vuelta, email, nombre, apellido, numero, pasajeros },
     });
   };
-
   return (
     <main className="my-10 flex justify-center container min-h-[68vh]">
       <article className="p-5 w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
         <form onSubmit={handleSubmit}>
-          <h1 className="font-semibold text-xl dark:text-white">Datos Contacto</h1>
+          <h1 className="font-semibold text-xl dark:text-white">
+            Datos Contacto
+          </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
             <Input_Texto value={nombre} setValue={setNombre} tipo="Nombre" />
             <Input_Texto
@@ -120,7 +114,9 @@ function Vuelo() {
             <Input_Numero value={numero} setValue={setNumero} />
             <Input_Email email={email} setEmail={setEmail} />
           </div>
-          <h2 className="font-semibold mt-5 dark:text-white">Datos Pasajeros</h2>
+          <h2 className="font-semibold mt-5 dark:text-white">
+            Datos Pasajeros
+          </h2>
           {renderPassengerFields()}
           <Reserva
             img={img}

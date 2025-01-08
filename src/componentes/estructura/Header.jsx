@@ -37,7 +37,7 @@ import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
-import Vuelo from "../reservas/productos/vuelos/Vuelo";
+import Vuelo from "../reservas/productos/vuelos/reserva/Vuelo";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
 import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/Hotel";
 import Destino from "../reservas/productos/destinos/destino/Destino";
