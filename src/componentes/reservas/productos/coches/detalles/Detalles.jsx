@@ -14,29 +14,10 @@ import Politica from "./politica/Politica";
 import Gasolina from "./politica/Gasolina";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { useState } from "react";
+import FormatearFecha from "../../../estructura/FormatearFecha";
 function Detalles({ coche }) {
   const [activeTab, setActiveTab] = useState("franquicia");
 
-  function formatFecha(fecha) {
-    const meses = [
-      "enero",
-      "febrero",
-      "marzo",
-      "abril",
-      "mayo",
-      "junio",
-      "julio",
-      "agosto",
-      "septiembre",
-      "octubre",
-      "noviembre",
-      "diciembre",
-    ];
-
-    const [dia, mes, año] = fecha.split("/");
-
-    return `${dia} de ${meses[parseInt(mes, 10) - 1]} de ${año}`;
-  }
   return (
     <div>
       <div className="flex justify-between items-center border-b-2 pb-5 border-slate-100 dark:border-slate-700">
@@ -86,7 +67,7 @@ function Detalles({ coche }) {
               <FaCalendarAlt />
               {" - "}
               <span className="text-sm">
-                {formatFecha(coche.recogida.fecha)}
+                {FormatearFecha(coche.recogida.fecha)}
               </span>
             </p>
             <p className="flex items-center gap-1">
@@ -114,7 +95,7 @@ function Detalles({ coche }) {
               <FaCalendarAlt />
               {" - "}
               <span className="text-sm">
-                {formatFecha(coche.devolucion.fecha)}
+                {FormatearFecha(coche.devolucion.fecha)}
               </span>
             </p>
             <p className="flex items-center gap-1">
@@ -133,7 +114,7 @@ function Detalles({ coche }) {
                 onClick={() => setActiveTab("franquicia")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "franquicia"
-                           ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "bg-secondary text-white dark:bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -158,7 +139,7 @@ function Detalles({ coche }) {
                 onClick={() => setActiveTab("gasolina")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "gasolina"
-                             ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "bg-secondary text-white dark:bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >

@@ -12,7 +12,6 @@ function Producto() {
   const reembolso = 90;
   const [precio, setPrecio] = useState(producto.precio * producto.dias);
   const [totalExtras, setTotalExtras] = useState(0);
-
   useEffect(() => {
     let basePrice = producto.precio * producto.dias;
     if (contratar) {

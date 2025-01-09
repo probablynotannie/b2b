@@ -4,6 +4,7 @@ import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
+import FormatearFecha from "../../../estructura/FormatearFecha";
 function Vuelo() {
   const location = useLocation();
   const {
@@ -14,25 +15,7 @@ function Vuelo() {
     endDate,
     selectedPrice,
   } = location.state || {};
-  function formatFecha(fechaISO) {
-    const meses = [
-      "enero",
-      "febrero",
-      "marzo",
-      "abril",
-      "mayo",
-      "junio",
-      "julio",
-      "agosto",
-      "septiembre",
-      "octubre",
-      "noviembre",
-      "diciembre",
-    ];
-    const [day, month, year] = fechaISO.split("/");
-    const mes = meses[parseInt(month, 10) - 1];
-    return `${parseInt(day, 10)} de ${mes} de ${year}`;
-  }
+
   const navigate = useNavigate();
   const img = "/banner_cruise.jfif";
   const handleSubmit = (event) => {
@@ -92,8 +75,8 @@ function Vuelo() {
           position={"center"}
           tipo={"Crucero"}
           itinerario={producto.recorrido}
-          fechaIda={formatFecha(selectedDate)}
-          fechaVuelta={formatFecha(endDate)}
+          fechaIda={FormatearFecha(selectedDate)}
+          fechaVuelta={FormatearFecha(endDate)}
           extras={infoPasajeros}
         />
         <div className="flex justify-end">

@@ -12,13 +12,6 @@ function Producto() {
   const location = useLocation();
   const producto = location.state;
 
-  const reserva = {
-    type: "hotel",
-    nombre: producto.nombre,
-    fechaIda: producto.fecha,
-    fechaVuelta: producto.fechaSalida,
-    precio: producto.precio,
-  };
   return (
     <main className="flex justify-center flex-col my-10  px-5 md:px-0">
       <div className="container">
@@ -42,16 +35,15 @@ function Producto() {
             <div className="flex justify-between pb-2 border-b-2 border-slate-100  dark:border-slate-700">
               <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
                 <FaPerson className="text-xl text-secondary" />
-                <span className="text-white">{producto.pax}</span>
                 <span className="text-white">
-                  adulto{producto.pax !== 1 && "s"}
+                  {producto.pax}x adulto{producto.pax !== 1 && "s"}
                 </span>
               </div>
               {producto.pax_ninios > 0 && (
                 <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
                   <FaChild className="text-lg text-secondary" />
                   <span className="text-white">
-                    {producto.pax_ninios} niño{producto.pax_ninios > 1 && "s"}
+                    {producto.pax_ninios}x niño{producto.pax_ninios > 1 && "s"}
                   </span>
                 </div>
               )}
@@ -97,10 +89,13 @@ function Producto() {
             />
           </section>
           <section className="col-span-5">
-            <Listado2 reserva={reserva} habitaciones={producto.habitaciones} />
+            <Listado2
+              producto={producto}
+              habitaciones={producto.habitaciones}
+            />
           </section>
           <section className="col-span-5">
-            <Listado reserva={reserva} habitaciones={producto.habitaciones} />
+            <Listado producto={producto} habitaciones={producto.habitaciones} />
           </section>
           <section className="col-span-5">
             <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>

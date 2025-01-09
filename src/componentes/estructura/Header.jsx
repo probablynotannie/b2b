@@ -44,7 +44,8 @@ import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
 import Seguro from "../reservas/productos/seguro/Resultado";
-import Actividad from "../reservas/productos/tickets/Ticket";
+import Ticket from "../reservas/productos/tickets/Ticket";
+import Entrada from "../reservas/productos/entradas/Entrada";
 import Tren from "../reservas/productos/trenes/Tren";
 
 /*Componentes */
@@ -53,15 +54,23 @@ import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* CESTA */
 import ReservaCoche from "../reservas/productos/coches/reserva/ReservaFinal";
+import ReservaEntrada from "../reservas/productos/entradas/reserva/ReservaFinal";
+import ReservaTickets from "../reservas/productos/tickets/reserva/ReservaFinal";
+import ReservaHotel from "../reservas/productos/hotel/reserva/ReservaFinal";
 
 /* RESERVA */
-import Cesta from "../reservas/cestaFinal/CestaCompleta";
-import ReservaFinalizada from "../reservaFinalizada/ReservaFinalizada";
-import Datos from "../reservas/datos/Contacto";
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
 import DatosCoche from "../reservas/productos/coches/reserva/Datos";
 import DatosCrucero from "../reservas/productos/cruceros/reserva/Datos";
+import DatosEntrada from "../reservas/productos/entradas/reserva/Datos";
+import DatosTickets from "../reservas/productos/tickets/reserva/Datos";
+import DatosHotel from "../reservas/productos/hotel/reserva/Datos";
 
+import Cesta from "../reservas/cestaFinal/CestaCompleta";
+import ReservaFinalizada from "../reservaFinalizada/ReservaFinalizada";
+import Datos from "../reservas/datos/Contacto";
+
+/* MANTINE */
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
 
@@ -122,10 +131,22 @@ function Header() {
         <Route path="/destino" element={<Destino />} />
         <Route path="/crucero" element={<Crucero />} />
         <Route path="/coche" element={<Coche />} />
-        <Route path="/actividad" element={<Actividad />} />
+        <Route path="/ticket" element={<Ticket />} />
+        <Route path="/entrada" element={<Entrada />} />
         {/* Reserva */}
         <Route path="/reservaCoche" element={<ReservaCoche />} />
         <Route path="/reservavuelo" element={<Vuelo />} />
+        <Route path="/reservaentrada" element={<ReservaEntrada />} />
+        <Route path="/reservatickets" element={<ReservaTickets />} />
+        <Route path="/reservahotel" element={<ReservaHotel />} />
+
+        {/*  */}
+        <Route path="/datosVuelo" element={<DatosVuelo />} />
+        <Route path="/datosCoche" element={<DatosCoche />} />
+        <Route path="/datosCrucero" element={<DatosCrucero />} />
+        <Route path="/datosEntrada" element={<DatosEntrada />} />
+        <Route path="/datostickets" element={<DatosTickets />} />
+        <Route path="/datoshotel" element={<DatosHotel />} />
 
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />
@@ -133,9 +154,6 @@ function Header() {
         <Route path="/envioPresupuestos" element={<EnvioPresupuestos />} />
         <Route path="/presupuestos" element={<Presupuestos />} />
         <Route path="/datos" element={<Datos />} />
-        <Route path="/datosVuelo" element={<DatosVuelo />} />
-        <Route path="/datosCoche" element={<DatosCoche />} />
-        <Route path="/datosCrucero" element={<DatosCrucero />} />
         <Route path="/condiciones_de_reserva" element={<Condiciones />} />
         <Route path="/completada" element={<ReservaFinalizada />} />
       </Routes>

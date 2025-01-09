@@ -7,7 +7,7 @@ import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Listado({
-  reserva,
+  producto,
   habitaciones,
   seleccion,
   hotel,
@@ -23,7 +23,7 @@ function Listado({
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
   };
-
+  console.log(producto);
   return (
     <div className="space-y-10">
       <TipoHabitacion minPrice={minPrice} maxPrice={maxPrice} />
@@ -124,14 +124,14 @@ function Listado({
                   <button
                     className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white"
                     onClick={() => {
-                      setHotel({ ...hotel, precio: habitacion.precio }); // Update hotel state
-                      setOpenModal(null); // Close the modal
+                      setHotel({ ...hotel, precio: habitacion.precio });
+                      setOpenModal(null);
                     }}
                   >
                     {habitacion.precio}€
                   </button>
                 ) : (
-                  <Link to={"/datos"} state={reserva}>
+                  <Link to={"/datoshotel"} state={{ producto, habitacion }}>
                     <button className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
                       {habitacion.precio}€
                     </button>

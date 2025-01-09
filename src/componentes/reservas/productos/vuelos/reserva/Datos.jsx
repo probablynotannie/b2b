@@ -5,7 +5,7 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useState } from "react";
-
+import FormatearFecha from "../../../estructura/FormatearFecha";
 function Vuelo() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -22,30 +22,12 @@ function Vuelo() {
       nacionalidad: "",
     }))
   );
-  function formatFecha(fechaISO) {
-    const meses = [
-      "enero",
-      "febrero",
-      "marzo",
-      "abril",
-      "mayo",
-      "junio",
-      "julio",
-      "agosto",
-      "septiembre",
-      "octubre",
-      "noviembre",
-      "diciembre",
-    ];
-    const [year, month, day] = fechaISO.split("-");
-    const mes = meses[parseInt(month, 10) - 1];
-    return `${parseInt(day, 10)} de ${mes} de ${year}`;
-  }
+
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
-  const fechaIda = formatFecha(ida.flight.outboundDate);
+  const fechaIda = FormatearFecha(ida.flight.outboundDate);
   const fechaVuelta = vuelta?.flight?.returnDate
-    ? formatFecha(vuelta.flight.returnDate)
+    ? FormatearFecha(vuelta.flight.returnDate)
     : null;
   const handlePassengerChange = (index, field, value) => {
     setPasajeros((prevpasajeros) => {

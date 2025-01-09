@@ -5,34 +5,18 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import FormatearFecha from "../../../estructura/FormatearFecha";
+
 function Vuelo() {
   const location = useLocation();
   const { producto, selectedExtras, conductor, reembolso, precio } =
     location.state || {};
-  function formatFecha(fecha) {
-    const meses = [
-      "enero",
-      "febrero",
-      "marzo",
-      "abril",
-      "mayo",
-      "junio",
-      "julio",
-      "agosto",
-      "septiembre",
-      "octubre",
-      "noviembre",
-      "diciembre",
-    ];
-    const [day, month, year] = fecha.split("/");
-    const mes = meses[parseInt(month, 10) - 1];
-    return `${parseInt(day, 10)} de ${mes} de ${year}`;
-  }
+
   const img = "/banner_coches.jpg";
   const itinerario =
     producto.recogida.lugar + " - " + producto.devolucion.lugar;
-  const fechaIda = formatFecha(producto.recogida.fecha);
-  const fechaVuelta = formatFecha(producto.devolucion.fecha);
+  const fechaIda = FormatearFecha(producto.recogida.fecha);
+  const fechaVuelta = FormatearFecha(producto.devolucion.fecha);
   const extras = (
     <div className="mt-4">
       {selectedExtras !== 0 &&

@@ -1,42 +1,286 @@
 [
   {
     "id": 1,
-    "titulo": "Entrada a Loro Parque (Colegios Y Asociaciones 20)",
-    "descripcion_corta": "LORO PARQUE es un zoológico ubicado en la isla de Tenerife, España. Se encuentra en la localidad de Puerto de la Cruz, en la costa norte de ...",
+    "titulo": "Palacio Real de Madrid - Visita Guiada",
+    "importante": "Todos los visitantes estan excluidas de esta excursion :)",
+    "descripcion_corta": "Descubre la historia y la belleza del Palacio Real con un guía experto.",
     "tipoPrecio": "Neto",
     "precio": 25.0,
-    "img": "/entradas/loros.jpg"
+    "img": "/banner_circuitos.jpg",
+    "incluido": ["Guía profesional", "Entrada rápida", "Auriculares"],
+    "excluidas": ["Transporte", "Propinas"],
+    "reserva": {
+      "fechas": {
+        "19-12-2025": {
+          "horarios": [
+            {
+              "hora": "10:00",
+              "guia": "Carlos López",
+              "lugar": "Puerta del Palacio Real"
+            },
+            {
+              "hora": "11:00",
+              "guia": "María González",
+              "lugar": "Puerta del Palacio Real"
+            },
+            {
+              "hora": "12:00",
+              "guia": "Carlos López",
+              "lugar": "Puerta del Palacio Real"
+            },
+            {
+              "hora": "13:00",
+              "guia": "María González",
+              "lugar": "Puerta del Palacio Real"
+            }
+          ]
+        },
+        "20-12-2025": {
+          "horarios": [
+            {
+              "hora": "14:00",
+              "guia": "Laura Fernández",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "15:00",
+              "guia": "Pedro García",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "16:00",
+              "guia": "Laura Fernández",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "17:00",
+              "guia": "Pedro García",
+              "lugar": "Entrada principal"
+            }
+          ]
+        }
+      },
+      "tiposEntradas": {
+        "adulto": { "precio": 25.0, "maxEntradas": 10 },
+        "niño": { "precio": 15.0, "maxEntradas": 5 }
+      }
+    }
   },
   {
     "id": 2,
-    "titulo": "Entrada a Loro Parque (Colegios Y Asociaciones 20)",
-    "descripcion_corta": "LORO PARQUE es un zoológico ubicado en la isla de Tenerife, España. Se encuentra en la localidad de Puerto de la Cruz, en la costa norte de.",
+    "titulo": "Noche de Flamenco - Espectáculo en Vivo con Tapas",
+    "descripcion_corta": "Disfruta de un auténtico espectáculo de Flamenco mientras saboreas tapas españolas.",
     "tipoPrecio": "PVP",
     "precio": 45.0,
-    "img": "/entradas/loros.jpg"
+    "img": "/banner_entradas.jpg",
+    "incluido": ["Espectáculo en vivo", "Cena de tapas"],
+    "excluidas": ["Bebidas alcohólicas", "Transporte"],
+    "reserva": {
+      "fechas": {
+        "19-12-2025": {
+          "horarios": [
+            {
+              "hora": "20:00",
+              "guia": "Antonio Ruiz",
+              "lugar": "Tablao Flamenco Casa Patas"
+            },
+            {
+              "hora": "21:00",
+              "guia": "Carmen López",
+              "lugar": "Tablao Flamenco Casa Patas"
+            },
+            {
+              "hora": "22:00",
+              "guia": "Antonio Ruiz",
+              "lugar": "Tablao Flamenco Casa Patas"
+            }
+          ]
+        },
+        "20-12-2025": {
+          "horarios": [
+            {
+              "hora": "19:00",
+              "guia": "José Martínez",
+              "lugar": "Tablao Flamenco Casa Patas"
+            },
+            {
+              "hora": "20:00",
+              "guia": "María Fernández",
+              "lugar": "Tablao Flamenco Casa Patas"
+            },
+            {
+              "hora": "21:00",
+              "guia": "José Martínez",
+              "lugar": "Tablao Flamenco Casa Patas"
+            }
+          ]
+        }
+      },
+      "tiposEntradas": {
+        "adulto": { "precio": 45.0, "maxEntradas": 5 },
+        "niño": { "precio": 30.0, "maxEntradas": 3 }
+      }
+    }
   },
   {
     "id": 3,
-    "titulo": "Entrada a Siam Park (All Inclusive)",
-    "descripcion_corta": "SIAM PARK es un parque acuático situado en la Costa Adeje de Tenerife y está considerado como uno de los mejores parques acuáticos del mundo.",
+    "titulo": "Excursión de un Día a Toledo desde Madrid",
+    "importante": "No hay taquillas para guardar las mochilas",
+    "descripcion_corta": "Explora la ciudad medieval de Toledo con visitas a monumentos históricos.",
     "tipoPrecio": "Neto",
     "precio": 60.0,
-    "img": "/entradas/siamPark.avif"
+    "img": "/banner_actividades2.jpg",
+    "incluido": ["Transporte ida y vuelta", "Guía oficial", "Entradas"],
+    "excluidas": ["Comida", "Propinas"],
+    "reserva": {
+      "fechas": {
+        "19-12-2025": {
+          "horarios": [
+            {
+              "hora": "08:00",
+              "guia": "Sergio Martín",
+              "lugar": "Estación Atocha"
+            },
+            {
+              "hora": "09:00",
+              "guia": "Ana Gómez",
+              "lugar": "Estación Atocha"
+            },
+            {
+              "hora": "10:00",
+              "guia": "Sergio Martín",
+              "lugar": "Estación Atocha"
+            }
+          ]
+        },
+        "20-12-2025": {
+          "horarios": [
+            {
+              "hora": "07:30",
+              "guia": "Pablo Torres",
+              "lugar": "Estación Atocha"
+            },
+            {
+              "hora": "08:30",
+              "guia": "Sandra López",
+              "lugar": "Estación Atocha"
+            },
+            {
+              "hora": "09:30",
+              "guia": "Pablo Torres",
+              "lugar": "Estación Atocha"
+            }
+          ]
+        }
+      },
+      "tiposEntradas": {
+        "adulto": { "precio": 60.0, "maxEntradas": 15 },
+        "niño": { "precio": 40.0, "maxEntradas": 8 }
+      }
+    }
   },
   {
     "id": 4,
-    "titulo": "Entrada a Siam Park (All Inclusive)",
-    "descripcion_corta": "SIAM PARK es un parque acuático situado en la Costa Adeje de Tenerife y está considerado como uno de los mejores parques acuáticos del mundo.",
+    "titulo": "Museo del Prado - Visita Guiada sin Colas",
+    "descripcion_corta": "Descubre obras maestras de artistas famosos con un guía experto.",
     "tipoPrecio": "PVP",
     "precio": 35.0,
-    "img": "/entradas/siamPark.avif"
+    "img": "/banner_destinos.jpg",
+    "incluido": ["Entrada sin colas", "Guía experto", "Auriculares"],
+    "excluidas": ["Transporte", "Propinas"],
+    "reserva": {
+      "fechas": {
+        "19-12-2025": {
+          "horarios": [
+            {
+              "hora": "09:00",
+              "guia": "Marta Sánchez",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "10:00",
+              "guia": "Juan Pérez",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "11:00",
+              "guia": "Marta Sánchez",
+              "lugar": "Entrada principal"
+            }
+          ]
+        },
+        "20-12-2025": {
+          "horarios": [
+            {
+              "hora": "15:00",
+              "guia": "Luis Rodríguez",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "16:00",
+              "guia": "Ana Martínez",
+              "lugar": "Entrada principal"
+            },
+            {
+              "hora": "17:00",
+              "guia": "Luis Rodríguez",
+              "lugar": "Entrada principal"
+            }
+          ]
+        }
+      },
+      "tiposEntradas": {
+        "adulto": { "precio": 25.0, "maxEntradas": 10 },
+        "niño": { "precio": 8.0, "maxEntradas": 6 }
+      }
+    }
   },
   {
     "id": 5,
-    "titulo": "Entrada a Siam Park (All Inclusive)",
-    "descripcion_corta": "SIAM PARK es un parque acuático situado en la Costa Adeje de Tenerife y está considerado como uno de los mejores parques acuáticos del mundo...",
+    "titulo": "Tour de Tapas y Cata de Vinos en Madrid",
+    "descripcion_corta": "Experimenta los sabores de España con un tour guiado por tapas y vinos.",
     "tipoPrecio": "Neto",
     "precio": 50.0,
-    "img": "/entradas/siamPark.avif"
+    "img": "/banner2.jpg",
+    "incluido": ["Cata de vinos", "Variedad de tapas", "Guía local"],
+    "excluidas": ["Extras personales", "Propinas"],
+    "reserva": {
+      "fechas": {
+        "19-12-2025": {
+          "horarios": [
+            { "hora": "18:00", "guia": "Rosa Jiménez", "lugar": "Plaza Mayor" },
+            {
+              "hora": "19:00",
+              "guia": "José Martínez",
+              "lugar": "Plaza Mayor"
+            },
+            { "hora": "20:00", "guia": "Rosa Jiménez", "lugar": "Plaza Mayor" }
+          ]
+        },
+        "20-12-2025": {
+          "horarios": [
+            {
+              "hora": "18:30",
+              "guia": "Antonio García",
+              "lugar": "Puerta del Sol"
+            },
+            {
+              "hora": "19:30",
+              "guia": "Isabel Pérez",
+              "lugar": "Puerta del Sol"
+            },
+            {
+              "hora": "20:30",
+              "guia": "Antonio García",
+              "lugar": "Puerta del Sol"
+            }
+          ]
+        }
+      },
+      "tiposEntradas": {
+        "adulto": { "precio": 50.0, "maxEntradas": 10 },
+        "niño": { "precio": 35.0, "maxEntradas": 4 }
+      }
+    }
   }
 ]

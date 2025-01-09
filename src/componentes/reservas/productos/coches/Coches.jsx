@@ -16,7 +16,7 @@ function Resultado() {
   };
 
   const handleCheckboxChange = (event) => {
-    setMostrarEnCajas(event.target.checked); // Update state on toggle
+    setMostrarEnCajas(event.target.checked); 
   };
 
   return (

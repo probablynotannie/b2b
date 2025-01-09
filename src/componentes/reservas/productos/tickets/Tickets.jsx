@@ -4,7 +4,7 @@ function Resultado({tickets}) {
     <section className="pb-12 md:mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {tickets.map((actividad, index) => (
         <Link
-          to={"/actividad"}
+          to={"/ticket"}
           state={actividad}
           className="border-2 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition cursor-pointer"
           key={index}
@@ -20,7 +20,7 @@ function Resultado({tickets}) {
           </span>
           <div className="relative ">
             <img
-              className="h-[25vh] w-full object-cover  rounded-t-lg"
+              className="h-[25vh] w-full rounded-t-lg object-top object-cover"
               src={actividad.img}
               alt={actividad.titulo}
             />
