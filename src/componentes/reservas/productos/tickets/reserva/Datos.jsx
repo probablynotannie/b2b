@@ -25,7 +25,6 @@ function Datos() {
     </div>
   );
 
-  // Usar un solo objeto para almacenar los datos
   const [datosContacto, setDatosContacto] = useState({
     email: "",
     nombre: "",

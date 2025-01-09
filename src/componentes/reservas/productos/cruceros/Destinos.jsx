@@ -60,9 +60,7 @@ function Resultado() {
       const [day, month] = dateStr.split("/").map(Number);
       return new Date(today.getFullYear(), month - 1, day);
     };
-
     const allDates = [];
-
     precios.forEach((cabin) => {
       cabin.preciosConFechas.forEach(({ fecha }) => {
         allDates.push(parseDate(fecha));
@@ -73,12 +71,9 @@ function Resultado() {
         });
       });
     });
-
     const nextDate = allDates
       .filter((date) => date >= today)
       .sort((a, b) => a - b)[0];
-
-    // Format the date as "9 de noviembre de 2024"
     if (nextDate) {
       return new Intl.DateTimeFormat("es-ES", {
         day: "numeric",
@@ -89,7 +84,6 @@ function Resultado() {
       return "No upcoming departures";
     }
   }
-
   return (
     <section className="pb-12 md:mt-5">
       <div className="lg:flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600  lg:mt-0">

@@ -6,7 +6,7 @@ import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Pasajeros from "./crucero/Pasajeros";
 import { Link } from "react-router-dom";
-
+import FormatearFecha from "../../estructura/FormatearFecha";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
@@ -23,28 +23,6 @@ function Producto() {
   const [precio, setPrecio] = useState(0);
   const [pasajeros, setPasajeros] = useState([]);
   const [endDate, setEndDate] = useState("");
-
-  const formatDate = (dateString) => {
-    const [day, month, year] = dateString
-      .split("/")
-      .map((num) => parseInt(num, 10));
-
-    const months = [
-      "enero",
-      "febrero",
-      "marzo",
-      "abril",
-      "mayo",
-      "junio",
-      "julio",
-      "agosto",
-      "septiembre",
-      "octubre",
-      "noviembre",
-      "diciembre",
-    ];
-    return `${day} de ${months[month - 1]} de ${year}`;
-  };
 
   const calculateEndDate = (startDate, days) => {
     const [day, month, year] = startDate.split("/").map(Number);
@@ -127,7 +105,7 @@ function Producto() {
                   key={index}
                   src={photo}
                   alt={`Photo ${index + 1} of ${cabinTitle}`}
-                  className="rounded-lg shadow-md object-cover"
+                  className="rounded-lg shadow-md hover:shadow-lg object-cover hover:scale-105 transition duration-300"
                 />
               ))}
             </div>
@@ -148,12 +126,23 @@ function Producto() {
                     }}
                   >
                     <button className="bg-secondary p-3 px-8 rounded-xl shadow-md text-white font-bold">
-                      Total: {selectedPrice * pasajeros.length}€
+                      Total:{" "}
+                      {pasajeros
+                        .reduce((total, pasajero) => {
+                          const discount = pasajero.discount || 0;
+                          const discountedPrice =
+                            selectedPrice * (1 - discount / 100);
+                          return total + discountedPrice;
+                        }, 0)
+                        .toFixed(2)}
+                      €
                     </button>
                   </Link>
                   <p className="text-sm dark:text-slate-300 mt-3 font-semibold text-slate-500">
-                    Ida: {formatDate(selectedDate)} | Vuelta:{" "}
-                    {endDate ? formatDate(endDate) : "Fecha no seleccionada"}
+                    Ida: {FormatearFecha(selectedDate)} | Vuelta:{" "}
+                    {endDate
+                      ? FormatearFecha(endDate)
+                      : "Fecha no seleccionada"}
                   </p>
                 </div>
               )}

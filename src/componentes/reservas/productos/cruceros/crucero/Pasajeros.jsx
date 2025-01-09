@@ -26,7 +26,7 @@ function Reserva({ pasajeros, setPasajeros }) {
       return 60;
     }
   }
-  // Handle age change for each passenger
+
   function handleAgeChange(index, age) {
     const updatedPasajeros = [...pasajeros];
     updatedPasajeros[index].age = age;

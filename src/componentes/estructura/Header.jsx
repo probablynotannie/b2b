@@ -57,6 +57,7 @@ import ReservaCoche from "../reservas/productos/coches/reserva/ReservaFinal";
 import ReservaEntrada from "../reservas/productos/entradas/reserva/ReservaFinal";
 import ReservaTickets from "../reservas/productos/tickets/reserva/ReservaFinal";
 import ReservaHotel from "../reservas/productos/hotel/reserva/ReservaFinal";
+import ReservaCrucero from "../reservas/productos/cruceros/reserva/ReservaFinal";
 
 /* RESERVA */
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
@@ -138,7 +139,8 @@ function Header() {
         <Route path="/reservavuelo" element={<Vuelo />} />
         <Route path="/reservaentrada" element={<ReservaEntrada />} />
         <Route path="/reservatickets" element={<ReservaTickets />} />
-        <Route path="/reservahotel" element={<ReservaHotel />} />
+        <Route path="/reservaHotel" element={<ReservaHotel />} />
+        <Route path="/reservaCrucero" element={<ReservaCrucero />} />
 
         {/*  */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />

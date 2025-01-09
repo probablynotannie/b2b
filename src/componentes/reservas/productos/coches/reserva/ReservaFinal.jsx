@@ -85,7 +85,7 @@ function Reserva() {
           con la resera.
         </p>
         <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {precio}aef
+          {precio.toFixed(2)}
         </button>
       </article>
     </main>

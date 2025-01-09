@@ -1,0 +1,88 @@
+import { useLocation } from "react-router-dom";
+import FormatearFecha from "../../../estructura/FormatearFecha";
+import { SiMentorcruise } from "react-icons/si";
+import Detalles from "./Detalles";
+function Reserva() {
+  const location = useLocation();
+  const {
+    datosContacto,
+    producto,
+    cabinPhotos,
+    pasajeros,
+    selectedDate,
+    endDate,
+    selectedPrice,
+  } = location.state || {};
+  return (
+    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
+      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
+        <div className="flex justify-between items-center  border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-800 pb-2">
+          <h1 className="font-bold">Crucero {producto.titulo}</h1>
+          <img
+            src={producto.logo}
+            className="w-[50px]"
+            alt={producto.nombreCrucero}
+          />
+        </div>
+        <Detalles
+          datosContacto={datosContacto}
+          cabinPhotos={cabinPhotos}
+          producto={producto}
+        />
+      </section>
+      <article className="col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+          Resumen
+        </h2>
+        <img
+          src={producto.crucero}
+          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
+          alt="Reserva vuelo"
+        />
+        <ul className="mt-3 text-sm">
+          <li className="text-start flex items-center gap-1">
+            <SiMentorcruise className="text-secondary text-lg" />
+            {FormatearFecha(selectedDate)}
+          </li>
+          <li className="text-end flex items-center justify-end gap-1">
+            {endDate ? FormatearFecha(endDate) : "Fecha no seleccionada"}
+            <SiMentorcruise className="text-secondary text-lg" />
+          </li>
+        </ul>
+        {pasajeros.map((pasajero, index) => {
+          const discount = pasajero.discount || 0;
+          const discountedPrice = (
+            selectedPrice *
+            (1 - discount / 100)
+          ).toFixed(2);
+          return (
+            <div
+              key={index}
+              className="border-b flex text-sm justify-between items-end dark:border-slate-700 py-2"
+            >
+              <div>
+                <h4 className="font-semibold text-base">
+                  Pasajero {index + 1}
+                </h4>
+                <span className="block text-sm">Edad: {pasajero.age}</span>
+                <span className="text-sm">Descuento: {discount}%</span>
+              </div>
+              <span>Total: {discountedPrice}€</span>
+            </div>
+          );
+        })}
+        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          {pasajeros
+            .reduce((total, pasajero) => {
+              const discount = pasajero.discount || 0;
+              const discountedPrice = selectedPrice * (1 - discount / 100);
+              return total + discountedPrice;
+            }, 0)
+            .toFixed(2)}
+          €
+        </button>
+      </article>
+    </main>
+  );
+}
+export default Reserva;

@@ -1,4 +1,5 @@
 import Reserva from "../../../datos/Reserva";
+import { Link } from "react-router-dom";
 import { useLocation, useNavigate } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
@@ -22,10 +23,7 @@ function Vuelo() {
     event.preventDefault();
     navigate("/reservavuelo", {
       state: {
-        email,
-        nombre,
-        apellido,
-        numero,
+        datosContacto,
         producto,
         cabinPhotos,
         pasajeros,
@@ -35,10 +33,19 @@ function Vuelo() {
       },
     });
   };
-  const [email, setEmail] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
-  const [numero, setNumero] = useState("");
+  const [datosContacto, setDatosContacto] = useState({
+    email: "",
+    nombre: "",
+    apellido: "",
+    numero: "",
+  });
+
+  const handleChange = (key, value) => {
+    setDatosContacto((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
   const infoPasajeros = (
     <div className="flex">
       {pasajeros.map((pasajero, index) => (
@@ -59,15 +66,26 @@ function Vuelo() {
           <h1 className="font-semibold text-xl dark:text-white">
             Datos Contacto
           </h1>
+
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
-            <Input_Texto value={nombre} setValue={setNombre} tipo="Nombre" />
             <Input_Texto
-              value={apellido}
-              setValue={setApellido}
+              value={datosContacto.nombre}
+              setValue={(value) => handleChange("nombre", value)}
+              tipo="Nombre"
+            />
+            <Input_Texto
+              value={datosContacto.apellido}
+              setValue={(value) => handleChange("apellido", value)}
               tipo="Apellido/s"
             />
-            <Input_Numero value={numero} setValue={setNumero} />
-            <Input_Email email={email} setEmail={setEmail} />
+            <Input_Numero
+              value={datosContacto.numero}
+              setValue={(value) => handleChange("numero", value)}
+            />
+            <Input_Email
+              email={datosContacto.email}
+              setEmail={(value) => handleChange("email", value)}
+            />
           </div>
         </form>
         <Reserva
@@ -80,12 +98,25 @@ function Vuelo() {
           extras={infoPasajeros}
         />
         <div className="flex justify-end">
-          <button
-            type="submit"
-            className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300"
+          <Link
+            to={"/reservaCrucero"}
+            state={{
+              datosContacto,
+              producto,
+              cabinPhotos,
+              pasajeros,
+              selectedDate,
+              endDate,
+              selectedPrice,
+            }}
           >
-            Reservar
-          </button>
+            <button
+              type="submit"
+              className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300"
+            >
+              Reservar
+            </button>
+          </Link>
         </div>
       </article>
     </main>

@@ -59,11 +59,11 @@ function Productos() {
           <div className="flex items-center relative">
             <button
               className={`px-4 py-2 border-b-2 flex items-center ${
-                activeTab === "Vuelos"
+                activeTab === "actividades"
                   ? "border-secondary text-secondary font-bold "
                   : " text-slate-700 dark:text-slate-200 border-none"
               }`}
-              onClick={() => setActiveTab("Vuelos")}
+              onClick={() => setActiveTab("actividades")}
             >
               <PiMaskHappyFill className="mr-1" /> Actividades
             </button>
@@ -108,7 +108,7 @@ function Productos() {
           )}
         </article>
         <div className="container">
-          {activeTab === "Vuelos" && (
+          {activeTab === "actividades" && (
             <Entradas
               tickets={entradas}
               actividades={actividades}
