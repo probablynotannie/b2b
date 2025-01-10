@@ -21,6 +21,7 @@ function ferris({ ferry }) {
     const monthName = months[parseInt(month, 10) - 1];
     return `${day} de ${monthName} de ${year}`;
   }
+  console.log(ferry);
   return (
     <>
       {ferry?.ida && (
@@ -40,9 +41,9 @@ function ferris({ ferry }) {
             </span>
           </div>
           <img
-            src={ferry.compania}
+            src={ferry.ida.compania}
             alt="Logo compania"
-            className="w-[50px] absolute top-4 left-4 bg-white"
+            className="w-[80px] rounded absolute top-4 left-4 bg-white"
           />
           <span
             className={`absolute rotate-45 bg-blue-400 rounded-lg px-2 p-1  font-bold text-sm top-10 right-3 z-10 shadow-lg`}
@@ -58,7 +59,7 @@ function ferris({ ferry }) {
             </h4>
             <div className="flex items-center gap-2">
               <span className="text-sm flex items-center dark:text-slate-300 gap-1">
-                {ferry.cambios === true ? (
+                {ferry.ida.cambios === true ? (
                   <FaCheck className="text-green-500" />
                 ) : (
                   <FaBan className="text-red-500" />
@@ -66,7 +67,7 @@ function ferris({ ferry }) {
                 Cambios
               </span>
               <span className="text-sm flex items-center dark:text-slate-300 gap-1">
-                {ferry.cancelaciones === true ? (
+                {ferry.ida.cancelaciones === true ? (
                   <FaCheck className="text-green-500" />
                 ) : (
                   <FaBan className="text-red-500" />

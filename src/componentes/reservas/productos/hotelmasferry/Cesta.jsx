@@ -4,7 +4,6 @@ import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
 import { FaDoorOpen } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
-import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Ferrys from "./FerrySeleccionado";
 

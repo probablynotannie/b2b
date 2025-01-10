@@ -6,7 +6,7 @@
     "cancelaciones": true,
     "compania": "/ferris/ferry1.png",
     "ida": {
-      "fecha:": "20-12-2024",
+      "fecha": "20-12-2024",
       "barco": "./ferris/barco.jpg",
       "ferry": "Por decidir",
       "ruta": "Ibiza - Barcelona",
@@ -19,7 +19,13 @@
         {
           "id": "zona_cafeteria",
           "tipo": "Cafeteria",
-          "precio": 50
+          "precio": 50,
+          "extras": [
+            {
+              "tipo": "Extra por ninguna razon",
+              "precio": 20
+            }
+          ]
         },
         {
           "id": "butaca_sirena",
@@ -39,7 +45,7 @@
       ]
     },
     "vuelta": {
-      "fecha:": "28-12-2024",
+      "fecha": "28-12-2024",
       "barco": "./ferris/barco.jpg",
       "ferry": "Por decidir",
       "ruta": "Barcelona - Ibiza",
@@ -74,7 +80,7 @@
     "cancelaciones": false,
     "compania": "/ferris/ferry2.png",
     "ida": {
-      "fecha:": "20-12-2024",
+      "fecha": "20-12-2024",
       "barco": "./ferris/barco2.jpg",
       "ruta": "Ibiza - Barcelona",
       "puerto_origen": "Ibiza",
@@ -96,7 +102,7 @@
       ]
     },
     "vuelta": {
-      "fecha:": "28-12-2024",
+      "fecha": "28-12-2024",
       "barco": "./ferris/barco2.jpg",
       "ruta": "Barcelona - Ibiza",
       "puerto_origen": "Barcelona",
