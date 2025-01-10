@@ -10,7 +10,7 @@
     "logo": "/cruceros/msc.jpg",
     "incluidos": [
       "Piscina",
-      "Limpieza diaria", 
+      "Limpieza diaria",
       "Club para niños",
       "Descuentos en tiendas a bordo"
     ],
@@ -20,6 +20,8 @@
         "id": 0,
         "img": "/cruceros/it1/gc.jpg",
         "destino": "Gran Canaria",
+        "dias": "Día 1-2",
+        "descripcion": "Disfruta de aire de Gran Canaria, visita diferentes museos y conoce gastronomia local",
         "lat": 28.123545,
         "lng": -15.436257
       },
@@ -27,6 +29,8 @@
         "id": 1,
         "img": "/cruceros/it1/agadir.jpg",
         "destino": "Agadir",
+        "dias": "Día 2-3",
+        "descripcion": "Descubre Agadir en un día! Sumérgete en sus playas doradas, pasea por su vibrante medina y disfruta de las vistas desde la Kasbah.",
         "lat": 30.427755,
         "lng": -9.598107
       },
@@ -34,6 +38,8 @@
         "id": 2,
         "img": "/cruceros/it1/rabat.jpg",
         "destino": "Rabat",
+        "dias": "Día 3-6",
+        "descripcion": "Explora la Torre Hassan, el Mausoleo de Mohamed V, la Kasbah de los Udayas y disfruta del encanto de la medina y el Atlántico en Rabat.",
         "lat": 34.020882,
         "lng": -6.84165
       },
@@ -41,6 +47,8 @@
         "id": 3,
         "img": "/cruceros/it1/malaga.jpg",
         "destino": "Málaga",
+        "dias": "Día 7-8",
+        "descripcion": "Descubre la Alcazaba, pasea por el centro histórico, visita el Museo Picasso y relájate en las playas de Málaga.",
         "lat": 36.721302,
         "lng": -4.421636
       }

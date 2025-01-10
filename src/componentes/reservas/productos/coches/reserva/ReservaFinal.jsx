@@ -19,7 +19,7 @@ function Reserva() {
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
         <Detalles coche={producto} />
       </section>
-      <article className="col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
         <img
           src="/banner_coches.jpg"
           className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
@@ -46,11 +46,15 @@ function Reserva() {
         </h2>
         <div className="dark:text-slate-300">
           <div className="flex justify-between gap-2 mt-2 items-center ">
-            <span className="flex items-center">
+            <div className="flex items-center">
               <FaCar className="text-slate-700 dark:text-slate-200 mr-1" />
               <span>{producto.nombre}</span>
-            </span>
-            <span>{producto.dias}</span>
+            </div>
+            <span>{producto.dias} días</span>
+          </div>
+          <div className="flex justify-between gap-2 mt-2 items-center ">
+            <span>Puertas</span>
+            <span> {producto.puertas} </span>
           </div>
           <div>
             <ul>

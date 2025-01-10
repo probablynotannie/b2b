@@ -20,7 +20,7 @@ function Reserva() {
           <h1 className="font-bold">Crucero {producto.titulo}</h1>
           <img
             src={producto.logo}
-            className="w-[50px]"
+            className="w-[60px] rounded-full"
             alt={producto.nombreCrucero}
           />
         </div>
@@ -30,7 +30,7 @@ function Reserva() {
           producto={producto}
         />
       </section>
-      <article className="col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Resumen
         </h2>
@@ -39,7 +39,7 @@ function Reserva() {
           className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
           alt="Reserva vuelo"
         />
-        <ul className="mt-3 text-sm">
+        <ul className="mt-3 text-sm dark:text-white">
           <li className="text-start flex items-center gap-1">
             <SiMentorcruise className="text-secondary text-lg" />
             {FormatearFecha(selectedDate)}
@@ -61,13 +61,19 @@ function Reserva() {
               className="border-b flex text-sm justify-between items-end dark:border-slate-700 py-2"
             >
               <div>
-                <h4 className="font-semibold text-base">
+                <h4 className="dark:text-white font-semibold text-base">
                   Pasajero {index + 1}
                 </h4>
-                <span className="block text-sm">Edad: {pasajero.age}</span>
-                <span className="text-sm">Descuento: {discount}%</span>
+                <span className="dark:text-slate-300 block text-sm">
+                  Edad: {pasajero.age}
+                </span>
+                <span className="dark:text-slate-300 text-sm">
+                  Descuento: {discount}%
+                </span>
               </div>
-              <span>Total: {discountedPrice}€</span>
+              <span className="dark:text-white font-semibold">
+                Total: {discountedPrice}€
+              </span>
             </div>
           );
         })}

@@ -7,6 +7,7 @@ import { useState, useEffect } from "react";
 import Pasajeros from "./crucero/Pasajeros";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
+import Itinerario from "./crucero/Itinerario";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
@@ -23,7 +24,6 @@ function Producto() {
   const [precio, setPrecio] = useState(0);
   const [pasajeros, setPasajeros] = useState([]);
   const [endDate, setEndDate] = useState("");
-
   const calculateEndDate = (startDate, days) => {
     const [day, month, year] = startDate.split("/").map(Number);
     const start = new Date(year, month - 1, day);
@@ -86,8 +86,11 @@ function Producto() {
               </div>
             </div>
           </section>
+          <section className="xl:px-20">
+            <Itinerario producto={producto} />
+          </section>
+          <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
           <section>
-            <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
             <Tarifas
               tasas={producto.tasas}
               selectedPrice={selectedPrice}
