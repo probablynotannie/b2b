@@ -8,9 +8,7 @@ import { Link } from "react-router-dom";
 function Productos() {
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
-  const hasVueltas = trenes.vueltas && trenes.vueltas.length > 0; // Check if vueltas exist
-
-  // Combine idas and vueltas dynamically into one variable
+  const hasVueltas = trenes.vueltas && trenes.vueltas.length > 0;
   const seleccion = vuelta ? [ida, vuelta] : [ida];
   return (
     <main className="flex justify-center flex-col items-center mb-10">

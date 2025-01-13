@@ -1,8 +1,10 @@
 import { useLocation } from "react-router-dom";
 import FormatearFecha from "../../../estructura/FormatearFecha";
 import { SiMentorcruise } from "react-icons/si";
+import Reserva from "../../../estructura/reserva/Resumen";
+
 import Detalles from "./Detalles";
-function Reserva() {
+function ReservaFinal() {
   const location = useLocation();
   const {
     datosContacto,
@@ -34,11 +36,8 @@ function Reserva() {
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Resumen
         </h2>
-        <img
-          src={producto.crucero}
-          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
-          alt="Reserva vuelo"
-        />
+        <Reserva img={producto.crucero} txt={producto.titulo} />
+
         <ul className="mt-3 text-sm dark:text-white">
           <li className="text-start flex items-center gap-1">
             <SiMentorcruise className="text-secondary text-lg" />
@@ -91,4 +90,4 @@ function Reserva() {
     </main>
   );
 }
-export default Reserva;
+export default ReservaFinal;

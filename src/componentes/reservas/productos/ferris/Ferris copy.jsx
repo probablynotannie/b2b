@@ -3,20 +3,21 @@ import { FaShip } from "react-icons/fa";
 import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
 
-function Ferris({ ferris, setFerry, seleccion }) {
+function Ferris({
+  ferris,
+  ida,
+  setIda,
+  vuelta,
+  setVuelta,
+  setFerry,
+  seleccion,
+  ferry,
+}) {
   const [openFerrySets, setOpenFerrySets] = useState([]);
-  const [selectedFerrySet, setSelectedFerrySet] = useState({
-    ferryId: null,
-    precio_ida: 0,
-    precio_vuelta: 0,
-    extras_ida: null,
-    extras_vuelta: null,
-  });
-
   function calculateTotalPrice() {
-    return (
-      (selectedFerrySet.precio_ida || 0) + (selectedFerrySet.precio_vuelta || 0)
-    );
+    const outboundPrice = ida ? ida.precio : 0;
+    const returnPrice = vuelta ? vuelta.precio : 0;
+    return outboundPrice + returnPrice;
   }
 
   const toggleDropdown = (id) => {
@@ -26,22 +27,54 @@ function Ferris({ ferris, setFerry, seleccion }) {
   };
 
   const handleSelection = (type, ferryId, ferryOption) => {
-    setSelectedFerrySet((prev) => {
-      const nuevoEstado = { ...prev, ferryId };
+    setFerry((prevFerry) => {
+      const ferrySeleccionado = ferris.find((ferry) => ferry.id === ferryId);
+      if (!ferrySeleccionado) return prevFerry;
 
+      const nuevoFerry = { ...prevFerry };
+      const precioSeleccionado = ferrySeleccionado[type]?.precios.find(
+        (price) => price.id === ferryOption.id
+      );
+      if (!precioSeleccionado) return prevFerry;
+      const nuevoEstado = {
+        ferryId,
+        id: precioSeleccionado.id,
+        precio: precioSeleccionado.precio,
+        extra: precioSeleccionado.extras,
+        tipo: precioSeleccionado.tipo,
+        tarifa: ferrySeleccionado.tarifa,
+        cambios: ferrySeleccionado.cambios,
+        cancelaciones: ferrySeleccionado.cancelaciones,
+        compania: ferrySeleccionado.compania,
+        fecha: ferrySeleccionado[type]?.fecha,
+        ruta: ferrySeleccionado[type]?.ruta,
+        barco: ferrySeleccionado[type]?.barco,
+        hora_salida: ferrySeleccionado[type]?.hora_salida,
+        hora_llegada: ferrySeleccionado[type]?.hora_llegada,
+        duracion_viaje: ferrySeleccionado[type]?.duracion_viaje,
+        puerto_origen: ferrySeleccionado[type]?.puerto_origen,
+        puerto_destino: ferrySeleccionado[type]?.puerto_destino,
+      };
       if (type === "ida") {
-        nuevoEstado.precio_ida = ferryOption.precio;
-        nuevoEstado.extras_ida = ferryOption.extras || null;
+        if (prevFerry.vuelta?.ferryId !== ferryId) {
+          nuevoFerry.vuelta = null;
+          setVuelta(null);
+        }
+        nuevoFerry.ida = nuevoEstado;
+        setIda(nuevoFerry.ida);
       } else if (type === "vuelta") {
-        nuevoEstado.precio_vuelta = ferryOption.precio;
-        nuevoEstado.extras_vuelta = ferryOption.extras || null;
+        if (prevFerry.ida?.ferryId !== ferryId) {
+          nuevoFerry.ida = null;
+          setIda(null);
+        }
+        nuevoFerry.vuelta = nuevoEstado;
+        setVuelta(nuevoFerry.vuelta);
       }
 
-      return nuevoEstado;
+      return nuevoFerry;
     });
   };
-
-  console.log(selectedFerrySet);
+  console.log(ferry);
 
   return (
     <section>
@@ -68,7 +101,7 @@ function Ferris({ ferris, setFerry, seleccion }) {
               onClick={() => toggleDropdown(ferrySet.id)}
             >
               <div className="w-full md:w-fit">
-                {selectedFerrySet.ferryId === ferrySet.id && (
+                {ida?.ferryId === ferrySet.id && (
                   <GoDotFill className="absolute top-3 left-3 text-green-500 animate-bounce" />
                 )}
                 <div className="md:w-fit flex w-full justify-between items-center">
@@ -91,12 +124,12 @@ function Ferris({ ferris, setFerry, seleccion }) {
                   </span>
                 </p>
               </div>
-              <div className="text-xs text-center justify-center flex-col flex items-center space-x-4 w-full md:w-fit">
+              <div className=" text-xs text-center justify-center flex-col flex items-center space-x-4 w-full md:w-fit">
                 <div className="dark:bg-slate-100 rounded-xl px-2 flex justify-center items-center w-full">
                   <img
                     src={ferrySet.compania}
                     alt="logo compania"
-                    className="h-14 md:w-16 w-full object-contain rounded-md"
+                    className=" h-14 md:w-16 w-full object-contain rounded-md"
                   />
                 </div>
               </div>
@@ -119,8 +152,7 @@ function Ferris({ ferris, setFerry, seleccion }) {
                   <div
                     key={option.id}
                     className={`flex items-center gap-4 p-2 border-b dark:border-slate-700 ${
-                      selectedFerrySet.precio_ida === option.precio &&
-                      selectedFerrySet.ferryId === ferrySet.id
+                      ida?.id === option.id && ida.ferryId === ferrySet.id
                         ? "bg-blue-50 dark:bg-slate-900"
                         : ""
                     }`}
@@ -129,8 +161,7 @@ function Ferris({ ferris, setFerry, seleccion }) {
                       type="radio"
                       name={`ida-${ferrySet.id}`}
                       checked={
-                        selectedFerrySet.precio_ida === option.precio &&
-                        selectedFerrySet.ferryId === ferrySet.id
+                        ida?.id === option.id && ida.ferryId === ferrySet.id
                       }
                       onChange={() =>
                         handleSelection("ida", ferrySet.id, option)
@@ -164,8 +195,8 @@ function Ferris({ ferris, setFerry, seleccion }) {
                     <div
                       key={option.id}
                       className={`flex items-center gap-4 p-2 border-b dark:border-slate-700 ${
-                        selectedFerrySet.precio_vuelta === option.precio &&
-                        selectedFerrySet.ferryId === ferrySet.id
+                        vuelta?.id === option.id &&
+                        vuelta.ferryId === ferrySet.id
                           ? "bg-blue-50 dark:bg-slate-900"
                           : ""
                       }`}
@@ -174,8 +205,8 @@ function Ferris({ ferris, setFerry, seleccion }) {
                         type="radio"
                         name={`vuelta-${ferrySet.id}`}
                         checked={
-                          selectedFerrySet.precio_vuelta === option.precio &&
-                          selectedFerrySet.ferryId === ferrySet.id
+                          vuelta?.id === option.id &&
+                          vuelta.ferryId === ferrySet.id
                         }
                         onChange={() =>
                           handleSelection("vuelta", ferrySet.id, option)
@@ -197,8 +228,8 @@ function Ferris({ ferris, setFerry, seleccion }) {
               )}
               {seleccion !== true && (
                 <div className="flex justify-end mt-2 p-3">
-                  {selectedFerrySet.ferryId === ferrySet.id && (
-                    <Link to={"/datosferry"} state={selectedFerrySet}>
+                  {ida?.ferryId === ferrySet.id && (
+                    <Link to={"/datosferry"} state={ferry}>
                       <button className="font-semibold bg-secondary text-white p-2 rounded-md">
                         Reservar por {calculateTotalPrice()}€
                       </button>

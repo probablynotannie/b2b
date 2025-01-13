@@ -1,0 +1,159 @@
+import { useState } from "react";
+
+function Clases({ clases, tren }) {
+  const [classSeat, setClassSeat] = useState(null);
+  const [expandedSubclass, setExpandedSubclass] = useState(null);
+
+  const handleClassSelect = (clase) => {
+    setClassSeat({
+      type: "class",
+      name: clase.nombre,
+      price: clase.precioExtra,
+      informacion: clase.informacion,
+      subclases: clase.subclases,
+    });
+  };
+
+  const handleSubclassSelect = (subclass, parentClass) => {
+    setClassSeat({
+      type: "subclass",
+      name: subclass.nombre,
+      price: subclass.precioExtra,
+      informacion: subclass.informacion,
+      parentClass: parentClass.nombre,
+    });
+  };
+
+  const toggleSubclassPreview = (subclass) => {
+    setExpandedSubclass(
+      expandedSubclass?.nombre === subclass.nombre ? null : subclass
+    );
+  };
+
+  if (clases.length === 0) {
+    return (
+      <div className="p-6 bg-slate-50 text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg">
+        No hay otras clases.
+      </div>
+    );
+  }
+
+  return (
+    <div className="md:flex">
+      <ul className="flex flex-col space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400 md:me-4 mb-4 md:mb-0">
+        {clases.map((clase) => (
+          <li key={clase.nombre}>
+            <button
+              className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+                classSeat?.name === clase.nombre && classSeat?.type === "class"
+                  ? "bg-blue-700 text-white dark:bg-blue-600"
+                  : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
+              }`}
+              onClick={() => handleClassSelect(clase)}
+            >
+              {clase.nombre} (Extra: {clase.precioExtra}€)
+            </button>
+          </li>
+        ))}
+      </ul>
+
+      <div className="p-6 bg-slate-100 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+        <div className="mb-4">
+          <p>
+            <strong>Clase seleccionado:</strong>{" "}
+            {classSeat
+              ? `${classSeat.type === "class" ? "Class" : "Subclass"} - ${
+                  classSeat.name
+                } ($${classSeat.price})`
+              : "None"}
+          </p>
+        </div>
+
+        {classSeat && (
+          <div>
+            <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+              {classSeat.name}
+            </h3>
+            <ul>
+              {classSeat.informacion?.map((info, index) => (
+                <li
+                  key={index}
+                  className="grid grid-cols-3 gap-3 p-2 mt-3 border-b"
+                >
+                  <h4 className="font-semibold text-secondary">
+                    {info.titulo}
+                  </h4>
+                  <p className="text-slate-500 text-sm col-span-2">
+                    {info.texto}
+                  </p>
+                </li>
+              ))}
+            </ul>
+
+            {classSeat.subclases && (
+              <div>
+                <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+                  Subclasses
+                </h3>
+                <ul className="flex flex-col space-y-2 mb-4">
+                  {classSeat.subclases.map((subclass) => (
+                    <li key={subclass.nombre}>
+                      <div className="flex gap-3 items-center justify-between">
+                        <button
+                          className={`px-4 py-2 rounded-lg w-full ${
+                            classSeat?.name === subclass.nombre &&
+                            classSeat?.type === "subclass"
+                              ? "bg-blue-500 text-white dark:bg-blue-700"
+                              : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-400"
+                          }`}
+                          onClick={() =>
+                            handleSubclassSelect(subclass, classSeat)
+                          }
+                        >
+                          {subclass.nombre} (Extra: {subclass.precioExtra}€)
+                        </button>
+                        <button
+                          className="bg-secondary p-1.5 text-white rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-400"
+                          onClick={() => toggleSubclassPreview(subclass)}
+                        >
+                          {expandedSubclass?.nombre === subclass.nombre
+                            ? "Ocultar"
+                            : "Detalles"}
+                        </button>
+                      </div>
+                      {expandedSubclass?.nombre === subclass.nombre && (
+                        <div className="mt-2 p-4 border dark:border-slate-700 rounded-lg bg-slate-100 dark:bg-slate-900">
+                          <h4 className="text-lg font-bold mb-2">
+                            {subclass.nombre} (Extra: €
+                            {subclass.precioExtra.toFixed(2)})
+                          </h4>
+                          <ul>
+                            {subclass.informacion?.map((info, index) => (
+                              <li
+                                key={index}
+                                className="grid grid-cols-3 gap-3 p-2 border-b dark:border-slate-700"
+                              >
+                                <h4 className="font-semibold text-secondary">
+                                  {info.titulo}
+                                </h4>
+                                <p className="text-slate-500 text-sm col-span-2">
+                                  {info.texto}
+                                </p>
+                              </li>
+                            ))}
+                          </ul>
+                        </div>
+                      )}
+                    </li>
+                  ))}
+                </ul>
+              </div>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
+
+export default Clases;

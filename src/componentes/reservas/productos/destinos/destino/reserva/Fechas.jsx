@@ -4,25 +4,15 @@ import Aside from "./Aside";
 import Info from "./Info";
 import { useLocation } from "react-router-dom";
 function Fechas() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const location = useLocation();
   const producto = location.state;
 
-  const productoWithHabitaciones = {
+  const productoConHabitaciones = {
     ...producto,
     habitaciones: producto.habitaciones || [],
   };
 
-  const [localProducto, setLocalProducto] = useState(productoWithHabitaciones);
-
-  const [reserva, setReserva] = useState({
-    type: "destino",
-    nombre: localProducto.nombre,
-    fechaIda: "",
-    fechaVuelta: "",
-    precio: 0,
-  });
+  const [localProducto, setLocalProducto] = useState(productoConHabitaciones);
 
   const [dates, setDates] = useState({
     startDate: null,
@@ -37,7 +27,7 @@ function Fechas() {
       return new Intl.DateTimeFormat("es-ES", options).format(date);
     };
 
-    setReserva((prevReserva) => ({
+    setLocalProducto((prevReserva) => ({
       ...prevReserva,
       fechaIda: dates.startDate ? formatFecha(dates.startDate) : "",
       fechaVuelta: dates.endDate ? formatFecha(dates.endDate) : "",
@@ -45,32 +35,29 @@ function Fechas() {
       precio: localProducto.pax * dates.startDatePrice,
     }));
   }, [dates, localProducto.pax]);
-
-  // Function to add a room to the localProducto object
-  const addRoom = () => {
+  const addRoom = (tipo = "Habitación Doble") => {
     setLocalProducto((prevState) => {
       const updatedHabitaciones = [
         ...prevState.habitaciones,
-        { id: Date.now(), pax: 2 },
+        { id: Date.now(), pax: 2, tipo }, 
       ];
-
+  
       const totalPax = updatedHabitaciones.reduce(
         (sum, hab) => sum + hab.pax,
         2
       );
-
+  
       const totalPrice = totalPax * 100;
-
+  
       return {
         ...prevState,
-        habitaciones: updatedHabitaciones, // Update habitaciones
+        habitaciones: updatedHabitaciones,
         pax: totalPax,
         precio: totalPrice,
       };
     });
   };
 
-  // Function to delete a room from the localProducto object
   const deleteRoom = (id) => {
     setLocalProducto((prevState) => {
       const updatedHabitaciones = prevState.habitaciones.filter(
@@ -82,13 +69,12 @@ function Fechas() {
       );
       return {
         ...prevState,
-        habitaciones: updatedHabitaciones, // Update habitaciones
+        habitaciones: updatedHabitaciones,
         pax: totalPax,
       };
     });
   };
 
-  // Function to change pax for a specific room
   const handleRoomTypeChange = (id, pax) => {
     setLocalProducto((prevState) => {
       const updatedHabitaciones = prevState.habitaciones.map((habitacion) =>
@@ -100,12 +86,11 @@ function Fechas() {
       );
       return {
         ...prevState,
-        habitaciones: updatedHabitaciones, // Update habitaciones
+        habitaciones: updatedHabitaciones,
         pax: totalPax,
       };
     });
   };
-
   return (
     <article className="container mt-10 grid grid-cols-3 gap-10">
       <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
@@ -151,9 +136,9 @@ function Fechas() {
           dates={dates}
           handleRoomTypeChange={handleRoomTypeChange}
           addRoom={addRoom}
-          producto={localProducto} // Pass the local product copy to Aside
+          producto={localProducto}
           deleteRoom={deleteRoom}
-          reserva={reserva}
+          reserva={localProducto}
         />
       </aside>
     </article>

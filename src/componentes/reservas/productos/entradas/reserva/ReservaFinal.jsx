@@ -2,6 +2,9 @@ import { useLocation } from "react-router-dom";
 import { FaUser } from "react-icons/fa";
 import { MdEmail, MdPhoneAndroid } from "react-icons/md";
 import Detalles from "../Detalles";
+import Reserva from "../../../estructura/reserva/Resumen";
+
+
 function ReservaFinal() {
   const location = useLocation();
   const calculateTotalPrice = () => {
@@ -14,6 +17,7 @@ function ReservaFinal() {
       return total + pricePerTicket * ticket.quantity;
     }, 0);
   };
+
   const { producto, tickets, datosContacto } = location.state || {};
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
@@ -21,11 +25,7 @@ function ReservaFinal() {
         <Detalles tickets={tickets} producto={producto} cesta={true} />
       </section>
       <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
-        <img
-          src={producto.img}
-          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-top object-cover "
-          alt="Reserva vuelo"
-        />
+        <Reserva img={producto.img} txt={producto.titulo} />
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Datos de contacto
         </h2>

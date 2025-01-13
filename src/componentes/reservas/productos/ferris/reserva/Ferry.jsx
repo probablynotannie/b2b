@@ -16,7 +16,7 @@ function Ferry({ producto, tipo }) {
         />
       </div>
       <div className="bg-slate-50 text-sm dark:bg-slate-700 dark:text-slate-200 p-2">
-        <div className="flex justify-between items-center">
+        <div className="md:flex justify-between items-center">
           <p>Duración de viaje: {producto.duracion_viaje}</p>
           <p>
             {producto.hora_salida} - {producto.hora_llegada}

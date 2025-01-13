@@ -1,13 +1,14 @@
 import { FaExclamationCircle, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
-import { format } from "date-fns"; // Importing format from date-fns
-import { es } from "date-fns/locale"; // Importing Spanish locale
+import { format } from "date-fns";
+import { es } from "date-fns/locale";
 import { ImSpoonKnife } from "react-icons/im";
-import { FaPercent, FaEuroSign, FaRegTrashAlt } from "react-icons/fa";
+import { FaRegTrashAlt } from "react-icons/fa";
 import { Popover } from "flowbite-react";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaPlusCircle } from "react-icons/fa";
 import { Link } from "react-router-dom";
+import Desglose from "./Desglose";
 function Aside({
   dates,
   producto,
@@ -17,8 +18,6 @@ function Aside({
   reserva,
 }) {
   const pvp = dates.startDatePrice;
-  const precio = producto.pax * dates.startDatePrice;
-
   return (
     <div className="sticky top-5">
       {dates.startDate ? (
@@ -97,7 +96,7 @@ function Aside({
                             <select
                               className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                               id={`room-type-${habitacion.id}`}
-                              value={habitacion.pax} // Bind the value to the pax state of the room
+                              value={habitacion.pax}
                               onChange={(e) =>
                                 handleRoomTypeChange(
                                   habitacion.id,
@@ -119,14 +118,30 @@ function Aside({
                           </div>
                         </div>
                       ))}
-                      <div
-                        onClick={addRoom}
-                        className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2"
-                      >
+                      <div className="mt-3">
+                        <label htmlFor="new-room-type" className="block mb-2">
+                          Seleccione el tipo de habitación:
+                        </label>
+                        <select
+                          id="new-room-type"
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          onChange={(e) => addRoom(e.target.value)}
+                        >
+                          <option value="Habitación Doble">
+                            Habitación Doble
+                          </option>
+                          <option value="Habitación Triple">
+                            Habitación Triple
+                          </option>
+                          <option value="Cama Adicional">Cama Adicional</option>
+                        </select>
+                      </div>
+                      <div className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2">
                         <div className="w-fit flex items-center space-x-1 font-semibold">
                           <FaPlusCircle className="dark:text-secondaryDark" />
-
-                          <span>Agregar una habitación </span>
+                          <span onClick={() => addRoom("Habitación Doble")}>
+                            Agregar una habitación
+                          </span>
                         </div>
                       </div>
                     </div>
@@ -140,37 +155,11 @@ function Aside({
               </Popover>
             </div>
           </div>
-          <h3 className="font-semibold text-center border-b-2 my-3 pb-3 dark:text-slate-300 border-slate-100 dark:border-slate-700 uppercase">
-            Desglose:
-          </h3>
-          <div className="grid grid-cols-3 justify-around w-full text-center py-1">
-            <p className="flex flex-col justify-center items-center text-sm text-slate-400 dark:text-slate-500">
-              <FaPercent className="text-secondary dark:text-secondaryDark" />
-              <span className="text-secondary font-semibold text-lg">
-                {precio - precio * 0.15}
-              </span>
-              Neto
-            </p>
-            <p className="flex flex-col justify-center items-center text-sm text-slate-400 dark:text-slate-500">
-              <FaPercent className="text-secondary dark:text-secondaryDark" />
-              <span className="text-secondary font-semibold text-lg">15%</span>
-              Margen
-            </p>
-            <p className="flex flex-col justify-center items-center text-sm text-slate-400 dark:text-slate-500">
-              <FaEuroSign className="text-secondary dark:text-secondaryDark" />
-              <span className="text-secondary font-semibold text-lg">
-                {precio}
-              </span>
-              P.V.P
-            </p>
-          </div>
+          <Desglose precio={producto.precio} />
           <div className="grid grid-cols-3 justify-around w-full text-center"></div>
-          <Link 
-          to="/datos" 
-          state={reserva}
-          >
+          <Link to="/datosDestino" state={reserva}>
             <button className="bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
-              TOTAL: {precio}€
+              TOTAL: {producto.precio}€
             </button>
           </Link>
           <div className="flex justify-center text-slate-400 dark:text-slate-400 mt-2">
@@ -188,5 +177,4 @@ function Aside({
     </div>
   );
 }
-
 export default Aside;

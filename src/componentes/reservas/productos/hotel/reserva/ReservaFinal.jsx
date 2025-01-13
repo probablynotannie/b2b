@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
-import { FaUser } from "react-icons/fa";
 import Detalles from "./Detalles";
-import { MdEmail, MdPhoneAndroid } from "react-icons/md";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa";
-function Reserva() {
+import Reserva from "../../../estructura/reserva/Resumen";
+
+function ReservaFinal() {
   const location = useLocation();
   const { producto, habitacion, datosContacto } = location.state || {};
   return (
@@ -17,12 +17,7 @@ function Reserva() {
         <Detalles producto={producto} datosContacto={datosContacto} />
       </section>
       <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
-        <img
-          src={habitacion.img}
-          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
-          alt="Reserva vuelo"
-        />
-
+        <Reserva img={habitacion.img} txt={producto.nombre} />
         <section>
           <h2 className="font-bold border-b-2 border-slate-100 dark:border-slate-700 dark:text-slate-200 my-3">
             Resumen
@@ -86,4 +81,4 @@ function Reserva() {
   );
 }
 
-export default Reserva;
+export default ReservaFinal;

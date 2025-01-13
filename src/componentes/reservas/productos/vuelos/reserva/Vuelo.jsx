@@ -3,6 +3,7 @@ import VueloSeleccionados from "../VueloSeleccionados";
 import Pasajeros from "./Pasajeros";
 import { FaUser } from "react-icons/fa";
 import { MdEmail, MdPhoneAndroid } from "react-icons/md";
+import Reserva from "../../../estructura/reserva/Resumen";
 
 function Vuelo() {
   const location = useLocation();
@@ -29,11 +30,11 @@ function Vuelo() {
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Reservando vuelo
         </h2>
-        <img
-          src="/banner_avion.jpg"
-          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
-          alt="Reserva vuelo"
+        <Reserva
+          img={"banner_avion.jpg"}
+          txt={ida.flight.salida + " - " + ida.flight.llegada}
         />
+
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Datos de contacto
         </h2>
