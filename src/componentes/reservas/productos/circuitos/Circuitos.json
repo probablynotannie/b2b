@@ -2,6 +2,52 @@
   {
     "id": 1,
     "titulo": "Combinado Cantabria Y Asturias",
+    "imagenes": [
+      "/circuitos/asturia.jpg",
+      "/circuitos/cantabria.jpg",
+      "/circuitos/santander.jpg",
+      "/circuitos/covadonga.jpg"
+    ],
+    "itinerario": [
+      {
+        "dia": 1,
+        "titulo": "ORIGEN - CANTABRIA",
+        "descripcion": "Salida desde los puntos establecidos dirección Cantabria. Breves paradas en ruta (almuerzo por cuenta del cliente). Llegada al hotel, cena y alojamiento"
+      },
+      {
+        "dia": 2,
+        "titulo": "SANTOÑA - SANTANDER",
+        "descripcion": "Desayuno y salida dirección Santoña, uno de los principales puertos pesqueros del Cantábrico, cuya historia ha estado siempre ligada al mar. Durante nuestro recorrido, realizaremos la visita de una fábrica de Conservas (entrada incluida), ya que esta localidad es famosa en toda España por este tipo de industria. Opcionalmente podremos realizar un paseo en barco por la Bahía de Santoña (Ver precio en las páginas 12-15). Regreso al hotel para el almuerzo. Por la tarde, realizaremos acompañados de guía oficial la visita de Santander, que posee una amplia bahía, cuya belleza ha hecho que sea considerada una de las más bellas del mundo Comenzaremos con una panorámica de la ciudad en autobús. A continuación, visitaremos a pie la península de la Magdalena y finalizaremos con un recorrido por el centro histórico, paseando por los jardines de Pereda, los exteriores del Centro Botín y la Catedral. Regreso al hotel, cena y alojamiento."
+      },
+      {
+        "dia": 3,
+        "titulo": "PICOS DE EUROPA - MONASTERIO DE LIEBANA - POTES - ASTURIAS",
+        "descripcion": "Desayuno y salida para excursión de día completo con almuerzo en restaurante a Picos de Europa. Realizaremos una parada en Fuente Dé, donde dispondremos de tiempo libre con posibilidad de ascender en teleférico al Mirador del Cable (por cuenta del cliente y sujeto a condiciones meteorológicas y a la a?uencia de visitantes). Continuación para visitar el Monasterio de Santo Toribio de Liébana, donde se conserva el fragmento más grande de la Cruz de Cristo, y por la tarde, visita de Potes, capital de los Picos de Europa y donde podremos ver entre otros la Torre del Infante, monumento medieval. Continuación del viaje hacia Asturias, llegada al hotel, distribución de habitaciones, cena y alojamiento."
+      },
+      {
+        "dia": 4,
+        "titulo": "EXCURSION OPCIONAL A COVADONGA, CANGAS DE ONIS Y RIBADESELLA",
+        "descripcion": "Estancia en el hotel en régimen de MP (desayuno y cena) con posibilidad de realizar excursión opcional de día completo a Covadonga, Cangas de Onís y a Ribadesella con almuerzo en restaurante (Ver precio en las páginas 12-15). Comenzaremos visitando Covadonga, su Cueva, la Basílica y el Real Sitio. Opcionalmente se podrá subir a los Lagos del Parque Nacional (por cuenta del cliente y sujeto a condiciones meteorológicas). Seguidamente realizaremos una panorámica de Cangas de Onís y para finalizar, nos dirigiremos a Ribadesella, población típica asturiana a orillas del Río Sella, en el que se realiza cada año la Fiesta de las Piraguas."
+      },
+      {
+        "dia": 5,
+        "titulo": "GIJON - OVIEDO",
+        "descripcion": "Desayuno y salida para realizar acompañados de guía oficial la visita de Gijón, que, con su impresionante bahía de casi 4 km, alberga tesoros como la antigua universidad laboral, de la que visitaremos sus patios y jardines. Realizaremos además un recorrido panorámico con nuestro autocar desde donde veremos lugares tan emblemáticos como el estadio de futbol, el parque de Isabel la Católica, o el puerto deportivo, donde finalizaremos el recorrido para pasear por el antiguo barrio pesquero de Cimadevilla. Regreso al hotel para el almuerzo. Por la tarde realizaremos acompañados de guía oficial la visita de Oviedo, capital del Principado que ha estado muy vinculada desde su fundación (s VIII) a la monarquía asturiana, llegando a ostentar la capitalidad del Reino. Realizaremos una amplia panorámica en autobús viendo entre otros el Palacio de Calatraba, el Teatro Campoamor, la Calle Uría, el Campo de San Francisco y la estatua de Woody Allen, y pasearemos por su casco antiguo peatonal, contemplando los exteriores de la Catedral de Oviedo, la plaza Trascorrales, la plaza del Ayuntamiento, etc., llegando hasta el Mercado. Regreso al hotel, cena y alojamiento."
+      },
+      {
+        "dia": 6,
+        "titulo": "ASTURIAS - PUNTO DE ORIGEN",
+        "descripcion": "Desayuno y a las 6.00 horas (salvo indicación contraria por parte del asistente en destino), salida hacia el punto de origen. Breves paradas en ruta (almuerzo por cuenta del cliente). Llegada y fin de nuestros servicios."
+      }
+    ],
+
+    "notas": [
+      "Para facilitar la mejor realización del circuito, la entrada podrá realizarse tanto por Cantabria como por Asturias, sin que afecte al cumplimiento del programa.",
+      " En el caso de excursiones, entradas o visitas facultativas no contratadas en origen, debe tenerse presente que no forman parte del contrato de viaje combinado. Su publicación en el folleto tiene mero carácter informativo. Por otra parte, dichas excursiones serán ofrecidas al consumidor, con sus condiciones específicas, no garantizándose hasta el momento de su contratación la posible realización de las mismas ni el precio, que está sujeto a variaciones por parte de sus responsables y que serán repercutidas sobre el cliente final.",
+      "Estancia en régimen según programa",
+      "El orden de las excursiones puede ser modificado en destino por motivos operativos y sin que esto afecte a su contenido. Las visitas a determinados lugares como Parques, montes o lugares de interés al aire libre, quedan siempre sujetas a las condiciones meteorológicas en el momento de realizarse. Las excursiones facultativas de día completo se realizarán con servicio de almuerzo tipo pic-nic provisto por el hotel siempre y cuando nuestros guías no indiquen lo contrario.",
+      "Este programa está sujeto a la nueva normativa de transportes del 11/04/07, que afecta tanto a las horas de conducción como a los descansos de los conductores, por lo que el orden de realización del programa descrito podría variar pero sin afectar nunca a su contenido."
+    ],
     "incluido": [
       "Autocar durante todo el recorrido",
       "3 noches en Asturias y 3 noches en Cantabria en hotel de 2*/3*",
@@ -9,18 +55,89 @@
       "Bebidas incluidas (agua/vino) en almuerzos y cenas",
       "Asistente en destino durante todo el circuito"
     ],
+    "no_incluido": [
+      "Extras en el hotel, tales como minibar, llamadas telefónicas, etc.",
+      "Todo aquello no especificado en el itinerario.",
+      "Entradas a monumentos y guías locales no indicados en el itinerario como incluido."
+    ],
+    "excursiones_incluidos": [
+      "Santoña (medio día)",
+      "Santander (medio día con guía oficial)",
+      "Castro Urdiales - Laredo (medio día)",
+      "Picos de Europa - Monasterio de Liébana - Potes (día completo con almuerzo en restaurante)",
+      "Gijón (medio día con guía oficial)"
+    ],
+
+    "excursiones_no_incluidos": [
+      "Santillana del Mar - Comillas (medio día con guía oficial).",
+      "Covadonga - Cangas de Onís - Ribadesella (día completo con almuerzo en restaurante).",
+      "Subida a los lagos de Covadonga - Sujeta a condiciones meteorologicas.",
+      "Crucero en barco por la bahía de Santoña."
+    ],
     "precio": 25.0,
     "img": "/circuitos/cantabria.jpg"
   },
   {
     "id": 2,
     "titulo": "Asturias Paraíso Natural Con Mariña Lucense",
+    "imagenes": [
+      "/circuitos/asturia.jpg",
+      "/circuitos/cantabria.jpg",
+      "/circuitos/santander.jpg",
+      "/circuitos/covadonga.jpg"
+    ],
+    "itinerario": [
+      {
+        "dia": 1,
+        "titulo": "ORIGEN - CANTABRIA",
+        "descripcion": "Salida desde los puntos establecidos dirección Cantabria. Breves paradas en ruta (almuerzo por cuenta del cliente). Llegada al hotel, cena y alojamiento"
+      },
+      {
+        "dia": 2,
+        "titulo": "EXCURSION OPCIONAL A COVADONGA, CANGAS DE ONIS Y RIBADESELLA",
+        "descripcion": "Estancia en el hotel en régimen de MP (desayuno y cena) con posibilidad de realizar excursión opcional de día completo a Covadonga, Cangas de Onís y a Ribadesella con almuerzo en restaurante (Ver precio en las páginas 12-15). Comenzaremos visitando Covadonga, su Cueva, la Basílica y el Real Sitio. Opcionalmente se podrá subir a los Lagos del Parque Nacional (por cuenta del cliente y sujeto a condiciones meteorológicas). Seguidamente realizaremos una panorámica de Cangas de Onís y para finalizar, nos dirigiremos a Ribadesella, población típica asturiana a orillas del Río Sella, en el que se realiza cada año la Fiesta de las Piraguas."
+      },
+      {
+        "dia": 3,
+        "titulo": "GIJON - OVIEDO",
+        "descripcion": "Desayuno y salida para realizar acompañados de guía oficial la visita de Gijón, que, con su impresionante bahía de casi 4 km, alberga tesoros como la antigua universidad laboral, de la que visitaremos sus patios y jardines. Realizaremos además un recorrido panorámico con nuestro autocar desde donde veremos lugares tan emblemáticos como el estadio de futbol, el parque de Isabel la Católica, o el puerto deportivo, donde finalizaremos el recorrido para pasear por el antiguo barrio pesquero de Cimadevilla. Regreso al hotel para el almuerzo. Por la tarde realizaremos acompañados de guía oficial la visita de Oviedo, capital del Principado que ha estado muy vinculada desde su fundación (s VIII) a la monarquía asturiana, llegando a ostentar la capitalidad del Reino. Realizaremos una amplia panorámica en autobús viendo entre otros el Palacio de Calatraba, el Teatro Campoamor, la Calle Uría, el Campo de San Francisco y la estatua de Woody Allen, y pasearemos por su casco antiguo peatonal, contemplando los exteriores de la Catedral de Oviedo, la plaza Trascorrales, la plaza del Ayuntamiento, etc., llegando hasta el Mercado. Regreso al hotel, cena y alojamiento."
+      }
+    ],
+    "notas": [
+      "Para facilitar la mejor realización del circuito, la entrada podrá realizarse tanto por Cantabria como por Asturias, sin que afecte al cumplimiento del programa.",
+      " En el caso de excursiones, entradas o visitas facultativas no contratadas en origen, debe tenerse presente que no forman parte del contrato de viaje combinado. Su publicación en el folleto tiene mero carácter informativo. Por otra parte, dichas excursiones serán ofrecidas al consumidor, con sus condiciones específicas, no garantizándose hasta el momento de su contratación la posible realización de las mismas ni el precio, que está sujeto a variaciones por parte de sus responsables y que serán repercutidas sobre el cliente final.",
+      "Estancia en régimen según programa",
+      "El orden de las excursiones puede ser modificado en destino por motivos operativos y sin que esto afecte a su contenido. Las visitas a determinados lugares como Parques, montes o lugares de interés al aire libre, quedan siempre sujetas a las condiciones meteorológicas en el momento de realizarse. Las excursiones facultativas de día completo se realizarán con servicio de almuerzo tipo pic-nic provisto por el hotel siempre y cuando nuestros guías no indiquen lo contrario.",
+      "Este programa está sujeto a la nueva normativa de transportes del 11/04/07, que afecta tanto a las horas de conducción como a los descansos de los conductores, por lo que el orden de realización del programa descrito podría variar pero sin afectar nunca a su contenido."
+    ],
     "incluido": [
       "Autocar durante todo el recorrido",
       "3 noches en Asturias y 3 noches en Cantabria en hotel de 2*/3*",
       "Estancia en régimen según programa",
       "Bebidas incluidas (agua/vino) en almuerzos y cenas",
-      "Asistente en destino durante todo el circuito"
+      "Asistente en destino durante todo el circuito",
+      "Seguro de viaje",
+      "Visita a Conservera en Santoña",
+      "Guías oficiales en Santander, Gijón y Oviedo"
+    ],
+    "no_incluido": [
+      "Extras en el hotel, tales como minibar, llamadas telefónicas, etc.",
+      "Todo aquello no especificado en el itinerario.",
+      "Entradas a monumentos y guías locales no indicados en el itinerario como incluido."
+    ],
+    "excursiones_incluidos": [
+      "Santoña (medio día)",
+      "Santander (medio día con guía oficial)",
+      "Castro Urdiales - Laredo (medio día)",
+      "Picos de Europa - Monasterio de Liébana - Potes (día completo con almuerzo en restaurante)",
+      "Gijón (medio día con guía oficial)"
+    ],
+
+    "excursiones_no_incluidos": [
+      "Santillana del Mar - Comillas (medio día con guía oficial).",
+      "Covadonga - Cangas de Onís - Ribadesella (día completo con almuerzo en restaurante).",
+      "Subida a los lagos de Covadonga - Sujeta a condiciones meteorologicas.",
+      "Crucero en barco por la bahía de Santoña."
     ],
     "precio": 45.0,
     "img": "/circuitos/asturia.jpg"

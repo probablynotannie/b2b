@@ -3,10 +3,10 @@ import Tren from "../detalles/Tren";
 import Map from "../Mapa";
 import DatosTren from "../detalles/DatosTren";
 import DatosContacto from "../../../estructura/DatosContacto";
-function Reserva() {
+import Reserva from "../../../estructura/reserva/Resumen";
+function ReservaFinal() {
   const location = useLocation();
   const { ida, vuelta, datosContacto } = location.state || {};
-  console.log(ida);
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
@@ -36,6 +36,11 @@ function Reserva() {
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Resumen
         </h2>
+        <Reserva
+          img={"/banner_trenes.jpeg"}
+          txt={"tren de ida " + (vuelta && " y vuelta")}
+        />
+
         <DatosTren tren={ida} tipo="ida" />
         {vuelta && <DatosTren tren={vuelta} tipo="vuelta" />}
         <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
@@ -51,4 +56,4 @@ function Reserva() {
   );
 }
 
-export default Reserva;
+export default ReservaFinal;
