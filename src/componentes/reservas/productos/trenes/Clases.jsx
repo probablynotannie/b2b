@@ -1,14 +1,13 @@
 import { useState } from "react";
 
-function Clases({ clases, tren }) {
-  const [classSeat, setClassSeat] = useState(null);
+function Clases({ clases, tren, classSeat, setClassSeat }) {
   const [expandedSubclass, setExpandedSubclass] = useState(null);
 
   const handleClassSelect = (clase) => {
     setClassSeat({
       type: "class",
-      name: clase.nombre,
-      price: clase.precioExtra,
+      nombre: clase.nombre,
+      precioExtra: clase.precioExtra,
       informacion: clase.informacion,
       subclases: clase.subclases,
     });
@@ -17,8 +16,8 @@ function Clases({ clases, tren }) {
   const handleSubclassSelect = (subclass, parentClass) => {
     setClassSeat({
       type: "subclass",
-      name: subclass.nombre,
-      price: subclass.precioExtra,
+      nombre: subclass.nombre,
+      precioExtra: subclass.precioExtra,
       informacion: subclass.informacion,
       parentClass: parentClass.nombre,
     });
@@ -46,7 +45,7 @@ function Clases({ clases, tren }) {
             <button
               className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
                 classSeat?.name === clase.nombre && classSeat?.type === "class"
-                  ? "bg-blue-700 text-white dark:bg-blue-600"
+                  ? "bg-secondary text-white dark:bg-blue-600"
                   : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
               }`}
               onClick={() => handleClassSelect(clase)}
@@ -56,19 +55,7 @@ function Clases({ clases, tren }) {
           </li>
         ))}
       </ul>
-
       <div className="p-6 bg-slate-100 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
-        <div className="mb-4">
-          <p>
-            <strong>Clase seleccionado:</strong>{" "}
-            {classSeat
-              ? `${classSeat.type === "class" ? "Class" : "Subclass"} - ${
-                  classSeat.name
-                } ($${classSeat.price})`
-              : "None"}
-          </p>
-        </div>
-
         {classSeat && (
           <div>
             <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
@@ -78,12 +65,12 @@ function Clases({ clases, tren }) {
               {classSeat.informacion?.map((info, index) => (
                 <li
                   key={index}
-                  className="grid grid-cols-3 gap-3 p-2 mt-3 border-b"
+                  className="grid grid-cols-3 gap-3 p-2 mt-3 border-b border-slate-100 dark:border-slate-700"
                 >
                   <h4 className="font-semibold text-secondary">
                     {info.titulo}
                   </h4>
-                  <p className="text-slate-500 text-sm col-span-2">
+                  <p className="text-slate-500 dark:text-slate-400 text-sm col-span-2">
                     {info.texto}
                   </p>
                 </li>
@@ -136,7 +123,7 @@ function Clases({ clases, tren }) {
                                 <h4 className="font-semibold text-secondary">
                                   {info.titulo}
                                 </h4>
-                                <p className="text-slate-500 text-sm col-span-2">
+                                <p className="text-slate-500 dark:text-slate-400 text-sm col-span-2">
                                   {info.texto}
                                 </p>
                               </li>

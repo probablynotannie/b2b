@@ -1,16 +1,24 @@
 import Clases from "../Clases";
-function Tren({ tren, tipo }) {
+function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
   function duration(e) {
     let hours = Math.floor(e / 60);
     let minutes = e % 60;
     return `${hours}h ${minutes}min`;
   }
+
   return (
     <>
       <div className="w-full relative">
         <div className="flex justify-between items-center">
-          <h2 className="font-bold text-lg">Tren {tipo}</h2>
-          <div className="flex gap-2 h-fit ">
+          <div className="flex flex-col">
+            <h2 className="font-bold text-lg dark:text-white">Tren {tipo}</h2>
+            <p className="text-xs text-slate-600 font-bold">
+              Clase:{tren.claseElegida.nombre}
+            </p>
+          </div>
+          <div className="flex items-center gap-2 h-fit ">
+            <img className="h-6" src={tren.carrier[0].logo} alt="logo" />
+
             <div
               className={`text-sm ${
                 tren.stops === 0
@@ -24,7 +32,7 @@ function Tren({ tren, tipo }) {
               {tren.segments[0].companyName}
             </div>
             <div className="p-2 text-sm text-white bg-indigo-500 rounded dark:bg-indigo-700">
-              {tren.price}€
+              {(tren.price + tren.claseElegida.precioExtra).toFixed(2)}€
             </div>
           </div>
         </div>
@@ -34,13 +42,23 @@ function Tren({ tren, tipo }) {
         <div className="text-sm">{duration(tren.duration)}</div>
         <div className="text-sm">{tren.arrivalStationName}</div>
       </div>
-      <div className="flex items-center justify-end dark:bg-slate-100 p-2 rounded-md">
-        <img className="h-6" src={tren.carrier[0].logo} alt="logo" />
-      </div>
-      <div className="mt-2">
-        <b>Cambiar clase</b>
-        <Clases clases={tren.clasesDeAsiento} tren={tren} />
-      </div>
+
+      {cesta !== true && (
+        <div className="border-t-2 border-slate-100 dark:border-slate-700 mt-5">
+          <span
+            className="dark:text-secondaryDark
+          font-bold mb-5 block"
+          >
+            Cambiar clase
+          </span>
+          <Clases
+            clases={tren.clasesDeAsiento}
+            tren={tren}
+            classSeat={classSeat}
+            setClassSeat={setClassSeat}
+          />
+        </div>
+      )}
     </>
   );
 }

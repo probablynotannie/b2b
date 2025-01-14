@@ -37,7 +37,7 @@ function Resultado({ trenes, setTren, tipo }) {
                   {tren.segments[0].companyName}
                 </div>
                 <div className="p-2 text-sm text-white bg-indigo-500 rounded dark:bg-indigo-700">
-                  {tren.price}€
+                  {tren.price.toFixed(2)}€
                 </div>
               </div>
             </div>
@@ -85,7 +85,7 @@ function Resultado({ trenes, setTren, tipo }) {
                         <b>Llegada:</b> {tren.arrivalTime}
                       </div>
                       <div className="p-3 shadow-md rounded-lg bg-blue-100 dark:bg-slate-800 text-sm text-center">
-                        <b>Precio:</b> {tren.price}€
+                        <b>Precio:</b> {tren.price.toFixed(2)}€
                       </div>
                     </div>
                     <Mapa tren={tren} />
