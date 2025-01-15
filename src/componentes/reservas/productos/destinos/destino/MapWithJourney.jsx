@@ -3,7 +3,7 @@ import {
   TileLayer,
   Marker,
   Polyline,
-  Tooltip,
+  Popup,
 } from "react-leaflet";
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
@@ -20,18 +20,18 @@ const MapWithJourney = ({ destino }) => {
         zoomControl={false}
       >
         <TileLayer
-          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
         {destino.noches.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
-            <Tooltip permanent offset={[0, -20]}>
+            <Popup permanent offset={[0, -20]}>
               <strong>{location.name}</strong>
               <br />
               {location.country}
               <br />
               {location.nights} noche(s)
-            </Tooltip>
+            </Popup>
           </Marker>
         ))}
         <Polyline positions={positions} color="green" weight={3} />

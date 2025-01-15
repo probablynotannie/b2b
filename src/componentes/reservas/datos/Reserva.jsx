@@ -25,7 +25,7 @@ function Contacto({
             </span>
             <p className="text-slate-300 text-center px-4">
               {fechaIda}
-              {fechaVuelta !== null && <span> - {fechaVuelta} </span>}
+              {fechaVuelta && <span> - {fechaVuelta} </span>}
             </p>
             {extras !== null && extras}
           </div>

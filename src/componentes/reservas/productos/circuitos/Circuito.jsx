@@ -1,10 +1,13 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import Detalles from "./detalles/Detalles";
 import { Link } from "react-router-dom";
-import Eleccion from "./reserva/Eleccion";
+import Eleccion from "./detalles/Eleccion";
 function Producto() {
   const location = useLocation();
   const actividad = location.state;
+  const [fecha, setFecha] = useState();
+
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
@@ -17,13 +20,13 @@ function Producto() {
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Elegir cuando
         </h2>
-        <Eleccion 
-        actividad={actividad}
-        />
+        <Eleccion actividad={actividad} fecha={fecha} setFecha={setFecha} />
 
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {actividad.precio.toFixed(2)}
-        </button>
+        <Link to={"/datosCircuito"} state={{ actividad, fecha }}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {actividad.precio.toFixed(2)}€
+          </button>
+        </Link>
       </article>
     </main>
   );

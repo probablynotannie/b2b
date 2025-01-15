@@ -10,7 +10,10 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
   const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
   const [destino, setDestino] = useState("");
-
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -70,7 +73,12 @@ function Buscador() {
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-3">
-              <Input_Hab_Adulto_Ninio />
+              <Input_Hab_Adulto_Ninio
+                habitacion={habitacion}
+                setHabitacion={setHabitacion}
+                roomData={roomData}
+                setRoomData={setRoomData}
+              />
             </div>
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
               <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
@@ -111,7 +119,12 @@ function Buscador() {
             />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3">
-            <Input_Hab_Adulto_Ninio />
+            <Input_Hab_Adulto_Ninio
+              habitacion={habitacion}
+              setHabitacion={setHabitacion}
+              roomData={roomData}
+              setRoomData={setRoomData}
+            />
           </div>
           <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">

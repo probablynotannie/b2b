@@ -154,6 +154,7 @@ function Header() {
         <Route path="/reservaFerry" element={<ReservaFerry />} />
         <Route path="/reservaDestino" element={<ReservaDestino />} />
         <Route path="/reservaTren" element={<ReservaTren />} />
+        <Route path="/reservaCircuito" element={<ReservaCircuito />} />
 
         {/*  */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />
@@ -165,6 +166,7 @@ function Header() {
         <Route path="/datosferry" element={<DatosFerry />} />
         <Route path="/datosDestino" element={<DatosDestino />} />
         <Route path="/datosTren" element={<DatosTren />} />
+        <Route path="/datosCircuito" element={<DatosCircuito />} />
 
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />

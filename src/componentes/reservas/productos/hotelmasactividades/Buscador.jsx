@@ -20,9 +20,12 @@ function Buscador() {
     { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
   return (
     <>
-      {/* The search button */}
       <button
         onClick={toggleModal}
         className="relative border-2 dark:border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
@@ -33,16 +36,14 @@ function Buscador() {
         </span>
       </button>
 
-      {/* Modal for md screens and above */}
       <div
         className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        // Close modal when clicking outside
       >
         <div
           className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
+          onClick={(e) => e.stopPropagation()}
         >
           <div>
             <div className="w-full h-full mx-auto  relative ">
@@ -74,7 +75,12 @@ function Buscador() {
               <Input_Aeropuertos />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-3">
-              <Input_Hab_Adulto_Ninio />
+              <Input_Hab_Adulto_Ninio
+                habitacion={habitacion}
+                setHabitacion={setHabitacion}
+                roomData={roomData}
+                setRoomData={setRoomData}
+              />
             </div>
             <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
               <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
@@ -119,7 +125,12 @@ function Buscador() {
             <Input_Aeropuertos />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
-            <Input_Hab_Adulto_Ninio />
+            <Input_Hab_Adulto_Ninio
+              habitacion={habitacion}
+              setHabitacion={setHabitacion}
+              roomData={roomData}
+              setRoomData={setRoomData}
+            />
           </div>
           <div className="flex lg:justify-end justify-end lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
             <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">

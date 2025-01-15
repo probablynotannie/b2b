@@ -4,6 +4,7 @@ import {
   Marker,
   Polyline,
   Tooltip,
+  Popup,
 } from "react-leaflet";
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
@@ -45,8 +46,8 @@ const MapWithJourney = ({ tren }) => {
         className=""
       >
         <TileLayer
-          url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
-          attribution='&copy; <a href="https://wikimediafoundation.org/">Wikimedia</a>, &copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+          url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
 
         {/* Markers for each departure and arrival position */}
@@ -62,9 +63,9 @@ const MapWithJourney = ({ tren }) => {
                     segment.departurePosition.longitude,
                   ]}
                 >
-                  <Tooltip permanent offset={[0, -20]}>
+                  <Popup>
                     <span>{segment.departurePosition.name}</span>
-                  </Tooltip>
+                  </Popup>
                 </Marker>
               )}
 

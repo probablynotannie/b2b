@@ -3,7 +3,7 @@ import {
   TileLayer,
   Marker,
   Polyline,
-  Tooltip,
+  Popup,
 } from "react-leaflet";
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
@@ -25,9 +25,9 @@ const MapWithJourney = ({ destino }) => {
         />
         {destino.itinerario.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
-            <Tooltip permanent offset={[0, -20]}>
+            <Popup>
               <strong>{location.destino}</strong>
-            </Tooltip>
+            </Popup>
           </Marker>
         ))}
         <Polyline positions={positions} color="green" weight={3} />

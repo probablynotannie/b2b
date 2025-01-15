@@ -7,11 +7,8 @@ import { MdMeetingRoom } from "react-icons/md";
 import VersionMovil from "./movil/Hab_Adulto_Ninio_Movil";
 import { FaTrashAlt } from "react-icons/fa";
 
-function SelectorPersonas() {
-  const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState([
-    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
-  ]);
+function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
+
 
   const addRoom = () => {
     setHabitacion((prevCount) => prevCount + 1);

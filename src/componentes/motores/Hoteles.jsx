@@ -1,5 +1,5 @@
 import Sidebar from "./sidebar/Sidebar";
-import Input_Personas2 from "../inputs/Hab_Adulto_Ninio2";
+import Input_PHab_Ad_Nin from "../inputs/Hab_Adulto_Ninio2";
 import Input_Buscador2 from "../inputs/Buscador2";
 import Input_DateRange from "../inputs/DateRange";
 import Input_Nacionalidad from "../inputs/Nacionalidad";
@@ -8,6 +8,10 @@ import { useState } from "react";
 function Hoteles() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
   const [nacionalidad, setNacionalidad] = useState();
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
@@ -60,7 +64,12 @@ function Hoteles() {
                   />
                 </div>
                 <div>
-                  <Input_Personas2 />
+                  <Input_PHab_Ad_Nin
+                    habitacion={habitacion}
+                    setHabitacion={setHabitacion}
+                    roomData={roomData}
+                    setRoomData={setRoomData}
+                  />
                 </div>
               </div>
               <div className="absolute -bottom-5 right-5">

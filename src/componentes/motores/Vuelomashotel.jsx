@@ -8,6 +8,10 @@ import { useState } from "react";
 function Vuelomashotel() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
   return (
     <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
       <Sidebar />
@@ -42,7 +46,12 @@ function Vuelomashotel() {
                 />
               </div>
               <div className="col-span-2">
-                <Input_HabAdNin />
+                <Input_HabAdNin
+                  habitacion={habitacion}
+                  setHabitacion={setHabitacion}
+                  roomData={roomData}
+                  setRoomData={setRoomData}
+                />
               </div>
             </div>
             <div className="absolute -bottom-5 right-5">
