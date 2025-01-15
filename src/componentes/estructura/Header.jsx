@@ -63,6 +63,7 @@ import ReservaFerry from "../reservas/productos/ferris/reserva/ReservaFinal";
 import ReservaDestino from "../reservas/productos/destinos/reserva/ReservaFinal";
 import ReservaTren from "../reservas/productos/trenes/reserva/ReservaFinal";
 import ReservaCircuito from "../reservas/productos/circuitos/reserva/ReservaFinal";
+import ReservaSeguro from "../reservas/productos/seguro/reserva/ReservaFinal";
 
 /* RESERVA */
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
@@ -75,6 +76,7 @@ import DatosFerry from "../reservas/productos/ferris/reserva/Datos";
 import DatosDestino from "../reservas/productos/destinos/reserva/Datos";
 import DatosTren from "../reservas/productos/trenes/reserva/Datos";
 import DatosCircuito from "../reservas/productos/circuitos/reserva/Datos";
+import DatosSeguro from "../reservas/productos/seguro/reserva/Datos";
 
 import Cesta from "../reservas/cestaFinal/CestaCompleta";
 import ReservaFinalizada from "../reservaFinalizada/ReservaFinalizada";
@@ -155,6 +157,7 @@ function Header() {
         <Route path="/reservaDestino" element={<ReservaDestino />} />
         <Route path="/reservaTren" element={<ReservaTren />} />
         <Route path="/reservaCircuito" element={<ReservaCircuito />} />
+        <Route path="/reservaSeguro" element={<ReservaSeguro />} />
 
         {/*  */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />
@@ -167,6 +170,7 @@ function Header() {
         <Route path="/datosDestino" element={<DatosDestino />} />
         <Route path="/datosTren" element={<DatosTren />} />
         <Route path="/datosCircuito" element={<DatosCircuito />} />
+        <Route path="/datosSeguro" element={<DatosSeguro />} />
 
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />
