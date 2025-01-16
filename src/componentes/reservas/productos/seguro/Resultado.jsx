@@ -18,7 +18,7 @@ function Resultado() {
         <Pdfs />
         <Precios
           precios={seguro.preciosEquipajes}
-          icono={<BsFillLuggageFill className="text-slate-700" />}
+          icono={<BsFillLuggageFill className="text-slate-700 dark:text-slate-300" />}
           titulo={"Equipajes"}
         />
         <Precios

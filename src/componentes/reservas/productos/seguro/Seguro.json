@@ -5,10 +5,11 @@
   "destino": "España",
   "cobertura": "Covid 19",
   "cancelación": 1500,
-  "asistenciaMedica": 100000,
-  "equipaje": 1,
+  "asistenciaMedica": 550,
+  "equipaje": 10,
   "inicio": "12/12/2024",
-  "fin": "12/12/2024",
+  "fin": "15/12/2024",
+  "penalizacion": "14/12/2024",
   "importante": "Debe contratarse el mismo día de la reserva a la que se refiera, o en su defecto, en los siguientes 7 días a la reserva con 72h de carencia.",
   "preciosEquipajes": [
     {
