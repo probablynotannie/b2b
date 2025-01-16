@@ -4,6 +4,7 @@ import { FaBriefcaseMedical } from "react-icons/fa";
 import { MdLuggage } from "react-icons/md";
 
 function Detalles({ seguro }) {
+
   return (
     <div className="grid grid-cols-2 xl:grid-cols-4 gap-10 mt-3 place-items-center">
       <div className="flex flex-col justify-center items-center text-slate-500 dark:text-slate-400 font-bold w-32 h-32 rounded-full ">

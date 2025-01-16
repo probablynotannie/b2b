@@ -4,9 +4,9 @@ function Resumen({ img, txt }) {
       <img
         src={img}
         className="opacity-90 rounded h-full shadow mb-4 w-full object-cover"
-        alt="Reserva ferry"
+        alt="Imagen reserva"
       />
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center p-4">
+      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center p-4 rounded">
         <h4 className="text-white text-3xl font-semibold text-center">{txt}</h4>
       </div>
     </div>
