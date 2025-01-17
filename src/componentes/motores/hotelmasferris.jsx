@@ -52,7 +52,7 @@ function Vuelomashotel() {
       <div
         className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
         style={{
-          backgroundImage: `url(/banner_berry.jpg)`,
+          backgroundImage: `url(/banner_ferry.jpg)`,
           backgroundSize: "cover",
         }}
       >

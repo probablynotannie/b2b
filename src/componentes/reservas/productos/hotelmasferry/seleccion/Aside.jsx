@@ -1,4 +1,5 @@
-import { FaHotel, FaShip, FaCalendarAlt } from "react-icons/fa";
+import { FaHotel, FaShip } from "react-icons/fa";
+import { Link } from "react-router-dom";
 
 const formatDate = (dateString) => {
   if (!dateString || typeof dateString !== "string") return "";
@@ -34,8 +35,7 @@ function Aside({ hotel, ferry }) {
             </span>
             <span>{hotel.precio}€</span>
           </li>
-          <li className="flex items-center gap-1 ml-4">
-            <FaCalendarAlt className="text-slate-400" />
+          <li className="flex items-center gap-1 text-slate-400">
             {hotel.fecha} - {hotel.fechaSalida}
           </li>
           <li className="flex justify-between items-center">
@@ -47,11 +47,18 @@ function Aside({ hotel, ferry }) {
               {(ferry.ida.precio + ferry.vuelta?.precio || 0).toFixed(2)}€
             </span>
           </li>
-          <li className="flex items-center gap-1 ml-4">
-            <FaCalendarAlt className="text-slate-400" />
+          <li className="flex items-center gap-1 text-slate-400">
             {formatDate(ferry.ida.fecha)} - {formatDate(ferry.vuelta?.fecha)}
           </li>
         </ul>
+        <Link to={"/datosHotelFerry"} state={{ hotel, ferry }}>
+          <button className="w-full p-3 bg-secondary dark:bg-green-600 text-white font-bold rounded-lg mt-3">
+            {parseFloat(hotel.precio) +
+              parseFloat(ferry.ida.precio.toFixed(2)) +
+              parseFloat((ferry.vuelta?.precio || 0).toFixed(2))}
+            €
+          </button>
+        </Link>
       </div>
     </div>
   );

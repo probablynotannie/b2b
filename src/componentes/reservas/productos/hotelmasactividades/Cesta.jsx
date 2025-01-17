@@ -5,7 +5,8 @@ import { MdModeNight } from "react-icons/md";
 import { FaDoorOpen } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
-
+import { Link } from "react-router-dom";
+import formatearFecha from "../../estructura/FormatearFecha";
 function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
   const reservaFinal = {
     hotel: hotel || null,
@@ -26,25 +27,7 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
       (sum, actividad) => sum + parseFloat(actividad.precioTotal),
       0
     );
-  function formatSpanishDate(dateString) {
-    const months = [
-      "enero",
-      "febrero",
-      "marzo",
-      "abril",
-      "mayo",
-      "junio",
-      "julio",
-      "agosto",
-      "septiembre",
-      "octubre",
-      "noviembre",
-      "diciembre",
-    ];
-    const [day, month, year] = dateString.split("-");
-    const monthName = months[parseInt(month, 10) - 1];
-    return `${day} de ${monthName} de ${year}`;
-  }
+
   return (
     <div className="mt-5">
       <div className="min-h-[30vh] grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
@@ -172,7 +155,7 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
                   <div>
                     <p className="flex items-center gap-2">
                       <FaCalendarAlt className="text-secondary" />
-                      {formatSpanishDate(actividad.fechaSeleccionada)} a las{" "}
+                      {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
                       {actividad.horaSeleccionada}
                     </p>
                   </div>
@@ -183,9 +166,11 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
         )}
       </div>
       {hotel && actividades.length > 0 && (
-        <button className="bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
-          Total: {totalPrice}€
-        </button>
+        <Link to="/hotel+actividades" state={{ hotel, actividades }}>
+          <button className="bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
+            Total: {totalPrice.toFixed(2)}€
+          </button>
+        </Link>
       )}
     </div>
   );

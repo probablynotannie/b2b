@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Modal } from "flowbite-react";
-
+import formatearFecha from "../../estructura/FormatearFecha";
 function Resultado({ tickets, actividades, setActividades }) {
   const [activeActividad, setActiveActividad] = useState(null);
   const [fechaSeleccionada, setFechaSeleccionada] = useState("");
@@ -179,7 +179,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                     {Object.keys(activeActividad.fechasDisponibles).map(
                       (fecha) => (
                         <option key={fecha} value={fecha}>
-                          {fecha}
+                          {formatearFecha(fecha)}
                         </option>
                       )
                     )}
