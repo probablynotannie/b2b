@@ -2,7 +2,8 @@ import { useLocation } from "react-router-dom";
 
 function ResumenFinal() {
   const location = useLocation();
-  const { producto } = location.state || {};
+  const { producto, selectedExtras, precio, datosContacto, conductor } =
+    location.state || {};
   return <div>ResumenFinal</div>;
 }
 

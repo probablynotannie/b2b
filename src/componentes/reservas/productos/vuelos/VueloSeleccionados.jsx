@@ -62,7 +62,7 @@ function Vuelos({ ida, vuelta, cesta }) {
       <div className="mt-10 shadow rounded-xl border-2 border-slate-100 dark:border-slate-700">
         <div className="border-slate-100 rounded-t-xl dark:bg-slate-800">
           <div
-            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white hover:bg-slate-100 rounded-t-xl dark:hover:bg-slate-900 transition relative ${"border-b-2 border-slate-100 dark:border-slate-600 "}`}
+            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100 rounded-t-xl dark:hover:bg-slate-900 transition relative ${"border-b-2 border-slate-100 dark:border-slate-600 "}`}
           >
             <span className="absolute -top-5 left-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
               <FaPlaneDeparture />
@@ -105,7 +105,7 @@ function Vuelos({ ida, vuelta, cesta }) {
         </div>
         {vuelta && (
           <div className="rounded-b-xl dark:bg-slate-800">
-            <div className="grid  grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white hover:bg-slate-100  rounded-b-xl dark:hover:bg-slate-900 transition relative">
+            <div className="grid  grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100  rounded-b-xl dark:hover:bg-slate-900 transition relative">
               <span className="absolute -bottom-5 right-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
                 <FaPlaneArrival />
               </span>

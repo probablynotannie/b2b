@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import FormatearFecha from "../../../estructura/FormatearFecha";
 import { SiMentorcruise } from "react-icons/si";
 import Reserva from "../../../estructura/reserva/Resumen";
-
+import { Link } from "react-router-dom";
 import Detalles from "./Detalles";
 function ReservaFinal() {
   const location = useLocation();
@@ -76,16 +76,29 @@ function ReservaFinal() {
             </div>
           );
         })}
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {pasajeros
-            .reduce((total, pasajero) => {
-              const discount = pasajero.discount || 0;
-              const discountedPrice = selectedPrice * (1 - discount / 100);
-              return total + discountedPrice;
-            }, 0)
-            .toFixed(2)}
-          €
-        </button>
+        <Link
+          to={"/resumenCrucero"}
+          state={{
+            datosContacto,
+            producto,
+            cabinPhotos,
+            pasajeros,
+            selectedDate,
+            endDate,
+            selectedPrice,
+          }}
+        >
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {pasajeros
+              .reduce((total, pasajero) => {
+                const discount = pasajero.discount || 0;
+                const discountedPrice = selectedPrice * (1 - discount / 100);
+                return total + discountedPrice;
+              }, 0)
+              .toFixed(2)}
+            €
+          </button>
+        </Link>
       </article>
     </main>
   );

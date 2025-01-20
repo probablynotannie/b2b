@@ -10,7 +10,7 @@ function Detalles({ producto, tickets, setTickets, cesta }) {
           alt="imagen producto"
           className="w-full h-[30vh] object-top object-cover my-3 rounded "
         />
-        <span className="text-sm">{producto.descripcion_corta}</span>
+        <p className="text-sm dark:text-slate-200">{producto.descripcion_corta}</p>
         <section className="grid grid-cols-2">
           <div>
             <span className="text-green-700 font-semibold">Incluido</span>

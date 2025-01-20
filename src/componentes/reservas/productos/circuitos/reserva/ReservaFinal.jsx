@@ -3,6 +3,7 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Detalles from "../detalles/Detalles";
 import { MdCalendarMonth } from "react-icons/md";
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { datosContacto, fechaIda, actividad } = location.state || {};
@@ -29,9 +30,11 @@ function ReservaFinal() {
           <MdCalendarMonth className="text-lg text-secondary dark:text-secondaryDark" />
           {fechaIda}
         </p>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {actividad.precio.toFixed(2)}€
-        </button>
+        <Link to={"/resumenCircuito"}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {actividad.precio.toFixed(2)}€
+          </button>
+        </Link>
       </article>
     </main>
   );

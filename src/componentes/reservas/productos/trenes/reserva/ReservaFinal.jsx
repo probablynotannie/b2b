@@ -4,6 +4,7 @@ import Map from "../Mapa";
 import DatosTren from "../detalles/DatosTren";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Reserva from "../../../estructura/reserva/Resumen";
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { ida, vuelta, datosContacto } = location.state || {};
@@ -43,14 +44,16 @@ function ReservaFinal() {
 
         <DatosTren tren={ida} tipo="ida" />
         {vuelta && <DatosTren tren={vuelta} tipo="vuelta" />}
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {(
-            ida.price +
-            ida.claseElegida.precioExtra +
-            (vuelta && vuelta.price + vuelta.claseElegida.precioExtra)
-          ).toFixed(2)}
-          €
-        </button>
+        <Link to={"/resumenTren"} state={{ ida, vuelta, datosContacto }}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {(
+              ida.price +
+              ida.claseElegida.precioExtra +
+              (vuelta && vuelta.price + vuelta.claseElegida.precioExtra)
+            ).toFixed(2)}
+            €
+          </button>
+        </Link>
       </article>
     </main>
   );

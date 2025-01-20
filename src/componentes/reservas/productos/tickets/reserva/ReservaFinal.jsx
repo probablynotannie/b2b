@@ -4,7 +4,7 @@ import { MdEmail, MdPhoneAndroid } from "react-icons/md";
 import Detalles from "../Detalles";
 import FormatearFecha from "../../../estructura/FormatearFecha";
 import Reserva from "../../../estructura/reserva/Resumen";
-
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const calculateTotalPrice = () => {
@@ -26,11 +26,7 @@ function ReservaFinal() {
       </section>
       <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
         <Reserva img={producto.img} txt={producto.titulo} />
-        <img
-          src={producto.img}
-          className="opacity-90 rounded shadow mb-4 h-[20vh] w-full object-cover"
-          alt="Reserva vuelo"
-        />
+
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Datos de contacto
         </h2>
@@ -52,18 +48,25 @@ function ReservaFinal() {
             className="text-sm border-l-2 border-secondary mt-3 pl-2"
             key={index}
           >
-            <div className="flex justify-between items-center">
-              <h3 className="font-semibold text-slate-700 text-sm">
+            <div className="flex justify-between items-center dark:text-slate-200">
+              <h3 className="font-semibold text-slate-700 dark:text-slate-200 text-sm">
                 {FormatearFecha(ticket.date)}
               </h3>
               <span className="block">{ticket.time}</span>
             </div>
-            {ticket.quantity}x {ticket.type}
+            <span className="dark:text-slate-300">
+              {ticket.quantity}x {ticket.type}
+            </span>
           </div>
         ))}
-        <button className="w-full mt-5 bg-secondary p-3 text-white font-bold rounded shadow hover:shadow-lg transition duration-300">
-          Total: €{calculateTotalPrice().toFixed(2)}
-        </button>
+        <Link
+          to={"/resumenTickets"}
+          state={{ producto, tickets, datosContacto }}
+        >
+          <button className="w-full mt-5 bg-secondary p-3 text-white font-bold rounded shadow hover:shadow-lg transition duration-300">
+            Total: €{calculateTotalPrice().toFixed(2)}
+          </button>
+        </Link>
       </article>
     </main>
   );

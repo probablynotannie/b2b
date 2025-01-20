@@ -4,11 +4,10 @@ import Pasajeros from "./Pasajeros";
 import { FaUser } from "react-icons/fa";
 import { MdEmail, MdPhoneAndroid } from "react-icons/md";
 import Reserva from "../../../estructura/reserva/Resumen";
-
-function Vuelo() {
+import { Link } from "react-router-dom";
+function ReservaFinal() {
   const location = useLocation();
-  const { ida, vuelta, email, nombre, numero, apellido, pasajeros } =
-    location.state || {};
+  const { ida, vuelta, datosContacto, pasajeros } = location.state || {};
 
   if (!ida || !vuelta) {
     return (
@@ -40,26 +39,28 @@ function Vuelo() {
         </h2>
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <FaUser className="text-slate-700 dark:text-slate-200" />
-          <span>{nombre}</span>
-          <span>{apellido}</span>
+          <span>{datosContacto.nombre}</span>
+          <span>{datosContacto.apellido}</span>
         </div>
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <MdEmail className="text-slate-700 dark:text-slate-200" />
-          <span>{email}</span>
+          <span>{datosContacto.email}</span>
         </div>
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <MdPhoneAndroid className="text-slate-700 dark:text-slate-200" />
-          <span>{numero}</span>
+          <span>{datosContacto.numero}</span>
         </div>
         <p className="text-sm text-red-400 dark:text-red-500 mt-2">
           Comprueba los datos de contacto para poder comunicar cualquier cambio
           con los vuelos sobre cambios.
         </p>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {ida.flight.precio + vuelta?.flight.precio}€
-        </button>
+        <Link to={"/resumenVuelo"} state={{ida,vuelta,datosContacto,pasajeros}}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {ida.flight.precio + vuelta?.flight.precio}€
+          </button>
+        </Link>
       </article>
     </main>
   );
 }
-export default Vuelo;
+export default ReservaFinal;

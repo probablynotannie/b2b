@@ -3,6 +3,7 @@ import DatosContacto from "../../../estructura/DatosContacto";
 import Reserva from "../../../estructura/reserva/Resumen";
 import Aside from "../seleccion/Aside";
 import Detalles from "../seleccion/Detalles";
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { selectedHotel, ida, vuelta, datosContacto } = location.state || {};
@@ -28,14 +29,16 @@ function ReservaFinal() {
           <Reserva img={selectedHotel.img} txt={"Hotel + vuelo"} />
           <Aside ida={ida} vuelta={vuelta} hotel={selectedHotel} />
         </div>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {(
-            Number(selectedHotel.precio) +
-            Number(ida.flight.precio) +
-            (vuelta ? Number(vuelta.flight.precio) : 0)
-          ).toFixed(2)}
-          €
-        </button>
+        <Link to={"/resumenhotelmasvuelo"} state={{selectedHotel, ida, vuelta, datosContacto}}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {(
+              Number(selectedHotel.precio) +
+              Number(ida.flight.precio) +
+              (vuelta ? Number(vuelta.flight.precio) : 0)
+            ).toFixed(2)}
+            €
+          </button>
+        </Link>
       </article>
     </main>
   );

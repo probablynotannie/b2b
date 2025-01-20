@@ -37,10 +37,20 @@ function Vuelo() {
   const handleSubmit = (event) => {
     event.preventDefault();
   };
-  const [email, setEmail] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
-  const [numero, setNumero] = useState("");
+
+  const [datosContacto, setDatosContacto] = useState({
+    email: "",
+    nombre: "",
+    apellido: "",
+    numero: "",
+  });
+  const handleChange = (key, value) => {
+    setDatosContacto((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
+  };
+
   return (
     <main className="my-10  flex justify-center container min-h-[68vh]">
       <article className="p-5 w-full border-2  border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
@@ -49,14 +59,24 @@ function Vuelo() {
             Datos Contacto
           </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
-            <Input_Texto value={nombre} setValue={setNombre} tipo="Nombre" />
             <Input_Texto
-              value={apellido}
-              setValue={setApellido}
+              value={datosContacto.nombre}
+              setValue={(value) => handleChange("nombre", value)}
+              tipo="Nombre"
+            />
+            <Input_Texto
+              value={datosContacto.apellido}
+              setValue={(value) => handleChange("apellido", value)}
               tipo="Apellido/s"
             />
-            <Input_Numero value={numero} setValue={setNumero} />
-            <Input_Email email={email} setEmail={setEmail} />
+            <Input_Numero
+              value={datosContacto.numero}
+              setValue={(value) => handleChange("numero", value)}
+            />
+            <Input_Email
+              email={datosContacto.email}
+              setEmail={(value) => handleChange("email", value)}
+            />
           </div>
           <Reserva
             img={img}
@@ -73,10 +93,7 @@ function Vuelo() {
               state={{
                 producto,
                 selectedExtras,
-                nombre,
-                apellido,
-                numero,
-                email,
+                datosContacto,
                 reembolso,
                 conductor,
                 precio,

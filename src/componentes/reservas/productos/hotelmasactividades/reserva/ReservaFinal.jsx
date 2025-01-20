@@ -3,6 +3,7 @@ import Detalles from "../seleccion/Detalles";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Aside from "../seleccion/Aside";
 import Reserva from "../../../estructura/reserva/Resumen";
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { datosContacto, hotel, actividades } = location.state || {};
@@ -37,7 +38,7 @@ function ReservaFinal() {
         <Reserva
           img={hotel.img}
           txt={
-            "Hotel" +
+            "Hotel + " +
             " " +
             actividades.length +
             " actividad" +
@@ -47,9 +48,14 @@ function ReservaFinal() {
         <section className="my-2">
           <Aside hotel={hotel} actividades={actividades} />
         </section>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {calculateTotalPrice()}€
-        </button>
+        <Link
+          to={"/resumenHotelMasActividades"}
+          state={{ datosContacto, hotel, actividades }}
+        >
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {calculateTotalPrice()}€
+          </button>
+        </Link>
       </article>
     </main>
   );

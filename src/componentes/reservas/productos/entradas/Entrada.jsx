@@ -32,8 +32,8 @@ function Producto() {
       <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
         <section>
           {tickets.length > 0 ? (
-            <div>
-              <h2 className="font-semibold">Resumen compra</h2>
+            <div className="dark:text-slate-400">
+              <h2 className="font-semibold dark:text-white">Resumen compra</h2>
 
               {tickets.map((ticket, index) => (
                 <div
@@ -41,7 +41,7 @@ function Producto() {
                   key={index}
                 >
                   <div className="flex justify-between items-center">
-                    <h3 className="font-semibold text-slate-700 text-sm">
+                    <h3 className="font-semibold text-slate-700 dark:text-slate-200 text-sm">
                       {FormatearFecha(ticket.date)}
                     </h3>
                     <span className="block">{ticket.time}</span>

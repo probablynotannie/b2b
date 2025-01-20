@@ -53,7 +53,10 @@ function ReservaFinal() {
             numero={datosContacto.numero}
           />
         </div>
-        <Link>
+        <Link
+          to={"/resumenHotelmasFerry"}
+          state={{ hotel, ferry, datosContacto }}
+        >
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {parseFloat(hotel.precio) +
               parseFloat(ferry.ida.precio.toFixed(2)) +

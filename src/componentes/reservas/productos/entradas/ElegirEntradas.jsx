@@ -58,9 +58,9 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="mb-5 border bg-slate-50 shadow hover:shadow-md transition duration-300 rounded-lg"
+            className="mb-5 border dark:border-slate-700 bg-slate-50 dark:bg-slate-800 shadow hover:shadow-md transition duration-300 rounded-lg"
           >
-            <div className="flex justify-between items-center bg-slate-700 p-2">
+            <div className="flex justify-between items-center bg-slate-700 dark:bg-slate-900 p-2">
               <h2 className="font-semibold text-white">Ticket {index + 1}</h2>
               {cesta !== true && (
                 <button
@@ -73,9 +73,9 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
             </div>
             <div className="grid grid-cols-2 gap-4 p-4">
               <div className="mb-2 flex flex-col">
-                <label>Fecha</label>
+                <label className="dark:text-slate-100">Fecha</label>
                 <select
-                  className="border border-slate-300 rounded"
+                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800 rounded"
                   value={ticket.date}
                   onChange={(e) => updateTicket(index, "date", e.target.value)}
                   disabled={cesta === true}
@@ -88,9 +88,9 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                 </select>
               </div>
               <div className="mb-2 flex flex-col">
-                <label>Hora</label>
+                <label className="dark:text-slate-100">Hora</label>
                 <select
-                  className="border border-slate-300 rounded"
+                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800  rounded"
                   value={ticket.time}
                   onChange={(e) => updateTicket(index, "time", e.target.value)}
                   disabled={cesta === true || !ticket.date}
@@ -106,9 +106,9 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                 </select>
               </div>
               <div className="mb-2 flex flex-col">
-                <label>Tipo</label>
+                <label className="dark:text-slate-100">Tipo</label>
                 <select
-                  className="border border-slate-300 rounded"
+                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800  rounded"
                   value={ticket.type}
                   onChange={(e) => updateTicket(index, "type", e.target.value)}
                   disabled={cesta === true}
@@ -122,9 +122,9 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                 </select>
               </div>
               <div className="mb-2 flex flex-col">
-                <label>Cantidad</label>
+                <label className="dark:text-slate-100">Cantidad</label>
                 <input
-                  className="border border-slate-300 rounded"
+                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800  rounded"
                   type="number"
                   value={ticket.quantity}
                   min="1"
@@ -140,7 +140,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                 />
               </div>
               {ticket.date && ticket.time && (
-                <div className=" text-sm">
+                <div className=" text-sm dark:text-slate-300">
                   {producto.reserva.fechas[ticket.date].horarios
                     .filter((time) => time.hora === ticket.time)
                     .map((time) => (

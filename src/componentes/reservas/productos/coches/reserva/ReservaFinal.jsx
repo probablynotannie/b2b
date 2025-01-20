@@ -3,19 +3,11 @@ import { FaUser, FaCar } from "react-icons/fa";
 import { MdEmail, MdPhoneAndroid } from "react-icons/md";
 import Detalles from "../detalles/Detalles";
 import Reserva from "../../../estructura/reserva/Resumen";
-
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
-  const {
-    producto,
-    selectedExtras,
-    nombre,
-    precio,
-    email,
-    apellido,
-    numero,
-    conductor,
-  } = location.state || {};
+  const { producto, selectedExtras, precio, datosContacto, conductor } =
+    location.state || {};
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
@@ -28,16 +20,16 @@ function ReservaFinal() {
         </h2>
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <FaUser className="text-slate-700 dark:text-slate-200" />
-          <span>{nombre}</span>
-          <span>{apellido}</span>
+          <span>{datosContacto.nombre}</span>
+          <span>{datosContacto.apellido}</span>
         </div>
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <MdEmail className="text-slate-700 dark:text-slate-200" />
-          <span>{email}</span>
+          <span>{datosContacto.email}</span>
         </div>
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <MdPhoneAndroid className="text-slate-700 dark:text-slate-200" />
-          <span>{numero}</span>
+          <span>{datosContacto.numero}</span>
         </div>
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2 mt-3 mb-2">
           Coche y Extras
@@ -86,9 +78,14 @@ function ReservaFinal() {
           Comprueba los datos de contacto para poder comunicar cualquier cambio
           con la resera.
         </p>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {precio.toFixed(2)}
-        </button>
+        <Link
+          to={"/resumenCoche"}
+          state={{ producto, selectedExtras, precio, datosContacto, conductor }}
+        >
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {precio.toFixed(2)}€
+          </button>
+        </Link>
       </article>
     </main>
   );

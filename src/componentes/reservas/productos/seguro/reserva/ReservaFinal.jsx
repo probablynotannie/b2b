@@ -4,6 +4,7 @@ import { FaCalendar } from "react-icons/fa6";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Detalles from "./Detalles";
 import Resumen from "../../../estructura/reserva/Resumen";
+import { Link } from "react-router-dom";
 function Reserva() {
   const location = useLocation();
   const { seguro, datosContacto } = location.state || {};
@@ -37,10 +38,15 @@ function Reserva() {
             {formatearFecha(seguro.fin)}
           </li>
         </ul>
-        <p className="text-red-500 dark:text-red-400 my-3 text-sm border-y-2 border-slate-100 dark:border-slate-700 py-4">{seguro.importante}</p>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {seguro.precio.toFixed(2)}€
-        </button>
+        <p className="text-red-500 dark:text-red-400 my-3 text-sm border-y-2 border-slate-100 dark:border-slate-700 py-4">
+          {seguro.importante}
+        </p>
+
+        <Link to={"/resumenSeguro"} state={{ seguro, datosContacto }}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {seguro.precio.toFixed(2)}€
+          </button>
+        </Link>
       </article>
     </main>
   );

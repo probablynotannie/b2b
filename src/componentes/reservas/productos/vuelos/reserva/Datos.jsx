@@ -10,10 +10,7 @@ function Vuelo() {
   const location = useLocation();
   const navigate = useNavigate();
   const { ida, vuelta } = location.state || {};
-  const [email, setEmail] = useState("");
-  const [nombre, setNombre] = useState("");
-  const [apellido, setApellido] = useState("");
-  const [numero, setNumero] = useState("");
+
   const [pasajeros, setPasajeros] = useState(
     Array.from({ length: 2 }, () => ({
       nombre: "",
@@ -68,16 +65,22 @@ function Vuelo() {
   };
   const handleSubmit = (event) => {
     event.preventDefault();
-    console.log({
-      email,
-      nombre,
-      apellido,
-      numero,
-      pasajeros,
-    });
+
     navigate("/reservavuelo", {
-      state: { ida, vuelta, email, nombre, apellido, numero, pasajeros },
+      state: { ida, vuelta, datosContacto, pasajeros },
     });
+  };
+  const [datosContacto, setDatosContacto] = useState({
+    email: "",
+    nombre: "",
+    apellido: "",
+    numero: "",
+  });
+  const handleChange = (key, value) => {
+    setDatosContacto((prev) => ({
+      ...prev,
+      [key]: value,
+    }));
   };
   return (
     <main className="my-10 flex justify-center container min-h-[68vh]">
@@ -87,14 +90,24 @@ function Vuelo() {
             Datos Contacto
           </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
-            <Input_Texto value={nombre} setValue={setNombre} tipo="Nombre" />
             <Input_Texto
-              value={apellido}
-              setValue={setApellido}
+              value={datosContacto.nombre}
+              setValue={(value) => handleChange("nombre", value)}
+              tipo="Nombre"
+            />
+            <Input_Texto
+              value={datosContacto.apellido}
+              setValue={(value) => handleChange("apellido", value)}
               tipo="Apellido/s"
             />
-            <Input_Numero value={numero} setValue={setNumero} />
-            <Input_Email email={email} setEmail={setEmail} />
+            <Input_Numero
+              value={datosContacto.numero}
+              setValue={(value) => handleChange("numero", value)}
+            />
+            <Input_Email
+              email={datosContacto.email}
+              setEmail={(value) => handleChange("email", value)}
+            />
           </div>
           <h2 className="font-semibold mt-5 dark:text-white">
             Datos Pasajeros

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 function ResumenFinal() {
   const location = useLocation();
-  const { producto } = location.state || {};
+  const { reserva, datosContacto } = location.state || {};
   return <div>ResumenFinal</div>;
 }
 

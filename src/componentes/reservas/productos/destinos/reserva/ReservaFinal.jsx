@@ -5,6 +5,7 @@ import Desglose from "../destino/reserva/Desglose";
 import { FaPerson, FaClock } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { MdMeetingRoom } from "react-icons/md";
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { reserva, datosContacto } = location.state || {};
@@ -24,7 +25,7 @@ function ReservaFinal() {
           img={reserva.img}
           txt={reserva.dias + " Días en " + reserva.ubicacion}
         />
-        <div className="flex justify-center gap-3 flex-wrap text-slate-600 mt-3 dark:text-slate-100">
+        <div className="flex justify-between gap-3 flex-wrap text-slate-600 mt-3 dark:text-slate-100">
           <div className="flex items-center gap-1">
             <FaPerson className="text-secondary dark:text-secondary" />
             <span>{reserva.pax}x</span>
@@ -46,9 +47,11 @@ function ReservaFinal() {
         <section className="border-t mt-3 border-slate-200 dark:border-slate-700">
           <Desglose precio={reserva.precio} />
         </section>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {reserva.precio} €
-        </button>
+        <Link to={"/resumenDestino"} state={{ reserva, datosContacto }}>
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {reserva.precio} €
+          </button>
+        </Link>
       </article>
     </main>
   );
