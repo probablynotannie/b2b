@@ -5,31 +5,14 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import formatearFecha from "../../../estructura/FormatearFecha";
 function Datos() {
   const location = useLocation();
-  const { hotel, actividades } = location.state || {};
-  const img = "/banner_hoteles.jpg";
-  const itinerario =
-    hotel.nombre +
-    " + " +
-    actividades.length +
-    " actividad" +
-    (actividades.length > 1 ? "es" : "");
-  const fechaIda = (
-    <ul>
-      <li>
-        Hotel: {hotel.fecha} - {hotel.fechaSalida}
-      </li>
-
-      {actividades.map((actividad, index) => (
-        <li key={index}>
-          {actividad.titulo} - ({actividad.fechaSeleccionada} -
-          {actividad.horaSeleccionada})
-        </li>
-      ))}
-    </ul>
-  );
-
+  const { selectedHotel, ida, vuelta } = location.state || {};
+  const img = "/banner_avion.jpg";
+  const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
+  const fechaIda = formatearFecha(ida.flight.outboundDate);
+  const fechaVuelta = vuelta ? formatearFecha(vuelta.flight.returnDate) : "";
   const [datosContacto, setDatosContacto] = useState({
     email: "",
     nombre: "",
@@ -73,14 +56,15 @@ function Datos() {
         <Reserva
           img={img}
           position={"center"}
-          tipo={"Hotel + actividades"}
+          tipo={"Hotel + vuelo"}
           itinerario={itinerario}
           fechaIda={fechaIda}
+          fechaVuelta={fechaVuelta}
         />
         <div className="flex justify-end">
           <Link
-            to={"/reservaHotelMasActividades"}
-            state={{ datosContacto, hotel, actividades }}
+            to={"/reservahotelmasvuelo"}
+            state={{ selectedHotel, ida, vuelta, datosContacto }}
           >
             <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
-import Resultado from "../hotel/Hoteles";
+import Resultado from "../hotel/HotelMas";
 import Vuelos from "../vuelos/VueloSeleccionados";
 import MasVuelos from "./Vuelos";
 import Buscador from "./Buscador";
@@ -8,10 +8,13 @@ import { FaHotel } from "react-icons/fa";
 import { FaPlane } from "react-icons/fa";
 import vuelos from "./Vuelos.json";
 import hoteles from "./Hoteles.json";
+import { Link } from "react-router-dom";
 function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
+  const [selectedHotel, setHotel] = useState();
+
   useEffect(() => {
     const findCheapestCombination = () => {
       let cheapestCombination = null;
@@ -63,6 +66,7 @@ function Productos() {
       setVuelta(vuelta);
     }
   }, []);
+  console.log(selectedHotel);
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
@@ -111,8 +115,24 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                <Vuelos ida={ida} vuelta={vuelta} />
-                <Resultado hoteles={hoteles} />
+                <div className="flex justify-end">
+                  {selectedHotel && (
+                    <Link
+                      to={"/hotelMasVuelo"}
+                      state={{ ida, vuelta, selectedHotel }}
+                    >
+                      <button className="bg-slate-600 text-white font-semibold p-1 rounded-lg shadow-md">
+                        Reservar
+                      </button>
+                    </Link>
+                  )}
+                </div>
+                <Vuelos ida={ida} vuelta={vuelta} cesta={true} />
+                <Resultado
+                  hoteles={hoteles}
+                  selectedHotel={selectedHotel}
+                  setHotel={setHotel}
+                />
               </section>
             </>
           )}

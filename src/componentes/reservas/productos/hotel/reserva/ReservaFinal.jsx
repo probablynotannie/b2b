@@ -3,7 +3,7 @@ import Detalles from "./Detalles";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa";
 import Reserva from "../../../estructura/reserva/Resumen";
-
+import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { producto, habitacion, datosContacto } = location.state || {};
@@ -73,9 +73,14 @@ function ReservaFinal() {
             )}
           </div>
         </section>
-        <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-          {habitacion.precio} €
-        </button>
+        <Link
+          to={"/resumenHotel"}
+          state={{ producto, habitacion, datosContacto }}
+        >
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+            {habitacion.precio} €
+          </button>
+        </Link>
       </article>
     </main>
   );

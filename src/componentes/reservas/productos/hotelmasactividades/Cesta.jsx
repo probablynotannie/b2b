@@ -67,7 +67,7 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
               </div>
             </div>
             <span
-              className={`absolute rotate-45 bg-secondary rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg`}
+              className={`absolute bg-orange-500 text-orange-100 rounded-lg px-2 p-1  font-bold text-sm top-5 left-5 z-10 shadow-lg`}
             >
               Hotel
             </span>
@@ -104,7 +104,7 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
                 key={index}
               >
                 <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
-                  <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:border-slate-700">
+                  <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:border-slate-700 dark:text-slate-400">
                     <span className="flex items-center">
                       <FaPerson className="text-lg" />{" "}
                       {actividad.paxReserva.adultos} adulto
@@ -131,7 +131,12 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
                   </div>
                 </div>
                 <span
-                  className={`absolute rotate-45 bg-blue-500 rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg ${
+                  className={`absolute bg-indigo-500 text-indigo-200 rounded-lg px-2 p-1  font-bold text-sm top-5 left-5 z-10 shadow-lg `}
+                >
+                  Actividad
+                </span>
+                <span
+                  className={`absolute rotate-45 rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg ${
                     actividad.tipoPrecio === "Neto"
                       ? "bg-green-300 text-green-800"
                       : "bg-red-500 text-red-200"
@@ -153,7 +158,7 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
                   </h1>
 
                   <div>
-                    <p className="flex items-center gap-2">
+                    <p className="flex items-center gap-2 dark:text-slate-400">
                       <FaCalendarAlt className="text-secondary" />
                       {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
                       {actividad.horaSeleccionada}

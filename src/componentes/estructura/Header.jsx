@@ -39,7 +39,7 @@ import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 import Hotel from "../reservas/productos/hotel/Hotel";
 import Vuelo from "../reservas/productos/vuelos/reserva/Vuelo";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
-import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/Hotel";
+import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/HotelMasVuelo";
 import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
@@ -67,8 +67,9 @@ import ReservaCircuito from "../reservas/productos/circuitos/reserva/ReservaFina
 import ReservaSeguro from "../reservas/productos/seguro/reserva/ReservaFinal";
 import ReservaHotelFerry from "../reservas/productos/hotelmasferry/reserva/ReservaFinal";
 import ReservaHotelMasActividades from "../reservas/productos/hotelmasactividades/reserva/ReservaFinal";
+import ReservaHotelMasVuelo from "../reservas/productos/hotelmasvuelo/reserva/ReservaFinal";
 
-/* RESERVA */
+/* Datos */
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
 import DatosCoche from "../reservas/productos/coches/reserva/Datos";
 import DatosCrucero from "../reservas/productos/cruceros/reserva/Datos";
@@ -81,7 +82,24 @@ import DatosTren from "../reservas/productos/trenes/reserva/Datos";
 import DatosCircuito from "../reservas/productos/circuitos/reserva/Datos";
 import DatosSeguro from "../reservas/productos/seguro/reserva/Datos";
 import DatosHotelFerry from "../reservas/productos/hotelmasferry/reserva/Datos";
-import DatosHotelMasActividades from "../reservas/productos/hotelmasactividades/reserva/ReservaFinal";
+import DatosHotelMasActividades from "../reservas/productos/hotelmasactividades/reserva/Datos";
+import DatosHotelMasVuelo from "../reservas/productos/hotelmasvuelo/reserva/Datos";
+
+/* RESUMEN FINAL */
+import ResumenCircuitos from "../reservas/productos/circuitos/final/ResumenFinal";
+import ResumenCoches from "../reservas/productos/coches/final/ResumenFinal";
+import ResumenCruceros from "../reservas/productos/cruceros/final/ResumenFinal";
+import ResumenDestinos from "../reservas/productos/destinos/final/ResumenFinal";
+import ResumenEntradas from "../reservas/productos/entradas/final/ResumenFinal";
+import ResumenFerris from "../reservas/productos/Ferris/final/ResumenFinal";
+import ResumenHotel from "../reservas/productos/hotel/final/ResumenFinal";
+import ResumenHotelMasActividades from "../reservas/productos/hotelmasactividades/final/ResumenFinal";
+import ResumenHotelMasFerry from "../reservas/productos/hotelmasferry/final/ResumenFinal";
+import ResumenHotelMasVuelo from "../reservas/productos/hotelmasvuelo/final/ResumenFinal";
+import ResumenSeguro from "../reservas/productos/seguro/final/ResumenFinal";
+import ResumenTickets from "../reservas/productos/tickets/final/ResumenFinal";
+import ResumenTrenes from "../reservas/productos/trenes/final/ResumenFinal";
+import ResumenVuelos from "../reservas/productos/vuelos/final/ResumenFinal";
 
 import Cesta from "../reservas/cestaFinal/CestaCompleta";
 import ReservaFinalizada from "../reservaFinalizada/ReservaFinalizada";
@@ -166,11 +184,15 @@ function Header() {
         <Route path="/reservaSeguro" element={<ReservaSeguro />} />
         <Route path="/reservaHotelFerry" element={<ReservaHotelFerry />} />
         <Route
+          path="/reservaHotelMasVuelo"
+          element={<ReservaHotelMasVuelo />}
+        />
+        <Route
           path="/reservaHotelMasActividades"
           element={<ReservaHotelMasActividades />}
         />
 
-        {/*  */}
+        {/* DATOS */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
         <Route path="/datosCrucero" element={<DatosCrucero />} />
@@ -183,10 +205,36 @@ function Header() {
         <Route path="/datosCircuito" element={<DatosCircuito />} />
         <Route path="/datosSeguro" element={<DatosSeguro />} />
         <Route path="/datosHotelFerry" element={<DatosHotelFerry />} />
+        <Route path="/datosHotelMasVuelo" element={<DatosHotelMasVuelo />} />
         <Route
           path="/datosHotelMasActividades"
           element={<DatosHotelMasActividades />}
         />
+
+        {/* RESUMEN FINAL */}
+        <Route path="/resumenHotel" element={<ResumenHotel />} />
+        <Route path="/resumenCircuitos" element={<ResumenCircuitos />} />
+        <Route path="/resumenCoches" element={<ResumenCoches />} />
+        <Route path="/resumenCruceros" element={<ResumenCruceros />} />
+        <Route path="/resumenDestinos" element={<ResumenDestinos />} />
+        <Route path="/resumenEntradas" element={<ResumenEntradas />} />
+        <Route path="/resumenFerris" element={<ResumenFerris />} />
+        <Route
+          path="/resumenHotelMasActividades"
+          element={<ResumenHotelMasActividades />}
+        />
+        <Route
+          path="/resumenHotelMasFerry"
+          element={<ResumenHotelMasFerry />}
+        />
+        <Route
+          path="/resumenHotelMasVuelo"
+          element={<ResumenHotelMasVuelo />}
+        />
+        <Route path="/resumenSeguro" element={<ResumenSeguro />} />
+        <Route path="/resumenTickets" element={<ResumenTickets />} />
+        <Route path="/resumenTrenes" element={<ResumenTrenes />} />
+        <Route path="/resumenVuelos" element={<ResumenVuelos />} />
 
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />

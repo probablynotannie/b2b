@@ -4,8 +4,8 @@ import formatearFecha from "../../../estructura/FormatearFecha";
 function Actividad({ actividad }) {
   return (
     <>
-      <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
-        <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:border-slate-700">
+      <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2 ">
+        <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:border-slate-700 dark:text-slate-400">
           <span className="flex items-center">
             <FaPerson className="text-lg" /> {actividad.paxReserva.adultos}{" "}
             adulto
@@ -47,7 +47,7 @@ function Actividad({ actividad }) {
         </h1>
 
         <div>
-          <p className="flex items-center gap-2">
+          <p className="flex items-center gap-2 dark:text-slate-400">
             <FaCalendarAlt className="text-secondary" />
             {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
             {actividad.horaSeleccionada}
