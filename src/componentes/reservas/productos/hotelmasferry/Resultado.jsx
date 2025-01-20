@@ -12,6 +12,7 @@ import Cesta from "./Cesta";
 function Productos() {
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
+  const [habitacion, setHabitacion] = useState();
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [ferry, setFerry] = useState({});
@@ -21,6 +22,7 @@ function Productos() {
     habitaciones: 2,
     noches: 7,
   };
+  console.log(habitacion);
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
@@ -80,6 +82,7 @@ function Productos() {
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
                 <Resultado
+                  setHabitacion={setHabitacion}
                   hoteles={hoteles}
                   selectedHotel={selectedHotel}
                   setHotel={setHotel}
@@ -101,6 +104,7 @@ function Productos() {
           )}
           {activeTab === "Cesta" && (
             <Cesta
+              habitacion={habitacion}
               ferry={ferry}
               hotel={selectedHotel}
               reserva={reserva}

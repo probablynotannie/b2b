@@ -7,8 +7,9 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import Ferrys from "./FerrySeleccionado";
 
-function Cesta({ hotel, reserva, setHotel, ferry }) {
+function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
   const reservaFinal = {
+    habitacion: habitacion || null,
     hotel: hotel || null,
     ferry: ferry || null,
   };

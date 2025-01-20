@@ -6,7 +6,8 @@ function Seleccion() {
   const producto = location.state;
   const hotel = producto.hotel;
   const ferry = producto.ferry;
-  console.log(hotel.precio);
+  const habitacion = producto.habitacion;
+  console.log(habitacion);
   return (
     <article className="container my-10 lg:mb-10 lg:mt-auto ">
       <article className="my-5 mt-10 grid grid-cols-3 gap-10">
@@ -14,7 +15,7 @@ function Seleccion() {
           <Detalles hotel={hotel} ferry={ferry} />
         </section>
         <section className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-24 dark:bg-slate-800">
-          <Aside hotel={hotel} ferry={ferry} />
+          <Aside hotel={hotel} ferry={ferry} habitacion={habitacion} />
         </section>
       </article>
     </article>

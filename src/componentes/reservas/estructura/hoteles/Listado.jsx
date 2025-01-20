@@ -13,6 +13,7 @@ function Listado({
   hotel,
   setHotel,
   setOpenModal,
+  setHabitacion,
 }) {
   const [expandedPenaltyId, setExpandedPenaltyId] = useState(null);
   const prices = habitaciones.map((habitacion) =>
@@ -124,6 +125,7 @@ function Listado({
                     className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white"
                     onClick={() => {
                       setHotel({ ...hotel, precio: habitacion.precio });
+                      setHabitacion(habitacion);
                       setOpenModal(null);
                     }}
                   >

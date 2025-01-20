@@ -8,7 +8,7 @@ import formatearFecha from "../../../estructura/FormatearFecha";
 import { Link } from "react-router-dom";
 function Datos() {
   const location = useLocation();
-  const { hotel, ferry } = location.state || {};
+  const { hotel, ferry, habitacion } = location.state || {};
   const img = "/banner_ferry.jpg";
   const itinerario = (
     <div>
@@ -70,7 +70,7 @@ function Datos() {
         <div className="flex justify-end">
           <Link
             to={"/reservaHotelFerry"}
-            state={{ datosContacto, hotel, ferry }}
+            state={{ datosContacto, hotel, ferry, habitacion }}
           >
             <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar

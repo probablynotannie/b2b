@@ -13,7 +13,7 @@ import Imagenes from "../../estructura/hoteles/Imgs";
 import Info from "../../estructura/hoteles/Info";
 import Map from "../../estructura/hoteles/Map";
 import { FaRegCalendarAlt } from "react-icons/fa";
-function Resultado({ hoteles, selectedHotel, setHotel }) {
+function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
   const reserva = {
     pax: 2,
     pax_ninios: 1,
@@ -191,6 +191,7 @@ function Resultado({ hoteles, selectedHotel, setHotel }) {
                       </section>
                       <section className="col-span-5">
                         <Listado2
+                          setHabitacion={setHabitacion}
                           seleccion={"seleccionar"}
                           hotel={hotel}
                           setHotel={setHotel}

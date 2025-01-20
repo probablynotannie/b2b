@@ -20,7 +20,7 @@ const formatDate = (dateString) => {
     return "Fecha inválida";
   }
 };
-function Aside({ hotel, ferry }) {
+function Aside({ hotel, ferry, habitacion }) {
   return (
     <div>
       <h2 className="text-lg font-bold pb-1 border-b-2 border-slate-100 dark:border-slate-700 dark:text-white mb-2">
@@ -51,7 +51,7 @@ function Aside({ hotel, ferry }) {
             {formatDate(ferry.ida.fecha)} - {formatDate(ferry.vuelta?.fecha)}
           </li>
         </ul>
-        <Link to={"/datosHotelFerry"} state={{ hotel, ferry }}>
+        <Link to={"/datosHotelFerry"} state={{ hotel, ferry, habitacion }}>
           <button className="w-full p-3 bg-secondary dark:bg-green-600 text-white font-bold rounded-lg mt-3">
             {parseFloat(hotel.precio) +
               parseFloat(ferry.ida.precio.toFixed(2)) +
