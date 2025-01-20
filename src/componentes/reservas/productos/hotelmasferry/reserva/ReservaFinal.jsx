@@ -2,10 +2,9 @@ import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Seleccion from "../seleccion/Detalles";
 import Reserva from "../../../estructura/reserva/Resumen";
-import { FaHotel, FaCalendarAlt, FaShip } from "react-icons/fa";
+import { FaHotel, FaShip } from "react-icons/fa";
 import formatearFecha from "../../../estructura/FormatearFecha";
-import { MdEmail } from "react-icons/md";
-import { IoMdPhonePortrait } from "react-icons/io";
+
 import DatosContacto from "../../../estructura/DatosContacto";
 function ReservaFinal() {
   const location = useLocation();

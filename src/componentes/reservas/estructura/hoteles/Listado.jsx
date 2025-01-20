@@ -23,7 +23,6 @@ function Listado({
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
   };
-  console.log(producto);
   return (
     <div className="space-y-10">
       <TipoHabitacion minPrice={minPrice} maxPrice={maxPrice} />
