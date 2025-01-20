@@ -26,24 +26,25 @@ function Hote({ hotel, habitacion }) {
         />
         <div className="bg-slate-100 dark:bg-slate-800 rounded-lg shadow w-full p-5">
           <div className="flex justify-between items-center border-b-2 border-slate-200 pb-2 mb-3 dark:border-slate-700">
-            <h4 className="font-bold dark:text-white">{hotel.nombre}</h4>
-            <div className="flex text-secondary">
-              {Array.from({ length: 5 }, (_, i) =>
-                i < Number(hotel.estrellas) ? (
-                  <IoMdStar key={i} className="text-lg" />
-                ) : (
-                  <IoMdStarOutline key={i} className="text-lg" />
-                )
-              )}
+            <div className="flex gap-2">
+              <h4 className="font-bold dark:text-white">{hotel.nombre}</h4>
+              <div className="flex text-secondary">
+                {Array.from({ length: 5 }, (_, i) =>
+                  i < Number(hotel.estrellas) ? (
+                    <IoMdStar key={i} className="text-lg" />
+                  ) : (
+                    <IoMdStarOutline key={i} className="text-lg" />
+                  )
+                )}
+              </div>
             </div>
-          </div>
-          <p className="text-sm dark:text-slate-400"> {hotel.descripcion}</p>
-          <div className="flex justify-end">
-            <span className="text-slate-500 dark:text-slate-300 flex items-center  gap-2">
+            <span className="text-slate-500 dark:text-slate-300 flex items-center text-sm gap-2">
               <FaCalendarAlt className="text-secondary dark:text-secondaryDark" />
               {hotel.fecha} - {hotel.fechaSalida}
             </span>
           </div>
+          <p className="text-sm dark:text-slate-400"> {hotel.descripcion}</p>
+
           <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 mt-3">
             <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
               <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
