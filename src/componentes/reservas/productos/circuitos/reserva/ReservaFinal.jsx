@@ -30,7 +30,10 @@ function ReservaFinal() {
           <MdCalendarMonth className="text-lg text-secondary dark:text-secondaryDark" />
           {fechaIda}
         </p>
-        <Link to={"/resumenCircuito"}>
+        <Link
+          to={"/resumenCircuito"}
+          state={{ datosContacto, fechaIda, actividad }}
+        >
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {actividad.precio.toFixed(2)}€
           </button>

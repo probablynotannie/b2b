@@ -1,7 +1,7 @@
-import React from "react";
 import { GiCruiser } from "react-icons/gi";
 import formatearFecha from "../../../estructura/FormatearFecha";
 import Detalles from "../reserva/Detalles";
+import { FaUser } from "react-icons/fa6";
 function Crucero({
   producto,
   cabinPhotos,
@@ -28,15 +28,27 @@ function Crucero({
           </span>
         </div>
       </section>
-      <div className="grid grid-cols-3 gap-10 bg-slate-100 shadow rounded-lg">
-        {pasajeros.map((pasajero) => (
-          <div key={pasajero.id}>{pasajero.age}</div>
-        ))}
-      </div>
-      {JSON.stringify(pasajeros)}
+      <section className="border-2 p-3 border-slate-100 dark:border-slate-700">
+        <h4 className="font-bold text-slate-700 dark:text-slate-200">
+          {pasajeros.length}x Pasajero{pasajeros.length > 1 ? "s" : ""}{" "}
+        </h4>
+        <div className="flex flex-wrap gap-10">
+          {pasajeros.map((pasajero, index) => (
+            <div
+              className="bg-slate-100 dark:bg-slate-700 dark:text-slate-300 shadow rounded-lg p-2 flex items-center gap-2"
+              key={pasajero.id}
+            >
+              <FaUser />
+              <p>
+                <span className="font-bold"> Pasajero {index + 1} </span>-{" "}
+                {pasajero.age} Años - {pasajero.discount}% descuento
+              </p>
+            </div>
+          ))}
+        </div>
+      </section>
       <Detalles cabinPhotos={cabinPhotos} producto={producto} />
     </section>
   );
 }
-
 export default Crucero;
