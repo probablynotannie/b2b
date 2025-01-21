@@ -7,7 +7,14 @@ import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import formatearFecha from "../../estructura/FormatearFecha";
-function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
+function Cesta({
+  hotel,
+  actividades,
+  reserva,
+  setHotel,
+  setActividades,
+  habitacion,
+}) {
   const reservaFinal = {
     hotel: hotel || null,
     actividades: actividades || [],
@@ -171,7 +178,10 @@ function Cesta({ hotel, actividades, reserva, setHotel, setActividades }) {
         )}
       </div>
       {hotel && actividades.length > 0 && (
-        <Link to="/hotel+actividades" state={{ hotel, actividades }}>
+        <Link
+          to="/hotel+actividades"
+          state={{ hotel, actividades, habitacion }}
+        >
           <button className="bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
             Total: {totalPrice.toFixed(2)}€
           </button>

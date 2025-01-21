@@ -4,6 +4,7 @@ import { SiMentorcruise } from "react-icons/si";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 import Detalles from "./Detalles";
+import DatosContacto from "../../../estructura/DatosContacto";
 function ReservaFinal() {
   const location = useLocation();
   const {
@@ -26,6 +27,12 @@ function ReservaFinal() {
             alt={producto.nombreCrucero}
           />
         </div>
+        <DatosContacto
+          nombre={datosContacto.nombre}
+          apellidos={datosContacto.apellido}
+          email={datosContacto.email}
+          numero={datosContacto.numero}
+        />
         <Detalles
           datosContacto={datosContacto}
           cabinPhotos={cabinPhotos}

@@ -6,9 +6,12 @@ import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import formatearFecha from "../../../estructura/FormatearFecha";
+import { useNavigate } from "react-router-dom";
+import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
+import FormatearFecha from "../../../estructura/FormatearFecha";
 function Datos() {
   const location = useLocation();
-  const { selectedHotel, ida, vuelta } = location.state || {};
+  const { selectedHotel, ida, vuelta,habitacion } = location.state || {};
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
   const fechaIda = formatearFecha(ida.flight.outboundDate);
@@ -25,6 +28,52 @@ function Datos() {
       [key]: value,
     }));
   };
+  const [pasajeros, setPasajeros] = useState(
+    Array.from({ length: 2 }, () => ({
+      nombre: "",
+      apellido: "",
+      pasaporte: "",
+      nacionalidad: "",
+    }))
+  );
+  const handlePassengerChange = (index, field, value) => {
+    setPasajeros((prevpasajeros) => {
+      const updatedpasajeros = [...prevpasajeros];
+      updatedpasajeros[index][field] = value;
+      return updatedpasajeros;
+    });
+  };
+  const renderPassengerFields = () => {
+    return pasajeros.map((passenger, index) => (
+      <div
+        key={index}
+        className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-3"
+      >
+        <Input_Texto
+          tipo={`Nombre (Pasajero ${index + 1})`}
+          value={passenger.nombre}
+          setValue={(value) => handlePassengerChange(index, "nombre", value)}
+        />
+        <Input_Texto
+          tipo={`Apellido/s (Pasajero ${index + 1})`}
+          value={passenger.apellido}
+          setValue={(value) => handlePassengerChange(index, "apellido", value)}
+        />
+        <Input_Texto
+          tipo={`Pasaporte (Pasajero ${index + 1})`}
+          value={passenger.pasaporte}
+          setValue={(value) => handlePassengerChange(index, "pasaporte", value)}
+        />
+        <Input_Nacionalidad
+          value={passenger.nacionalidad}
+          setValue={(value) =>
+            handlePassengerChange(index, "nacionalidad", value)
+          }
+        />
+      </div>
+    ));
+  };
+  console.log(pasajeros);
   return (
     <main className="my-10  flex justify-center container min-h-[68vh]">
       <article className="p-5 w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
@@ -52,6 +101,10 @@ function Datos() {
               setEmail={(value) => handleChange("email", value)}
             />
           </div>
+          <h2 className="font-semibold mt-5 dark:text-white">
+            Datos Pasajeros
+          </h2>
+          {renderPassengerFields()}
         </form>
         <Reserva
           img={img}
@@ -64,7 +117,7 @@ function Datos() {
         <div className="flex justify-end">
           <Link
             to={"/reservahotelmasvuelo"}
-            state={{ selectedHotel, ida, vuelta, datosContacto }}
+            state={{ selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion }}
           >
             <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar

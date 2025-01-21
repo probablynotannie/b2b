@@ -5,7 +5,7 @@ import { IoMdStar, IoMdStarOutline } from "react-icons/io";
 import { FaCalendarAlt, FaCheck } from "react-icons/fa";
 function Hote({ hotel, habitacion }) {
   return (
-    <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
+    <article className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
       <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
         <div>
           <h3 className="text-lg font-bold dark:text-white">
@@ -16,7 +16,13 @@ function Hote({ hotel, habitacion }) {
             {hotel.ubicacion}
           </p>
         </div>
-        <FaHotel className="text-xl text-secondary dark:text-secondaryDark" />
+        <div className="flex flex-col justify-center items-center">
+          <FaHotel className="text-xl text-secondary dark:text-secondaryDark" />
+
+          <span className="text-secondary dark:text-secondaryDark font-bold">
+            {parseFloat(habitacion.precio).toFixed(2)}€
+          </span>
+        </div>
       </section>
       <section className="my-10 2xl:flex gap-5">
         <img
@@ -80,7 +86,9 @@ function Hote({ hotel, habitacion }) {
               <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
                 Total
               </h5>
-              <span className="p-1">{habitacion.precio.toFixed(2)}€</span>
+              <span className="p-1">
+                {parseFloat(habitacion.precio).toFixed(2)}€
+              </span>
             </div>
           </div>
           <div>
@@ -99,7 +107,7 @@ function Hote({ hotel, habitacion }) {
       <div className="h-[40vh]">
         <Map hotel={hotel} />
       </div>
-    </section>
+    </article>
   );
 }
 export default Hote;

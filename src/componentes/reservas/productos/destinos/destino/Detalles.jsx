@@ -31,7 +31,6 @@ function Detalles({ producto, cesta }) {
         <h3 className="dark:text-white text-slate-700 font-bold mt-3 text-xl">
           Recorrido
         </h3>
-
         <div className="mt-1">
           <Itinerario destino={producto} />
         </div>

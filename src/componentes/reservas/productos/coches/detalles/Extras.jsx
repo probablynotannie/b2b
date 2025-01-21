@@ -1,12 +1,6 @@
 import { useState } from "react";
 
-function Precio({
-  coche,
-  extras,
-  setExtras,
-  selectedExtras,
-  setSelectedExtras,
-}) {
+function Precio({ coche, extras, setExtras, setSelectedExtras }) {
   const [cantidad, setCantidad] = useState(
     coche.extras.reduce((acc, extra) => {
       acc[extra.id] = 0;

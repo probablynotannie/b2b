@@ -14,11 +14,8 @@ function Importante({ destino }) {
           >
             Notas importantes
           </h3>
-          <Modal
-            show={openModal}
-            onClose={() => setOpenModal(false)}
-          >
-            <Modal.Header>Terms of Service</Modal.Header>
+          <Modal show={openModal} onClose={() => setOpenModal(false)}>
+            <Modal.Header> Notas importantes</Modal.Header>
             <Modal.Body>
               <div>
                 {destino.notas.map((info) => (
@@ -38,7 +35,7 @@ function Importante({ destino }) {
             <Modal.Footer>
               <Button onClick={() => setOpenModal(false)}>I accept</Button>
               <Button color="gray" onClick={() => setOpenModal(false)}>
-                Decline
+                Cerrar
               </Button>
             </Modal.Footer>
           </Modal>

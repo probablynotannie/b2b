@@ -3,10 +3,12 @@ import DatosContacto from "../../../estructura/DatosContacto";
 import Reserva from "../../../estructura/reserva/Resumen";
 import Aside from "../seleccion/Aside";
 import Detalles from "../seleccion/Detalles";
+import Pasajeros from "../../vuelos/reserva/Pasajeros"
 import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
-  const { selectedHotel, ida, vuelta, datosContacto } = location.state || {};
+  const { selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion } = location.state || {};
+  console.log(pasajeros)
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
@@ -20,6 +22,7 @@ function ReservaFinal() {
           numero={datosContacto.numero}
         />
         <Detalles ida={ida} vuelta={vuelta} hotel={selectedHotel} />
+        <Pasajeros pasajeros={pasajeros} />
       </section>
       <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
@@ -29,7 +32,7 @@ function ReservaFinal() {
           <Reserva img={selectedHotel.img} txt={"Hotel + vuelo"} />
           <Aside ida={ida} vuelta={vuelta} hotel={selectedHotel} />
         </div>
-        <Link to={"/resumenhotelmasvuelo"} state={{selectedHotel, ida, vuelta, datosContacto}}>
+        <Link to={"/resumenhotelmasvuelo"} state={{selectedHotel, ida, vuelta, datosContacto,pasajeros,habitacion}}>
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {(
               Number(selectedHotel.precio) +

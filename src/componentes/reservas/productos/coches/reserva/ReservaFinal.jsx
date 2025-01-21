@@ -11,6 +11,15 @@ function ReservaFinal() {
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
+        <div className="flex justify-between items-center border-b-2 pb-5 border-slate-100 dark:border-slate-700">
+          <h1 className="text-2xl font-bold dark:text-white">
+            {" "}
+            {producto.nombre}{" "}
+          </h1>
+          <span className="bg-slate-500 rounded-md text-white p-2">
+            {producto.tipo}
+          </span>
+        </div>
         <Detalles coche={producto} />
       </section>
       <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
@@ -18,6 +27,7 @@ function ReservaFinal() {
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Datos de contacto
         </h2>
+
         <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
           <FaUser className="text-slate-700 dark:text-slate-200" />
           <span>{datosContacto.nombre}</span>

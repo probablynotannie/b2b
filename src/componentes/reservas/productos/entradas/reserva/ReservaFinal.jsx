@@ -63,7 +63,7 @@ function ReservaFinal() {
           state={{ producto, tickets, datosContacto }}
         >
           <button className="w-full mt-5 bg-secondary p-3 text-white font-bold rounded shadow hover:shadow-lg transition duration-300">
-            Total: €{calculateTotalPrice().toFixed(2)}
+            Total: {calculateTotalPrice().toFixed(2)}€
           </button>
         </Link>
       </article>

@@ -3,10 +3,12 @@ import Hotel from "../../hotel/final/Hotel";
 import { Link } from "react-router-dom";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Resumen from "../../../estructura/reserva/Resumen";
+import Ferry from "../../ferris/final/Ferry";
 function ResumenFinal() {
   const location = useLocation();
   const { hotel, ferry, datosContacto, habitacion } = location.state || {};
   const numReserva = "aouaguoy76";
+
   return (
     <main className="container min-h-[55vh] my-10 p-5">
       <section>
@@ -22,6 +24,7 @@ function ResumenFinal() {
         />
       </section>
       <Hotel hotel={hotel} habitacion={habitacion} />
+      <Ferry ida={ferry.ida} vuelta={ferry.vuelta || null} />
       <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
         <DatosContacto
           nombre={datosContacto.nombre}
@@ -29,7 +32,6 @@ function ResumenFinal() {
           email={datosContacto.email}
           numero={datosContacto.numero}
         />
-
         <div className="mt-10 flex justify-end ">
           <Link to={"/"}>
             <button className="bg-slate-400 dark:bg-slate-700 p-3 font-bold text-white rounded-lg">

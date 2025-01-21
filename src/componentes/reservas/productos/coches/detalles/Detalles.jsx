@@ -15,17 +15,11 @@ import Gasolina from "./politica/Gasolina";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { useState } from "react";
 import FormatearFecha from "../../../estructura/FormatearFecha";
-function Detalles({ coche }) {
+function Detalles({ coche, extraInfo }) {
   const [activeTab, setActiveTab] = useState("franquicia");
 
   return (
     <div>
-      <div className="flex justify-between items-center border-b-2 pb-5 border-slate-100 dark:border-slate-700">
-        <h1 className="text-2xl font-bold dark:text-white"> {coche.nombre} </h1>
-        <span className="bg-slate-500 rounded-md text-white p-2">
-          {coche.tipo}
-        </span>
-      </div>
       <div className="grid grid-cols-2 md:grid-cols-5 jujstify-center gap-10 mt-10 border-b-2 pb-5 border-slate-100 dark:border-slate-700">
         <div className="flex justify-center">
           <div className="flex flex-col justify-center items-center rounded-full h-[100px] w-[100px] font-bold shadow-md hover:shadow-lg hover:border-2 dark:border-transparent transition bg-pink-300 text-pink-500 dark:bg-pink-800 dark:text-pink-400">
@@ -106,6 +100,8 @@ function Detalles({ coche }) {
           </div>
         </div>
       </div>
+
+      {extraInfo ? extraInfo : ""}
       <div className="mt-10">
         <div className="mt-10">
           <ul className="flex space-x-4 text-sm font-medium text-slate-500 dark:text-slate-400">

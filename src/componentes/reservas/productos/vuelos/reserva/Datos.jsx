@@ -19,7 +19,6 @@ function Vuelo() {
       nacionalidad: "",
     }))
   );
-
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
   const fechaIda = FormatearFecha(ida.flight.outboundDate);

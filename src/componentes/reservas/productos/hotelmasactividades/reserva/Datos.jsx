@@ -7,7 +7,7 @@ import { useState } from "react";
 import { Link } from "react-router-dom";
 function Datos() {
   const location = useLocation();
-  const { hotel, actividades } = location.state || {};
+  const { hotel, actividades,habitacion } = location.state || {};
   const img = "/banner_hoteles.jpg";
   const itinerario =
     hotel.nombre +
@@ -80,7 +80,7 @@ function Datos() {
         <div className="flex justify-end">
           <Link
             to={"/reservaHotelMasActividades"}
-            state={{ datosContacto, hotel, actividades }}
+            state={{ datosContacto, hotel, actividades,habitacion }}
           >
             <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar

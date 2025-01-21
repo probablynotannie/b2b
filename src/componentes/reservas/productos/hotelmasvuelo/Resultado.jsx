@@ -14,6 +14,7 @@ function Productos() {
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [selectedHotel, setHotel] = useState();
+  const [habitacion, setHabitacion] = useState();
 
   useEffect(() => {
     const findCheapestCombination = () => {
@@ -66,7 +67,6 @@ function Productos() {
       setVuelta(vuelta);
     }
   }, []);
-  console.log(selectedHotel);
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">
@@ -119,7 +119,7 @@ function Productos() {
                   {selectedHotel && (
                     <Link
                       to={"/hotelMasVuelo"}
-                      state={{ ida, vuelta, selectedHotel }}
+                      state={{ ida, vuelta, selectedHotel, habitacion }}
                     >
                       <button className="bg-slate-600 text-white font-semibold p-1 rounded-lg shadow-md">
                         Reservar
@@ -132,6 +132,7 @@ function Productos() {
                   hoteles={hoteles}
                   selectedHotel={selectedHotel}
                   setHotel={setHotel}
+                  setHabitacion={setHabitacion}
                 />
               </section>
             </>

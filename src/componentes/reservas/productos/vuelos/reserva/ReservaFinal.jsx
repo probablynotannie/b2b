@@ -54,9 +54,12 @@ function ReservaFinal() {
           Comprueba los datos de contacto para poder comunicar cualquier cambio
           con los vuelos sobre cambios.
         </p>
-        <Link to={"/resumenVuelo"} state={{ida,vuelta,datosContacto,pasajeros}}>
+        <Link
+          to={"/resumenVuelo"}
+          state={{ ida, vuelta, datosContacto, pasajeros }}
+        >
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-            {ida.flight.precio + vuelta?.flight.precio}€
+            {(ida.flight.precio + (vuelta?.flight.precio || 0)).toFixed(2)}€
           </button>
         </Link>
       </article>

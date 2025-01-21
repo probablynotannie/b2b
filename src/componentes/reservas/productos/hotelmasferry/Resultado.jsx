@@ -82,7 +82,7 @@ function Productos() {
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
                 <Resultado
-                  setHabitacion={setHabitacion}
+                  setHabitacion={setHabitacion} 
                   hoteles={hoteles}
                   selectedHotel={selectedHotel}
                   setHotel={setHotel}

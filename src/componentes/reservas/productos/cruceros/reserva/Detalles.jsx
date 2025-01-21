@@ -1,14 +1,7 @@
 import Itinerario from "../crucero/Itinerario";
-import DatosContacto from "../../../estructura/DatosContacto";
-function Detalles({ datosContacto, cabinPhotos, producto }) {
+function Detalles({ cabinPhotos, producto }) {
   return (
     <div>
-      <DatosContacto
-        nombre={datosContacto.nombre}
-        apellidos={datosContacto.apellido}
-        email={datosContacto.email}
-        numero={datosContacto.numero}
-      />
       <section className="mt-5">
         <h3 className="font-semibold dark:text-slate-100">Incluidos</h3>
         <div className="flex flex-wrap gap-3 mt-2">

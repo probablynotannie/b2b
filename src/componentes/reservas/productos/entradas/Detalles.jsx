@@ -4,15 +4,21 @@ function Detalles({ producto, tickets, setTickets, cesta }) {
   return (
     <>
       <section>
-        <h1 className="font-semibold">{producto.titulo}</h1>
-        <img
-          src={producto.img}
-          alt="imagen producto"
-          className="w-full h-[30vh] object-cover  object-top my-3 rounded"
-        />
-        <p className="text-sm dark:text-slate-200">
-          {producto.descripcion_corta}
-        </p>
+        {cesta === true ? (
+          ""
+        ) : (
+          <>
+            <h1 className="font-semibold">{producto.titulo}</h1>
+            <img
+              src={producto.img}
+              alt="imagen producto"
+              className="w-full h-[30vh] object-cover  object-top my-3 rounded"
+            />
+            <p className="text-sm dark:text-slate-200">
+              {producto.descripcion_corta}
+            </p>
+          </>
+        )}
 
         <section className="grid grid-cols-2">
           <div>

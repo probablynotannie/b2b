@@ -4,7 +4,7 @@ import Aside from "./Aside";
 import { Link } from "react-router-dom";
 function HotelMasVuelo() {
   const location = useLocation();
-  const { ida, vuelta, selectedHotel } = location.state;
+  const { ida, vuelta, selectedHotel, habitacion } = location.state;
 
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
@@ -19,13 +19,14 @@ function HotelMasVuelo() {
           Resumen
         </h2>
         <Aside hotel={selectedHotel} ida={ida} vuelta={vuelta} />
-        <Link to={"/datoshotelmasvuelo"} state={{ ida, vuelta, selectedHotel }}>
+        <Link to={"/datoshotelmasvuelo"} state={{ ida, vuelta, selectedHotel,habitacion }}>
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {(
               Number(selectedHotel.precio) +
               Number(ida.flight.precio) +
               (vuelta ? Number(vuelta.flight.precio) : 0)
-            ).toFixed(2)}€
+            ).toFixed(2)}
+            €
           </button>
         </Link>
       </article>

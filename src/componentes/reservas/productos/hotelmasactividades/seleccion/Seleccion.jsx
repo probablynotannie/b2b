@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import Aside from "./Aside";
 function Seleccion() {
   const location = useLocation();
-  const { hotel, actividades } = location.state;
+  const { hotel, actividades, habitacion } = location.state;
   const calculateTotalPrice = () => {
     const actividadesTotal = actividades.reduce((sum, actividad) => {
       const precioActividad = Number(actividad.precioTotal);
@@ -23,7 +23,10 @@ function Seleccion() {
         <section className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-24 dark:bg-slate-800">
           <Aside hotel={hotel} actividades={actividades} />
 
-          <Link to={"/datosHotelMasActividades"} state={{ hotel, actividades }}>
+          <Link
+            to={"/datosHotelMasActividades"}
+            state={{ hotel, actividades, habitacion }}
+          >
             <button className="p-3 text-white font-bold bg-secondary dark:bg-green-600 w-full rounded-lg mt-3">
               {calculateTotalPrice().toFixed(2)}€
             </button>

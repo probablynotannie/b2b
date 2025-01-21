@@ -12,6 +12,8 @@ import { BsFillBasket2Fill } from "react-icons/bs";
 
 import { FaCheck } from "react-icons/fa";
 function Productos() {
+  const [habitacion, setHabitacion] = useState();
+
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
   const [actividades, setActividades] = useState([]);
@@ -102,6 +104,7 @@ function Productos() {
                   hoteles={hoteles}
                   selectedHotel={selectedHotel}
                   setHotel={setHotel}
+                  setHabitacion={setHabitacion}
                 />
               </section>
             </>
@@ -119,6 +122,7 @@ function Productos() {
         <div className="container">
           {activeTab === "Cesta" && (
             <Cesta
+              habitacion={habitacion}
               hotel={selectedHotel}
               actividades={actividades}
               reserva={reserva}
