@@ -74,7 +74,7 @@ function Sidebar() {
         <div className="border-2 bg-primary p-3 rounded-full dark:bg-slate-700 dark:border-slate-600">
           <FaHotel className="text-2xl text-white dark:text-secondaryDark " />
         </div>
-        <Link to="/">
+        <Link to="/hoteles">
           <span className="font-semibold">Hoteles</span>
         </Link>
       </div>

@@ -9,7 +9,7 @@ import FormatearFecha from "../../../estructura/FormatearFecha";
 function Datos() {
   const location = useLocation();
   const seguro = location.state || {};
-  const img = "/banner_avion.jpg";
+  const img = "/banner_seguros.jpg";
   const [datosContacto, setDatosContacto] = useState({
     email: "",
     nombre: "",

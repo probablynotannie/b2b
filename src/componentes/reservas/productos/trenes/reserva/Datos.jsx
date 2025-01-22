@@ -59,7 +59,7 @@ function Datos() {
         <Reserva
           img={img}
           position={"center"}
-          tipo={"Tren de ida " + (vuelta && "y vuelta")}
+          tipo={"Tren de ida " + (vuelta ? "y vuelta" : "")}
           itinerario={itinerario}
           fechaIda={fechaIda}
           fechaVuelta={fechaVuelta}

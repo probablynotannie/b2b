@@ -7,6 +7,10 @@ function Producto() {
   const location = useLocation();
   const actividad = location.state;
   const [fecha, setFecha] = useState();
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
 
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
@@ -20,9 +24,20 @@ function Producto() {
         <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
           Elegir cuando
         </h2>
-        <Eleccion actividad={actividad} fecha={fecha} setFecha={setFecha} />
+        <Eleccion
+          actividad={actividad}
+          fecha={fecha}
+          setFecha={setFecha}
+          habitacion={habitacion}
+          setHabitacion={setHabitacion}
+          roomData={roomData}
+          setRoomData={setRoomData}
+        />
 
-        <Link to={"/datosCircuito"} state={{ actividad, fecha }}>
+        <Link
+          to={"/datosCircuito"}
+          state={{ actividad, fecha, habitacion, roomData }}
+        >
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {actividad.precio.toFixed(2)}€
           </button>

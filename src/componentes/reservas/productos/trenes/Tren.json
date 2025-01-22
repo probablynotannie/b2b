@@ -1,0 +1,204 @@
+{
+  "idas": [
+    {
+      "id": "320757147-2981001-1721292091665-01||-||6698d53e356a5",
+      "price": 86.5,
+      "clasesDeAsiento": [
+        {
+          "nombre": "Inicial",
+          "precioExtra": 0,
+          "informacion": [
+            {
+              "titulo": "Cambios",
+              "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+            },
+            {
+              "titulo": "Cambios",
+              "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+            },
+            {
+              "titulo": "Cancelación / Pérdida de tren",
+              "texto": "Reembolso: Antes de 7 días: 70%. Después: No reembolsable. Pérdida de tren: No permitida."
+            }
+          ]
+        },
+        {
+          "nombre": "Singular",
+          "precioExtra": 3,
+          "subclases": [
+            {
+              "nombre": "Singular Only YOU",
+              "precioExtra": 3.68,
+              "informacion": [
+                {
+                  "titulo": "Cambios",
+                  "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                },
+                {
+                  "titulo": "Cambios",
+                  "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                }
+              ]
+            },
+            {
+              "nombre": "Singular Abierta",
+              "precioExtra": 30.0,
+              "informacion": [
+                {
+                  "titulo": "Cambios",
+                  "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                },
+                {
+                  "titulo": "Cambios",
+                  "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                }
+              ]
+            }
+          ]
+        },
+        {
+          "nombre": "Infinita Bistró",
+          "precioExtra": 46.9,
+          "subclases": [
+            {
+              "nombre": "Singular Only YOU Abierta",
+              "precioExtra": 43.68,
+              "informacion": [
+                {
+                  "titulo": "Cambios",
+                  "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                },
+                {
+                  "titulo": "Cambios",
+                  "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                }
+              ]
+            }
+          ]
+        }
+      ],
+      "currencyCode": "EUR",
+      "type": "train",
+      "stops": 0,
+      "duration": 553,
+      "departureStationName": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+      "departureTime": "2024-07-23 07:24",
+      "arrivalStationName": "BARCELONA-SANTS",
+      "arrivalTime": "2024-07-23 16:37",
+      "carrier": [
+        {
+          "name": "RENFE OPERADORA",
+          "logo": "http://devxml.vpackage.net/MotorTrenes/public/Img/Logo_Renfe_Operadora.jpg"
+        }
+      ],
+      "segments": [
+        {
+          "id": "17050",
+          "type": "train",
+          "departureTime": "2024-07-23 07:24",
+          "departurePosition": {
+            "id": "17000",
+            "name": "MADRID-CHAMARTÍN-CLARA CAMPOAMOR",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": -3.6825451,
+            "latitude": 40.4721436,
+            "countryCode": ""
+          },
+          "arrivalTime": "2024-07-23 16:37",
+          "arrivalPosition": {
+            "id": "71801",
+            "name": "BARCELONA-SANTS",
+            "cityName": "",
+            "iataCode": "",
+            "longitude": 2.1394773,
+            "latitude": 41.379335,
+            "countryCode": ""
+          },
+          "duration": 553,
+          "companyName": "REG.EXP.",
+          "transportId": "17050",
+          "isDeparture": true,
+          "isArrival": true
+        }
+      ],
+      "searchSummary": {
+        "totalPassengers": 2,
+        "adults": 2,
+        "youths": 0,
+        "seniors": 0,
+        "passengerAges": [30, 30],
+        "depId": "17000",
+        "arrId": "71801",
+        "depDate": "2024-07-23",
+        "retDate": "2024-07-27",
+        "isReturn": false,
+        "isRoundTrip": true,
+        "idOp": 2
+      },
+      "globalAddons": [
+        {
+          "id": "fee",
+          "name": "Tasa de Servicio",
+          "price": 5,
+          "quantity": 2,
+          "groupId": "fee",
+          "groupName": "Tasas"
+        }
+      ],
+      "options": [
+        {
+          "id": "VR010||-||_||-||_",
+          "groupId": "VR010",
+          "groupColor": "#7e0559",
+          "name": "Adulto Ida",
+          "desc": "Adulto Ida",
+          "price": 86.5,
+          "cancelations": ["20240718-1|100"],
+          "addons": {
+            "required": {
+              "pax_1": [
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Adulto Ida",
+                  "price": 43.25,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ],
+              "pax_2": [
+                {
+                  "id": "VR010||-||_||-||_",
+                  "name": "Adulto Ida",
+                  "price": 43.25,
+                  "groupId": "T",
+                  "groupName": "Turista",
+                  "discountId": null
+                }
+              ]
+            },
+            "optional": []
+          },
+          "features": [
+            {
+              "id": "CANC",
+              "name": "Cancelación",
+              "description": "A partir del 18/07/2024, gastos de 100%"
+            }
+          ],
+          "specialInfo": ""
+        }
+      ],
+      "transportIds": [
+        {
+          "id": "17050",
+          "name": "REG.EXP."
+        }
+      ],
+      "specialInfo": "",
+      "extraData": [],
+      "hash": "6698d5022c58b"
+    }
+  ]
+}

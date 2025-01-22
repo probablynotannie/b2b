@@ -5,7 +5,8 @@ import Resumen from "../../../estructura/reserva/Resumen";
 import Circuito from "./Circuito";
 function ResumenFinal() {
   const location = useLocation();
-  const { datosContacto, fechaIda, actividad } = location.state || {};
+  const { datosContacto, fechaIda, actividad, habitacion, adultos, ninios } =
+    location.state || {};
   const numReserva = "aouaguoy76";
   return (
     <main className="container min-h-[55vh] my-10 p-5">
@@ -21,7 +22,13 @@ function ResumenFinal() {
           finalizada={true}
         />
       </section>
-      <Circuito actividad={actividad} />
+      <Circuito
+        actividad={actividad}
+        fechaIda={fechaIda}
+        habitacion={habitacion}
+        adultos={adultos}
+        ninios={ninios}
+      />
       <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
         <DatosContacto
           nombre={datosContacto.nombre}

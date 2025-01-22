@@ -1,6 +1,6 @@
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
-import Hoteles from "./Destinos";
+import Destinos from "./Destinos";
 function Productos() {
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
@@ -25,7 +25,7 @@ function Productos() {
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3">
-          <Hoteles />
+          <Destinos />
         </section>
       </article>
     </main>

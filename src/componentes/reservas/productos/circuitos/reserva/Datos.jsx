@@ -12,11 +12,9 @@ const formatearFecha = (fecha) => {
 };
 function Datos() {
   const location = useLocation();
-  const { actividad, fecha } = location.state || {};
-  const img = "/banner_avion.jpg";
-  const itinerario = "ida - sitio" + " - " + "vuelta - sitio";
+  const { actividad, fecha, habitacion, roomData } = location.state || {};
+  const img = actividad.img;
   const fechaIda = formatearFecha(fecha);
-
   const [datosContacto, setDatosContacto] = useState({
     email: "",
     nombre: "",
@@ -61,15 +59,15 @@ function Datos() {
         </form>
         <Reserva
           img={img}
-          position={"center"}
-          tipo={"tipo"}
-          itinerario={itinerario}
+          position={"bottom"}
+          tipo={"Circuito"}
+          itinerario={actividad.titulo}
           fechaIda={fechaIda}
         />
         <div className="flex justify-end">
           <Link
             to={"/reservaCircuito"}
-            state={{ datosContacto, actividad, fechaIda }}
+            state={{ datosContacto, actividad, fechaIda, habitacion, roomData }}
           >
             <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar

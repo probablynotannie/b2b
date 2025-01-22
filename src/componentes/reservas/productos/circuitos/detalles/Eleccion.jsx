@@ -2,11 +2,7 @@ import { useState } from "react";
 import Fecha from "../../../../inputs/Fecha";
 import Origen from "../../../../inputs/Destinos";
 import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio2";
-const Eleccion = ({ fecha, setFecha }) => {
-  const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState([
-    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
-  ]);
+const Eleccion = ({ fecha, setFecha, habitacion, setHabitacion, roomData, setRoomData }) => {
 
   const [origen, setOrigen] = useState("");
   const destinos = [
@@ -21,6 +17,7 @@ const Eleccion = ({ fecha, setFecha }) => {
       ],
     },
   ];
+  console.log(roomData);
   return (
     <div className="mt-4">
       <div className="mb-4">

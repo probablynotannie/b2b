@@ -91,7 +91,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                             classSeat?.name === subclass.nombre &&
                             classSeat?.type === "subclass"
                               ? "bg-blue-500 text-white dark:bg-blue-700"
-                              : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-400"
+                              : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200"
                           }`}
                           onClick={() =>
                             handleSubclassSelect(subclass, classSeat)
@@ -100,7 +100,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                           {subclass.nombre} (Extra: {subclass.precioExtra}€)
                         </button>
                         <button
-                          className="bg-secondary p-1.5 text-white rounded-lg hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-400"
+                          className="bg-secondary p-1.5 text-white rounded-lg  dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200"
                           onClick={() => toggleSubclassPreview(subclass)}
                         >
                           {expandedSubclass?.nombre === subclass.nombre
@@ -109,7 +109,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                         </button>
                       </div>
                       {expandedSubclass?.nombre === subclass.nombre && (
-                        <div className="mt-2 p-4 border dark:border-slate-700 rounded-lg bg-slate-100 dark:bg-slate-900">
+                        <div className="mt-2 p-4 border dark:border-slate-700 rounded-lg bg-slate-200 dark:bg-slate-900">
                           <h4 className="text-lg font-bold mb-2">
                             {subclass.nombre} (Extra: €
                             {subclass.precioExtra.toFixed(2)})

@@ -8,6 +8,11 @@ import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { ida, vuelta, datosContacto } = location.state || {};
+  const tren = {
+    ida: ida,
+    vuelta: vuelta,
+  };
+  
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
@@ -44,7 +49,7 @@ function ReservaFinal() {
 
         <DatosTren tren={ida} tipo="ida" />
         {vuelta && <DatosTren tren={vuelta} tipo="vuelta" />}
-        <Link to={"/resumenTren"} state={{ ida, vuelta, datosContacto }}>
+        <Link to={"/resumenTren"} state={{ tren, datosContacto }}>
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {(
               ida.price +

@@ -451,6 +451,80 @@
         },
         {
           "id": "N2010||-||CE10VCO||-||C11",
+          "clasesDeAsiento": [
+            {
+              "nombre": "Inicial",
+              "precioExtra": 0,
+              "informacion": [
+                {
+                  "titulo": "Cambios",
+                  "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                },
+                {
+                  "titulo": "Cambios",
+                  "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                },
+                {
+                  "titulo": "Cancelación / Pérdida de tren",
+                  "texto": "Reembolso: Antes de 7 días: 70%. Después: No reembolsable. Pérdida de tren: No permitida."
+                }
+              ]
+            },
+            {
+              "nombre": "Singular",
+              "precioExtra": 3,
+              "subclases": [
+                {
+                  "nombre": "Singular Only YOU",
+                  "precioExtra": 3.68,
+                  "informacion": [
+                    {
+                      "titulo": "Cambios",
+                      "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                    },
+                    {
+                      "titulo": "Cambios",
+                      "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                    }
+                  ]
+                },
+                {
+                  "nombre": "Singular Abierta",
+                  "precioExtra": 30.0,
+                  "informacion": [
+                    {
+                      "titulo": "Cambios",
+                      "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                    },
+                    {
+                      "titulo": "Cambios",
+                      "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nombre": "Infinita Bistró",
+              "precioExtra": 46.9,
+              "subclases": [
+                {
+                  "nombre": "Singular Only YOU Abierta",
+                  "precioExtra": 43.68,
+                  "informacion": [
+                    {
+                      "titulo": "Cambios",
+                      "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                    },
+                    {
+                      "titulo": "Cambios",
+                      "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "groupId": "N2010",
           "groupColor": "#3d80af",
           "name": "Elige",
@@ -509,6 +583,80 @@
         },
         {
           "id": "N3010||-||BE05VCO||-||B06",
+          "clasesDeAsiento": [
+            {
+              "nombre": "Inicial",
+              "precioExtra": 0,
+              "informacion": [
+                {
+                  "titulo": "Cambios",
+                  "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                },
+                {
+                  "titulo": "Cambios",
+                  "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                },
+                {
+                  "titulo": "Cancelación / Pérdida de tren",
+                  "texto": "Reembolso: Antes de 7 días: 70%. Después: No reembolsable. Pérdida de tren: No permitida."
+                }
+              ]
+            },
+            {
+              "nombre": "Singular",
+              "precioExtra": 3,
+              "subclases": [
+                {
+                  "nombre": "Singular Only YOU",
+                  "precioExtra": 3.68,
+                  "informacion": [
+                    {
+                      "titulo": "Cambios",
+                      "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                    },
+                    {
+                      "titulo": "Cambios",
+                      "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                    }
+                  ]
+                },
+                {
+                  "nombre": "Singular Abierta",
+                  "precioExtra": 30.0,
+                  "informacion": [
+                    {
+                      "titulo": "Cambios",
+                      "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                    },
+                    {
+                      "titulo": "Cambios",
+                      "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "nombre": "Infinita Bistró",
+              "precioExtra": 46.9,
+              "subclases": [
+                {
+                  "nombre": "Singular Only YOU Abierta",
+                  "precioExtra": 43.68,
+                  "informacion": [
+                    {
+                      "titulo": "Cambios",
+                      "texto": "No Cambios de fecha y de hora en el día: 10€ más abono diferencia de tarifa."
+                    },
+                    {
+                      "titulo": "Cambios",
+                      "texto": "Estos billetes ÚNICAMENTE se pueden cambiar en horario laboral (09:30 - 13:30 // 16:00 - 18:30) de lunes a viernes, solicitando el cambio por escrito a agencias@ditgestion.net."
+                    }
+                  ]
+                }
+              ]
+            }
+          ],
           "groupId": "N3010",
           "groupColor": "#ba1e60",
           "name": "Elige Confort",
@@ -587,6 +735,7 @@
 
     {
       "id": "320757062-2981001-1721292089362-01||-||6698d53b7af2a",
+      
       "price": 181.9,
       "clasesDeAsiento": [
         {

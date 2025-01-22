@@ -33,7 +33,9 @@ function Notificaciones() {
       content={
         <div className="w-96 p-3">
           <div className="border-b-2 border-slate-100 pb-2 mb-2 flex items-center justify-between">
-            <span className="font-bold text-primary">Notificaciones</span>
+            <span className="font-bold text-primary dark:text-slate-100">
+              Notificaciones
+            </span>
             <img
               className="h-10 w-16 rounded-full"
               src="../../dit.png"

@@ -5,6 +5,7 @@ import DatosContacto from "../../../estructura/DatosContacto";
 import Detalles from "./Detalles";
 import Resumen from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
+
 function Reserva() {
   const location = useLocation();
   const { seguro, datosContacto } = location.state || {};
@@ -28,20 +29,19 @@ function Reserva() {
         </h2>
         <Resumen img={"/banner_seguros.jpg"} txt={seguro.titulo} />
         <ul className="text-slate-500 dark:text-slate-400 mt-3">
+          <li className="flex items-center gap-1">Destino: {seguro.destino}</li>
           <li className="flex items-center gap-1">
             <FaCalendar className="text-secondary dark:text-secondaryDark" />
             {formatearFecha(seguro.inicio)}
           </li>
           <li className="flex items-center gap-1">
             <FaCalendar className="text-secondary dark:text-secondaryDark" />
-
             {formatearFecha(seguro.fin)}
           </li>
         </ul>
         <p className="text-red-500 dark:text-red-400 my-3 text-sm border-y-2 border-slate-100 dark:border-slate-700 py-4">
           {seguro.importante}
         </p>
-
         <Link to={"/resumenSeguro"} state={{ seguro, datosContacto }}>
           <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {seguro.precio.toFixed(2)}€

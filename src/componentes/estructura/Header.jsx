@@ -1,6 +1,7 @@
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
 /* ESTRUCTURA */
 import Navbar from "../estructura/Navbar";
+import Landing from "../Landing";
 /* MENU */
 import Clientes from "../utilidades/Clientes";
 import Presupuestos from "../utilidades/Presupuestos";
@@ -111,7 +112,8 @@ function Header() {
       <Navbar />
       <Routes>
         {/* MOTORES */}
-        <Route path="/" element={<Busqueda_Hoteles />} />
+        <Route path="/" element={<Landing />} />
+        <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/coches" element={<Busqueda_Coches />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/cruceros" element={<Busqueda_Cruceros />} />

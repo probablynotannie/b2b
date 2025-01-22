@@ -6,12 +6,11 @@ function DatosTren({ tren, tipo }) {
     let minutes = e % 60;
     return `${hours}h ${minutes}min`;
   }
-  console.log(tren)
   return (
     <div className=" p-2 mt-3 rounded border border-slate-100 dark:border-slate-700">
       <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 mb-2">
         <h3 className="font-semibold text-secondary dark:text-secondaryDark">
-          Tren {tipo}
+          Tren {tipo} 
         </h3>
         <img className="h-5" src={tren.carrier[0].logo} alt="logo" />
       </div>

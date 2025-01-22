@@ -7,8 +7,8 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
   }
 
   return (
-    <>
-      <div className="w-full relative">
+    <div>
+      <div className="w-full relative mt-5">
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
             <h2 className="font-bold text-lg dark:text-white">Tren {tipo}</h2>
@@ -17,8 +17,6 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
             </p>
           </div>
           <div className="flex items-center gap-2 h-fit ">
-            <img className="h-6" src={tren.carrier[0].logo} alt="logo" />
-
             <div
               className={`text-sm ${
                 tren.stops === 0
@@ -42,6 +40,11 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
         <div className="text-sm">{duration(tren.duration)}</div>
         <div className="text-sm">{tren.arrivalStationName}</div>
       </div>
+      <img
+        className="w-[70px] object-cover mt-2"
+        src={tren.carrier[0].logo}
+        alt="logo"
+      />
 
       {cesta !== true && (
         <div className="border-t-2 border-slate-100 dark:border-slate-700 mt-5">
@@ -59,7 +62,7 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
           />
         </div>
       )}
-    </>
+    </div>
   );
 }
 

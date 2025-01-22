@@ -1,22 +1,24 @@
 import FormatearFecha from "../../../estructura/FormatearFecha";
-
 import { FaCheck } from "react-icons/fa";
+
 function Ferry({ producto, tipo }) {
-  console.log(tipo);
   return (
     <div className="w-full p-3 border border-slate-100 dark:bg-slate-800 dark:border-slate-700 shadow my-5">
       <div className="flex justify-between items-center border-b pb-3 border-slate-100 dark:border-slate-700 dark:text-slate-100 mb-3">
         <div>
           <h3 className="ml-1 font-semibold">
-            Ferry {tipo} <span className="ml-1 text-sm"> ({producto.ruta})</span>
+            Ferry {tipo}{" "}
+            <span className="ml-1 text-sm"> ({producto.ruta})</span>
           </h3>
           <p className="text-sm">{FormatearFecha(producto.fecha)}</p>
         </div>
-        <img
-          src={producto.compania}
-          alt={"logo compania"}
-          className="w-[100px] dark:bg-white rounded-full"
-        />
+        <div className=" dark:bg-slate-200 p-1 rounded-lg">
+          <img
+            src={producto.compania}
+            alt={"logo compania"}
+            className="w-[100px]"
+          />
+        </div>
       </div>
       <div className="bg-slate-50 text-sm dark:bg-slate-700 dark:text-slate-200 p-2">
         <div className="md:flex justify-between items-center">
@@ -25,7 +27,6 @@ function Ferry({ producto, tipo }) {
             {producto.hora_salida} - {producto.hora_llegada}
           </p>
         </div>
-
         <ul>
           <li className="flex items-center gap-1">
             Cambios:

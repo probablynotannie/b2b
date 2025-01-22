@@ -1,5 +1,4 @@
 import { Timeline } from "flowbite-react";
-
 function Itinerario({ actividad }) {
   return (
     <>
@@ -9,7 +8,9 @@ function Itinerario({ actividad }) {
           <Timeline.Item key={index}>
             <Timeline.Point />
             <Timeline.Content>
-              <Timeline.Time>Día {itinerario.dia}</Timeline.Time>
+              <Timeline.Time className="dark:text-slate-400">
+                Día {itinerario.dia}
+              </Timeline.Time>
               <Timeline.Title>{itinerario.titulo}</Timeline.Title>
               <Timeline.Body>
                 <p className="text-slate-600 dark:text-slate-200 mt-4">
