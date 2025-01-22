@@ -12,24 +12,29 @@ function Productos() {
     }, 3000);
   }, []);
 
-  const SkeletonLoader = () => (
+  const Placeholder = () => (
     <div className="flex flex-col gap-4">
-      <div className="animate-pulse flex space-x-4">
-        <div className="h-24 w-24 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-        <div className="flex-1 space-y-3 py-1">
-          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded"></div>
-          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
+      {Array.from({ length: 5 }, (_, index) => (
+        <div
+          key={index}
+          className="animate-pulse flex space-x-4 border  border-slate-100 dark:border-slate-800 dark:bg-slate-900 p-3"
+        >
+          <div className="h-42 w-52 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
+          <div className="flex-1 space-y-3 py-1">
+            <div className="h-3 bg-gray-200 dark:bg-slate-800 rounded"></div>
+            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
+            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
+            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
+            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
+            <div className="flex justify-end">
+              <div className="flex gap-4">
+                <div className="h-7 bg-slate-200 dark:bg-slate-800 rounded w-[100px]"></div>
+                <div className="h-7 bg-slate-200 dark:bg-slate-800 rounded w-[100px]"></div>
+              </div>
+            </div>
+          </div>
         </div>
-      </div>
-      <div className="animate-pulse flex space-x-4">
-        <div className="h-24 w-24 bg-gray-200 dark:bg-gray-700 rounded-lg"></div>
-        <div className="flex-1 space-y-3 py-1">
-          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded"></div>
-          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-3/4"></div>
-          <div className="h-2 bg-gray-200 dark:bg-gray-700 rounded w-1/2"></div>
-        </div>
-      </div>
+      ))}
     </div>
   );
 
@@ -57,7 +62,7 @@ function Productos() {
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3">
-          {loading ? <SkeletonLoader /> : <Hoteles hoteles={hoteles} />}
+          {loading ? <Placeholder /> : <Hoteles hoteles={hoteles} />}
         </section>
       </article>
     </main>
