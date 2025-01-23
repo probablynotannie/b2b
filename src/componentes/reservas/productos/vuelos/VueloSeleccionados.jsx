@@ -59,10 +59,10 @@ function Vuelos({ ida, vuelta, cesta }) {
           </Link>
         </div>
       )}
-      <div className="mt-10 shadow rounded-xl border-2 border-slate-100 dark:border-slate-700">
+      <div className="mt-10 sm:block grid grid-cols-2 shadow rounded-xl border-2 border-slate-100 dark:border-slate-700">
         <div className="border-slate-100 rounded-t-xl dark:bg-slate-800">
           <div
-            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100 rounded-t-xl dark:hover:bg-slate-900 transition relative ${"border-b-2 border-slate-100 dark:border-slate-600 "}`}
+            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100 sm:rounded-t-xl dark:hover:bg-slate-900 transition relative  border-r-2 sm:border-r-0 sm:border-b-2 border-slate-100 dark:border-slate-600 `}
           >
             <span className="absolute -top-5 left-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
               <FaPlaneDeparture />
@@ -82,7 +82,7 @@ function Vuelos({ ida, vuelta, cesta }) {
               <h4 className="font-semibold">
                 {ida.flight.departure} - {ida.flight.arrival}
               </h4>
-              <span className="text-sm">{vueloIda}</span>
+              <span className="text-xs sm:text-sm text-center">{vueloIda}</span>
             </div>
             <div className="flex flex-col items-center dark:text-slate-200">
               <h4 className="font-semibold">Duración</h4>
@@ -105,7 +105,7 @@ function Vuelos({ ida, vuelta, cesta }) {
         </div>
         {vuelta && (
           <div className="rounded-b-xl dark:bg-slate-800">
-            <div className="grid  grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100  rounded-b-xl dark:hover:bg-slate-900 transition relative">
+            <div className="grid  grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100  sm:rounded-b-xl dark:hover:bg-slate-900 transition relative">
               <span className="absolute -bottom-5 right-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
                 <FaPlaneArrival />
               </span>
@@ -124,7 +124,9 @@ function Vuelos({ ida, vuelta, cesta }) {
                 <h4 className="font-semibold">
                   {vuelta.flight.departure} - {vuelta.flight.arrival}
                 </h4>
-                <span className="text-sm">{vueloVuelta}</span>
+                <span className="text-xs sm:text-sm text-center">
+                  {vueloVuelta}
+                </span>
               </div>
               <div className="flex flex-col items-center dark:text-slate-200">
                 <h4 className="font-semibold">Duración</h4>

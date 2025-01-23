@@ -123,13 +123,14 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                <div className="flex justify-end">
+                <div className="flex justify-end ">
                   {selectedHotel && (
                     <Link
+                      className="w-full sm:w-fit"
                       to={"/hotelMasVuelo"}
                       state={{ ida, vuelta, selectedHotel, habitacion }}
                     >
-                      <button className="bg-slate-600 text-white font-semibold p-1 rounded-lg shadow-md">
+                      <button className="bg-slate-600 dark:bg-slate-800 text-white font-semibold p-3 rounded-lg shadow-md w-full">
                         Reservar
                       </button>
                     </Link>

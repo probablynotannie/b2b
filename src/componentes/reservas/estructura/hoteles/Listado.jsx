@@ -25,9 +25,8 @@ function Listado({
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
   };
   return (
-    <div className="space-y-10">
+    <div className="space-y-10 w-full">
       <TipoHabitacion minPrice={minPrice} maxPrice={maxPrice} />
-
       <table className="w-full ">
         <thead className="bg-slate-700 dark:bg-slate-900">
           <tr>
