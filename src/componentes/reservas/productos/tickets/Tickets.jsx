@@ -1,5 +1,5 @@
 import { Link } from "react-router-dom";
-function Resultado({tickets}) {
+function Resultado({ tickets }) {
   return (
     <section className="pb-12 md:mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
       {tickets.map((actividad, index) => (

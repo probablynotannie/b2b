@@ -3,7 +3,15 @@ import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
-function Listado({ reserva, habitaciones }) {
+function Listado({
+  producto,
+  habitaciones,
+  seleccion,
+  hotel,
+  setHotel,
+  setOpenModal,
+  setHabitacion,
+}) {
   const [selectedHabitacion, setSelectedHabitacion] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const openModal = (habitacion) => {
@@ -26,11 +34,6 @@ function Listado({ reserva, habitaciones }) {
             className="col-span-4 md:col-span-2 lg:col-span-1 relative mt-5 border-2 dark:border-slate-800 bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-900 hover:bg-slate-800 group transition rounded-lg flex flex-col items-center shadow-xl p-3 pb-10"
             key={habitacion.id}
           >
-            <Link to={"/datos"} state={reserva}>
-              <button className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white font-semibold border-2 border-white  p-3 px-7 rounded-lg transition group-hover:shadow-xl">
-                {habitacion.precio}€
-              </button>
-            </Link>
             <FaBed className="text-4xl text-white" />
             <h3 className="text-center font-semibold text-white">
               {habitacion.nombre}
@@ -77,6 +80,24 @@ function Listado({ reserva, habitaciones }) {
                     )}
                 </div>
               )}
+            {seleccion === "seleccionar" ? (
+              <button
+                className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white font-semibold border-2 border-white  p-3 px-7 rounded-lg transition group-hover:shadow-xl"
+                onClick={() => {
+                  setHotel({ ...hotel, precio: habitacion.precio });
+                  setHabitacion(habitacion);
+                  setOpenModal(null);
+                }}
+              >
+                {habitacion.precio}€
+              </button>
+            ) : (
+              <Link to={"/datosHotel"} state={{ producto, habitacion }}>
+                <button className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white font-semibold border-2 border-white  p-3 px-7 rounded-lg transition group-hover:shadow-xl">
+                  {habitacion.precio}€
+                </button>
+              </Link>
+            )}
           </div>
         ))}
       </div>

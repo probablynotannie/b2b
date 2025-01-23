@@ -9,6 +9,8 @@ import { FaPlane } from "react-icons/fa";
 import vuelos from "./Vuelos.json";
 import hoteles from "./Hoteles.json";
 import { Link } from "react-router-dom";
+import Placeholder from "../../estructura/skeleton_placeholders/Hotelmasvuelo";
+import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -133,13 +135,23 @@ function Productos() {
                     </Link>
                   )}
                 </div>
-                <Vuelos ida={ida} vuelta={vuelta} cesta={true} />
-                <Resultado
-                  hoteles={hoteles}
-                  selectedHotel={selectedHotel}
-                  setHotel={setHotel}
-                  setHabitacion={setHabitacion}
-                />
+
+                {loading ? (
+                  <>
+                    <Cargando />
+                    <Placeholder />
+                  </>
+                ) : (
+                  <>
+                    <Vuelos ida={ida} vuelta={vuelta} cesta={true} />
+                    <Resultado
+                      hoteles={hoteles}
+                      selectedHotel={selectedHotel}
+                      setHotel={setHotel}
+                      setHabitacion={setHabitacion}
+                    />
+                  </>
+                )}
               </section>
             </>
           )}

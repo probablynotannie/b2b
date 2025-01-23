@@ -4,7 +4,8 @@ import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
 import { GoDotFill } from "react-icons/go";
-
+import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
+import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -12,42 +13,6 @@ function Productos() {
       setLoading(false);
     }, 3000);
   }, []);
-
-  const Placeholder = () => (
-    <div>
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg ">Cargando...</h3>
-        <div className="flex flex-col gap-5 md:flex-row md:justify-between">
-          <div className="flex gap-2 mb-3">
-            <GoDotFill className="animate-bounce animate-infinite animate-delay-0 text-secondary" />
-            <GoDotFill className="animate-bounce animate-infinite animate-delay-100 text-pink-400" />
-            <GoDotFill className="animate-bounce animate-infinite animate-delay-200 text-blue-500" />
-          </div>
-        </div>
-      </div>
-      {Array.from({ length: 5 }, (_, index) => (
-        <div
-          key={index}
-          className="animate-pulse flex space-x-8 border mt-8 border-slate-100 dark:border-slate-800 dark:bg-slate-900 p-3"
-        >
-          <div className="h-42 w-52 bg-gray-200 dark:bg-gray-800 rounded-lg"></div>
-          <div className="flex-1 space-y-3 py-1">
-            <div className="h-3 bg-gray-200 dark:bg-slate-800 rounded"></div>
-            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
-            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
-            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-3/4"></div>
-            <div className="h-3 bg-slate-200 dark:bg-slate-800 rounded w-1/2"></div>
-            <div className="flex justify-end">
-              <div className="flex gap-4">
-                <div className="h-7 bg-slate-200 dark:bg-slate-800 rounded w-[100px]"></div>
-                <div className="h-7 bg-slate-200 dark:bg-slate-800 rounded w-[100px]"></div>
-              </div>
-            </div>
-          </div>
-        </div>
-      ))}
-    </div>
-  );
 
   return (
     <main className="flex justify-center flex-col items-center mb-10">
@@ -73,7 +38,14 @@ function Productos() {
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3">
-          {loading ? <Placeholder /> : <Hoteles hoteles={hoteles} />}
+          {loading ? (
+            <>
+              <Cargando />
+              <PlaceHolder />
+            </>
+          ) : (
+            <Hoteles hoteles={hoteles} />
+          )}
         </section>
       </article>
     </main>

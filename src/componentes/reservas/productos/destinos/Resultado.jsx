@@ -1,7 +1,9 @@
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
-import Hoteles from "./Destinos";
+import Destinos from "./Destinos";
 import { useEffect, useState } from "react";
+import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders/Destinos";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -32,7 +34,14 @@ function Productos() {
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3">
-          <Hoteles />
+          {loading ? (
+            <>
+              <Cargando />
+              <PlaceHolder />
+            </>
+          ) : (
+            <Destinos />
+          )}
         </section>
       </article>
     </main>

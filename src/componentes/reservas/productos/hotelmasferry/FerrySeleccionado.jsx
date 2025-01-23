@@ -21,7 +21,6 @@ function ferris({ ferry }) {
     const monthName = months[parseInt(month, 10) - 1];
     return `${day} de ${monthName} de ${year}`;
   }
-  console.log(ferry);
   return (
     <>
       {ferry?.ida && (
@@ -48,7 +47,8 @@ function ferris({ ferry }) {
           <span
             className={`absolute rotate-45 bg-blue-400 rounded-lg px-2 p-1  font-bold text-sm top-10 right-3 z-10 shadow-lg`}
           >
-            Tarifa: <span className="uppercase font-bold">{ferry.tarifa}</span>
+            Tarifa:{" "}
+            <span className="uppercase font-bold">{ferry.ida.tarifa}</span>
           </span>
           <div className="p-3">
             <h4 className="text-secondary font-semibold">

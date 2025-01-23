@@ -124,8 +124,8 @@ function Ferris({
                   </span>
                 </p>
               </div>
-              <div className=" text-xs text-center justify-center flex-col flex items-center space-x-4 w-full md:w-fit">
-                <div className="dark:bg-slate-100 rounded-xl px-2 flex justify-center items-center w-full">
+              <div className=" text-xs text-center justify-center flex-col flex items-center space-x-4 w-full md:w-fit mt-5 md:mt-0">
+                <div className="dark:bg-slate-100 px-2 flex justify-center items-center w-full">
                   <img
                     src={ferrySet.compania}
                     alt="logo compania"

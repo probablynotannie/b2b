@@ -9,7 +9,7 @@ import Cesta from "./Cesta";
 import entradas from "./Tickets.json";
 import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
-
+import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
 import { FaCheck } from "react-icons/fa";
 function Productos() {
   const [loading, setLoading] = useState(true);
@@ -105,12 +105,16 @@ function Productos() {
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
-                <Resultado
-                  hoteles={hoteles}
-                  selectedHotel={selectedHotel}
-                  setHotel={setHotel}
-                  setHabitacion={setHabitacion}
-                />
+                {loading ? (
+                  <PlaceHolder />
+                ) : (
+                  <Resultado
+                    hoteles={hoteles}
+                    selectedHotel={selectedHotel}
+                    setHotel={setHotel}
+                    setHabitacion={setHabitacion}
+                  />
+                )}
               </section>
             </>
           )}

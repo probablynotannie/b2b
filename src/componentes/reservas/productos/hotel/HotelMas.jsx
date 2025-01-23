@@ -7,7 +7,7 @@ import { Carousel } from "flowbite-react";
 import { FaDoorOpen } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { useState } from "react";
-import Listado from "../../estructura/hoteles/Listado_cajas";
+import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
 import Listado2 from "../../estructura/hoteles/Listado";
 import Imagenes from "../../estructura/hoteles/Imgs";
 import Info from "../../estructura/hoteles/Info";
@@ -189,7 +189,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                           descripcion={hotel.descripcion}
                         />
                       </section>
-                      <section className="col-span-5">
+                      <section className="col-span-5 hidden md:flex">
                         <Listado2
                           setHabitacion={setHabitacion}
                           seleccion={"seleccionar"}
@@ -200,8 +200,9 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                           habitaciones={hotel.habitaciones}
                         />
                       </section>
-                      <section className="col-span-5">
-                        <Listado
+                      <section className="col-span-5 md:hidden">
+                        <Listado_cajas
+                          setHabitacion={setHabitacion}
                           seleccion={"seleccionar"}
                           hotel={hotel}
                           setHotel={setHotel}

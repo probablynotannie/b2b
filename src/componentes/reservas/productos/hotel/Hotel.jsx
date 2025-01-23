@@ -1,6 +1,6 @@
 import Buscador from "./filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
-import Listado from "../../estructura/hoteles/Listado_cajas";
+import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
 import Listado2 from "../../estructura/hoteles/Listado";
 import Imagenes from "../../estructura/hoteles/Imgs";
 import Info from "../../estructura/hoteles/Info";
@@ -94,8 +94,11 @@ function Producto() {
               habitaciones={producto.habitaciones}
             />
           </section>
-          <section className="col-span-5">
-            <Listado producto={producto} habitaciones={producto.habitaciones} />
+          <section className="col-span-5 ">
+            <Listado_cajas
+              producto={producto}
+              habitaciones={producto.habitaciones}
+            />
           </section>
           <section className="col-span-5">
             <h4 className="font-bold text-lg mb-3 dark:text-white">Imagenes</h4>

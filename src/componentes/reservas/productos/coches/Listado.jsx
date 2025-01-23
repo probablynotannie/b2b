@@ -182,7 +182,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
             <article className="xl:flex flex-row border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 relative min-h-[15vh]">
               <div className="w-full h-[25vh] lg:h-auto xl:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden relative group ">
                 <div className="bg-black rounded-t-lg bg-opacity-0 transition-opacity duration-500 delay-200 absolute top-0 w-full h-full group-hover:flex justify-center items-center text-5xl group-hover:bg-opacity-45 text-white font-bold hidden">
-                  {coche.precio * coche.dias}€
+                  {coche.precio * coche.dias}€ 
                 </div>
                 <img
                   className="w-full h-full object-cover"

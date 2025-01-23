@@ -190,10 +190,10 @@ function FlightSelection({
             />
           ))}
         </div>
-        <footer className="mt-4 text-center text-slate-500 text-xs">
+        <div className="mt-4 text-center text-slate-500 text-xs">
           Tasas y gastos de gestión incluidos. El precio incluye gastos de
           gestión y/o descuento, en función del medio de pago seleccionado.
-        </footer>
+        </div>
       </div>
     </div>
   );

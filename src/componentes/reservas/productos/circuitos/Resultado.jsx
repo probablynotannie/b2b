@@ -3,6 +3,7 @@ import Buscador from "./filtros/Buscador";
 import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
 import { useEffect } from "react";
+import PlaceHolder from "../../estructura/skeleton_placeholders/Circuitos";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -33,25 +34,35 @@ function Productos() {
           <Buscador />
         </div>
       </div>
-      <article className="grid grid-cols-1 lg:gap-10 xs:gap-28 w-full container mt-10 min-h-[35vh]">
+      <article className="grid grid-cols-1 lg:gap-10 xs:gap-28 w-full container mt-10 min-h-[40vh]">
         <div className="grid md:grid-cols-2 gap-5 md:gap-10 mb-5 md:mb-0 h-fit">
-          <input
-            type="text"
-            id="first_name"
-            value={searchTerm}
-            onChange={handleSearchChange}
-            className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
-            placeholder="Buscar por nombre"
-            required
-          />
-          <select
-            id="tipos"
-            className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
-          >
-            <option selected>Todos</option>
-          </select>
+          {loading ? (
+            <>
+              <div className="h-10 w-full bg-slate-200 dark:bg-slate-800 rounded mb-3 animate-pulse"></div>
+
+              <div className="h-10 w-full bg-slate-200 dark:bg-slate-800 rounded mb-3 animate-pulse"></div>
+            </>
+          ) : (
+            <>
+              <input
+                type="text"
+                id="first_name"
+                value={searchTerm}
+                onChange={handleSearchChange}
+                className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
+                placeholder="Buscar por nombre"
+                required
+              />
+              <select
+                id="tipos"
+                className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
+              >
+                <option selected>Todos</option>
+              </select>
+            </>
+          )}
         </div>
-        <Circuitos entradas={filteredEntradas} />
+        {loading ? <PlaceHolder /> : <Circuitos entradas={filteredEntradas} />}
       </article>
     </main>
   );

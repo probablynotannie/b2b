@@ -10,7 +10,7 @@ function Resultado({ trenes, setTren, tipo }) {
   }
   return (
     <section className="pb-12 px-4 lg:px-0">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-lg lg:shadow-none p-6 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:border-slate-600">
+      <div className="flex flex-col lg:flex-row lg:justify-between shadow-lg lg:shadow-none p-6 rounded-xl border-2 lg:border-0 border-slate-200">
         <h3 className="text-secondary font-semibold text-xl">
           Resultado {tipo} ({trenes.length})
         </h3>

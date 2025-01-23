@@ -3,6 +3,8 @@ import Aside from "./filtros/Aside";
 import Ferris from "./Ferris";
 import ferris from "./Ferris.json";
 import { useState, useEffect } from "react";
+import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders/Ferris";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -13,9 +15,8 @@ function Productos() {
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [ferry, setFerry] = useState({});
-
   return (
-    <main className=" flex justify-center flex-col items-center  mb-10">
+    <main className="flex justify-center flex-col items-center mb-10">
       <div
         className="w-full bg-cover bg-center p-8 relative shadow-md"
         style={{
@@ -32,20 +33,27 @@ function Productos() {
           </aside>
         </div>
       </div>
-      <article className="grid grid-cols-9 lg:gap-10 xs:gap-28 w-full container mt-10">
+      <article className="grid grid-cols-9 lg:gap-10 xs:gap-28 w-full container mt-10 min-h-[37vh]">
         <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky  top-24 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3">
-          <Ferris
-            ferris={ferris}
-            ferry={ferry}
-            setFerry={setFerry}
-            ida={ida}
-            setIda={setIda}
-            vuelta={vuelta}
-            setVuelta={setVuelta}
-          />
+          {loading ? (
+            <>
+              <Cargando />
+              <PlaceHolder />
+            </>
+          ) : (
+            <Ferris
+              ferris={ferris}
+              ferry={ferry}
+              setFerry={setFerry}
+              ida={ida}
+              setIda={setIda}
+              vuelta={vuelta}
+              setVuelta={setVuelta}
+            />
+          )}
         </section>
       </article>
     </main>

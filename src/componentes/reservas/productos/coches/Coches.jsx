@@ -1,10 +1,10 @@
 import { useState } from "react";
 import Listado from "./Listado";
-import Cajas from "./Cajas"; // Import the alternate component
+import Cajas from "./Cajas";
 import coches from "./Coches.json";
 
 function Resultado() {
-  const [mostrarEnCajas, setMostrarEnCajas] = useState(false); // State to track checkbox
+  const [comparar, setComparar] = useState(false);
   const [selectedCars, setSelectedCars] = useState([]);
 
   const handleCompareChange = (coche, isChecked) => {
@@ -16,7 +16,7 @@ function Resultado() {
   };
 
   const handleCheckboxChange = (event) => {
-    setMostrarEnCajas(event.target.checked); 
+    setComparar(event.target.checked);
   };
 
   return (
@@ -31,7 +31,7 @@ function Resultado() {
               type="checkbox"
               value=""
               className="sr-only peer"
-              checked={mostrarEnCajas}
+              checked={comparar}
               onChange={handleCheckboxChange}
             />
             <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
@@ -41,7 +41,7 @@ function Resultado() {
           </label>
         </div>
       </div>
-      {mostrarEnCajas ? (
+      {comparar ? (
         <Cajas coches={coches} selectedCars={selectedCars} />
       ) : (
         <Listado
