@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Resultado from "../hotel/HotelMas";
 import MasFerris from "./Ferris";
@@ -10,6 +10,12 @@ import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
 function Productos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
   const [habitacion, setHabitacion] = useState();
@@ -82,7 +88,7 @@ function Productos() {
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
                 <Resultado
-                  setHabitacion={setHabitacion} 
+                  setHabitacion={setHabitacion}
                   hoteles={hoteles}
                   selectedHotel={selectedHotel}
                   setHotel={setHotel}

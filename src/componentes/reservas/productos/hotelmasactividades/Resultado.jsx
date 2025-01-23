@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Resultado from "../hotel/HotelMas";
 import Entradas from "../tickets/TicketsMas";
@@ -12,8 +12,13 @@ import { BsFillBasket2Fill } from "react-icons/bs";
 
 import { FaCheck } from "react-icons/fa";
 function Productos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [habitacion, setHabitacion] = useState();
-
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
   const [actividades, setActividades] = useState([]);

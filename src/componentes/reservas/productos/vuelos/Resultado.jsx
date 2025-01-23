@@ -7,6 +7,12 @@ import Buscador from "./filtros/Buscador";
 import vuelos from "./Vuelos.json";
 
 function Vuelos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   useEffect(() => {

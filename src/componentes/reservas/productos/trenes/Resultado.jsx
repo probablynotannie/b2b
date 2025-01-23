@@ -2,10 +2,16 @@ import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Trenes from "./Trenes";
 import trenes from "./Trenes.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Seleccion from "./Seleccion";
 import { Link } from "react-router-dom";
 function Productos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const hasVueltas = trenes.vueltas && trenes.vueltas.length > 0;

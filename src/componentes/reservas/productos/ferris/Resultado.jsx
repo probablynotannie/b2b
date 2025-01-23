@@ -2,8 +2,14 @@ import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Ferris from "./Ferris";
 import ferris from "./Ferris.json";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 function Productos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [ferry, setFerry] = useState({});

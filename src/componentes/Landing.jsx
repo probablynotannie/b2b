@@ -99,7 +99,7 @@ function Landing() {
           style={{ backgroundImage: `url(${img.url})` }}
           onClick={() => navigate(img.route)}
         >
-          <div className="absolute inset-0 bg-black bg-opacity-50 hover:bg-opacity-30 transition duration-300"></div>
+          <div className="absolute inset-0 bg-slate-600 dark:bg-black bg-opacity-50 hover:bg-opacity-30 transition duration-300"></div>
           <span className="relative z-10 text-xl">{img.inner}</span>
         </div>
       ))}

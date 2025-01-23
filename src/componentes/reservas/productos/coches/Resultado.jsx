@@ -1,7 +1,15 @@
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Coches";
+import { useEffect } from "react";
+import { useState } from "react";
 function Productos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div

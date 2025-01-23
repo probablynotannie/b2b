@@ -2,7 +2,14 @@ import { useState } from "react";
 import Buscador from "./filtros/Buscador";
 import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
+import { useEffect } from "react";
 function Productos() {
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredEntradas, setFilteredEntradas] = useState(tickets);
   const handleSearchChange = (event) => {

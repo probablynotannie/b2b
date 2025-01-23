@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import Buscador from "./filtros/Buscador";
 import Tickets from "./Tickets";
 import tickets from "./Tickets.json";
@@ -6,7 +6,12 @@ import tickets from "./Tickets.json";
 function Productos() {
   const [searchTerm, setSearchTerm] = useState("");
   const [filteredTickets, setFilteredTickets] = useState(tickets);
-
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const handleSearchChange = (event) => {
     const value = event.target.value.toLowerCase();
     setSearchTerm(value);
