@@ -41,7 +41,6 @@ function Productos() {
           <Aside />
         </aside>
         <section className="col-span-9 lg:col-span-6 p-3 min-h-[35vh]">
-          <Cargando /> <PlaceHolder />
           {loading ? (
             <>
               <Cargando /> <PlaceHolder />

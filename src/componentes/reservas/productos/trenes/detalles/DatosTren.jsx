@@ -10,7 +10,7 @@ function DatosTren({ tren, tipo }) {
     <div className=" p-2 mt-3 rounded border border-slate-100 dark:border-slate-700">
       <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 mb-2">
         <h3 className="font-semibold text-secondary dark:text-secondaryDark">
-          Tren {tipo} 
+          Tren {tipo}
         </h3>
         <img className="h-5" src={tren.carrier[0].logo} alt="logo" />
       </div>
@@ -39,24 +39,30 @@ function DatosTren({ tren, tipo }) {
           <span className="text-sm font-bold">TOTAL</span>
         </div>
       </div>
-      <div className="bg-slate-50 border-t-2 mt-2 border-slate-100 dark:border-slate-700 dark:bg-slate-800 p-3 text-sm text-slate-500 dark:text-slate-300">
+      <div className="bg-slate-50 border-t-2 mt-2 border-slate-100 dark:border-slate-700 dark:bg-slate-800 p-3 text-sm text-slate-500 dark:text-slate-400">
         <ul className="text-sm">
           <li>
-            <span className="mr-1 font-semibold text-slate-800">Salida:</span>{" "}
+            <span className="mr-1 font-semibold text-slate-800 dark:text-slate-100">
+              Salida:
+            </span>{" "}
             {FormateadFecha(tren.searchSummary.depDate)}
           </li>
           <li>
-            <span className="mr-1 font-semibold text-slate-800">
+            <span className="mr-1 font-semibold text-slate-800 dark:text-slate-100">
               Duración:{" "}
             </span>{" "}
             {duration(tren.duration)}
           </li>
           <li>
-            <span className="mr-1 font-semibold text-slate-800">Origen:</span>
+            <span className="mr-1 font-semibold text-slate-800 dark:text-slate-100">
+              Origen:
+            </span>
             {tren.departureStationName}
           </li>
           <li>
-            <span className="mr-1 font-semibold text-slate-800">Destino:</span>
+            <span className="mr-1 font-semibold text-slate-800 dark:text-slate-100">
+              Destino:
+            </span>
             {tren.arrivalStationName}
           </li>
         </ul>

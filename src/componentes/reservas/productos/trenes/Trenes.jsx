@@ -8,14 +8,14 @@ function Resultado({ trenes, setTren, tipo }) {
     let minutes = e % 60;
     return `${hours}h ${minutes}min`;
   }
+  console.log(trenes[0]);
   return (
     <section className="pb-12 px-4 lg:px-0">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-lg lg:shadow-none p-6 rounded-xl border-2 lg:border-0 border-slate-200">
+      <div className="flex flex-col lg:flex-row lg:justify-between p-6 rounded-xl">
         <h3 className="text-secondary font-semibold text-xl">
           Resultado {tipo} ({trenes.length})
         </h3>
       </div>
-
       {trenes.map((tren, index) => (
         <article
           key={index}

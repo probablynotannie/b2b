@@ -10,9 +10,7 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
 
 const MapWithJourney = ({ tren }) => {
-  // Create an array of positions, ensuring both lat/lng are defined
   const positions = tren.segments.reduce((acc, segment) => {
-    // Check if both departure and arrival positions are valid
     if (
       segment.departurePosition &&
       typeof segment.departurePosition.latitude === "number" &&
@@ -36,7 +34,7 @@ const MapWithJourney = ({ tren }) => {
   return (
     <div className="w-full h-[30vh] z-0 mb-0">
       <MapContainer
-        center={positions[0]} // Center map on the first position (departure of the first segment)
+        center={positions[0]}
         zoom={6}
         style={{
           height: "90%",

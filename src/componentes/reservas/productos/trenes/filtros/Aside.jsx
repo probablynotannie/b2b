@@ -18,8 +18,6 @@ function Aside() {
       <div className="hidden lg:block">
         <SidebarContent values={values} setValues={setValues} />
       </div>
-
-      {/* Modal for medium screens and below */}
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
@@ -27,9 +25,8 @@ function Aside() {
         >
           <div
             className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
-            onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 text-xl right-4 text-white hover:text-gray-700"
@@ -56,11 +53,6 @@ function SidebarContent({ reembolsable, setReembolsable, values, setValues }) {
         <div className="mx-3 mt-5">
           <PrecioRange values={values} setValues={setValues} />
         </div>
-        {/*      <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondaryDark">
-            Categoría de Hotel
-          </span>
-        </div> */}
       </div>
     </div>
   );

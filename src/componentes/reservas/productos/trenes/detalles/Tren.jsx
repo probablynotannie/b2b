@@ -12,7 +12,7 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
             <h2 className="font-bold text-lg dark:text-white">Tren {tipo}</h2>
-            <p className="text-xs text-slate-600 font-bold">
+            <p className="text-xs text-slate-600 dark:text-slate-400 font-bold">
               Clase:{tren.claseElegida.nombre}
             </p>
           </div>
@@ -49,8 +49,7 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
       {cesta !== true && (
         <div className="border-t-2 border-slate-100 dark:border-slate-700 mt-5">
           <span
-            className="dark:text-secondaryDark
-          font-bold mb-5 block"
+            className="dark:text-secondaryDark mt-4 font-bold mb-5 block"
           >
             Cambiar clase
           </span>

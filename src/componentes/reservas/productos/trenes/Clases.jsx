@@ -39,7 +39,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
 
   return (
     <div className="md:flex">
-      <ul className="flex flex-col space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400 md:me-4 mb-4 md:mb-0">
+      <ul className="flex flex-col  space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400 md:me-4 mb-4 md:mb-0">
         {clases.map((clase) => (
           <li key={clase.nombre}>
             <button
@@ -65,13 +65,13 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
               {classSeat.informacion?.map((info, index) => (
                 <li
                   key={index}
-                  className="grid grid-cols-3 gap-3 p-2 mt-3 border-b border-slate-100 dark:border-slate-700"
+                  className="grid lg:grid-cols-3 gap-3 p-2 mt-3 border-b border-slate-100 dark:border-slate-700"
                 >
                   <h4 className="font-semibold text-secondary">
                     {info.titulo}
                   </h4>
                   <p className="text-slate-500 dark:text-slate-400 text-sm col-span-2">
-                    {info.texto}
+                    {info.texto}e
                   </p>
                 </li>
               ))}
@@ -85,7 +85,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                 <ul className="flex flex-col space-y-2 mb-4">
                   {classSeat.subclases.map((subclass) => (
                     <li key={subclass.nombre}>
-                      <div className="flex gap-3 items-center justify-between">
+                      <div className="lg:flex gap-3 items-center justify-between mt-3">
                         <button
                           className={`px-4 py-2 rounded-lg w-full ${
                             classSeat?.name === subclass.nombre &&
@@ -100,7 +100,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                           {subclass.nombre} (Extra: {subclass.precioExtra}€)
                         </button>
                         <button
-                          className="bg-secondary p-1.5 text-white rounded-lg  dark:bg-slate-700 dark:hover:bg-slate-600 dark:text-slate-200"
+                          className="bg-secondary mt-2 lg:mt-0 p-1.5 w-full text-white rounded-lg dark:bg-slate-500 dark:hover:bg-slate-600 dark:text-slate-200"
                           onClick={() => toggleSubclassPreview(subclass)}
                         >
                           {expandedSubclass?.nombre === subclass.nombre
