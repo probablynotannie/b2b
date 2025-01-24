@@ -148,7 +148,7 @@ function FlightSelection({
 
   return (
     <div>
-      <div className="p-4 dark:bg-slate-800 dark:border-slate-700 mx-auto border rounded-xl shadow-lg">
+      <div className="p-4 dark:bg-slate-800 dark:border-slate-700 mx-auto border rounded-xl shadow-lg hover:shadow-xl transition duration-300">
         <div>
           <h4 className="text-2xl text-end font-bold text-orange-400 dark:text-green-400 rounded-lg shadow-l w-fit p-2">
             Total: {totalPrice}€

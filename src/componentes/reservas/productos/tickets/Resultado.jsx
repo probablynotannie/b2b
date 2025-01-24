@@ -64,7 +64,6 @@ function Productos() {
             </>
           )}
         </div>
-        <PlaceHolder />
         {loading ? <PlaceHolder /> : <Tickets tickets={filteredTickets} />}
       </article>
     </main>

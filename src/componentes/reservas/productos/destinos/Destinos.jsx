@@ -21,7 +21,7 @@ function Resultado() {
       {destinos.map((destino, index) => (
         <article
           key={index}
-          className="cursor-pointer bg-white flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-5 lg:mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
+          className="cursor-pointer bg-white flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 lg:mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
         >
           <div className="relative w-full">
             {activeMap === destino.id ? (
@@ -57,32 +57,36 @@ function Resultado() {
                 </h4>
               </div>
               <div className="flex flex-wrap gap-5 border-b-2 border-slate-100 pb-5">
-                <p className="flex">
+                <div className="flex flex-wrap">
                   <span className="font-semibold flex items-center">
                     Noches en:
                   </span>
-                  {destino.noches_en.map((noche, i) => (
-                    <span key={i} className="ml-1">
-                      {noche}
-                      {i < destino.noches_en.length - 1 && ","}{" "}
-                    </span>
-                  ))}
-                </p>
-                <p className="flex">
+                  <div>
+                    {destino.noches_en.map((noche, i) => (
+                      <span key={i} className="ml-1">
+                        {noche}
+                        {i < destino.noches_en.length - 1 && ","}{" "}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+                <div className="flex flex-wrap">
                   <span className="font-semibold flex items-center">
                     Visitando:
                   </span>
-                  {destino.sitio_noches.map((noche, i) => (
-                    <span key={i} className="ml-1">
-                      {noche}
-                      {i < destino.noches_en.length - 1 && ","}{" "}
-                    </span>
-                  ))}
-                </p>
+                  <div>
+                    {destino.sitio_noches.map((noche, i) => (
+                      <span key={i}>
+                        {noche}
+                        {i < destino.noches_en.length - 1 && ","}{" "}
+                      </span>
+                    ))}
+                  </div>
+                </div>
               </div>
               <div>
                 <p className="flex items-center font-semibold px-2 p-1 rounded-tr-lg bottom-0 left-0">
-                  <span className="mr-2 flex items-center">
+                  <span className="mr-2 flex flex-wrap items-center">
                     <FaClock className="mr-2" />
                     {destino.dias} días
                   </span>

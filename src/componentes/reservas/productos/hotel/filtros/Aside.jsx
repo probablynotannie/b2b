@@ -4,6 +4,7 @@ import Estrellas from "./Filtro_Estrellas";
 import Regimenes from "./Filtro_Regimenes";
 import Localidades from "./Filtro_Localidades";
 import { IoMdOptions } from "react-icons/io";
+import { MdCancel } from "react-icons/md";
 
 function Aside() {
   const [values, setValues] = useState([0, 500]);
@@ -18,7 +19,7 @@ function Aside() {
     if (reembolsable) count += 1;
     if (localidades.length > 0) count += 1;
     if (selectedStars.length > 0) count += 1;
-    if (selectedRegimenes.length > 0) count += 1; // Include regimen in active filters count
+    if (selectedRegimenes.length > 0) count += 1;
     return count;
   };
 
@@ -45,12 +46,12 @@ function Aside() {
           setLocalidades={setLocalidades}
           selectedStars={selectedStars}
           setSelectedStars={setSelectedStars}
-          selectedRegimenes={selectedRegimenes} // Pass selectedRegimenes here
-          setRegimenes={setRegimenes} // Pass setRegimenes here
+          selectedRegimenes={selectedRegimenes}
+          setRegimenes={setRegimenes}
+          setIsModalOpen={setIsModalOpen}
         />
       </div>
 
-      {/* Modal for medium screens and below */}
       {isModalOpen && (
         <div
           className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
@@ -58,9 +59,8 @@ function Aside() {
         >
           <div
             className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
-            onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
+            onClick={(e) => e.stopPropagation()}
           >
-            {/* Close Button */}
             <button
               onClick={() => setIsModalOpen(false)}
               className="absolute top-4 text-xl right-4 text-white hover:text-gray-700"
@@ -76,8 +76,9 @@ function Aside() {
               setLocalidades={setLocalidades}
               selectedStars={selectedStars}
               setSelectedStars={setSelectedStars}
-              selectedRegimenes={selectedRegimenes} // Pass selectedRegimenes here
-              setRegimenes={setRegimenes} // Pass setRegimenes here
+              selectedRegimenes={selectedRegimenes}
+              setRegimenes={setRegimenes}
+              setIsModalOpen={setIsModalOpen}
             />
           </div>
         </div>
@@ -96,6 +97,7 @@ function SidebarContent({
   setSelectedStars,
   selectedRegimenes,
   setRegimenes,
+  setIsModalOpen,
 }) {
   return (
     <div>
@@ -161,6 +163,14 @@ function SidebarContent({
           <div className="mt-2">
             <Localidades selected={localidades} onChange={setLocalidades} />
           </div>
+        </div>
+        <div className="my-5 flex border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
+          <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
+            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:text-secondaryDark w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
+              X
+            </div>
+            <span className="text-slate-400 dark:text-secondaryDark">Cerrar</span>
+          </button>
         </div>
       </div>
     </div>

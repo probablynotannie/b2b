@@ -136,7 +136,6 @@ function Productos() {
                     </Link>
                   )}
                 </div>
-
                 {loading ? (
                   <>
                     <Cargando />

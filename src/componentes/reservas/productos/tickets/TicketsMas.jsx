@@ -1,6 +1,9 @@
 import { useState, useEffect } from "react";
 import { Modal } from "flowbite-react";
 import formatearFecha from "../../estructura/FormatearFecha";
+import { FaCalendarAlt } from "react-icons/fa";
+import { FaClock } from "react-icons/fa6";
+
 function Resultado({ tickets, actividades, setActividades }) {
   const [activeActividad, setActiveActividad] = useState(null);
   const [fechaSeleccionada, setFechaSeleccionada] = useState("");
@@ -158,59 +161,73 @@ function Resultado({ tickets, actividades, setActividades }) {
           <Modal.Header>{activeActividad.titulo}</Modal.Header>
           <Modal.Body>
             <div className="space-y-6">
-              <p>{activeActividad.descripcion_corta}</p>
-
-              {isSelected ? (
-                <div>
-                  {fechaSeleccionada} - {horaSeleccionada}
-                </div>
-              ) : (
-                <>
-                  <label htmlFor="fecha" className="block font-semibold">
-                    Fecha:
-                  </label>
-                  <select
-                    id="fecha"
-                    className="w-full border p-2 rounded-lg"
-                    value={fechaSeleccionada}
-                    onChange={(e) => setFechaSeleccionada(e.target.value)}
-                  >
-                    <option value="">Selecciona una fecha</option>
-                    {Object.keys(activeActividad.fechasDisponibles).map(
-                      (fecha) => (
-                        <option key={fecha} value={fecha}>
-                          {formatearFecha(fecha)}
-                        </option>
-                      )
-                    )}
-                  </select>
-                </>
-              )}
-              {fechaSeleccionada && !isSelected && (
-                <>
-                  <label htmlFor="hora" className="block font-semibold mt-4">
-                    Hora:
-                  </label>
-                  <select
-                    id="hora"
-                    className="w-full border p-2 rounded-lg"
-                    value={horaSeleccionada}
-                    onChange={(e) => setHoraSeleccionada(e.target.value)}
-                  >
-                    <option value="">Selecciona una hora</option>
-                    {activeActividad.fechasDisponibles[fechaSeleccionada].map(
-                      (hora) => (
-                        <option key={hora} value={hora}>
-                          {hora}
-                        </option>
-                      )
-                    )}
-                  </select>
-                </>
-              )}
+              <img
+                alt="Imagen actividad"
+                src={activeActividad.img}
+                className="w-full h-[20vh] object-cover rounded-lg"
+              />
+              <p className="dark:text-slate-300">
+                {activeActividad.descripcion_corta}
+              </p>
+              <div className="grid grid-cols-2 gap-5">
+                {isSelected ? (
+                  <div>
+                    {formatearFecha(fechaSeleccionada)} - {horaSeleccionada}
+                  </div>
+                ) : (
+                  <>
+                    <div className="relative ">
+                      <select
+                        id="fecha"
+                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                        value={fechaSeleccionada}
+                        onChange={(e) => setFechaSeleccionada(e.target.value)}
+                      >
+                        <option value="">Selecciona una fecha</option>
+                        {Object.keys(activeActividad.fechasDisponibles).map(
+                          (fecha) => (
+                            <option key={fecha} value={fecha}>
+                              {formatearFecha(fecha)}
+                            </option>
+                          )
+                        )}
+                      </select>
+                      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <FaCalendarAlt />
+                      </div>
+                    </div>
+                  </>
+                )}
+                {fechaSeleccionada && !isSelected && (
+                  <>
+                    <div className="relative ">
+                      <select
+                        id="hora"
+                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                        value={horaSeleccionada}
+                        onChange={(e) => setHoraSeleccionada(e.target.value)}
+                      >
+                        <option value="">Selecciona una hora</option>
+                        {activeActividad.fechasDisponibles[
+                          fechaSeleccionada
+                        ].map((hora) => (
+                          <option key={hora} value={hora}>
+                            {hora}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <FaClock />
+                      </div>
+                    </div>
+                  </>
+                )}
+              </div>
               {fechaSeleccionada && horaSeleccionada && (
                 <div className="mt-4">
-                  <label className="block font-semibold">Entradas:</label>
+                  <label className="block font-semibold  dark:text-slate-100">
+                    Entradas:
+                  </label>
                   {isSelected ? (
                     <div className="flex gap-4">
                       <div>
@@ -229,13 +246,16 @@ function Resultado({ tickets, actividades, setActividades }) {
                   ) : (
                     <div className="flex gap-4">
                       <div>
-                        <label htmlFor="adulto" className="block text-sm">
+                        <label
+                          htmlFor="adulto"
+                          className="block text-sm  dark:text-slate-100"
+                        >
                           Adultos ({activeActividad.tiposEntradas.adulto.precio}
                           €)
                         </label>
                         <select
                           id="adulto"
-                          className="border p-2 rounded-lg"
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
                           value={entradasSeleccionadas.adulto}
                           onChange={(e) =>
                             handleTicketChange("adulto", e.target.value)
@@ -256,12 +276,15 @@ function Resultado({ tickets, actividades, setActividades }) {
                         </select>
                       </div>
                       <div>
-                        <label htmlFor="niño" className="block text-sm">
+                        <label
+                          htmlFor="niño"
+                          className="block text-sm  dark:text-slate-100"
+                        >
                           Niños ({activeActividad.tiposEntradas.niño.precio}€)
                         </label>
                         <select
                           id="niño"
-                          className="border p-2 rounded-lg"
+                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
                           value={entradasSeleccionadas.niño}
                           onChange={(e) =>
                             handleTicketChange("niño", e.target.value)
@@ -285,11 +308,6 @@ function Resultado({ tickets, actividades, setActividades }) {
                   )}
                 </div>
               )}
-              {fechaSeleccionada && horaSeleccionada && (
-                <div className="mt-6 font-semibold text-lg">
-                  <p>Total: {calculateTotalPrice()}€</p>
-                </div>
-              )}
             </div>
           </Modal.Body>
           <Modal.Footer>
@@ -303,7 +321,13 @@ function Resultado({ tickets, actividades, setActividades }) {
               className="p-3 bg-secondary text-white font-semibold rounded-lg shadow"
               onClick={() => handleSelectActividad(activeActividad)}
             >
-              {isSelected ? "Eliminar actividad" : "Seleccionar"}
+              {isSelected
+                ? "Eliminar actividad"
+                : `Añadir ${
+                    fechaSeleccionada &&
+                    horaSeleccionada &&
+                    calculateTotalPrice() + "€"
+                  }`}
             </button>
           </Modal.Footer>
         </Modal>

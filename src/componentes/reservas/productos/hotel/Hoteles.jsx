@@ -8,6 +8,7 @@ import { FaDoorOpen } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { useState } from "react";
 import { Link } from "react-router-dom";
+import Imagenes from "../../estructura/hoteles/Imgs";
 
 function Resultado({ hoteles }) {
   const reserva = {
@@ -16,10 +17,9 @@ function Resultado({ hoteles }) {
     habitaciones: 2,
     noches: 7,
   };
-
+  console.log(hoteles[0])
   const [openModal, setOpenModal] = useState(null);
   const [openInNewTab, setOpenInNewTab] = useState(false);
-
   return (
     <section className="pb-12">
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
@@ -34,7 +34,7 @@ function Resultado({ hoteles }) {
               checked={openInNewTab}
               onChange={(e) => setOpenInNewTab(e.target.checked)}
             />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+            <div className="relative w-11 h-6 bg-slate-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
             <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
               Abrir enlace pestaña nueva
             </span>
@@ -110,24 +110,31 @@ function Resultado({ hoteles }) {
                 Detalles
               </button>
               <Modal
+                size="4xl"
                 dismissible
                 show={openModal === index}
                 onClose={() => setOpenModal(null)}
               >
                 <Modal.Header className="bg-white dark:bg-slate-900">
                   {hotel.nombre}
+                  <p className="text-sm text-slate-400">
+                     {hotel.fecha} - {hotel.fechaSalida}
+                  </p>
                 </Modal.Header>
                 <Modal.Body className="bg-white dark:bg-slate-900">
-                  <div className="space-y-6">
-                    <p className="leading-relaxed text-gray-500 dark:text-gray-400">
+                  <div className="space-y-6 mt-2">
+                    <p className="leading-relaxed text-slate-500 dark:text-slate-400">
                       {hotel.descripcion}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      <strong>Precio por noche:</strong> ${hotel.precio}
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      <span className="font-semibold">Precio por noche:</span> $
+                      {hotel.precio}
                     </p>
-                    <p className="text-sm text-gray-500 dark:text-gray-400">
-                      <strong>Extras:</strong> {hotel.extras.join(", ")}
+                    <p className="text-sm text-slate-500 dark:text-slate-400">
+                      <span className="font-semibold">Extras:</span>{" "}
+                      {hotel.extras.join(", ")}
                     </p>
+                    <Imagenes imagenes={hotel.habitacionImgs} />
                   </div>
                 </Modal.Body>
                 <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">

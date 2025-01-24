@@ -26,7 +26,6 @@ function Buscador() {
   ];
   return (
     <>
-      {/* The search button */}
       <button
         onClick={toggleModal}
         className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
