@@ -89,7 +89,7 @@ function Productos() {
             <div className="container relative">
               <Buscador />
             </div>
-            <aside className="lg:hidden col-span-9 lg:col-span-3 h-fit lg:sticky top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
+            <aside className="lg:hidden col-span-9 lg:col-span-3 h-fit lg:sticky top-16 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
               <Aside />
             </aside>
           </div>
@@ -119,7 +119,7 @@ function Productos() {
         <article className="grid grid-cols-9 lg:gap-8 xs:gap-28 container">
           {activeTab === "Resultados" && (
             <>
-              <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky  top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
+              <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky top-16 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">
@@ -130,7 +130,7 @@ function Productos() {
                       to={"/hotelMasVuelo"}
                       state={{ ida, vuelta, selectedHotel, habitacion }}
                     >
-                      <button className="bg-slate-600 dark:bg-slate-800 text-white font-semibold p-3 rounded-lg shadow-md w-full">
+                      <button className="bg-slate-600 dark:bg-slate-800 text-white font-semibold p-3 rounded-lg shadow-md hover:shadow-xl transition duration-300 w-full">
                         Reservar
                       </button>
                     </Link>

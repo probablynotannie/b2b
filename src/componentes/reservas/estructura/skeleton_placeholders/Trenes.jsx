@@ -1,7 +1,7 @@
 function Trenes() {
   return (
     <section className="pb-12 md:mt-5 flex flex-col gap-5 animate-pulse">
-      {[...Array(1)].map((_, index) => (
+      {[...Array(3)].map((_, index) => (
         <div
           className="h-[20vh] w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg p-5 flex flex-col gap-4 py-10"
           key={index}

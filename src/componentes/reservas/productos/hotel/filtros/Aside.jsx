@@ -164,7 +164,7 @@ function SidebarContent({
             <Localidades selected={localidades} onChange={setLocalidades} />
           </div>
         </div>
-        <div className="my-5 flex border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
+        <div className="my-5 flex md:hidden border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
           <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
             <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:text-secondaryDark w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
               X

@@ -30,7 +30,7 @@ function Actividades({ actividades }) {
         {actividades.map((actividad, index) => (
           <section
             key={index}
-            className="pb-20 bg-white duration-300 dark:bg-slate-800 h-auto max-w-full rounded-lg rounded-t-lg  shadow transition relative dark:border-2 dark:border-slate-700"
+            className="pb-20 bg-white duration-300 dark:bg-slate-900 h-auto max-w-full rounded-lg rounded-t-lg  shadow transition relative dark:border-2 dark:border-slate-700"
           >
             <Actividad actividad={actividad} />
           </section>
