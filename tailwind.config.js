@@ -2,8 +2,8 @@ import flowbite from "flowbite-react/tailwind";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
+  /* prefix: 'tw-', */
   darkMode: 'selector',
-
   content: [
     // ...
     './index.html',
@@ -28,9 +28,9 @@ module.exports = {
       },
       keyframes: {
         colorChange: {
-          '0%': { backgroundColor: 'black' }, // Start with primary color
-          '50%': { backgroundColor: 'lightgray' }, // Midway with secondary color
-          '100%': { backgroundColor: 'black' }, // End with tertiary color
+          '0%': { backgroundColor: 'black' },
+          '50%': { backgroundColor: 'lightgray' },
+          '100%': { backgroundColor: 'black' },
         },
       },
       animation: {
@@ -46,7 +46,5 @@ module.exports = {
     // ...
     flowbite.plugin(),
     require('tailwindcss-animated')
-
-
   ],
 };

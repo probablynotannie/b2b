@@ -6,7 +6,7 @@ import Input_Mes from "../inputs/Mes";
 import Input_Dias from "../inputs/SelectorDias";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Destacados from "./destacados/Cruceros";
+import Destacados from "./destacados/cruceros/Cruceros";
 function Cruceros() {
   const [destino, setDestino] = useState("");
   const [mes, setMes] = useState();
