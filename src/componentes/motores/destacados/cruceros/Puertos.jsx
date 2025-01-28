@@ -8,8 +8,8 @@ function Puertos({ puertos }) {
       </h2>
       <div>
         <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
-          {puertos.map((zona) => (
-            <div key={zona.id}>
+          {puertos.map((zona, index) => (
+            <div key={index}>
               <div className="relative hover:scale-[103%] transition duration-400 h-[20vh] top-0 cursor-pointer group">
                 <img
                   src={zona.img}

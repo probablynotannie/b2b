@@ -4,8 +4,8 @@ function Zonas({ zonas }) {
       <h2 className="font-bold text-2xl dark:text-white">Zonas Destacados</h2>
 
       <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
-        {zonas.map((zona) => (
-          <div key={zona.id} to={"/listadocruceros"}>
+        {zonas.map((zona, index) => (
+          <div key={index} to={"/listadocruceros"}>
             <div className="relative h-[15vh] top-0 cursor-pointer group hover:scale-[103%] transition duration-400">
               <img
                 src={zona.img}
