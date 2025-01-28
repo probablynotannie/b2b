@@ -10,53 +10,53 @@ function Usuario() {
     <Popover
       aria-labelledby="profile-popover"
       content={
-        <div className="w-64 p-3">
-          <div className="border-b-2 border-slate-100 pb-2 mb-2 flex items-center justify-between">
-            <span className="font-bold text-primary dark:text-slate-100">
+        <div className="tw-w-64 tw-p-3 tw-bg-white dark:tw-bg-slate-800">
+          <div className="tw-border-b-2 tw-border-slate-100 tw-pb-2 tw-mb-2 tw-flex tw-items-center tw-justify-between">
+            <span className="tw-font-bold text-primary dark:tw-text-slate-100">
               vpk desarrollo
             </span>
             <img
-              className="h-10 w-16 rounded-full"
+              className="tw-h-10 tw-w-16 tw-rounded-full"
               src="../../dit.png"
               alt="Jese Leos"
             />
           </div>
           <div>
-            <div className="text-sm">
-              <ul className="space-y-3 text-sm">
-                <li className="flex items-center gap-1 text-slate-600 dark:text-slate-200">
+            <div className="tw-text-sm">
+              <ul className="tw-space-y-3 tw-text-sm">
+                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
                   <span className="text-secondary">
                     <FaStar />
                   </span>
                   <span>DIT España Freelance</span>
                 </li>
-                <li className="flex items-center gap-1 text-slate-600 dark:text-slate-200 ">
+                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
                   <span className="text-secondary">
                     <FaUser />
                   </span>
                   <span>Test LIO</span>
                 </li>
-                <li className="flex items-center gap-1 text-slate-600 dark:text-slate-200">
+                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
                   <span className="text-secondary">
                     <MdEmail />
                   </span>
                   <span>Reservas: soporte@ditgestion.com</span>
                 </li>
-                <li className="flex items-center gap-1 text-slate-600 dark:text-slate-200">
+                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
                   <span className="text-secondary">
                     <MdEmail />
                   </span>
                   <span>Admin: holavpk@gmail.com</span>
                 </li>
-                <li className="flex items-center gap-1 text-slate-600 dark:text-slate-200">
+                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
                   <span className="text-secondary">
                     <IoSettings />
                   </span>
                   <span>Modificar margenes</span>
                 </li>
               </ul>
-              <div className="mt-4 flex justify-end border-t-2 border-slate-100 pt-3">
-                <button className="text-slate-400 dark:text-slate-300 dark:hover:text-slate-200 hover:text-slate-700 transition p-2">
+              <div className="tw-mt-4 tw-flex tw-justify-end tw-border-t-2 tw-border-slate-100 tw-pt-3">
+                <button className="tw-text-slate-400 dark:tw-text-slate-300 dark:hover:tw-text-slate-200 hover:tw-text-slate-700 tw-transition tw-p-2">
                   Cerrar sesión
                 </button>
               </div>
@@ -65,8 +65,8 @@ function Usuario() {
         </div>
       }
     >
-      <div className="text-white  w-fit cursor-pointer hover:text-secondary transition flex justify-center items-center">
-        <FaUserCog className="text-3xl" />
+      <div className="tw-text-white tw-w-fit tw-cursor-pointer hover:text-secondary tw-transition tw-flex tw-justify-center tw-items-center">
+        <FaUserCog className="tw-text-3xl" />
       </div>
     </Popover>
   );

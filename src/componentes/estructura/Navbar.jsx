@@ -9,26 +9,26 @@ import { HiChevronDoubleUp } from "react-icons/hi";
 
 const Navbar = () => {
   return (
-    <header className="sticky top-0 z-50 bg-primary shadow-md w-full lg:px-20 ">
+    <header className="tw-sticky tw-top-0 tw-z-50 tw-bg-primary tw-shadow-md tw-w-full lg:tw-px-20">
       <Scroll />
-      <div className="hidden md:flex">
+      <div className="tw-hidden md:tw-flex">
         <ScrollToTop
           component={
-            <div className="p-2 text-white bg-secondary rounded-full w-full h-full flex justify-center items-center">
-              <HiChevronDoubleUp className=" animate-pulse text-xl" />
+            <div className="tw-p-2 tw-text-white bg-secondary tw-rounded-full tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+              <HiChevronDoubleUp className="tw-animate-pulse tw-text-xl" />
             </div>
           }
           smooth
         />
       </div>
-      <nav className=" mx-auto px-4 py-4 flex justify-between items-center">
-        <div className="flex space-x-3 items-center">
-          <Link className="hidden md:block" to="/">
-            <img src="./logo.png" className="w-full" alt="Logo" />
+      <nav className="tw-mx-auto tw-px-4 tw-py-4 tw-flex tw-justify-between tw-items-center">
+        <div className="tw-flex tw-space-x-3 tw-items-center">
+          <Link className="tw-hidden md:tw-block" to="/">
+            <img src="./logo.png" className="tw-w-full" alt="Logo" />
           </Link>
           <Menu />
         </div>
-        <div className="flex gap-4">
+        <div className="tw-flex tw-gap-4">
           <DarkMode />
           <Notificaciones />
           <Usuario />

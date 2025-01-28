@@ -2,12 +2,12 @@ import flowbite from "flowbite-react/tailwind";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  /* prefix: 'tw-', */
-  darkMode: 'selector',
+  darkMode: 'class', // Class-based dark mode
+  prefix: 'tw-', // Prefix all Tailwind utility classes
   content: [
     // ...
     './index.html',
-    './src/**/*.{js,ts,jsx,tsx}',
+    './src/**/*.{js,ts,jsx,tsx}', // Make sure your file extensions are correct
     flowbite.content(),
   ],
   theme: {
@@ -44,6 +44,7 @@ module.exports = {
   },
   plugins: [
     // ...
+    require('flowbite/plugin'),
     flowbite.plugin(),
     require('tailwindcss-animated')
   ],

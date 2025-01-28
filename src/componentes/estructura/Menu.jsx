@@ -70,17 +70,17 @@ const Dropdown = () => {
   }, []);
 
   return (
-    <div className="flex md:space-x-4 ">
+    <div className="tw-flex md:tw-space-x-4">
       
       {menu.map((category) => (
         <div
           key={category.key}
-          className="relative inline-block"
+          className="tw-relative tw-inline-block"
           ref={(el) => (dropdownRefs.current[category.key] = el)}
         >
           <div
             onClick={() => toggleDropdown(category.key)}
-            className="text-white cursor-pointer focus:ring-4 focus:outline-none focus:ring-blue-300 font-medium rounded-lg text-sm px-2 md:px-5 py-2.5 text-center inline-flex items-center "
+            className="tw-text-white tw-cursor-pointer focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 tw-font-medium tw-rounded-lg tw-text-sm tw-px-2 md:tw-px-5 tw-py-2.5 tw-text-center tw-inline-flex tw-items-center"
             type="button"
           >
             {category.texto}
@@ -88,13 +88,13 @@ const Dropdown = () => {
 
           {openDropdown === category.key && (
             <div
-              className={`absolute z-10 mt-2 bg-white divide-y divide-gray-100 rounded-lg shadow ${
-                category.key === "utilidades" ? "w-40" : "w-40 md:w-96"
+              className={`tw-absolute tw-z-10 tw-mt-2 tw-bg-white tw-divide-y tw-divide-gray-100 tw-rounded-lg tw-shadow ${
+ category.key ==="utilidades" ? "w-40" : "w-40 md:w-96"
               }`}
             >
               <ul
-                className={`py-2 text-sm text-gray-700  ${
-                  category.key === "utilidades"
+                className={`tw-py-2 tw-text-sm tw-text-gray-700 ${
+ category.key ==="utilidades"
                     ? "grid md:grid-cols-1"
                     : " md:grid grid-cols-2"
                 }`}
@@ -104,7 +104,7 @@ const Dropdown = () => {
                   <li key={subItem.id}>
                     <Link
                       to={subItem.to}
-                      className="block px-4 py-2 hover:bg-gray-100"
+                      className="tw-block tw-px-4 tw-py-2 hover:tw-bg-gray-100"
                       onClick={handleItemClick}
                     >
                       {subItem.texto}

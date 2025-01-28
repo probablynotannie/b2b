@@ -99,51 +99,51 @@ function Cruceros() {
   ];
 
   return (
-    <div className="px-5 mt-5">
-      <div className="text-4xl text-center font-bold p-3 border-b-2 dark:text-white border-slate-100 dark:border-slate-700 mb-5 flex items-center justify-between">
+    <div className="tw-px-5 tw-mt-5">
+      <div className="tw-text-4xl tw-text-center tw-font-bold tw-p-3 tw-border-b-2 dark:tw-text-white tw-border-slate-100 dark:tw-border-slate-700 tw-mb-5 tw-flex tw-items-center tw-justify-between">
         Destacados
         <button
           onClick={handleScroll}
-          className="border-2 dark:border-slate-700 rounded-full bg-secondary text-white p-2 animate-bounce"
+          className="tw-border-2 dark:tw-border-slate-700 tw-rounded-full tw-tw-bg-secondary tw-text-white tw-p-2 tw-animate-bounce"
         >
           <FaArrowDownLong />
         </button>
       </div>
-
+ 
       <div ref={contentRef}>
         <Zonas zonas={zonas} />
         <Puertos puertos={puertos} />
-        <div className="grid lg:grid-cols-2 gap-20 mt-10 bg-slate-50 shadow-sm hover:shadow-md transition duration-300 rounded-lg dark:bg-slate-900">
+        <div className="tw-grid lg:tw-grid-cols-2 tw-gap-20 tw-mt-10 tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-transition tw-duration-300 tw-rounded-lg dark:tw-bg-slate-900">
           <Meses />
-          <section className=" dark:text-white flex-col py-5">
-            <h2 className="font-bold text-xl mb-5 text-center text-gray-800 dark:text-slate-100">
+          <section className="dark:tw-text-white tw-flex-col tw-py-5">
+            <h2 className="tw-font-bold tw-text-xl tw-mb-5 tw-text-center tw-text-gray-800 dark:tw-text-slate-100">
               Buscar por Navieras
             </h2>
-            <div className="flex justify-center gap-10 flex-wrap my-5 ">
+            <div className="tw-flex tw-justify-center tw-gap-10 tw-flex-wrap tw-my-5">
               {navierasDest.map((nav, index) => (
                 <div
-                  className="hover:scale-105 transition duration-300 cursor-pointer"
+                  className="hover:tw-scale-105 tw-transition tw-duration-300 tw-cursor-pointer"
                   key={index}
                 >
                   <img
                     src={nav.img}
                     alt={`Naviera ${nav.name}`}
-                    className="object-fill h-[100px] rounded-lg"
+                    className="tw-object-fill tw-h-[100px] tw-rounded-lg"
                   />
                 </div>
               ))}
             </div>
           </section>
         </div>
-        <div className="mt-8">
-          <div className="bg-slate-50 shadow-sm hover:shadow-md transition duration-300 rounded-lg dark:bg-slate-900 p-5">
-            <h2 className="font-bold text-2xl mb-5 text-slate-800 dark:text-slate-100 mt-5">
+        <div className="tw-mt-8">
+          <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-transition tw-duration-300 tw-rounded-lg dark:tw-bg-slate-900 tw-p-5">
+            <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
               Cruceros destacados
             </h2>
             <Cruceros_destacados cruceros={crucerosDestacados} />
           </div>
-          <div className="bg-slate-50 shadow-sm hover:shadow-md transition duration-300 rounded-lg dark:bg-slate-900 p-5 mt-5">
-            <h2 className="font-bold text-2xl mb-5 text-slate-800 dark:text-slate-100 mt-5">
+          <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-transition tw-duration-300 tw-rounded-lg dark:tw-bg-slate-900 tw-p-5 tw-mt-5">
+            <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
               Crucero de selección
             </h2>
             <Cruceros_destacados cruceros={ofertasUltimoMinuto} />

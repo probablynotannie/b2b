@@ -1,24 +1,24 @@
 function Zonas({ zonas }) {
   return (
     <>
-      <h2 className="font-bold text-2xl dark:text-white">Zonas Destacados</h2>
+      <h2 className="tw-font-bold tw-text-2xl tw-dark:text-white">Zonas Destacados</h2>
 
-      <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3">
+      <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3">
         {zonas.map((zona, index) => (
           <div key={index} to={"/listadocruceros"}>
-            <div className="relative h-[15vh] top-0 cursor-pointer group hover:scale-[103%] transition duration-400">
+            <div className="tw-relative tw-h-[15vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
               <img
                 src={zona.img}
-                className="opacity-90 rounded h-full shadow mb-4 w-full object-cover"
+                className="tw-opacity-90 tw-rounded tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
                 alt="Imagen reserva"
               />
-              <div className="absolute top-0 left-0 w-full h-full bg-indigo-800 dark:bg-indigo-900 dark:bg-opacity-70 bg-opacity-30 hover:bg-opacity-65 transition duration-300 flex items-center justify-center p-4 rounded">
-                <div className="text-white text-3xl font-semibold text-center">
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-indigo-800 tw-dark:bg-indigo-900 tw-dark:bg-opacity-70 tw-bg-opacity-30 hover:tw-bg-opacity-65 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
+                <div className="tw-text-white tw-text-3xl tw-font-semibold tw-text-center">
                   {zona.txt}
                 </div>
               </div>
-              <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-75 text-white flex items-center justify-center p-4 rounded opacity-0 hover:opacity-100 transition duration-300">
-                <p className="text-md text-center">{zona.descripcion_corta}</p>
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-75 tw-text-white tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300">
+                <p className="tw-text-md tw-text-center">{zona.descripcion_corta}</p>
               </div>
             </div>
           </div>

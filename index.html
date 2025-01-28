@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="tw-dark">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
@@ -8,15 +8,15 @@
     <script>
       const darkMode = localStorage.getItem("darkMode") === "true";
       if (darkMode) {
-        document.documentElement.classList.add("dark");
+        document.documentElement.classList.add("dark"); // Use tw-dark class with the prefix
       } else {
-        document.documentElement.classList.remove("dark");
+        document.documentElement.classList.remove("dark"); // Use tw-dark class with the prefix
       }
     </script>
     <script src="https://unpkg.com/leaflet@latest/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-providers@latest/leaflet-providers.js"></script>
   </head>
-  <body class="dark:bg-slate-700">
+  <body class="dark:tw-bg-slate-700"> <!-- Use tw-dark:bg-slate-700 instead of dark:bg-slate-700 -->
     <div id="root"></div>
     <script type="module" src="/src/main.jsx"></script>
   </body>

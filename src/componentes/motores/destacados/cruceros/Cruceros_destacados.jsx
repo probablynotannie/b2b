@@ -2,37 +2,37 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 function Cruceros_destacados({ cruceros }) {
   return (
-    <div className="mb-6">
-      <div className="grid gap-3  md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4">
+    <div className="tw-mb-6">
+      <div className="tw-grid tw-gap-3 md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4">
         {cruceros.map((crucero, index) => (
           <div
             key={index}
-            className="w-full  p-6 bg-white border border-slate-200 rounded-lg shadow-sm hover:shadow-lg transition duration-300 dark:bg-slate-800 dark:border-slate-700"
+            className="tw-w-full tw-p-6 tw-bg-white tw-border tw-border-slate-200 tw-rounded-lg tw-shadow-sm hover:tw-shadow-lg tw-transition tw-duration-300 dark:tw-bg-slate-800 dark:tw-border-slate-700"
           >
             <a href="#">
-              <h5 className="mb-2 text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+              <h5 className="tw-mb-2 tw-text-2xl tw-font-bold tw-tracking-tight tw-text-slate-900 dark:tw-text-white">
                 {crucero.descripcion}
               </h5>
             </a>
-            <p className="mb-3 font-normal text-slate-700 dark:text-slate-400">
+            <p className="tw-mb-3 tw-font-normal tw-text-slate-700 dark:tw-text-slate-400">
               {crucero.titulo}
             </p>
-            <span className="font-semibold text-slate-700 dark:text-slate-300">
+            <span className="tw-font-semibold tw-text-slate-700 dark:tw-text-slate-300">
               Salidas
             </span>
-            <ul className="flex flex-wrap gap-3 text-slate-700 dark:text-slate-300 text-sm my-2">
+            <ul className="tw-flex tw-flex-wrap tw-gap-3 tw-text-slate-700 dark:tw-text-slate-300 tw-text-sm tw-my-2">
               {crucero.salidas.map((fecha, index) => (
                 <li
                   key={index}
-                  className="px-3 py-1 bg-slate-200 rounded-lg dark:bg-slate-700"
+                  className="tw-px-3 tw-py-1 tw-bg-slate-200 tw-rounded-lg dark:tw-bg-slate-700"
                 >
                   {fecha}
                 </li>
               ))}
             </ul>
-            <button className="inline-flex items-center mt-3 px-3 py-2 text-sm font-medium text-center text-white bg-secondary rounded-lg hover:bg-secondary focus:ring-4 focus:outline-none focus:ring-blue-300 dark:bg-secondarydark dark:hover:bg-secondary ">
+            <button className="tw-inline-flex tw-items-center tw-mt-3 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-center tw-text-white tw-bg-secondary tw-rounded-lg hover:tw-bg-secondary focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 dark:tw-bg-secondarydark dark:hover:tw-bg-secondary">
               Precios desde {crucero.precio}
-              <FaLongArrowAltRight className="text-lg ml-2" />
+              <FaLongArrowAltRight className="tw-text-lg tw-ml-2" />
             </button>
           </div>
         ))}

@@ -97,11 +97,11 @@ function Cesta() {
       isOpen={popoverOpen}
       onClickOutside={() => setPopoverOpen(false)}
       content={
-        <div className="w-96 p-3">
-          <div className="border-b-2 border-slate-100 pb-2 mb-2 flex items-center justify-between">
-            <span className="font-bold text-primary">Cesta</span>
+        <div className="tw-w-96 tw-p-3">
+          <div className="tw-border-b-2 tw-border-slate-100 tw-pb-2 tw-mb-2 tw-flex tw-items-center tw-justify-between">
+            <span className="tw-font-bold text-primary">Cesta</span>
             <img
-              className="h-10 w-16 rounded-full"
+              className="tw-h-10 tw-w-16 tw-rounded-full"
               src="/dit.png"
               alt="User Avatar"
             />
@@ -110,48 +110,48 @@ function Cesta() {
             {compras.map((compra, index) => (
               <div
                 key={compra.id}
-                className="flex justify-between text-sm border-b-2 border-slate-100 py-5 cursor-pointer"
+                className="tw-flex tw-justify-between tw-text-sm tw-border-b-2 tw-border-slate-100 tw-py-5 tw-cursor-pointer"
                 onClick={() => handleCheckboxChange(index)}
               >
-                <div className="flex justify-between space-x-3">
+                <div className="tw-flex tw-justify-between tw-space-x-3">
                   <img
                     src={compra.img}
-                    className="w-20 h-20 object-cover rounded-lg shadow-md"
+                    className="tw-w-20 tw-h-20 tw-object-cover tw-rounded-lg tw-shadow-md"
                   />
-                  <div className="w-52 flex flex-col justify-between">
+                  <div className="tw-w-52 tw-flex tw-flex-col tw-justify-between">
                     <div>
-                      <h5 className="font-semibold">{compra.name}</h5>
+                      <h5 className="tw-font-semibold">{compra.name}</h5>
                       <div>
-                        <span className="block text-slate-400">
+                        <span className="tw-block tw-text-slate-400">
                           {compra.pax && <span>{compra.pax} adultos</span>}
 
                           {compra.pax_ninios !== 0 && (
-                            <span className="ml-2">
+                            <span className="tw-ml-2">
                               {compra.pax_ninios} niños
                             </span>
                           )}
                         </span>
                       </div>
-                      <span className="text-slate-400">
+                      <span className="tw-text-slate-400">
                         {compra.fecha}{" "}
                         {compra.fechaSalida && `- ${compra.fechaSalida}`}{" "}
                       </span>
                     </div>
-                    <div className="text-slate-500">
-                      <span className="text-secondary font-semibold ">
+                    <div className="tw-text-slate-500">
+                      <span className="text-secondary tw-font-semibold">
                         {compra.precio} €
                       </span>
                     </div>
                   </div>
-                  <div className="flex flex-col justify-between">
+                  <div className="tw-flex tw-flex-col tw-justify-between">
                     <button onClick={() => handleRemoveItem(index)}>
-                      <FaRegTrashAlt className="text-lg text-danger_text" />
+                      <FaRegTrashAlt className="tw-text-lg text-danger_text" />
                     </button>
                     <input
                       checked={selectedItems[index]}
                       type="checkbox"
                       readOnly
-                      className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary focus:ring-2"
+                      className="tw-w-4 tw-h-4 text-primary tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-primary focus:tw-ring-2"
                     />
                   </div>
                 </div>
@@ -161,25 +161,25 @@ function Cesta() {
 
           {compras.length !== 0 ? (
             <div>
-              <div className="text-sm">
-                <div className="mt-2 pt-3">
-                  <div className="flex justify-between">
+              <div className="tw-text-sm">
+                <div className="tw-mt-2 tw-pt-3">
+                  <div className="tw-flex tw-justify-between">
                     <div>
-                      <div className="flex items-center">
+                      <div className="tw-flex tw-items-center">
                         <input
                           checked={selectAll}
                           type="checkbox"
                           onChange={handleSelectAllChange}
-                          className="w-4 h-4 text-primary bg-gray-100 border-gray-300 rounded focus:ring-primary focus:ring-2"
+                          className="tw-w-4 tw-h-4 text-primary tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-primary focus:tw-ring-2"
                         />
-                        <label className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300">
+                        <label className="tw-ms-2 tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-gray-300">
                           Todos
                         </label>
                       </div>
                     </div>
                     <div>
                       <span>Total:</span>
-                      <span className="font-bold text-secondary">
+                      <span className="tw-font-bold text-secondary">
                         {" "}
                         {total} €
                       </span>
@@ -195,7 +195,7 @@ function Cesta() {
                       }, 10);
                     }}
                   >
-                    <button className="mt-2 bg-primary hover:bg-slate-900 transition p-2 rounded-lg shadow text-white font-semibold w-full">
+                    <button className="tw-mt-2 bg-primary hover:tw-bg-slate-900 tw-transition tw-p-2 tw-rounded-lg tw-shadow tw-text-white tw-font-semibold tw-w-full">
                       Ver cesta
                     </button>
                   </Link>
@@ -203,7 +203,7 @@ function Cesta() {
               </div>
             </div>
           ) : (
-            <div className="my-4 text-slate-400 text-center">
+            <div className="tw-my-4 tw-text-slate-400 tw-text-center">
               {" "}
               Tu cesta esta vacia
             </div>
@@ -212,12 +212,12 @@ function Cesta() {
       }
     >
       <div
-        className="relative text-white w-fit cursor-pointer hover:text-secondary transition flex justify-center items-center"
+        className="tw-relative tw-text-white tw-w-fit tw-cursor-pointer hover:text-secondary tw-transition tw-flex tw-justify-center tw-items-center"
         onClick={() => setPopoverOpen(!popoverOpen)}
       >
-        <TiShoppingCart className="text-3xl" />
+        <TiShoppingCart className="tw-text-3xl" />
         {compras.length !== 0 && (
-          <div className="absolute select-none -top-1 left-3 text-sm bg-secondary text-white rounded-full w-5 flex justify-center items-center font-bold">
+          <div className="tw-absolute tw-select-none -tw-top-1 tw-left-3 tw-text-sm bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
             {compras.length}
           </div>
         )}
