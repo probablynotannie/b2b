@@ -1,21 +1,22 @@
 function Resumen({ img, txt, finalizada }) {
   return (
     <div
-      className={`relative  ${
-        finalizada === true ? "h-[40vh]" : "h-[20vh]"
-      } h-[20vh] top-0`}
-    >
-      <img
-        src={img}
-        className="opacity-90 rounded h-full shadow mb-4 w-full object-cover"
-        alt="Imagen reserva"
-      />
-      <div className="absolute top-0 left-0 w-full h-full bg-black bg-opacity-50 flex items-center justify-center p-4 rounded">
-        <div className={`text-white  text-3xl font-semibold text-center`}>
-          {txt}
-        </div>
-      </div>
+  className={`tw-relative ${
+    finalizada === true ? "tw-h-[40vh]" : "tw-h-[20vh]"
+  } tw-h-[20vh] tw-top-0`}
+>
+  <img
+    src={img}
+    className="tw-opacity-90 tw-rounded tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
+    alt="Imagen reserva"
+  />
+  <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
+    <div className="tw-text-white tw-text-3xl tw-font-semibold tw-text-center">
+      {txt}
     </div>
+  </div>
+</div>
+
   );
 }
 

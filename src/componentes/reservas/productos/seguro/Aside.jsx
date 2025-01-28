@@ -18,33 +18,33 @@ function Aside({ seguro }) {
       <div>
         <ul className="text-slate-500 dark:text-slate-300">
           <li className="flex items-center gap-1">
-            <FaPerson className=" text-secondary dark:text-secondaryDark" />
+            <FaPerson className=" text-secondary dark:tw-text-secondary" />
             Personas aseguradas: {seguro.personas}x
           </li>
           <li className="flex items-center gap-1">
-            <FaCalendar className="text-secondary dark:text-secondaryDark" />
+            <FaCalendar className="text-secondary dark:tw-text-secondary" />
             {FormatearFecha(seguro.inicio)}
           </li>
           <li className="flex items-center gap-1">
-            <FaCalendar className="text-secondary dark:text-secondaryDark" />
+            <FaCalendar className="text-secondary dark:tw-text-secondary" />
             {FormatearFecha(seguro.fin)}
           </li>
           <li className="flex items-center gap-1">
-            <TiWorld className="text-secondary dark:text-secondaryDark" />
+            <TiWorld className="text-secondary dark:tw-text-secondary" />
             {seguro.destino}
           </li>
         </ul>
         <ul className="border border-slate-100 dark:border-slate-700 p-3 dark:text-slate-300">
           <li className="flex items-center gap-1">
-            <MdCancel className="text-secondary dark:text-secondaryDark" />
+            <MdCancel className="text-secondary dark:tw-text-secondary" />
             Cancelaciónes hasta {seguro.cancelación.toFixed(2)}€
           </li>
           <li className="flex items-center gap-1">
-            <LuLuggage className=" text-secondary dark:text-secondaryDark" />
+            <LuLuggage className=" text-secondary dark:tw-text-secondary" />
             Equipaje hasta {seguro.equipaje.toFixed(2)}€
           </li>
           <li className="flex items-center gap-1">
-            <FaBriefcaseMedical className=" text-secondary dark:text-secondaryDark" />
+            <FaBriefcaseMedical className=" text-secondary dark:tw-text-secondary" />
             Asistencia médica hasta {seguro.asistenciaMedica.toFixed(2)}€
           </li>
         </ul>
@@ -61,7 +61,7 @@ function Aside({ seguro }) {
           Cambiar Margen
         </button>
         <Link to={"/datosSeguro"} state={seguro}>
-          <button className="p-3 bg-secondary dark:bg-secondaryDark rounded-lg w-full text-white font-bold mt-3">
+          <button className="p-3 tw-bg-secondary dark:tw-tw-bg-secondary rounded-lg w-full text-white font-bold mt-3">
             {seguro.precio.toFixed(2)}€
           </button>
         </Link>

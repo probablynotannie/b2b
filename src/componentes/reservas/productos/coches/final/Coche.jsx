@@ -5,7 +5,7 @@ function Coche({ producto, precio, conductor, extras }) {
   const extraInfo = (
     <div>
       <div className="h-fit gap-3 my-5 white w-fit p-5 rounded-lg">
-        <h3 className="font-bold dark:text-secondaryDark">Extras:</h3>
+        <h3 className="font-bold dark:tw-text-secondary">Extras:</h3>
         <ul className="dark:text-slate-300 flex flex-wrap gap-3 ml-2">
           {extras.map((extra, index) => (
             <li
@@ -26,7 +26,7 @@ function Coche({ producto, precio, conductor, extras }) {
         </ul>
       </div>
       <div className="h-fit gap-3 my-5 white w-fit p-5 rounded-lg dark:text-slate-300">
-        <h3 className="font-bold dark:text-secondaryDark">Conductor</h3>
+        <h3 className="font-bold dark:tw-text-secondary">Conductor</h3>
         <div className="flex flex-wrap gap-3  border-l-2 border-slate-500 dark:border-secondaryDark pl-4 ml-3">
           <p className="flex items-center gap-1">
             <span className="text-sm">
@@ -56,8 +56,8 @@ function Coche({ producto, precio, conductor, extras }) {
           </p>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <FaCar className="text-xl text-secondary dark:text-secondaryDark" />
-          <span className="text-secondary dark:text-secondaryDark font-bold">
+          <FaCar className="text-xl text-secondary dark:tw-text-secondary" />
+          <span className="text-secondary dark:tw-text-secondary font-bold">
             {precio.toFixed(2)}€
           </span>
         </div>

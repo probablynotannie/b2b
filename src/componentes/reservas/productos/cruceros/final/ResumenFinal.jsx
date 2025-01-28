@@ -18,14 +18,14 @@ function ResumenFinal() {
   const numReserva = "aouaguoy76";
 
   return (
-    <main className="container min-h-[55vh] my-10 p-5">
+    <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
       <section>
         <Resumen
           img={"/completado.jpg"}
           txt={
-            <div className="flex flex-col items-center justify-center">
-              <h1 className="text-7xl">Reserva Finalizada</h1>
-              <h2 className="text-6xl">ID: {numReserva}</h2>
+            <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
+              <h1 className="tw-text-7xl">Reserva Finalizada</h1>
+              <h2 className="tw-text-6xl">ID: {numReserva}</h2>
             </div>
           }
           finalizada={true}
@@ -39,16 +39,16 @@ function ResumenFinal() {
         endDate={endDate}
         selectedPrice={selectedPrice}
       />
-      <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+      <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
         <DatosContacto
           nombre={datosContacto.nombre}
           apellidos={datosContacto.apellido}
           email={datosContacto.email}
           numero={datosContacto.numero}
         />
-        <div className="mt-10 flex justify-end ">
+        <div className="tw-mt-10 tw-flex tw-justify-end">
           <Link to={"/"}>
-            <button className="bg-slate-400 dark:bg-slate-700 p-3 font-bold text-white rounded-lg">
+            <button className="tw-bg-slate-400 dark:tw-bg-slate-700 tw-p-3 tw-font-bold tw-text-white tw-rounded-lg">
               Volver a la página principal
             </button>
           </Link>

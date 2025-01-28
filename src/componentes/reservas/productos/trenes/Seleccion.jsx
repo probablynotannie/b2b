@@ -78,7 +78,7 @@ function Seleccion({ tren }) {
               </Modal.Body>
               <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
                 <button
-                  className="p-3 px-5 bg-slate-700 dark:bg-secondaryDark font-bold rounded-xl text-white"
+                  className="p-3 px-5 bg-slate-700 dark:tw-tw-bg-secondary font-bold rounded-xl text-white"
                   onClick={() => setOpenModal(null)}
                 >
                   Cerrar

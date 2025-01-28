@@ -120,7 +120,7 @@ function Buscador() {
       </div>
 
       <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
-        <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
+        <h2 className="mb-4 font-bold text-xl dark:tw-text-secondary">
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">

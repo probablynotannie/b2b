@@ -27,6 +27,7 @@ function Datos() {
       ...prev,
       [key]: value,
     }));
+    
   };
   const [pasajeros, setPasajeros] = useState(
     Array.from({ length: 2 }, () => ({
@@ -119,7 +120,7 @@ function Datos() {
             to={"/reservahotelmasvuelo"}
             state={{ selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion }}
           >
-            <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+            <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar
             </button>
           </Link>

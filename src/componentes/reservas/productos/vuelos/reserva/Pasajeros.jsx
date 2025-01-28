@@ -11,7 +11,7 @@ function Pasajeros({ pasajeros }) {
             key={index}
             className="border rounded-xl shadow bg-white border-slate-200 dark:border-slate-700 dark:bg-slate-800 mt-5 flex"
           >
-            <div className="w-1/5 bg-secondary rounded-l-lg dark:bg-slate-900 text-3xl text-white flex items-center justify-center h-full">
+            <div className="w-1/5 tw-bg-secondary rounded-l-lg dark:bg-slate-900 text-3xl text-white flex items-center justify-center h-full">
               <FaUser />
             </div>
             <div className="p-3">

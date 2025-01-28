@@ -28,16 +28,16 @@ function Destino({ reserva }) {
               <span>{reserva.habitaciones.length + 1}x hab</span>
             </div>
             <div className="flex items-center gap-1">
-              <FaClock className="text-secondary dark:text-secondaryDark" />
+              <FaClock className="text-secondary dark:tw-text-secondary" />
               <span>{reserva.dias} días</span>
             </div>
             <div className="flex items-center gap-1">
-              <ImSpoonKnife className="text-secondary dark:text-secondaryDark" />
+              <ImSpoonKnife className="text-secondary dark:tw-text-secondary" />
               <span> {reserva.desayunos}x Desayunos</span>
             </div>
           </div>
         </div>
-        <FaGlobe className="text-xl text-secondary dark:text-secondaryDark" />
+        <FaGlobe className="text-xl text-secondary dark:tw-text-secondary" />
       </section>
       <section>
         <Desglose precio={reserva.precio} />

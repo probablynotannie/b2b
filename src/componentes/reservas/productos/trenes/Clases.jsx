@@ -45,7 +45,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
             <button
               className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
                 classSeat?.name === clase.nombre && classSeat?.type === "class"
-                  ? "bg-secondary text-white dark:bg-blue-600"
+                  ? "tw-bg-secondary text-white dark:bg-blue-600"
                   : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
               }`}
               onClick={() => handleClassSelect(clase)}
@@ -100,7 +100,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                           {subclass.nombre} (Extra: {subclass.precioExtra}€)
                         </button>
                         <button
-                          className="bg-secondary mt-2 lg:mt-0 p-1.5 w-full text-white rounded-lg dark:bg-slate-500 dark:hover:bg-slate-600 dark:text-slate-200"
+                          className="tw-bg-secondary mt-2 lg:mt-0 p-1.5 w-full text-white rounded-lg dark:bg-slate-500 dark:hover:bg-slate-600 dark:text-slate-200"
                           onClick={() => toggleSubclassPreview(subclass)}
                         >
                           {expandedSubclass?.nombre === subclass.nombre

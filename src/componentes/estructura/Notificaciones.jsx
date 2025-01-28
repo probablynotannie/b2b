@@ -52,7 +52,7 @@ function Notificaciones() {
                   <CiBellOn className="tw-text-3xl" />
                 </div>
                 <div className="tw-col-span-5">
-                  <h3 className="tw-text-sm tw-font-semibold text-secondary dark:tw-text-slate-100">
+                  <h3 className="tw-text-sm tw-font-semibold tw-text-secondary dark:tw-text-slate-100">
                     {notificacion.titulo}
                   </h3>
                   <p className="tw-text-xs tw-line-clamp-2 tw-text-slate-500 dark:tw-text-slate-300">
@@ -65,9 +65,9 @@ function Notificaciones() {
         </div>
       }
     >
-      <div className="tw-relative tw-text-slate-400 tw-cursor-pointer hover:text-secondary tw-transition tw-flex tw-items-center tw-rounded-full tw-justify-center tw-h-10">
+      <div className="tw-relative tw-text-slate-400 tw-cursor-pointer hover:tw-text-secondary tw-transition tw-flex tw-items-center tw-rounded-full tw-justify-center tw-h-10">
         <CiBellOn className="tw-text-4xl" />
-        <div className="tw-absolute tw-select-none -tw-top-1 tw-left-4 tw-text-sm bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
+        <div className="tw-absolute tw-select-none -tw-top-1 tw-left-4 tw-text-sm tw-bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
           {notificaciones.length}
         </div>
       </div>

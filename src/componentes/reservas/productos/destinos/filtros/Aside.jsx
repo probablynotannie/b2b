@@ -84,49 +84,49 @@ function SidebarContent({
             required
           />
         </div>
-        <div className="mx-3 mt-5 dark:text-secondaryDark">
+        <div className="mx-3 mt-5 dark:tw-text-secondary">
           <PrecioRange values={values} setValues={setValues} />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Duración</span>
           <Dias duracion={duracion} setDuracion={setDuracion} />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">
             Régimen de alimentación
           </span>
           <Regimenes />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Viajeros</span>
           <Viajeros />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Categorias</span>
           <Categoria />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Isnpiración</span>
           <Inspiracion />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Proveedores</span>
           <Proveedores />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Ciudades</span>
           <Ciudades />
         </div>
-        <div className="mt-5 dark:text-secondaryDark">
+        <div className="mt-5 dark:tw-text-secondary">
           <span className="text-sm font-semibold block mb-1">Paises</span>
           <Paises />
         </div>
         <div className="my-5 flex border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
           <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
-            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:text-secondaryDark w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
+            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:tw-text-secondary w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
               X
             </div>
-            <span className="text-slate-400 dark:text-secondaryDark">
+            <span className="text-slate-400 dark:tw-text-secondary">
               Cerrar
             </span>
           </button>

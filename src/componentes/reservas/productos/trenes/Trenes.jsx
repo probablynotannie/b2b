@@ -92,7 +92,7 @@ function Resultado({ trenes, setTren, tipo }) {
                   </Modal.Body>
                   <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
                     <button
-                      className="p-3 px-5 bg-slate-700 dark:bg-secondaryDark font-bold rounded-xl text-white"
+                      className="p-3 px-5 bg-slate-700 dark:tw-tw-bg-secondary font-bold rounded-xl text-white"
                       onClick={() => setOpenModal(null)}
                     >
                       Cerrar
@@ -100,7 +100,7 @@ function Resultado({ trenes, setTren, tipo }) {
                   </Modal.Footer>
                 </Modal>
                 <button
-                  className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow hover:bg-secondary-dark transition duration-200"
+                  className="w-full lg:w-fit p-3 tw-bg-secondary text-white font-semibold rounded-xl shadow hover:tw-bg-secondary-dark transition duration-200"
                   onClick={() => setTren(tren)}
                 >
                   Reservar

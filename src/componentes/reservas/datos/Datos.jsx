@@ -5,7 +5,7 @@ function Datos() {
   return (
     <div className="relative p-5">
       <div className="border-b-2 border-slate-100 dark:border-slate-700 pb-4">
-        <h2 className="font-bold text-3xl dark:text-secondaryDark">
+        <h2 className="font-bold text-3xl dark:tw-text-secondary">
           Datos de contacto
         </h2>
         <p className="text-slate-500 dark:text-slate-400">

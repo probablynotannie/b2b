@@ -40,19 +40,19 @@ function Resultado() {
             )}
             <button
               onClick={() => toggleMap(destino.id)}
-              className="flex items-center font-semibold bg-secondary text-white px-2 p-1 rounded-bl-lg absolute top-0 right-0"
+              className="flex items-center font-semibold tw-bg-secondary text-white px-2 p-1 rounded-bl-lg absolute top-0 right-0"
             >
               {activeMap === destino.id ? "Ocultar mapa" : "Mostrar mapa"}
               <FaMapPin className="text-white ml-2" />
             </button>
-            <span className="text-xl font-bold bg-secondary text-white px-2 p-1 rounded-br-lg absolute top-0">
+            <span className="text-xl font-bold tw-bg-secondary text-white px-2 p-1 rounded-br-lg absolute top-0">
               {destino.precio}€
             </span>
           </div>
           <Link to="/destino" state={destino}>
             <div className="px-5 py-3 dark:text-slate-300">
               <div className="flex justify-between items-center">
-                <h4 className="dark:text-secondaryDark font-semibold text-secondary">
+                <h4 className="dark:tw-text-secondary font-semibold text-secondary">
                   {destino.titulo}
                 </h4>
               </div>

@@ -14,7 +14,7 @@ function Datos() {
     <div className="p-3 bg-opacity-40 rounded-lg">
       {tickets.map((ticket, index) => (
         <div
-          className="text-sm mt-3 pl-2 bg-secondary text-white p-1 rounded-lg font-semibold"
+          className="text-sm mt-3 pl-2 tw-bg-secondary text-white p-1 rounded-lg font-semibold"
           key={index}
         >
           <p>
@@ -80,7 +80,7 @@ function Datos() {
               datosContacto,
             }}
           >
-            <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+            <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar
             </button>
           </Link>

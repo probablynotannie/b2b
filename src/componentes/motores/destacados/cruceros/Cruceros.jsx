@@ -104,7 +104,7 @@ function Cruceros() {
         Destacados
         <button
           onClick={handleScroll}
-          className="tw-border-2 dark:tw-border-slate-700 tw-rounded-full tw-tw-bg-secondary tw-text-white tw-p-2 tw-animate-bounce"
+          className="tw-border-2 dark:tw-border-slate-700 tw-rounded-full tw-bg-secondary tw-text-white tw-p-2 tw-animate-bounce"
         >
           <FaArrowDownLong />
         </button>

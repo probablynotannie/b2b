@@ -85,9 +85,9 @@ function Resultado() {
     }
   }
   return (
-    <section className="pb-12 md:mt-5">
-      <div className="lg:flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600  lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg">
+    <section className="tw-pb-12 md:tw-mt-5">
+      <div className="lg:tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-xl lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600  lg:tw-mt-0">
+        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
           Resultados ({Destinos.length})
         </h3>
       </div>
@@ -96,22 +96,22 @@ function Resultado() {
         return (
           <article
             key={index}
-            className="cursor-pointer bg-slate-100 flex dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-700 rounded-xl transition mt-5 lg:mt-10 lg:flex flex-col relative min-lg:h-[25vh]"
+            className="tw-cursor-pointer tw-bg-slate-100 tw-flex dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 lg:tw-flex tw-flex-col tw-relative min-lg:tw-h-[25vh]"
           >
-            <div className="relative w-full">
+            <div className="tw-relative tw-w-full">
               {activeMap[destino.id] ? (
-                <div className="h-[25vh] border-t-2 rounded-t-lg border-secondary flex flex-col items-center justify-center">
+                <div className="tw-h-[25vh] tw-border-t-2 tw-rounded-t-lg tw-border-secondary tw-flex tw-flex-col tw-items-center tw-justify-center">
                   <MapWithJourney destino={destino} />
                 </div>
               ) : (
-                <div className="min-h-[25vh] border-t-2 border-secondary rounded-tr-xl rounded-tl-xl max-h-[45vh] flex relative">
+                <div className="tw-min-h-[25vh] tw-border-t-2 tw-border-secondary tw-rounded-tr-xl tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
                   <div
-                    className="transition-all rounded-tl-xl duration-300 w-[33.33%] sm:w-[20%] hover:w-[35%] min-h-[20vh] border-lg max-h-[45vh] bg-cover bg-center flex justify-center items-center"
+                    className="tw-transition-all tw-rounded-tl-xl tw-duration-300 tw-w-[33.33%] sm:tw-w-[20%] hover:tw-w-[35%] tw-min-h-[20vh] tw-border-lg tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center"
                     style={{
                       backgroundImage: `url('${destino.crucero}')`,
                     }}
                   >
-                    <div className="md:text-xl font-semibold text-white bg-slate-800 bg-opacity-45 rounded-tl-xl p-2 w-full h-full flex justify-center items-center flex-col">
+                    <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-rounded-tl-xl tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
                       {destino.nombreCrucero}
                     </div>
                   </div>
@@ -120,21 +120,21 @@ function Resultado() {
                     .map((destination, index, array) => (
                       <div
                         key={destination.id}
-                        className={`transition-all duration-300 
-                                w-[33.33%] sm:w-[25%] hover:w-[35%] 
-                                min-h-[20vh] border-lg max-h-[45vh] 
-                                bg-cover bg-center 
-                                flex justify-center items-center 
-                                ${index >= 2 ? "hidden sm:flex" : ""} 
+                        className={`tw-transition-all tw-duration-300 
+                                tw-w-[33.33%] sm:tw-w-[25%] hover:tw-w-[35%] 
+                                tw-min-h-[20vh] tw-border-lg tw-max-h-[45vh] 
+                                tw-bg-cover tw-bg-center 
+                                tw-flex tw-justify-center tw-items-center 
+                                ${index >= 2 ? "hidden sm:tw-flex" : ""} 
                            ${
                              index === array.length - 3
-                               ? " rounded-tr-xl sm:rounded-tr-none"
+                               ? " tw-rounded-tr-xl sm:tw-rounded-tr-none"
                                : ""
                            }
 
                                 ${
                                   index === array.length - 1
-                                    ? "rounded-tr-xl"
+                                    ? "tw-rounded-tr-xl"
                                     : ""
                                 }`}
                         style={{
@@ -142,21 +142,21 @@ function Resultado() {
                         }}
                       >
                         <div
-                          className={`md:text-xl text-white ${
-                            index === array.length - 1 ? "rounded-tr-xl" : ""
+                          className={`md:tw-text-xl tw-text-white ${
+                            index === array.length - 1 ? "tw-rounded-tr-xl" : ""
                           } 
                            ${
                              index === array.length - 3
-                               ? " rounded-tr-xl sm:rounded-tr-none"
+                               ? " tw-rounded-tr-xl sm:tw-rounded-tr-none"
                                : ""
                            }
-                          bg-slate-800 bg-opacity-45 p-2 w-full h-full flex justify-center items-center flex-col font-semibold text-center`}
+                          tw-bg-slate-800 tw-bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col tw-font-semibold tw-text-center`}
                         >
                           {destination.destino}
                         </div>
                       </div>
                     ))}
-                  <div className="absolute bottom-0 w-full bg-red-700 dark:bg-red-900 bg-opacity-90 text-white font-bold px-5">
+                  <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
                     Proxima salida: {getNextDeparture(destino.precios)}
                   </div>
                 </div>
@@ -164,24 +164,24 @@ function Resultado() {
 
               <button
                 onClick={() => toggleMap(destino.id)}
-                className={`flex items-center font-semibold ${
+                className={`tw-flex tw-items-center tw-font-semibold ${
                   activeMap[destino.id]
-                    ? "bg-slate-700 text-white"
-                    : "bg-white text-slate-700"
-                } px-2 p-1 rounded-full absolute top-5 right-5`}
+                    ? "tw-bg-slate-700 tw-text-white"
+                    : "tw-bg-white tw-text-slate-700"
+                } tw-px-2 tw-p-1 tw-rounded-full tw-absolute tw-top-5 tw-right-5`}
               >
                 {activeMap[destino.id] ? "Ocultar" : "Mapa"}
-                <FaMapPin className="ml-2" />
+                <FaMapPin className="tw-ml-2" />
               </button>
             </div>
             <Link to="/crucero" state={destino}>
-              <div className="px-5 py-3 dark:text-white pb-5 md:pb-0">
-                <h4 className="font-semibold text-lg">{destino.recorrido}</h4>
-                <p className="text-sm dark:text-slate-400">{destino.titulo}</p>
-                <p className="text-slate-500 dark:text-slate-400 text-sm my-3 line-clamp-3">
+              <div className="tw-px-5 tw-py-3 dark:tw-text-white tw-pb-5 md:tw-pb-0">
+                <h4 className="tw-font-semibold tw-text-lg">{destino.recorrido}</h4>
+                <p className="tw-text-sm dark:tw-text-slate-400">{destino.titulo}</p>
+                <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm tw-my-3 tw-line-clamp-3">
                   {destino.descripcion}
                 </p>
-                <div className="grid grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-5 mb-3">
+                <div className="tw-grid tw-grid-cols-2 lg:tw-grid-cols-3 2xl:tw-grid-cols-4 tw-gap-5 tw-mb-3">
                   {destino.precios.map((cabina) => {
                     const nextDateEntry = getNextAvailableDatesByCabin(
                       cabina.preciosConFechas
@@ -191,17 +191,17 @@ function Resultado() {
 
                     return (
                       <div
-                        className="flex flex-col justify-center items-center"
+                        className="tw-flex tw-flex-col tw-justify-center tw-items-center"
                         key={cabina.id}
                       >
-                        <h5 className="text-slate-700 font-bold dark:text-slate-300 text-center text-sm">
+                        <h5 className="tw-text-slate-700 tw-font-bold dark:tw-text-slate-300 tw-text-center tw-text-sm">
                           {cabina.title}
                         </h5>
 
-                        <div className="text-sm bg-slate-200 w-fit px-12 md:px-16 dark:bg-slate-900 dark:border-slate-800 flex justify-center items-center flex-col border border-slate-200 rounded-lg">
-                          <span className="font-bold text-xs">{nextDate}</span>
+                        <div className="tw-text-sm tw-bg-slate-200 tw-w-fit tw-px-12 md:tw-px-16 dark:tw-bg-slate-900 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-flex-col tw-border tw-border-slate-200 tw-rounded-lg">
+                          <span className="tw-font-bold tw-text-xs">{nextDate}</span>
 
-                          <p className="text-center text-green-700 flex-col dark:text-green-500 font-bold">
+                          <p className="tw-text-center tw-text-green-700 tw-flex-col dark:tw-text-green-500 tw-font-bold">
                             {typeof nextPrice === "number"
                               ? `${nextPrice}€`
                               : nextPrice}
@@ -213,14 +213,14 @@ function Resultado() {
                 </div>
               </div>
             </Link>
-            <div className="hidden md:flex justify-end">
+            <div className="hidden md:tw-flex tw-justify-end">
               <Link to="/crucero" state={destino}>
-                <button className="text-center w-full md:w-fit flex flex-col items-center justify-center font-bold bg-slate-700 dark:bg-slate-900 text-white p-2 px-4 rounded-br-lg rounded-tl-xl">
+                <button className="tw-text-center tw-w-full md:tw-w-fit tw-flex tw-flex-col tw-items-center tw-justify-center tw-font-bold tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-px-4 tw-rounded-br-lg tw-rounded-tl-xl">
                   Desde{" "}
                   {typeof precioMasBajo === "number"
                     ? `${precioMasBajo}€`
                     : precioMasBajo}
-                  <span className="text-xs flex items-center gap-1">
+                  <span className="tw-text-xs tw-flex tw-items-center tw-gap-1">
                     +{destino.tasas}€ tasas <FaChevronRight />
                   </span>
                 </button>

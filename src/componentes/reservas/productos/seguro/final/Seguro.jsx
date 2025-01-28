@@ -12,8 +12,8 @@ function Seguro({ seguro }) {
           </p>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <FaPlane className="text-xl text-secondary dark:text-secondaryDark" />
-          <span className="text-secondary dark:text-secondaryDark font-bold">
+          <FaPlane className="text-xl text-secondary dark:tw-text-secondary" />
+          <span className="text-secondary dark:tw-text-secondary font-bold">
             {parseFloat(seguro.precio).toFixed(2)}€
           </span>
         </div>

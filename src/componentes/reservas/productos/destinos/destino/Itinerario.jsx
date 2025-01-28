@@ -9,7 +9,7 @@ function Itinerario({ destino }) {
             <Timeline.Point />
             <Timeline.Content>
               <Timeline.Time>
-                <span className="dark:text-secondaryDark font-semibold">
+                <span className="dark:tw-text-secondary font-semibold">
                   {" "}
                   Día {destino.dia}
                 </span>

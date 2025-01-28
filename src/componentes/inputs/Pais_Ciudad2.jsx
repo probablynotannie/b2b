@@ -25,7 +25,7 @@ function SelectorPaisCiudad() {
     {
       name: "Haiku",
       shortName: "HK",
-      flag: <img src="../../logo.png" className="w-5 h-4" />,
+      flag: <img src="../../logo.png" className="w-5 h-4" alt="logo" />,
     },
   ];
 

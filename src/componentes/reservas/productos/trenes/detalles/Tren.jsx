@@ -49,7 +49,7 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
       {cesta !== true && (
         <div className="border-t-2 border-slate-100 dark:border-slate-700 mt-5">
           <span
-            className="dark:text-secondaryDark mt-4 font-bold mb-5 block"
+            className="dark:tw-text-secondary mt-4 font-bold mb-5 block"
           >
             Cambiar clase
           </span>

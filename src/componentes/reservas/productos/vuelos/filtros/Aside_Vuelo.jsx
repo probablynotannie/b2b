@@ -34,10 +34,10 @@ function Aside() {
             <SidebarContent />
             <div className="my-5 flex  justify-center items-center py-10">
               <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
-                <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:text-secondaryDark w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
+                <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:tw-text-secondary w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
                   X
                 </div>
-                <span className="text-slate-400 dark:text-secondaryDark">
+                <span className="text-slate-400 dark:tw-text-secondary">
                   Cerrar
                 </span>
               </button>

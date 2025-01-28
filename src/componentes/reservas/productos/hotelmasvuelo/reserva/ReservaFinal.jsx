@@ -33,7 +33,7 @@ function ReservaFinal() {
           <Aside ida={ida} vuelta={vuelta} hotel={selectedHotel} />
         </div>
         <Link to={"/resumenhotelmasvuelo"} state={{selectedHotel, ida, vuelta, datosContacto,pasajeros,habitacion}}>
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {(
               Number(selectedHotel.precio) +
               Number(ida.flight.precio) +

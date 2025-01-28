@@ -3,7 +3,7 @@ import React from "react";
 function Puertos({ puertos }) {
   return (
     <div>
-      <h2 className="tw-font-bold tw-text-2xl tw-dark:tw-text-white tw-mt-5">
+      <h2 className="tw-font-bold tw-text-2xl dark:tw-text-white tw-mt-5">
         Puertos Destacados
       </h2>
       <div>
@@ -16,7 +16,7 @@ function Puertos({ puertos }) {
                   className="tw-opacity-90 tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
                   alt="Imagen reserva"
                 />
-                <div className="tw-absolute tw-text-slate-100 tw-text-3xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full tw-dark:tw-bg-orange-900 tw-dark:bg-opacity-40 tw-bg-black tw-bg-opacity-30 tw-dark:hover:tw-bg-black tw-dark:hover:bg-opacity-75 hover:tw-bg-opacity-65 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
+                <div className="tw-absolute tw-text-slate-100 tw-text-3xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-black tw-bg-opacity-30 dark:hover:tw-bg-black dark:hover:bg-opacity-75 hover:tw-bg-opacity-65 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
                   {zona.txt}
                 </div>
               </div>

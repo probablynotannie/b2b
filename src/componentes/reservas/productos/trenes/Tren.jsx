@@ -63,7 +63,7 @@ function Producto() {
         <DatosTren tren={ida} tipo="ida" />
         {vuelta && <DatosTren tren={vuelta} tipo="vuelta" />}
         <Link to={"/datosTren"} state={{ ida, vuelta }}>
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {(
               ida.price +
               ida.claseElegida.precioExtra +

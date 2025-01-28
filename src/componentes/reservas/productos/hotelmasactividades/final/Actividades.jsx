@@ -19,9 +19,9 @@ function Actividades({ actividades }) {
           </h3>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <FaUser className="text-xl text-secondary dark:text-secondaryDark" />
+          <FaUser className="text-xl text-secondary dark:tw-text-secondary" />
 
-          <span className="text-secondary dark:text-secondaryDark font-bold">
+          <span className="text-secondary dark:tw-text-secondary font-bold">
             {calculateTotalPrice()}€
           </span>
         </div>

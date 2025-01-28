@@ -31,11 +31,11 @@ function Reserva() {
         <ul className="text-slate-500 dark:text-slate-400 mt-3">
           <li className="flex items-center gap-1">Destino: {seguro.destino}</li>
           <li className="flex items-center gap-1">
-            <FaCalendar className="text-secondary dark:text-secondaryDark" />
+            <FaCalendar className="text-secondary dark:tw-text-secondary" />
             {formatearFecha(seguro.inicio)}
           </li>
           <li className="flex items-center gap-1">
-            <FaCalendar className="text-secondary dark:text-secondaryDark" />
+            <FaCalendar className="text-secondary dark:tw-text-secondary" />
             {formatearFecha(seguro.fin)}
           </li>
         </ul>
@@ -43,7 +43,7 @@ function Reserva() {
           {seguro.importante}
         </p>
         <Link to={"/resumenSeguro"} state={{ seguro, datosContacto }}>
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {seguro.precio.toFixed(2)}€
           </button>
         </Link>

@@ -52,7 +52,7 @@ function Aside({ hotel, ferry, habitacion }) {
           </li>
         </ul>
         <Link to={"/datosHotelFerry"} state={{ hotel, ferry, habitacion }}>
-          <button className="w-full p-3 bg-secondary dark:bg-green-600 text-white font-bold rounded-lg mt-3">
+          <button className="w-full p-3 tw-bg-secondary dark:bg-green-600 text-white font-bold rounded-lg mt-3">
             {parseFloat(hotel.precio) +
               parseFloat(ferry.ida.precio.toFixed(2)) +
               parseFloat((ferry.vuelta?.precio || 0).toFixed(2))}

@@ -27,7 +27,7 @@ function Seleccion() {
             to={"/datosHotelMasActividades"}
             state={{ hotel, actividades, habitacion }}
           >
-            <button className="p-3 text-white font-bold bg-secondary dark:bg-green-600 w-full rounded-lg mt-3">
+            <button className="p-3 text-white font-bold tw-bg-secondary dark:bg-green-600 w-full rounded-lg mt-3">
               {calculateTotalPrice().toFixed(2)}€
             </button>
           </Link>

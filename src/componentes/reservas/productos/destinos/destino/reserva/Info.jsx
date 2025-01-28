@@ -29,7 +29,7 @@ function Info() {
   };
   return (
     <div>
-      <h3 className="text-xl font-bold dark:text-secondaryDark flex items-center">
+      <h3 className="text-xl font-bold dark:tw-text-secondary flex items-center">
         Información complementaria de la reserva
         <FaInfoCircle className="text-xl ml-2" />
       </h3>

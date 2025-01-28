@@ -318,7 +318,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               Cerrar
             </button>
             <button
-              className="p-3 bg-secondary text-white font-semibold rounded-lg shadow"
+              className="p-3 tw-bg-secondary text-white font-semibold rounded-lg shadow"
               onClick={() => handleSelectActividad(activeActividad)}
             >
               {isSelected

@@ -31,7 +31,7 @@ function Aside() {
       >
         <IoMdOptions className="text-xl" />
         {getActiveFiltersCount() > 0 && (
-          <span className="absolute rounded-full bg-secondary text-xs text-white font-bold p-2 -top-7 border">
+          <span className="absolute rounded-full tw-bg-secondary text-xs text-white font-bold p-2 -top-7 border">
             {`(${getActiveFiltersCount()})`}
           </span>
         )}
@@ -123,7 +123,7 @@ function SidebarContent({
         </div>
         <div className="mt-3 flex">
           <label className="inline-flex justify-between w-full items-center">
-            <span className="text-sm font-medium text-gray-900 dark:text-secondaryDark">
+            <span className="text-sm font-medium text-gray-900 dark:tw-text-secondary">
               Reembolsable
             </span>
             <input
@@ -132,14 +132,14 @@ function SidebarContent({
               onChange={() => setReembolsable(!reembolsable)}
               className="sr-only peer"
             />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
+            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:tw-bg-secondary"></div>
           </label>
         </div>
         <div className="mx-3 mt-5">
           <PrecioRange values={values} setValues={setValues} />
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondaryDark">
+          <span className="text-sm font-semibold dark:tw-text-secondary">
             Categoría de Hotel
           </span>
           <div className="mt-2">
@@ -149,7 +149,7 @@ function SidebarContent({
           </div>
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondaryDark">
+          <span className="text-sm font-semibold dark:tw-text-secondary">
             Régimen
           </span>
           <div className="mt-2">
@@ -157,7 +157,7 @@ function SidebarContent({
           </div>
         </div>
         <div className="mt-5">
-          <span className="text-sm font-semibold dark:text-secondaryDark">
+          <span className="text-sm font-semibold dark:tw-text-secondary">
             Localidades
           </span>
           <div className="mt-2">
@@ -166,10 +166,10 @@ function SidebarContent({
         </div>
         <div className="my-5 flex md:hidden border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
           <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
-            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:text-secondaryDark w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
+            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:tw-text-secondary w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
               X
             </div>
-            <span className="text-slate-400 dark:text-secondaryDark">Cerrar</span>
+            <span className="text-slate-400 dark:tw-text-secondary">Cerrar</span>
           </button>
         </div>
       </div>

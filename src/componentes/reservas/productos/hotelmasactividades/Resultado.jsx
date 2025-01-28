@@ -60,7 +60,7 @@ function Productos() {
               <FaHotel className="mr-1" /> Hoteles
             </button>
             {selectedHotel && (
-              <FaCheck className="text-xs text-green-500 animate-bounce dark:text-secondaryDark absolute -top-1 left-5" />
+              <FaCheck className="text-xs text-green-500 animate-bounce dark:tw-text-secondary absolute -top-1 left-5" />
             )}
           </div>
           <div className="flex items-center relative">
@@ -75,13 +75,13 @@ function Productos() {
               <PiMaskHappyFill className="mr-1" /> Actividades
             </button>
             {actividades.length > 0 && (
-              <FaCheck className="text-xs text-green-500 animate-bounce dark:text-secondaryDark absolute -top-1 left-5" />
+              <FaCheck className="text-xs text-green-500 animate-bounce dark:tw-text-secondary absolute -top-1 left-5" />
             )}
           </div>
           <div className="flex items-center relative">
             {(selectedHotel || actividades.length > 0) && (
               <>
-                <span className="-mt-1 ml-1 p-[10px] bg-secondary rounded-full flex items-center justify-center text-white font-bold absolute top-0 left-2 text-xs  w-[2px] h-[2px]">
+                <span className="-mt-1 ml-1 p-[10px] tw-bg-secondary rounded-full flex items-center justify-center text-white font-bold absolute top-0 left-2 text-xs  w-[2px] h-[2px]">
                   {selectedHotel ? 1 + actividades.length : actividades.length}
                 </span>
               </>

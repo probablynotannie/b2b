@@ -95,7 +95,7 @@ function SidebarContent({
           <PrecioRange values={values} setValues={setValues} />
         </div>
         <div className="mx-3 mt-5">
-          <span className="text-sm font-bold text-gray-900 dark:text-secondaryDark">
+          <span className="text-sm font-bold text-gray-900 dark:tw-text-secondary">
             Proveedores
           </span>
           <Proveedores
@@ -104,17 +104,17 @@ function SidebarContent({
           />
         </div>
         <div className="mx-3 mt-5">
-          <span className="text-sm font-bold text-gray-900 dark:text-secondaryDark">
+          <span className="text-sm font-bold text-gray-900 dark:tw-text-secondary">
             Tipo coches
           </span>
           <TiposCoches tipos={tipos} setTipos={setTipos} />
         </div>
         <div className="my-5 flex border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
           <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
-            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:text-secondaryDark w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
+            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:tw-text-secondary w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
               X
             </div>
-            <span className="text-slate-400 dark:text-secondaryDark">
+            <span className="text-slate-400 dark:tw-text-secondary">
               Cerrar
             </span>
           </button>

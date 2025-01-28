@@ -182,7 +182,7 @@ function Cesta({
           to="/hotel+actividades"
           state={{ hotel, actividades, habitacion }}
         >
-          <button className="bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
+          <button className="tw-bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
             Total: {totalPrice.toFixed(2)}€
           </button>
         </Link>

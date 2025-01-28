@@ -230,7 +230,7 @@ function Ferris({
                 <div className="flex justify-end mt-2 p-3">
                   {ida?.ferryId === ferrySet.id && (
                     <Link to={"/datosferry"} state={ferry}>
-                      <button className="font-semibold bg-secondary text-white p-2 rounded-md">
+                      <button className="font-semibold tw-bg-secondary text-white p-2 rounded-md">
                         Reservar por {calculateTotalPrice()}€
                       </button>
                     </Link>

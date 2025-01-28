@@ -50,7 +50,7 @@ function Listado({
               className="border-b-2 border-slate-100 dark:border-slate-700"
               key={habitacion.id}
             >
-              <td className="p-3 font-semibold dark:text-secondaryDark">
+              <td className="p-3 font-semibold dark:tw-text-secondary">
                 {habitacion.nombre}
               </td>
               <td className="p-3 text-sm text-slate-500 dark:text-slate-400">
@@ -121,7 +121,7 @@ function Listado({
                 </button>
                 {seleccion === "seleccionar" ? (
                   <button
-                    className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white"
+                    className="p-3 transition font-semibold min-w-[100px] tw-bg-secondary rounded-lg shadow-md hover:shadow-lg text-white"
                     onClick={() => {
                       setHotel({ ...hotel, precio: habitacion.precio });
                       setHabitacion(habitacion);
@@ -132,7 +132,7 @@ function Listado({
                   </button>
                 ) : (
                   <Link to={"/datoshotel"} state={{ producto, habitacion }}>
-                    <button className="p-3 transition font-semibold min-w-[100px] bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
+                    <button className="p-3 transition font-semibold min-w-[100px] tw-bg-secondary rounded-lg shadow-md hover:shadow-lg text-white">
                       {habitacion.precio}€
                     </button>
                   </Link>

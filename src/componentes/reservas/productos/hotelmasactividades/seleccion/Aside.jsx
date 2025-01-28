@@ -8,7 +8,7 @@ function Aside({ hotel, actividades }) {
       <li>
         <ul>
           <li className="flex items-center gap-2 font-semibold">
-            <FaHotel className="text-secondary dark:text-secondaryDark" />
+            <FaHotel className="text-secondary dark:tw-text-secondary" />
             {hotel.nombre}
           </li>
           <li className="text-slate-600 dark:text-slate-400 flex items-center gap-2 ml-2 text-sm">
@@ -21,7 +21,7 @@ function Aside({ hotel, actividades }) {
         <li key={index}>
           <ul>
             <li className="flex items-center gap-1 mt-2">
-              <BsDash className="text-secondary  dark:text-secondaryDark" />
+              <BsDash className="text-secondary  dark:tw-text-secondary" />
               {actividad.titulo}
             </li>
             <li className="text-slate-600 dark:text-slate-400 flex items-center gap-2 ml-2 text-sm">

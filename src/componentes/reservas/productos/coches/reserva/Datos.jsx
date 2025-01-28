@@ -23,7 +23,7 @@ function Vuelo() {
         selectedExtras.map((extra) => (
           <span
             key={extra.id}
-            className="text-white dark:text-slate-200 bg-secondary dark:bg-secondaryDark p-1 rounded  mr-2"
+            className="text-white dark:text-slate-200 tw-bg-secondary dark:tw-tw-bg-secondary p-1 rounded  mr-2"
           >
             {extra.id === "GPS" && "GPS"}
             {extra.id === "sillitabebe" && "Sillita bebé"}
@@ -99,7 +99,7 @@ function Vuelo() {
                 precio,
               }}
             >
-              <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+              <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
                 Reservar
               </button>
             </Link>

@@ -123,7 +123,7 @@ function Vuelo() {
           <div className="flex justify-end">
             <button
               type="submit"
-              className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300"
+              className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300"
             >
               Reservar
             </button>

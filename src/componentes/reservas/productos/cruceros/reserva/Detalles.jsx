@@ -2,32 +2,32 @@ import Itinerario from "../crucero/Itinerario";
 function Detalles({ cabinPhotos, producto }) {
   return (
     <div>
-      <section className="mt-5">
-        <h3 className="font-semibold dark:text-slate-100">Incluidos</h3>
-        <div className="flex flex-wrap gap-3 mt-2">
+      <section className="tw-mt-5">
+        <h3 className="tw-font-semibold dark:tw-text-slate-100">Incluidos</h3>
+        <div className="tw-flex tw-flex-wrap tw-gap-3 tw-mt-2">
           {producto.incluidos.map((incluido, index) => (
             <span
               key={index}
-              className="rounded-lg bg-secondary font-semibold dark:bg-slate-700 text-sm p-1 text-white"
+              className="tw-rounded-lg tw-bg-secondary tw-font-semibold dark:tw-bg-slate-700 tw-text-sm tw-p-1 tw-text-white"
             >
               {incluido}
             </span>
           ))}
         </div>
-        <p className=" text-sm bg-slate-50 mt-5 dark:bg-slate-700 dark:text-slate-300 p-3 rounded">
+        <p className="tw-text-sm tw-bg-slate-50 tw-mt-5 dark:tw-bg-slate-700 dark:tw-text-slate-300 tw-p-3 tw-rounded">
           {producto.descripcion}
         </p>
         <Itinerario producto={producto} />
       </section>
-      <section className="p-3">
-        <h3 className="font-semibold dark:text-slate-100">Fotos Camarote</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-2">
+      <section className="tw-p-3">
+        <h3 className="tw-font-semibold dark:tw-text-slate-100">Fotos Camarote</h3>
+        <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-4 tw-mt-4 tw-p-2">
           {cabinPhotos.map((photo, index) => (
             <img
               key={index}
               src={photo}
               alt={`Photo`}
-              className="rounded-lg shadow-md hover:shadow-lg object-cover hover:scale-110 transition duration-300"
+              className="tw-rounded-lg tw-shadow-md hover:tw-shadow-lg tw-object-cover hover:tw-scale-110 tw-transition tw-duration-300"
             />
           ))}
         </div>

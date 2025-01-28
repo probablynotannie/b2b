@@ -88,114 +88,121 @@ function Buscador() {
     <>
       <button
         onClick={toggleModal}
-        className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
+        className="tw-relative tw-border-2 dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
       >
         Cambiar busqueda
-        <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
           <FaSearch />
         </span>
       </button>
       <div
-        className={`fixed inset-0 z-50  flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
-          isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
+        className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
+          isModalOpen
+            ? "tw-z-50 tw-opacity-100"
+            : "tw-opacity-0 tw-pointer-events-none"
         }`}
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl  dark:bg-slate-800 "
+          className="tw-bg-white tw-w-full tw-h-full tw-md:w-full tw-md:h-full tw-rounded-none tw-md:rounded-xl dark:tw-bg-slate-800"
           onClick={(e) => e.stopPropagation()}
         >
           <div>
-            <div className="w-full h-full mx-auto  relative ">
-              <div className="flex justify-between items-center mb-4 bg-primary dark:bg-slate-900  p-5 ">
-                <h2 className="text-xl font-bold text-white ">Buscador</h2>
-                <button onClick={toggleModal} className="text-xl text-white">
+            <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
+              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
+                <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                  Buscador
+                </h2>
+                <button
+                  onClick={toggleModal}
+                  className="tw-text-xl tw-text-white"
+                >
                   &times;
                 </button>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3 p-5 ">
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+            <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 destinos={destinos}
                 destino={destino}
                 setDestino={setDestino}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Puertos
                 destinos={listadoPuertos}
                 puerto={puerto}
                 setPuerto={setPuerto}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Navieras
                 destinos={listadoNavieras}
                 naviera={naviera}
                 setNaviera={setNaviera}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Mes mes={mes} setMes={setMes} />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Duracion duracion={duracion} setDuracion={setDuracion} />
             </div>
 
-            <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
-              <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
-                <FaSearch className="text-white text-xl" />
+            <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 tw-md:col-span-6">
+              <button className="tw-bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+                <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
-            <div className="flex flex-col justify-center items-center col-span-12 ">
+            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
               <button
-                className="text-2xl rounded-full w-[50px] h-[50px] border-2 mt-10 text-slate-300 border-slate-300"
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
                 onClick={toggleModal}
               >
                 X
               </button>
-              <span className="text-slate-400">Cerrar</span>
+              <span className="tw-text-slate-400">Cerrar</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="hidden lg:block border-2  dark:border-slate-800 rounded-xl shadow-inner min-h-28 p-5 bg-white dark:bg-slate-800">
-        <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
+      <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-inner tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
+        <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+        <div className="tw-grid tw-grid-cols-12 tw-gap-3">
+          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Destinos
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Puertos
               destinos={listadoPuertos}
               puerto={puerto}
               setPuerto={setPuerto}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Navieras
               destinos={listadoNavieras}
               naviera={naviera}
               setNaviera={setNaviera}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Mes mes={mes} setMes={setMes} />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-2">
+          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Duracion duracion={duracion} setDuracion={setDuracion} />
           </div>
-          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
-            <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
-              <FaSearch className="text-white text-xl" />
+          <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-12 xl:tw-col-span-2 tw-2xl:col-span-1 tw-col-span-12 tw-md:col-span-6">
+            <button className="tw-bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+              <FaSearch className="tw-text-white tw-text-xl" />
             </button>
           </div>
         </div>

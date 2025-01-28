@@ -12,7 +12,7 @@ const MapWithJourney = ({ destino }) => {
   const positions = destino.itinerario.map(({ lat, lng }) => [lat, lng]);
 
   return (
-    <div className="rounded-xl overflow-hidden w-full h-full z-0">
+    <div className="tw-rounded-xl tw-overflow-hidden tw-w-full tw-h-full tw-z-0">
       <MapContainer
         center={positions[0]}
         zoom={6}

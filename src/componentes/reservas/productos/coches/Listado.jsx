@@ -223,7 +223,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                         onChange={(e) =>
                           handleCompareChange(coche, e.target.checked)
                         }
-                        className="w-4 h-4 text-secondary dark:text-secondaryDark bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondaryDark dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="w-4 h-4 text-secondary dark:tw-text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondaryDark dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
                       />
                       <label
                         htmlFor={`checkbox-${coche.id}`}
@@ -301,7 +301,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                   <Link
                     to="/coche"
                     state={coche}
-                    className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow text-center"
+                    className="w-full lg:w-fit p-3 tw-bg-secondary text-white font-semibold rounded-xl shadow text-center"
                   >
                     <button>Desde {coche.dias * coche.precio}€</button>
                   </Link>
@@ -347,7 +347,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                               <button
                                 className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
                                   activeTab === tab.id
-                                    ? "text-white bg-secondary dark:bg-slate-900"
+                                    ? "text-white tw-bg-secondary dark:bg-slate-900"
                                     : "bg-gray-50 dark:bg-gray-800 dark:text-gray-400"
                                 }`}
                                 onClick={() => setActiveTab(tab.id)}

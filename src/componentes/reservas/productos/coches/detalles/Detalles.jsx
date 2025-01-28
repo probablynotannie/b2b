@@ -110,7 +110,7 @@ function Detalles({ coche, extraInfo }) {
                 onClick={() => setActiveTab("franquicia")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "franquicia"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "tw-bg-secondary text-white dark:tw-tw-bg-secondary"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -122,7 +122,7 @@ function Detalles({ coche, extraInfo }) {
                 onClick={() => setActiveTab("condiciones")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "condiciones"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "tw-bg-secondary text-white dark:tw-tw-bg-secondary"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -135,7 +135,7 @@ function Detalles({ coche, extraInfo }) {
                 onClick={() => setActiveTab("gasolina")}
                 className={`px-4 py-3 rounded-lg ${
                   activeTab === "gasolina"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "tw-bg-secondary text-white dark:tw-tw-bg-secondary"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >

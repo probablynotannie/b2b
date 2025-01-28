@@ -36,14 +36,14 @@ function Reserva({ pasajeros, setPasajeros }) {
   }
 
   return (
-    <div className="min-h-[10vh] my-10 p-4 rounded-lg">
-      <span className="font-semibold dark:text-secondary">Pasajeros</span>
+    <div className="tw-min-h-[10vh] tw-my-10 tw-p-4 tw-rounded-lg tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700">
+      <span className="tw-font-semibold dark:tw-text-secondary">Pasajeros</span>
       <div>
         <select
           onChange={handlePasajeros}
           value={pasajerosInput}
           id="countries"
-          className="bg-slate-50 border w-full md:w-fit my-3 border-slate-300 text-slate-900 text-sm rounded-lg block p-2.5 dark:bg-slate-900 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white"
+          className="tw-bg-slate-50 tw-border tw-w-full md:tw-w-fit tw-my-3 tw-border-slate-300 tw-text-slate-900 tw-text-sm tw-rounded-lg tw-block tw-p-2.5 dark:tw-bg-slate-900 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white"
         >
           <option value="" defaultChecked>
             Número pasajeros
@@ -54,17 +54,17 @@ function Reserva({ pasajeros, setPasajeros }) {
           <option value="4">4</option>
         </select>
 
-        <span className="font-semibold dark:text-secondary">
+        <span className="tw-font-semibold dark:tw-text-secondary">
           Edad de los pasajeros
         </span>
 
-        <div className="flex flex-row flex-wrap gap-3">
+        <div className="tw-flex tw-flex-row tw-flex-wrap tw-gap-3">
           {pasajeros.map((pasajero, index) => (
             <select
               key={index}
               value={pasajero.age}
               onChange={(e) => handleAgeChange(index, parseInt(e.target.value))}
-              className="w-full md:w-fit bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg block p-2.5 dark:bg-slate-900 dark:border-slate-700 dark:placeholder-slate-400 dark:text-white "
+              className="tw-w-full md:tw-w-fit tw-bg-slate-50 tw-border tw-border-slate-300 tw-text-slate-900 tw-text-sm tw-rounded-lg tw-block tw-p-2.5 dark:tw-bg-slate-900 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white"
             >
               <option disabled>Edad pasajero {index + 1}</option>
               {Array.from({ length: 100 }).map((_, age) => (

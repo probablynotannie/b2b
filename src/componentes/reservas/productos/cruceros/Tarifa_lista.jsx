@@ -4,6 +4,7 @@ import { GiCruiser } from "react-icons/gi";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaEuroSign } from "react-icons/fa";
+
 const formatDate = (dateString) => {
   const [day, month, year] = dateString
     .split("/")
@@ -24,6 +25,7 @@ const formatDate = (dateString) => {
   ];
   return `${day} de ${months[month - 1]} de ${year}`;
 };
+
 const getAvailableDatesFromToday = (precios) => {
   const today = new Date();
   const availableDates = new Set();
@@ -48,6 +50,7 @@ const getAvailableDatesFromToday = (precios) => {
     return dateA - dateB;
   });
 };
+
 const Tarifa_lista = ({
   tasas,
   precios,
@@ -62,12 +65,14 @@ const Tarifa_lista = ({
   const [expandedRows, setExpandedRows] = useState({});
   const tableContainerRef = useRef(null);
   const availableDates = getAvailableDatesFromToday(precios);
+
   const toggleRow = (rowId) => {
     setExpandedRows((prev) => ({
       ...prev,
       [rowId]: !prev[rowId],
     }));
   };
+
   const scrollToColumn = (direction) => {
     if (tableContainerRef.current) {
       const columnWidth =
@@ -88,6 +93,7 @@ const Tarifa_lista = ({
       });
     }
   };
+
   const handlePriceClick = (
     price,
     cabinId,
@@ -127,21 +133,25 @@ const Tarifa_lista = ({
       }
     }
   };
+
   const [selectedSubrowTitle, setSelectedSubrowTitle] = useState(null);
   const selectedCabin = precios.find((row) => row.id === selectedCabinId);
   const cabinTitle = selectedCabin ? selectedCabin.title : "N/A";
+
   const findLowestPrice = (prices) => {
     const validPrices = prices
       .filter((price) => price !== "-" && price !== "-€" && !isNaN(price))
       .map((price) => parseFloat(price));
     return validPrices.length > 0 ? Math.min(...validPrices) : null;
   };
+
   const findHighestPrice = (prices) => {
     const validPrices = prices
       .filter((price) => price !== "-" && price !== "-€" && !isNaN(price))
       .map((price) => parseFloat(price));
     return validPrices.length > 0 ? Math.max(...validPrices) : null;
   };
+
   const getCabinAndSubrowPriceRange = (prices) => {
     let allPrices = [];
     prices.forEach((price) => {
@@ -153,42 +163,42 @@ const Tarifa_lista = ({
         allPrices.push(parseFloat(price.price));
       }
     });
-    const lowestPrice = findLowestPrice(allPrices);
     return {
-      lowestPrice: lowestPrice,
+      lowestPrice: findLowestPrice(allPrices),
       highestPrice: findHighestPrice(allPrices),
     };
   };
+
   return (
-    <div className="container mx-auto p-4">
-      <div className="flex flex-wrap justify-between dark:text-slate-200">
-        <div className="flex gap-3">
-          <p className="flex items-center gap-2 text-sm">
-            <span className="block bg-green-600 w-[7px] h-[7px] rounded-full"></span>
+    <div className="tw-container tw-mx-auto tw-p-4">
+      <div className="tw-flex tw-flex-wrap tw-justify-between dark:tw-text-slate-200">
+        <div className="tw-flex tw-gap-3">
+         {/*  <p className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
+            <span className="tw-block tw-bg-green-600 tw-w-[7px] tw-h-[7px] tw-rounded-full"></span>
             precio más bajo
-          </p>
-          <p className="flex items-center gap-2 text-sm">
-            <span className="block bg-red-600 w-[7px] h-[7px] rounded-full"></span>
+          </p> */}
+          <p className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
+            <span className="tw-block tw-bg-red-600 tw-w-[7px] tw-h-[7px] tw-rounded-full"></span>
             precio más alto
           </p>
         </div>
         {selectedPrice && selectedDate && selectedCabinId && (
-          <div className="flex flex-wrap md:grid-cols-3 justify-center flex-row text-sm gap-3">
-            <p className="flex items-center gap-1">
-              <MdMeetingRoom className="text-md text-secondary dark:text-secondaryDark" />
+          <div className="tw-flex tw-flex-wrap md:tw-grid-cols-3 tw-justify-center tw-flex-row tw-text-sm tw-gap-3">
+            <p className="tw-flex tw-items-center tw-gap-1">
+              <MdMeetingRoom className="tw-text-md tw-text-secondary dark:tw-text-secondary" />
               {cabinTitle}
               {selectedSubrowTitle && (
-                <span className="text-sm text-gray-600 dark:text-gray-400">
+                <span className="tw-text-sm tw-text-gray-600 dark:tw-text-gray-400">
                   - {selectedSubrowTitle}
                 </span>
               )}
             </p>
-            <p className="flex items-center gap-1 dark:text-slate-200">
-              <FaCalendarAlt className="text-md text-secondary dark:text-secondaryDark" />
+            <p className="tw-flex tw-items-center tw-gap-1 dark:tw-text-slate-200">
+              <FaCalendarAlt className="tw-text-md tw-text-secondary dark:tw-text-secondary" />
               {formatDate(selectedDate)}
             </p>
-            <p className="flex items-center gap-1 dark:text-slate-200">
-              <FaEuroSign className="text-md text-secondary dark:text-secondaryDark" />
+            <p className="tw-flex tw-items-center tw-gap-1 dark:tw-text-slate-200">
+              <FaEuroSign className="tw-text-md tw-text-secondary dark:tw-text-secondary" />
               {selectedPrice}€ + tasas ({tasas}€) p/p
             </p>
           </div>
@@ -196,24 +206,19 @@ const Tarifa_lista = ({
       </div>
       <div
         ref={tableContainerRef}
-        className="scrollable-container custom-scrollbar border-x border-slate-200 dark:border-slate-900 overflow-x-auto"
-        style={{
-          maxWidth: "100%",
-          overflowX: "auto",
-          scrollSnapType: "x mandatory",
-        }}
+        className="tw-scrollable-container tw-custom-scrollbar tw-border-x tw-border-slate-200 dark:tw-border-slate-900 tw-overflow-x-auto"
       >
-        <table className="min-w-full bg-white dark:bg-slate-700">
-          <thead className=" dark:bg-slate-800">
+        <table className="tw-min-w-full tw-bg-white dark:tw-bg-slate-700">
+          <thead className="dark:tw-bg-slate-800">
             <tr>
-              <th className="sticky bg-slate-200 left-0 min-w-[15vw] px-4 py-2 text-left border dark:border-slate-600 dark:bg-slate-900 dark:text-white flex flex-row items-center">
-                <GiCruiser className="mr-2 text-2xl" />
+              <th className="tw-sticky tw-bg-slate-200 tw-left-0 tw-min-w-[15vw] tw-px-4 tw-py-2 tw-text-left tw-border dark:tw-border-slate-600 dark:tw-bg-slate-900 dark:tw-text-white">
+                <GiCruiser className="tw-mr-2 tw-text-2xl" />
                 Cabina
               </th>
               {availableDates.map((date, index) => (
                 <th
                   key={index}
-                  className="min-w-[10vw] px-4 py-2 border bg-slate-200 dark:border-slate-600 dark:bg-slate-900 dark:text-white text-center"
+                  className="tw-min-w-[10vw] tw-px-4 tw-py-2 tw-border tw-bg-slate-200 dark:tw-border-slate-600 dark:tw-bg-slate-900 dark:tw-text-white tw-text-center"
                 >
                   {date}
                 </th>
@@ -227,12 +232,12 @@ const Tarifa_lista = ({
               );
               return (
                 <React.Fragment key={row.id}>
-                  <tr className="cursor-pointer hover:bg-slate-100 dark:hover:bg-slate-900">
+                  <tr className="tw-cursor-pointer hover:tw-bg-slate-100 dark:hover:tw-bg-slate-900">
                     <td
                       onClick={() => toggleRow(row.id)}
-                      className="sticky left-0 bg-white dark:border-slate-600 dark:bg-slate-800 border-r-2 hover:bg-slate-100 dark:hover:bg-slate-900 min-w-[120px] px-4 py-2 border dark:text-slate-300"
+                      className="tw-sticky tw-left-0 tw-bg-white dark:tw-border-slate-600 dark:tw-bg-slate-800 tw-border-r-2 hover:tw-bg-slate-100 dark:hover:tw-bg-slate-900 tw-min-w-[120px] tw-px-4 tw-py-2 tw-border dark:tw-text-slate-300"
                     >
-                      <span className="mr-2 text-secondary font-bold">
+                      <span className="tw-mr-2 tw-text-secondary tw-font-bold">
                         {expandedRows[row.id] ? "-" : "+"}
                       </span>
                       {row.title}
@@ -244,21 +249,22 @@ const Tarifa_lista = ({
                       const price = priceItem ? priceItem.price : "-";
                       const isLowest = price === lowestPrice;
                       const isHighest = price === highestPrice;
-                      const priceClass = isLowest
-                        ? "text-green-600 dark:text-green-300 font-semibold"
+                      const isSelected =
+                        selectedPrice === price &&
+                        selectedCabinId === row.id &&
+                        selectedDate === date;
+                      const priceClass = isSelected
+                        ? "tw-border-2 tw-border-green-400 tw-text-green-700 tw-font-bold dark:tw-border-green-500 dark:tw-text-green-400"
+                        : isLowest
+                        ? "tw-text-green-600 dark:tw-text-green-300 tw-font-semibold"
                         : isHighest
-                        ? "text-red-600 font-semibold"
-                        : "dark:text-slate-200";
+                        ? "tw-text-red-600 tw-font-semibold"
+                        : "dark:tw-text-slate-200";
+
                       return (
                         <td
                           key={date}
-                          className={`min-w-[100px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 transition ${priceClass} ${
-                            selectedPrice === price &&
-                            selectedCabinId === row.id &&
-                            selectedDate === date
-                              ? "bg-blue-100"
-                              : ""
-                          }`}
+                          className={`tw-min-w-[100px] tw-px-4 tw-py-2 tw-border dark:tw-border-slate-600 dark:tw-bg-slate-800 tw-transition ${priceClass}`}
                           onClick={() =>
                             handlePriceClick(price, row.id, date, false)
                           }
@@ -274,8 +280,8 @@ const Tarifa_lista = ({
                         getCabinAndSubrowPriceRange(subRow.preciosConFechas);
                       return (
                         <tr key={subIndex}>
-                          <td className="sticky left-0 bg-white min-w-[120px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 pl-8">
-                            <span className="text-slate-600 dark:text-slate-400 cursor-pointer">
+                          <td className="tw-sticky tw-left-0 tw-bg-white tw-min-w-[120px] tw-px-4 tw-py-2 tw-border dark:tw-border-slate-600 dark:tw-bg-slate-800 tw-pl-8">
+                            <span className="tw-text-slate-600 dark:tw-text-slate-400 tw-cursor-pointer">
                               {subRow.tituloSubPrecio}
                             </span>
                           </td>
@@ -286,17 +292,24 @@ const Tarifa_lista = ({
                             const subPrice = subPriceItem
                               ? subPriceItem.price
                               : "-";
-
+                            const isSelected =
+                              selectedPrice === subPrice &&
+                              selectedCabinId === row.id &&
+                              selectedDate === date &&
+                              selectedSubrowTitle === subRow.tituloSubPrecio;
                             const subPriceClass =
-                              subPrice === lowestPrice
-                                ? "text-green-600 font-semibold"
+                              isSelected
+                                ? "tw-border-2 tw-border-green-400 tw-text-green-700 tw-font-bold dark:tw-border-green-500 dark:tw-text-green-400"
+                                : subPrice === lowestPrice
+                                ? "tw-text-green-600 tw-font-semibold"
                                 : subPrice === highestPrice
-                                ? "text-red-600 font-semibold"
-                                : "dark:text-slate-200";
+                                ? "tw-text-red-600 tw-font-semibold"
+                                : "dark:tw-text-slate-200";
+
                             return (
                               <td
                                 key={date}
-                                className={`cursor-pointer min-w-[100px] px-4 py-2 border dark:border-slate-600 dark:bg-slate-800 transition ${subPriceClass} `}
+                                className={`tw-cursor-pointer tw-min-w-[100px] tw-px-4 tw-py-2 tw-border dark:tw-border-slate-600 dark:tw-bg-slate-800 tw-transition ${subPriceClass}`}
                                 onClick={() =>
                                   handlePriceClick(
                                     subPrice,
@@ -307,7 +320,7 @@ const Tarifa_lista = ({
                                   )
                                 }
                               >
-                                {subPrice !== "-" ? `${subPrice}€` : " - "}
+                                {subPrice !== "-" ? `${subPrice}€` : "-"}
                               </td>
                             );
                           })}
@@ -320,12 +333,12 @@ const Tarifa_lista = ({
           </tbody>
         </table>
       </div>
-      <div className="flex justify-between items-center mt-4">
-        <button onClick={() => scrollToColumn("left")} className="text-lg">
-          <FaChevronLeft />
+      <div className="tw-flex tw-justify-between tw-items-center tw-mt-4">
+        <button onClick={() => scrollToColumn("left")} className="tw-text-lg">
+          <FaChevronLeft className="dark:tw-text-white" />
         </button>
-        <button onClick={() => scrollToColumn("right")} className="text-lg">
-          <FaChevronRight />
+        <button onClick={() => scrollToColumn("right")} className="tw-text-lg">
+          <FaChevronRight className="dark:tw-text-white" />
         </button>
       </div>
     </div>

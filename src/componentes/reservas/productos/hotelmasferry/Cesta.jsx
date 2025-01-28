@@ -60,7 +60,7 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
               </div>
             </div>
             <span
-              className={`absolute rotate-45 bg-secondary rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg`}
+              className={`absolute rotate-45 tw-bg-secondary rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg`}
             >
               Hotel
             </span>
@@ -93,7 +93,7 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
       </div>
       {hotel && (
         <Link state={reservaFinal} to={"/hotelmasferry"}>
-          <button className="bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
+          <button className="tw-bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
             Total: {totalPrice}€
           </button>
         </Link>

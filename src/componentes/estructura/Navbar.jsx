@@ -14,7 +14,7 @@ const Navbar = () => {
       <div className="tw-hidden md:tw-flex">
         <ScrollToTop
           component={
-            <div className="tw-p-2 tw-text-white bg-secondary tw-rounded-full tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
+            <div className="tw-p-2 tw-text-white tw-bg-secondary tw-rounded-full tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center">
               <HiChevronDoubleUp className="tw-animate-pulse tw-text-xl" />
             </div>
           }

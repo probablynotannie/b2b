@@ -190,7 +190,7 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                 >
                   <div className="w-fit flex items-center space-x-1 font-semibold">
                     <span>Agregar una habitación </span>
-                    <CiCirclePlus className="dark:text-secondaryDark text-lg" />
+                    <CiCirclePlus className="dark:tw-text-secondary text-lg" />
                   </div>
                 </div>
               </div>

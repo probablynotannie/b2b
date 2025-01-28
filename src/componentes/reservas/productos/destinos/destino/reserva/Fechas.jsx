@@ -121,7 +121,7 @@ function Fechas() {
                 })
               : "Fecha vuelta"}
           </span>
-          <span className="font-semibold text-secondary dark:text-secondaryDark">
+          <span className="font-semibold text-secondary dark:tw-text-secondary">
             {dates.startDatePrice ? `${dates.startDatePrice}€` : "Precio"}
           </span>
         </p>

@@ -56,7 +56,7 @@ function Detalles({ actividad, cesta }) {
                 onClick={() => setActiveTab(tab)}
                 className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
                   activeTab === tab
-                    ? "text-white bg-secondary dark:bg-secondaryDark"
+                    ? "text-white tw-bg-secondary dark:tw-tw-bg-secondary"
                     : "hover:text-slate-900 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
                 }`}
               >

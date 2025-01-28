@@ -36,7 +36,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
               checked={openInNewTab}
               onChange={(e) => setOpenInNewTab(e.target.checked)}
             />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-800 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
+            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-800 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:tw-bg-secondary"></div>
             <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
               Abrir enlace pestaña nueva
             </span>
@@ -110,7 +110,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
             </p>
             <div className="flex justify-end mt-3">
               <button
-                className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow"
+                className="w-full lg:w-fit p-3 tw-bg-secondary text-white font-semibold rounded-xl shadow"
                 onClick={() => setOpenModal(index)}
               >
                 Detalles
@@ -222,7 +222,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                 </Modal.Body>
                 <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
                   <button
-                    className="w-full lg:w-fit p-3 bg-secondary text-white font-semibold rounded-xl shadow"
+                    className="w-full lg:w-fit p-3 tw-bg-secondary text-white font-semibold rounded-xl shadow"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar

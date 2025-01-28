@@ -36,11 +36,11 @@ function ReservaFinal() {
         <Reserva img={actividad?.img} txt={actividad?.titulo} />
         <ul className="mt-3">
           <li className="flex items-center gap-2 text-slate-500 dark:text-slate-300">
-            <MdCalendarMonth className="text-lg text-secondary dark:text-secondaryDark" />
+            <MdCalendarMonth className="text-lg text-secondary dark:tw-text-secondary" />
             {fechaIda}
           </li>
           <li className="flex items-center gap-2 text-slate-500 dark:text-slate-300">
-            <MdMeetingRoom className="text-lg text-secondary dark:text-secondaryDark" />
+            <MdMeetingRoom className="text-lg text-secondary dark:tw-text-secondary" />
             {habitacion} Habitaciones - <FaPerson className="text-secondary" />{" "}
             {adultos} Adultos - <FaChild className="text-secondary" /> {ninios}{" "}
             Niños
@@ -58,7 +58,7 @@ function ReservaFinal() {
             ninios,
           }}
         >
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {actividad?.precio?.toFixed(2)}€
           </button>
         </Link>
