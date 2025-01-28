@@ -36,6 +36,9 @@ import ListadoHotelMasActividades from "../reservas/productos/hotelmasactividade
 import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
 import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
+/* Cruceros */
+import Crucero_v2 from "../motores/Cruceros_v2";
+
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
 import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
@@ -111,6 +114,8 @@ function Header() {
     <>
       <Navbar />
       <Routes>
+        {/* Cruceros */}
+        <Route path="/cruceros_v2" element={<Crucero_v2 />} />
         {/* MOTORES */}
         <Route path="/" element={<Landing />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
