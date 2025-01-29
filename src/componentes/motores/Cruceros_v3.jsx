@@ -6,10 +6,9 @@ import Input_Mes from "../inputs/Mes";
 import Input_Dias from "../inputs/SelectorDias";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import Destacados from "./destacados/crucerosv2/Cruceros";
-import Zonas from "./destacados/crucerosv2/Zonas";
-import Puertos from "./destacados/crucerosv2/Puertos2";
-
+import Destacados from "./destacados/crucerosv3/Cruceros";
+import Zonas from "./destacados/crucerosv3/Zonas";
+import Puertos from "./destacados/crucerosv3/Puertos3";
 function Cruceros() {
   const [destino, setDestino] = useState("");
   const [mes, setMes] = useState();
@@ -141,7 +140,7 @@ function Cruceros() {
             </div>
           </div>
         </div>
-        <div className="tw-grid tw-grid-cols-3 tw-gap-10 tw-mt-5">
+        <div className=" tw-gap-10 tw-mt-5">
           <div className="tw-col-span-1">
             <Zonas />
           </div>

@@ -2,15 +2,14 @@ import zonas from "./jsons/zonas.json";
 
 function Zonas() {
   return (
-    <>
+    <div>
       <h2 className="tw-font-bold tw-text-2xl dark:tw-text-white">
-        Zonas Destacados
+        Puertos Destacados
       </h2>
-
       <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-1 tw-gap-3">
         {zonas.map((zona, index) => (
           <div key={index} to={"/listadocruceros"}>
-            <div className="tw-relative tw-h-[10vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
+            <div className="tw-relative tw-h-[9.8vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
               <img
                 src={zona.img}
                 className="tw-opacity-90 tw-rounded tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
@@ -30,7 +29,7 @@ function Zonas() {
           </div>
         ))}
       </div>
-    </>
+    </div>
   );
 }
 

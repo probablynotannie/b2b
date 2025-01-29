@@ -177,3 +177,20 @@ body {
   background-color: transparent;
   box-shadow: none;
 }
+/* SWIPER  */
+.swiper-pagination-bullet {
+  background-color: white !important; /* Default dot color */
+  opacity: 0.7;
+}
+
+.swiper-pagination-bullet-active {
+  background-color: #ff5733 !important; /* Active dot color */
+  opacity: 1;
+}
+.swiper-button-next, .swiper-button-prev {
+  color: white !important; /* Change arrow color */
+}
+
+.swiper-button-next:hover, .swiper-button-prev:hover {
+  color: #ff5733 !important; /* Change arrow color on hover */
+}
