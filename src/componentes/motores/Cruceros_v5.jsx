@@ -133,7 +133,7 @@ function Cruceros() {
             </div>
           </div>
         </div>
-        <div className="tw-mt-4 tw-flex tw-justify-between tw-items-center  tw-bg-white dark:tw-bg-slate-800 tw-shadow-sm tw-rounded-lg tw-py-5 tw-border-slate-100 dark:tw-border-slate-700">
+        <div className="tw-mt-7 tw-flex tw-justify-between tw-items-center  tw-bg-white dark:tw-bg-slate-800 tw-shadow-sm tw-rounded-lg tw-py-5 tw-border-slate-100 dark:tw-border-slate-700">
           <ul className="tw-flex tw-gap-4 tw-text-slate-500 dark:tw-text-slate-300">
             <li className="hover:tw-scale-105 tw-shadow hover:tw-shadow-md tw-font-medium tw-bg-pink-100 tw-px-3 tw-py-1 tw-rounded-lg tw-text-pink-700 tw-transition tw-duration-300 tw-cursor-pointer">
               Mediterraneo

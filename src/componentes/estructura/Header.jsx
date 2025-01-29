@@ -44,6 +44,7 @@ import Crucero_v5 from "../motores/Cruceros_v5";
 import Crucero_v6 from "../motores/Cruceros_v6";
 import Crucero_v7 from "../motores/Cruceros_v7";
 import Crucero_v8 from "../motores/Cruceros_v8";
+import Crucero_v21 from "../motores/Cruceros_v2.1";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
@@ -128,6 +129,7 @@ function Header() {
         <Route path="/cruceros_v6" element={<Crucero_v6 />} />
         <Route path="/cruceros_v7" element={<Crucero_v7 />} />
         <Route path="/cruceros_v8" element={<Crucero_v8 />} />
+        <Route path="/cruceros_v2.1" element={<Crucero_v21 />} />
         {/* MOTORES */}
         <Route path="/" element={<Landing />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />

@@ -118,24 +118,16 @@ function Cruceros() {
       {/* Sections */}
       <div className="tw-space-y-20">
         {/* Zonas Section */}
-        <section id="zonas" className="tw-scroll-mt-28 tw-mt-5">
-          <h2 className="tw-text-2xl tw-font-bold tw-text-end tw-bg-pink-100 tw-text-pink-700 tw-p-[3px] tw-px-5 tw-rounded-lg tw-w-fit tw-mb-5">
-            Buscar por zonas
-          </h2>
+
+        <section id="zonas" className="tw-scroll-mt-28 tw-mt-5 tw-pt-10">
           <Zonas />
         </section>
-        {/* Puertos Section */}
         <section
           id="puertos"
           className="tw-scroll-mt-28 dark:tw-bg-slate-900 tw-rounded-lg tw-border-t-2 tw-pt-10 tw-border-slate-100"
         >
-          <h2 className="tw-text-2xl tw-font-bold tw-text-end tw-bg-cyan-100 tw-text-cyan-700 tw-p-[3px] tw-px-5 tw-rounded-lg tw-w-fit tw-mb-5">
-            Buscar por puertos
-          </h2>
           <Puertos titulo={true} />
         </section>
-
-        {/* Navieras & Meses Section */}
         <section id="meses" className="tw-scroll-mt-28 tw-border-t-2 tw-pt-5">
           <div className="tw-grid lg:tw-grid-cols-2 tw-gap-20 tw-pt-10">
             <div>
@@ -169,7 +161,6 @@ function Cruceros() {
             </div>
           </div>
         </section>
-        {/* Cruceros Destacados */}
         <section
           id="destacados"
           className="tw-scroll-mt-28 tw-pt-10 tw-border-t-2 tw-border-slate-100"

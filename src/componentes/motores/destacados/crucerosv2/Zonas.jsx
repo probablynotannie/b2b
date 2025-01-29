@@ -4,9 +4,9 @@ function Zonas() {
   return (
     <div>
       <h2 className="tw-font-bold tw-text-2xl dark:tw-text-white">
-        Puertos Destacados
+        Zonas Destacados
       </h2>
-      <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-1 tw-gap-3">
+      <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-1 tw-gap-3 tw-mt-3">
         {zonas.map((zona, index) => (
           <div key={index} to={"/listadocruceros"}>
             <div className="tw-relative tw-h-[9.8vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
