@@ -1,11 +1,10 @@
 import { FaMapPin } from "react-icons/fa";
 import { useState } from "react";
 import MapWithJourney from "./filtros/MapWithJourney";
-import Destinos from "./Destinos.json";
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 
-function Resultado() {
+function Resultado({ Destinos }) {
   const [activeMap, setActiveMap] = useState({});
   const toggleMap = (id) => {
     setActiveMap((prev) => ({
@@ -86,11 +85,6 @@ function Resultado() {
   }
   return (
     <section className="tw-pb-12 md:tw-mt-5">
-      <div className="lg:tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-xl lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600  lg:tw-mt-0">
-        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-          Resultados ({Destinos.length})
-        </h3>
-      </div>
       {Destinos.map((destino, index) => {
         const precioMasBajo = encontrarPrecioMasBajo(destino.precios);
         return (
@@ -176,8 +170,12 @@ function Resultado() {
             </div>
             <Link to="/crucero" state={destino}>
               <div className="tw-px-5 tw-py-3 dark:tw-text-white tw-pb-5 md:tw-pb-0">
-                <h4 className="tw-font-semibold tw-text-lg">{destino.recorrido}</h4>
-                <p className="tw-text-sm dark:tw-text-slate-400">{destino.titulo}</p>
+                <h4 className="tw-font-semibold tw-text-lg">
+                  {destino.recorrido}
+                </h4>
+                <p className="tw-text-sm dark:tw-text-slate-400">
+                  {destino.titulo}
+                </p>
                 <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm tw-my-3 tw-line-clamp-3">
                   {destino.descripcion}
                 </p>
@@ -199,7 +197,9 @@ function Resultado() {
                         </h5>
 
                         <div className="tw-text-sm tw-bg-slate-200 tw-w-fit tw-px-12 md:tw-px-16 dark:tw-bg-slate-900 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-flex-col tw-border tw-border-slate-200 tw-rounded-lg">
-                          <span className="tw-font-bold tw-text-xs">{nextDate}</span>
+                          <span className="tw-font-bold tw-text-xs">
+                            {nextDate}
+                          </span>
 
                           <p className="tw-text-center tw-text-green-700 tw-flex-col dark:tw-text-green-500 tw-font-bold">
                             {typeof nextPrice === "number"

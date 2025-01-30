@@ -1,11 +1,10 @@
-import { Timeline } from "flowbite-react";
 import { FaArrowCircleRight } from "react-icons/fa";
 
 function Itinerario({ producto }) {
   console.log(producto);
   return (
     <>
-      <h3 className="tw-font-bold tw-text-lg tw-mt-5 dark:tw-text-white">
+      <h3 className="tw-font-bold tw-text-center tw-text-lg tw-mt-5 dark:tw-text-white">
         Itinerario
       </h3>
       <div className="tw-space-y-8 tw-relative before:tw-absolute before:tw-inset-0 before:tw-ml-5 before:-tw-translate-x-px md:before:tw-ml-[8.75rem] md:before:tw-translate-x-0 before:tw-h-full before:tw-w-0.5 before:tw-bg-gradient-to-b before:tw-from-transparent before:tw-via-slate-300 before:tw-to-transparent">

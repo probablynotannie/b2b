@@ -1,72 +1,84 @@
 [
   {
     "id": 0,
+    "val": "barcelona",
     "img": "/cruceros/puertosDestacados/bcn.jpg",
     "txt": "Barcelona (España)",
     "descripcion": "Es la capital de Catalunya y tiene más que un millón y quinientos mil habitantes. Es una ciudad ubicada a orillas del Mediterráneo y el clima es de tipo mediterráneo con veranos cálidos e inviernos húmedos y templados. Es un objetivo turístico principal por la historia, la cultura y la diversión, tanto en la vida nocturna como en las playas. Hay muchísimos lugares de importancia mundial como El Parque Guell, la Sagrada Familia de Gaudí, la Casa Milá de Gaudí y son patrimonios de la UNESCO. Hay lugares como las ramblas, calles de emblemática importancia para la ciudad. Es una ciudad muy importante y necesita visitarla al menos una vez en la vida."
   },
   {
     "id": 1,
+    "val": "italia",
     "img": "/cruceros/puertosDestacados/itl.jpg",
     "txt": "Civitavecchia, Roma (Italia)",
     "descripcion": "habitantes y tiene monumentos muy renombrados en el mundo como el Coliseo, la fuente de Trevi, el Panteón y muchísimos otros monumentos históricos porque Roma es una ciudad muy antigua y con una historia muy importante en Europa. Aquí se puede admirar la ciudad autónoma del Vaticano, donde vive el Papa y se puede visitar la iglesia de San Pedro."
   },
   {
     "id": 2,
+    "val": "valencia",
     "img": "/cruceros/puertosDestacados/val.jpg",
     "txt": "Valencia (España)",
     "descripcion": "Valencia es la tercera ciudad más poblada de España y es la capital de la Comunidad Valenciana, el clima de esta ciudad es mediterráneo con veranos cálidos e inviernos húmedos, la temperatura media es de 18 grados. Aquí hay muchos lugares importantes como la Lonja de la Seda, la Plaza de toros, la Catedral y tiene lugares contemporáneos muy famosos como el parque oceanográfico o el Hemisfèric, el salón cinematográfico más grande de España."
   },
   {
     "id": 3,
+    "val": "canaria",
     "img": "/cruceros/puertosDestacados/canaria.jpg",
     "txt": "Las Palmas de Gran Canaria (España)",
     "descripcion": "Las Palmas de Gran Canaria es una ciudad española situada en las islas Canarias y es la capital de Gran Canaria, una de las siete islas de las Canarias. En los últimos años es una zona turística muy importante, es la quinta ciudad con más viajeros de toda la España. Según algunos estudios de un climatólogo estadounidense, el clima de esta ciudad es el mejor clima del mundo, de hecho tiene una temperatura media anual de 21 grados y en el verano llueve muy poco, en invierno las temperaturas mínimas son, más o menos, de 17/18 grados. El principal motivo para visitar esta ciudad es el clima y las playas que son muy bonitas."
   },
   {
     "id": 4,
+    "val": "malaga",
     "img": "/cruceros/puertosDestacados/mlg.jpg",
-    "txt": "Málaga (EspañaF)",
+    "txt": "Málaga (España)",
     "descripcion": "Málaga es una ciudad de la Andalucía, la región más al sur de España. El clima aquí es de tipo mediterráneo subtropical con veranos muy calientes y húmedos. Málaga es la ciudad natal de Pablo Ruíz Picasso, pintor de fama internacional del siglo XX y aquí hay uno de los más importantes museos del mundo sobre él. Aquí hay muchísimos lugares para visitar, muchos parques y edificios importantes."
   },
   {
     "id": 5,
+    "val": "mallorca",
     "img": "/cruceros/puertosDestacados/mallorca.jpg",
     "txt": "Palma de Mallorca (España)",
     "descripcion": "Palma de Mallorca es una ciudad situada en la isla de Mallorca en el archipiélago de las baleares. Famosa por sus playas es una zona turística muy visitada y el clima es muy agradable. Palma de Mallorca, como la mayor parte de las ciudades de las islas españolas, es muy famosa por su vida nocturna, por los lugares de diversión como bares y pubs donde tomar copas con amigos, charlar y conocer gente de todo el mundo. El periodo principal para conocer y visitar esta ciudad es el verano porque es el momento más caliente y más divertido. El clima es mediterráneo y los veranos son muy calientes y áridos."
   },
   {
     "id": 6,
+    "val": "venecia",
     "img": "/cruceros/puertosDestacados/venecia.jpg",
     "txt": "Venecia (Italia)",
     "descripcion": "Venecia es una ciudad ubicada en el noreste de Italia. Es también la capital de la región véneta y de la provincia de Venecia. Su centro histórico, declarado Patrimonio de la Humanidad por la Unesco, está situado en un conjunto de islas en la laguna de Venecia, en el norte del mar Adriático. Su particularidad geográfica, así como su milenaria historia y su riquísimo patrimonio monumental y artístico, han hecho de Venecia uno de los destinos turísticos más populares del mundo. La ciudad está construida sobre un archipiélago de 118 pequeñas islas unidas entre sí por 455 puentes, si incluimos las islas de Murano y Burano. Se llega a Venecia desde tierra firme por el Puente de la Libertad, que desde la vecina ciudad de Mestre accede al Piazzale Roma. En el interior de la ciudad no hay tráfico rodado, siendo, a excepción de la navegación por los canales que separan a las islas, una ciudad totalmente peatonal. El transporte colectivo se realiza mediante embarcaciones transbordadoras conocidas como vaporettos. Están a cargo de la empresa municipal ACTV. Sus canales componen un gran entramado a modo de calles que parten del Gran Canal, gran vía por donde discurren multitud de embarcaciones, grandes y pequeñas, las más conocidas de las cuales son las llamadas góndolas."
   },
   {
     "id": 7,
+    "val": "bridgetown",
     "img": "/cruceros/puertosDestacados/bridgetown.jpg",
     "txt": "Bridgetown (Barbados)",
     "descripcion": "Bridgetown, con 108.725 habitantes, es la capital de Barbados, y un destino turístico importante en las Antillas Menores. Está ubicada en la bahía de Carlisle, al sudoeste de la isla. Es el principal puerto y centro comercial de la isla. Por Bridgetown se exporta principalmente azúcar, ron y melaza. Bridgetown es también un centro financiero. Es una ciudad multicultural y turística que se ve representado el a mezcla de razas de su población. Aproximadamente un 90% son negros, un 5% blancos, un 4% mulatos y un 1% de origen asiático."
   },
   {
     "id": 8,
+    "val": "split",
     "img": "/cruceros/puertosDestacados/split.jpg",
     "txt": "Split (Croacia)",
     "descripcion": "Split es una ciudad situada al sur de Croacia, puerto marítimo de la costa dálmata, en el mar Adriático. Cuenta con 221.456 habitantes, según el censo de 2007. Es la principal ciudad de la región de Dalmacia, la capital del condado de Split-Dalmacia y la segunda ciudad más populosa del país, después de Zagreb, de la que dista 380 km. Es un importante puerto pesquero y base naval del Adriático, así como un centro cultural y turístico importante; la ciudad antigua es una joya arquitectónica, declarada Patrimonio de la Humanidad en 1979. En su entorno existen astilleros, fábricas de cemento y de plástico, industrias madereras, vitivinícolas y de la alimentación. Split es una de las grandes ciudades para visitar en Croacia y además de ser una ciudad muy atractiva, nos encontramos ante una ciudad que es fundamental para los turistas que quieren ir a visitar las islas de Croacia, porque suele ser un punto importante para partir. En esta ciudad los visitantes se encontrarán con un ambiente muy agradable, siempre llena de turistas y por supuesto de diferentes lugares de interés para conocer."
   },
   {
     "id": 9,
+    "val": "cadiz",
     "img": "/cruceros/puertosDestacados/cadiz.jpg",
     "txt": "Cádiz (España)",
     "descripcion": "Cádiz es una ciudad y municipio de España, capital de la provincia homónima, en la comunidad autónoma de Andalucía. Con 118.048 habitantes empadronados en 2017, es la ciudad más poblada de la bahía de Cádiz y la tercera de la provincia tras Jerez de la Frontera y Algeciras."
   },
   {
     "id": 10,
+    "val": "rotterdam",
     "img": "/cruceros/puertosDestacados/rotterdam.jpg",
     "txt": "Rotterdam (Holanda)",
     "descripcion": "Rotterdam es una ciudad neerlandesa situada al oeste del país, en la provincia de Holanda Meridional, y puerto sobre el río Mosa, cerca de La Haya. Situada a 30 km del mar, tiene una población de 623.556 habitantes. El área metropolitana de Róterdam cuenta con una población de 2,82 millones de personas. La ciudad es conocida por la Universidad Erasmus, su vida cultural y su patrimonio marítimo. El puerto de Rotterdam, Europoort, es el más grande de Europa y el segundo más grande del mundo. Está comunicado con el río Rin. Europoort, el puerto de Rotterdam, un gran conjunto portuario en el extremo oeste del canal, fue construido en la década de 1960 para la descarga y almacenamiento del crudo procedente de los petroleros. Varios canales comunican la ciudad con otros centros urbanos en la Unión Europea. El cruce de canales más grande del continente fue inaugurado en Magdeburgo en 2003, con lo que se posibilitó que el tráfico llegue hasta Berlín. En la orilla sur del río Mosa existen otras instalaciones e importantes industrias, entre las que se cuentan refinerías de petróleo, astilleros y fábricas de productos químicos, artículos de metal y refinerías de azúcar. Entre los productos exportados destacan el carbón, la maquinaria y los productos lácteos; las principales importaciones son de aceite y grano."
   },
   {
     "id": 11,
+    "val": "mersella",
     "img": "/cruceros/puertosDestacados/marsella.jpg",
     "txt": "Marsella (Francia)",
     "descripcion": "Marsella es una ciudad portuaria del sur de Francia, capital del departamento de Bocas del Ródano y de la región de Provenza-Alpes-Costa Azul. Marsella es la segunda ciudad más poblada de Francia después de París con 859.543 habitantes, principal centro económico y mayor metrópoli del Mediodía francés, agrupando cerca de 1.605.000 habitantes en su área urbana, siendo la tercera mayor del país, tras París y Lyon. Es el puerto comercial más importante de Francia y del Mediterráneo, tercero en importancia de Europa tras Róterdam y Amberes, centro de importante actividad industrial especializado en la petroquímica y el refino de petróleo, construcción naval e industrias diversas, es también un nudo de comunicaciones en el que confluyen las rutas entre París, Italia, Suiza y España. Marsella es sede de una Archidiócesis y centro universitario de primer orden fundado en 1409."

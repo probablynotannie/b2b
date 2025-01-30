@@ -3,6 +3,7 @@
     "id": 0,
     "img": "/cruceros/mediterraneo.jpg",
     "txt": "Mediterraneo",
+    "val": "mediterraneo",
     "descripcion_corta": "Visite algunas de las principales ciudades Italianas, Griegas o de los 20 paises que baán tu costa.",
     "descripcion": "El mar Mediterráneo es parte del Océano Atlántico, es un mar intercontinental y es el mar principal del sur Europa, baña las costas de 20 países. A bordo de tu crucero puede visitar algunas de las principales ciudades italianas como Civitavecchia (Roma), Nápoles, Livorno, Génova, Cagliari y Palermo, algunas ciudades de cultura griega como Corfú, Pireo (Atenes), Mikonos y Santorini, algunas ciudades españolas como Ibiza, Barcelona, Alicante, Menorca, Palma de Mallorca y Valencia y no puedan faltar destinos de Francia como Niza, Mónaco, Tulón y Cannes, hay, también, visitas en Croacia, Túnez y Malta. Muchas compañías tienen barcos que “nadan” en estas aguas, las más renombradas son MSC, Costa y Norwegian Cruise Line. El clima en esta zona en verano es caluroso y seco y con otoños e inviernos lluviosos pero templados, las primaveras son variables, el mejor periodo para reservar un crucero es de abril a septiembre. La temperatura media anual es 22 grados."
   },
@@ -10,6 +11,7 @@
     "id": 1,
     "img": "/cruceros/canarias.jpg",
     "txt": "Islas Canarias",
+    "val": "islasCanarias",
     "descripcion_corta": "7 islas situadas en la costa occidental Africana, emociones innolvidables con un clima y temperatura agridulce.",
     "descripcion": "Estas Islas están formadas por 7 islas principales, están situadas en la costa occidental africana pero son islas españolas, aquí localidades como Tenerife, Gran Canaria, Fuerteventura, Lanzarote y muchas otras te regalaran emociones inolvidables en el Océano Atlántico con un clima con temperaturas medias, en verano, de 30 grados y en el resto del año de 27 grados. MSC y Royal Carribean International son las principales compañías que hacen viajes en estas zonas."
   },
@@ -17,6 +19,7 @@
     "id": 2,
     "img": "/cruceros/norte_de_europa_y_fiordos.jpg",
     "txt": "Norte de Europa y Fiordos",
+    "val": "norteEuropa",
     "descripcion_corta": "Escenarios y panoramas únicos, cruzando naturaleza y fauna muy diversa por el norte de Europa.",
     "descripcion": "Los fiordos son estrechas entradas de mar en la costa y principalmente los se encuentran en Noruega. En invierno los fiordos tienden a congelarse por la baja temperatura y el bajo porcentaje de sal en el agua. Los cruceros seleccionados para este itinerario te regalaran escenarios y panoramas únicos, cruzando naturaleza y fauna muy diversa. Las aguas del norte de Europa están caracterizadas por el mar de Noruega y el mar del norte, son parte del Océano Atlántico. Esta zona tiene muchísimas ciudades portuarias como Copenhague, San Petersburgo, Estocolmo, Helsinki y Tallin. Hay muchísimas ofertas de casi todas las compañías de cruceros para hacer estos viajes. El periodo aconsejado es el más caliente del año (Junio-Agosto) pero si se quiere ver las auroras boreales el periodo cambia de septiembre a marzo."
   },
@@ -24,6 +27,7 @@
     "id": 3,
     "img": "/cruceros/caribe.jpg",
     "txt": "Caribe",
+    "val": "caribe",
     "descripcion_corta": "Disfrute del mar Caribe, vistas innolvidables, clima tropical y temperaturas constantes todo el año.",
     "descripcion": "Los archipiélagos bañados por el mar del Caribe son todos destinos de diversión y de especiales panoramas inolvidables. Los puertos principales son San Juan (Puerto Rico), Cozumel (México), Belice, Roatán (Honduras). Hay un clima tropical, las temperaturas son constantes todo el año y las corrientes del golfo influyen mucho en las temperaturas calientes del agua del mar. Hay muchísimos cruceros que pasan por aquí, cruceros de Carnival Cruises Line, Crystal Cruises, Norwegian Cruise Line, Seabourn Cruise Line, Costa Cruceros y muchísimas otras. Es un destino muy elegido por los amantes de los cruceros."
   }

@@ -1,18 +1,14 @@
-import React, { useRef } from "react";
-import zonas from "./jsons/zonas.json";
-import puertos from "./jsons/puertos.json";
-import Puertos from "./Puertos";
-import Zonas from "./Zonas";
+import { useRef } from "react";
+
 import Cruceros_destacados from "./Cruceros_destacados";
 import Meses from "./Meses";
 import { FaArrowDownLong } from "react-icons/fa6";
 
-function Cruceros() {
+function Cruceros({ setRequestData }) {
   const contentRef = useRef(null);
   const handleScroll = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-
   const crucerosDestacados = [
     {
       id: 0,
@@ -82,26 +78,39 @@ function Cruceros() {
       precio: "750€",
     },
   ];
-
   const navierasDest = [
     {
       id: 0,
+      txt: "alma",
       img: "/cruceros/alma.jpg",
     },
     {
       id: 1,
+      txt: "msc",
       img: "/cruceros/msc.jpg",
     },
     {
       id: 2,
+      txt: "costa",
       img: "/cruceros/costa.jpg",
     },
   ];
 
+  const handleNavieraClick = (navieraName) => {
+    setRequestData((prevData) => ({
+      ...prevData,
+      naviera: navieraName,
+      destino: "",
+      mes: "",
+      duracion: "",
+      puerto: "",
+    }));
+  };
+
   return (
-    <div className="tw-px-5 tw-mt-5">
+    <div className="tw-px-5">
       <div className="tw-text-4xl tw-text-center tw-font-bold tw-p-3 tw-border-b-2 dark:tw-text-white tw-border-slate-100 dark:tw-border-slate-700 tw-mb-5 tw-flex tw-items-center tw-justify-between">
-        Destacados
+        Más
         <button
           onClick={handleScroll}
           className="tw-border-2 dark:tw-border-slate-700 tw-rounded-full tw-bg-secondary tw-text-white tw-p-2 tw-animate-bounce"
@@ -109,12 +118,10 @@ function Cruceros() {
           <FaArrowDownLong />
         </button>
       </div>
- 
+
       <div ref={contentRef}>
-        <Zonas zonas={zonas} />
-        <Puertos puertos={puertos} />
         <div className="tw-grid lg:tw-grid-cols-2 tw-gap-20 tw-mt-10 tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-transition tw-duration-300 tw-rounded-lg dark:tw-bg-slate-900">
-          <Meses />
+          <Meses setRequestData={setRequestData} />
           <section className="dark:tw-text-white tw-flex-col tw-py-5">
             <h2 className="tw-font-bold tw-text-xl tw-mb-5 tw-text-center tw-text-gray-800 dark:tw-text-slate-100">
               Buscar por Navieras
@@ -124,10 +131,11 @@ function Cruceros() {
                 <div
                   className="hover:tw-scale-105 tw-transition tw-duration-300 tw-cursor-pointer"
                   key={index}
+                  onClick={() => handleNavieraClick(nav.txt)}
                 >
                   <img
                     src={nav.img}
-                    alt={`Naviera ${nav.name}`}
+                    alt={`Naviera ${nav.txt}`}
                     className="tw-object-fill tw-h-[100px] tw-rounded-lg"
                   />
                 </div>

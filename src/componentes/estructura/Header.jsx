@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 /* ESTRUCTURA */
 import Navbar from "../estructura/Navbar";
 import Landing from "../Landing";
@@ -37,15 +37,7 @@ import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
 import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
 /* Cruceros */
-import Crucero_v2 from "../motores/Cruceros_v2";
-import Crucero_v3 from "../motores/Cruceros_v3";
-import Crucero_v4 from "../motores/Cruceros_v4";
-import Crucero_v5 from "../motores/Cruceros_v5";
-import Crucero_v6 from "../motores/Cruceros_v6";
-import Crucero_v7 from "../motores/Cruceros_v7";
-import Crucero_v8 from "../motores/Cruceros_v8";
-import Crucero_v21 from "../motores/Cruceros_v2.1";
-
+import Cruceros from "../motores/Cruceros";
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
 import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
@@ -122,14 +114,7 @@ function Header() {
       <Navbar />
       <Routes>
         {/* Cruceros */}
-        <Route path="/cruceros_v2" element={<Crucero_v2 />} />
-        <Route path="/cruceros_v3" element={<Crucero_v3 />} />
-        <Route path="/cruceros_v4" element={<Crucero_v4 />} />
-        <Route path="/cruceros_v5" element={<Crucero_v5 />} />
-        <Route path="/cruceros_v6" element={<Crucero_v6 />} />
-        <Route path="/cruceros_v7" element={<Crucero_v7 />} />
-        <Route path="/cruceros_v8" element={<Crucero_v8 />} />
-        <Route path="/cruceros_v2.1" element={<Crucero_v21 />} />
+        <Route path="/cruceros" element={<Cruceros />} />
         {/* MOTORES */}
         <Route path="/" element={<Landing />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />

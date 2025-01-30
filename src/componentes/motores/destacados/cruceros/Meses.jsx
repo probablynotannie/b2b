@@ -1,48 +1,48 @@
-import React from "react";
+import { useRef } from "react";
+import { useNavigate } from "react-router-dom";
+function Meses({ setRequestData }) {
+  const navigate = useNavigate();
+  const handleMonthSelect = (monthNumber) => {
+    const newRequestData = {
+      puerto: "",
+      destino: "",
+      mes: monthNumber,
+      duracion: "",
+      naviera: "",
+    };
 
-function Meses() {
+    setRequestData(newRequestData);
+    navigate("/listadoCruceros", { state: newRequestData });
+  };
+
   return (
     <section className="tw-flex tw-items-center dark:tw-text-white tw-flex-col tw-py-5">
       <h2 className="tw-font-bold tw-text-xl tw-mb-5 tw-text-center tw-text-gray-800 dark:tw-text-slate-100">
         Buscar por meses
       </h2>
       <div className="tw-grid tw-grid-cols-3 tw-gap-0.5 tw-w-2/3">
-        <div className="tw-border tw-bg-blue-100 dark:tw-bg-slate-700 tw-border-blue-300 dark:tw-border-slate-600 dark:tw-text-white tw-min-h-[8vh] tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-blue-200 dark:hover:tw-bg-blue-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Ene
-        </div>
-        <div className="tw-border tw-bg-pink-100 dark:tw-bg-slate-700 tw-border-pink-300 dark:tw-border-slate-600 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-pink-200 dark:hover:tw-bg-pink-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Feb
-        </div>
-        <div className="tw-border tw-bg-orange-100 dark:tw-bg-slate-700 tw-border-orange-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-orange-200 dark:hover:tw-bg-orange-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Mar
-        </div>
-        <div className="tw-border tw-bg-emerald-100 dark:tw-bg-slate-700 tw-border-emerald-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-emerald-200 dark:hover:tw-bg-emerald-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Abr
-        </div>
-        <div className="tw-border tw-bg-gray-100 dark:tw-bg-slate-700 tw-border-gray-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-gray-200 dark:hover:tw-bg-gray-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          May
-        </div>
-        <div className="tw-border tw-bg-red-100 dark:tw-bg-slate-700 tw-border-red-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-red-200 dark:hover:tw-bg-red-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Jun
-        </div>
-        <div className="tw-border tw-bg-purple-100 dark:tw-bg-slate-700 tw-border-purple-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-purple-200 dark:hover:tw-bg-purple-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Jul
-        </div>
-        <div className="tw-border tw-bg-cyan-100 dark:tw-bg-slate-700 tw-border-cyan-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-cyan-200 dark:hover:tw-bg-cyan-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Ago
-        </div>
-        <div className="tw-border tw-bg-amber-100 dark:tw-bg-slate-700 tw-border-amber-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-amber-200 dark:hover:tw-bg-amber-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Sep
-        </div>
-        <div className="tw-border tw-bg-teal-100 dark:tw-bg-slate-700 tw-border-teal-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-teal-200 dark:hover:tw-bg-teal-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Oct
-        </div>
-        <div className="tw-border tw-bg-violet-100 dark:tw-bg-slate-700 tw-border-violet-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-violet-200 dark:hover:tw-bg-violet-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Nov
-        </div>
-        <div className="tw-border tw-bg-green-100 dark:tw-bg-slate-700 tw-border-green-300 dark:tw-border-slate-500 tw-min-h-[8vh] dark:tw-text-white tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-green-200 dark:hover:tw-bg-green-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105">
-          Dic
-        </div>
+        {[
+          { month: "Ene", number: "01", color: "blue" },
+          { month: "Feb", number: "02", color: "pink" },
+          { month: "Mar", number: "03", color: "orange" },
+          { month: "Abr", number: "04", color: "emerald" },
+          { month: "May", number: "05", color: "gray" },
+          { month: "Jun", number: "06", color: "red" },
+          { month: "Jul", number: "07", color: "purple" },
+          { month: "Ago", number: "08", color: "cyan" },
+          { month: "Sep", number: "09", color: "amber" },
+          { month: "Oct", number: "10", color: "teal" },
+          { month: "Nov", number: "11", color: "violet" },
+          { month: "Dic", number: "12", color: "green" },
+        ].map(({ month, number, color }, index) => (
+          <div
+            key={index}
+            className={`tw-border tw-bg-${color}-100 dark:tw-bg-slate-700 tw-border-${color}-300 dark:tw-border-slate-600 dark:tw-text-white tw-min-h-[8vh] tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-text-gray-700 tw-rounded-lg tw-shadow-md hover:tw-bg-${color}-200 dark:hover:tw-bg-${color}-900 tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105`}
+            onClick={() => handleMonthSelect(number)}
+          >
+            {month}
+          </div>
+        ))}
       </div>
     </section>
   );

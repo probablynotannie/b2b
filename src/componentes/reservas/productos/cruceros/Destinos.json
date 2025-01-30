@@ -6,6 +6,8 @@
     "tasas": 50,
     "titulo": "8 días a bordo de MSC Lirica",
     "crucero": "/cruceros/crucero.jpg",
+    "puerto": "malaga",
+    "destino": "mediterraneo",
     "nombreCrucero": "MSC Lirica",
     "logo": "/cruceros/msc.jpg",
     "incluidos": [
@@ -74,8 +76,8 @@
           { "fecha": "16/12/2025", "price": 470 },
           { "fecha": "17/12/2025", "price": 950 },
           { "fecha": "18/12/2025", "price": 320 },
-          { "fecha": "02/01/2025", "price": 700 },
-          { "fecha": "10/02/2025", "price": 600 }
+          { "fecha": "02/06/2025", "price": 700 },
+          { "fecha": "10/06/2025", "price": 600 }
         ],
         "subPrecios": [
           {
@@ -223,7 +225,7 @@
               { "fecha": "17/12/2025", "price": 850 },
               { "fecha": "18/12/2025", "price": 910 },
               { "fecha": "02/01/2025", "price": 960 },
-              { "fecha": "10/02/2025", "price": 1050 }
+              { "fecha": "10/12/2025", "price": 1050 }
             ]
           }
         ]
