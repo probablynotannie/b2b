@@ -58,6 +58,7 @@ function Producto() {
           }
           boton="Reservar"
         />
+        {/* Cruise Information Section */}
         <article className="tw-mt-5 dark:tw-bg-slate-800 tw-rounded-lg">
           <section className="tw-flex tw-flex-col md:tw-flex-row tw-gap-10 tw-p-5">
             <img
@@ -84,8 +85,6 @@ function Producto() {
               </div>
             </div>
           </section>
-
-          {/* Tabs Section */}
           <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
             <button
               className={`tw-p-3 tw-font-semibold tw-text-lg tw-flex tw-gap-2 tw-items-center ${

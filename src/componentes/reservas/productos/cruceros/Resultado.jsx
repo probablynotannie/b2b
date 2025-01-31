@@ -84,7 +84,7 @@ function Productos() {
               className={`tw-relative tw-h-[40vh] tw-w-full tw-bg-cover tw-bg-center tw-rounded-lg tw-shadow-lg`}
               style={{ backgroundImage: `url(${producto.img})` }}
             >
-              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-flex tw-flex-col tw-justify-between tw-p-6 tw-rounded-lg hover:tw-bg-opacity-60 tw-transition-all">
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-blue-950 tw-bg-opacity-40 tw-flex tw-flex-col tw-justify-between tw-p-6 tw-rounded-lg hover:tw-bg-opacity-60 tw-transition-all">
                 <div className="tw-flex-1"></div>{" "}
                 {/* Spacer div to align content */}
                 <h1 className="tw-text-5xl tw-text-white tw-font-extrabold tw-text-center tw-my-6 tw-shadow-lg">
