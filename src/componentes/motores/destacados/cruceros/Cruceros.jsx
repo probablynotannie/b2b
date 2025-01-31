@@ -106,7 +106,7 @@ function Cruceros({ setRequestData }) {
       naviera: navieraName,
     };
     setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: newRequestData });
+    navigate("/listadoCruceros", { state: { newRequestData } });
   };
   const navigate = useNavigate();
 

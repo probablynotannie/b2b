@@ -6,11 +6,12 @@ function InputMes({ mes, setMes }) {
   const handleMonthChange = (newDate) => {
     if (newDate) {
       const updatedDate = new Date(newDate);
-      const month = updatedDate.getMonth();
-      setMes(month);
+      let month = updatedDate.getMonth() + 1;
+      month = String(month).padStart(2, "0"); 
+      setMes(month); 
     }
   };
-
+  
   return (
     <div>
       <DatesProvider settings={{ locale: "es" }}>

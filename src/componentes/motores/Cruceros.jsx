@@ -27,7 +27,8 @@ function Cruceros() {
     naviera: naviera,
   });
   const handleSubmit = () => {
-    navigate("/listadoCruceros", { state: requestData });
+    const newRequestData = requestData;
+    navigate("/listadoCruceros", { state: { newRequestData } });
   };
   const updateRequestData = (key, value) => {
     const newRequestData = {
@@ -36,8 +37,6 @@ function Cruceros() {
     };
 
     setRequestData(newRequestData);
-
-    console.log("Updated newRequestData:", newRequestData);
   };
 
   const listadoNavieras = [

@@ -11,6 +11,7 @@ import { MdCancel } from "react-icons/md";
 function Productos() {
   const location = useLocation();
   const { newRequestData = {}, producto = null } = location.state || {};
+  console.log("Location state:", location);  // Check if state is passed
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -25,10 +26,10 @@ function Productos() {
     }, 3000);
   }, []);
 
-  console.log("Datos", producto);
+  console.log("Datos", newRequestData);
 
   const filteredDestinos = destinos.filter((destino) => {
-    const mesSeleccionado = newRequestData.mes?.toLowerCase();
+    const mesSeleccionado = newRequestData.mes;
     const puertoSeleccionado = newRequestData.puerto?.toLowerCase();
     const destinoSeleccionado = newRequestData.destino?.toLowerCase();
     const navieraSeleccionado = newRequestData.naviera?.toLowerCase();
@@ -78,24 +79,26 @@ function Productos() {
       </div>
       <section className="tw-my-5 tw-container">
         {producto && (
-          <div
-            className={`tw-relative tw-h-[30vh]
-             tw-w-full tw-bg-cover tw-bg-center tw-rounded`}
-            style={{ backgroundImage: `url(${producto.img})` }}
-          >
-            <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-slate-700 tw-bg-opacity-50 tw-flex tw-flex-col tw-justify-between tw-p-4 tw-rounded">
-              <></>
-              <h1 className="tw-text-6xl tw-text-white tw-font-bold tw-text-center tw-my-10">
-                {producto.txt}
-              </h1>
-              <p className="tw-min-h-[10vh] tw-w-full tw-bg-black tw-bg-opacity-35 tw-text-slate-100 tw-font-semibold tw-text-sm tw-p-3">
-                {producto.descripcion}
-              </p>
+          <>
+            <div
+              className={`tw-relative tw-h-[40vh] tw-w-full tw-bg-cover tw-bg-center tw-rounded-lg tw-shadow-lg`}
+              style={{ backgroundImage: `url(${producto.img})` }}
+            >
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-50 tw-flex tw-flex-col tw-justify-between tw-p-6 tw-rounded-lg hover:tw-bg-opacity-60 tw-transition-all">
+                <div className="tw-flex-1"></div>{" "}
+                {/* Spacer div to align content */}
+                <h1 className="tw-text-5xl tw-text-white tw-font-extrabold tw-text-center tw-my-6 tw-shadow-lg">
+                  {producto.txt}
+                </h1>
+                <p className="tw-min-h-[10vh] tw-w-full tw-bg-black tw-bg-opacity-35 tw-text-slate-100 tw-font-medium tw-text-sm tw-p-4 tw-rounded-lg shadow-md hover:tw-bg-opacity-50 tw-transition-all">
+                  {producto.descripcion}
+                </p>
+              </div>
             </div>
-          </div>
+          </>
         )}
       </section>
-      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-px-32 tw-min-h-[40vh]">
+      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10  tw-min-h-[40vh]">
         <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
           {loading ? (
             <>
@@ -109,7 +112,7 @@ function Productos() {
                   className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col 
                 "
                 >
-                  <MdCancel className="tw-text-4xl tw-text-red-500" />
+                  <MdCancel className="tw-text-4xl tw-text-red-500 tw-animate-bounce" />
                   <p>No hay cruceros con estos requerimientos :(</p>
                 </div>
               ) : (

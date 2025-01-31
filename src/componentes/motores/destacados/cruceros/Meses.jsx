@@ -11,7 +11,8 @@ function Meses({ setRequestData }) {
     };
 
     setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: newRequestData });
+    console.log(monthNumber);
+    navigate("/listadoCruceros", { state: { newRequestData } });
   };
 
   return (
