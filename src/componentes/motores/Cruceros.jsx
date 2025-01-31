@@ -8,22 +8,38 @@ import { useState } from "react";
 import Destacados from "./destacados/cruceros/Cruceros";
 import Zonas from "./destacados/cruceros/Zonas";
 import Puertos from "./destacados/cruceros/Puertos";
+import { useNavigate } from "react-router-dom";
 
 function Cruceros() {
+  const navigate = useNavigate();
+
   const [destino, setDestino] = useState("");
-  const [mes, setMes] = useState();
-  const [duracion, setDuracion] = useState("");
+  const [mes, setMes] = useState("");
+  const [duracion, setDuracion] = useState(2);
   const [puerto, setPuerto] = useState("");
   const [naviera, setNaviera] = useState("");
 
   const [requestData, setRequestData] = useState({
-    destino: "",
-    mes: "",
-    duracion: "",
-    puerto: "",
-    naviera: "",
+    destino: destino,
+    mes: mes,
+    duracion: duracion,
+    puerto: puerto,
+    naviera: naviera,
   });
-  console.log(JSON.stringify(requestData));
+  const handleSubmit = () => {
+    navigate("/listadoCruceros", { state: requestData });
+  };
+  const updateRequestData = (key, value) => {
+    const newRequestData = {
+      ...requestData,
+      [key]: value,
+    };
+
+    setRequestData(newRequestData);
+
+    console.log("Updated newRequestData:", newRequestData);
+  };
+
   const listadoNavieras = [
     {
       label: "Destacados",
@@ -85,16 +101,6 @@ function Cruceros() {
       ],
     },
   ];
-
-  const updateRequestData = (key, value) => {
-    setRequestData((prevData) => ({
-      ...prevData,
-      [key]: value,
-    }));
-  };
-  const handleBuscarClick = () => {
-    console.log("Datos:", JSON.stringify(requestData));
-  };
 
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10">
@@ -172,7 +178,7 @@ function Cruceros() {
                 <button
                   type="button"
                   className="tw-absolute tw--bottom-7 tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-                  onClick={handleBuscarClick}
+                  onClick={handleSubmit}
                 >
                   Buscar
                 </button>
@@ -182,12 +188,12 @@ function Cruceros() {
         </div>
         <div className="tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">
           <div className="xl:tw-col-span-1">
-            <Zonas requestData={requestData} setRequestData={setRequestData} />
+            <Zonas setRequestData={setRequestData} requestData={requestData} />
           </div>
           <div className="xl:tw-col-span-2">
             <Puertos
-              requestData={requestData}
               setRequestData={setRequestData}
+              requestData={requestData}
             />
           </div>
         </div>

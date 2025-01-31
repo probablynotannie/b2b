@@ -10,9 +10,9 @@ import { useNavigate } from "react-router-dom";
 function Puertos({ setRequestData }) {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
-  const handlePortClick = (puertoName) => {
+  const handlePortClick = (producto) => {
     const newRequestData = {
-      puerto: puertoName,
+      puerto: producto.val,
       destino: "",
       mes: "",
       duracion: "",
@@ -20,7 +20,7 @@ function Puertos({ setRequestData }) {
     };
 
     setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: newRequestData });
+    navigate("/listadoCruceros", { state: { newRequestData, producto } });
   };
 
   return (
@@ -46,7 +46,7 @@ function Puertos({ setRequestData }) {
           <SwiperSlide key={index}>
             <div
               className="tw-relative hover:tw-scale-[103%] tw-transition tw-duration-400 lg:tw-h-[18vh] xl:tw-h-[38vh] tw-h-[38vh] tw-cursor-pointer tw-group"
-              onClick={() => handlePortClick(zona.val)}
+              onClick={() => handlePortClick(zona)}
               onMouseEnter={() => swiperRef.current?.autoplay.stop()}
               onMouseLeave={() => swiperRef.current?.autoplay.start()}
             >

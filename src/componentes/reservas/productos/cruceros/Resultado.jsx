@@ -10,22 +10,36 @@ import { MdCancel } from "react-icons/md";
 
 function Productos() {
   const location = useLocation();
-  const newRequestData = location.state || {};
+  const { newRequestData = {}, producto = null } = location.state || {};
+
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, []);
-  console.log(newRequestData);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+
+  console.log("Datos", producto);
+
   const filteredDestinos = destinos.filter((destino) => {
-    const selectedMonth = newRequestData.mes; // Expected format: "12" or "Diciembre"
-    const matchesPuerto =
-      !newRequestData.puerto || destino.puerto.includes(newRequestData.puerto);
-    const matchesDestino =
-      !newRequestData.destino ||
-      destino.destino.includes(newRequestData.destino);
-    const allMonths = destino.precios.flatMap((precio) =>
+    const mesSeleccionado = newRequestData.mes?.toLowerCase();
+    const puertoSeleccionado = newRequestData.puerto?.toLowerCase();
+    const destinoSeleccionado = newRequestData.destino?.toLowerCase();
+    const navieraSeleccionado = newRequestData.naviera?.toLowerCase();
+
+    const encontrarPuerto =
+      !puertoSeleccionado ||
+      destino.puerto.toLowerCase().includes(puertoSeleccionado);
+    const encontrarDestino =
+      !destinoSeleccionado ||
+      destino.destino.toLowerCase().includes(destinoSeleccionado);
+    const todosLosMeses = destino.precios.flatMap((precio) =>
       precio.preciosConFechas
         .map((p) => p.fecha.split("/")[1])
         .concat(
@@ -34,8 +48,14 @@ function Productos() {
           ) || []
         )
     );
-    const matchesMonth = !selectedMonth || allMonths.includes(selectedMonth);
-    return matchesPuerto && matchesDestino && matchesMonth;
+    const encontrarMes =
+      !mesSeleccionado || todosLosMeses.includes(mesSeleccionado);
+    const encontrarNaviera =
+      !navieraSeleccionado ||
+      destino.naviera.toLowerCase().includes(navieraSeleccionado);
+    return (
+      encontrarPuerto && encontrarDestino && encontrarMes && encontrarNaviera
+    );
   });
 
   return (
@@ -56,6 +76,25 @@ function Productos() {
           </aside>
         </div>
       </div>
+      <section className="tw-my-5 tw-container">
+        {producto && (
+          <div
+            className={`tw-relative tw-h-[30vh]
+             tw-w-full tw-bg-cover tw-bg-center tw-rounded`}
+            style={{ backgroundImage: `url(${producto.img})` }}
+          >
+            <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-slate-700 tw-bg-opacity-50 tw-flex tw-flex-col tw-justify-between tw-p-4 tw-rounded">
+              <></>
+              <h1 className="tw-text-6xl tw-text-white tw-font-bold tw-text-center tw-my-10">
+                {producto.txt}
+              </h1>
+              <p className="tw-min-h-[10vh] tw-w-full tw-bg-black tw-bg-opacity-35 tw-text-slate-100 tw-font-semibold tw-text-sm tw-p-3">
+                {producto.descripcion}
+              </p>
+            </div>
+          </div>
+        )}
+      </section>
       <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-px-32 tw-min-h-[40vh]">
         <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
           {loading ? (
@@ -90,4 +129,5 @@ function Productos() {
     </main>
   );
 }
+
 export default Productos;

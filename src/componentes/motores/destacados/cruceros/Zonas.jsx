@@ -1,18 +1,18 @@
 import zonas from "./jsons/zonas.json";
 import { useNavigate } from "react-router-dom"; // Import useNavigate
 
-function Zonas({ setRequestData, requestData }) {
+function Zonas({ setRequestData }) {
   const navigate = useNavigate(); // Initialize navigation
-  const handleZoneClick = (val) => {
+  const handleZoneClick = (producto) => {
     const newRequestData = {
       puerto: "",
-      destino: val,
+      destino: producto.val,
       mes: "",
       duracion: "",
       naviera: "",
     };
     setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: newRequestData });
+    navigate("/listadoCruceros", { state: { newRequestData, producto } });
   };
 
   return (
@@ -22,7 +22,7 @@ function Zonas({ setRequestData, requestData }) {
       </h2>
       <div className="tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-1 tw-gap-3 tw-mt-3">
         {zonas.map((zona, index) => (
-          <div key={index} onClick={() => handleZoneClick(zona.val)}>
+          <div key={index} onClick={() => handleZoneClick(zona)}>
             <div className="tw-relative tw-h-[12vh] lg:tw-h-[5vh] xl:tw-h-[8.5vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
               <img
                 src={zona.img}

@@ -58,10 +58,8 @@ function Producto() {
           }
           boton="Reservar"
         />
-
-        {/* Cruise Information Section */}
         <article className="tw-mt-5 dark:tw-bg-slate-800 tw-rounded-lg">
-          <section className="tw-flex tw-flex-col md:tw-flex-row tw-gap-10 tw-p-5 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
+          <section className="tw-flex tw-flex-col md:tw-flex-row tw-gap-10 tw-p-5">
             <img
               src={producto.crucero}
               alt="imagen crucero"

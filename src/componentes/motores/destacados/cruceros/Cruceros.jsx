@@ -3,6 +3,7 @@ import { useRef } from "react";
 import Cruceros_destacados from "./Cruceros_destacados";
 import Meses from "./Meses";
 import { FaArrowDownLong } from "react-icons/fa6";
+import { useNavigate } from "react-router-dom";
 
 function Cruceros({ setRequestData }) {
   const contentRef = useRef(null);
@@ -97,15 +98,17 @@ function Cruceros({ setRequestData }) {
   ];
 
   const handleNavieraClick = (navieraName) => {
-    setRequestData((prevData) => ({
-      ...prevData,
-      naviera: navieraName,
+    const newRequestData = {
+      puerto: "",
       destino: "",
       mes: "",
       duracion: "",
-      puerto: "",
-    }));
+      naviera: navieraName,
+    };
+    setRequestData(newRequestData);
+    navigate("/listadoCruceros", { state: newRequestData });
   };
+  const navigate = useNavigate();
 
   return (
     <div className="tw-px-5">
