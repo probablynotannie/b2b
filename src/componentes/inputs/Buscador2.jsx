@@ -59,29 +59,29 @@ function Buscador({ destinos, destino, setDestino }) {
 
   const columnCount = Object.keys(groupedSuggestions).length > 1 ? 2 : 1;
   return (
-    <div className="relative" ref={searchBoxRef}>
+    <div className="tw-relative" ref={searchBoxRef}>
       <input
         type="text"
         value={destino}
         onChange={handleInputChange}
         placeholder="Destino"
-        className="p-2.5 pl-10 text-sm border dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 text-gray-700 border-gray-300 rounded-lg w-full focus:outline-none focus:border-gray-400 overflow-hidden text-ellipsis whitespace-nowrap"
+        className="tw-p-2.5 tw-pl-10 tw-text-sm tw-border dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
       />
       {isDropdownOpen && (
-        <div className="absolute z-10 w-full bg-slate-50 border-2 shadow-xl mt-2 rounded-lg max-h-60 overflow-auto">
+        <div className="tw-absolute tw-z-10 tw-w-full tw-bg-slate-50 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
           {loading ? (
-            <div className="p-4 flex justify-center items-center flex-col text-center text-slate-500">
+            <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-flex-col tw-text-center tw-text-slate-500">
               Cargando...
             </div>
           ) : suggestions.length > 0 ? (
-            <div className={`grid grid-cols-${columnCount} gap-4 p-2`}>
+            <div className={`tw-grid tw-grid-cols-${columnCount} tw-gap-4 tw-p-2`}>
               {Object.entries(groupedSuggestions).map(([type, items]) => (
                 <div key={type}>
-                  <div className="relative">
-                    <h3 className="font-semibold bg-primary text-white rounded-md p-2">
+                  <div className="tw-relative">
+                    <h3 className="tw-font-semibold bg-primary tw-text-white tw-rounded-md tw-p-2">
                       {type}
                     </h3>
-                    <div className="absolute top-0 pointer-events-none right-1 text-white h-full rounded-tr-md rounded-br-md flex items-center justify-center w-8 text-lg">
+                    <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-right-1 tw-text-white tw-h-full tw-rounded-tr-md tw-rounded-br-md tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-lg">
                       {type === "Hotel" ? <FaHotel /> : <FaMap />}
                     </div>
                   </div>
@@ -90,15 +90,15 @@ function Buscador({ destinos, destino, setDestino }) {
                       <li
                         key={index}
                         onClick={() => handleSuggestionClick(suggestion)}
-                        className="p-2 border-b flex flex-col border-slate-200 text-gray-700 hover:bg-slate-50 cursor-pointer"
+                        className="tw-p-2 tw-border-b tw-flex tw-flex-col tw-border-slate-200 tw-text-gray-700 hover:tw-bg-slate-50 tw-cursor-pointer"
                       >
-                        <span className="flex space-x-2 items-center">
-                          <span className="text-secondary text-lg">
+                        <span className="tw-flex tw-space-x-2 tw-items-center">
+                          <span className="text-secondary tw-text-lg">
                             {type === "Hotel" ? <FaHotel /> : <FaMap />}
                           </span>
                           <span>{suggestion.name}</span>
                         </span>
-                        <span className="block text-slate-300 pl-6">
+                        <span className="tw-block tw-text-slate-300 tw-pl-6">
                           {suggestion.destino && suggestion.destino}{" "}
                         </span>
                       </li>
@@ -108,16 +108,16 @@ function Buscador({ destinos, destino, setDestino }) {
               ))}
             </div>
           ) : (
-            <div className="p-4 flex justify-center items-center flex-col text-center text-slate-500">
-              No hay ningún resultado para &quot;{destino}&quot;
+            <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-flex-col tw-text-center tw-text-slate-500">
+              No hay ningún resultado para &amp;quot;{destino}&amp;quot;
             </div>
           )}
         </div>
       )}
-      <div className="absolute top-0 right-0 pointer-events-none text-slate-300 text-sm h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8">
+      <div className="tw-absolute tw-top-0 tw-right-0 tw-pointer-events-none tw-text-slate-300 tw-text-sm tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8">
         {suggestions.length}
       </div>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaSearch />
       </div>
     </div>

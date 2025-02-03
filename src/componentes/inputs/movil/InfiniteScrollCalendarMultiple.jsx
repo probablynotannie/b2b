@@ -1,4 +1,5 @@
 import { useState, useCallback, useEffect } from "react";
+
 import {
   format,
   addMonths,
@@ -19,6 +20,7 @@ const InfiniteScrollCalendar = ({
 }) => {
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   useEffect(() => {
     const initialMonths = [startOfMonth(new Date())];
     for (let i = 1; i < 3; i++) {
@@ -41,7 +43,7 @@ const InfiniteScrollCalendar = ({
       setStartDate(date);
       setEndDate(null);
     } else if (date < startDate) {
-      // Si la fecha seleccionada es antes de la fecha ya seleccionada, será nuevo dia de inicio
+      // Si la fecha seleccionada es antes de la fecha ya seleccionada, será nuevo día de inicio
       setStartDate(date);
     } else {
       setEndDate(date);
@@ -53,9 +55,9 @@ const InfiniteScrollCalendar = ({
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
-      <div className="grid grid-cols-7 text-center font-bold">
+      <div className="tw-grid tw-grid-cols-7 tw-text-center tw-font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="p-1 text-black text-sm">
+          <div key={day} className="tw-p-1 tw-text-black tw-text-sm">
             {day}
           </div>
         ))}
@@ -71,26 +73,26 @@ const InfiniteScrollCalendar = ({
     });
 
     return (
-      <div key={month} className="mb-8">
-        {/* Month name above weekdays */}aef
-        <h3 className="text-lg font-bold text-center mb-2 text-secondary">
+      <div key={month} className="tw-mb-8">
+        {/* Month name above weekdays */}
+        <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
-          {renderWeekDays()} {/* Dias de semana */}
+          {renderWeekDays()} {/* Días de semana */}
         </h3>
-        <div className="grid grid-cols-7 gap-1 mb-3">
+        <div className="tw-grid tw-grid-cols-7 tw-gap-1 tw-mb-3">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="p-4"></div> // Espacio blanco si no hay dias lun-mar...
+            <div key={`empty-${i}`} className="tw-p-4"></div> // Espacio blanco si no hay días lun-mar...
           ))}
           {daysInMonth.map((day) => (
             <div
               key={day}
-              className={`p-2 text-center rounded-lg cursor-pointer text-black text-sm ${
+              className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm ${
                 isSameDay(day, startDate)
-                  ? "tw-bg-secondary text-white" // Fecha inicio
+                  ? "tw-bg-secondary tw-text-white" // Fecha inicio
                   : isSameDay(day, endDate)
-                  ? "tw-bg-secondary text-white" // Fecha fin
+                  ? "tw-bg-secondary tw-text-white" // Fecha fin
                   : startDate && endDate && day > startDate && day < endDate
-                  ? "bg-orange-100" // Fechas en medio
+                  ? "tw-bg-orange-100" // Fechas en medio
                   : ""
               }`}
               onClick={() => handleDateClick(day)}
@@ -111,7 +113,7 @@ const InfiniteScrollCalendar = ({
     setIsModalOpen(false);
   };
 
-  // Cargas más meses
+  // Carga más meses cuando el usuario se desplaza
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     if (scrollHeight - scrollTop <= clientHeight + 100) {
@@ -132,33 +134,33 @@ const InfiniteScrollCalendar = ({
 
   return (
     <div>
-      <div className="relative">
+      <div className="tw-relative">
         <div
           onClick={openModal}
-          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
           {formatDateRange()}
 
-          <div className="absolute top-0 left-0 pointer-events-none dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+          <div className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaCalendarAlt />
           </div>
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
-          <div className="bg-white w-full h-full mx-auto  relative">
-            <div className="flex justify-between items-center mb-4 bg-primary p-5 ">
-              <h2 className="text-xl font-bold text-white">
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+          <div className="tw-bg-white tw-w-full tw-h-full tw-mx-auto tw-relative">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary tw-p-5">
+              <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Selecciona el rango de fechas
               </h2>
-              <button onClick={closeModal} className="text-xl text-white">
+              <button onClick={closeModal} className="tw-text-xl tw-text-white">
                 &times;
               </button>
             </div>
 
-            {/* Scrollable calendar */}
+            {/* CalendarioF */}
             <div
-              className="overflow-y-auto h-[calc(100%-80px)] p-4"
+              className="tw-overflow-y-auto tw-h-[calc(100%-80px)] tw-p-4"
               onScroll={handleScroll}
             >
               {months.map((month) => renderMonth(month))}

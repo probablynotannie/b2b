@@ -1,4 +1,3 @@
-import { useState } from "react";
 import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { Popover } from "flowbite-react";
@@ -7,9 +6,12 @@ import { MdMeetingRoom } from "react-icons/md";
 import VersionMovil from "./movil/Hab_Adulto_Ninio_Movil";
 import { FaTrashAlt } from "react-icons/fa";
 
-function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
-
-
+function SelectorPersonas({
+  habitacion,
+  setHabitacion,
+  roomData,
+  setRoomData,
+}) {
   const addRoom = () => {
     setHabitacion((prevCount) => prevCount + 1);
     setRoomData((prevData) => [
@@ -73,7 +75,7 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
 
   return (
     <div>
-      <div className="lg:hidden">
+      <div className="lg:tw-hidden">
         <VersionMovil
           deleteRoom={deleteRoom}
           totalAdults={totalAdults}
@@ -88,34 +90,34 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
           handleAgeChange={handleAgeChange}
         />
       </div>
-      <div className="hidden lg:grid grid-cols-1 gap-3">
+      <div className="tw-hidden lg:tw-grid tw-grid-cols-1 tw-gap-3">
         <Popover
           placement="right"
           aria-labelledby="default-popover"
           content={
-            <div className="w-96 text-sm">
-              <div className="bg-primary  dark:bg-slate-900 text-white h-14 flex items-center pl-4 font-semibold">
+            <div className="tw-w-96 tw-text-sm">
+              <div className="bg-primary dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
                 Adultos / Niños
               </div>
-              <div className="px-3 pb-5 max-h-[80vh] overflow-y-auto">
+              <div className="tw-px-3 tw-pb-5 tw-max-h-[80vh] tw-overflow-y-auto">
                 {roomData.map((room, roomIndex) => (
                   <div
-                    className="relative text-black dark:text-slate-400 bg-slate-100 dark:bg-slate-700 dark:shadow-inner dark:shadow-slate-600 shadow mt-10 p-2 py-5 rounded-lg"
+                    className="tw-relative tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700 dark:tw-shadow-inner dark:tw-shadow-slate-600 tw-shadow tw-mt-10 tw-p-2 tw-py-5 tw-rounded-lg"
                     key={room.id}
                   >
-                    <span className="absolute -top-5 p-2 bg-primary dark:bg-slate-900 text-white font-semibold rounded-lg shadow-lg">
+                    <span className="tw-absolute -tw-top-5 tw-p-2 bg-primary dark:tw-bg-slate-900 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow-lg">
                       Habitación {roomIndex + 1}
                     </span>
-                    <div className="grid grid-cols-3 gap-2">
+                    <div className="tw-grid tw-grid-cols-3 tw-gap-2">
                       <div>
-                        <span className="text-sm text-black dark:text-slate-400">
+                        <span className="tw-text-sm tw-text-black dark:tw-text-slate-400">
                           Adultos
                         </span>
-                        <div className="relative">
+                        <div className="tw-relative">
                           <select
                             onChange={(e) => onAdultosChange(room.id, e)}
                             value={room.adultos}
-                            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                           >
                             {[1, 2, 3, 4, 5, 6].map((num) => (
                               <option key={num} value={num}>
@@ -123,20 +125,20 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                               </option>
                             ))}
                           </select>
-                          <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                          <div className="tw-absolute tw-top-0 tw-pointer-events-none bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                             <FaPerson />
                           </div>
                         </div>
                       </div>
                       <div>
-                        <span className="text-sm text-black dark:text-slate-400">
+                        <span className="tw-text-sm tw-text-black dark:tw-text-slate-400">
                           Niños
                         </span>
-                        <div className="relative">
+                        <div className="tw-relative">
                           <select
                             onChange={(e) => onNiniosChange(room.id, e)}
                             value={room.ninios}
-                            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                           >
                             {[0, 1, 2, 3].map((num) => (
                               <option key={num} value={num}>
@@ -144,7 +146,7 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                               </option>
                             ))}
                           </select>
-                          <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                          <div className="tw-absolute tw-top-0 tw-pointer-events-none bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                             <FaChild />
                           </div>
                         </div>
@@ -152,7 +154,7 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                       {roomIndex !== 0 && (
                         <button
                           onClick={() => deleteRoom(room.id)}
-                          className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-danger hover:text-white transition  flex items-center justify-end pb-2 flex-col"
+                          className="tw-absolute -tw-top-5 tw-cursor-pointer tw-right-5 tw-bg-white dark:tw-bg-slate-900 tw-rounded tw-border-2 tw-border-red-500 dark:tw-border-red-700 tw-p-2 tw-text-red-500 dark:tw-text-red-700 dark:hover:tw-bg-red-800 hover:bg-danger hover:tw-text-white tw-transition tw-flex tw-items-center tw-justify-end tw-pb-2 tw-flex-col"
                         >
                           <FaTrashAlt />
                         </button>
@@ -160,7 +162,7 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                     </div>
                     <div>
                       {room.ninios > 0 && (
-                        <div className="grid grid-cols-3 gap-1 pb-2 mt-2">
+                        <div className="tw-grid tw-grid-cols-3 tw-gap-1 tw-pb-2 tw-mt-2">
                           {room.ninioAges.map((age, childIndex) => (
                             <div key={childIndex}>
                               <input
@@ -174,7 +176,7 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                                     e.target.value
                                   )
                                 }
-                                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
+                                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                                 placeholder="Edad"
                               />
                             </div>
@@ -186,11 +188,11 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
                 ))}
                 <div
                   onClick={addRoom}
-                  className="text-black dark:text-slate-400  hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 mt-5 pt-2"
+                  className="tw-text-black dark:tw-text-slate-400 hover:text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 tw-mt-5 tw-pt-2"
                 >
-                  <div className="w-fit flex items-center space-x-1 font-semibold">
+                  <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
                     <span>Agregar una habitación </span>
-                    <CiCirclePlus className="dark:tw-text-secondary text-lg" />
+                    <CiCirclePlus className="dark:tw-text-secondary tw-text-lg" />
                   </div>
                 </div>
               </div>
@@ -198,12 +200,12 @@ function SelectorPersonas({habitacion, setHabitacion, roomData,setRoomData}) {
           }
         >
           <div>
-            <div className="relative">
-              <div className="bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary text-primary  border-2 p-2.5 rounded-lg text-sm  pl-10">
+            <div className="tw-relative">
+              <div className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary text-primary tw-border-2 tw-p-2.5 tw-rounded-lg tw-text-sm tw-pl-10">
                 {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
                 {totalChildren} Niños
               </div>
-              <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                 <MdMeetingRoom />
               </div>
             </div>

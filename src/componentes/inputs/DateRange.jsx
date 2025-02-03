@@ -31,7 +31,7 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
 
   return (
     <div>
-      <div className="relative hidden lg:block">
+      <div className="tw-relative tw-hidden lg:tw-block">
         <input
           type="text"
           readOnly
@@ -45,13 +45,13 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
                 })}`
               : "Selecciona un rango de fechas"
           }
-          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
         />
-        <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <div className="tw-absolute tw-top-0 tw-pointer-events-none bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
           <FaCalendarAlt />
         </div>
       </div>
-      <div className="lg:hidden">
+      <div className="lg:tw-hidden">
         <InfiniteScrollCalendar
           startDate={startDate}
           setStartDate={setStartDate}
@@ -61,7 +61,7 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
       </div>
       <div>
         {isOpen && (
-          <div className="absolute z-50">
+          <div className="tw-absolute tw-z-50">
             <DatePicker
               selected={startDate}
               onChange={handleChange}

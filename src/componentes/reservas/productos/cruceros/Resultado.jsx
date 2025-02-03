@@ -11,7 +11,7 @@ import { MdCancel } from "react-icons/md";
 function Productos() {
   const location = useLocation();
   const { newRequestData = {}, producto = null } = location.state || {};
-  console.log("Location state:", location);  // Check if state is passed
+  console.log("Location state:", location);
 
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -26,14 +26,11 @@ function Productos() {
     }, 3000);
   }, []);
 
-  console.log("Datos", newRequestData);
-
   const filteredDestinos = destinos.filter((destino) => {
     const mesSeleccionado = newRequestData.mes;
     const puertoSeleccionado = newRequestData.puerto?.toLowerCase();
     const destinoSeleccionado = newRequestData.destino?.toLowerCase();
     const navieraSeleccionado = newRequestData.naviera?.toLowerCase();
-
     const encontrarPuerto =
       !puertoSeleccionado ||
       destino.puerto.toLowerCase().includes(puertoSeleccionado);
@@ -77,29 +74,27 @@ function Productos() {
           </aside>
         </div>
       </div>
-      <section className="tw-my-5 tw-container">
+
+      <article className="lg:tw-gap-10 xs:gap-28  tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
         {producto && (
-          <>
+          <section className="tw-mb-10">
+            <h1 className="tw-text-2xl tw-text-secondary tw-font-extrabold tw-mb-5 ">
+              {producto.txt}
+            </h1>
             <div
-              className={`tw-relative tw-h-[40vh] tw-w-full tw-bg-cover tw-bg-center tw-rounded-lg tw-shadow-lg`}
+              className={`tw-relative tw-min-h-[30vh] tw-w-full tw-bg-cover tw-bg-center tw-rounded-lg tw-shadow-lg tw-animate-fade-left`}
               style={{ backgroundImage: `url(${producto.img})` }}
             >
-              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-blue-950 tw-bg-opacity-40 tw-flex tw-flex-col tw-justify-between tw-p-6 tw-rounded-lg hover:tw-bg-opacity-60 tw-transition-all">
-                <div className="tw-flex-1"></div>{" "}
-                {/* Spacer div to align content */}
-                <h1 className="tw-text-5xl tw-text-white tw-font-extrabold tw-text-center tw-my-6 tw-shadow-lg">
-                  {producto.txt}
-                </h1>
-                <p className="tw-min-h-[10vh] tw-w-full tw-bg-black tw-bg-opacity-35 tw-text-slate-100 tw-font-medium tw-text-sm tw-p-4 tw-rounded-lg shadow-md hover:tw-bg-opacity-50 tw-transition-all">
-                  {producto.descripcion}
-                </p>
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-blue-700 tw-bg-opacity-20 tw-flex tw-flex-col tw-justify-between tw-p-6 tw-rounded-lg hover:tw-bg-opacity-30 tw-transition-all">
+                <div className="tw-flex-1"></div>
+                <div className="tw-min-h-[10vh] tw-w-full tw-bg-black tw-bg-opacity-35 tw-text-slate-100 tw-font-medium tw-text-sm tw-p-4 tw-rounded-lg shadow-md hover:tw-bg-opacity-50 tw-transition-all">
+                  <p>{producto.descripcion}</p>
+                </div>
               </div>
             </div>
-          </>
+          </section>
         )}
-      </section>
-      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10  tw-min-h-[40vh]">
-        <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
+        <section className="tw-col-span-9 lg:tw-col-span-6 ">
           {loading ? (
             <>
               <Cargando />
@@ -117,7 +112,7 @@ function Productos() {
                 </div>
               ) : (
                 <>
-                  <div className="lg:tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-xl lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600  lg:tw-mt-0">
+                  <div className="tw-p-3">
                     <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
                       Resultados ({filteredDestinos.length})
                     </h3>
