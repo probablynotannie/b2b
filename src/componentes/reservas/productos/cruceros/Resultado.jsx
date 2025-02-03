@@ -11,7 +11,7 @@ import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async (newRequestData) => {
   const response = await fetch(
-    "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&idZona=19&idNav=0&idPuerto=0&fechaSalida=0&duracionCru=0&json=1"
+    "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
   );
   const pruebita = await fetch(
     "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
@@ -20,17 +20,18 @@ const fetchData = async (newRequestData) => {
     throw new Error("Error cargando datos");
   }
   const data = await response.json();
-  const data2 = await pruebita.json();
-  console.log(data2);
+  console.log(data);
 
   if (
-    Number(data.idZona) === newRequestData.idZona &&
-    data.idPuerto === newRequestData.idPuerto &&
-    data.idNav === newRequestData.idNav &&
-    data.fechSal === newRequestData.fechSal &&
-    data.duracion === newRequestData.duracion
+    (newRequestData.idZona === 0 ||
+      Number(data.idZona) === newRequestData.idZona) &&
+    (newRequestData.idPuerto === 0 ||
+      data.idPuerto === newRequestData.idPuerto) &&
+    (newRequestData.idNav === 0 || data.idNav === newRequestData.idNav) &&
+    (newRequestData.fechSal === 0 || data.fechSal === newRequestData.fechSal) &&
+    (newRequestData.duracion === 0 || data.duracion === newRequestData.duracion)
   ) {
-    return data;
+    return data.items;
   } else {
     return null;
   }
@@ -67,7 +68,6 @@ function Productos() {
           </aside>
         </div>
       </div>
-
       <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
         {newRequestData.img && (
           <section className="tw-mb-10">
