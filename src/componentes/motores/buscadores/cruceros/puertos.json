@@ -1,0 +1,45 @@
+[
+  {
+    "id_puerto": 43,
+    "id_pais": 8,
+    "name_puerto": 0,
+    "descripcion": 3461,
+    "img_puerto_header": "cruceros/puertosDestacados/mlg.jpg",
+    "origen": 0,
+    "codigo": null,
+    "destacado": 1,
+    "ordenPuerto": 9,
+    "activ": 1,
+    "name": "Málaga (España)",
+    "id_texto": 0,
+    "id_idioma": 1,
+    "texto": "\t\t\t",
+    "nombre": {
+      "id_texto": 0,
+      "id_idioma": 1,
+      "texto": "MSC WORLD ASIA"
+    }
+  },
+
+  {
+    "id_puerto": 85,
+    "id_pais": 8,
+    "name_puerto": 0,
+    "descripcion": 3563,
+    "img_puerto_header": "cruceros/puertosDestacados/canaria.jpg",
+    "origen": 0,
+    "codigo": null,
+    "destacado": 0,
+    "ordenPuerto": 7,
+    "activ": 1,
+    "name": "Las Palmas de Gran Canaria (España)",
+    "id_texto": 0,
+    "id_idioma": 1,
+    "texto": "MSC WORLD ASIA",
+    "nombre": {
+      "id_texto": 0,
+      "id_idioma": 1,
+      "texto": "MSC WORLD ASIA"
+    }
+  }
+]

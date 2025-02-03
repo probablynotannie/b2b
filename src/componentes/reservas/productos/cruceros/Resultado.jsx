@@ -7,55 +7,48 @@ import PlaceHolder from "../../estructura/skeleton_placeholders/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 import destinos from "./Destinos.json";
 import { MdCancel } from "react-icons/md";
+import { useQuery } from "@tanstack/react-query";
+
+const fetchData = async (newRequestData) => {
+  const response = await fetch(
+    "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&idZona=19&idNav=0&idPuerto=0&fechaSalida=0&duracionCru=0&json=1"
+  );
+  const pruebita = await fetch(
+    "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
+  );
+  if (!response.ok) {
+    throw new Error("Error cargando datos");
+  }
+  const data = await response.json();
+  const data2 = await pruebita.json();
+  console.log(data2);
+
+  if (
+    Number(data.idZona) === newRequestData.idZona &&
+    data.idPuerto === newRequestData.idPuerto &&
+    data.idNav === newRequestData.idNav &&
+    data.fechSal === newRequestData.fechSal &&
+    data.duracion === newRequestData.duracion
+  ) {
+    return data;
+  } else {
+    return null;
+  }
+};
 
 function Productos() {
   const location = useLocation();
-  const { newRequestData = {}, producto = null } = location.state || {};
-  console.log("Location state:", location);
-
+  const { newRequestData = {} } = location.state || {};
   const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-
-  const filteredDestinos = destinos.filter((destino) => {
-    const mesSeleccionado = newRequestData.mes;
-    const puertoSeleccionado = newRequestData.puerto?.toLowerCase();
-    const destinoSeleccionado = newRequestData.destino?.toLowerCase();
-    const navieraSeleccionado = newRequestData.naviera?.toLowerCase();
-    const encontrarPuerto =
-      !puertoSeleccionado ||
-      destino.puerto.toLowerCase().includes(puertoSeleccionado);
-    const encontrarDestino =
-      !destinoSeleccionado ||
-      destino.destino.toLowerCase().includes(destinoSeleccionado);
-    const todosLosMeses = destino.precios.flatMap((precio) =>
-      precio.preciosConFechas
-        .map((p) => p.fecha.split("/")[1])
-        .concat(
-          precio.subPrecios?.flatMap((sub) =>
-            sub.preciosConFechas.map((p) => p.fecha.split("/")[1])
-          ) || []
-        )
-    );
-    const encontrarMes =
-      !mesSeleccionado || todosLosMeses.includes(mesSeleccionado);
-    const encontrarNaviera =
-      !navieraSeleccionado ||
-      destino.naviera.toLowerCase().includes(navieraSeleccionado);
-    return (
-      encontrarPuerto && encontrarDestino && encontrarMes && encontrarNaviera
-    );
+  const { data, isLoading, isError, error } = useQuery({
+    queryKey: ["crucerosData", newRequestData],
+    queryFn: () => fetchData(newRequestData),
   });
-
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10">
       <div
@@ -75,49 +68,50 @@ function Productos() {
         </div>
       </div>
 
-      <article className="lg:tw-gap-10 xs:gap-28  tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
-        {producto && (
+      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
+        {newRequestData.img && (
           <section className="tw-mb-10">
             <h1 className="tw-text-2xl tw-text-secondary tw-font-extrabold tw-mb-5 ">
-              {producto.txt}
+              {newRequestData.titulo}
             </h1>
             <div
               className={`tw-relative tw-min-h-[30vh] tw-w-full tw-bg-cover tw-bg-center tw-rounded-lg tw-shadow-lg tw-animate-fade-left`}
-              style={{ backgroundImage: `url(${producto.img})` }}
+              style={{ backgroundImage: `url(${newRequestData.img})` }}
             >
               <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-blue-700 tw-bg-opacity-20 tw-flex tw-flex-col tw-justify-between tw-p-6 tw-rounded-lg hover:tw-bg-opacity-30 tw-transition-all">
                 <div className="tw-flex-1"></div>
                 <div className="tw-min-h-[10vh] tw-w-full tw-bg-black tw-bg-opacity-35 tw-text-slate-100 tw-font-medium tw-text-sm tw-p-4 tw-rounded-lg shadow-md hover:tw-bg-opacity-50 tw-transition-all">
-                  <p>{producto.descripcion}</p>
+                  {newRequestData.desc}
                 </div>
               </div>
             </div>
           </section>
         )}
         <section className="tw-col-span-9 lg:tw-col-span-6 ">
-          {loading ? (
+          {isLoading ? (
             <>
               <Cargando />
               <PlaceHolder />
             </>
+          ) : isError ? (
+            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-red-500">
+              <p>Error: {error.message}</p>
+            </div>
+          ) : data === null ? (
+            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
+              <MdCancel className="tw-text-4xl tw-text-red-500 tw-animate-bounce" />
+              <p>No hay cruceros con estos datos :(</p>
+            </div>
           ) : (
             <>
-              {filteredDestinos.length === 0 ? (
-                <div
-                  className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col 
-                "
-                >
-                  <MdCancel className="tw-text-4xl tw-text-red-500 tw-animate-bounce" />
-                  <p>No hay cruceros con estos requerimientos :(</p>
-                </div>
-              ) : (
+              {data && (
                 <>
                   <div className="tw-p-3">
                     <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-                      Resultados ({filteredDestinos.length})
+                      Resultados
                     </h3>
                   </div>
-                  <Cruceros Destinos={filteredDestinos} />
+                  <Cruceros destinos={destinos} />
                 </>
               )}
             </>

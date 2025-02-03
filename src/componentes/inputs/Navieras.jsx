@@ -1,28 +1,47 @@
 import { FaShip } from "react-icons/fa";
 
-function Navieras({ destinos, naviera, setNaviera }) {
+function Navieras({ datos, naviera, setNaviera, placeholder }) {
   const handleDestinationChange = (event) => {
-    setNaviera(event.target.value);
+    setNaviera(Number(event.target.value));
   };
-
+  const groupedpuertos = {
+    destacados: datos.filter((zona) => zona.destacado === 1),
+    resto: datos.filter((zona) => zona.destacado === 0),
+  };
   return (
     <div className="tw-relative tw-flex tw-w-full">
       <select
         value={naviera}
         onChange={handleDestinationChange}
-        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
+        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
       >
-        <option value="">Todos los Navieras</option>
-        {destinos.map((group) => (
-          <optgroup key={group.label} label={group.label}>
-            {group.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
+        <option value="">
+          {placeholder ? placeholder : "Todas las navieras"}
+        </option>
+        {groupedpuertos.destacados.length > 0 && (
+          <optgroup label="Destacados">
+            {groupedpuertos.destacados.map((zona) => (
+              <option key={zona.id_naviera} value={zona.id_naviera}>
+                {zona.name}
               </option>
             ))}
           </optgroup>
-        ))}
+        )}
+        {groupedpuertos.resto.length > 0 && (
+          <optgroup
+            label={
+              groupedpuertos.destacados.lenth > 0 ? "El resto" : "Navieras"
+            }
+          >
+            {groupedpuertos.resto.map((zona) => (
+              <option key={zona.id_zona_puertos} value={zona.id_naviera}>
+                {zona.name_naviera}
+              </option>
+            ))}
+          </optgroup>
+        )}
       </select>
+
       <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaShip />
       </div>

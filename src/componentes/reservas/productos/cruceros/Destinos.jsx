@@ -4,7 +4,7 @@ import MapWithJourney from "./filtros/MapWithJourney";
 import { Link } from "react-router-dom";
 import { FaChevronRight } from "react-icons/fa";
 
-function Resultado({ Destinos }) {
+function Resultado({ destinos }) {
   const [activeMap, setActiveMap] = useState({});
   const toggleMap = (id) => {
     setActiveMap((prev) => ({
@@ -85,7 +85,7 @@ function Resultado({ Destinos }) {
   }
   return (
     <section className="tw-pb-12 md:tw-mt-5">
-      {Destinos.map((destino, index) => {
+      {destinos.map((destino, index) => {
         const precioMasBajo = encontrarPrecioMasBajo(destino.precios);
         return (
           <article

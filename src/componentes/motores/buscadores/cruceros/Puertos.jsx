@@ -3,24 +3,31 @@ import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
-import puertos from "./jsons/puertos.json";
+import puertos from "./puertos.json";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
 
 function Puertos({ setRequestData }) {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
+
+  // Filter ports with 'destacado' equal to 1
+  const highlightedPorts = puertos.filter((zona) => zona.destacado === 1);
+
   const handlePortClick = (producto) => {
     const newRequestData = {
-      puerto: producto.val,
-      destino: "",
-      mes: "",
-      duracion: "",
-      naviera: "",
+      puerto: producto.id_puerto,
+      destino: 0,
+      mes: 0,
+      duracion: 0,
+      naviera: 0,
+      img: producto.img_puerto_header,
+      titulo: producto.name,
+      desc: producto.descripcion,
     };
-
+    console.log(producto);
     setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData, producto } });
+    navigate("/listadoCruceros", { state: { newRequestData } });
   };
 
   return (
@@ -42,7 +49,7 @@ function Puertos({ setRequestData }) {
         onSwiper={(swiper) => (swiperRef.current = swiper)}
         className="tw-mt-3"
       >
-        {puertos.map((zona, index) => (
+        {highlightedPorts.map((zona, index) => (
           <SwiperSlide key={index}>
             <div
               className="tw-relative hover:tw-scale-[103%] tw-transition tw-duration-400 lg:tw-h-[18vh] xl:tw-h-[38vh] tw-h-[38vh] tw-cursor-pointer tw-group"
@@ -51,17 +58,17 @@ function Puertos({ setRequestData }) {
               onMouseLeave={() => swiperRef.current?.autoplay.start()}
             >
               <img
-                src={zona.img}
+                src={zona.img_puerto_header || "/default-image.jpg"}
                 className="tw-opacity-90 tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
-                alt="Imagen reserva"
+                alt="Imagen puerto"
               />
               <div
                 className="tw-absolute tw-text-slate-100 tw-text-xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full 
-             tw-bg-blue-700 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-opacity-30
-             dark:hover:tw-orange-900 dark:hover:tw-bg-opacity-75 hover:tw-bg-opacity-20
-             tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded"
+                 tw-bg-blue-700 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-opacity-30
+                 dark:hover:tw-orange-900 dark:hover:tw-bg-opacity-75 hover:tw-bg-opacity-20
+                 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded"
               >
-                {zona.txt}
+                {zona.name}
               </div>
             </div>
           </SwiperSlide>

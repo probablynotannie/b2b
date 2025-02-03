@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { BrowserRouter as Router } from "react-router-dom";
 import Footer from "./componentes/estructura/Footer";
 import Header from "./componentes/estructura/Header";
 import { MantineProvider } from "@mantine/core";

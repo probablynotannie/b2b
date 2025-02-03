@@ -5,85 +5,25 @@ import Input_Navieras from "../../../../inputs/Navieras";
 import Input_Mes from "../../../../inputs/Mes";
 import Input_Duracion from "../../../../inputs/SelectorDias";
 import { FaSearch } from "react-icons/fa";
-
+import datos_destinos from "../../../../motores/buscadores/cruceros/destinos.json";
+import datos_puertos from "../../../../motores/buscadores/cruceros/puertos.json";
+import datos_navieras from "../../../../motores/buscadores/cruceros/navieras.json";
 function Buscador() {
   const [destino, setDestino] = useState("");
+  const [mes, setMes] = useState("");
+  const [duracion, setDuracion] = useState(2);
   const [puerto, setPuerto] = useState("");
   const [naviera, setNaviera] = useState("");
-  const [duracion, setDuracion] = useState("");
-  const listadoNavieras = [
-    {
-      label: "Destacados",
-      options: [
-        { value: "Mediterraneo", label: "Mediterraneo" },
-        {
-          value: "Norte de Europa y Fiordos",
-          label: "Norte de Europa y Fiordos",
-        },
-        { value: "Posicionales", label: "Posicionales" },
-      ],
-    },
-    {
-      label: "Resto",
-      options: [
-        { value: "Africa", label: "Africa" },
-        { value: "Caribe", label: "Caribe" },
-        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
-        { value: "Persian Gulf", label: "Persian Gulf" },
-        { value: "Round World", label: "Round World" },
-      ],
-    },
-  ];
-  const listadoPuertos = [
-    {
-      label: "Destacados",
-      options: [
-        { value: "Mediterraneo", label: "Mediterraneo" },
-        {
-          value: "Norte de Europa y Fiordos",
-          label: "Norte de Europa y Fiordos",
-        },
-        { value: "Posicionales", label: "Posicionales" },
-      ],
-    },
-    {
-      label: "Resto",
-      options: [
-        { value: "Africa", label: "Africa" },
-        { value: "Caribe", label: "Caribe" },
-        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
-        { value: "Persian Gulf", label: "Persian Gulf" },
-        { value: "Round World", label: "Round World" },
-      ],
-    },
-  ];
 
-  const [mes, setMes] = useState();
+  const [requestData, setRequestData] = useState({
+    idZona: 0,
+    fechSal: 0,
+    duracion: 0,
+    idPuerto: 0,
+    idNav: 0,
+  });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const destinos = [
-    {
-      label: "Destacados",
-      options: [
-        { value: "Mediterraneo", label: "Mediterraneo" },
-        {
-          value: "Norte de Europa y Fiordos",
-          label: "Norte de Europa y Fiordos",
-        },
-        { value: "Posicionales", label: "Posicionales" },
-      ],
-    },
-    {
-      label: "Resto",
-      options: [
-        { value: "Africa", label: "Africa" },
-        { value: "Caribe", label: "Caribe" },
-        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
-        { value: "Persian Gulf", label: "Persian Gulf" },
-        { value: "Round World", label: "Round World" },
-      ],
-    },
-  ];
   return (
     <>
       <button
@@ -124,21 +64,21 @@ function Buscador() {
           <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Destinos
-                destinos={destinos}
+                datos={datos_destinos}
                 destino={destino}
                 setDestino={setDestino}
               />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Puertos
-                destinos={listadoPuertos}
+                datos={datos_puertos}
                 puerto={puerto}
                 setPuerto={setPuerto}
               />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Navieras
-                destinos={listadoNavieras}
+                datos={datos_navieras}
                 naviera={naviera}
                 setNaviera={setNaviera}
               />
@@ -175,21 +115,21 @@ function Buscador() {
         <div className="tw-grid tw-grid-cols-12 tw-gap-3">
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Destinos
-              destinos={destinos}
+              datos={datos_destinos}
               destino={destino}
               setDestino={setDestino}
             />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Puertos
-              destinos={listadoPuertos}
+              datos={datos_puertos}
               puerto={puerto}
               setPuerto={setPuerto}
             />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Navieras
-              destinos={listadoNavieras}
+              datos={datos_navieras}
               naviera={naviera}
               setNaviera={setNaviera}
             />

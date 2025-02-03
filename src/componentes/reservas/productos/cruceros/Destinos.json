@@ -9,6 +9,11 @@
     "crucero": "/cruceros/crucero.jpg",
     "puerto": "malaga",
     "destino": "mediterraneo",
+    "idZona": 19,
+    "idNav": 0,
+    "idPuerto": 0,
+    "fechSal": 0,
+    "duracion": 0,
     "nombreCrucero": "MSC Lirica",
     "logo": "/cruceros/msc.jpg",
     "incluidos": [

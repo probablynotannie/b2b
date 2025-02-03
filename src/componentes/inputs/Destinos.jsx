@@ -1,10 +1,13 @@
 import { FaMap } from "react-icons/fa";
 
-function Destinos({ destinos, placeholder, destino, setDestino }) {
+function Destinos({ placeholder, destino, setDestino, datos }) {
   const handleDestinationChange = (event) => {
-    setDestino(event.target.value);
+    setDestino(Number(event.target.value));
   };
-
+  const groupedDestinos = {
+    destacados: datos.filter((zona) => zona.destacado === 1),
+    resto: datos.filter((zona) => zona.destacado === 0),
+  };
   return (
     <div className="tw-relative tw-flex tw-w-full">
       <select
@@ -15,16 +18,30 @@ function Destinos({ destinos, placeholder, destino, setDestino }) {
         <option value="">
           {placeholder ? placeholder : "Todos los destinos"}
         </option>
-        {destinos.map((group) => (
-          <optgroup key={group.label} label={group.label}>
-            {group.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
+        {groupedDestinos.destacados.length > 0 && (
+          <optgroup label="Destacados">
+            {groupedDestinos.destacados.map((zona) => (
+              <option key={zona.id_zona_destino} value={zona.id_zona_destino}>
+                {zona.name}
               </option>
             ))}
           </optgroup>
-        ))}
+        )}
+        {groupedDestinos.resto.length > 0 && (
+          <optgroup
+            label={
+              groupedDestinos.destacados.lenth > 0 ? "Destinos" : "El resto"
+            }
+          >
+            {groupedDestinos.resto.map((zona) => (
+              <option key={zona.id_zona_destino} value={zona.id_zona_destino}>
+                {zona.name}
+              </option>
+            ))}
+          </optgroup>
+        )}
       </select>
+
       <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaMap />
       </div>
