@@ -1,11 +1,11 @@
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
-import Cruceros from "./Destinos";
+import Cruceros from "./Destinos2";
 import { useLocation } from "react-router-dom";
 import { useEffect, useState } from "react";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import destinos from "./Destinos.json";
+import destinos from "./cruceros.json";
 import { MdCancel } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 
@@ -13,9 +13,7 @@ const fetchData = async (newRequestData) => {
   const response = await fetch(
     "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
   );
-  const pruebita = await fetch(
-    "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
-  );
+
   if (!response.ok) {
     throw new Error("Error cargando datos");
   }
@@ -26,10 +24,13 @@ const fetchData = async (newRequestData) => {
     (newRequestData.idZona === 0 ||
       Number(data.idZona) === newRequestData.idZona) &&
     (newRequestData.idPuerto === 0 ||
-      data.idPuerto === newRequestData.idPuerto) &&
-    (newRequestData.idNav === 0 || data.idNav === newRequestData.idNav) &&
-    (newRequestData.fechSal === 0 || data.fechSal === newRequestData.fechSal) &&
-    (newRequestData.duracion === 0 || data.duracion === newRequestData.duracion)
+      Number(data.idPuerto) === newRequestData.idPuerto) &&
+    (newRequestData.idNav === 0 ||
+      Number(data.idNav) === newRequestData.idNav) &&
+    (newRequestData.fechSal === 0 ||
+      Number(data.fechSal) === newRequestData.fechSal) &&
+    (newRequestData.duracion === 0 ||
+      Number(data.duracion) === newRequestData.duracion)
   ) {
     return data.items;
   } else {
@@ -106,12 +107,12 @@ function Productos() {
             <>
               {data && (
                 <>
-                  <div className="tw-p-3">
+                  <div className="tw-p-3 tw-px-10">
                     <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-                      Resultados
+                      Resultados ({data.length})
                     </h3>
+                    <Cruceros destinos={data} />
                   </div>
-                  <Cruceros destinos={destinos} />
                 </>
               )}
             </>

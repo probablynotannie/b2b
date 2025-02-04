@@ -1,6 +1,7 @@
 import Buscador from "./filtros/Buscador";
 import { GiCruiser } from "react-icons/gi";
 import Tarifas from "./Tarifa_lista";
+import Tarifas2 from "./Tarifas";
 import Head from "../../estructura/ProductoHeader";
 import { useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
@@ -14,75 +15,51 @@ function Producto() {
   const location = useLocation();
   const producto = location.state;
   const [selectedTab, setSelectedTab] = useState("tarifas");
-
-  const [selectedPrice, setSelectedPrice] = useState(null);
-  const [selectedCabinId, setSelectedCabinId] = useState(null);
-  const [selectedDate, setSelectedDate] = useState(null);
-  const [precio, setPrecio] = useState(0);
   const [pasajeros, setPasajeros] = useState([]);
-  const [endDate, setEndDate] = useState("");
-
-  const calculateEndDate = (startDate, days) => {
-    const [day, month, year] = startDate.split("/").map(Number);
-    const start = new Date(year, month - 1, day);
-    start.setDate(start.getDate() + days);
-    return `${start.getDate()}/${start.getMonth() + 1}/${start.getFullYear()}`;
-  };
-  console.log(pasajeros);
-  useEffect(() => {
-    if (selectedDate) {
-      const newEndDate = calculateEndDate(selectedDate, producto.dias);
-      setEndDate(newEndDate);
-    } else {
-      setEndDate("");
+  const getCruiseImage = (producto) => {
+    if (producto.barco?.img_header_embarcacion) {
+      return producto.barco.img_header_embarcacion;
     }
-  }, [selectedDate, producto.dias]);
+    const firstAvailablePortImage = producto.itin_dias
+      .map((dia) => dia.puerto?.img_puerto_header)
+      .find((img) => img && img.trim() !== "");
 
-  const selectedCabin = producto.precios.find(
-    (row) => row.id === selectedCabinId
-  );
-  const cabinTitle = selectedCabin ? selectedCabin.title : "N/A";
-  const cabinPhotos = selectedCabin ? selectedCabin.habitacionImgs : [];
-
+    return firstAvailablePortImage || "default-image.jpg";
+  };
+  const cruiseImage = getCruiseImage(producto);
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-my-10 tw-px-5 md:tw-px-0">
       <div className="tw-container">
         <Buscador />
         <Head
-          nombre={producto.nombreCrucero}
+          nombre={producto.itinerario.name}
           descripcion={
             <p className="tw-flex tw-items-center">
               <GiCruiser className="tw-text-secondary tw-text-xl tw-mr-1" />
-              {producto.titulo}
+              {producto.num_noches} días a bordo de{" "}
+              {producto.barco.nombre.texto}
             </p>
           }
           boton="Reservar"
         />
-        {/* Cruise Information Section */}
         <article className="tw-mt-5 dark:tw-bg-slate-800 tw-rounded-lg">
-          <section className="tw-flex tw-flex-col md:tw-flex-row tw-gap-10 tw-p-5">
-            <img
-              src={producto.crucero}
-              alt="imagen crucero"
-              className="tw-h-[25vh] tw-shadow-md tw-rounded-xl tw-object-cover"
-            />
-            <div>
+          <section className="tw-grid lg:tw-grid-cols-3 lg:tw-flex-row tw-gap-10 tw-p-5">
+            <div className="tw-relative ">
+              <img
+                src={"//pic-2.vpackage.net/cruceros_img/" + cruiseImage}
+                alt="imagen crucero"
+                className="tw-h-[25vh] tw-w-full tw-shadow-md tw-rounded-xl tw-object-cover"
+              />
+              <div className=" tw-absolute tw-inset-0 tw-bg-indigo-700 tw-bg-opacity-30 tw-rounded-xl" />{" "}
+            </div>
+
+            <div className="lg:tw-col-span-2">
               <h2 className="tw-font-semibold tw-text-lg dark:tw-text-white">
-                {producto.recorrido}
+                {producto.barco.nombre.texto}
               </h2>
               <p className="tw-mt-5 tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm tw-pr-10">
-                {producto.descripcion}
+                {producto.barco.descripcion}
               </p>
-              <div className="tw-flex tw-flex-wrap tw-gap-5 tw-mt-5">
-                {producto.incluidos.map((incluido, index) => (
-                  <span
-                    key={index}
-                    className="tw-p-1 tw-flex tw-items-center tw-justify-center tw-text-center tw-rounded-md tw-text-sm tw-bg-blue-400 tw-text-white tw-font-semibold"
-                  >
-                    {incluido}
-                  </span>
-                ))}
-              </div>
             </div>
           </section>
           <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
@@ -110,11 +87,18 @@ function Producto() {
             </button>
           </div>
 
-          {/* Tab Content */}
-          <section className="tw-p-5">
+          <>
+            <Tarifas2 tarifas={producto.tarifas} />
+          </>
+
+          <>
+            <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
+            <Itinerario producto={producto.itin_dias} />
+          </>
+
+          {/* <section className="tw-p-5">
             {selectedTab === "tarifas" ? (
               <>
-                {/* Pasajeros Section */}
                 <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
                 <Tarifas
                   tasas={producto.tasas}
@@ -179,6 +163,7 @@ function Producto() {
               Selecciona la cabina y personas a bordo
             </div>
           )}
+    */}
         </article>
       </div>
     </main>
