@@ -1,17 +1,16 @@
 import Buscador from "./filtros/Buscador";
 import { GiCruiser } from "react-icons/gi";
-import Tarifas from "./Tarifa_lista";
-import Tarifas2 from "./Tarifas";
+import Tarifas from "./Tarifas";
 import Head from "../../estructura/ProductoHeader";
 import { useLocation } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Pasajeros from "./crucero/Pasajeros";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import Itinerario from "./crucero/Itinerario";
 import { FaMapMarked } from "react-icons/fa";
-
 function Producto() {
+  const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
   const location = useLocation();
   const producto = location.state;
   const [selectedTab, setSelectedTab] = useState("tarifas");
@@ -23,14 +22,26 @@ function Producto() {
     const firstAvailablePortImage = producto.itin_dias
       .map((dia) => dia.puerto?.img_puerto_header)
       .find((img) => img && img.trim() !== "");
-
     return firstAvailablePortImage || "default-image.jpg";
   };
   const cruiseImage = getCruiseImage(producto);
   return (
-    <main className="tw-flex tw-justify-center tw-flex-col tw-my-10 tw-px-5 md:tw-px-0">
+    <main className="tw-flex tw-justify-center tw-flex-col  tw-px-5 md:tw-px-0">
+      <div
+        className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
+        style={{
+          backgroundImage: "url('/banner_cruise.jfif')",
+        }}
+      >
+        <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
+        <div className="tw-flex">
+          <div className="tw-container tw-relative">
+            <Buscador />
+          </div>
+        </div>
+      </div>
+
       <div className="tw-container">
-        <Buscador />
         <Head
           nombre={producto.itinerario.name}
           descripcion={
@@ -52,7 +63,6 @@ function Producto() {
               />
               <div className=" tw-absolute tw-inset-0 tw-bg-indigo-700 tw-bg-opacity-30 tw-rounded-xl" />{" "}
             </div>
-
             <div className="lg:tw-col-span-2">
               <h2 className="tw-font-semibold tw-text-lg dark:tw-text-white">
                 {producto.barco.nombre.texto}
@@ -86,84 +96,44 @@ function Producto() {
               Itinerario
             </button>
           </div>
-
-          <>
-            <Tarifas2 tarifas={producto.tarifas} />
-          </>
-
-          <>
-            <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
-            <Itinerario producto={producto.itin_dias} />
-          </>
-
-          {/* <section className="tw-p-5">
+          <section className="tw-p-5">
             {selectedTab === "tarifas" ? (
               <>
                 <Pasajeros pasajeros={pasajeros} setPasajeros={setPasajeros} />
                 <Tarifas
-                  tasas={producto.tasas}
-                  selectedPrice={selectedPrice}
-                  setSelectedPrice={setSelectedPrice}
-                  selectedDate={selectedDate}
-                  setSelectedDate={setSelectedDate}
-                  selectedCabinId={selectedCabinId}
-                  setSelectedCabinId={setSelectedCabinId}
-                  setPrecio={setPrecio}
-                  precios={producto.precios}
+                  tarifas={producto.tarifas}
+                  precioSeleccionado={precioSeleccionado}
+                  setPrecioSeleccionado={setPrecioSeleccionado}
                 />
-                <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-gap-4 tw-mt-4 tw-p-5">
-                  {cabinPhotos.map((photo, index) => (
-                    <img
-                      key={index}
-                      src={photo}
-                      alt={`Photo ${index + 1} of ${cabinTitle}`}
-                      className="tw-rounded-lg tw-shadow-md hover:tw-shadow-lg tw-object-cover hover:tw-scale-105 tw-transition tw-duration-300"
-                    />
-                  ))}
-                </div>
               </>
             ) : (
-              <Itinerario producto={producto} />
+              <Itinerario producto={producto.itin_dias} />
             )}
           </section>
-          {selectedPrice &&
-          selectedDate &&
-          selectedCabinId &&
-          pasajeros.length !== 0 ? (
-            <div className="tw-mb-4 tw-text-center tw-mt-10 tw-bg-slate-50 dark:tw-bg-transparent tw-border-2 tw-border-slate-100 tw-shadow-lg tw-rounded-lg tw-p-5">
+          {precioSeleccionado && pasajeros.length !== 0 ? (
+            <div className="tw-mb-4 tw-text-center tw-mt-10 tw-bg-slate-50 dark:tw-bg-transparent tw-border-2 tw-border-slate-100 dark:tw-border-0 tw-shadow-lg tw-rounded-lg tw-p-5">
               <Link
                 to="/datoscrucero"
                 state={{
                   producto,
-                  cabinPhotos,
                   pasajeros,
-                  selectedDate,
-                  endDate,
-                  selectedPrice,
+                  precioSeleccionado,
                 }}
               >
                 <button className="tw-bg-secondary tw-p-3 tw-px-8 tw-rounded-xl tw-shadow-md tw-text-white tw-font-bold">
                   Total:{" "}
-                  {pasajeros
-                    .reduce((total, pasajero) => {
-                      const discount = pasajero.discount || 0;
-                      return total + selectedPrice * (1 - discount / 100);
-                    }, 0)
-                    .toFixed(2)}
-                  €
+                  {pasajeros.length * precioSeleccionado.price.toFixed(2)} €
                 </button>
               </Link>
               <p className="tw-text-sm tw-mt-3 tw-font-semibold tw-text-slate-500">
-                Ida: {FormatearFecha(selectedDate)} | Vuelta:{" "}
-                {endDate ? FormatearFecha(endDate) : "Fecha no seleccionada"}
+                Salida - {FormatearFecha(precioSeleccionado.date)}
               </p>
             </div>
           ) : (
-            <div className="tw-mb-4 tw-text-red-400 tw-animate-pulse tw-text-center tw-mt-10 tw-shadow-lg tw-rounded-lg tw-p-5">
-              Selecciona la cabina y personas a bordo
+            <div className="tw-mb-4 tw-text-red-400 tw-animate-pulse tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-text-center tw-mt-10 tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-rounded-lg tw-p-5">
+              Selecciona la cabina y pasajeros a bordo
             </div>
           )}
-    */}
         </article>
       </div>
     </main>

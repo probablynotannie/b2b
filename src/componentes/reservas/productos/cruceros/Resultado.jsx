@@ -2,10 +2,8 @@ import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Cruceros from "./Destinos2";
 import { useLocation } from "react-router-dom";
-import { useEffect, useState } from "react";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import destinos from "./cruceros.json";
 import { MdCancel } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 
@@ -18,8 +16,6 @@ const fetchData = async (newRequestData) => {
     throw new Error("Error cargando datos");
   }
   const data = await response.json();
-  console.log(data);
-
   if (
     (newRequestData.idZona === 0 ||
       Number(data.idZona) === newRequestData.idZona) &&
@@ -41,16 +37,11 @@ const fetchData = async (newRequestData) => {
 function Productos() {
   const location = useLocation();
   const { newRequestData = {} } = location.state || {};
-  const [loading, setLoading] = useState(true);
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["crucerosData", newRequestData],
     queryFn: () => fetchData(newRequestData),
   });
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10">
       <div

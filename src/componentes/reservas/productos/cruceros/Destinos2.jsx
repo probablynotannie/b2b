@@ -32,7 +32,7 @@ function Resultado({ destinos }) {
         return (
           <article
             key={index}
-            className="tw-bg-slate-100 tw-shadow-xl tw-border-2 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
+            className="dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow-xl tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
           >
             <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary tw-rounded-tr-xl tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
               <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
@@ -73,7 +73,7 @@ function Resultado({ destinos }) {
                   return (
                     <div
                       key={destination.puerto.id_puerto}
-                      className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-border-lg tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
+                      className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-border-lg dark:tw-border-slate-800 tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
                         isLast ? "tw-rounded-tr-lg" : ""
                       }`}
                       style={{
@@ -97,13 +97,13 @@ function Resultado({ destinos }) {
             </div>
             <Link to="/crucero" state={destino}>
               <div className="tw-px-5 tw-py-3 ">
-                <h4 className="tw-font-semibold tw-text-lg">
+                <h4 className="tw-font-semibold tw-text-lg dark:tw-text-slate-100">
                   {destino.itinerario.name}
                 </h4>
-                <p className="tw-text-sm tw-text-slate-400">
+                <p className="tw-text-sm tw-text-slate-400 dark:tw-text-slate-300">
                   {destino.itinerario.name}
                 </p>
-                <p className="tw-text-sm tw-text-slate-500 tw-my-3 tw-line-clamp-3">
+                <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
               </div>
@@ -117,7 +117,7 @@ function Resultado({ destinos }) {
                       <h5 className="tw-text-slate-700 tw-font-bold dark:tw-text-slate-300 tw-text-center tw-text-sm">
                         {tarifa.Camarotes.name}
                       </h5>
-                      <div className="tw-text-sm tw-bg-slate-200 xs:tw-w-fit tw-px-12 md:tw-px-16 dark:tw-bg-slate-900 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-flex-col tw-border tw-border-slate-200 tw-rounded-lg">
+                      <div className="tw-text-sm tw-bg-slate-200 xs:tw-w-fit tw-px-12 md:tw-px-16 dark:tw-bg-slate-900 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-flex-col  tw-border tw-border-slate-200 tw-rounded-lg">
                         <span className="tw-font-bold tw-text-xs">
                           {proximaSalida}
                         </span>
@@ -132,7 +132,7 @@ function Resultado({ destinos }) {
             </Link>
             <div className="tw-flex tw-justify-end tw-mt-5">
               <Link to="/crucero" state={destino}>
-                <button className="tw-bg-slate-700 tw-text-white tw-p-2 tw-rounded-br-lg">
+                <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
                   Desde {precioMasBajo}
                   <span className="tw-text-xs  tw-flex tw-items-center tw-gap-1">
                     + tasas <FaChevronRight />

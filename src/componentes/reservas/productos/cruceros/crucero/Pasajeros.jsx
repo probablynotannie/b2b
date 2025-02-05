@@ -31,7 +31,7 @@ function Reserva({ pasajeros, setPasajeros }) {
   }
 
   return (
-    <div className="tw-min-h-[10vh] tw-my-10 tw-p-6 tw-rounded-lg tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
+    <div className="tw-min-h-[10vh] tw-my-10 tw-p-6 tw-rounded-lg tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300">
       <div className="tw-mb-5">
         <span className="tw-font-semibold dark:tw-text-secondary tw-text-lg">
           Seleccionar Pasajeros
