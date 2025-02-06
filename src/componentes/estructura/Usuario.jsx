@@ -10,7 +10,7 @@ function Usuario() {
     <Popover
       aria-labelledby="profile-popover"
       content={
-        <div className="tw-w-64 tw-p-3 tw-bg-white dark:tw-bg-slate-800">
+        <div className="tw-w-64 tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-rounded-lg tw-border-slate-400  dark:tw-border-slate-600">
           <div className="tw-border-b-2 tw-border-slate-100 tw-pb-2 tw-mb-2 tw-flex tw-items-center tw-justify-between">
             <span className="tw-font-bold text-primary dark:tw-text-slate-100">
               vpk desarrollo

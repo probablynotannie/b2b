@@ -118,7 +118,7 @@ function Resultado({ destinos }) {
                         {tarifa.Camarotes.name}
                       </h5>
                       <div className="tw-text-sm tw-bg-slate-200 xs:tw-w-fit tw-px-12 md:tw-px-16 dark:tw-bg-slate-900 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-flex-col  tw-border tw-border-slate-200 tw-rounded-lg">
-                        <span className="tw-font-bold tw-text-xs">
+                        <span className="tw-font-bold tw-text-xs dark:tw-text-slate-400">
                           {proximaSalida}
                         </span>
                         <p className="tw-text-center tw-text-green-700 tw-flex-col dark:tw-text-green-500 tw-font-bold">
