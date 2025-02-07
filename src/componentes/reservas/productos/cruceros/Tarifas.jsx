@@ -16,17 +16,15 @@ const formatPrice = (price) =>
   price === "-"
     ? "-"
     : `${parseFloat(price).toFixed(2).toLocaleString("es-ES")}€`;
-
 const transformTarifas = (tarifas) => {
   const categoriesMap = new Map();
-
+  console.log(tarifas);
   tarifas.forEach((tarifa) => {
-    const categoryKey = tarifa.Camarotes.tipo_camarote;
     const cabinId = tarifa.Camarotes.id_camarote;
-    const cabina = tarifa.Camarotes.name;
-    const price = tarifa.precio;
+    const cabina = tarifa.Camarotes.tipo_camarote;
+    const price = tarifa.precio !== "0.00" ? parseFloat(tarifa.precio) : null;
     const date = tarifa.fecha;
-    const tituloCategoria = getNombreCategoria(categoryKey, cabina);
+    const tituloCategoria = getNombreCategoria(cabina);
 
     if (!categoriesMap.has(tituloCategoria)) {
       categoriesMap.set(tituloCategoria, {
@@ -38,25 +36,36 @@ const transformTarifas = (tarifas) => {
 
     let category = categoriesMap.get(tituloCategoria);
     let cabin = category.cabins.find((c) => c.id === cabinId);
+
     if (!cabin) {
-      cabin = { id: cabinId, title: cabina, prices: {} };
+      cabin = { id: cabinId, title: tarifa.Camarotes.name, prices: {} };
       category.cabins.push(cabin);
     }
-
-    cabin.prices[date] = price !== "0.00" ? parseFloat(price) : null;
+    if (cabin.prices[date] === undefined || price < cabin.prices[date]) {
+      cabin.prices[date] = price;
+    }
   });
 
-  return Array.from(categoriesMap.values());
+  return Array.from(categoriesMap.values()).map((category) => {
+    category.cabins.sort((a, b) => {
+      const minPriceA = Math.min(
+        ...Object.values(a.prices).filter((p) => p !== null)
+      );
+      const minPriceB = Math.min(
+        ...Object.values(b.prices).filter((p) => p !== null)
+      );
+      return minPriceA - minPriceB;
+    });
+
+    return category;
+  });
 };
 
-const getNombreCategoria = (tipo, cabina) => {
-  const name = cabina.toLowerCase().trim();
-  if (name.includes("suite")) return "Suite";
-  if (name.includes("suite balcón")) return "Suite con Balcón";
-  if (name.includes("exterior con balcón")) return "Exterior con Balcón";
-  if (name.includes("exterior")) return "Exterior";
-  if (name.includes("interior")) return "Interior";
-  if (name.includes("vista al mar")) return "Vista al mar";
+const getNombreCategoria = (cabina) => {
+  if (cabina === 1) return "Interior";
+  if (cabina === 2) return "Exterior";
+  if (cabina === 3) return "Exterior con balcon";
+  if (cabina === 4) return "Suite";
   return "Otros";
 };
 const getfechasDisponibles = (tarifas) => {
@@ -93,27 +102,12 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
       setPrecioSeleccionado({ price, date, cabin: cabinTitle });
     }
   };
-
-  const getCategoryMinMaxPrices = (category) => {
-    let lowestPrice = Infinity;
-    let highestPrice = -Infinity;
-    category.cabins.forEach((cabin) => {
-      Object.values(cabin.prices).forEach((price) => {
-        if (price !== null && price !== undefined) {
-          if (price < lowestPrice) lowestPrice = price;
-          if (price > highestPrice) highestPrice = price;
-        }
-      });
-    });
-
-    return { lowestPrice, highestPrice };
-  };
-
   return (
-    <>
-      <PriceCarousel precios={precios} />
-
-      <div>
+    <div className="tw-space-y-10 ">
+      <section className="tw-block md:tw-hidden">
+        <PriceCarousel precios={precios} handlePriceClick={handlePriceClick} />
+      </section>
+      <div className="tw-hidden md:tw-block">
         <div className="tw-flex tw-items-center tw-justify-between tw-text-sm dark:tw-text-slate-200">
           <ul className="tw-flex tw-items-center tw-gap-1 ">
             <li className="tw-flex tw-items-center tw-text-sm tw-gap-1">
@@ -165,7 +159,6 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
             </thead>
             <tbody>
               {precios.map((category) => {
-                const { lowestPrice } = getCategoryMinMaxPrices(category);
                 return (
                   <React.Fragment key={category.id}>
                     {category.cabins.length > 1 ? (
@@ -181,28 +174,41 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
                           ) : (
                             <FaPlus className="tw-text-secondary tw-text-[0.6rem]" />
                           )}
-                          {category.title}
+                          <div className="tw-flex-1 tw-overflow-hiddenp">
+                            {category.title}
+                          </div>
                         </td>
+
                         {fechasDisponibles
                           .slice(startIndex, startIndex + fechas_visibles)
-                          .map((date) => (
-                            <td
-                              key={date}
-                              className={`tw-py-2 tw-text-[0.8rem] tw-px-2 tw-border-r tw-border-slate-300 dark:tw-border-slate-600 tw-text-center 
-                           `}
-                            >
-                              {lowestPrice !== Infinity ? (
-                                <span>
-                                  <span className="tw-text-slate-500 dark:tw-text-slate-400">
-                                    desde{" "}
+                          .map((date) => {
+                            const lowestPrice = category.cabins
+                              .map((cabin) => cabin.prices[date])
+                              .filter((price) => price !== null)
+                              .reduce(
+                                (min, current) =>
+                                  current < min ? current : min,
+                                Infinity
+                              );
+
+                            return (
+                              <td
+                                key={date}
+                                className={`tw-py-2 tw-text-[0.8rem] tw-px-2 tw-border-r tw-border-slate-300 dark:tw-border-slate-600 tw-text-center`}
+                              >
+                                {lowestPrice !== Infinity ? (
+                                  <span>
+                                    <span className="tw-text-slate-500 dark:tw-text-slate-400">
+                                      desde{" "}
+                                    </span>
+                                    {formatPrice(lowestPrice)}{" "}
                                   </span>
-                                  {formatPrice(lowestPrice)}{" "}
-                                </span>
-                              ) : (
-                                "-"
-                              )}
-                            </td>
-                          ))}
+                                ) : (
+                                  "-"
+                                )}
+                              </td>
+                            );
+                          })}
                       </tr>
                     ) : (
                       category.cabins.map((cabin) => (
@@ -231,6 +237,7 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
                             .slice(startIndex, startIndex + fechas_visibles)
                             .map((date) => {
                               const price = cabin.prices[date];
+
                               const isSelected =
                                 precioSeleccionado?.date === date &&
                                 precioSeleccionado?.cabin === cabin.title;
@@ -350,7 +357,7 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
           </div>
         </div>
       </div>
-    </>
+    </div>
   );
 }
 

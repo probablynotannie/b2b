@@ -107,7 +107,7 @@ function Resultado({ destinos }) {
                   {destino.barco.descripcion}
                 </p>
               </div>
-              <div className="tw-px-5 tw-grid xs:tw-grid-cols-2 sm:tw-grid-cols-3 md:tw-grid-cols-3 xl:tw-grid-cols-5 tw-gap-5 md:tw-gap-10">
+              <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10">
                 {destino.tarifas.slice(0, 8).map((tarifa) => {
                   const proximaSalida = new Date(
                     tarifa.fecha
