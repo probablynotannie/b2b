@@ -68,14 +68,7 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
                                 : "tw-bg-slate-100 dark:tw-bg-slate-800 dark:tw-text-orange-400 "
                             }`}
                           onClick={() => {
-                            console.log("Calling handlePriceClick...");
                             handlePriceClick(price, date, cabin);
-                            setSelected({
-                              date,
-                              price,
-                              cabin: cabin.title,
-                              tarifaId: cabin.tarifaId,
-                            });
                           }}
                         >
                           <span

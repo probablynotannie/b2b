@@ -443,19 +443,20 @@ function Tarifas({
                     </div>
                   </div>
 
-                  <ul className="dark:tw-text-slate-300 tw-grid tw-grid-cols-2">
+                  <ul className="dark:tw-text-slate-300 tw-grid sm:tw-grid-cols-2">
                     <li>
                       <b> Barco: </b>
                       {producto.barco.nombre.texto}
                     </li>
                     <li>
                       <b> Camarote:</b> {temporal.cabin}
-                      <span className="tw-text-slate-500 tw-text-sm tw-ml-1">
+                      <span className="tw-text-slate-400 tw-text-sm tw-ml-1">
                         (ID:{temporal.datos.camarote})
                       </span>
                     </li>
                     <li>
-                      <b> Tasas:</b> {temporal.datos.tasas}€
+                      <b> Precio:</b> {temporal.price}€{" "}
+                      <span className="tw-text-slate-400"> (por persona)</span>
                     </li>
                     <li>
                       <b> Tasas:</b> {temporal.datos.tasas}€
@@ -482,5 +483,4 @@ function Tarifas({
     </div>
   );
 }
-
 export default Tarifas;
