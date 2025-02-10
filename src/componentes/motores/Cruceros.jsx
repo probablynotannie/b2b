@@ -24,7 +24,7 @@ function Cruceros() {
       <Sidebar />
       <div className="tw-col-span-10 lg:tw-col-span-7  xl:tw-col-span-8 tw-flex-col">
         <div
-          className="tw-relative tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+          className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
             backgroundImage: `url(/banner_cruise.jfif)`,
             backgroundSize: "cover",
@@ -48,7 +48,7 @@ function Cruceros() {
             />
           </div>
         </div>
-        <div className="tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">
+        <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">
           <div className="xl:tw-col-span-1">
             <Zonas setRequestData={setRequestData} requestData={requestData} />
           </div>

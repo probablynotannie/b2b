@@ -36,64 +36,81 @@ function Resultado({ destinos }) {
           >
             <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary tw-rounded-tr-xl tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
               <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
-                Proxima salida: {proximaSalida}
+                Próxima salida: {proximaSalida}
               </div>
-              {destino.barco.img_header_embarcacion &&
-              destino.barco.img_header_embarcacion !== "" &&
-              destino.barco.img_header_embarcacion !==
-                destino.itin_dias[0].puerto.img_puerto_header ? (
-                <div
-                  className="tw-transition-all tw-rounded-tl-xl tw-duration-300 tw-w-full sm:tw-w-[33.33%] hover:tw-w-[50%] tw-min-h-[20vh] tw-border-lg tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center"
-                  style={{
-                    backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${destino.barco.img_header_embarcacion}')`,
-                  }}
-                >
-                  <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-rounded-tl-xl tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
-                    {destino.barco.nombre.texto}
-                  </div>
+              <div
+                className="tw-w-full tw-min-h-[20vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center sm:tw-hidden"
+                style={{
+                  backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${
+                    destino.itin_dias.find((d) => d.puerto.img_puerto_header)
+                      ?.puerto.img_puerto_header
+                  }')`,
+                }}
+              >
+                <div className="tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-font-bold tw-text-center tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
+                  {
+                    destino.itin_dias.find((d) => d.puerto.img_puerto_header)
+                      ?.puerto.name
+                  }
                 </div>
-              ) : (
-                <></>
-              )}
-
-              {destino.itin_dias
-                .filter((destination) => destination.puerto.img_puerto_header)
-                .filter(
-                  (destination, index, self) =>
-                    self.findIndex(
-                      (d) => d.puerto.id_puerto === destination.puerto.id_puerto
-                    ) === index
-                )
-                .slice(0, 4)
-                .map((destination, index, array) => {
-                  const imageWidth = 100 / array.length;
-                  const hoverWidth = imageWidth + 10;
-                  const isLast = index === array.length - 1;
-                  console.log(destination);
-                  return (
-                    <div
-                      key={destination.puerto.id_puerto}
-                      className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-border-lg dark:tw-border-slate-800 tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
-                        isLast ? "tw-rounded-tr-lg" : ""
-                      }`}
-                      style={{
-                        backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${destination.puerto.img_puerto_header}')`,
-                        width: `${imageWidth}%`,
-                        transition: "width 0.3s ease-in-out",
-                      }}
-                      onMouseEnter={(e) =>
-                        (e.currentTarget.style.width = `${hoverWidth}%`)
-                      }
-                      onMouseLeave={(e) =>
-                        (e.currentTarget.style.width = `${imageWidth}%`)
-                      }
-                    >
-                      <div className="md:tw-text-xl tw-text-white tw-bg-slate-800 tw-font-bold tw-text-center tw-bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
-                        {destination.puerto.name} {destination.puerto.id_puerto}
-                      </div>
+              </div>
+              <div className="tw-hidden sm:tw-flex tw-w-full">
+                {destino.barco.img_header_embarcacion &&
+                destino.barco.img_header_embarcacion !== "" &&
+                destino.barco.img_header_embarcacion !==
+                  destino.itin_dias[0].puerto.img_puerto_header ? (
+                  <div
+                    className="tw-transition-all tw-rounded-tl-xl tw-duration-300 tw-w-full sm:tw-w-[33.33%] hover:tw-w-[50%] tw-min-h-[20vh] tw-border-lg tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center"
+                    style={{
+                      backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${destino.barco.img_header_embarcacion}')`,
+                    }}
+                  >
+                    <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-rounded-tl-xl tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
+                      {destino.barco.nombre.texto}
                     </div>
-                  );
-                })}
+                  </div>
+                ) : null}
+
+                {destino.itin_dias
+                  .filter((destination) => destination.puerto.img_puerto_header)
+                  .filter(
+                    (destination, index, self) =>
+                      self.findIndex(
+                        (d) =>
+                          d.puerto.id_puerto === destination.puerto.id_puerto
+                      ) === index
+                  )
+                  .slice(0, 4)
+                  .map((destination, index, array) => {
+                    const imageWidth = 100 / array.length;
+                    const hoverWidth = imageWidth + 10;
+                    const isLast = index === array.length - 1;
+
+                    return (
+                      <div
+                        key={destination.puerto.id_puerto}
+                        className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-border-lg dark:tw-border-slate-800 tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
+                          isLast ? "tw-rounded-tr-lg" : ""
+                        }`}
+                        style={{
+                          backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${destination.puerto.img_puerto_header}')`,
+                          width: `${imageWidth}%`,
+                          transition: "width 0.3s ease-in-out",
+                        }}
+                        onMouseEnter={(e) =>
+                          (e.currentTarget.style.width = `${hoverWidth}%`)
+                        }
+                        onMouseLeave={(e) =>
+                          (e.currentTarget.style.width = `${imageWidth}%`)
+                        }
+                      >
+                        <div className="md:tw-text-xl tw-text-white tw-bg-slate-800 tw-font-bold tw-text-center tw-bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
+                          {destination.puerto.name}
+                        </div>
+                      </div>
+                    );
+                  })}
+              </div>
             </div>
             <Link to="/crucero" state={destino}>
               <div className="tw-px-5 tw-py-3 ">
@@ -113,18 +130,19 @@ function Resultado({ destinos }) {
                     tarifa.fecha
                   ).toLocaleDateString();
                   return (
-                    <div key={tarifa.id}>
-                      <h5 className="tw-text-slate-700 tw-font-bold dark:tw-text-slate-300 tw-text-center tw-text-sm">
+                    <div
+                      key={tarifa.id}
+                      className="tw-flex tw-flex-col tw-items-center tw-text-center tw-gap-1"
+                    >
+                      <h5 className="tw-text-slate-700 tw-font-semibold dark:tw-text-slate-300 tw-text-sm">
                         {tarifa.Camarotes.name}
                       </h5>
-                      <div className="tw-text-sm tw-bg-slate-200 xs:tw-w-fit tw-px-12 md:tw-px-16 dark:tw-bg-slate-900 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-flex-col  tw-border tw-border-slate-200 tw-rounded-lg">
-                        <span className="tw-font-bold tw-text-xs dark:tw-text-slate-400">
-                          {proximaSalida}
-                        </span>
-                        <p className="tw-text-center tw-text-green-700 tw-flex-col dark:tw-text-green-500 tw-font-bold">
-                          {tarifa.precio}€
-                        </p>
-                      </div>
+                      <span className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
+                        {proximaSalida}
+                      </span>
+                      <p className="tw-text-green-700 dark:tw-text-green-500 tw-font-bold tw-text-base">
+                        {tarifa.precio}€
+                      </p>
                     </div>
                   );
                 })}

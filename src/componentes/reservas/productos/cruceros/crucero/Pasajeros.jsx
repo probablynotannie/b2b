@@ -1,13 +1,14 @@
 import { useState } from "react";
-import { FaChevronDown } from "react-icons/fa";
+import { FaChevronDown, FaUser } from "react-icons/fa";
 
-function Reserva({ pasajeros, setPasajeros }) {
+function Reserva({ pasajeros, setPasajeros, restringido }) {
   const [pasajerosInput, setPasajerosInput] = useState(0);
 
   function handlePasajeros(count) {
-    setPasajerosInput(count);
+    const finalCount = restringido === 1 ? 2 : count;
+    setPasajerosInput(finalCount);
 
-    const newPasajeros = Array.from({ length: count }).map((_, index) => ({
+    const newPasajeros = Array.from({ length: finalCount }).map((_, index) => ({
       id: index + 1,
       age: 30,
       discount: 0,
@@ -31,20 +32,23 @@ function Reserva({ pasajeros, setPasajeros }) {
   }
 
   return (
-    <div className="tw-min-h-[10vh] tw-my-10 tw-p-6 tw-rounded-lg tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300">
+    <div className="tw-min-h-[10vh] tw-my-10 tw-p-6 tw-rounded-lg tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-shadow-sm hover:tw-shadow- tw-transition tw-duration-300">
       <div className="tw-mb-5">
         <span className="tw-font-semibold dark:tw-text-secondary tw-text-lg">
           Seleccionar Pasajeros
         </span>
+        <p className="tw-text-slate-500 tw-font-semibold">
+          {restringido === 1 && "Precio restringido a dos personas"}
+        </p>
         <div className="tw-flex tw-gap-2 tw-mt-3">
-          {[1, 2, 3, 4].map((num) => (
+          {(restringido === 1 ? [2] : [1, 2, 3, 4]).map((num) => (
             <button
               key={num}
               onClick={() => handlePasajeros(num)}
               className={`tw-p-2 tw-rounded-lg tw-font-semibold tw-w-12 tw-text-sm ${
                 pasajerosInput === num
                   ? "tw-bg-secondary tw-text-white"
-                  : "tw-bg-slate-200 dark:tw-bg-slate-900 tw-text-slate-700 dark:tw-text-white hover:tw-bg-slate-300 dark:hover:tw-bg-slate-700"
+                  : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-text-slate-700 dark:tw-text-white hover:tw-bg-slate-300 dark:hover:tw-bg-slate-700"
               }`}
             >
               {num}
@@ -78,7 +82,7 @@ function Reserva({ pasajeros, setPasajeros }) {
                     ))}
                   </select>
                   <span className="tw-absolute tw-inset-y-0 tw-right-2 tw-flex tw-text-lg  tw-items-center  tw-pointer-events-none">
-                    <FaChevronDown className="tw-bg-white dark:tw-bg-slate-900 dark:tw-text-white" />
+                    <FaUser className="tw-bg-white dark:tw-bg-slate-900 dark:tw-text-white" />
                   </span>
                 </div>
               </div>

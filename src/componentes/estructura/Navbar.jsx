@@ -21,14 +21,14 @@ const Navbar = () => {
           smooth
         />
       </div>
-      <nav className="tw-mx-auto tw-px-4 tw-py-4 tw-flex tw-justify-between tw-items-center">
-        <div className="tw-flex tw-space-x-3 tw-items-center">
+      <nav className="tw-mx-auto md:tw-px-4 tw-py-4 tw-flex tw-justify-between tw-items-center">
+        <div className="tw-flex md:tw-space-x-3 tw-items-center">
           <Link className="tw-hidden md:tw-block" to="/">
             <img src="./logo.png" className="tw-w-full" alt="Logo" />
           </Link>
           <Menu />
         </div>
-        <div className="tw-flex tw-gap-4">
+        <div className="tw-flex tw-gap-2 md:tw-gap-4">
           <DarkMode />
           <Notificaciones />
           <Usuario />

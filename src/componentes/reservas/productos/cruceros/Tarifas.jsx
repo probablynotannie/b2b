@@ -1,31 +1,30 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { GiCruiser } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import formatearFecha from "../../estructura/FormatearFecha";
 import PriceCarousel from "./crucero/Carousel";
+import { AiFillEuroCircle } from "react-icons/ai";
+import { TbTaxEuro } from "react-icons/tb";
 import {
   FaPlus,
   FaMinus,
   FaChevronLeft,
   FaChevronRight as FaArrowRight,
 } from "react-icons/fa";
-
 const formatPrice = (price) =>
   price === "-"
     ? "-"
     : `${parseFloat(price).toFixed(2).toLocaleString("es-ES")}€`;
 const transformTarifas = (tarifas) => {
   const categoriesMap = new Map();
-  console.log(tarifas);
   tarifas.forEach((tarifa) => {
     const cabinId = tarifa.Camarotes.id_camarote;
     const cabina = tarifa.Camarotes.tipo_camarote;
     const price = tarifa.precio !== "0.00" ? parseFloat(tarifa.precio) : null;
     const date = tarifa.fecha;
     const tituloCategoria = getNombreCategoria(cabina);
-
     if (!categoriesMap.has(tituloCategoria)) {
       categoriesMap.set(tituloCategoria, {
         id: tituloCategoria,
@@ -33,19 +32,22 @@ const transformTarifas = (tarifas) => {
         cabins: [],
       });
     }
-
     let category = categoriesMap.get(tituloCategoria);
     let cabin = category.cabins.find((c) => c.id === cabinId);
-
     if (!cabin) {
-      cabin = { id: cabinId, title: tarifa.Camarotes.name, prices: {} };
+      cabin = {
+        id: cabinId,
+        title: tarifa.Camarotes.name,
+        prices: {},
+        datos: tarifa,
+      };
       category.cabins.push(cabin);
     }
+
     if (cabin.prices[date] === undefined || price < cabin.prices[date]) {
       cabin.prices[date] = price;
     }
   });
-
   return Array.from(categoriesMap.values()).map((category) => {
     category.cabins.sort((a, b) => {
       const minPriceA = Math.min(
@@ -60,7 +62,6 @@ const transformTarifas = (tarifas) => {
     return category;
   });
 };
-
 const getNombreCategoria = (cabina) => {
   if (cabina === 1) return "Interior";
   if (cabina === 2) return "Exterior";
@@ -74,10 +75,16 @@ const getfechasDisponibles = (tarifas) => {
   return Array.from(dates).sort();
 };
 
-function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
+function Tarifas({
+  tarifas,
+  precioSeleccionado,
+  setPrecioSeleccionado,
+  cruiseImage,
+  producto,
+}) {
   const precios = transformTarifas(tarifas);
   const fechasDisponibles = getfechasDisponibles(tarifas);
-  const fechas_visibles = 5;
+  const fechas_visibles = 4;
   const [startIndex, setStartIndex] = useState(0);
   const [categoriasExp, setCategoriasExp] = useState({});
   const toggleCategoria = (categoryId) => {
@@ -96,16 +103,45 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
       setStartIndex(startIndex + 1);
     }
   };
+  const [temporal, setTemporal] = useState(null);
 
-  const handlePriceClick = (price, date, cabinTitle) => {
+  const handlePriceClick = (price, date, cabin) => {
     if (price) {
-      setPrecioSeleccionado({ price, date, cabin: cabinTitle });
+      setIsModalOpen(true);
+      setTemporal({
+        price: price,
+        date: date,
+        cabin: cabin.title,
+        datos: cabin.datos,
+      });
+      console.log(temporal);
     }
   };
+
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.classList.add("no-scroll");
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.classList.remove("no-scroll");
+      document.body.style.overflow = "";
+    }
+
+    return () => {
+      document.body.classList.remove("no-scroll");
+      document.body.style.overflow = "";
+    };
+  }, [isModalOpen]);
+
   return (
-    <div className="tw-space-y-10 ">
+    <div className="tw-space-y-10">
       <section className="tw-block md:tw-hidden">
-        <PriceCarousel precios={precios} handlePriceClick={handlePriceClick} />
+        <PriceCarousel
+          precios={precios}
+          handlePriceClick={handlePriceClick}
+          precioSeleccionado={precioSeleccionado}
+        />
       </section>
       <div className="tw-hidden md:tw-block">
         <div className="tw-flex tw-items-center tw-justify-between tw-text-sm dark:tw-text-slate-200">
@@ -254,7 +290,12 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
                                 <td
                                   key={date}
                                   onClick={() =>
-                                    handlePriceClick(price, date, cabin.title)
+                                    handlePriceClick(
+                                      price,
+                                      date,
+                                      cabin,
+                                      category
+                                    )
                                   }
                                   className={`tw-py-2 tw-px-4 tw-text-center tw-font-medium tw-cursor-pointer tw-transition tw-border-r tw-border-slate-300 dark:tw-border-slate-600
                                   ${
@@ -312,19 +353,26 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
                                 <td
                                   key={date}
                                   onClick={() =>
-                                    handlePriceClick(price, date, cabin.title)
+                                    handlePriceClick(
+                                      price,
+                                      date,
+                                      cabin,
+                                      category
+                                    )
                                   }
                                   className={`tw-py-2 tw-px-4 tw-text-center tw-font-medium tw-cursor-pointer tw-transition tw-border-r tw-border-slate-300 dark:tw-border-slate-600
-                                ${
-                                  isSelected
-                                    ? "tw-bg-blue-100 dark:tw-bg-cyan-800 dark:tw-text-cyan-300 tw-text-blue-900 tw-font-semibold"
-                                    : price === lowestPrice
-                                    ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
-                                    : price === highestPrice &&
-                                      allPrices.length > 1
-                                    ? "tw-text-red-700  dark:tw-text-red-500 tw-font-semibold"
-                                    : ""
-                                }`}
+                                  ${
+                                    isSelected
+                                      ? "tw-bg-blue-100 dark:tw-bg-cyan-800 dark:tw-text-cyan-300 tw-text-blue-900 tw-font-semibold"
+                                      : precioSeleccionado?.price === price
+                                      ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
+                                      : price === lowestPrice
+                                      ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
+                                      : price === highestPrice &&
+                                        allPrices.length > 1
+                                      ? "tw-text-red-700 dark:tw-text-red-500 tw-font-semibold"
+                                      : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
+                                  }`}
                                 >
                                   {price ? formatPrice(price) : "-"}
                                 </td>
@@ -337,6 +385,7 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
               })}
             </tbody>
           </table>
+
           <div className="tw-flex tw-justify-between tw-mt-3">
             <button
               onClick={prevFechas}
@@ -357,6 +406,79 @@ function Tarifas({ tarifas, precioSeleccionado, setPrecioSeleccionado }) {
           </div>
         </div>
       </div>
+      {isModalOpen && (
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-10 tw-h-full">
+          <div className="tw-bg-white tw-rounded-lg tw-p-6 tw-relative tw-w-[90%] tw-max-w-2xl dark:tw-bg-slate-700">
+            <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
+              <h6 className="tw-font-semibold tw-text-lg dark:tw-text-white">
+                {temporal.cabin}
+              </h6>
+              <button
+                className="tw-text-gray-600 dark:tw-text-gray-300 "
+                onClick={() => setIsModalOpen(false)}
+              >
+                ✕
+              </button>
+            </div>
+            <div>
+              <img
+                src={"//pic-2.vpackage.net/cruceros_img/" + cruiseImage}
+                alt="imagen crucero"
+                className="tw-h-[25vh] tw-w-full tw-rounded-xl tw-object-cover tw-my-4"
+              />
+              {temporal && (
+                <div className="tw-mt-5">
+                  <div className="tw-flex tw-justify-around tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-3 tw-mb-3 tw-mt-3">
+                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold ">
+                      <AiFillEuroCircle className="tw-text-3xl" />
+                      {formatPrice(temporal.price)}
+                    </div>
+                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
+                      <FaCalendarAlt className="tw-text-3xl" />
+                      {formatearFecha(temporal.date)}
+                    </div>
+                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
+                      <TbTaxEuro className="tw-text-3xl" />
+                      <span>+ {temporal.datos.tasas}</span>
+                    </div>
+                  </div>
+
+                  <ul className="dark:tw-text-slate-300 tw-grid tw-grid-cols-2">
+                    <li>
+                      <b> Barco: </b>
+                      {producto.barco.nombre.texto}
+                    </li>
+                    <li>
+                      <b> Camarote:</b> {temporal.cabin}
+                      <span className="tw-text-slate-500 tw-text-sm tw-ml-1">
+                        (ID:{temporal.datos.camarote})
+                      </span>
+                    </li>
+                    <li>
+                      <b> Tasas:</b> {temporal.datos.tasas}€
+                    </li>
+                    <li>
+                      <b> Tasas:</b> {temporal.datos.tasas}€
+                    </li>
+                  </ul>
+                </div>
+              )}
+              <button
+                onClick={() => {
+                  if (temporal) {
+                    setPrecioSeleccionado(temporal);
+                    setIsModalOpen(false);
+                  }
+                }}
+                disabled={!temporal}
+                className="tw-bg-secondary tw-font-semibold tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-mt-4"
+              >
+                Confirmar selección
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 }

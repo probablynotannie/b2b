@@ -74,7 +74,7 @@ const Dropdown = () => {
   }, []);
 
   return (
-    <div className="tw-flex tw-space-x-4">
+    <div className="tw-flex md:tw-space-x-4">
       {menu.map((category) => (
         <div
           key={category.key}
