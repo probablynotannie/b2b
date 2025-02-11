@@ -8,7 +8,7 @@ function Contacto({
   extras,
 }) {
   return (
-    <section className="tw-pt-10 tw-mb-10 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700">
+    <section className="tw-py-10 tw-my-10 tw-border-y-2  tw-border-slate-100 dark:tw-border-slate-700">
       <div
         className="tw-bg-cover tw-border-2 dark:tw-border-slate-800 dark:tw-shadow-md dark:tw-shadow-slate-700 tw-shadow-md tw-rounded-xl tw-w-full tw-h-full"
         style={{

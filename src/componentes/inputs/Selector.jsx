@@ -1,16 +1,16 @@
-function Seguros({ values, setValues, opciones, icono, placeholder }) {
+function Selector({ values, setValues, opciones, icono, placeholder }) {
   const handleSeguroChange = (event) => {
     setValues(event.target.value);
   };
 
   return (
-    <div className="relative">
+    <div className="tw-relative">
       <select
-        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400  dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
         value={values}
         onChange={handleSeguroChange}
       >
-        <option value={1}>{placeholder}</option>
+        <option className="tw-text-slate-500" value={1}>{placeholder}</option>
         {opciones.map((seguro) => (
           <option key={seguro.id} value={seguro.id}>
             {seguro.texto}
@@ -18,11 +18,11 @@ function Seguros({ values, setValues, opciones, icono, placeholder }) {
         ))}
       </select>
 
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         {icono}
       </div>
     </div>
   );
 }
 
-export default Seguros;
+export default Selector;

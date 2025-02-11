@@ -14,7 +14,7 @@ function Itinerario({ producto }) {
               <div className="md:tw-flex tw-items-center tw-space-x-4 tw-mb-3">
                 <div className="tw-flex tw-items-center tw-space-x-3 md:tw-space-x-2">
                   <div className="tw-w-8 tw-h-8 tw-flex tw-items-center tw-justify-center">
-                    <FaArrowCircleRight className="tw-text-xl tw-text-secondary tw-bg-white dark:tw-bg-transparent dark:tw-text-white" />
+                    <FaArrowCircleRight className="tw-text-2xl tw-text-secondary tw-bg-white dark:tw-bg-transparent dark:tw-text-white" />
                   </div>
                 </div>
                 <div className="tw-text-slate-500 dark:tw-text-slate-400 tw-ml-4 md:tw-ml-8">

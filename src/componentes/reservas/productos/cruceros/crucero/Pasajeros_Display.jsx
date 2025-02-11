@@ -1,7 +1,7 @@
 import React from "react";
 
-function Pasajeros_Display({ pasajeros, precio, producto }) {
-  console.log("producto", precio.datos.tasas);
+function Pasajeros_Display({ pasajeros, precio }) {
+  console.log(precio)
   return (
     <>
       {" "}

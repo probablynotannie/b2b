@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaChevronDown, FaUser } from "react-icons/fa";
+import { FaUser } from "react-icons/fa";
 
 function Reserva({ pasajeros, setPasajeros, restringido }) {
   const [pasajerosInput, setPasajerosInput] = useState(0);
@@ -18,10 +18,10 @@ function Reserva({ pasajeros, setPasajeros, restringido }) {
   }
 
   function calcularDescuento(age) {
-    if (age < 6) return 100;
-    if (age >= 6 && age <= 16) return 25;
+    if (age < 6) return 0;
+    if (age >= 6 && age <= 16) return 0;
     if (age >= 16 && age <= 60) return 0;
-    if (age > 60) return 60;
+    if (age > 60) return 0;
   }
 
   function handleAgeChange(index, age) {

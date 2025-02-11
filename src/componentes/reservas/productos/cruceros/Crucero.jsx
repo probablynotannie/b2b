@@ -25,8 +25,8 @@ function Producto() {
       .find((img) => img && img.trim() !== "");
     return firstAvailablePortImage;
   };
-  console.log("producto:", producto);
   const cruiseImage = getCruiseImage(producto);
+
   return (
     <>
       <main className="tw-container lg:tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-gap-y-10 tw-my-10 lg:tw-gap-12">
@@ -34,7 +34,9 @@ function Producto() {
           <h1 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
             Reservando el crucero
           </h1>
-          <p className="tw-text-slate-600 dark:tw-text-slate-400 tw-mt-3">{producto.barco?.descripcion}</p>
+          <p className="tw-text-slate-600 dark:tw-text-slate-400 tw-mt-3">
+            {producto.barco?.descripcion}
+          </p>
           <article className="tw-mt-5 w-my-10 tw-rounded-xl tw-shadow">
             <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
               <button
@@ -117,7 +119,6 @@ function Producto() {
               </p>
 
               <Pasajeros_Display
-                producto={producto}
                 pasajeros={pasajeros}
                 precio={precioSeleccionado}
               />
@@ -133,7 +134,7 @@ function Producto() {
                 <div className="tw-flex tw-justify-center">
                   <button className="tw-bg-secondary tw-w-full tw-p-3 tw-px-8 tw-rounded-xl tw-shadow-md tw-text-white tw-font-bold">
                     Total:{" "}
-                    {pasajeros.length * precioSeleccionado.price.toFixed(2)} €
+                    {(pasajeros.length * precioSeleccionado.price).toFixed(2)} €
                   </button>
                 </div>
               </Link>
