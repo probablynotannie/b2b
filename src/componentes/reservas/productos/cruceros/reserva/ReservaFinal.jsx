@@ -5,12 +5,11 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 import Detalles from "./Detalles";
 import DatosContacto from "../../../estructura/DatosContacto";
+import Pasajeros from "./Pasajeros";
 function ReservaFinal() {
   const location = useLocation();
-  const { data, producto, precioSeleccionado, pasajeros } =
-    location.state || {};
-
-  const getCruiseImage = (producto) => {
+  const { data, producto, precioSeleccionado } = location.state || {};
+  const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
     }
@@ -19,19 +18,32 @@ function ReservaFinal() {
       .find((img) => img && img.trim() !== "");
     return firstAvailablePortImage;
   };
-  const cruiseImage = getCruiseImage(producto);
-  const basePricePerPassenger = Number(precioSeleccionado.price);
-  const taxesPerPassenger = Number(precioSeleccionado.datos.tasas);
-  const totalPricePerPassenger = basePricePerPassenger + taxesPerPassenger;
-  const totalPrice = totalPricePerPassenger * pasajeros.length;
+  const imagenCrucero = getImagenCrucero(producto);
+  const precioBase = Number(precioSeleccionado.price);
+  const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
+  const precioTotalPassajero = precioBase + tasasPorPasajero;
+  const precioTotal = precioTotalPassajero * data.pasajeros.length;
 
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
-      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+      <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
         <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
-          <h1 className="tw-font-bold">
-            Barco - {producto.barco.nombre.texto}
-          </h1>
+          <div>
+            <h1 className="tw-font-bold">Reservando Crucero</h1>
+            <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm">
+              {producto.num_dias +
+                " días a bordo de " +
+                producto.barco.nombre.texto}
+            </p>
+          </div>
+          <img
+            className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow dark:tw-shadow-slate-500"
+            src={
+              "//pic-2.vpackage.net/cruceros_img/" +
+              producto.naviera.img_naviera
+            }
+            alt="logoNaviera"
+          />
         </div>
         <DatosContacto
           nombre={data.nombre}
@@ -39,37 +51,39 @@ function ReservaFinal() {
           email={data.email}
           numero={data.numero}
         />
+        <Pasajeros pasajeros={data.pasajeros} />
         <Detalles producto={producto} />
       </section>
-      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
-        <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
-          Resumen
-        </h2>
+      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+        <div className="w-border-b-2  tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-mb-4">
+          <h2 className="tw-font-semibold ">Resumen</h2>
+        </div>
         <Reserva
-          img={"//pic-2.vpackage.net/cruceros_img/" + cruiseImage}
+          img={"//pic-2.vpackage.net/cruceros_img/" + imagenCrucero}
           txt={producto.barco.nombre.texto}
         />
-
         <ul className="tw-mt-3 tw-text-sm dark:tw-text-white">
           <li className="tw-text-start tw-flex tw-items-center tw-gap-1">
             <SiMentorcruise className="tw-text-secondary tw-text-lg" />
             {FormatearFecha(precioSeleccionado.date)}
           </li>
         </ul>
-
-        {pasajeros.map((pasajero, index) => {
+        {data.pasajeros.map((pasajero, index) => {
           const discountedPrice = precioSeleccionado.price.toFixed(2);
           return (
             <div
               key={index}
-              className="tw-border-b tw-flex tw-text-sm tw-justify-between tw-items-end dark:tw-border-slate-700 tw-py-2"
+              className="tw-border-b tw-flex tw-text-sm tw-justify-between tw-items-end dark:tw-border-slate-700 tw-py-2 tw-my-2"
             >
               <div>
                 <h4 className="dark:tw-text-white tw-font-semibold tw-text-base">
                   Pasajero {index + 1}
                 </h4>
-                <span className="dark:tw-text-slate-300 tw-block tw-text-sm">
-                  Edad: {pasajero.age}
+                <span className="dark:tw-text-slate-300 tw-block">
+                  Base: {Number(discountedPrice).toFixed(2)}€
+                </span>
+                <span className="dark:tw-text-slate-300 tw-block">
+                  Tasas: {Number(precioSeleccionado.datos.tasas).toFixed(2)}€
                 </span>
               </div>
               <span className="dark:tw-text-white tw-font-semibold">
@@ -89,11 +103,14 @@ function ReservaFinal() {
           state={{
             data,
             producto,
-            pasajeros,
+            precioSeleccionado,
           }}
         >
           <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
-            TOTAL: {totalPrice.toFixed(2)} €
+            TOTAL: {precioTotal.toFixed(2)} €
+          </button>
+          <button className="tw-w-full tw-text-slate-500 tw-mt-1">
+            descargar PDF
           </button>
         </Link>
       </article>

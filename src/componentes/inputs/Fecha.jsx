@@ -5,38 +5,35 @@ import { DatesProvider } from "@mantine/dates";
 import "dayjs/locale/es";
 import InfiniteScrollCalendarSingle from "./movil/InfiniteScrollCalendarSingle";
 
-function Fecha({ fecha, name, setValue }) {
+function Fecha({ fecha, name, setValue, edadSelector }) {
   useEffect(() => {
     if (fecha) {
-      const formattedDate = formatDate(fecha);
-      setValue(name, formattedDate);
+      setValue(name, fecha);
     }
   }, [fecha, name, setValue]);
 
   const handleDateChange = (date) => {
-    const formattedDate = formatDate(date);
-    console.log(name, formattedDate);
-    setValue(name, formattedDate);
+    const formattedDate = date;
+    setValue(name, formattedDate, { shouldValidate: true });
   };
-
-  const formatDate = (date) => {
+  /*   const formatDate = (date) => {
+    console.log(date);
     const d = new Date(date);
     const day = String(d.getDate()).padStart(2, "0");
     const month = String(d.getMonth() + 1).padStart(2, "0");
     const year = d.getFullYear();
-    return `${day}/${month}/${year}`;
-  };
+    return `${year}/${day}/${month}`;
+  }; */
 
   return (
     <div>
-      <div className="md:tw-hidden">
-        <InfiniteScrollCalendarSingle
-          name={name}
-          setValue={setValue}
-          formatDate={formatDate}
-        />
+      <div
+        className={`${edadSelector === true ? "tw-hidden" : "md:tw-hidden"}`}
+      >
+        {edadSelector === true && "holi"}
+        <InfiniteScrollCalendarSingle name={name} setValue={setValue} />
       </div>
-      <div className="tw-hidden md:tw-block">
+      <div className={` ${edadSelector !== true && "tw-hidden md:tw-block"} `}>
         <DatesProvider settings={{ locale: "es" }}>
           <div className="tw-relative">
             <DatePickerInput
@@ -45,7 +42,7 @@ function Fecha({ fecha, name, setValue }) {
               onChange={handleDateChange}
               classNames={{
                 input:
-                  "border bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer",
+                  "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer",
               }}
               styles={(theme) => ({
                 input: {

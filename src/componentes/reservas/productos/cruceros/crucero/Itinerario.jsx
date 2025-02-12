@@ -21,7 +21,8 @@ function Itinerario({ producto }) {
                   <span className="tw-text-slate-900 dark:tw-text-slate-100 tw-font-bold">
                     {itinerario.puerto.name}
                   </span>{" "}
-                  {itinerario.hora_llegada} - {itinerario.hora_salida}
+                  {itinerario.hora_llegada !== "-" && itinerario.hora_llegada} -{" "}
+                  {itinerario.hora_salida !== "-" && itinerario.hora_salida}
                 </div>
               </div>
               <div className="tw-bg-white dark:tw-bg-slate-900 tw-p-4 tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg tw-text-slate-500 tw-shadow tw-ml-10 md:tw-ml-20">
@@ -38,7 +39,7 @@ function Itinerario({ producto }) {
                 <div>
                   <ul className="tw-mt-3">
                     {itinerario.hora_llegada !== "-" && (
-                      <li>
+                      <li className="tw-text-slate-400">
                         llegada:{" "}
                         <span className="tw-font-semibold tw-text-secondary">
                           {itinerario.hora_llegada}
@@ -46,8 +47,8 @@ function Itinerario({ producto }) {
                       </li>
                     )}
                     {itinerario.hora_salida !== "-" && (
-                      <li>
-                        salida:{" "}
+                      <li className="tw-text-slate-400">
+                        salida:
                         <span className="tw-font-semibold tw-text-secondary">
                           {itinerario.hora_salida}
                         </span>

@@ -20,6 +20,8 @@ const Vuelo = () => {
     formState: { errors },
     setValue,
     getValues,
+    setError,
+    clearErrors,
   } = useForm({
     defaultValues: {
       pasajeros: pasajeros,
@@ -48,10 +50,10 @@ const Vuelo = () => {
   const onSubmit = (data) => {
     console.log(data);
     navigate("/reservaCrucero", {
-      state: { data, producto, precioSeleccionado, pasajeros },
+      state: { data, producto, precioSeleccionado },
     });
   };
-  console.log(producto);
+
   const infoPasajeros = (
     <div className="tw-flex tw-flex-wrap tw-justify-center">
       {pasajeros.map((pasajero, index) => (
@@ -64,6 +66,47 @@ const Vuelo = () => {
       ))}
     </div>
   );
+
+  const formatDate = (date) => {
+    const d = new Date(date);
+    const day = String(d.getDate()).padStart(2, "0");
+    const month = String(d.getMonth() + 1).padStart(2, "0");
+    const year = d.getFullYear();
+    return `${day}/${month}/${year}`;
+  };
+
+  const calculateAge = (birthDate) => {
+    const today = new Date();
+    const birthDateObj = new Date(birthDate);
+    console.log(birthDate);
+    let age = today.getFullYear() - birthDateObj.getFullYear();
+    const hasBirthdayOccurred =
+      today.getMonth() > birthDateObj.getMonth() ||
+      (today.getMonth() === birthDateObj.getMonth() &&
+        today.getDate() >= birthDateObj.getDate());
+
+    if (!hasBirthdayOccurred) {
+      age--;
+    }
+    return age;
+  };
+
+  const handleDateChange = (date, index) => {
+    if (!date) return;
+    const formattedDate = formatDate(date);
+    setValue(`pasajeros[${index}].fechaNacimiento`, formattedDate);
+    const calculatedAge = calculateAge(date);
+    const expectedAge = pasajeros[index].age;
+    if (calculatedAge !== expectedAge) {
+      setError(`pasajeros[${index}].fechaNacimiento`, {
+        type: "manual",
+        message: `No coincide con la edad (${expectedAge} años). Calculado: ${calculatedAge} años`,
+      });
+    } else {
+      clearErrors(`pasajeros[${index}].fechaNacimiento`);
+    }
+  };
+
   return (
     <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
       <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-bg-white dark:tw-bg-slate-800">
@@ -114,27 +157,52 @@ const Vuelo = () => {
                 key={index}
                 className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300"
               >
-                <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
-                  Pasajero {index + 1}
-                </h2>
+                {/* 
+                Para que voy a intentar 
+                Quien coño necesita saber tu resolucion pedazo de mamonazo jjj
+                Hombre que eso es personalizado no digo yo..
+                Que gracioso es finjir que estas haciendo algo <3
+                Antes usaba 16000 creo? que ya medirás que coño significa eso tio.
+                Tio que puto pesado es este pavo.
+
+                */}
+                <div>
+                  <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
+                    Pasajero {index + 1}
+                  </h2>
+                  <div className="tw-text-slate-800  dark:tw-text-slate-200 tw-border-b tw-border-slate-200 dark:tw-border-slate-700">
+                    <span className="tw-text-sm">Edad: </span>
+                    <span className="tw-font-semibold">
+                      {pasajero.age}
+                    </span>{" "}
+                  </div>
+                </div>
                 <div className="tw-space-y-3 tw-text-sm tw-mt-4">
                   <div className="tw-grid md:tw-grid-cols-2 tw-gap-3">
                     <Input_Texto
+                      tipo={"Nombre"}
                       name={`pasajeros[${index}].nombre`}
                       register={register}
                       errors={errors}
                     />
                     <Input_Texto
+                      tipo={"Apellido/s"}
                       name={`pasajeros[${index}].apellido`}
                       register={register}
                       errors={errors}
                     />
                   </div>
                   <Fecha
+                    edadSelector={true}
                     fecha={pasajero.fechaNacimiento}
                     name={`pasajeros[${index}].fechaNacimiento`}
-                    setValue={setValue}
+                    setValue={(name, value) => handleDateChange(value, index)}
                   />
+                  {errors.pasajeros?.[index]?.fechaNacimiento && (
+                    <p className="tw-text-red-500 tw-text-sm">
+                      {errors.pasajeros[index].fechaNacimiento.message}
+                    </p>
+                  )}
                   <div className="tw-relative">
                     <select
                       className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"

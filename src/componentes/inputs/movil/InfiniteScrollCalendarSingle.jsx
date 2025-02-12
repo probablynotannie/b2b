@@ -10,7 +10,7 @@ import {
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
-const InfiniteScrollCalendar = ({ name, setValue,formatDate }) => {
+const InfiniteScrollCalendar = ({ name, setValue }) => {
   const [selectedDate, setSelectedDate] = useState(null);
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,8 +33,7 @@ const InfiniteScrollCalendar = ({ name, setValue,formatDate }) => {
 
   const handleDateClick = (date) => {
     setSelectedDate(date);
-    const formattedDate = formatDate(date);
-    setValue(name,formattedDate);
+    setValue(name, date);
     closeModal();
   };
 

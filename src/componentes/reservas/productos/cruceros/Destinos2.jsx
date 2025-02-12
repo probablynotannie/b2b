@@ -114,16 +114,34 @@ function Resultado({ destinos }) {
             </div>
             <Link to="/crucero" state={destino}>
               <div className="tw-px-5 tw-py-3 ">
-                <h4 className="tw-font-semibold tw-text-lg dark:tw-text-slate-100">
-                  {destino.itinerario.name}
-                </h4>
-                <p className="tw-text-sm tw-text-slate-400 dark:tw-text-slate-300">
-                  {destino.itinerario.name}
-                </p>
+                <div className="tw-flex tw-justify-between tw-items-center">
+                  <div>
+                    <h4 className="tw-font-semibold tw-text-lg dark:tw-text-slate-100">
+                      {destino.itinerario.name}
+                    </h4>
+                    <p className="tw-text-sm tw-text-slate-400 dark:tw-text-slate-300">
+                      {destino.itinerario.name}
+                    </p>
+                  </div>
+                  <img
+                    className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow hover:tw-shadow-md tw-transition tw-duration-300 hover:tw-scale-105"
+                    src={
+                      "//pic-2.vpackage.net/cruceros_img/" +
+                      destino.naviera.img_naviera
+                    }
+                    alt="logoNaviera"
+                  />
+                </div>
                 <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
               </div>
+              {destino.pax2ADRestrin === 1 && (
+                <div className="tw-mx-3 tw-p-1 tw-text-white tw-rounded-lg tw-shadow tw-mb-3 tw-w-fit tw-bg-amber-500 tw-text-sm tw-font-semibold">
+                  {" "}
+                  Tarifa restringida a dos personas
+                </div>
+              )}
               <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10">
                 {destino.tarifas.slice(0, 8).map((tarifa) => {
                   const proximaSalida = new Date(
