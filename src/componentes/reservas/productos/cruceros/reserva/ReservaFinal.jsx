@@ -23,7 +23,6 @@ function ReservaFinal() {
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
   const precioTotalPassajero = precioBase + tasasPorPasajero;
   const precioTotal = precioTotalPassajero * data.pasajeros.length;
-
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
@@ -109,10 +108,12 @@ function ReservaFinal() {
           <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             TOTAL: {precioTotal.toFixed(2)} €
           </button>
-          <button className="tw-w-full tw-text-slate-500 tw-mt-1">
+        </Link>
+        <div className="tw-flex tw-justify-center">
+          <button className="tw-w-fit tw-text-slate-500 tw-mt-1">
             descargar PDF
           </button>
-        </Link>
+        </div>
       </article>
     </main>
   );

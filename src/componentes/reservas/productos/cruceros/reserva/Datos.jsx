@@ -75,7 +75,7 @@ const Vuelo = () => {
     return `${day}/${month}/${year}`;
   };
 
-  const calculateAge = (birthDate) => {
+  const calcularEdad = (birthDate) => {
     const today = new Date();
     const birthDateObj = new Date(birthDate);
     console.log(birthDate);
@@ -95,12 +95,12 @@ const Vuelo = () => {
     if (!date) return;
     const formattedDate = formatDate(date);
     setValue(`pasajeros[${index}].fechaNacimiento`, formattedDate);
-    const calculatedAge = calculateAge(date);
+    const edadCalculada = calcularEdad(date);
     const expectedAge = pasajeros[index].age;
-    if (calculatedAge !== expectedAge) {
+    if (edadCalculada !== expectedAge) {
       setError(`pasajeros[${index}].fechaNacimiento`, {
         type: "manual",
-        message: `No coincide con la edad (${expectedAge} años). Calculado: ${calculatedAge} años`,
+        message: `No coincide con la edad del pasajero (${expectedAge} años). Calculado: ${edadCalculada} años`,
       });
     } else {
       clearErrors(`pasajeros[${index}].fechaNacimiento`);
@@ -155,26 +155,15 @@ const Vuelo = () => {
             {pasajeros.map((pasajero, index) => (
               <div
                 key={index}
-                className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300"
+                className="tw-border   dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300"
               >
-                {/* 
-                Para que voy a intentar 
-                Quien coño necesita saber tu resolucion pedazo de mamonazo jjj
-                Hombre que eso es personalizado no digo yo..
-                Que gracioso es finjir que estas haciendo algo <3
-                Antes usaba 16000 creo? que ya medirás que coño significa eso tio.
-                Tio que puto pesado es este pavo.
-
-                */}
                 <div>
                   <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
                     Pasajero {index + 1}
                   </h2>
                   <div className="tw-text-slate-800  dark:tw-text-slate-200 tw-border-b tw-border-slate-200 dark:tw-border-slate-700">
                     <span className="tw-text-sm">Edad: </span>
-                    <span className="tw-font-semibold">
-                      {pasajero.age}
-                    </span>{" "}
+                    <span className="tw-font-semibold">{pasajero.age}</span>
                   </div>
                 </div>
                 <div className="tw-space-y-3 tw-text-sm tw-mt-4">
@@ -185,6 +174,7 @@ const Vuelo = () => {
                       register={register}
                       errors={errors}
                     />
+                    
                     <Input_Texto
                       tipo={"Apellido/s"}
                       name={`pasajeros[${index}].apellido`}
@@ -220,7 +210,7 @@ const Vuelo = () => {
                     </div>
                   </div>
                 </div>
-                <div className="tw-flex tw-items-center tw-justify-end tw-space-x-3 tw-mt-3">
+                <div className="tw-flex tw-items-center tw-justify-end tw-gap-1 tw-space-x-3 tw-mt-3">
                   <button
                     type="button"
                     className={`tw-p-2 tw-rounded-md tw-text-lg ${
@@ -232,6 +222,7 @@ const Vuelo = () => {
                   >
                     <FaMars />
                   </button>
+                  H
                   <button
                     type="button"
                     className={`tw-p-2 tw-rounded-md tw-text-lg ${
@@ -243,6 +234,7 @@ const Vuelo = () => {
                   >
                     <FaVenus />
                   </button>
+                  M
                 </div>
               </div>
             ))}

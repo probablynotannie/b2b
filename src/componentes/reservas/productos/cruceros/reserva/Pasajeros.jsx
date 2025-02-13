@@ -4,10 +4,8 @@ import formatearFecha from "../../../estructura/FormatearFecha";
 function Pasajeros({ pasajeros }) {
   return (
     <section className="tw-my-6 tw-space-y-2">
-    <h3 className="tw-font-semibold">
-        Pasajeros
-    </h3>
-      <div className="tw-grid md:tw-grid-cols-2 tw-gap-5">
+      <h3 className="tw-font-semibold">Pasajeros</h3>
+      <div className="tw-flex tw-flex-wrap tw-gap-7">
         {pasajeros.map((pasajero) => (
           <div
             key={pasajero.id}
@@ -26,7 +24,7 @@ function Pasajeros({ pasajeros }) {
                 <FaMars className="tw-text-4xl" />
               )}
             </div>
-            <div className="tw-p-3 tw-w-full">
+            <div className="tw-p-3 tw-pr-8 tw-w-full ">
               <ul className="tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm">
                 <li className="tw-flex tw-justify-between">
                   <span className="tw-font-semibold tw-text-black dark:tw-text-white">

@@ -1,6 +1,6 @@
 import Reserva from "../../estructura/reserva/Resumen";
 import { GiCruiser } from "react-icons/gi";
-import Tarifas from "./Tarifas";
+import Tarifas from "./crucero/Tarifas";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import Pasajeros from "./crucero/Pasajeros";

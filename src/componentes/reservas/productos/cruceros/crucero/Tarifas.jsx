@@ -3,8 +3,8 @@ import { GiCruiser } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import formatearFecha from "../../estructura/FormatearFecha";
-import PriceCarousel from "./crucero/Carousel";
+import formatearFecha from "../../../estructura/FormatearFecha";
+import PriceCarousel from "./Carousel";
 import { AiFillEuroCircle } from "react-icons/ai";
 import { TbTaxEuro } from "react-icons/tb";
 import {
@@ -442,7 +442,6 @@ function Tarifas({
                       <span>+ {temporal.datos.tasas}</span>
                     </div>
                   </div>
-
                   <ul className="dark:tw-text-slate-300 tw-grid sm:tw-grid-cols-2">
                     <li>
                       <b> Barco: </b>
@@ -460,6 +459,12 @@ function Tarifas({
                     </li>
                     <li>
                       <b> Tasas:</b> {temporal.datos.tasas}€
+                    </li>
+                    <li>
+                      <b> Vuelos:</b>{" "}
+                      {temporal.datos.vuelo_incluido === "1"
+                        ? "Incluidos"
+                        : "No"}
                     </li>
                   </ul>
                 </div>
@@ -480,7 +485,8 @@ function Tarifas({
           </div>
         </div>
       )}
-    </div>
+    </div> 
   );
 }
+
 export default Tarifas;

@@ -7,15 +7,11 @@ import Crucero from "./Crucero";
 function ResumenFinal() {
   const location = useLocation();
   const {
-    datosContacto,
+    data,
     producto,
-    cabinPhotos,
-    pasajeros,
-    selectedDate,
-    endDate,
-    selectedPrice,
+    precioSeleccionado
   } = location.state || {};
-  const numReserva = "aouaguoy76";
+  const numReserva = "AUYGJEAOGPOI153";
 
   return (
     <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
@@ -33,18 +29,15 @@ function ResumenFinal() {
       </section>
       <Crucero
         producto={producto}
-        cabinPhotos={cabinPhotos}
-        pasajeros={pasajeros}
-        selectedDate={selectedDate}
-        endDate={endDate}
-        selectedPrice={selectedPrice}
+        pasajeros={data.pasajeros}
+        selectedPrice={precioSeleccionado}
       />
       <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
         <DatosContacto
-          nombre={datosContacto.nombre}
-          apellidos={datosContacto.apellido}
-          email={datosContacto.email}
-          numero={datosContacto.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
         <div className="tw-mt-10 tw-flex tw-justify-end">
           <Link to={"/"}>
