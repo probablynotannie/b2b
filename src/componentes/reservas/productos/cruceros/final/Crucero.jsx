@@ -1,7 +1,6 @@
 import { GiCruiser } from "react-icons/gi";
 import formatearFecha from "../../../estructura/FormatearFecha";
 import Detalles from "../reserva/Detalles";
-import { FaUser } from "react-icons/fa6";
 import Pasajeros from "../reserva/Pasajeros";
 
 function Crucero({ producto, pasajeros, selectedPrice }) {
@@ -24,9 +23,9 @@ function Crucero({ producto, pasajeros, selectedPrice }) {
         </div>
       </section>
       <Pasajeros pasajeros={pasajeros} />
-
       <Detalles producto={producto} />
     </section>
   );
 }
+
 export default Crucero;

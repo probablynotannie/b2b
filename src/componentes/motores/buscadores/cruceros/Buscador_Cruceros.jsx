@@ -56,7 +56,6 @@ function Buscador_Cruceros({
       {isModalOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white tw-rounded-lg tw-p-6 tw-relative tw-w-[90%] tw-max-w-md dark:tw-bg-slate-700">
-            {/* Close Button */}
             <button
               className="tw-absolute tw-top-3 tw-right-3 tw-text-gray-600 dark:tw-text-gray-300"
               onClick={() => setIsModalOpen(false)}
@@ -122,11 +121,10 @@ function Buscador_Cruceros({
         </div>
       )}
 
-      {/* DESKTOP: Full Search Form */}
       <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-600 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Cruceros
+            Buscador de Cruceros ef
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 lg:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
@@ -168,11 +166,9 @@ function Buscador_Cruceros({
               }}
             />
           </div>
-
-          {/* Search Button */}
           <button
             type="button"
-            className="tw-absolute tw--bottom-7 tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
+            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
             onClick={handleSubmit}
           >
             Buscar

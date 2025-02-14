@@ -28,10 +28,10 @@ function Buscador() {
     <>
       <button
         onClick={toggleModal}
-        className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
+        className="relative w-full p-3 pl-10 text-sm bg-white border-2 rounded-lg cursor-pointer dark:border-slate-700 lg:hidden dark:bg-slate-800 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500"
       >
         Cambiar busqueda
-        <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <span className="absolute top-0 left-0 flex items-center justify-center w-8 h-full text-xl text-white rounded-tl-lg rounded-bl-lg pointer-events-none dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 bg-inputIcon">
           <FaSearch />
         </span>
       </button>
@@ -42,12 +42,12 @@ function Buscador() {
         }`}
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
+          className="w-full h-full bg-white rounded-none shadow-lg  md:w-full md:h-full md:rounded-xl dark:bg-slate-800"
           onClick={(e) => e.stopPropagation()}
         >
           <div>
-            <div className="w-full h-full mx-auto  relative ">
-              <div className="flex justify-between items-center mb-4 bg-primary dark:bg-slate-900  p-5 ">
+            <div className="relative w-full h-full mx-auto ">
+              <div className="flex items-center justify-between p-5 mb-4 bg-primary dark:bg-slate-900 ">
                 <h2 className="text-xl font-bold text-white ">Buscador</h2>
                 <button onClick={toggleModal} className="text-xl text-white">
                   &times;
@@ -79,12 +79,12 @@ function Buscador() {
                 setRoomData={setRoomData}
               />
             </div>
-            <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
-              <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
-                <FaSearch className="text-white text-xl" />
+            <div className="flex justify-end col-span-12 lg:justify-center lg:col-span-1 md:col-span-6">
+              <button className="flex items-center justify-center w-full h-full p-3 px-10 rounded-lg shadow bg-primary dark:bg-slate-900">
+                <FaSearch className="text-xl text-white" />
               </button>
             </div>
-            <div className="flex flex-col justify-center items-center col-span-12 ">
+            <div className="flex flex-col items-center justify-center col-span-12 ">
               <button
                 className="text-2xl rounded-full w-[50px] h-[50px] border-2 mt-10 text-slate-300 border-slate-300"
                 onClick={toggleModal}
@@ -97,8 +97,8 @@ function Buscador() {
         </div>
       </div>
 
-      <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
-        <h2 className="mb-4 font-bold text-xl dark:tw-text-secondary">
+      <div className="hidden p-5 bg-white border-2 shadow-lg lg:block dark:border-slate-800 rounded-xl min-h-28 dark:bg-slate-800">
+        <h2 className="mb-4 text-xl font-bold dark:tw-text-secondary">
           Buscador
         </h2>
         <div className="grid grid-cols-12 gap-3">
@@ -125,9 +125,9 @@ function Buscador() {
               setRoomData={setRoomData}
             />
           </div>
-          <div className="flex lg:justify-end justify-end  lg:col-span-12 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
-            <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
-              <FaSearch className="text-white text-xl" />
+          <div className="flex justify-end col-span-12 lg:justify-end lg:col-span-12 xl:col-span-12 2xl:col-span-1 md:col-span-6 ">
+            <button className="flex items-center justify-center h-full p-3 px-10 rounded-lg shadow bg-primary dark:bg-slate-900">
+              <FaSearch className="text-xl text-white" />
             </button>
           </div>
         </div>

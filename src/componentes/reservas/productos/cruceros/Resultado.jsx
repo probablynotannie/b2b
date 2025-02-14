@@ -55,9 +55,6 @@ function Productos() {
           <div className="tw-container tw-relative">
             <Buscador />
           </div>
-          <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
-            <Aside />
-          </aside>
         </div>
       </div>
       <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
@@ -98,7 +95,7 @@ function Productos() {
             <>
               {data && (
                 <>
-                  <div className="tw-p-3 tw-px-10">
+                  <div className="px-4 tw-p-5 lg:tw-px-10">
                     <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
                       Resultados ({data.length})
                     </h3>

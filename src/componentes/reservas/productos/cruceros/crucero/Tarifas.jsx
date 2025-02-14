@@ -307,7 +307,7 @@ function Tarifas({
                                       ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
                                       : price === highestPrice &&
                                         allPrices.length > 1
-                                      ? "tw-text-red-700 dark:tw-text-red-500 tw-font-semibold"
+                                      ? "tw-text-red-700 dark:tw-text-red-500 dark:tw-bg-slate-800 tw-font-semibold"
                                       : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
                                   }`}
                                 >
@@ -370,7 +370,7 @@ function Tarifas({
                                       ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
                                       : price === highestPrice &&
                                         allPrices.length > 1
-                                      ? "tw-text-red-700 dark:tw-text-red-500 tw-font-semibold"
+                                      ? "tw-text-red-700 dark:tw-text-red-500  tw-font-semibold"
                                       : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
                                   }`}
                                 >
@@ -385,7 +385,6 @@ function Tarifas({
               })}
             </tbody>
           </table>
-
           <div className="tw-flex tw-justify-between tw-mt-3">
             <button
               onClick={prevFechas}
@@ -485,7 +484,7 @@ function Tarifas({
           </div>
         </div>
       )}
-    </div> 
+    </div>
   );
 }
 

@@ -4,7 +4,7 @@ import formatearFecha from "../../../estructura/FormatearFecha";
 function Pasajeros({ pasajeros }) {
   return (
     <section className="tw-my-6 tw-space-y-2">
-      <h3 className="tw-font-semibold">Pasajeros</h3>
+      <h3 className="tw-font-semibold dark:tw-text-slate-100">Pasajeros</h3>
       <div className="tw-flex tw-flex-wrap tw-gap-7">
         {pasajeros.map((pasajero) => (
           <div

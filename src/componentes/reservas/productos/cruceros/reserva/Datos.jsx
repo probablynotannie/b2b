@@ -155,13 +155,13 @@ const Vuelo = () => {
             {pasajeros.map((pasajero, index) => (
               <div
                 key={index}
-                className="tw-border   dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300"
+                className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300"
               >
                 <div>
                   <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
                     Pasajero {index + 1}
                   </h2>
-                  <div className="tw-text-slate-800  dark:tw-text-slate-200 tw-border-b tw-border-slate-200 dark:tw-border-slate-700">
+                  <div className="tw-text-slate-800 dark:tw-text-slate-200 tw-border-b tw-border-slate-200 dark:tw-border-slate-700">
                     <span className="tw-text-sm">Edad: </span>
                     <span className="tw-font-semibold">{pasajero.age}</span>
                   </div>
@@ -174,7 +174,7 @@ const Vuelo = () => {
                       register={register}
                       errors={errors}
                     />
-                    
+
                     <Input_Texto
                       tipo={"Apellido/s"}
                       name={`pasajeros[${index}].apellido`}
@@ -210,7 +210,7 @@ const Vuelo = () => {
                     </div>
                   </div>
                 </div>
-                <div className="tw-flex tw-items-center tw-justify-end tw-gap-1 tw-space-x-3 tw-mt-3">
+                <div className="tw-flex tw-items-center tw-justify-end tw-gap-1 tw-space-x-3 tw-mt-3 dark:tw-text-slate-100">
                   <button
                     type="button"
                     className={`tw-p-2 tw-rounded-md tw-text-lg ${

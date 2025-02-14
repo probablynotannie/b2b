@@ -1,7 +1,5 @@
-import React from "react";
-
 function Pasajeros_Display({ pasajeros, precio }) {
-  console.log(precio)
+  console.log(precio);
   return (
     <>
       {" "}
@@ -10,6 +8,7 @@ function Pasajeros_Display({ pasajeros, precio }) {
         const discountedPrice = (precio.price * (1 - discount / 100)).toFixed(
           2
         );
+
         return (
           <div
             key={index}

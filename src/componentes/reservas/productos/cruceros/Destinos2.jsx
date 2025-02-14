@@ -1,11 +1,9 @@
 import { FaChevronRight } from "react-icons/fa";
-
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
 function Resultado({ destinos }) {
   const encontrarPrecioMasBajo = (tarifas) => {
     let precioMasBajo = Infinity;
-
     tarifas.forEach((tarifa) => {
       const precio = parseFloat(tarifa.precio);
       if (precio < precioMasBajo) precioMasBajo = precio;
@@ -32,9 +30,9 @@ function Resultado({ destinos }) {
         return (
           <article
             key={index}
-            className="dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow-xl tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
+            className="dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow hover:tw-shadow-lg tw-duration-300 tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
           >
-            <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary tw-rounded-tr-xl tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
+            <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary  tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
               <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
                 Próxima salida: {proximaSalida}
               </div>
@@ -85,7 +83,6 @@ function Resultado({ destinos }) {
                     const imageWidth = 100 / array.length;
                     const hoverWidth = imageWidth + 10;
                     const isLast = index === array.length - 1;
-
                     return (
                       <div
                         key={destination.puerto.id_puerto}
@@ -137,9 +134,8 @@ function Resultado({ destinos }) {
                 </p>
               </div>
               {destino.pax2ADRestrin === 1 && (
-                <div className="tw-mx-3 tw-p-1 tw-text-white tw-rounded-lg tw-shadow tw-mb-3 tw-w-fit tw-bg-amber-500 tw-text-sm tw-font-semibold">
-                  {" "}
-                  Tarifa restringida a dos personas
+                <div className="tw-mx-3 tw-p-1 tw-text-white tw-rounded-lg tw-shadow tw-mb-3 tw-w-fit tw-bg-yellow-400 tw-text-sm tw-font-semibold">
+                  Restringida a dos personas
                 </div>
               )}
               <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10">
@@ -170,7 +166,7 @@ function Resultado({ destinos }) {
               <Link to="/crucero" state={destino}>
                 <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
                   Desde {precioMasBajo}
-                  <span className="tw-text-xs  tw-flex tw-items-center tw-gap-1">
+                  <span className="tw-text-xs tw-flex tw-items-center tw-gap-1">
                     + tasas <FaChevronRight />
                   </span>
                 </button>

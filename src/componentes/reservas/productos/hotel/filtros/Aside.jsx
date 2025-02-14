@@ -27,16 +27,16 @@ function Aside() {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:hidden relative border-2 border-gray-200 dark:border-slate-600 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 dark:text-slate-500 shadow-xl"
+        className="tw-relative tw-p-3 tw-bg-white tw-border-2 tw-border-gray-200 tw-shadow-xl lg:tw-hidden dark:tw-border-slate-600 tw-rounded-xl tw-text-slate-700 dark:tw-bg-slate-800 dark:tw-text-slate-500"
       >
-        <IoMdOptions className="text-xl" />
+        <IoMdOptions className="tw-text-xl" />
         {getActiveFiltersCount() > 0 && (
-          <span className="absolute rounded-full tw-bg-secondary text-xs text-white font-bold p-2 -top-7 border">
+          <span className="tw-absolute tw-p-2 tw-text-xs tw-font-bold tw-text-white tw-border tw-rounded-full tw-bg-secondary -tw-top-7">
             {`(${getActiveFiltersCount()})`}
           </span>
         )}
       </button>
-      <div className="hidden lg:block">
+      <div className="tw-hidden lg:tw-block">
         <SidebarContent
           reembolsable={reembolsable}
           setReembolsable={setReembolsable}
@@ -54,16 +54,16 @@ function Aside() {
 
       {isModalOpen && (
         <div
-          className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50"
+          className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50"
           onClick={() => setIsModalOpen(false)}
         >
           <div
-            className="relative bg-white w-full dark:bg-slate-800 h-full lg:h-auto lg:max-w-md rounded-lg shadow-lg overflow-y-auto"
+            className="tw-relative tw-w-full tw-h-full tw-overflow-y-auto tw-bg-white tw-rounded-lg tw-shadow-lg dark:tw-bg-slate-800 lg:tw-h-auto lg:tw-max-w-md"
             onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsModalOpen(false)}
-              className="absolute top-4 text-xl right-4 text-white hover:text-gray-700"
+              className="tw-absolute tw-text-xl tw-text-white tw-top-4 tw-right-4 hover:tw-text-gray-700"
             >
               ×
             </button>
@@ -101,76 +101,68 @@ function SidebarContent({
 }) {
   return (
     <div>
-      <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
-        <h3 className="font-semibold text-white lg:text-secondary text-xl ">
-          Filtrado
+      <div className="tw-flex tw-items-center tw-justify-between tw-p-5 tw-mb-4 tw-border-b-2 tw-bg-primary lg:tw-bg-inherit lg:tw-p-3 dark:tw-border-slate-600">
+        <h3 className="tw-text-xl tw-font-semibold tw-text-white lg:tw-text-secondary">
+          Filtrado ef
         </h3>
       </div>
-      <div className="p-6 lg:p-3 lg:pt-1">
+      <div className="tw-p-6 lg:tw-p-3 lg:tw-pt-1">
         <div>
           <label
             htmlFor="first_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-slate-400"
+            className="tw-block tw-mb-2 tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-slate-400"
           >
             Nombre de hotel
           </label>
           <input
             type="text"
             id="first_name"
-            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full"
+            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full"
             required
           />
         </div>
-        <div className="mt-3 flex">
-          <label className="inline-flex justify-between w-full items-center">
-            <span className="text-sm font-medium text-gray-900 dark:tw-text-secondary">
+        <div className="tw-flex tw-mt-3">
+          <label className="tw-inline-flex tw-items-center tw-justify-between tw-w-full">
+            <span className="tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-secondary">
               Reembolsable
             </span>
             <input
               type="checkbox"
               checked={reembolsable}
               onChange={() => setReembolsable(!reembolsable)}
-              className="sr-only peer"
+              className="tw-sr-only tw-peer"
             />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:tw-bg-secondary"></div>
+            <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-700 tw-peer-focus:tw-outline-none tw-peer-focus:tw-ring-4 tw-peer-focus:tw-ring-blue-300 tw-rounded-full tw-peer tw-peer-checked:after:tw-translate-x-full rtl:tw-peer-checked:after:-tw-translate-x-full tw-peer-checked:after:tw-border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all dark:tw-border-gray-600 tw-peer-checked:tw-bg-secondary"></div>
           </label>
         </div>
-        <div className="mx-3 mt-5">
+        <div className="tw-mx-3 tw-mt-5">
           <PrecioRange values={values} setValues={setValues} />
         </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold dark:tw-text-secondary">
+        <div className="tw-mt-5">
+          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
             Categoría de Hotel
           </span>
-          <div className="mt-2">
+          <div className="tw-mt-2">
             <Estrellas
               onChange={(selectedStars) => setSelectedStars(selectedStars)}
             />
           </div>
         </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold dark:tw-text-secondary">
+        <div className="tw-mt-5">
+          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
             Régimen
           </span>
-          <div className="mt-2">
+          <div className="tw-mt-2">
             <Regimenes selected={selectedRegimenes} onChange={setRegimenes} />
           </div>
         </div>
-        <div className="mt-5">
-          <span className="text-sm font-semibold dark:tw-text-secondary">
+        <div className="tw-mt-5">
+          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
             Localidades
           </span>
-          <div className="mt-2">
+          <div className="tw-mt-2">
             <Localidades selected={localidades} onChange={setLocalidades} />
           </div>
-        </div>
-        <div className="my-5 flex md:hidden border-y-2 border-slate-100 dark:border-slate-700 justify-center items-center py-10">
-          <button className=" mt-10 " onClick={() => setIsModalOpen(false)}>
-            <div className="border-2 text-slate-300 border-slate-300 dark:border-secondaryDark dark:tw-text-secondary w-[50px] h-[50px] text-2xl rounded-full flex justify-center items-center">
-              X
-            </div>
-            <span className="text-slate-400 dark:tw-text-secondary">Cerrar</span>
-          </button>
         </div>
       </div>
     </div>
