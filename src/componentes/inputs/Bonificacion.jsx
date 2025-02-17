@@ -49,7 +49,7 @@ function Bonificacion({ ages, setAges, pasajeros, setPasajeros }) {
                     <option value={3}>3</option>
                     <option value={4}>4</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                  <div className="absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                     <MdPeopleAlt />
                   </div>
                 </div>
@@ -163,7 +163,7 @@ function Bonificacion({ ages, setAges, pasajeros, setPasajeros }) {
           Bonificación/es
         </div>
       </Popover>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
         <MdPeopleAlt />
       </div>
     </div>

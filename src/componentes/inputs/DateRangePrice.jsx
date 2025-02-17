@@ -216,7 +216,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                     "dd/MM/yyyy"
                   )}`
                 : "Selecciona un rango de fechas"}
-              <div className="absolute top-0 left-0 bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="absolute top-0 left-0 tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                 <FaCalendarAlt />
               </div>
             </div>

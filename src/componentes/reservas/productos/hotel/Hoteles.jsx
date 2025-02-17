@@ -17,36 +17,22 @@ function Resultado({ hoteles }) {
     habitaciones: 2,
     noches: 7,
   };
-  console.log(hoteles[0])
+  console.log(hoteles[0]);
   const [openModal, setOpenModal] = useState(null);
   const [openInNewTab, setOpenInNewTab] = useState(false);
   return (
     <section className="pb-12">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg ">
+      <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-md lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
+        <h3 className="text-secondary tw-font-semibold tw-text-lg">
           Resultados ({hoteles.length})
         </h3>
-        <div className="flex flex-col gap-5 md:flex-row md:justify-between">
-          <label className="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              className="sr-only peer"
-              checked={openInNewTab}
-              onChange={(e) => setOpenInNewTab(e.target.checked)}
-            />
-            <div className="relative w-11 h-6 bg-slate-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-slate-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:tw-bg-secondary"></div>
-            <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Abrir enlace pestaña nueva
-            </span>
-          </label>
-        </div>
       </div>
       {hoteles.map((hotel, index) => (
         <article
           key={index}
-          className="lg:flex flex-row bg-slate-100 dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 relative min-h-[15vh]"
+          className="lg:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
         >
-          <div className="w-full h-[25vh] lg:h-auto lg:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
+          <div className="tw-w-full tw-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
             <Carousel slide={false} indicators={true}>
               {hotel.fotos.map((foto, idx) => (
                 <img
@@ -58,53 +44,54 @@ function Resultado({ hoteles }) {
               ))}
             </Carousel>
           </div>
-          <div className="p-5 lg:w-2/3">
-            <div className="border-b-2 border-slate-200 dark:border-slate-700 pb-2">
-              <div className="flex justify-between w-full">
-                <h4 className="text-secondary font-semibold">
+          <div className="tw-p-5 lg:tw-w-2/3">
+            <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
+              <div className="tw-flex tw-justify-between tw-w-full">
+                <h4 className="text-secondary tw-font-semibold">
                   {hotel.nombre}
-                  <span className="text-sm ml-1 text-slate-400 font-normal">
+                  <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
                     - {hotel.regimen}
                   </span>
                 </h4>
-                <div className="flex text-secondary">
+                <div className="tw-flex text-secondary">
                   {[...Array(5)].map((_, i) =>
                     i < hotel.estrellas ? (
-                      <IoMdStar key={i} className="text-lg" />
+                      <IoMdStar key={i} className="tw-text-lg" />
                     ) : (
-                      <IoMdStarOutline key={i} className="text-lg" />
+                      <IoMdStarOutline key={i} className="tw-text-lg" />
                     )
                   )}
                 </div>
               </div>
-              <span className="text-slate-400 dark:text-slate-400 text-sm flex items-center mb-2">
-                <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+              <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
+                <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
                 {hotel.direccion}
               </span>
-              <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
-                <span className="flex items-center">
-                  <FaPerson className="text-lg" /> {reserva.pax} adulto
+              <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
+                <span className="tw-flex tw-items-center">
+                  <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
                   {reserva.pax !== 1 && "s"}
                 </span>
-                <span className="flex items-center">
-                  <FaChild className="text-lg" /> {reserva.pax_ninios} niño
+                <span className="tw-flex tw-items-center">
+                  <FaChild className="tw-text-lg" /> {reserva.pax_ninios} niño
                 </span>
-                <span className="flex items-center">
-                  <FaDoorOpen className="text-lg mr-1" /> {reserva.habitaciones}
+                <span className="tw-flex tw-items-center">
+                  <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
+                  {reserva.habitaciones}
                   Habitación/es
                 </span>
-                <span className="flex items-center">
-                  <MdModeNight className="text-lg" />
+                <span className="tw-flex tw-items-center">
+                  <MdModeNight className="tw-text-lg" />
                   {reserva.noches} noches
                 </span>
               </div>
             </div>
-            <p className="lg:text-slate-600 mt-2 dark:text-slate-400 text-sm text-slate-500 line-clamp-2">
+            <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
               {hotel.descripcion}
             </p>
-            <div className="flex justify-end mt-3">
+            <div className="tw-flex tw-justify-end tw-mt-3">
               <button
-                className="px-3 w-full lg:w-fit mr-2 bg-slate-700 dark:bg-slate-600 text-white font-semibold rounded-xl shadow"
+                className="tw-px-3 tw-w-full lg:tw-w-fit tw-mr-2 tw-bg-slate-700 dark:tw-bg-slate-600 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
                 onClick={() => setOpenModal(index)}
               >
                 Detalles
@@ -115,31 +102,33 @@ function Resultado({ hoteles }) {
                 show={openModal === index}
                 onClose={() => setOpenModal(null)}
               >
-                <Modal.Header className="bg-white dark:bg-slate-900">
+                <Modal.Header className="tw-bg-white dark:tw-bg-slate-900">
                   {hotel.nombre}
-                  <p className="text-sm text-slate-400">
-                     {hotel.fecha} - {hotel.fechaSalida}
+                  <p className="tw-text-sm tw-text-slate-400">
+                    {hotel.fecha} - {hotel.fechaSalida}
                   </p>
                 </Modal.Header>
-                <Modal.Body className="bg-white dark:bg-slate-900">
-                  <div className="space-y-6 mt-2">
-                    <p className="leading-relaxed text-slate-500 dark:text-slate-400">
+                <Modal.Body className="tw-bg-white dark:tw-bg-slate-900">
+                  <div className="tw-space-y-6 tw-mt-2">
+                    <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
                       {hotel.descripcion}
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      <span className="font-semibold">Precio por noche:</span> $
-                      {hotel.precio}
+                    <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                      <span className="tw-font-semibold">
+                        Precio por noche:
+                      </span>{" "}
+                      ${hotel.precio}
                     </p>
-                    <p className="text-sm text-slate-500 dark:text-slate-400">
-                      <span className="font-semibold">Extras:</span>{" "}
+                    <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                      <span className="tw-font-semibold">Extras:</span>{" "}
                       {hotel.extras.join(", ")}
                     </p>
                     <Imagenes imagenes={hotel.habitacionImgs} />
                   </div>
                 </Modal.Body>
-                <Modal.Footer className="bg-white dark:bg-slate-900 flex justify-end">
+                <Modal.Footer className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end">
                   <button
-                    className="p-3 px-5 bg-slate-700 dark:tw-tw-bg-secondary font-bold rounded-xl text-white"
+                    className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-tw-bg-secondary tw-font-bold tw-rounded-xl tw-text-white"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar
@@ -147,7 +136,7 @@ function Resultado({ hoteles }) {
                 </Modal.Footer>
               </Modal>
               <Link to="/hotel" state={hotel}>
-                <button className="w-full lg:w-fit p-3 tw-bg-secondary text-white font-semibold rounded-xl shadow">
+                <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow">
                   Reservar
                 </button>
               </Link>

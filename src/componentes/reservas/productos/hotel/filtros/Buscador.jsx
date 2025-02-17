@@ -28,42 +28,49 @@ function Buscador() {
     <>
       <button
         onClick={toggleModal}
-        className="relative w-full p-3 pl-10 text-sm bg-white border-2 rounded-lg cursor-pointer dark:border-slate-700 lg:hidden dark:bg-slate-800 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500"
+        className="tw-relative tw-w-full tw-p-3 tw-pl-10 tw-text-sm tw-bg-white tw-border-2 tw-rounded-lg tw-cursor-pointer dark:tw-border-slate-700 lg:tw-hidden dark:tw-bg-slate-800 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500"
       >
         Cambiar busqueda
-        <span className="absolute top-0 left-0 flex items-center justify-center w-8 h-full text-xl text-white rounded-tl-lg rounded-bl-lg pointer-events-none dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 bg-inputIcon">
+        <span className="tw-absolute tw-top-0 tw-left-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-full tw-text-xl tw-text-white tw-rounded-tl-lg tw-rounded-bl-lg tw-pointer-events-none dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-bg-secondary">
           <FaSearch />
         </span>
       </button>
 
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
-          isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
+        className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
+          isModalOpen
+            ? "tw-z-50 tw-opacity-100"
+            : "tw-opacity-0 tw-pointer-events-none"
         }`}
       >
         <div
-          className="w-full h-full bg-white rounded-none shadow-lg  md:w-full md:h-full md:rounded-xl dark:bg-slate-800"
+          className="tw-w-full tw-h-full tw-bg-white tw-rounded-none tw-shadow-lg md:tw-w-full md:tw-h-full md:tw-rounded-xl dark:tw-bg-slate-800"
           onClick={(e) => e.stopPropagation()}
         >
           <div>
-            <div className="relative w-full h-full mx-auto ">
-              <div className="flex items-center justify-between p-5 mb-4 bg-primary dark:bg-slate-900 ">
-                <h2 className="text-xl font-bold text-white ">Buscador</h2>
-                <button onClick={toggleModal} className="text-xl text-white">
+            <div className="tw-relative tw-w-full tw-h-full tw-mx-auto">
+              <div className="tw-flex tw-items-center tw-justify-between tw-p-5 tw-mb-4 bg-primary dark:tw-bg-slate-900">
+                <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                  Buscador
+                </h2>
+                <button
+                  onClick={toggleModal}
+                  className="tw-text-xl tw-text-white"
+                >
                   &times;
                 </button>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3 p-5 ">
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
                 destinos={destinos}
                 destino={destino}
                 setDestino={setDestino}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRange
                 startDate={startDate}
                 endDate={endDate}
@@ -71,7 +78,7 @@ function Buscador() {
                 setEndDate={setEndDate}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-3">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Hab_Adulto_Ninio
                 habitacion={habitacion}
                 setHabitacion={setHabitacion}
@@ -79,37 +86,37 @@ function Buscador() {
                 setRoomData={setRoomData}
               />
             </div>
-            <div className="flex justify-end col-span-12 lg:justify-center lg:col-span-1 md:col-span-6">
-              <button className="flex items-center justify-center w-full h-full p-3 px-10 rounded-lg shadow bg-primary dark:bg-slate-900">
-                <FaSearch className="text-xl text-white" />
+            <div className="tw-flex tw-justify-end tw-col-span-12 lg:tw-justify-center lg:tw-col-span-1 md:tw-col-span-6">
+              <button className="tw-flex tw-items-center tw-justify-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow tw-bg-slate-900 dark:tw-bg-slate-900">
+                <FaSearch className="tw-text-xl tw-text-white" />
               </button>
             </div>
-            <div className="flex flex-col items-center justify-center col-span-12 ">
+            <div className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-col-span-12">
               <button
-                className="text-2xl rounded-full w-[50px] h-[50px] border-2 mt-10 text-slate-300 border-slate-300"
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
                 onClick={toggleModal}
               >
                 X
               </button>
-              <span className="text-slate-400">Cerrar</span>
+              <span className="tw-text-slate-400">Cerrar</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div className="hidden p-5 bg-white border-2 shadow-lg lg:block dark:border-slate-800 rounded-xl min-h-28 dark:bg-slate-800">
-        <h2 className="mb-4 text-xl font-bold dark:tw-text-secondary">
+      <div className="tw-hidden tw-p-5 tw-bg-white tw-border-2 tw-shadow-lg lg:tw-block dark:tw-border-slate-800 tw-rounded-xl tw-min-h-28 dark:tw-bg-slate-800">
+        <h2 className="tw-mb-4 tw-text-xl tw-font-bold dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+        <div className="tw-grid tw-grid-cols-12 tw-gap-3">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
             <Input_Buscador
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 2xl:tw-col-span-4">
             <Input_DateRange
               startDate={startDate}
               endDate={endDate}
@@ -117,7 +124,7 @@ function Buscador() {
               setEndDate={setEndDate}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 2xl:col-span-3">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 2xl:tw-col-span-3">
             <Input_Hab_Adulto_Ninio
               habitacion={habitacion}
               setHabitacion={setHabitacion}
@@ -125,11 +132,9 @@ function Buscador() {
               setRoomData={setRoomData}
             />
           </div>
-          <div className="flex justify-end col-span-12 lg:justify-end lg:col-span-12 xl:col-span-12 2xl:col-span-1 md:col-span-6 ">
-            <button className="flex items-center justify-center h-full p-3 px-10 rounded-lg shadow bg-primary dark:bg-slate-900">
-              <FaSearch className="text-xl text-white" />
-            </button>
-          </div>
+          <button className="tw-flex tw-items-center tw-justify-center tw-h-full tw-p-3  tw-rounded-lg tw-shadow tw-bg-slate-700 dark:tw-bg-slate-900">
+            <FaSearch className="tw-text-xl tw-text-white" />
+          </button>
         </div>
       </div>
     </>

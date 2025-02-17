@@ -160,7 +160,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                               disabled
                               value={hotel.fecha}
                             />
-                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <FaRegCalendarAlt />
                             </div>
                           </div>
@@ -174,7 +174,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                               disabled
                               value={hotel.fechaSalida}
                             />
-                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <FaRegCalendarAlt />
                             </div>
                           </div>

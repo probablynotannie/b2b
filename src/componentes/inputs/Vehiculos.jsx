@@ -70,7 +70,7 @@ function Vehiculos({
                     <option value={0}>0</option>
                     <option value={1}>1</option>
                   </select>
-                  <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                  <div className=" absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                     <FaCar />
                   </div>
                 </div>
@@ -104,7 +104,7 @@ function Vehiculos({
                           <option value="Autocaravana">Autocaravana</option>
                           <option value="Bicicleta">Bicicleta</option>
                         </select>
-                        <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                        <div className=" absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                           <FaCarSide />
                         </div>
                       </div>
@@ -162,7 +162,7 @@ function Vehiculos({
                               </option>
                               <option value={3}>Caravana</option>
                             </select>
-                            <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                            <div className=" absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
                               <FaTrailer />
                             </div>
                           </div>
@@ -218,7 +218,7 @@ function Vehiculos({
           Vehiculos
         </div>
       </Popover>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
         <FaCar />{" "}
       </div>
     </div>
