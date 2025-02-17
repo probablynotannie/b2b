@@ -3,6 +3,7 @@ import { FaPassport } from "react-icons/fa6";
 
 function Input_Texto({ tipo, name, register, errors }) {
   const error = errors?.[name];
+  console.log(errors)
   return (
     <div>
       <div className="tw-relative">

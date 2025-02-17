@@ -17,9 +17,8 @@ function Resultado({ hoteles }) {
     habitaciones: 2,
     noches: 7,
   };
-  console.log(hoteles[0]);
   const [openModal, setOpenModal] = useState(null);
-  const [openInNewTab, setOpenInNewTab] = useState(false);
+  
   return (
     <section className="pb-12">
       <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-md lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">

@@ -1,6 +1,7 @@
 import Info from "../../../estructura/hoteles/Info";
 import Map from "../../../estructura/hoteles/Map";
 import DatosContacto from "../../../estructura/DatosContacto";
+import Imagenes from "../../../estructura/hoteles/Imgs"
 function Detalles({ producto, datosContacto }) {
   return (
     <article className="mt-3">
@@ -17,8 +18,10 @@ function Detalles({ producto, datosContacto }) {
         email={datosContacto.tel}
       />
 
-      <section className="h-full mt-5 lg:mt-5">
+      <section className="h-full mt-5 lg:mt-5 tw-space-y-8">
         <Map location={producto.ubicacion} />
+        <Imagenes imagenes={producto.habitacionImgs} />
+
       </section>
     </article>
   );

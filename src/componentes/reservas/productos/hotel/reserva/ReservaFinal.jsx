@@ -6,66 +6,67 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
-  const { producto, habitacion, datosContacto } = location.state || {};
+  const { producto, habitacion, data } = location.state || {};
+  console.log("producto")
   return (
-    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
-        <h1 className="font-bold dark:text-slate-200">{producto.nombre}</h1>
-        <p className="text-slate-600 text-sm dark:text-slate-300">
+    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
+      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+        <h1 className="tw-font-bold dark:tw-text-slate-200">{producto.nombre}</h1>
+        <p className="tw-text-slate-600 tw-text-sm dark:tw-text-slate-300">
           {producto.ubicacion}
         </p>
-        <Detalles producto={producto} datosContacto={datosContacto} />
+        <Detalles producto={producto} datosContacto={data} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
         <Reserva img={producto.img} txt={producto.nombre} />
         <section>
-          <h2 className="font-bold border-b-2 border-slate-100 dark:border-slate-700 dark:text-slate-200 my-3">
+          <h2 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-200 tw-my-3">
             Resumen
           </h2>
           <ul>
-            <li className="flex justify-between">
-              <span className="font-semibold mr-1 dark:text-slate-200">
+            <li className="tw-flex tw-justify-between">
+              <span className="tw-font-semibold tw-mr-1 dark:tw-text-slate-200">
                 Habitacion:
               </span>
-              <span className="text-slate-500 dark:text-slate-400">
+              <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {habitacion.nombre}
               </span>
             </li>
-            <li className="flex justify-between">
-              <span className="font-semibold mr-1 dark:text-slate-200">
+            <li className="tw-flex tw-justify-between">
+              <span className="tw-font-semibold tw-mr-1 dark:tw-text-slate-200">
                 Regimen:
               </span>
-              <span className="text-slate-500 dark:text-slate-400">
+              <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {habitacion.regimen}
               </span>
             </li>
-            <li className="flex justify-between">
-              <span className="font-semibold mr-1 dark:text-slate-200">
+            <li className="tw-flex tw-justify-between">
+              <span className="tw-font-semibold tw-mr-1 dark:tw-text-slate-200">
                 Entrada:
               </span>
-              <span className="text-slate-500 dark:text-slate-400">
+              <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {producto.fecha}
               </span>
             </li>
-            <li className="flex justify-between">
-              <span className="font-semibold mr-1 dark:text-slate-200">
+            <li className="tw-flex tw-justify-between">
+              <span className="tw-font-semibold tw-mr-1 dark:tw-text-slate-200">
                 Salida:
               </span>
-              <span className="text-slate-500 dark:text-slate-400">
+              <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {producto.fechaSalida}
               </span>
             </li>
           </ul>
-          <div className="flex justify-between pb-2 mt-2 border-slate-100  dark:border-slate-700">
-            <div className="flex items-center text-sm font-semibold  dark:text-slate-100">
-              <FaPerson className="text-xl text-secondary" />
+          <div className="tw-flex tw-justify-between tw-pb-2 tw-mt-2 tw-border-slate-100 dark:tw-border-slate-700">
+            <div className="tw-flex tw-items-center tw-text-sm tw-font-semibold dark:tw-text-slate-100">
+              <FaPerson className="tw-text-xl text-secondary" />
               <span>
                 {producto.pax}x adulto{producto.pax !== 1 && "s"}
               </span>
             </div>
             {producto.pax_ninios > 0 && (
-              <div className="flex items-center text-sm font-semibold  dark:text-slate-100">
-                <FaChild className="text-lg text-secondary" />
+              <div className="tw-flex tw-items-center tw-text-sm tw-font-semibold dark:tw-text-slate-100">
+                <FaChild className="tw-text-lg text-secondary" />
                 <span>
                   {producto.pax_ninios}x niño{producto.pax_ninios > 1 && "s"}
                 </span>
@@ -75,9 +76,9 @@ function ReservaFinal() {
         </section>
         <Link
           to={"/resumenHotel"}
-          state={{ producto, habitacion, datosContacto }}
+          state={{ producto, habitacion, data }}
         >
-          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             {habitacion.precio} €
           </button>
         </Link>

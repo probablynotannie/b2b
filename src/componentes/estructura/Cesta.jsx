@@ -146,7 +146,7 @@ function Cesta() {
                   </div>
                   <div className="tw-flex tw-flex-col tw-justify-between">
                     <button onClick={() => handleRemoveItem(index)}>
-                      <FaRegTrashAlt className="tw-text-lg text-danger_text" />
+                      <FaRegTrashAlt className="tw-text-lg tw-text-danger_text" />
                     </button>
                     <input
                       checked={selectedItems[index]}

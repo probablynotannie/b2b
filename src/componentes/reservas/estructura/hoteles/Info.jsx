@@ -1,18 +1,25 @@
 import { Accordion } from "flowbite-react";
+
 function Info({ descripcion, titulo }) {
   const info = (
-    <div className="text-slate-500 dark:text-slate-400 ">
-      <h5 className="font-semibold text-secondary text-lg border-b-2 border-secondary pb-2 mb-2">
+    <div className="tw-text-slate-500 dark:tw-text-slate-400">
+      <h5 className="tw-font-semibold text-secondary tw-text-lg tw-border-b-2 tw-border-secondary tw-pb-2 tw-mb-2">
         General
       </h5>
       <p>{descripcion}</p>
     </div>
   );
+
   return (
-    <Accordion className="w-full dark:bg-slate-800" collapseAll>
+    <Accordion
+      className="tw-w-full dark:tw-bg-slate-800 dark:tw-border-slate-800 hover:tw-bg-slate-100 dark:hover:tw-bg-slate-700"
+      collapseAll
+    >
       <Accordion.Panel>
-        <Accordion.Title className="dark:text-slate-300">
-          {titulo}
+        <Accordion.Title className=" dark:hover:tw-text-slate-300 dark:tw-bg-slate-800 ">
+          <span className="tw-text-slate-800 dark:tw-text-slate-300">
+            {titulo}
+          </span>
         </Accordion.Title>
         <Accordion.Content>{info}</Accordion.Content>
       </Accordion.Panel>
