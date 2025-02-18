@@ -139,7 +139,7 @@ function Cesta() {
                       </span>
                     </div>
                     <div className="tw-text-slate-500">
-                      <span className="text-secondary tw-font-semibold">
+                      <span className="tw-text-secondary tw-font-semibold">
                         {compra.precio} €
                       </span>
                     </div>
@@ -180,7 +180,7 @@ function Cesta() {
                     </div>
                     <div>
                       <span>Total:</span>
-                      <span className="tw-font-bold text-secondary">
+                      <span className="tw-font-bold tw-text-secondary">
                         {" "}
                         {total} €
                       </span>
@@ -213,12 +213,12 @@ function Cesta() {
       }
     >
       <div
-        className="tw-relative tw-text-white tw-w-fit tw-cursor-pointer hover:text-secondary tw-transition tw-flex tw-justify-center tw-items-center"
+        className="tw-relative tw-text-white tw-w-fit tw-cursor-pointer hover:tw-text-secondary tw-transition tw-flex tw-justify-center tw-items-center"
         onClick={() => setPopoverOpen(!popoverOpen)}
       >
         <TiShoppingCart className="tw-text-3xl" />
         {compras.length !== 0 && (
-          <div className="tw-absolute tw-select-none -tw-top-1 tw-left-3 tw-text-sm tw-bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
+          <div className="tw-absolute tw-select-none -tw-top-1 tw-left-3 tw-text-sm bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
             {compras.length}
           </div>
         )}

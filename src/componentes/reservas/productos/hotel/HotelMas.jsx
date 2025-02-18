@@ -25,7 +25,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
   return (
     <section className="pb-12">
       <div className="flex flex-col lg:flex-row lg:justify-between p-3 rounded-xl lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg ">
+        <h3 className="tw-text-secondary font-semibold text-lg ">
           Resultados ({hoteles.length})
         </h3>
         <div className="flex flex-col gap-5 md:flex-row md:justify-between">
@@ -67,13 +67,13 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
           <div className="p-5 lg:w-2/3">
             <div className="border-b-2 border-slate-200 dark:border-slate-700 pb-2">
               <div className="flex justify-between w-full">
-                <h4 className="text-secondary font-semibold">
+                <h4 className="tw-text-secondary font-semibold">
                   {hotel.nombre}
                   <span className="text-sm ml-1 text-slate-400 font-normal">
                     - {hotel.regimen}
                   </span>
                 </h4>
-                <div className="flex text-secondary">
+                <div className="flex tw-text-secondary">
                   {[...Array(5)].map((_, i) =>
                     i < hotel.estrellas ? (
                       <IoMdStar key={i} className="text-lg" />
@@ -128,12 +128,12 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                   <div className="container">
                     <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
                       <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
-                        <h4 className="p-3 font-bold text-cen rounded-t-xl   text-secondary">
+                        <h4 className="p-3 font-bold text-cen rounded-t-xl   tw-text-secondary">
                           Resumen
                         </h4>
                         <div className="flex justify-between pb-2 border-b-2 border-slate-100  dark:border-slate-700">
                           <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
-                            <FaPerson className="text-xl text-secondary" />
+                            <FaPerson className="text-xl tw-text-secondary" />
                             <span className="text-white">{hotel.pax}</span>
                             <span className="text-white">
                               adulto{hotel.pax !== 1 && "s"}
@@ -141,7 +141,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                           </div>
                           {hotel.pax_ninios > 0 && (
                             <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
-                              <FaChild className="text-lg text-secondary" />
+                              <FaChild className="text-lg tw-text-secondary" />
                               <span className="text-white">
                                 {hotel.pax_ninios} niño
                                 {hotel.pax_ninios > 1 && "s"}

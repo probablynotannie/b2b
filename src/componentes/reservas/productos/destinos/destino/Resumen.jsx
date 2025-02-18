@@ -14,16 +14,16 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
       </h2>
       <p className="flex items-center flex-wrap  font-semibold mb-5">
         <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-          <FaMapPin className="text-secondary text-lg" />
+          <FaMapPin className="tw-text-secondary text-lg" />
           {producto.ubicacion}
         </span>
         <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-          <FaClock className="mr-2 text-secondary text-lg" />
+          <FaClock className="mr-2 tw-text-secondary text-lg" />
           {producto.dias} días
         </span>
 
         <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-          <MdRestaurant className="mr-2 text-secondary text-lg" />
+          <MdRestaurant className="mr-2 tw-text-secondary text-lg" />
           {producto.desayunos} desayunos
         </span>
       </p>
@@ -56,11 +56,11 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
           <span>PVP Desde (por persona)</span>
           <span>{producto.precio} €</span>
         </p>
-        <p className=" text-secondary  flex justify-between font-bold mt-2 border-t-2 border-slate-100 dark:border-slate-600 pt-3">
+        <p className=" tw-text-secondary  flex justify-between font-bold mt-2 border-t-2 border-slate-100 dark:border-slate-600 pt-3">
           <span>Total</span>
           <span>
             {producto.pax * producto.precio}
-            <span className="text-secondary font-bold ml-1">€</span>
+            <span className="tw-text-secondary font-bold ml-1">€</span>
           </span>
         </p>
       </div>
@@ -72,7 +72,7 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
       </div>
       <div className="mt-4">
         <Link to="/fecha" state={producto}>
-          <button className="tw-bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
+          <button className="bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
             <FaCalendarAlt className="dark:text-white text-xl mr-2" />
             Ver fechas y precios
           </button>

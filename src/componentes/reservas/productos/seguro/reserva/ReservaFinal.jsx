@@ -31,11 +31,11 @@ function Reserva() {
         <ul className="text-slate-500 dark:text-slate-400 mt-3">
           <li className="flex items-center gap-1">Destino: {seguro.destino}</li>
           <li className="flex items-center gap-1">
-            <FaCalendar className="text-secondary dark:tw-text-secondary" />
+            <FaCalendar className="tw-text-secondary dark:tw-text-secondary" />
             {formatearFecha(seguro.inicio)}
           </li>
           <li className="flex items-center gap-1">
-            <FaCalendar className="text-secondary dark:tw-text-secondary" />
+            <FaCalendar className="tw-text-secondary dark:tw-text-secondary" />
             {formatearFecha(seguro.fin)}
           </li>
         </ul>

@@ -67,7 +67,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                   key={index}
                   className="grid lg:grid-cols-3 gap-3 p-2 mt-3 border-b border-slate-100 dark:border-slate-700"
                 >
-                  <h4 className="font-semibold text-secondary">
+                  <h4 className="font-semibold tw-text-secondary">
                     {info.titulo}
                   </h4>
                   <p className="text-slate-500 dark:text-slate-400 text-sm col-span-2">
@@ -120,7 +120,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                                 key={index}
                                 className="grid grid-cols-3 gap-3 p-2 border-b dark:border-slate-700"
                               >
-                                <h4 className="font-semibold text-secondary">
+                                <h4 className="font-semibold tw-text-secondary">
                                   {info.titulo}
                                 </h4>
                                 <p className="text-slate-500 dark:text-slate-400 text-sm col-span-2">

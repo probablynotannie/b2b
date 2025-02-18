@@ -18,8 +18,8 @@ function Trenes({ tren }) {
           </p>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <FaTrain className="text-xl text-secondary dark:tw-text-secondary" />
-          <span className="text-secondary dark:tw-text-secondary font-bold">
+          <FaTrain className="text-xl tw-text-secondary dark:tw-text-secondary" />
+          <span className="tw-text-secondary dark:tw-text-secondary font-bold">
             {parseFloat(ida.price + (vuelta ? vuelta.price : 0)).toFixed(2)}€
           </span>
         </div>

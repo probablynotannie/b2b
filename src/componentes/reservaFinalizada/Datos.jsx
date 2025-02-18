@@ -12,20 +12,20 @@ function Datos() {
   return (
     <div className="rounded-lg bg-white dark:bg-slate-800 flex gap-10">
       <div className="flex justify-center items-center font-semibold text-slate-400 gap-1">
-        <span className="text-secondary">
+        <span className="tw-text-secondary">
           <FaRegUser />
         </span>
         {contacto.apellidos}
         {contacto.nombre}
       </div>
       <div className="flex justify-center items-center font-semibold text-slate-400 gap-1">
-        <span className="text-secondary">
+        <span className="tw-text-secondary">
           <MdOutlineEmail />
         </span>
         {contacto.email}
       </div>
       <div className="flex justify-center items-center font-semibold text-slate-400 gap-1">
-        <span className="text-secondary">
+        <span className="tw-text-secondary">
           <BsTelephone />
         </span>
         {contacto.tel}

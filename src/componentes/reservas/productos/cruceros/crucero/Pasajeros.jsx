@@ -47,7 +47,7 @@ function Reserva({ pasajeros, setPasajeros, restringido }) {
               onClick={() => handlePasajeros(num)}
               className={`tw-p-2 tw-rounded-lg tw-font-semibold tw-w-12 tw-text-sm ${
                 pasajerosInput === num
-                  ? "tw-bg-secondary tw-text-white"
+                  ? "bg-secondary tw-text-white"
                   : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-text-slate-700 dark:tw-text-white hover:tw-bg-slate-300 dark:hover:tw-bg-slate-700"
               }`}
             >

@@ -21,7 +21,7 @@ function Detalles({ producto, cesta }) {
           </div>
         )}
 
-        <h3 className="dark:text-white text-secondary font-bold mt-3 text-xl">
+        <h3 className="dark:text-white tw-text-secondary font-bold mt-3 text-xl">
           Detalles
         </h3>
         <p className="dark:text-slate-300">{producto.descripcion}</p>

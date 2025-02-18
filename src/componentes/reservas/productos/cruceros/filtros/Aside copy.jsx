@@ -44,7 +44,7 @@ function SidebarContent({ values, setValues }) {
   return (
     <div>
       <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
-        <h3 className="font-semibold text-white lg:text-secondary text-xl ">
+        <h3 className="font-semibold text-white lg:tw-text-secondary text-xl ">
           Filtrado
         </h3>
       </div>

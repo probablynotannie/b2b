@@ -67,7 +67,7 @@ function Notificaciones() {
     >
       <div className="tw-relative tw-text-slate-400 tw-cursor-pointer hover:tw-text-secondary tw-transition tw-flex tw-items-center tw-rounded-full tw-justify-center tw-h-10">
         <CiBellOn className="tw-text-4xl" />
-        <div className="tw-absolute tw-select-none -tw-top-1 tw-left-4 tw-text-sm tw-bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
+        <div className="tw-absolute tw-select-none -tw-top-1 tw-left-4 tw-text-sm bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
           {notificaciones.length}
         </div>
       </div>

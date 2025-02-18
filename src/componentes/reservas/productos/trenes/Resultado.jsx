@@ -67,7 +67,7 @@ function Productos() {
                 ) : (
                   <div>
                     <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-                      <h3 className="text-secondary font-semibold text-lg ">
+                      <h3 className="tw-text-secondary font-semibold text-lg ">
                         Confirmar ida
                       </h3>
                     </div>
@@ -82,7 +82,7 @@ function Productos() {
               ) : (
                 <div>
                   <div className="flex items-center justify-between flex-row ">
-                    <h3 className="text-secondary font-semibold text-lg ">
+                    <h3 className="tw-text-secondary font-semibold text-lg ">
                       Confirmar ida y vuelta
                     </h3>
                     <Link to={"/tren"} state={seleccion}>

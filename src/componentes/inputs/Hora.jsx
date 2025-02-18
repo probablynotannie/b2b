@@ -1,4 +1,4 @@
-import { useState, useRef } from "react";
+import { useRef } from "react";
 import { TimeInput } from "@mantine/dates";
 import { FaRegClock } from "react-icons/fa";
 
@@ -9,7 +9,7 @@ const SelectorHora = ({ hora, setHora }) => {
   };
 
   return (
-    <div className="relative">
+    <div className="tw-relative">
       <TimeInput
         ref={ref}
         value={hora}
@@ -17,7 +17,7 @@ const SelectorHora = ({ hora, setHora }) => {
         onClick={() => ref.current?.showPicker()}
         classNames={{
           input:
-            "border dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer",
+            "tw-border dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer",
         }}
         styles={(theme) => ({
           input: {
@@ -27,7 +27,7 @@ const SelectorHora = ({ hora, setHora }) => {
           },
         })}
       />
-      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaRegClock />
       </div>
     </div>

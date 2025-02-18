@@ -48,7 +48,7 @@ function Actividad({ actividad }) {
 
         <div>
           <p className="flex items-center gap-2 dark:text-slate-400">
-            <FaCalendarAlt className="text-secondary" />
+            <FaCalendarAlt className="tw-text-secondary" />
             {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
             {actividad.horaSeleccionada}
           </p>

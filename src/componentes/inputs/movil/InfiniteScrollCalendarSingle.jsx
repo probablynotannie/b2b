@@ -58,7 +58,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
 
     return (
       <div key={month} className="tw-mb-8">
-        <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 text-secondary">
+        <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
         </h3>
         {renderWeekDays()}

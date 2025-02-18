@@ -16,8 +16,8 @@ function Crucero({ producto, pasajeros, selectedPrice }) {
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <GiCruiser className="tw-text-xl text-secondary dark:tw-text-secondary" />
-          <span className="text-secondary dark:tw-text-secondary tw-font-bold">
+          <GiCruiser className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
+          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
             {selectedPrice.price.toFixed(2)}€
           </span>
         </div>

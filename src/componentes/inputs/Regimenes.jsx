@@ -60,7 +60,7 @@ const Regimenes = () => {
                   id={`checkbox-${option.id}`}
                   checked={selectedOptions.includes(option.id)}
                   onChange={handleCheckboxChange}
-                  className="tw-mr-2 tw-w-4 tw-h-4 text-secondary tw-border-gray-300 tw-rounded focus:tw-ring-blue-500 focus:tw-ring-2"
+                  className="tw-mr-2 tw-w-4 tw-h-4 tw-text-secondary tw-border-gray-300 tw-rounded focus:tw-ring-blue-500 focus:tw-ring-2"
                 />
                 <label
                   htmlFor={`checkbox-${option.id}`}

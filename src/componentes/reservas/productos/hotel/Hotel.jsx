@@ -28,19 +28,19 @@ function Producto() {
         />
         <article className="tw-grid tw-grid-cols-5 lg:tw-gap-10 tw-my-5 tw-mt-10 ">
           <section className="tw-col-span-5 lg:tw-col-span-1 tw-flex tw-flex-col tw-justify-between tw-border-2 tw-border-gray-200 dark:tw-border-slate-800 tw-rounded-xl tw-p-3 tw-text-slate-700 tw-bg-slate-500 dark:tw-bg-slate-800 tw-shadow-xl">
-            <h4 className="tw-p-3 tw-font-bold text-cen tw-rounded-t-xl text-secondary">
+            <h4 className="tw-p-3 tw-font-bold text-cen tw-rounded-t-xl tw-text-secondary">
               Resumen
             </h4>
             <div className="tw-flex tw-justify-between tw-pb-2 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
               <div className="tw-flex tw-items-center tw-space-x-1 tw-text-sm tw-font-semibold dark:tw-text-slate-100">
-                <FaPerson className="tw-text-xl text-secondary" />
+                <FaPerson className="tw-text-xl tw-text-secondary" />
                 <span className="tw-text-white">
                   {producto.pax}x adulto{producto.pax !== 1 && "s"}
                 </span>
               </div>
               {producto.pax_ninios > 0 && (
                 <div className="tw-flex tw-items-center tw-space-x-1 tw-text-sm tw-font-semibold dark:tw-text-slate-100">
-                  <FaChild className="tw-text-lg text-secondary" />
+                  <FaChild className="tw-text-lg tw-text-secondary" />
                   <span className="tw-text-white">
                     {producto.pax_ninios}x niño{producto.pax_ninios > 1 && "s"}
                   </span>

@@ -73,7 +73,7 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                           <FaPerson />
                         </div>
                       </div>
@@ -94,7 +94,7 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                           <FaChild />
                         </div>
                       </div>
@@ -146,7 +146,7 @@ function SelectorPersonas({
                   </div>
                 </div>
               ))}
-              <div className="tw-mt-10 tw-text-black hover:text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer">
+              <div className="tw-mt-10 tw-text-black hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer">
                 <button
                   type="button"
                   onClick={addRoom}

@@ -63,7 +63,7 @@ function Hotel({ hotel }) {
               <div className="grid grid-cols-3 mt-5">
                 {hotel.habitacion !== 0 && (
                   <div className="flex flex-col items-center justify-center">
-                    <MdMeetingRoom className="text-4xl text-secondary" />
+                    <MdMeetingRoom className="text-4xl tw-text-secondary" />
                     <span className="text-slate-600 dark:text-slate-300 text-sm">
                       {" "}
                       {hotel.habitacion}
@@ -74,7 +74,7 @@ function Hotel({ hotel }) {
 
                 {hotel.adultos !== 0 && (
                   <div className="flex flex-col items-center justify-center">
-                    <FaPerson className="text-4xl text-secondary" />
+                    <FaPerson className="text-4xl tw-text-secondary" />
                     <span className="text-slate-600 dark:text-slate-300 text-sm">
                       {" "}
                       {hotel.adultos}
@@ -85,7 +85,7 @@ function Hotel({ hotel }) {
 
                 {hotel.ninios !== 0 && (
                   <div className="flex flex-col items-center justify-center">
-                    <FaChild className="text-4xl text-secondary" />
+                    <FaChild className="text-4xl tw-text-secondary" />
                     <span className="text-slate-600 dark:text-slate-300 text-sm">
                       {" "}
                       {hotel.ninios}
@@ -104,7 +104,7 @@ function Hotel({ hotel }) {
           <div className="border-2 border-slate-100 dark:border-slate-700 dark:bg-slate-800 shadow-lg rounded-lg flex flex-col justify-around p-3">
             <div className="flex justify-between ">
               <h4 className="font-semibold flex items-center gap-2 dark:text-slate-200">
-                <span className="tw-bg-secondary text-white rounded-full w-fit p-1">
+                <span className="bg-secondary text-white rounded-full w-fit p-1">
                   <FaHotel />
                 </span>
                 {hotel.nombre}
@@ -119,7 +119,7 @@ function Hotel({ hotel }) {
                 {formatShortDate(hotel.entrada)} -{" "}
                 {formatShortDate(hotel.salida)}
               </span>
-              <p className="flex gap-1 text-xs text-secondary font-bold">
+              <p className="flex gap-1 text-xs tw-text-secondary font-bold">
                 {hotel.habitacion !== 0 && (
                   <>
                     <MdMeetingRoom className="text-lg" />

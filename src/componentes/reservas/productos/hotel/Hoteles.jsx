@@ -1,4 +1,4 @@
-import { IoMdStar, IoMdStarOutline } from "react-icons/io";
+import { IoMdStar, IoMdStarOutline, IoMdStarHalf } from "react-icons/io";
 import { FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
@@ -18,11 +18,11 @@ function Resultado({ hoteles }) {
     noches: 7,
   };
   const [openModal, setOpenModal] = useState(null);
-  
+
   return (
     <section className="pb-12">
       <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-md lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
-        <h3 className="text-secondary tw-font-semibold tw-text-lg">
+        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
           Resultados ({hoteles.length})
         </h3>
       </div>
@@ -46,16 +46,19 @@ function Resultado({ hoteles }) {
           <div className="tw-p-5 lg:tw-w-2/3">
             <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
               <div className="tw-flex tw-justify-between tw-w-full">
-                <h4 className="text-secondary tw-font-semibold">
+                <h4 className="tw-text-secondary tw-font-semibold">
                   {hotel.nombre}
                   <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
                     - {hotel.regimen}
                   </span>
                 </h4>
-                <div className="tw-flex text-secondary">
+                <div className="tw-flex tw-text-secondary">
                   {[...Array(5)].map((_, i) =>
-                    i < hotel.estrellas ? (
+                    i < Math.floor(hotel.estrellas) ? (
                       <IoMdStar key={i} className="tw-text-lg" />
+                    ) : i === Math.floor(hotel.estrellas) &&
+                      hotel.estrellas % 1 !== 0 ? (
+                      <IoMdStarHalf key={i} className="tw-text-lg" />
                     ) : (
                       <IoMdStarOutline key={i} className="tw-text-lg" />
                     )

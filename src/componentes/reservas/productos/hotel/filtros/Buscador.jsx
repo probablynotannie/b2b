@@ -31,7 +31,7 @@ function Buscador() {
         className="tw-relative tw-w-full tw-p-3 tw-pl-10 tw-text-sm tw-bg-white tw-border-2 tw-rounded-lg tw-cursor-pointer dark:tw-border-slate-700 lg:tw-hidden dark:tw-bg-slate-800 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500"
       >
         Cambiar busqueda
-        <span className="tw-absolute tw-top-0 tw-left-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-full tw-text-xl tw-text-white tw-rounded-tl-lg tw-rounded-bl-lg tw-pointer-events-none dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-bg-secondary">
+        <span className="tw-absolute tw-top-0 tw-left-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-h-full tw-text-xl tw-text-white tw-rounded-tl-lg tw-rounded-bl-lg tw-pointer-events-none dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 bg-secondary">
           <FaSearch />
         </span>
       </button>

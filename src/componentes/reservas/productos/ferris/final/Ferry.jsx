@@ -14,9 +14,9 @@ function Ferry({ ida, vuelta }) {
           </p>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <FaFerry className="text-xl text-secondary dark:tw-text-secondary" />
+          <FaFerry className="text-xl tw-text-secondary dark:tw-text-secondary" />
 
-          <span className="text-secondary dark:tw-text-secondary font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondary font-bold">
             {(
               parseFloat(ida.precio) + parseFloat(vuelta ? vuelta.precio : 0)
             ).toFixed(2)}

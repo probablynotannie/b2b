@@ -43,10 +43,10 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
             label: "Detalles",
             content: (
               <>
-                <ul className="flex flex-col gap-1 border-2 rounded-lg border-slate-100 dark:border-slate-700 dark:text-slate-300 text-sm">
+                <ul className="tw-flex tw-flex-col tw-gap-1 tw-border-2 tw-rounded-lg tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-300 tw-text-sm">
                   {coche.detalles.map((prueba, index) => (
                     <li
-                      className="p-1 hover:bg-slate-200 dark:hover:bg-slate-900 border-b-2 border-slate-100 dark:border-slate-700 transition"
+                      className="tw-p-1 hover:tw-bg-slate-200 dark:hover:tw-bg-slate-900 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-transition"
                       key={index}
                     >
                       {prueba}
@@ -61,30 +61,30 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
             label: "Recogida",
             content: (
               <>
-                <p className="flex items-center border-b-2 border-slate-100 dark:border-slate-700 mb-2 text-sm">
-                  <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+                <p className="tw-flex tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-mb-2 tw-text-sm">
+                  <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
                   Lugar de recogida: <strong>{coche.recogida.lugar}</strong>
                 </p>
-                <p className="text-xs">{coche.recogida.descripcion}</p>
-                <table className="mt-2 w-full border-t-2 dark:border-slate-800">
-                  <thead className="dark:bg-slate-900 dark:text-white font-bold">
+                <p className="tw-text-xs">{coche.recogida.descripcion}</p>
+                <table className="tw-mt-2 tw-w-full tw-border-t-2 dark:tw-border-slate-800">
+                  <thead className="dark:tw-bg-slate-900 dark:tw-text-white tw-font-bold">
                     <tr>
-                      <th className="px-2 text-start">Día</th>
-                      <th className="px-2">Apertura</th>
-                      <th className="px-2">Cierre</th>
+                      <th className="tw-px-2 tw-text-start">Día</th>
+                      <th className="tw-px-2">Apertura</th>
+                      <th className="tw-px-2">Cierre</th>
                     </tr>
                   </thead>
                   <tbody>
                     {coche.recogida.horario.map((horario, index) => (
                       <tr key={index}>
-                        <td className="text-start border-b border-slate-100 px-2">
+                        <td className="tw-text-start tw-border-b tw-border-slate-100 tw-px-2">
                           {horario.dia}
                         </td>
 
-                        <td className="text-center border-b border-slate-100 dark:text-green-400">
+                        <td className="tw-text-center tw-border-b tw-border-slate-100 dark:tw-text-green-400">
                           {horario.apertura}
                         </td>
-                        <td className="text-center border-b border-slate-100 dark:text-red-400">
+                        <td className="tw-text-center tw-border-b tw-border-slate-100 dark:tw-text-red-400">
                           {horario.cierre}
                         </td>
                       </tr>
@@ -99,31 +99,31 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
             label: "Devolución",
             content: (
               <>
-                <p className="flex items-center border-b-2 border-slate-100 dark:border-slate-700 mb-2 text-sm">
-                  <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+                <p className="tw-flex tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-mb-2 tw-text-sm">
+                  <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
                   Lugar de devolución:{" "}
                   <strong>{coche.devolucion?.lugar || "N/A"}</strong>
                 </p>
-                <p className="text-xs">{coche.devolucion.descripcion}</p>
-                <table className="mt-2 w-full border-t-2 dark:border-slate-800">
-                  <thead className="dark:bg-slate-900 dark:text-white font-bold">
+                <p className="tw-text-xs">{coche.devolucion.descripcion}</p>
+                <table className="tw-mt-2 tw-w-full tw-border-t-2 dark:tw-border-slate-800">
+                  <thead className="dark:tw-bg-slate-900 dark:tw-text-white tw-font-bold">
                     <tr>
-                      <th className="px-2 text-start">Día</th>
-                      <th className="px-2">Apertura</th>
-                      <th className="px-2">Cierre</th>
+                      <th className="tw-px-2 tw-text-start">Día</th>
+                      <th className="tw-px-2">Apertura</th>
+                      <th className="tw-px-2">Cierre</th>
                     </tr>
                   </thead>
                   <tbody>
                     {coche.devolucion.horario.map((horario, index) => (
                       <tr key={index}>
-                        <td className="text-start border-b border-slate-100 px-2">
+                        <td className="tw-text-start tw-border-b tw-border-slate-100 tw-px-2">
                           {horario.dia}
                         </td>
 
-                        <td className="text-center border-b border-slate-100 dark:text-green-400">
+                        <td className="tw-text-center tw-border-b tw-border-slate-100 dark:tw-text-green-400">
                           {horario.apertura}
                         </td>
-                        <td className="text-center border-b border-slate-100 dark:text-red-400">
+                        <td className="tw-text-center tw-border-b tw-border-slate-100 dark:tw-text-red-400">
                           {horario.cierre}
                         </td>
                       </tr>
@@ -138,26 +138,26 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
             label: "Extras",
             content: (
               <>
-                <table className="mt-2 w-full border-t-2 dark:border-slate-800">
-                  <thead className="dark:bg-slate-900 dark:text-white font-bold">
+                <table className="tw-mt-2 tw-w-full tw-border-t-2 dark:tw-border-slate-800">
+                  <thead className="dark:tw-bg-slate-900 dark:tw-text-white tw-font-bold">
                     <tr>
-                      <th className="px-2 text-start">Extra</th>
-                      <th className="px-2">Precio</th>
-                      <th className="px-2">Disponibilidad</th>
+                      <th className="tw-px-2 tw-text-start">Extra</th>
+                      <th className="tw-px-2">Precio</th>
+                      <th className="tw-px-2">Disponibilidad</th>
                     </tr>
                   </thead>
                   <tbody>
                     {coche.extras.map((extras, index) => (
                       <tr key={index}>
-                        <td className="text-start border-b border-slate-100 dark:border-slate-700 p-1 px-2">
+                        <td className="tw-text-start tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-p-1 tw-px-2">
                           {extras.extra}
                         </td>
 
-                        <td className="text-center border-b border-slate-100 dark:border-slate-700 p-1 dark:text-green-400">
+                        <td className="tw-text-center tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-p-1 dark:tw-text-green-400">
                           {extras.precio}€
                         </td>
                         <td
-                          className={`text-center border-b border-slate-100 dark:border-slate-700 p-1 ${
+                          className={`tw-text-center tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-p-1 ${
                             extras.cantidad > 1
                               ? "dark:text-green-400 text-green-500"
                               : "dark:text-red-400 text-red-500"
@@ -176,43 +176,43 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
 
         return (
           <main
-            className="bg-slate-100 dark:bg-slate-800 shadow-xl lg:shadow-lg hover:shadow-xl"
+            className="tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl"
             key={index}
           >
-            <article className="xl:flex flex-row border-2 border-slate-100 dark:border-slate-800 rounded-xl transition mt-10 relative min-h-[15vh]">
-              <div className="w-full h-[25vh] lg:h-auto xl:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden relative group ">
-                <div className="bg-black rounded-t-lg bg-opacity-0 transition-opacity duration-500 delay-200 absolute top-0 w-full h-full group-hover:flex justify-center items-center text-5xl group-hover:bg-opacity-45 text-white font-bold hidden">
-                  {coche.precio * coche.dias}€ 
+            <article className="xl:tw-flex tw-flex-row tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]">
+              <div className="tw-w-full tw-h-[25vh] lg:tw-h-auto xl:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden tw-relative tw-group">
+                <div className="tw-bg-black tw-rounded-t-lg bg-opacity-0 tw-transition-opacity tw-duration-500 tw-delay-200 tw-absolute tw-top-0 tw-w-full tw-h-full group-hover:flex tw-justify-center tw-items-center tw-text-5xl group-hover:bg-opacity-45 tw-text-white tw-font-bold tw-hidden">
+                  {coche.precio * coche.dias}€
                 </div>
                 <img
-                  className="w-full h-full object-cover"
+                  className="tw-w-full tw-h-full tw-object-cover"
                   src={coche.img}
                   alt={coche.nombre}
                 />
               </div>
-              <div className="p-5 xl:w-2/3">
-                <div className="border-b-2 border-slate-200 dark:border-slate-700 pb-2">
-                  <div className="flex justify-between w-full">
-                    <h4 className="text-secondary font-semibold">
+              <div className="tw-p-5 xl:tw-w-2/3">
+                <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
+                  <div className="tw-flex tw-justify-between tw-w-full">
+                    <h4 className="tw-text-secondary tw-font-semibold">
                       {coche.nombre}
                     </h4>
                     <div>
-                      <span className="text-sm ml-1 dark:text-green-400 font-bold">
+                      <span className="tw-text-sm tw-ml-1 dark:tw-text-green-400 tw-font-bold">
                         {coche.precio}€/día
                       </span>
                     </div>
                   </div>
-                  <div className="flex justify-between w-full">
-                    <span className="text-slate-400 dark:text-slate-400 text-sm flex items-center mb-2">
-                      <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+                  <div className="tw-flex tw-justify-between tw-w-full">
+                    <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
+                      <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
                       {coche.recogida.lugar} - {coche.devolucion.lugar}
                     </span>
-                    <span className=" bg-slate-800 dark:bg-green-700 h-fit p-[3px] rounded-lg text-white text-xs">
+                    <span className="tw-bg-slate-800 dark:tw-bg-green-700 tw-h-fit tw-p-[3px] tw-rounded-lg tw-text-white tw-text-xs">
                       {coche.tipo}
                     </span>
                   </div>
                   <div>
-                    <div className="flex items-center mb-4">
+                    <div className="tw-flex tw-items-center tw-mb-4">
                       <input
                         id={`checkbox-${coche.id}`}
                         type="checkbox"
@@ -223,62 +223,62 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                         onChange={(e) =>
                           handleCompareChange(coche, e.target.checked)
                         }
-                        className="w-4 h-4 text-secondary dark:tw-text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondaryDark dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+                        className="tw-w-4 tw-h-4 tw-text-secondary dark:tw-text-secondary tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-secondary dark:focus:tw-ring-secondaryDark dark:tw-ring-offset-gray-800 focus:tw-ring-2 dark:tw-bg-gray-700 dark:tw-border-gray-600"
                       />
                       <label
                         htmlFor={`checkbox-${coche.id}`}
-                        className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
+                        className="tw-ms-2 tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-gray-300"
                       >
                         Comparar
                       </label>
                     </div>
                   </div>
-                  <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
-                    <span className="flex items-center mr-1">
-                      <FaPerson className="text-lg" />
+                  <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
+                    <span className="tw-flex tw-items-center tw-mr-1">
+                      <FaPerson className="tw-text-lg" />
                       {coche.capacidad}
                     </span>
-                    <span className="flex items-center mr-1">
-                      <MdLuggage className="text-lg" />
+                    <span className="tw-flex tw-items-center tw-mr-1">
+                      <MdLuggage className="tw-text-lg" />
                       {coche.maletero}
                     </span>
-                    <span className="flex items-center">
-                      <GiCarDoor className="text-lg mr-1" />
+                    <span className="tw-flex tw-items-center">
+                      <GiCarDoor className="tw-text-lg tw-mr-1" />
                       {coche.puertas}
                     </span>
-                    <span className="flex items-center">
-                      <MdSevereCold className="text-lg mr-1" />
+                    <span className="tw-flex tw-items-center">
+                      <MdSevereCold className="tw-text-lg tw-mr-1" />
                       {coche.AC === true ? "SÍ" : "NO"}
                     </span>
-                    <span className="flex items-center">
-                      <FaCar className="text-lg mr-1" /> {coche.cambio}
+                    <span className="tw-flex tw-items-center">
+                      <FaCar className="tw-text-lg tw-mr-1" /> {coche.cambio}
                     </span>
                   </div>
                 </div>
-                <ul className="grid  md:grid-cols-2 gap-x-10 dark:text-slate-300">
-                  <li className="flex mt-2 bg-red">
+                <ul className="tw-grid md:tw-grid-cols-2 tw-gap-x-10 dark:tw-text-slate-300">
+                  <li className="tw-flex tw-mt-2 bg-red">
                     <BsFillFuelPumpFill />
-                    <span className="text-sm ml-2">
+                    <span className="tw-text-sm tw-ml-2">
                       {coche.lleno === true ? "Lleno" : "Vacío"}
                     </span>
                   </li>
-                  <li className="flex mt-2">
+                  <li className="tw-flex tw-mt-2">
                     <FaShieldAlt />
-                    <span className="text-sm ml-2">
+                    <span className="tw-text-sm tw-ml-2">
                       Seguro con Franquicia - {coche.seguroFranquicia}€
                     </span>
                   </li>
-                  <li className="flex mt-2">
-                    <FaPersonCircleXmark className="text-lg" />
-                    <span className="text-sm ml-2">
+                  <li className="tw-flex tw-mt-2">
+                    <FaPersonCircleXmark className="tw-text-lg" />
+                    <span className="tw-text-sm tw-ml-2">
                       NO SHOWS - <span>{coche.noShow}</span>
                     </span>
                   </li>
-                  <li className="flex ">
-                    <MdCancel className="text-lg" />
-                    <span className="text-sm ml-2">
+                  <li className="tw-flex">
+                    <MdCancel className="tw-text-lg" />
+                    <span className="tw-text-sm tw-ml-2">
                       Cancelaciones
-                      <ul className="list-disc text-xs pl-6">
+                      <ul className="tw-list-disc tw-text-xs tw-pl-6">
                         {Object.entries(coche.cancelaciones).map(
                           ([fecha, porcentaje]) => (
                             <li key={fecha}>
@@ -291,17 +291,17 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                     </span>
                   </li>
                 </ul>
-                <div className="flex flex-col md:flex-row justify-end mt-3 gap-3">
+                <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-end tw-mt-3 tw-gap-3">
                   <button
                     onClick={() => setActiveModalCar(index)}
-                    className="w-full lg:w-fit p-3 bg-slate-500 text-white font-semibold rounded-xl shadow"
+                    className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
                   >
                     Detalles
                   </button>
                   <Link
                     to="/coche"
                     state={coche}
-                    className="w-full lg:w-fit p-3 tw-bg-secondary text-white font-semibold rounded-xl shadow text-center"
+                    className="tw-w-full lg:tw-w-fit tw-p-3 bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow tw-text-center"
                   >
                     <button>Desde {coche.dias * coche.precio}€</button>
                   </Link>
@@ -312,42 +312,42 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
               <Modal show={true} onClose={() => setActiveModalCar(null)}>
                 <Modal.Header>{coche.nombre}</Modal.Header>
                 <Modal.Body>
-                  <div className="space-y-6">
+                  <div className="tw-space-y-6">
                     <img
                       src={coche.img}
                       alt={coche.nombre}
-                      className="h-[35vh] object-center w-full object-cover shadow-md rounded-md"
+                      className="tw-h-[35vh] tw-object-center tw-w-full tw-object-cover tw-shadow-md tw-rounded-md"
                     />
-                    <div className="grid grid-cols-5 gap-2 justify-between text-slate-900 dark:text-slate-400 font-semibold text-sm">
-                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition mr-1">
-                        <FaPerson className="text-lg" />
+                    <div className="tw-grid tw-grid-cols-5 tw-gap-2 tw-justify-between tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
+                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition tw-mr-1">
+                        <FaPerson className="tw-text-lg" />
                         {coche.capacidad}
                       </span>
-                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition mr-1">
-                        <MdLuggage className="text-lg" />
+                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition tw-mr-1">
+                        <MdLuggage className="tw-text-lg" />
                         {coche.maletero}
                       </span>
-                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
-                        <GiCarDoor className="text-lg mr-1" />
+                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
+                        <GiCarDoor className="tw-text-lg tw-mr-1" />
                         {coche.puertas}
                       </span>
-                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
-                        <MdSevereCold className="text-lg mr-1" />
+                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
+                        <MdSevereCold className="tw-text-lg tw-mr-1" />
                         {coche.AC === true ? "SÍ" : "NO"}
                       </span>
-                      <span className="flex items-center p-2 justify-center bg-slate-100 hover:bg-slate-200 dark:bg-slate-800 hover:dark:bg-slate-900 rounded transition">
-                        <FaCar className="text-lg mr-1" /> {coche.cambio}
+                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
+                        <FaCar className="tw-text-lg tw-mr-1" /> {coche.cambio}
                       </span>
                     </div>
-                    <section className="pb-12 mt-5">
-                      <div className="md:flex">
-                        <ul className="flex-column space-y-4 text-sm font-medium text-slate-500 dark:text-gray-400 md:me-4 mb-4 md:mb-0">
+                    <section className="tw-pb-12 tw-mt-5">
+                      <div className="md:tw-flex">
+                        <ul className="tw-flex-column tw-space-y-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-gray-400 md:tw-me-4 tw-mb-4 md:tw-mb-0">
                           {tabs.map((tab) => (
                             <li key={tab.id}>
                               <button
-                                className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+                                className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                                   activeTab === tab.id
-                                    ? "text-white tw-bg-secondary dark:bg-slate-900"
+                                    ? "text-white bg-secondary dark:bg-slate-900"
                                     : "bg-gray-50 dark:bg-gray-800 dark:text-gray-400"
                                 }`}
                                 onClick={() => setActiveTab(tab.id)}
@@ -358,11 +358,11 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                           ))}
                         </ul>
 
-                        <div className="p-6 bg-gray-50 text-medium text-gray-500 dark:text-gray-400 dark:bg-gray-800 rounded-lg w-full">
+                        <div className="tw-p-6 tw-bg-gray-50 text-medium tw-text-gray-500 dark:tw-text-gray-400 dark:tw-bg-gray-800 tw-rounded-lg tw-w-full">
                           {tabs.map((tab) =>
                             activeTab === tab.id ? (
                               <div key={tab.id}>
-                                <h3 className="text-lg font-bold text-secondary dark:text-white mb-2">
+                                <h3 className="tw-text-lg tw-font-bold tw-text-secondary dark:tw-text-white tw-mb-2">
                                   {tab.label}
                                 </h3>
                                 <p>{tab.content}</p>
@@ -374,9 +374,9 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                     </section>
                   </div>
                 </Modal.Body>
-                <Modal.Footer className="flex flex-col md:flex-row gap-5">
+                <Modal.Footer className="tw-flex tw-flex-col md:tw-flex-row tw-gap-5">
                   <button
-                    className="w-full lg:w-fit p-3 bg-slate-500 text-white font-semibold rounded-xl shadow"
+                    className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
                     onClick={() => setActiveModalCar(null)} // Close modal
                   >
                     Cerrar

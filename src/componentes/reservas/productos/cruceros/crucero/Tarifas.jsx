@@ -476,7 +476,7 @@ function Tarifas({
                   }
                 }}
                 disabled={!temporal}
-                className="tw-bg-secondary tw-font-semibold tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-mt-4"
+                className="bg-secondary tw-font-semibold tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-mt-4"
               >
                 Confirmar selección
               </button>

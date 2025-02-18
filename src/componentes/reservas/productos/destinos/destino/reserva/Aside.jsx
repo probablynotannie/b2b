@@ -34,7 +34,7 @@ function Aside({
             <p className="grid grid-cols-2 mt-2 ">
               {producto.pax !== 0 && (
                 <span className="flex items-center">
-                  <FaPerson className="text-secondary dark:text-secondary" />
+                  <FaPerson className="tw-text-secondary dark:tw-text-secondary" />
                   {producto.pax}x
                 </span>
               )}
@@ -43,14 +43,14 @@ function Aside({
               </span>
             </p>
             <p className="flex gap-2 items-center  ">
-              <FaClock className="text-secondary dark:tw-text-secondary" />
+              <FaClock className="tw-text-secondary dark:tw-text-secondary" />
               <span>{producto.dias} días</span>
-              <ImSpoonKnife className="text-secondary dark:tw-text-secondary" />
+              <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondary" />
               <span> {producto.desayunos}x Desayunos</span>
             </p>
 
             <div className="flex gap-2 items-center">
-              <FaCalendarAlt className="text-secondary dark:tw-text-secondary" />
+              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondary" />
               <p className="flex flex-row">
                 <span className="mr-1">
                   {format(new Date(dates.startDate), "d 'de' MMMM yyyy", {
@@ -136,7 +136,7 @@ function Aside({
                           <option value="Cama Adicional">Cama Adicional</option>
                         </select>
                       </div>
-                      <div className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2">
+                      <div className="text-black dark:text-slate-400 hover:tw-text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2">
                         <div className="w-fit flex items-center space-x-1 font-semibold">
                           <FaPlusCircle className="dark:tw-text-secondary" />
                           <span onClick={() => addRoom("Habitación Doble")}>
@@ -149,7 +149,7 @@ function Aside({
                 }
               >
                 <button className="mt-2 flex items-center dark:hover:text-slate-200 hover:text-slate-700 transition">
-                  <FaPlusCircle className="text-secondary dark:tw-text-secondary mr-2" />
+                  <FaPlusCircle className="tw-text-secondary dark:tw-text-secondary mr-2" />
                   Agregar una habitación ( {producto.habitaciones.length + 1} )
                 </button>
               </Popover>
@@ -158,7 +158,7 @@ function Aside({
           <Desglose precio={producto.precio} />
           <div className="grid grid-cols-3 justify-around w-full text-center"></div>
           <Link to="/datosDestino" state={reserva}>
-            <button className="tw-bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
+            <button className="bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
               TOTAL: {producto.precio}€
             </button>
           </Link>

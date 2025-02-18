@@ -28,8 +28,8 @@ function Productos() {
           backgroundImage: "url('/banner_actividades2.jpg')",
         }}
       >
-        <div className="bg-indigo-200 dark:bg-black text-pink-600 bg-opacity-50 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-        <div className="container relative">
+        <div className="bg-indigo-200 dark:bg-black text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+        <div className="tw-container tw-relative">
           <Buscador />
         </div>
       </div>
@@ -48,20 +48,19 @@ function Productos() {
                 id="first_name"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
+                className="tw-bg-slate-50 tw-border tw-border-slate-300 tw-text-slate-900 tw-text-sm tw-rounded-lg focus:tw-ring-secondary focus:tw-border-secondary tw-block tw-w-full tw-p-2.5 dark:tw-bg-slate-800 p.2.5 dark:tw-border-slate-600 dark:placeholder-gray-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary"
                 placeholder="Buscar por nombre"
                 required
               />
               <select
                 id="tipos"
-                className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
+                className="tw-bg-slate-50 tw-border tw-border-gray-300 tw-text-gray-900 tw-text-sm tw-rounded-lg focus:tw-ring-secondary focus:tw-border-secondary tw-block tw-w-full tw-p-2.5 dark:tw-bg-slate-800 p.2.5 dark:tw-border-slate-600 dark:placeholder-gray-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary"
               >
                 <option selected>Todos</option>
               </select>
             </>
           )}
         </div>
-
         {loading ? <Entradas /> : <Tickets entradas={filteredEntradas} />}
       </article>
     </main>

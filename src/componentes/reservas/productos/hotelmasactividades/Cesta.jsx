@@ -88,7 +88,7 @@ function Cesta({
               <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
             </div>
             <div className="p-5">
-              <h4 className="text-secondary font-semibold">
+              <h4 className="tw-text-secondary font-semibold">
                 {hotel.nombre}
                 <span className="text-sm ml-1 text-slate-400 font-normal">
                   - {hotel.regimen}
@@ -166,7 +166,7 @@ function Cesta({
 
                   <div>
                     <p className="flex items-center gap-2 dark:text-slate-400">
-                      <FaCalendarAlt className="text-secondary" />
+                      <FaCalendarAlt className="tw-text-secondary" />
                       {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
                       {actividad.horaSeleccionada}
                     </p>

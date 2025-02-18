@@ -9,7 +9,7 @@ function DatosTren({ tren, tipo }) {
   return (
     <div className=" p-2 mt-3 rounded border border-slate-100 dark:border-slate-700">
       <div className="flex justify-between items-center border-b border-slate-100 dark:border-slate-700 mb-2">
-        <h3 className="font-semibold text-secondary dark:tw-text-secondary">
+        <h3 className="font-semibold tw-text-secondary dark:tw-text-secondary">
           Tren {tipo}
         </h3>
         <img className="h-5" src={tren.carrier[0].logo} alt="logo" />

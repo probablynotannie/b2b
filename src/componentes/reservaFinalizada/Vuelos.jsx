@@ -82,7 +82,7 @@ function Vuelos({ vuelos }) {
                 <div className="text-center flex flex-col items-center w-full ">
                   {vuelo.escala > 0 ? (
                     <>
-                      <p className="tw-bg-secondary text-white w-fit px-2 font-semibold rounded-full">
+                      <p className="bg-secondary text-white w-fit px-2 font-semibold rounded-full">
                         {vuelo.escala} Escala
                       </p>
                       <p className="text-slate-500 dark:text-slate-400">
@@ -106,7 +106,7 @@ function Vuelos({ vuelos }) {
           <div className=" border-2 border-slate-100 dark:border-slate-700 dark:bg-slate-800 shadow-lg rounded-lg flex flex-col justify-around p-3">
             <div>
               <h4 className="font-semibold flex items-center gap-2 dark:text-slate-200">
-                <IoAirplaneSharp className="text-2xl tw-bg-secondary rounded-full text-white p-1" />
+                <IoAirplaneSharp className="text-2xl bg-secondary rounded-full text-white p-1" />
                 Vuelo de ida {vuelos.length > 1 && "y vuelta"}
               </h4>
               <div className="text-sm text-slate-500">
@@ -123,7 +123,7 @@ function Vuelos({ vuelos }) {
                 {formatShortDate(vuelos[0].fecha)} -{" "}
                 {formatShortDate(vuelos[1]?.fecha)}
               </p>
-              <p className="flex gap-1 text-xs text-secondary font-bold">
+              <p className="flex gap-1 text-xs tw-text-secondary font-bold">
                 <>
                   <FaTicket className="text-lg" />
                   <span className="text-slate-600 dark:text-slate-300">

@@ -54,28 +54,30 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
 
   return (
     <div>
-      <div className="grid grid-cols-2 gap-5">
+      <div className="tw-grid tw-grid-cols-2 tw-gap-5">
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="mb-5 border dark:border-slate-700 bg-slate-50 dark:bg-slate-800 shadow hover:shadow-md transition duration-300 rounded-lg"
+            className="tw-mb-5 tw-border dark:tw-border-slate-700 tw-bg-slate-50 dark:tw-bg-slate-800 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300 tw-rounded-lg"
           >
-            <div className="flex justify-between items-center bg-slate-700 dark:bg-slate-900 p-2">
-              <h2 className="font-semibold text-white">Ticket {index + 1}</h2>
+            <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-700 dark:tw-bg-slate-900 tw-p-2">
+              <h2 className="tw-font-semibold tw-text-white">
+                Ticket {index + 1}
+              </h2>
               {cesta !== true && (
                 <button
-                  className="bg-red-500 text-white p-2 rounded shadow hover:shadow-lg transition duration-300"
+                  className="tw-bg-red-500 tw-text-white tw-p-2 tw-rounded tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300"
                   onClick={() => removeTicket(index)}
                 >
                   <FaRegTrashAlt />
                 </button>
               )}
             </div>
-            <div className="grid grid-cols-2 gap-4 p-4">
-              <div className="mb-2 flex flex-col">
-                <label className="dark:text-slate-100">Fecha</label>
+            <div className="tw-grid tw-grid-cols-2 tw-gap-4 tw-p-4">
+              <div className="tw-mb-2 tw-flex tw-flex-col">
+                <label className="dark:tw-text-slate-100">Fecha</label>
                 <select
-                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800 rounded"
+                  className="tw-border tw-border-slate-300 dark:tw-bg-slate-600 dark:tw-text-slate-100 dark:tw-border-slate-800 tw-rounded"
                   value={ticket.date}
                   onChange={(e) => updateTicket(index, "date", e.target.value)}
                   disabled={cesta === true}
@@ -87,10 +89,10 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                   ))}
                 </select>
               </div>
-              <div className="mb-2 flex flex-col">
-                <label className="dark:text-slate-100">Hora</label>
+              <div className="tw-mb-2 tw-flex tw-flex-col">
+                <label className="dark:tw-text-slate-100">Hora</label>
                 <select
-                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800  rounded"
+                  className="tw-border tw-border-slate-300 dark:tw-bg-slate-600 dark:tw-text-slate-100 dark:tw-border-slate-800 tw-rounded"
                   value={ticket.time}
                   onChange={(e) => updateTicket(index, "time", e.target.value)}
                   disabled={cesta === true || !ticket.date}
@@ -105,10 +107,10 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                     )}
                 </select>
               </div>
-              <div className="mb-2 flex flex-col">
-                <label className="dark:text-slate-100">Tipo</label>
+              <div className="tw-mb-2 tw-flex tw-flex-col">
+                <label className="dark:tw-text-slate-100">Tipo</label>
                 <select
-                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800  rounded"
+                  className="tw-border tw-border-slate-300 dark:tw-bg-slate-600 dark:tw-text-slate-100 dark:tw-border-slate-800 tw-rounded"
                   value={ticket.type}
                   onChange={(e) => updateTicket(index, "type", e.target.value)}
                   disabled={cesta === true}
@@ -121,10 +123,10 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                   </option>
                 </select>
               </div>
-              <div className="mb-2 flex flex-col">
-                <label className="dark:text-slate-100">Cantidad</label>
+              <div className="tw-mb-2 tw-flex tw-flex-col">
+                <label className="dark:tw-text-slate-100">Cantidad</label>
                 <input
-                  className="border border-slate-300 dark:bg-slate-600 dark:text-slate-100 dark:border-slate-800  rounded"
+                  className="tw-border tw-border-slate-300 dark:tw-bg-slate-600 dark:tw-text-slate-100 dark:tw-border-slate-800 tw-rounded"
                   type="number"
                   value={ticket.quantity}
                   min="1"
@@ -140,7 +142,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
                 />
               </div>
               {ticket.date && ticket.time && (
-                <div className=" text-sm dark:text-slate-300">
+                <div className="tw-text-sm dark:tw-text-slate-300">
                   {producto.reserva.fechas[ticket.date].horarios
                     .filter((time) => time.hora === ticket.time)
                     .map((time) => (
@@ -157,7 +159,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
       </div>
       {cesta !== true && (
         <button
-          className="tw-bg-secondary text-white p-3 font-bold rounded"
+          className="bg-secondary tw-text-white tw-p-3 tw-font-bold tw-rounded"
           onClick={addTicket}
         >
           Añadir entrada

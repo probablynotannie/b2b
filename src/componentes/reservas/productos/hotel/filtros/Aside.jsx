@@ -31,7 +31,7 @@ function Aside() {
       >
         <IoMdOptions className="tw-text-xl" />
         {getActiveFiltersCount() > 0 && (
-          <span className="tw-absolute tw-p-2 tw-text-xs tw-font-bold tw-text-white tw-border tw-rounded-full tw-bg-secondary -tw-top-7">
+          <span className="tw-absolute tw-p-2 tw-text-xs tw-font-bold tw-text-white tw-border tw-rounded-full bg-secondary -tw-top-7">
             {`(${getActiveFiltersCount()})`}
           </span>
         )}
@@ -132,7 +132,7 @@ function SidebarContent({
               onChange={() => setReembolsable(!reembolsable)}
               className="tw-sr-only tw-peer"
             />
-            <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-700 tw-peer-focus:tw-outline-none tw-peer-focus:tw-ring-4 tw-peer-focus:tw-ring-blue-300 tw-rounded-full tw-peer tw-peer-checked:after:tw-translate-x-full rtl:tw-peer-checked:after:-tw-translate-x-full tw-peer-checked:after:tw-border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all dark:tw-border-gray-600 tw-peer-checked:tw-bg-secondary"></div>
+            <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-700 tw-peer-focus:tw-outline-none tw-peer-focus:tw-ring-4 tw-peer-focus:tw-ring-blue-300 tw-rounded-full tw-peer tw-peer-checked:after:tw-translate-x-full rtl:tw-peer-checked:after:-tw-translate-x-full tw-peer-checked:after:tw-border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all dark:tw-border-gray-600 tw-peer-checked:bg-secondary"></div>
           </label>
         </div>
         <div className="tw-mx-3 tw-mt-5">

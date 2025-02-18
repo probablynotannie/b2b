@@ -79,7 +79,7 @@ function Ferris({
   return (
     <section>
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg">
+        <h3 className="tw-text-secondary font-semibold text-lg">
           Resultados ({ferris.length})
         </h3>
       </div>
@@ -230,7 +230,7 @@ function Ferris({
                 <div className="flex justify-end mt-2 p-3">
                   {ida?.ferryId === ferrySet.id && (
                     <Link to={"/datosferry"} state={ferry}>
-                      <button className="font-semibold tw-bg-secondary text-white p-2 rounded-md">
+                      <button className="font-semibold bg-secondary text-white p-2 rounded-md">
                         Reservar por {calculateTotalPrice()}€
                       </button>
                     </Link>

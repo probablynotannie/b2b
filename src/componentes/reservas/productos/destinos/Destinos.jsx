@@ -14,7 +14,7 @@ function Resultado() {
   return (
     <section className="pb-12">
       <div className="flex flex-col lg:flex-row lg:justify-between shadow-xl lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg ">
+        <h3 className="tw-text-secondary font-semibold text-lg ">
           Resultados ({destinos.length})
         </h3>
       </div>
@@ -40,19 +40,19 @@ function Resultado() {
             )}
             <button
               onClick={() => toggleMap(destino.id)}
-              className="flex items-center font-semibold tw-bg-secondary text-white px-2 p-1 rounded-bl-lg absolute top-0 right-0"
+              className="flex items-center font-semibold bg-secondary text-white px-2 p-1 rounded-bl-lg absolute top-0 right-0"
             >
               {activeMap === destino.id ? "Ocultar mapa" : "Mostrar mapa"}
               <FaMapPin className="text-white ml-2" />
             </button>
-            <span className="text-xl font-bold tw-bg-secondary text-white px-2 p-1 rounded-br-lg absolute top-0">
+            <span className="text-xl font-bold bg-secondary text-white px-2 p-1 rounded-br-lg absolute top-0">
               {destino.precio}€
             </span>
           </div>
           <Link to="/destino" state={destino}>
             <div className="px-5 py-3 dark:text-slate-300">
               <div className="flex justify-between items-center">
-                <h4 className="dark:tw-text-secondary font-semibold text-secondary">
+                <h4 className="dark:tw-text-secondary font-semibold tw-text-secondary">
                   {destino.titulo}
                 </h4>
               </div>
@@ -100,7 +100,7 @@ function Resultado() {
                   </span>
                 </p>
               </div>
-              <p className="text-sm text-secondary text-center font-bold">
+              <p className="text-sm tw-text-secondary text-center font-bold">
                 {destino.id}
               </p>
               <p className="text-slate-400 dark:text-slate-500 text-sm text-center">

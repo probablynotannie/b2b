@@ -89,7 +89,7 @@ function Contacto() {
         </section>
         <div className="my-10 mx-8 flex justify-end">
           <Link to="/cesta">
-            <button className="tw-bg-secondary dark:bg-slate-900 lg:w-fit w-full p-3 px-10 rounded-xl shadow-lg hover:shadow-xl dark:shadow-slate-800 transition text-white font-bold">
+            <button className="bg-secondary dark:bg-slate-900 lg:w-fit w-full p-3 px-10 rounded-xl shadow-lg hover:shadow-xl dark:shadow-slate-800 transition text-white font-bold">
               Siguiente
             </button>
           </Link>

@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 
-function Buscador({ destinos, destino, setDestino }) {
+function Buscador({ destinos, destino, setDestino, disable }) {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -65,6 +65,7 @@ function Buscador({ destinos, destino, setDestino }) {
         value={destino}
         onChange={handleInputChange}
         placeholder="Destino"
+        disabled={disable && disable}
         className="tw-p-2.5 tw-pl-10 tw-text-sm tw-border dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
       />
       {isDropdownOpen && (
@@ -74,7 +75,9 @@ function Buscador({ destinos, destino, setDestino }) {
               Cargando...
             </div>
           ) : suggestions.length > 0 ? (
-            <div className={`tw-grid tw-grid-cols-${columnCount} tw-gap-4 tw-p-2`}>
+            <div
+              className={`tw-grid tw-grid-cols-${columnCount} tw-gap-4 tw-p-2`}
+            >
               {Object.entries(groupedSuggestions).map(([type, items]) => (
                 <div key={type}>
                   <div className="tw-relative">
@@ -93,7 +96,7 @@ function Buscador({ destinos, destino, setDestino }) {
                         className="tw-p-2 tw-border-b tw-flex tw-flex-col tw-border-slate-200 tw-text-gray-700 hover:tw-bg-slate-50 tw-cursor-pointer"
                       >
                         <span className="tw-flex tw-space-x-2 tw-items-center">
-                          <span className="text-secondary tw-text-lg">
+                          <span className="tw-text-secondary tw-text-lg">
                             {type === "Hotel" ? <FaHotel /> : <FaMap />}
                           </span>
                           <span>{suggestion.name}</span>
@@ -109,7 +112,7 @@ function Buscador({ destinos, destino, setDestino }) {
             </div>
           ) : (
             <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-flex-col tw-text-center tw-text-slate-500">
-              No hay ningún resultado para &amp;quot;{destino}&amp;quot;
+              No hay ningún resultado para "{destino}"
             </div>
           )}
         </div>

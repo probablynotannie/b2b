@@ -83,7 +83,7 @@ function Listado({
               )}
             {seleccion === "seleccionar" ? (
               <button
-                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-bg-secondary tw-text-white tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
+                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 bg-secondary tw-text-white tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
                 onClick={() => {
                   setHotel({ ...hotel, precio: habitacion.precio });
                   setHabitacion(habitacion);
@@ -94,7 +94,7 @@ function Listado({
               </button>
             ) : (
               <Link to={"/datosHotel"} state={{ producto, habitacion }}>
-                <button className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-bg-secondary tw-text-white tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl">
+                <button className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 bg-secondary tw-text-white tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl">
                   {habitacion.precio}€
                 </button>
               </Link>

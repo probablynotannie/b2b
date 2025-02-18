@@ -46,7 +46,7 @@ function Vuelos({ ida, vuelta, cesta }) {
     <div className="mb-5">
       {cesta !== true && (
         <div className="flex justify-between">
-          <h3 className="text-secondary font-semibold text-lg mb-3">
+          <h3 className="tw-text-secondary font-semibold text-lg mb-3">
             Vuelo seleccionado
             <span>
               ({ida.flight.precio + (vuelta ? vuelta.flight.precio : 0)}€)

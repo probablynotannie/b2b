@@ -108,7 +108,7 @@ function Buscador_Cruceros({
               </div>
               <button
                 type="button"
-                className="tw-w-full tw-mt-4 tw-bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
+                className="tw-w-full tw-mt-4 bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
                 onClick={() => {
                   handleSubmit();
                   setIsModalOpen(false);
@@ -168,7 +168,7 @@ function Buscador_Cruceros({
           </div>
           <button
             type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
+            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
             onClick={handleSubmit}
           >
             Buscar

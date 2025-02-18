@@ -3,7 +3,7 @@ import { Accordion } from "flowbite-react";
 function Info({ descripcion, titulo }) {
   const info = (
     <div className="tw-text-slate-500 dark:tw-text-slate-400">
-      <h5 className="tw-font-semibold text-secondary tw-text-lg tw-border-b-2 tw-border-secondary tw-pb-2 tw-mb-2">
+      <h5 className="tw-font-semibold tw-text-secondary tw-text-lg tw-border-b-2 tw-border-secondary tw-pb-2 tw-mb-2">
         General
       </h5>
       <p>{descripcion}</p>

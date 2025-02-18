@@ -53,7 +53,7 @@ function SidebarContent() {
   return (
     <div>
       <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
-        <h3 className="font-semibold text-white lg:text-secondary text-xl ">
+        <h3 className="font-semibold text-white lg:tw-text-secondary text-xl ">
           Filtrado
         </h3>
       </div>
@@ -64,7 +64,7 @@ function SidebarContent() {
             id="sin_escalas"
             type="checkbox"
             value=""
-            className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+            className="w-4 h-4 tw-text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
           />
           <label
             htmlFor="sin_escalas"

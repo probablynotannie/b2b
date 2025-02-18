@@ -1,0 +1,285 @@
+[
+  {
+    "id": 0,
+    "precio": 15,
+    "valoracion": {
+      "estrellas": 4.5,
+      "cantidad": 1500
+    },
+    "nombre": "Audi A4",
+    "img": "/coches/audia4.jpg",
+    "capacidad": 4,
+    "maletero": 1,
+    "puertas": 3,
+    "AC": true,
+    "tipo": "Compact",
+    "cancelaciones": {
+      "17/12/2024": 50,
+      "19/12/2024": 80
+    },
+    "detalles": [
+      "Kilometraje limitado a 2000 Km por alquiler",
+      "El cargo por Kilometraje adicional es de 0.45 EUR por km",
+      "Seguro de colisión CDW (con franquicia)",
+      "Seguro de robo TPW (con franquicia)",
+      "Seguro a terceros",
+      "Impuestos locales",
+      "Tasas aeroportuarias"
+    ],
+    "seguroFranquicia": 200,
+    "noShow": "100% del total del alquiler",
+    "extras": [
+      {
+        "id": "GPS",
+        "extra": "GPS",
+        "precio": 10,
+        "cantidad": 2
+      },
+      {
+        "id": "sillitabebe",
+        "extra": "Sillita de Bebé (hasta 13kg aprox)",
+        "precio": 11,
+        "cantidad": 2
+      },
+      {
+        "id": "sillitaninio",
+        "extra": "Sillita de Niño/a (9-18 kg aprox)",
+        "precio": 11,
+        "cantidad": 4
+      },
+      {
+        "id": "elevador",
+        "extra": "Elevador (15-36 kg aprox)",
+        "precio": 11,
+        "cantidad": 0
+      }
+    ],
+    "duracion": "1h 68min",
+    "recogida": {
+      "fecha": "20/12/2024",
+      "hora": "18:00",
+      "lugar": "Airport El Prat",
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    },
+    "devolucion": {
+      "fecha": "29/12/2024",
+      "hora": "18:00",
+      "lugar": "Lizardi kalea 7",
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    }
+  },
+  {
+    "id": 1,
+    "precio": 20,
+    "valoracion": {
+      "estrellas": 5,
+      "cantidad": 143642
+    },
+    "nombre": "BMW X6",
+    "img": "/coches/bmwx6.jpg",
+    "capacidad": 4,
+    "maletero": 1,
+    "discapacitados": 1,
+    "puertas": 3,
+    "AC": true,
+    "tipo": "Compact",
+    "cancelaciones": {
+      "17/12/2024": 50,
+      "19/12/2024": 80
+    },
+    "detalles": [
+      "Kilometraje limitado a 2000 Km por alquiler",
+      "El cargo por Kilometraje adicional es de 0.45 EUR por km",
+      "Seguro de colisión CDW (con franquicia)",
+      "Seguro de robo TPW (con franquicia)",
+      "Seguro a terceros",
+      "Impuestos locales",
+      "Tasas aeroportuarias"
+    ],
+    "seguroFranquicia": 200,
+    "noShow": "100% del total del alquiler",
+    "extras": [
+      {
+        "id": "GPS",
+        "extra": "GPS",
+        "precio": 10,
+        "cantidad": 2
+      },
+      {
+        "id": "sillitabebe",
+        "extra": "Sillita de Bebé (hasta 13kg aprox)",
+        "precio": 11,
+        "cantidad": 2
+      },
+      {
+        "id": "sillitaninio",
+        "extra": "Sillita de Niño/a (9-18 kg aprox)",
+        "precio": 11,
+        "cantidad": 4
+      },
+      {
+        "id": "elevador",
+        "extra": "Elevador (15-36 kg aprox)",
+        "precio": 11,
+        "cantidad": 0
+      }
+    ],
+    "duracion": "1h 68min",
+    "recogida": {
+      "fecha": "20/12/2024",
+      "hora": "18:00",
+      "lugar": "Airport El Prat",
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    },
+    "devolucion": {
+      "fecha": "29/12/2024",
+      "hora": "18:00",
+      "lugar": "Lizardi kalea 7",
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    }
+  },
+  {
+    "id": 2,
+    "precio": 16,
+    "valoracion": {
+      "estrellas": 3.5,
+      "cantidad": 580
+    },
+    "nombre": "BMW X6",
+    "img": "/coches/audia4.jpg",
+    "capacidad": 4,
+    "maletero": 1,
+    "puertas": 3,
+    "AC": false,
+    "tipo": "Compact",
+    "cancelaciones": {
+      "17/12/2024": 50,
+      "19/12/2024": 80,
+      "23/12/2024": 90
+    },
+    "detalles": [
+      "Kilometraje limitado a 2000 Km por alquiler",
+      "El cargo por Kilometraje adicional es de 0.45 EUR por km",
+      "Seguro de colisión CDW (con franquicia)",
+      "Seguro de robo TPW (con franquicia)",
+      "Seguro a terceros",
+      "Impuestos locales",
+      "Tasas aeroportuarias"
+    ],
+    "seguroFranquicia": 200,
+    "noShow": "100% del total del alquiler",
+    "extras": [
+      {
+        "id": "GPS",
+        "extra": "GPS",
+        "precio": 10,
+        "cantidad": 2
+      },
+      {
+        "id": "sillitabebe",
+        "extra": "Sillita de Bebé (hasta 13kg aprox)",
+        "precio": 11,
+        "cantidad": 2
+      },
+      {
+        "id": "sillitaninio",
+        "extra": "Sillita de Niño/a (9-18 kg aprox)",
+        "precio": 11,
+        "cantidad": 4
+      },
+      {
+        "id": "elevador",
+        "extra": "Elevador (15-36 kg aprox)",
+        "precio": 11,
+        "cantidad": 0
+      }
+    ],
+    "duracion": "1h 68min",
+    "recogida": {
+      "fecha": "20/12/2024",
+      "hora": "18:00",
+      "lugar": "Lizardi kalea 7",
+      "horario": [
+        {
+          "dia": "Lunes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Martes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Miercoles",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Jueves",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Viernes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Sabado",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        },
+        {
+          "dia": "Domingo",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        }
+      ],
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    },
+    "devolucion": {
+      "fecha": "29/12/2024",
+      "hora": "18:00",
+      "lugar": "Airport El Prat",
+      "horario": [
+        {
+          "dia": "Lunes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Martes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Miercoles",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Jueves",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Viernes",
+          "apertura": "09:00",
+          "cierre": "21:59"
+        },
+        {
+          "dia": "Sabado",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        },
+        {
+          "dia": "Domingo",
+          "apertura": "09:00",
+          "cierre": "20:00"
+        }
+      ],
+      "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
+    }
+  }
+]

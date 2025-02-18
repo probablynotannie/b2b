@@ -22,8 +22,8 @@ function Entradas({ producto, tickets }) {
           </h3>
         </div>
         <div className="flex flex-col justify-center items-center">
-          <FaTicket className="text-xl text-secondary dark:tw-text-secondary" />
-          <span className="text-secondary dark:tw-text-secondary font-bold">
+          <FaTicket className="text-xl tw-text-secondary dark:tw-text-secondary" />
+          <span className="tw-text-secondary dark:tw-text-secondary font-bold">
             {calculateTotalPrice().toFixed(2)}€
           </span>
         </div>

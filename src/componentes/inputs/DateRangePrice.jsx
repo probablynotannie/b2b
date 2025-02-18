@@ -136,7 +136,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   
     return (
       <div key={month} className="mb-8">
-        <h3 className="text-lg font-bold text-center mb-2 text-secondary">
+        <h3 className="text-lg font-bold text-center mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
         </h3>
         {renderWeekDays()}
@@ -156,13 +156,13 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                 ref={isTodayDay ? todayRef : null}
                 className={`p-4 text-center rounded-lg cursor-pointer text-black text-sm relative ${
                   isTodayDay
-                    ? "bg-blue-500 dark:tw-tw-bg-secondary text-white"
+                    ? "bg-blue-500 dark:tw-bg-secondary text-white"
                     : ""
                 } ${
                   isSameDay(day, startDate)
-                    ? "tw-bg-secondary dark:bg-slate-900 text-white"
+                    ? "bg-secondary dark:bg-slate-900 text-white"
                     : isSameDay(day, endDate)
-                    ? "tw-bg-secondary dark:bg-slate-900 text-white"
+                    ? "bg-secondary dark:bg-slate-900 text-white"
                     : startDate && endDate && day > startDate && day < endDate
                     ? "bg-orange-100 dark:bg-slate-600 dark:text-white"
                     : "dark:text-slate-100"
@@ -173,7 +173,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                 {!isBefore(day, today) && prices[formattedDate] && (
                   <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs text-center">
                     <span
-                      className={`text-slate-900 dark:text-secondaryDark ${
+                      className={`text-slate-900 dark:tw-text-secondaryDark ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
                           ? "text-white font-bold"
                           : ""

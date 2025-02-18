@@ -45,7 +45,7 @@ function Ferris() {
                 type="button"
                 className={`p-2.5 rounded-lg font-bold ${
                   viaje === "ida"
-                    ? "tw-bg-secondary"
+                    ? "bg-secondary"
                     : "bg-gray-400 dark:bg-slate-600"
                 }`}
                 onClick={() => handleviajeChange("ida")}
@@ -56,7 +56,7 @@ function Ferris() {
                 type="button"
                 className={`p-2 rounded-lg font-bold ${
                   viaje === "ida_vuelta"
-                    ? "tw-bg-secondary"
+                    ? "bg-secondary"
                     : "bg-gray-400 dark:bg-slate-600"
                 }`}
                 onClick={() => handleviajeChange("ida_vuelta")}

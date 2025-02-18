@@ -20,11 +20,11 @@ function Pasajeros({ pasajeros }) {
               </h3>
               <ul className="dark:text-slate-300">
                 <li className="flex items-center text-sm gap-1">
-                  <FaPassport className="text-secondary dark:text-slate-400" />
+                  <FaPassport className="tw-text-secondary dark:text-slate-400" />
                   {pasajero.pasaporte}
                 </li>
                 <li className="flex items-center text-sm gap-1">
-                  <FaGlobe className="text-secondary dark:text-slate-400" />
+                  <FaGlobe className="tw-text-secondary dark:text-slate-400" />
                   {pasajero.nacionalidad}
                 </li>
               </ul>

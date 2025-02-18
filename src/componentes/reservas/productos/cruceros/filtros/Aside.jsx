@@ -53,7 +53,7 @@ function SidebarContent({ values, setValues }) {
   return (
     <div>
       <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 bg-primary lg:tw-bg-inherit tw-p-5 lg:tw-p-3 tw-border-b-2 dark:tw-border-slate-600">
-        <h3 className="tw-font-semibold dark:tw-text-white lg:text-secondary tw-text-xl">
+        <h3 className="tw-font-semibold dark:tw-text-white lg:tw-text-secondary tw-text-xl">
           Filtrado
         </h3>
       </div>

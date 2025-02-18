@@ -25,31 +25,31 @@ function Usuario() {
             <div className="tw-text-sm">
               <ul className="tw-space-y-3 tw-text-sm">
                 <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="text-secondary">
+                  <span className="tw-text-secondary">
                     <FaStar />
                   </span>
                   <span>DIT España Freelance</span>
                 </li>
                 <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="text-secondary">
+                  <span className="tw-text-secondary">
                     <FaUser />
                   </span>
                   <span>Test LIO</span>
                 </li>
                 <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="text-secondary">
+                  <span className="tw-text-secondary">
                     <MdEmail />
                   </span>
                   <span>Reservas: soporte@ditgestion.com</span>
                 </li>
                 <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="text-secondary">
+                  <span className="tw-text-secondary">
                     <MdEmail />
                   </span>
                   <span>Admin: holavpk@gmail.com</span>
                 </li>
                 <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="text-secondary">
+                  <span className="tw-text-secondary">
                     <IoSettings />
                   </span>
                   <span>Modificar margenes</span>
@@ -65,7 +65,7 @@ function Usuario() {
         </div>
       }
     >
-      <div className="tw-text-white tw-w-fit tw-cursor-pointer hover:text-secondary tw-transition tw-flex tw-justify-center tw-items-center">
+      <div className="tw-text-white tw-w-fit tw-cursor-pointer hover:tw-text-secondary tw-transition tw-flex tw-justify-center tw-items-center">
         <FaUserCog className="tw-text-3xl" />
       </div>
     </Popover>

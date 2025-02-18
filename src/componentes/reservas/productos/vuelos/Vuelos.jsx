@@ -4,7 +4,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 function FlightSelectionPage({ ida, setIda, vuelta, setVuelta, vuelos }) {
   return (
     <div className="mx-auto space-y-8 mt-10">
-      <h3 className="text-secondary font-semibold text-lg mb-10 hidden md:block">
+      <h3 className="tw-text-secondary font-semibold text-lg mb-10 hidden md:block">
         Resultados
       </h3>
       {vuelos.map((flightSet) => (
@@ -54,7 +54,7 @@ function FlightSelection({
         type="radio"
         checked={selected}
         onChange={() => onSelect(flightSetId, flight.id)}
-        className="mr-3 text-secondary"
+        className="mr-3 tw-text-secondary"
       />
       <img src="./logo.png" alt="Airline logo" className="w-12" />
       <div className="flex-1">

@@ -12,7 +12,7 @@ function Resultado({ trenes, setTren, tipo }) {
   return (
     <section className="pb-12 px-4 lg:px-0">
       <div className="flex flex-col lg:flex-row lg:justify-between p-6 rounded-xl">
-        <h3 className="text-secondary font-semibold text-xl">
+        <h3 className="tw-text-secondary font-semibold text-xl">
           Resultado {tipo} ({trenes.length})
         </h3>
       </div>

@@ -188,7 +188,7 @@ function SelectorPersonas({
                 ))}
                 <div
                   onClick={addRoom}
-                  className="tw-text-black dark:tw-text-slate-400 hover:text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 tw-mt-5 tw-pt-2"
+                  className="tw-text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 tw-mt-5 tw-pt-2"
                 >
                   <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
                     <span>Agregar una habitación </span>

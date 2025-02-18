@@ -98,7 +98,7 @@ function Productos() {
           <button
             className={`px-4 py-2 border-b-2 flex items-center ${
               activeTab === "Resultados"
-                ? "border-secondary text-secondary font-bold "
+                ? "border-secondary tw-text-secondary font-bold "
                 : " text-slate-700 dark:text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Resultados")}
@@ -108,7 +108,7 @@ function Productos() {
           <button
             className={`px-4 py-2 border-b-2 flex items-center ${
               activeTab === "Vuelos"
-                ? "border-secondary text-secondary font-bold "
+                ? "border-secondary tw-text-secondary font-bold "
                 : " text-slate-700 dark:text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Vuelos")}

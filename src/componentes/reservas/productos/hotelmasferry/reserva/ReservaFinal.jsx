@@ -22,7 +22,7 @@ function ReservaFinal() {
         <ul className="text-slate-500 dark:text-slate-300 text-sm my-3">
           <li className="flex justify-between items-center">
             <span className="flex items-center gap-1">
-              <FaHotel className="text-secondary" />
+              <FaHotel className="tw-text-secondary" />
               {hotel.nombre}
             </span>
             <span>{hotel.precio}€</span>
@@ -32,7 +32,7 @@ function ReservaFinal() {
           </li>
           <li className="flex justify-between items-center">
             <span className="flex items-center gap-1">
-              <FaShip className="text-secondary" />
+              <FaShip className="tw-text-secondary" />
               {ferry.ida.ruta}
             </span>
             <span>

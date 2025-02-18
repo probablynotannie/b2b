@@ -12,27 +12,26 @@ function Coches() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   return (
-    <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
+    <div className="tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-min-h-[78vh] tw-min-h-[90vh] lg:tw-py-10">
       <Sidebar />
       <div
-        className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
+        className="tw-relative tw-flex lg:tw-block tw-items-center tw-justify-center tw-h-full tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-min-h-[68vh] lg:tw-rounded-lg lg:tw-shadow-lg"
         style={{
           backgroundImage: `url(/banner_coches.jpg)`,
           backgroundSize: "cover",
         }}
       >
         <div
-          className={`absolute  z-0 bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10 `}
+          className={`tw-absolute tw-z-0 tw-bg-indigo-800 tw-w-full tw-h-full tw-bg-opacity-35 tw-rounded-lg tw-shadow-lg tw-px-10`}
         ></div>
-        <div className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-2/7 h-fit py-5 pb-16 rounded-lg shadow-xl">
+        <div className="tw-relative xl:tw-top-32 lg:tw-left-20 tw-bg-CajaForms tw-bg-opacity-80 dark:bg-opacity-90 tw-text-white tw-px-4 md:tw-px-10 tw-w-11/12 md:tw-w-2/3 lg:tw-w-2/4 2xl:tw-w-2/7 tw-h-fit tw-py-5 tw-pb-16 tw-rounded-lg tw-shadow-xl">
           <form>
-            <h2 className="text-3xl font-bold ">Buscador de coches</h2>
-            <div className="grid grid-cols-3 gap-2 mt-2">
-              <div className="col-span-3">
+            <h2 className="tw-text-3xl tw-font-bold">Buscador de coches</h2>
+            <div className="tw-grid tw-grid-cols-3 tw-gap-2 tw-mt-2">
+              <div className="tw-col-span-3">
                 <Input_Buscador />
               </div>
-
-              <div className="col-span-3">
+              <div className="tw-col-span-3">
                 <Input_DateRange
                   startDate={startDate}
                   endDate={endDate}
@@ -41,27 +40,27 @@ function Coches() {
                 />
               </div>
               <div>
-                <span className="block mb-1 text-sm font-semibold">
+                <span className="tw-block tw-mb-1 tw-text-sm tw-font-semibold">
                   Recogida
                 </span>
                 <Input_hora hora={horaRecogida} setHora={setHoraRecogida} />
               </div>
               <div>
-                <span className="block mb-1 text-sm font-semibold">
+                <span className="tw-block tw-mb-1 tw-text-sm tw-font-semibold">
                   Devolución
                 </span>
                 <Input_hora hora={horaDevolucion} setHora={setHoraDevolucion} />
               </div>
               <div>
-                <span className="block mb-1 text-sm font-semibold">
+                <span className="tw-block tw-mb-1 tw-text-sm tw-font-semibold">
                   Edad conductor
                 </span>
                 <Input_Edad edad={edad} setEdad={setEdad} />
               </div>
             </div>
-            <div className="absolute -bottom-5 right-5">
+            <div className="tw-absolute -tw-bottom-5 tw-right-5">
               <Link to={"/listadocoches"}>
-                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
+                <button className="tw-bg-slate-900 tw-border-2 tw-border-white tw-border-opacity-20 tw-shadow-xl tw-rounded-lg tw-p-3 tw-px-16 tw-font-bold tw-w-full">
                   Buscar
                 </button>
               </Link>

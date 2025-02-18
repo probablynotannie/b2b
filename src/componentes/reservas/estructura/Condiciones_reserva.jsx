@@ -359,7 +359,7 @@ function Condiciones_reserva() {
               presentar una reclamación por alguna incidencia en la relación
               contractual pueden presentar la reclamación oportuna rellenando el
               siguiente formulario electrónico:
-              <a className="text-secondary font-semibold">
+              <a className="tw-text-secondary font-semibold">
                 http://ec.europa.eu/consumers/odr/.
               </a>
             </p>

@@ -13,7 +13,7 @@ function ReservaFinal() {
           <h1 className="font-bold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-800 pb-2">
             Reservando destino
           </h1>
-          <span className="font-semibold text-secondary dark:tw-text-secondary">
+          <span className="font-semibold tw-text-secondary dark:tw-text-secondary">
             Por: {reserva.agencia}
           </span>
         </div>
@@ -29,7 +29,7 @@ function ReservaFinal() {
         />
         <Info reserva={reserva} />
         <Link to={"/resumenDestino"} state={{ reserva, datosContacto }}>
-          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {reserva.precio} €
           </button>
         </Link>

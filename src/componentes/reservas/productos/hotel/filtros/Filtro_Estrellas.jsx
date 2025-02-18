@@ -27,7 +27,7 @@ const Estrellas = ({ onChange }) => {
               type="checkbox"
               value={starValue}
               onChange={handleChange}
-              className="tw-w-4 tw-h-4 text-secondary tw-bg-gray-100 tw-text-secondary dark:tw-bg-slate-700 dark:tw-border-slate-600 tw-border-gray-300 tw-rounded focus:tw-ring-secondary focus:tw-ring-2 focus:tw-ring-offset-0"
+              className="tw-w-4 tw-h-4 tw-text-secondary tw-bg-gray-100 tw-text-secondary dark:tw-bg-slate-700 dark:tw-border-slate-600 tw-border-gray-300 tw-rounded focus:tw-ring-secondary focus:tw-ring-2 focus:tw-ring-offset-0"
             />
             <label
               htmlFor={`hotel_estrellas${starValue}`}
@@ -35,12 +35,12 @@ const Estrellas = ({ onChange }) => {
             >
               <div className="tw-flex">
                 {Array.from({ length: starValue }, (_, i) => (
-                  <IoMdStar key={i} className="tw-text-lg text-secondary" />
+                  <IoMdStar key={i} className="tw-text-lg tw-text-secondary" />
                 ))}
                 {Array.from({ length: 5 - starValue }, (_, i) => (
                   <IoMdStarOutline
                     key={i}
-                    className="tw-text-lg text-secondary"
+                    className="tw-text-lg tw-text-secondary"
                   />
                 ))}
               </div>

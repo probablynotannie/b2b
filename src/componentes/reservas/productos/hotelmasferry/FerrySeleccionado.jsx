@@ -51,7 +51,7 @@ function ferris({ ferry }) {
             <span className="uppercase font-bold">{ferry.ida.tarifa}</span>
           </span>
           <div className="p-3">
-            <h4 className="text-secondary font-semibold">
+            <h4 className="tw-text-secondary font-semibold">
               {ferry.ida.ruta}
               <span className="text-sm ml-1 text-slate-400 font-normal">
                 - {ferry.vuelta ? "Ida y vuelta" : "solo ida"}
@@ -77,7 +77,7 @@ function ferris({ ferry }) {
             </div>
             <div className="flex justify-between dark:text-slate-300">
               <span className="flex items-center gap-1">
-                <FaCalendarAlt className="text-secondary" />
+                <FaCalendarAlt className="tw-text-secondary" />
                 {formatSpanishDate(ferry.ida.fecha)}
               </span>
               {ferry.vuelta?.fecha && (

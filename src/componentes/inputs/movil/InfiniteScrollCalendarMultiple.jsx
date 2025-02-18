@@ -88,9 +88,9 @@ const InfiniteScrollCalendar = ({
               key={day}
               className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm ${
                 isSameDay(day, startDate)
-                  ? "tw-bg-secondary tw-text-white" // Fecha inicio
+                  ? "bg-secondary tw-text-white" // Fecha inicio
                   : isSameDay(day, endDate)
-                  ? "tw-bg-secondary tw-text-white" // Fecha fin
+                  ? "bg-secondary tw-text-white" // Fecha fin
                   : startDate && endDate && day > startDate && day < endDate
                   ? "tw-bg-orange-100" // Fechas en medio
                   : ""

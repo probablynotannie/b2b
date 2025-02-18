@@ -59,7 +59,7 @@ const Vuelo = () => {
     <div className="tw-flex tw-flex-wrap tw-justify-center">
       {pasajeros.map((pasajero, index) => (
         <div
-          className="tw-bg-secondary tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2"
+          className="bg-secondary tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2"
           key={index}
         >
           Pasajero {index + 1} - {pasajero.age} años
@@ -243,7 +243,7 @@ const Vuelo = () => {
           <div className="tw-flex tw-justify-end">
             <button
               type="submit"
-              className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-mt-3"
+              className="bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-mt-3"
             >
               Reservar
             </button>
