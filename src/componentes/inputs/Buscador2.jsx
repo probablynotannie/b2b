@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 
-function Buscador({ destinos, destino, setDestino, disable }) {
+function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -64,7 +64,7 @@ function Buscador({ destinos, destino, setDestino, disable }) {
         type="text"
         value={destino}
         onChange={handleInputChange}
-        placeholder="Destino"
+        placeholder={placeholder}
         disabled={disable && disable}
         className="tw-p-2.5 tw-pl-10 tw-text-sm tw-border dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
       />
@@ -81,7 +81,7 @@ function Buscador({ destinos, destino, setDestino, disable }) {
               {Object.entries(groupedSuggestions).map(([type, items]) => (
                 <div key={type}>
                   <div className="tw-relative">
-                    <h3 className="tw-font-semibold bg-primary tw-text-white tw-rounded-md tw-p-2">
+                    <h3 className="tw-font-semibold tw-bg-slate-700 tw-text-white tw-rounded-md tw-p-2">
                       {type}
                     </h3>
                     <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-right-1 tw-text-white tw-h-full tw-rounded-tr-md tw-rounded-br-md tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-lg">

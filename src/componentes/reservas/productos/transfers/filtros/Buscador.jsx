@@ -1,17 +1,21 @@
 import { useState } from "react";
 import Input_Buscador from "../../../../inputs/Buscador2";
-import Input_DateRange from "../../../../inputs/DateRange";
+import Input_DateRange from "../../../../inputs/DateRangeWithTime";
+import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
 import Input_Edad from "../../../../inputs/Edad";
 import { FaSearch } from "react-icons/fa";
 function Buscador() {
-  const [horaRecogida, setHoraRecogida] = useState(new Date());
-  const [horaDevolucion, setHoraDevolucion] = useState(new Date());
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [horaRecogida, setHoraRecogida] = useState("12:00");
+  const [horaDevolucion, setHoraDevolucion] = useState("12:00");
+  const [startDate, setStartDate] = useState();
+  const [endDate, setEndDate] = useState();
   const [edad, setEdad] = useState();
   const [destino, setDestino] = useState();
   const [devolucion, setDevolucion] = useState();
+  console.log("Recogida:", startDate);
+  console.log("Devolucion:", endDate);
+
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -22,14 +26,8 @@ function Buscador() {
     { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
-
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEntregaCiudadChecked, setIsEntregaCiudadChecked] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const handleCheckboxChange = (event) => {
-    setIsEntregaCiudadChecked(event.target.checked);
-  };
-
   return (
     <>
       <button
@@ -55,7 +53,7 @@ function Buscador() {
         >
           <div>
             <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
-              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 bg-primary dark:tw-bg-slate-900 tw-p-5">
+              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-700 dark:tw-bg-slate-900 tw-p-5">
                 <h2 className="tw-text-xl tw-font-bold tw-text-white">
                   Buscador
                 </h2>
@@ -71,13 +69,22 @@ function Buscador() {
           <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                placeholder={"Origen"}
                 destinos={destinos}
                 destino={destino}
                 setDestino={setDestino}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_DateRange
+              <Input_Buscador
+                placeholder={"Destino"}
+                destinos={destinos}
+                destino={destino}
+                setDestino={setDestino}
+              />
+            </div>
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_DateRangeMobile
                 startDate={startDate}
                 endDate={endDate}
                 setStartDate={setStartDate}
@@ -90,21 +97,22 @@ function Buscador() {
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
             </div>
+
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Edad edad={edad} setEdad={setEdad} />
             </div>
 
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                placeholder={"Destino"}
                 destinos={destinos}
                 destino={devolucion}
                 setDestino={setDevolucion}
-                disable={isEntregaCiudadChecked}
               />
             </div>
 
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-              <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+              <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                 <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
@@ -128,49 +136,38 @@ function Buscador() {
         <div className="tw-grid tw-grid-cols-12 tw-gap-3">
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-6 xl:tw-col-span-3">
             <Input_Buscador
+              placeholder={"Origen"}
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
-            <div className="tw-flex tw-items-center tw-mb-4">
-              <input
-                id="entrega_ciudad"
-                type="checkbox"
-                checked={isEntregaCiudadChecked}
-                onChange={handleCheckboxChange}
-                className="tw-w-4 tw-h-4 tw-text-secondary tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-secondary dark:focus:tw-ring-secondary dark:tw-ring-offset-gray-800 focus:tw-ring-2 dark:tw-bg-gray-700 dark:tw-border-gray-600"
-              />
-              <label
-                htmlFor="entrega_ciudad"
-                className="tw-ms-2 tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-gray-300"
-              >
-                Entrega en la misma ciudad
-              </label>
-            </div>
           </div>
 
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-6 xl:tw-col-span-3">
             <Input_Buscador
+              placeholder={"Destino"}
               destinos={destinos}
               destino={devolucion}
               setDestino={setDevolucion}
-              disable={isEntregaCiudadChecked}
             />
           </div>
 
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
+          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2">
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              hora={horaRecogida}
+              date={startDate}
+              setDate={setStartDate}
+              setHora={setHoraRecogida}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-1">
-            <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
-          </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-1">
-            <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
+
+          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2">
+            <Input_DateRange
+              hora={horaDevolucion}
+              date={endDate}
+              setDate={setEndDate}
+              setHora={setHoraDevolucion}
+            />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1">
             <Input_Edad edad={edad} setEdad={setEdad} />

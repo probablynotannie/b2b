@@ -35,7 +35,7 @@ const InfiniteScrollCalendar = ({
     for (let i = 1; i <= 3; i++) {
       newMonths.push(addMonths(lastMonth, i));
     }
-    setMonths((prevMonths) => [...prevMonths, ...newMonths]); // Nuevos meses
+    setMonths((prevMonths) => [...prevMonths, ...newMonths]);
   }, [months]);
 
   const handleDateClick = (date) => {
@@ -43,7 +43,6 @@ const InfiniteScrollCalendar = ({
       setStartDate(date);
       setEndDate(null);
     } else if (date < startDate) {
-      // Si la fecha seleccionada es antes de la fecha ya seleccionada, será nuevo día de inicio
       setStartDate(date);
     } else {
       setEndDate(date);
@@ -51,7 +50,6 @@ const InfiniteScrollCalendar = ({
     }
   };
 
-  // Render days of the week
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
@@ -64,8 +62,6 @@ const InfiniteScrollCalendar = ({
       </div>
     );
   };
-
-  // Calendario por mes
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
@@ -74,25 +70,24 @@ const InfiniteScrollCalendar = ({
 
     return (
       <div key={month} className="tw-mb-8">
-        {/* Month name above weekdays */}
         <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
-          {renderWeekDays()} {/* Días de semana */}
+          {renderWeekDays()}
         </h3>
         <div className="tw-grid tw-grid-cols-7 tw-gap-1 tw-mb-3">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="tw-p-4"></div> // Espacio blanco si no hay días lun-mar...
+            <div key={`empty-${i}`} className="tw-p-4"></div>
           ))}
           {daysInMonth.map((day) => (
             <div
               key={day}
               className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm ${
                 isSameDay(day, startDate)
-                  ? "bg-secondary tw-text-white" // Fecha inicio
+                  ? "tw-bg-secondary tw-text-white"
                   : isSameDay(day, endDate)
-                  ? "bg-secondary tw-text-white" // Fecha fin
+                  ? "tw-bg-secondary tw-text-white"
                   : startDate && endDate && day > startDate && day < endDate
-                  ? "tw-bg-orange-100" // Fechas en medio
+                  ? "tw-bg-orange-100"
                   : ""
               }`}
               onClick={() => handleDateClick(day)}
@@ -112,16 +107,12 @@ const InfiniteScrollCalendar = ({
   const closeModal = () => {
     setIsModalOpen(false);
   };
-
-  // Carga más meses cuando el usuario se desplaza
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     if (scrollHeight - scrollTop <= clientHeight + 100) {
       loadMoreMonths();
     }
   };
-
-  // Formato fechas
   const formatDateRange = () => {
     if (startDate && endDate) {
       return `${format(startDate, "dd/MM/yyyy")} - ${format(
@@ -157,8 +148,6 @@ const InfiniteScrollCalendar = ({
                 &times;
               </button>
             </div>
-
-            {/* CalendarioF */}
             <div
               className="tw-overflow-y-auto tw-h-[calc(100%-80px)] tw-p-4"
               onScroll={handleScroll}

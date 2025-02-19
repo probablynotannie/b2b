@@ -2,6 +2,7 @@
   {
     "id": 0,
     "precio": 15,
+    "tipoVehiculo": 1,
     "valoracion": {
       "estrellas": 4.5,
       "cantidad": 1500
@@ -71,6 +72,7 @@
   {
     "id": 1,
     "precio": 20,
+    "tipoVehiculo": 2,
     "valoracion": {
       "estrellas": 5,
       "cantidad": 143642
@@ -141,6 +143,7 @@
   {
     "id": 2,
     "precio": 16,
+    "tipoVehiculo": 1,
     "valoracion": {
       "estrellas": 3.5,
       "cantidad": 580

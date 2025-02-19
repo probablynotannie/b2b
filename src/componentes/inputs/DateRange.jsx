@@ -38,9 +38,9 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
           onClick={toggleDatePicker}
           value={
             startDate && endDate
-              ? `${format(startDate, "d 'de' MMMM 'de' yyyy", {
+              ? `${format(startDate, "d 'de' MMMM", {
                   locale: es,
-                })} - ${format(endDate, "d 'de' MMMM 'de' yyyy", {
+                })} - ${format(endDate, "d 'de' MMMM", {
                   locale: es,
                 })}`
               : "Selecciona un rango de fechas"

@@ -21,7 +21,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lockedIdaPrice, setLockedIdaPrice] = useState(null);
 
-  const modalRef = useRef(null); // Create a reference for the modal container
+  const modalRef = useRef(null); 
 
   const TRIP_DAYS = dias;
   const today = new Date();

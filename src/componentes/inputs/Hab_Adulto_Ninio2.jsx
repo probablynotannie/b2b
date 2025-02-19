@@ -96,7 +96,7 @@ function SelectorPersonas({
           aria-labelledby="default-popover"
           content={
             <div className="tw-w-96 tw-text-sm">
-              <div className="bg-primary dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
+              <div className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
                 Adultos / Niños
               </div>
               <div className="tw-px-3 tw-pb-5 tw-max-h-[80vh] tw-overflow-y-auto">
@@ -105,7 +105,7 @@ function SelectorPersonas({
                     className="tw-relative tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700 dark:tw-shadow-inner dark:tw-shadow-slate-600 tw-shadow tw-mt-10 tw-p-2 tw-py-5 tw-rounded-lg"
                     key={room.id}
                   >
-                    <span className="tw-absolute -tw-top-5 tw-p-2 bg-primary dark:tw-bg-slate-900 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow-lg">
+                    <span className="tw-absolute -tw-top-5 tw-p-2 tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow-lg">
                       Habitación {roomIndex + 1}
                     </span>
                     <div className="tw-grid tw-grid-cols-3 tw-gap-2">
@@ -201,7 +201,7 @@ function SelectorPersonas({
         >
           <div>
             <div className="tw-relative">
-              <div className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary text-primary tw-border-2 tw-p-2.5 tw-rounded-lg tw-text-sm tw-pl-10">
+              <div className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary tw-text-slate-700 tw-border-2 tw-p-2.5 tw-rounded-lg tw-text-sm tw-pl-10">
                 {habitacion} Habitaciones - {totalAdults} Adultos -{" "}
                 {totalChildren} Niños
               </div>
