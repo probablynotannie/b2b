@@ -1,13 +1,9 @@
 import { useState } from "react";
 import PrecioRange from "../../../../inputs/PrecioRange";
 import { IoMdOptions } from "react-icons/io";
-import Proveedores from "./Proveedores";
-import TiposCoches from "./TiposCoches";
-function Aside() {
-  const [values, setValues] = useState([0, 500]);
+
+function Aside({ values, setValues, minMax }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [categoriasSeleccionadas, setCategoriasSeleccionadas] = useState([]);
-  const [tipos, setTipos] = useState([]);
 
   return (
     <>
@@ -19,12 +15,9 @@ function Aside() {
       </button>
       <div className="tw-hidden lg:tw-block">
         <SidebarContent
+          minMax={minMax}
           values={values}
           setValues={setValues}
-          categoriasSeleccionadas={categoriasSeleccionadas}
-          setCategoriasSeleccionadas={setCategoriasSeleccionadas}
-          tipos={tipos}
-          setTipos={setTipos}
           setIsModalOpen={setIsModalOpen}
         />
       </div>
@@ -46,10 +39,7 @@ function Aside() {
             <SidebarContent
               values={values}
               setValues={setValues}
-              categoriasSeleccionadas={categoriasSeleccionadas}
-              setCategoriasSeleccionadas={setCategoriasSeleccionadas}
-              tipos={tipos}
-              setTipos={setTipos}
+              minMax={minMax}
               isModalOpen={setIsModalOpen}
             />
             <div className="tw-my-5 tw-flex tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-justify-center tw-items-center tw-py-10">
@@ -72,40 +62,17 @@ function Aside() {
   );
 }
 
-function SidebarContent({
-  values,
-  setValues,
-  categoriasSeleccionadas,
-  setCategoriasSeleccionadas,
-  tipos,
-  setTipos,
-  setIsModalOpen,
-}) {
+function SidebarContent({ values, setValues, minMax }) {
   return (
     <div>
       <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary lg:tw-bg-inherit tw-p-5 lg:tw-p-3 tw-border-b-2 dark:tw-border-slate-600">
-        <h3 className="tw-font-semibold dark:tw-text-white lg:tw-text-secondary tw-text-xl">
+        <h3 className="tw-font-semibold tw-text-white dark:tw-text-white lg:tw-text-secondary tw-text-xl">
           Filtrado
         </h3>
       </div>
       <div className="tw-p-6 lg:tw-p-3 lg:tw-pt-1">
         <div className="tw-mx-3 tw-mt-5">
-          <PrecioRange values={values} setValues={setValues} />
-        </div>
-        <div className="tw-mx-3 tw-mt-5">
-          <span className="tw-text-sm tw-font-bold tw-text-gray-900 dark:tw-text-secondary">
-            Proveedores
-          </span>
-          <Proveedores
-            categoriasSeleccionadas={categoriasSeleccionadas}
-            setCategoriasSeleccionadas={setCategoriasSeleccionadas}
-          />
-        </div>
-        <div className="tw-mx-3 tw-mt-5">
-          <span className="tw-text-sm tw-font-bold tw-text-gray-900 dark:tw-text-secondary">
-            Tipo coches
-          </span>
-          <TiposCoches tipos={tipos} setTipos={setTipos} />
+          <PrecioRange values={values} setValues={setValues} minMax={minMax} />
         </div>
       </div>
     </div>

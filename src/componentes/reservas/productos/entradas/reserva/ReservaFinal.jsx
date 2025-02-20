@@ -30,7 +30,7 @@ function ReservaFinal() {
         />
         <Detalles tickets={tickets} producto={producto} cesta={true} />
       </section>
-      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
         <Reserva img={producto.img} txt={producto.titulo} />
 
         {tickets.map((ticket, index) => (

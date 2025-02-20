@@ -124,7 +124,7 @@ function Buscador_Cruceros({
       <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-600 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Cruceros ef
+            Buscador de Cruceros
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 lg:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
@@ -168,7 +168,7 @@ function Buscador_Cruceros({
           </div>
           <button
             type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
+            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
             onClick={handleSubmit}
           >
             Buscar

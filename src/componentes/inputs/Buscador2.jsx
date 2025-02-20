@@ -76,14 +76,11 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
             </div>
           ) : suggestions.length > 0 ? (
             <div
-              className={`tw-grid tw-grid-cols-${columnCount} tw-gap-4 tw-p-2`}
+              className={`tw-grid xl:tw-grid-cols-${columnCount} tw-gap-4 tw-p-2`}
             >
               {Object.entries(groupedSuggestions).map(([type, items]) => (
                 <div key={type}>
                   <div className="tw-relative">
-                    <h3 className="tw-font-semibold tw-bg-slate-700 tw-text-white tw-rounded-md tw-p-2">
-                      {type}
-                    </h3>
                     <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-right-1 tw-text-white tw-h-full tw-rounded-tr-md tw-rounded-br-md tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-lg">
                       {type === "Hotel" ? <FaHotel /> : <FaMap />}
                     </div>
@@ -97,12 +94,16 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
                       >
                         <span className="tw-flex tw-space-x-2 tw-items-center">
                           <span className="tw-text-secondary tw-text-lg">
-                            {type === "Hotel" ? <FaHotel /> : <FaMap />}
+                            {type === "Hotel" ? (
+                              <FaHotel />
+                            ) : (
+                              type === "Destino" && <FaMap />
+                            )}
                           </span>
                           <span>{suggestion.name}</span>
                         </span>
                         <span className="tw-block tw-text-slate-300 tw-pl-6">
-                          {suggestion.destino && suggestion.destino}{" "}
+                          {suggestion.destino && suggestion.destino}
                         </span>
                       </li>
                     ))}

@@ -38,7 +38,7 @@ function Hoteles() {
           <div
             className={`tw-absolute tw-z-0 tw-bg-indigo-800 tw-w-full tw-h-full tw-bg-opacity-35 tw-rounded-lg tw-shadow-lg tw-px-10 `}
           ></div>
-          <div className="tw-relative xl:tw-top-32 lg:tw-left-20 tw-bg-CajaForms tw-bg-opacity-80 dark:tw-bg-opacity-90 tw-text-white tw-px-4 md:tw-px-10 tw-w-11/12 md:tw-w-2/3 lg:tw-w-2/4 2xl:tw-w-2/7 tw-h-fit tw-py-5 tw-pb-16 tw-rounded-lg tw-shadow-xl">
+          <div className="tw-relative lg:tw-top-32 lg:tw-left-20 tw-bg-CajaForms tw-bg-opacity-80 dark:tw-bg-opacity-90 tw-text-white tw-px-4 md:tw-px-10 tw-w-11/12 md:tw-w-2/3 lg:tw-w-2/4 2xl:tw-w-2/7 tw-h-fit tw-py-5 tw-pb-16 tw-rounded-lg tw-shadow-xl">
             <form>
               <h2 className="tw-text-3xl tw-font-bold">Buscador de hoteles</h2>
               <div className="tw-grid tw-grid-cols-1 tw-gap-2 tw-mt-2">

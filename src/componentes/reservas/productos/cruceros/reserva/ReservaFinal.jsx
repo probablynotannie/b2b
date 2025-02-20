@@ -53,7 +53,7 @@ function ReservaFinal() {
         <Pasajeros pasajeros={data.pasajeros} />
         <Detalles producto={producto} />
       </section>
-      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
         <div className="w-border-b-2  tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-mb-4">
           <h2 className="tw-font-semibold ">Resumen</h2>
         </div>

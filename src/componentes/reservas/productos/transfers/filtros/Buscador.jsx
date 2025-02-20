@@ -3,19 +3,19 @@ import Input_Buscador from "../../../../inputs/Buscador2";
 import Input_DateRange from "../../../../inputs/DateRangeWithTime";
 import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
-import Input_Edad from "../../../../inputs/Edad";
+import Input_Personas from "../../../../inputs/Adulto_Ninio_Infant";
 import { FaSearch } from "react-icons/fa";
 function Buscador() {
   const [horaRecogida, setHoraRecogida] = useState("12:00");
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  const [edad, setEdad] = useState();
   const [destino, setDestino] = useState();
+  const [origen, setOrigen] = useState();
   const [devolucion, setDevolucion] = useState();
-  console.log("Recogida:", startDate);
-  console.log("Devolucion:", endDate);
-
+  const [adultos, setAdultos] = useState(1);
+  const [ninios, setNinios] = useState();
+  const [infant, setInfant] = useState();
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -79,8 +79,8 @@ function Buscador() {
               <Input_Buscador
                 placeholder={"Destino"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
+                destino={origen}
+                setDestino={setOrigen}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -97,9 +97,15 @@ function Buscador() {
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
             </div>
-
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Edad edad={edad} setEdad={setEdad} />
+              <Input_Personas
+                adultos={adultos}
+                setAdultos={setAdultos}
+                ninios={ninios}
+                setNinios={setNinios}
+                infant={infant}
+                setInfant={setInfant}
+              />
             </div>
 
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -134,7 +140,7 @@ function Buscador() {
           Buscador
         </h2>
         <div className="tw-grid tw-grid-cols-12 tw-gap-3">
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-6 xl:tw-col-span-3">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
               placeholder={"Origen"}
               destinos={destinos}
@@ -142,8 +148,7 @@ function Buscador() {
               setDestino={setDestino}
             />
           </div>
-
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-6 xl:tw-col-span-3">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
               placeholder={"Destino"}
               destinos={destinos}
@@ -151,28 +156,35 @@ function Buscador() {
               setDestino={setDevolucion}
             />
           </div>
-
-          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2">
+          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
+              placeholder={"Fecha recogida"}
               hora={horaRecogida}
               date={startDate}
               setDate={setStartDate}
               setHora={setHoraRecogida}
             />
           </div>
-
-          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2">
+          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
+              placeholder={"Fecha vuelta"}
               hora={horaDevolucion}
               date={endDate}
               setDate={setEndDate}
               setHora={setHoraDevolucion}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1">
-            <Input_Edad edad={edad} setEdad={setEdad} />
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">
+            <Input_Personas
+              adultos={adultos}
+              setAdultos={setAdultos}
+              ninios={ninios}
+              setNinios={setNinios}
+              infant={infant}
+              setInfant={setInfant}
+            />
           </div>
-          <button className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">
+          <button className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1 2xl:tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
         </div>

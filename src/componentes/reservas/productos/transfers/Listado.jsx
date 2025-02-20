@@ -97,14 +97,14 @@ function Listado({ coches }) {
                   </span>
                 </div>
               </div>
-              <div className="tw-flex tw-justify-between tw-mt-3">
+              <div className="tw-flex tw-flex-wrap tw-justify-between tw-mt-3">
                 <div className="tw-flex tw-flex-col tw-gap-2">
                   <span className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-300">
                     Duración del trayecto: {coche.duracion}
                   </span>
                   <button
                     onClick={() => toggleCarDetails(index)}
-                    className="tw-bg-slate-200 tw-w-fit tw-mt-5  dark:tw-bg-slate-900 tw-text-slate-700 dark:tw-text-slate-200 tw-font-semibold tw-rounded tw-px-4 tw-py-2 tw-flex tw-justify-between tw-items-center"
+                    className="tw-bg-slate-200 tw-w-fit tw-mt-5 dark:tw-bg-slate-900 tw-text-slate-700 dark:tw-text-slate-200 tw-font-semibold tw-rounded tw-px-4 tw-py-2 tw-flex tw-justify-between tw-items-center"
                   >
                     {activeCars.includes(index)
                       ? "Menos información"

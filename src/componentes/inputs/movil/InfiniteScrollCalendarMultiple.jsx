@@ -1,5 +1,4 @@
 import { useState, useCallback, useEffect } from "react";
-
 import {
   format,
   addMonths,
@@ -8,6 +7,8 @@ import {
   getDay,
   eachDayOfInterval,
   endOfMonth,
+  isBefore,
+  startOfDay,
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
@@ -20,7 +21,6 @@ const InfiniteScrollCalendar = ({
 }) => {
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   useEffect(() => {
     const initialMonths = [startOfMonth(new Date())];
     for (let i = 1; i < 3; i++) {
@@ -28,7 +28,6 @@ const InfiniteScrollCalendar = ({
     }
     setMonths(initialMonths);
   }, []);
-
   const loadMoreMonths = useCallback(() => {
     const lastMonth = months[months.length - 1];
     const newMonths = [];
@@ -49,7 +48,6 @@ const InfiniteScrollCalendar = ({
       closeModal();
     }
   };
-
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
@@ -67,7 +65,6 @@ const InfiniteScrollCalendar = ({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-
     return (
       <div key={month} className="tw-mb-8">
         <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
@@ -82,7 +79,9 @@ const InfiniteScrollCalendar = ({
             <div
               key={day}
               className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm ${
-                isSameDay(day, startDate)
+                isBefore(startOfDay(day), startOfDay(new Date()))
+                  ? " tw-text-slate-400 tw-cursor-not-allowed"
+                  : isSameDay(day, startDate)
                   ? "tw-bg-secondary tw-text-white"
                   : isSameDay(day, endDate)
                   ? "tw-bg-secondary tw-text-white"
@@ -90,7 +89,10 @@ const InfiniteScrollCalendar = ({
                   ? "tw-bg-orange-100"
                   : ""
               }`}
-              onClick={() => handleDateClick(day)}
+              onClick={() =>
+                !isBefore(startOfDay(day), startOfDay(new Date())) &&
+                handleDateClick(day)
+              }
             >
               {format(day, "d")}
             </div>
@@ -107,12 +109,14 @@ const InfiniteScrollCalendar = ({
   const closeModal = () => {
     setIsModalOpen(false);
   };
+
   const handleScroll = (e) => {
     const { scrollTop, scrollHeight, clientHeight } = e.target;
     if (scrollHeight - scrollTop <= clientHeight + 100) {
       loadMoreMonths();
     }
   };
+
   const formatDateRange = () => {
     if (startDate && endDate) {
       return `${format(startDate, "dd/MM/yyyy")} - ${format(
@@ -131,7 +135,6 @@ const InfiniteScrollCalendar = ({
           className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
           {formatDateRange()}
-
           <div className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaCalendarAlt />
           </div>
