@@ -10,12 +10,13 @@ function Buscador() {
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
+
   const [devolucion, setDevolucion] = useState();
   const [adultos, setAdultos] = useState(1);
   const [ninios, setNinios] = useState();
   const [infant, setInfant] = useState();
+  const [destino, setDestino] = useState();
+  const [origen, setOrigen] = useState();
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },

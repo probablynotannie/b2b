@@ -108,7 +108,7 @@ function Buscador_Cruceros({
               </div>
               <button
                 type="button"
-                className="tw-w-full tw-mt-4 bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
+                className="tw-w-full tw-mt-4 tw-bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
                 onClick={() => {
                   handleSubmit();
                   setIsModalOpen(false);

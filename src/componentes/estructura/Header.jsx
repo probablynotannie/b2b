@@ -10,6 +10,7 @@ import EnvioPresupuestos from "../utilidades/EnvioPresupuestos";
 import Busqueda_Hoteles from "../motores/Hoteles";
 import Busqueda_Coches from "../motores/Coches";
 import Busqueda_Transfers from "../motores/Transfers";
+import Busqueda_Transfers2 from "../motores/Transfers2";
 import Busqueda_Cruceros from "../motores/Cruceros";
 import Busqueda_Destinos from "../motores/Destinos";
 import Busqueda_Entradas from "../motores/Entradas";
@@ -122,6 +123,7 @@ function Header() {
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/coches" element={<Busqueda_Coches />} />
         <Route path="/transfers" element={<Busqueda_Transfers />} />
+        <Route path="/transfers2" element={<Busqueda_Transfers2 />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/cruceros" element={<Busqueda_Cruceros />} />
         <Route path="/destinos" element={<Busqueda_Destinos />} />

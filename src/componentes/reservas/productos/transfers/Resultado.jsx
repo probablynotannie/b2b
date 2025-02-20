@@ -3,7 +3,7 @@ import Aside from "./filtros/Aside";
 import Coches from "./Listado";
 import { useEffect, useState } from "react";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Coches";
+import PlaceHolder from "../../estructura/skeleton_placeholders/transfers";
 import coches from "./Coches.json";
 import { MdCancel } from "react-icons/md";
 
