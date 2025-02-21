@@ -4,6 +4,8 @@ import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 
 function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
+  const [selectedDestino, setSelectedDestino] = useState("");
+
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -28,7 +30,8 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setDestino(suggestion.name);
+    setSelectedDestino(suggestion.name);
+    setDestino(suggestion);
     setSuggestions([]);
     setIsDropdownOpen(false);
   };
@@ -62,7 +65,7 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
     <div className="tw-relative" ref={searchBoxRef}>
       <input
         type="text"
-        value={destino}
+        value={selectedDestino}
         onChange={handleInputChange}
         placeholder={placeholder}
         disabled={disable && disable}

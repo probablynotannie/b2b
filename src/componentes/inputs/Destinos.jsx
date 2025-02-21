@@ -4,7 +4,6 @@ function Destinos({ placeholder, destino, setDestino, datos }) {
   const handleDestinationChange = (event) => {
     setDestino(Number(event.target.value));
   };
-  console.log(datos);
   const groupedDestinos = {
     destacados: datos.filter((zona) => zona.destacado === 1),
     resto: datos.filter((zona) => zona.destacado === 0),

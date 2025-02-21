@@ -15,18 +15,26 @@ function Buscador() {
   const [adultos, setAdultos] = useState(1);
   const [ninios, setNinios] = useState();
   const [infant, setInfant] = useState();
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
+  const [destino, setDestino] = useState(0);
+  const [origen, setOrigen] = useState(0);
+
+  console.log(devolucion);
   const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+    { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { id: 2, type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { id: 3, type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    {
+      id: 4,
+      type: "Destino",
+      name: "MADRID - CAPE GIRARDEAU",
+      destino: "Madrid",
+    },
+    { id: 5, type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
+
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   return (

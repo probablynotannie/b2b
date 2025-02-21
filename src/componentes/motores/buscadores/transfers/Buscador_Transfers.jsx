@@ -8,12 +8,12 @@ import Input_Hora from "../../../inputs/Hora";
 
 import { useNavigate } from "react-router-dom";
 
-function Buscador_Cruceros({ requestData, setRequestData }) {
+function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState();
-  const [infant, setInfant] = useState();
+  const [ninios, setNinios] = useState(0);
+  const [infant, setInfant] = useState(0);
   const [horaRecogida, setHoraRecogida] = useState("12:00");
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
@@ -21,28 +21,34 @@ function Buscador_Cruceros({ requestData, setRequestData }) {
   const [destino, setDestino] = useState();
   const [origen, setOrigen] = useState();
   const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+    { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { id: 2, type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { id: 3, type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    {
+      id: 4,
+      type: "Destino",
+      name: "MADRID - CAPE GIRARDEAU",
+      destino: "Madrid",
+    },
+    { id: 5, type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
   const handleSubmit = () => {
-    const newRequestData = requestData;
+    const newRequestData = {
+      origin: origen ? origen.id : 0,
+      destination: destino ? destino.id : 0,
+      departureDate: startDate ? startDate : 0,
+      returnDate: endDate ? endDate : 0,
+      adults: adultos ? adultos : 0,
+      children: ninios ? ninios : 0,
+      infants: infant ? infant : 0,
+      pickupTime: horaRecogida ? horaRecogida : 0,
+      returnTime: horaDevolucion ? horaDevolucion : 0,
+    };
     navigate("/listadoTransfers", { state: { newRequestData } });
   };
-
-  const updateRequestData = (key, value) => {
-    const newRequestData = {
-      ...requestData,
-      [key]: value,
-    };
-    setRequestData(newRequestData);
-  };
-
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">

@@ -1,11 +1,10 @@
-import { FaCheck, FaChevronUp, FaChevronDown, FaPerson } from "react-icons/fa6";
+import { FaChevronUp, FaChevronDown, FaPerson } from "react-icons/fa6";
 import { MdLuggage } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useState } from "react";
 
 import { FaShareAlt } from "react-icons/fa";
 function Listado({ coches }) {
-  console.log(coches);
   const [activeCars, setActiveCars] = useState([]);
 
   const toggleCarDetails = (index) => {

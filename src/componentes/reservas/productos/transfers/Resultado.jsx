@@ -15,29 +15,29 @@ const fetchData = async (newRequestData) => {
     throw new Error("Error cargando datos");
   }
   const data = await response.json();
+  console.log(data);
   return data.traslados;
 };
 
 function Productos() {
   const { newRequestData = {} } = location.state || {};
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, error } = useQuery({
     queryKey: ["transfersData", newRequestData],
     queryFn: () => fetchData(newRequestData),
   });
 
-  const [values, setValues] = useState([0, 5000]); // Default range
+  const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
 
   const [selectedCars, setSelectedCars] = useState([]);
 
-  // After the data is fetched, set the min and max values dynamically.
   useEffect(() => {
     if (!isLoading && data && data.length > 0) {
       const prices = data.map((coche) => coche.price);
       const minPrice = Math.min(...prices);
       const maxPrice = Math.max(...prices);
-      setMinMax([minPrice, maxPrice]); // Set min and max
-      setValues([minPrice, maxPrice]); // Set initial slider values
+      setMinMax([minPrice, maxPrice]);
+      setValues([minPrice, maxPrice]);
     }
   }, [data, isLoading]);
 
@@ -84,6 +84,13 @@ function Productos() {
               <Cargando />
               <PlaceHolder />
             </>
+          ) : error ? (
+            <div className="tw-flex tw-justify-center tw-items-center tw-h-96 tw-flex-col">
+              <MdCancel className="tw-text-3xl tw-text-red-500" />
+              <p className="tw-text-slate-400 dark:tw-text-slate-300 tw-text-lg">
+                Error: {error.message}
+              </p>
+            </div>
           ) : filteredCoches.length > 0 ? (
             <section className="tw-pb-12">
               <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">

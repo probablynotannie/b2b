@@ -2,13 +2,9 @@ import { useState, useEffect } from "react";
 import { Range, getTrackBackground } from "react-range";
 
 const PriceRangeSlider = ({ values, setValues, minMax }) => {
-  // Dynamically update min and max based on data
   const MIN = minMax[0];
   const MAX = minMax[1];
-
-  useEffect(() => {
-    // Effect to handle changes if needed.
-  }, [minMax]);
+  useEffect(() => {}, [minMax]);
 
   return (
     <div>

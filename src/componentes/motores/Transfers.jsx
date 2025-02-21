@@ -10,11 +10,13 @@ function Cruceros() {
   const [puerto, setPuerto] = useState("");
   const [naviera, setNaviera] = useState("");
   const [requestData, setRequestData] = useState({
-    idZona: 0,
-    fechSal: 0,
-    duracion: 0,
-    idPuerto: 0,
-    idNav: 0,
+    adults: 0,
+    children: 0,
+    infants: 0,
+    origin: 0,
+    destination: 0,
+    departureDate: 0,
+    returnDate: 0,
   });
   const getAdjustedTime = () => {
     const now = new Date();
