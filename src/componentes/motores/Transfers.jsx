@@ -1,9 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
-
 import { useState } from "react";
 import Buscador_Cruceros from "./buscadores/transfers/Buscador_Transfers";
 import { FaClock } from "react-icons/fa";
-import Resumen from "../reservas/estructura/reserva/Resumen";
 import { FaPerson } from "react-icons/fa6";
 function Cruceros() {
   const [destino, setDestino] = useState("");
@@ -18,6 +16,16 @@ function Cruceros() {
     idPuerto: 0,
     idNav: 0,
   });
+  const getAdjustedTime = () => {
+    const now = new Date();
+    now.setMinutes(now.getMinutes() + 30);
+    return now.toLocaleTimeString("es-ES", {
+      hour: "2-digit",
+      minute: "2-digit",
+      hour12: false,
+    });
+  };
+
   const destacados = [
     {
       id: 0,
@@ -25,15 +33,15 @@ function Cruceros() {
       destino: "Barcelona centro",
       personas: 2,
       img: "/transfers/barcelona.jpg",
-      salida: "15:00",
+      salida: getAdjustedTime(),
     },
     {
       id: 1,
       origen: "Madrid aeropuerto",
-      destino: "Madird centro",
+      destino: "Madrid centro",
       personas: 2,
       img: "/transfers/madrid.jpg",
-      salida: "15:00",
+      salida: getAdjustedTime(),
     },
     {
       id: 2,
@@ -41,7 +49,7 @@ function Cruceros() {
       destino: "Sevilla centro",
       personas: 2,
       img: "/transfers/sevilla.jpg",
-      salida: "15:00",
+      salida: getAdjustedTime(),
     },
     {
       id: 3,
@@ -49,7 +57,23 @@ function Cruceros() {
       destino: "Valencia centro",
       personas: 2,
       img: "/transfers/valencia.jpg",
-      salida: "15:00",
+      salida: getAdjustedTime(),
+    },
+    {
+      id: 4,
+      origen: "Barcelona Centro",
+      destino: "Barcelona Aeropuerto",
+      personas: 2,
+      img: "/transfers/barcelona.jpg",
+      salida: getAdjustedTime(),
+    },
+    {
+      id: 5,
+      origen: "Madrid Centro",
+      destino: "Madrid Aeropuerto",
+      personas: 2,
+      img: "/transfers/madrid.jpg",
+      salida: getAdjustedTime(),
     },
   ];
   return (
@@ -81,32 +105,35 @@ function Cruceros() {
             />
           </div>
         </div>
-        <div className="tw-p-5 tw-mt-10">
+        <div className="tw-p-5 tw-mt-5">
           <h2 className="tw-text-2xl tw-font-semibold">Búsqueda rápida</h2>
-          <div className="tw-grid tw-grid-cols-4 tw-gap-5 tw-mt-4">
+          <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 tw-mt-4">
             {destacados.map((destacado) => (
               <div
                 key={destacado.id}
-                className="tw-p-3 tw-border-2 tw-flex tw-flex-col tw-justify-center tw-items-center tw-border-slate-100 dark:tw-border-slate-700 tw-bg-slate-50 tw-min-h-10 tw-shadow hover:tw-border-secondary tw-rounded-lg tw-cursor-pointer hover:tw-shadow-xl hover:tw-scale-105 tw-transition tw-duration-300 "
+                className="tw-relative tw-group tw-rounded-lg tw-overflow-hidden tw-shadow-md tw-transition tw-duration-300 tw-cursor-pointer"
+                role="button"
               >
-                <Resumen
-                  img={destacado.img}
-                  txt={
-                    <div>
-                      {destacado.origen} <span className="tw-block"> - </span>{" "}
-                      {destacado.destino}
-                    </div>
-                  }
+                <img
+                  src={destacado.img}
+                  className="tw-w-full tw-h-[15vh] md:tw-h-[20vh] tw-object-cover tw-transition-transform tw-duration-300 group-hover:tw-scale-105"
+                  alt={`Reserva de ${destacado.origen} a ${destacado.destino}`}
                 />
-
-                <ul className="tw-flex tw-gap-2 tw-flex-wrap tw-mt-3">
-                  <li className="tw-flex tw-items-center tw-gap-1">
-                    <FaPerson /> {destacado.personas}x Adultos
-                  </li>
-                  <li className="tw-flex tw-items-center tw-gap-1">
-                    <FaClock /> Salida {destacado.salida}
-                  </li>
-                </ul>
+                <div className="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-bg-opacity-60 group-hover:tw-bg-opacity-70 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center">
+                  <div className="tw-text-white tw-text-center tw-px-3">
+                    <h3 className="tw-text-2xl tw-font-semibold">
+                      {destacado.origen} - {destacado.destino}
+                    </h3>
+                    <ul className="tw-flex tw-gap-3 tw-justify-center tw-mt-2 tw-text-sm">
+                      <li className="tw-flex tw-items-center tw-gap-1">
+                        <FaPerson /> {destacado.personas}x Adultos
+                      </li>
+                      <li className="tw-flex tw-items-center tw-gap-1">
+                        <FaClock /> {destacado.salida}
+                      </li>
+                    </ul>
+                  </div>
+                </div>
               </div>
             ))}
           </div>

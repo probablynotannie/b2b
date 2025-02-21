@@ -118,7 +118,7 @@ function Buscador_Cruceros({ requestData, setRequestData }) {
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Transfers
           </h2>
-          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 lg:tw-grid-cols-4 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
+          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
               placeholder={"Origen"}
               destinos={destinos}
@@ -132,14 +132,14 @@ function Buscador_Cruceros({ requestData, setRequestData }) {
               setDestino={setDestino}
             />
             <Input_DateRange
-              placeholder={"Origen"}
+              placeholder={"Para cuando"}
               hora={horaRecogida}
               date={startDate}
               setDate={setStartDate}
               setHora={setHoraRecogida}
             />
             <Input_DateRange
-              placeholder={"Destino"}
+              placeholder={"Vuelta"}
               hora={horaDevolucion}
               date={endDate}
               setDate={setEndDate}

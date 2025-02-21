@@ -135,7 +135,7 @@ function Tarifas({
   }, [isModalOpen]);
 
   return (
-    <div className="tw-space-y-10">
+    <div >
       <section className="tw-block md:tw-hidden">
         <PriceCarousel
           precios={precios}
@@ -406,7 +406,7 @@ function Tarifas({
         </div>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-10 tw-h-full">
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-10 tw-h-screen">
           <div className="tw-bg-white tw-rounded-lg tw-p-6 tw-relative tw-w-[90%] tw-max-w-2xl dark:tw-bg-slate-700">
             <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
               <h6 className="tw-font-semibold tw-text-lg dark:tw-text-white">
@@ -428,7 +428,7 @@ function Tarifas({
               {temporal && (
                 <div className="tw-mt-5">
                   <div className="tw-flex tw-justify-around tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-3 tw-mb-3 tw-mt-3">
-                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold ">
+                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
                       <AiFillEuroCircle className="tw-text-3xl" />
                       {formatPrice(temporal.price)}
                     </div>
@@ -476,7 +476,7 @@ function Tarifas({
                   }
                 }}
                 disabled={!temporal}
-                className="bg-secondary tw-font-semibold tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-mt-4"
+                className="tw-bg-secondary tw-font-semibold tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-mt-4"
               >
                 Confirmar selección
               </button>

@@ -132,7 +132,7 @@ function Producto() {
                 }}
               >
                 <div className="tw-flex tw-justify-center">
-                  <button className="bg-secondary tw-w-full tw-p-3 tw-px-8 tw-rounded-xl tw-shadow-md tw-text-white tw-font-bold">
+                  <button className="tw-bg-secondary tw-mt-5 tw-w-full tw-p-3 tw-px-8 tw-rounded-xl tw-shadow-md tw-text-white tw-font-bold">
                     Total:{" "}
                     {(pasajeros.length * precioSeleccionado.price).toFixed(2)} €
                   </button>

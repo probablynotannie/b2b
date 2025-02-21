@@ -104,7 +104,7 @@ function Hotel({ hotel }) {
           <div className="border-2 border-slate-100 dark:border-slate-700 dark:bg-slate-800 shadow-lg rounded-lg flex flex-col justify-around p-3">
             <div className="flex justify-between ">
               <h4 className="font-semibold flex items-center gap-2 dark:text-slate-200">
-                <span className="bg-secondary text-white rounded-full w-fit p-1">
+                <span className="tw-bg-secondary text-white rounded-full w-fit p-1">
                   <FaHotel />
                 </span>
                 {hotel.nombre}

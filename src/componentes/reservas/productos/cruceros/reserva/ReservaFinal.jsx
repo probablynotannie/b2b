@@ -105,7 +105,7 @@ function ReservaFinal() {
             precioSeleccionado,
           }}
         >
-          <button className="tw-w-full bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
+          <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             TOTAL: {precioTotal.toFixed(2)} €
           </button>
         </Link>

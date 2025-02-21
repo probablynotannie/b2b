@@ -14,7 +14,7 @@ function Datos() {
     <div className="tw-p-3 bg-opacity-40 tw-rounded-lg">
       {tickets.map((ticket, index) => (
         <div
-          className="tw-text-sm tw-mt-3 tw-pl-2 bg-secondary tw-text-white tw-p-1 tw-rounded-lg tw-font-semibold"
+          className="tw-text-sm tw-mt-3 tw-pl-2 tw-bg-secondary tw-text-white tw-p-1 tw-rounded-lg tw-font-semibold"
           key={index}
         >
           <p>
@@ -78,7 +78,7 @@ function Datos() {
             fechaIda={fechaIda}
           />
           <div className="tw-flex tw-justify-end">
-            <button className="bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
+            <button className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
               Reservar
             </button>
           </div>

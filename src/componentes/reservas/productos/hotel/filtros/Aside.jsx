@@ -31,7 +31,7 @@ function Aside() {
       >
         <IoMdOptions className="tw-text-xl" />
         {getActiveFiltersCount() > 0 && (
-          <span className="tw-absolute tw-p-2 tw-text-xs tw-font-bold tw-text-white tw-border tw-rounded-full bg-secondary -tw-top-7">
+          <span className="tw-absolute tw-p-2 tw-text-xs tw-font-bold tw-text-white tw-border tw-rounded-full tw-bg-secondary -tw-top-7">
             {`(${getActiveFiltersCount()})`}
           </span>
         )}

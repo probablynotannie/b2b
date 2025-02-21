@@ -159,7 +159,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
       </div>
       {cesta !== true && (
         <button
-          className="bg-secondary tw-text-white tw-p-3 tw-font-bold tw-rounded"
+          className="tw-bg-secondary tw-text-white tw-p-3 tw-font-bold tw-rounded"
           onClick={addTicket}
         >
           Añadir entrada

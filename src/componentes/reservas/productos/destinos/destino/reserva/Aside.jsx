@@ -158,7 +158,7 @@ function Aside({
           <Desglose precio={producto.precio} />
           <div className="grid grid-cols-3 justify-around w-full text-center"></div>
           <Link to="/datosDestino" state={reserva}>
-            <button className="bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
+            <button className="tw-bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
               TOTAL: {producto.precio}€
             </button>
           </Link>

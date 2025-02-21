@@ -218,7 +218,7 @@ function Cesta() {
       >
         <TiShoppingCart className="tw-text-3xl" />
         {compras.length !== 0 && (
-          <div className="tw-absolute tw-select-none -tw-top-1 tw-left-3 tw-text-sm bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
+          <div className="tw-absolute tw-select-none -tw-top-1 tw-left-3 tw-text-sm tw-bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
             {compras.length}
           </div>
         )}

@@ -155,9 +155,9 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                     : ""
                 } ${
                   isSameDay(day, startDate)
-                    ? "bg-secondary dark:bg-slate-900 text-white "
+                    ? "tw-bg-secondary dark:bg-slate-900 text-white "
                     : isSameDay(day, endDate)
-                    ? "bg-secondary dark:bg-slate-900 text-white"
+                    ? "tw-bg-secondary dark:bg-slate-900 text-white"
                     : startDate && endDate && day > startDate && day < endDate
                     ? "bg-orange-100 dark:bg-slate-600 dark:text-white"
                     : "dark:text-slate-100 "

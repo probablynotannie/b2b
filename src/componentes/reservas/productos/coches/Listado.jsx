@@ -301,7 +301,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                   <Link
                     to="/coche"
                     state={coche}
-                    className="tw-w-full lg:tw-w-fit tw-p-3 bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow tw-text-center"
+                    className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow tw-text-center"
                   >
                     <button>Desde {coche.dias * coche.precio}€</button>
                   </Link>
@@ -347,7 +347,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                               <button
                                 className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                                   activeTab === tab.id
-                                    ? "text-white bg-secondary dark:bg-slate-900"
+                                    ? "text-white tw-bg-secondary dark:bg-slate-900"
                                     : "bg-gray-50 dark:bg-gray-800 dark:text-gray-400"
                                 }`}
                                 onClick={() => setActiveTab(tab.id)}

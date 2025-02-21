@@ -72,7 +72,7 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
       </div>
       <div className="mt-4">
         <Link to="/fecha" state={producto}>
-          <button className="bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
+          <button className="tw-bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
             <FaCalendarAlt className="dark:text-white text-xl mr-2" />
             Ver fechas y precios
           </button>

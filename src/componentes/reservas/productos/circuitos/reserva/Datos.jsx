@@ -69,7 +69,7 @@ function Datos() {
             to={"/reservaCircuito"}
             state={{ datosContacto, actividad, fechaIda, habitacion, roomData }}
           >
-            <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+            <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar
             </button>
           </Link>

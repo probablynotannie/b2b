@@ -30,7 +30,7 @@ function Cruceros_destacados({ cruceros }) {
                 </li>
               ))}
             </ul>
-            <button className="tw-inline-flex tw-items-center tw-mt-3 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-center tw-text-white bg-secondary tw-rounded-lg hover:bg-secondary focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 dark:bg-secondarydark dark:hover:bg-secondary">
+            <button className="tw-inline-flex tw-items-center tw-mt-3 tw-px-3 tw-py-2 tw-text-sm tw-font-medium tw-text-center tw-text-white tw-bg-secondary tw-rounded-lg hover:bg-secondary focus:tw-ring-4 focus:tw-outline-none focus:tw-ring-blue-300 dark:bg-secondarydark dark:hover:bg-secondary">
               Precios desde {crucero.precio}
               <FaLongArrowAltRight className="tw-text-lg tw-ml-2" />
             </button>

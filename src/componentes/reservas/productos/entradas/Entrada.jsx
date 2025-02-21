@@ -50,7 +50,7 @@ function Producto() {
                 </div>
               ))}
               <Link to={"/datosEntrada"} state={{ producto, tickets }}>
-                <button className="tw-w-full tw-mt-5 bg-secondary tw-p-3 tw-text-white tw-font-bold tw-rounded tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
+                <button className="tw-w-full tw-mt-5 tw-bg-secondary tw-p-3 tw-text-white tw-font-bold tw-rounded tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
                   Total: €{calculateTotalPrice().toFixed(2)}
                 </button>
               </Link>

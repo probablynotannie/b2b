@@ -179,7 +179,7 @@ function SelectorPersonas() {
                   <div className="bg-white text-primary border-secondary border-2 mt-1 p-2.5  rounded-lg text-sm font-semibold pl-4">
                     {` ${roomData[roomIndex].adultos} adultos, ${roomData[roomIndex].ninios} niños`}
                   </div>
-                  <div className="absolute -top-2 right-2 space-x-1 text-white font-semibold flex text-center text-xs rounded-full  bg-secondary py-1 px-2">
+                  <div className="absolute -top-2 right-2 space-x-1 text-white font-semibold flex text-center text-xs rounded-full  tw-bg-secondary py-1 px-2">
                     <span>Hab</span>
                     <span>{roomIndex + 1}</span>
                   </div>

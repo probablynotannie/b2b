@@ -63,7 +63,7 @@ function Datos() {
         />
         <div className="flex justify-end">
           <Link to={"/reservaDestino"} state={{ reserva, datosContacto }}>
-            <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+            <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar
             </button>
           </Link>

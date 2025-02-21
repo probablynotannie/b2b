@@ -38,7 +38,7 @@ function Producto() {
           to={"/datosCircuito"}
           state={{ actividad, fecha, habitacion, roomData }}
         >
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
             {actividad.precio.toFixed(2)}€
           </button>
         </Link>

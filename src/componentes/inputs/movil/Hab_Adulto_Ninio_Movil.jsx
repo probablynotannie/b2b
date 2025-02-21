@@ -73,7 +73,7 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                           <FaPerson />
                         </div>
                       </div>
@@ -94,7 +94,7 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                           <FaChild />
                         </div>
                       </div>
@@ -150,7 +150,7 @@ function SelectorPersonas({
                 <button
                   type="button"
                   onClick={addRoom}
-                  className="tw-w-full tw-flex tw-justify-center tw-items-center tw-space-x-1 bg-secondary tw-text-white tw-p-3 tw-rounded-lg tw-shadow"
+                  className="tw-w-full tw-flex tw-justify-center tw-items-center tw-space-x-1 tw-bg-secondary tw-text-white tw-p-3 tw-rounded-lg tw-shadow"
                 >
                   <span>Agregar una habitación </span>
                   <CiCirclePlus className="tw-text-lg" />

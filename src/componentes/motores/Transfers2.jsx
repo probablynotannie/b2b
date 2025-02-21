@@ -80,7 +80,7 @@ function Coches() {
             </div>
             <div className="tw-absolute -tw-bottom-5 tw-right-5">
               <Link to={"/listadotransfers"}>
-                <button className="tw-bg-slate-900 tw-border-2 tw-border-white tw-border-opacity-20 tw-shadow-xl tw-rounded-lg tw-p-3 tw-px-16 tw-font-bold tw-w-full">
+                <button className="tw-bg-secondary hover:tw-scale-105 tw-transition tw-duration-300 tw-border-2 tw-border-white tw-border-opacity-20 tw-shadow-xl tw-rounded-lg tw-p-3 tw-px-16 tw-font-bold tw-w-full">
                   Buscar
                 </button>
               </Link>

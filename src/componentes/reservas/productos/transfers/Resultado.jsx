@@ -1,27 +1,52 @@
+import { useState, useEffect } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Coches from "./Listado";
-import { useEffect, useState } from "react";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 import PlaceHolder from "../../estructura/skeleton_placeholders/transfers";
-import coches from "./Coches.json";
 import { MdCancel } from "react-icons/md";
 
+const fetchData = async (newRequestData) => {
+  const response = await fetch(
+    "https://devxml.vpackage.net/Motores/public/api/Traslados/search/1/123"
+  );
+  if (!response.ok) {
+    throw new Error("Error cargando datos");
+  }
+  const data = await response.json();
+  return data.traslados;
+};
+
 function Productos() {
-  const [values, setValues] = useState([0, 500]);
-  const minMax = [0, 500];
-  const [loading, setLoading] = useState(true);
+  const { newRequestData = {} } = location.state || {};
+  const { data, isLoading } = useQuery({
+    queryKey: ["transfersData", newRequestData],
+    queryFn: () => fetchData(newRequestData),
+  });
+
+  const [values, setValues] = useState([0, 5000]); // Default range
+  const [minMax, setMinMax] = useState([0, 5000]);
+
   const [selectedCars, setSelectedCars] = useState([]);
 
+  // After the data is fetched, set the min and max values dynamically.
   useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+    if (!isLoading && data && data.length > 0) {
+      const prices = data.map((coche) => coche.price);
+      const minPrice = Math.min(...prices);
+      const maxPrice = Math.max(...prices);
+      setMinMax([minPrice, maxPrice]); // Set min and max
+      setValues([minPrice, maxPrice]); // Set initial slider values
+    }
+  }, [data, isLoading]);
 
-  const filteredCoches = coches.filter(
-    (coche) => coche.precio >= values[0] && coche.precio <= values[1]
-  );
+  const filteredCoches =
+    !isLoading && data
+      ? data.filter(
+          (coche) => coche.price >= values[0] && coche.price <= values[1]
+        )
+      : [];
 
   const handleCompareChange = (coche, isChecked) => {
     if (isChecked) {
@@ -54,7 +79,7 @@ function Productos() {
           <Aside values={values} setValues={setValues} minMax={minMax} />
         </aside>
         <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
-          {loading ? (
+          {isLoading ? (
             <>
               <Cargando />
               <PlaceHolder />
