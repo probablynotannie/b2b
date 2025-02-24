@@ -2,7 +2,7 @@ function Resumen({ img, txt, finalizada }) {
   return (
     <div
       className={`tw-relative ${
-        finalizada === true ? "tw-h-[40vh]" : "tw-h-[20vh]"
+        finalizada === true ? "tw-h-[40vh]" : " lg:tw-h-[20vh] tw-h-[30vh]"
       } tw-h-[20vh] tw-top-0`}
     >
       <img

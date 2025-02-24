@@ -42,7 +42,6 @@ import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 import Cruceros from "../motores/Cruceros";
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
-import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
 import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/HotelMasVuelo";
 import Destino from "../reservas/productos/destinos/destino/Destino";
@@ -61,6 +60,8 @@ import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* CESTA */
 import ReservaCoche from "../reservas/productos/coches/reserva/ReservaFinal";
+import ReservaTransfer from "../reservas/productos/transfers/reserva/reservaFinal";
+import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
 import ReservaEntrada from "../reservas/productos/entradas/reserva/ReservaFinal";
 import ReservaTickets from "../reservas/productos/tickets/reserva/ReservaFinal";
 import ReservaHotel from "../reservas/productos/hotel/reserva/ReservaFinal";
@@ -77,6 +78,7 @@ import ReservaHotelMasVuelo from "../reservas/productos/hotelmasvuelo/reserva/Re
 /* Datos */
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
 import DatosCoche from "../reservas/productos/coches/reserva/Datos";
+import DatosTransfer from "../reservas/productos/transfers/reserva/Datos";
 import DatosCrucero from "../reservas/productos/cruceros/reserva/Datos";
 import DatosEntrada from "../reservas/productos/entradas/reserva/Datos";
 import DatosTickets from "../reservas/productos/tickets/reserva/Datos";
@@ -177,6 +179,7 @@ function Header() {
         <Route path="/hotel+actividades" element={<HotelmAsActividades />} />
         {/* Reserva */}
         <Route path="/reservaCoche" element={<ReservaCoche />} />
+        <Route path="/reservaTransfer" element={<ReservaTransfer />} />
         <Route path="/reservavuelo" element={<ReservaVuelo />} />
         <Route path="/reservaentrada" element={<ReservaEntrada />} />
         <Route path="/reservatickets" element={<ReservaTickets />} />
@@ -200,6 +203,7 @@ function Header() {
         {/* DATOS */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
+        <Route path="/datosTransfer" element={<DatosTransfer />} />
         <Route path="/datosCrucero" element={<DatosCrucero />} />
         <Route path="/datosEntrada" element={<DatosEntrada />} />
         <Route path="/datostickets" element={<DatosTickets />} />

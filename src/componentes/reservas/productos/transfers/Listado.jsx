@@ -31,13 +31,11 @@ function Listado({ coches }) {
     minicoach: "tw-bg-orange-500",
     minibus: "tw-bg-pink-500",
   };
-
   const formatDuration = (minutes) => {
     const hours = Math.floor(minutes / 60);
     const mins = minutes % 60;
     return `${hours}h ${mins}min`;
   };
-
   return (
     <>
       {coches.map((coche, index) => (
@@ -126,7 +124,7 @@ function Listado({ coches }) {
                   </button>
                   <div className="tw-flex tw-items-end ">
                     <Link
-                      to="/coche"
+                      to="/datosTransfer"
                       state={coche}
                       className="tw-flex tw-flex-col tw-items-center tw-text-slate-700 dark:tw-text-slate-300 "
                     >
@@ -148,12 +146,24 @@ function Listado({ coches }) {
                   Cancelaciones
                 </h3>
                 <ul>
-                  {coche.cancelations.map((date, i) => (
-                    <li className="tw-text-sm dark:tw-text-slate-300" key={i}>
-                      <strong>A partir de {date.split("-")[0]}</strong> –
-                      Penalización: <strong>{date.split("|")[1]}%</strong>
-                    </li>
-                  ))}
+                  {coche.cancelations.map((date, i) => {
+                    const datePart =
+                      date.split("-")[0] +
+                      "-" +
+                      date.split("-")[1] +
+                      "-" +
+                      date.split("-")[2];
+                    const penalty = date.split("|")[1];
+                    const formattedDate = new Date(
+                      datePart
+                    ).toLocaleDateString();
+                    return (
+                      <li className="tw-text-sm dark:tw-text-slate-300" key={i}>
+                        <strong>A partir de {formattedDate}</strong> –
+                        Penalización: <strong>{penalty}%</strong>
+                      </li>
+                    );
+                  })}
                 </ul>
               </div>
               <section className="tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-md tw-p-5 ">

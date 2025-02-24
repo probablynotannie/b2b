@@ -1,73 +1,90 @@
+/* CRUCEROS */
+import { FaMars, FaVenus, FaUser } from "react-icons/fa";
 import Reserva from "../../../datos/Reserva";
-import { useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { useLocation, useNavigate } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
-import { useState } from "react";
-import { Link } from "react-router-dom";
-function Datos() {
+import FormatearFecha from "../../../estructura/FormatearFecha";
+import Fecha from "../../../../inputs/Fecha";
+
+const Transfer = () => {
   const location = useLocation();
   const { producto } = location.state || {};
-  const img = "/banner_avion.jpg";
-  const itinerario = "ida - sitio" + " - " + "vuelta - sitio";
-  const fechaIda = "FechaIda";
-  const fechaVuelta = "fechaVUelta";
-  const [datosContacto, setDatosContacto] = useState({
-    email: "",
-    nombre: "",
-    apellido: "",
-    numero: "",
-  });
-  const handleChange = (key, value) => {
-    setDatosContacto((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
+  const navigate = useNavigate();
+  const img = "/banner_cruise.jfif";
+
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+    setValue,
+    getValues,
+    setError,
+    clearErrors,
+  } = useForm();
+
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate("/reservaCrucero", {
+      state: { data, producto },
+    });
   };
+
   return (
-    <main className="my-10  flex justify-center container min-h-[68vh]">
-      <article className="p-5 w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
-        <form>
-          <h1 className="font-semibold text-xl dark:text-white">Datos Contacto</h1>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
+    <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
+      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-bg-white dark:tw-bg-slate-800">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
+            Datos Contacto
+          </h2>
+          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
-              value={datosContacto.nombre}
-              setValue={(value) => handleChange("nombre", value)}
-              tipo="Nombre"
+              tipo={"Nombre"}
+              name="nombre"
+              register={register}
+              errors={errors}
             />
             <Input_Texto
-              value={datosContacto.apellido}
-              setValue={(value) => handleChange("apellido", value)}
-              tipo="Apellido/s"
+              tipo={"Apellido"}
+              name="apellido"
+              register={register}
+              errors={errors}
             />
             <Input_Numero
-              value={datosContacto.numero}
-              setValue={(value) => handleChange("numero", value)}
+              tipo="numero"
+              register={register}
+              errors={errors}
+              name="numero"
             />
             <Input_Email
-              email={datosContacto.email}
-              setEmail={(value) => handleChange("email", value)}
+              tipo="email"
+              register={register}
+              errors={errors}
+              name="email"
             />
           </div>
-        </form>
-        <Reserva
-          img={img}
-          position={"center"}
-          tipo={"tipo"}
-          itinerario={itinerario}
-          fechaIda={fechaIda}
-          fechaVuelta={fechaVuelta}
-        />
-        <div className="flex justify-end">
-          <Link to={"/reservaTickets"} state={{}}>
-            <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+          <Reserva
+            img={img}
+            position={"center"}
+            tipo={"Crucero"}
+            itinerario={"itinerario"}
+            fechaIda={"Salida: "}
+            extras={"extras"}
+          />
+          <div className="tw-flex tw-justify-end">
+            <button
+              type="submit"
+              className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-mt-3"
+            >
               Reservar
             </button>
-          </Link>
-        </div>
+          </div>
+        </form>
       </article>
     </main>
   );
-}
+};
 
-export default Datos;
+export default Transfer;
