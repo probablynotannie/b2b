@@ -20,14 +20,6 @@ function CochesSkeleton() {
           <div className="tw-p-5 xl:tw-w-2/3">
             <div className="tw-flex tw-justify-between tw-border-b tw-pb-2 dark:tw-border-slate-700">
               <div className="tw-w-1/2 tw-h-6 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
-              <div className="tw-flex tw-text-secondary">
-                {[...Array(5)].map((_, i) => (
-                  <div
-                    key={i}
-                    className="tw-w-5 tw-h-5 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"
-                  ></div>
-                ))}
-              </div>
             </div>
             <ul className="tw-flex tw-flex-wrap tw-gap-2 tw-mt-2">
               {[...Array(3)].map((_, i) => (

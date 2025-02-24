@@ -6,14 +6,12 @@ import Localidades from "./Filtro_Localidades";
 import { IoMdOptions } from "react-icons/io";
 import { MdCancel } from "react-icons/md";
 
-function Aside() {
-  const [values, setValues] = useState([0, 500]);
+function Aside({ values, setValues, minMax, setMinMax }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reembolsable, setReembolsable] = useState(false);
   const [localidades, setLocalidades] = useState([]);
   const [selectedStars, setSelectedStars] = useState([]);
   const [selectedRegimenes, setRegimenes] = useState([]);
-
   const getActiveFiltersCount = () => {
     let count = 0;
     if (reembolsable) count += 1;
@@ -43,6 +41,8 @@ function Aside() {
           localidades={localidades}
           values={values}
           setValues={setValues}
+          minMax={minMax}
+          setMinMax={setMinMax}
           setLocalidades={setLocalidades}
           selectedStars={selectedStars}
           setSelectedStars={setSelectedStars}
@@ -73,6 +73,8 @@ function Aside() {
               localidades={localidades}
               values={values}
               setValues={setValues}
+              minMax={minMax}
+              setMinMax={setMinMax}
               setLocalidades={setLocalidades}
               selectedStars={selectedStars}
               setSelectedStars={setSelectedStars}
@@ -94,6 +96,8 @@ function SidebarContent({
   setLocalidades,
   values,
   setValues,
+  minMax,
+  setMinMax,
   setSelectedStars,
   selectedRegimenes,
   setRegimenes,
@@ -136,7 +140,12 @@ function SidebarContent({
           </label>
         </div>
         <div className="tw-mx-3 tw-mt-5">
-          <PrecioRange values={values} setValues={setValues} />
+          <PrecioRange
+            minMax={minMax}
+            setMinMax={setMinMax}
+            values={values}
+            setValues={setValues}
+          />
         </div>
         <div className="tw-mt-5">
           <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
