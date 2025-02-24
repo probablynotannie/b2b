@@ -1,48 +1,38 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useRef } from "react";
 import { FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
-
-// Updated suggestions data with types
-const suggestionsData = [
-  { type: "Destino", name: "MADRID Centro" },
-  { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-  { type: "Destino", name: "SEVILLA" },
-  { type: "Destino", name: "MADRID - CAPE GIRARDEAU" },
-  { type: "Hotel", name: "Hotel Barcelona", destino: "Madrid" },
-  { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-  { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-];
-
-function Buscador() {
-  const [inputValue, setInputValue] = useState("");
+import { IoClose } from "react-icons/io5";
+function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false);
-
+  const [loading, setLoading] = useState(false);
+  const searchBoxRef = useRef(null);
   const handleInputChange = (event) => {
     const value = event.target.value;
-    setInputValue(value);
-    setIsLoading(true);
-    setTimeout(() => {
-      if (value) {
-        const filteredSuggestions = suggestionsData.filter((suggestion) =>
+    setDestino(value);
+    setLoading(true);
+    if (value) {
+      setTimeout(() => {
+        const filteredSuggestions = destinos.filter((suggestion) =>
           suggestion.name.toLowerCase().includes(value.toLowerCase())
         );
         setSuggestions(filteredSuggestions);
         setIsDropdownOpen(true);
-      } else {
-        setIsDropdownOpen(false);
-      }
-      setIsLoading(false);
-    }, 500);
+        setLoading(false);
+      }, 1000);
+    } else {
+      setIsDropdownOpen(false);
+      setLoading(false);
+    }
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setInputValue(suggestion.name);
+    setDestino(suggestion);
     setSuggestions([]);
     setIsDropdownOpen(false);
   };
+
   const groupedSuggestions = suggestions.reduce((acc, suggestion) => {
     if (!acc[suggestion.type]) {
       acc[suggestion.type] = [];
@@ -51,53 +41,91 @@ function Buscador() {
     return acc;
   }, {});
 
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchBoxRef.current &&
+        !searchBoxRef.current.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, [searchBoxRef]);
+  const columnCount = Object.keys(groupedSuggestions).length > 1 ? 2 : 1;
   return (
-    <div className="tw-relative">
+    <div className="tw-relative" ref={searchBoxRef}>
       <input
         type="text"
-        value={inputValue}
+        value={typeof destino === "string" ? destino : destino?.name || ""}
         onChange={handleInputChange}
-        placeholder="Destino"
-        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
+        placeholder={placeholder}
+        disabled={disable && disable}
+        className="tw-p-2.5 tw-pl-10 tw-text-sm tw-border dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
       />
       {isDropdownOpen && (
-        <ul className="tw-absolute tw-z-10 tw-w-full tw-bg-white tw-border tw-mt-2 tw-border-gray-300 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
-          {isLoading ? (
-            // Mostrar "Cargando..." cuando está en proceso de búsqueda
-            <li className="tw-p-2 tw-text-center tw-text-gray-500">
+        <div className="tw-absolute tw-z-10 tw-w-full tw-bg-slate-50 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
+          {loading ? (
+            <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-flex-col tw-text-center tw-text-slate-500">
               Cargando...
-            </li>
-          ) : suggestions.length === 0 ? (
-            // Mostrar "No hay resultados" cuando no haya sugerencias
-            <li className="tw-p-2 tw-text-center tw-text-gray-500">
-              No hay ningún resultado para &amp;quot;{inputValue}&amp;quot;
-            </li>
+            </div>
+          ) : suggestions.length > 0 ? (
+            <div
+              className={`tw-grid xl:tw-grid-cols-${columnCount} tw-gap-4 tw-p-2`}
+            >
+              {Object.entries(groupedSuggestions).map(([type, items]) => (
+                <div key={type}>
+                  <div className="tw-relative">
+                    <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-right-1 tw-text-white tw-h-full tw-rounded-tr-md tw-rounded-br-md tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-lg">
+                      {type === "Hotel" ? <FaHotel /> : <FaMap />}
+                    </div>
+                  </div>
+                  <ul>
+                    {items.map((suggestion, index) => (
+                      <li
+                        key={index}
+                        onClick={() => handleSuggestionClick(suggestion)}
+                        className="tw-p-2 tw-border-b tw-flex tw-flex-col tw-border-slate-200 tw-text-gray-700 hover:tw-bg-slate-50 tw-cursor-pointer"
+                      >
+                        <span className="tw-flex tw-space-x-2 tw-items-center">
+                          <span className="tw-text-secondary tw-text-lg">
+                            {type === "Hotel" ? (
+                              <FaHotel />
+                            ) : (
+                              type === "Destino" && <FaMap />
+                            )}
+                          </span>
+                          <span>{suggestion.name}</span>
+                        </span>
+                        <span className="tw-block tw-text-slate-300 tw-pl-6">
+                          {suggestion.destino && suggestion.destino}
+                        </span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              ))}
+            </div>
           ) : (
-            Object.entries(groupedSuggestions).map(([type, items]) => (
-              <div key={type}>
-                <h3 className="tw-flex tw-items-center tw-space-x-2 tw-font-semibold tw-text-gray-700 tw-p-2 tw-border-t-2 tw-border-slate-100">
-                  <span className="tw-text-secondary tw-text-lg">
-                    {type === "Hotel" ? <FaHotel /> : <FaMap />}
-                  </span>
-                  <span>{type}</span>
-                </h3>
-                {items.map((suggestion, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    className="tw-p-2 tw-flex tw-justify-between tw-text-gray-700 hover:tw-bg-gray-100 tw-cursor-pointer"
-                  >
-                    <span>{suggestion.name}</span>
-                    <span className="tw-text-slate-300">
-                      {suggestion.destino && suggestion.destino}
-                    </span>
-                  </li>
-                ))}
-              </div>
-            ))
+            <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-flex-col tw-text-center tw-text-slate-500 tw-text-sm">
+              No hay ningún resultado para
+              <span className="tw-text-red-500 tw-font-semibold">
+                {destino}
+              </span>
+            </div>
           )}
-        </ul>
+        </div>
       )}
+      <div
+        onClick={() => setDestino("")}
+        className="tw-absolute tw-top-0 tw-right-0 tw-transition tw-text-slate-300 hover:tw-text-slate-500 tw-text-sm tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8"
+      >
+        <IoClose className="tw-text-lg" />
+      </div>
       <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaSearch />
       </div>

@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Input_Buscador from "../../../../inputs/Buscador2";
+import Input_Buscador from "../../../../inputs/Buscador";
 import Input_DateRange from "../../../../inputs/DateRangeWithTime";
 import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";

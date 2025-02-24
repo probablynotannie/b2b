@@ -1,7 +1,7 @@
 import { useState } from "react";
 import Fecha from "../../../../inputs/Fecha";
 import Origen from "../../../../inputs/Destinos";
-import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio2";
+import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
 const Eleccion = ({ fecha, setFecha, habitacion, setHabitacion, roomData, setRoomData }) => {
 
   const [origen, setOrigen] = useState("");

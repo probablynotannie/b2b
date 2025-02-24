@@ -1,25 +1,18 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import Input_Destinos from "../../../inputs/Buscador";
-import Input_DateRange from "../../../inputs/DateRangeWithTime";
-import Input_Personas from "../../../inputs/Adulto_Ninio_Infant";
+import Input_Buscador from "../../../inputs/Buscador";
+import Input_DateRange from "../../../inputs/DateRange";
+import Input_Nacionalidad from "../../../inputs/Nacionalidad";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
-import Input_Hora from "../../../inputs/Hora";
-
+import Input_Hab_Ad_Nin from "../../../inputs/Hab_Adulto_Ninio";
 import { useNavigate } from "react-router-dom";
 
-function Buscador_Transfers() {
+function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [infant, setInfant] = useState(0);
-  const [horaRecogida, setHoraRecogida] = useState("12:00");
-  const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -35,19 +28,20 @@ function Buscador_Transfers() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
+
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
+  const [nacionalidad, setNacionalidad] = useState();
+
   const handleSubmit = () => {
     const newRequestData = {
-      origin: origen ? origen.id : 0,
       destination: destino ? destino.id : 0,
       departureDate: startDate ? startDate : 0,
       returnDate: endDate ? endDate : 0,
-      adults: adultos ? adultos : 0,
-      children: ninios ? ninios : 0,
-      infants: infant ? infant : 0,
-      pickupTime: horaRecogida ? horaRecogida : 0,
-      returnTime: horaDevolucion ? horaDevolucion : 0,
     };
-    navigate("/listadoTransfers", { state: { newRequestData } });
+    navigate("/listadoHoteles", { state: { newRequestData } });
   };
   return (
     <>
@@ -73,36 +67,31 @@ function Buscador_Transfers() {
             </button>
             <form>
               <h2 className="tw-text-xl tw-font-bold dark:tw-text-white tw-mb-4">
-                Buscador de Transfers
+                Buscador de Hoteles
               </h2>
-              <div className="tw-grid tw-grid-cols-1 tw-gap-4">
-                <Input_Destinos
-                  placeholder={"Origen"}
-                  destinos={destinos}
-                  destino={origen}
-                  setDestino={setOrigen}
-                />
-                <Input_Destinos
+              <div className="tw-space-y-2">
+                <Input_Buscador
                   placeholder={"Destino"}
                   destinos={destinos}
                   destino={destino}
                   setDestino={setDestino}
                 />
-                <Input_DateRangeMobile
+
+                <Input_DateRange
                   startDate={startDate}
                   endDate={endDate}
                   setStartDate={setStartDate}
                   setEndDate={setEndDate}
                 />
-                <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
-                <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
-                <Input_Personas
-                  adultos={adultos}
-                  setAdultos={setAdultos}
-                  ninios={ninios}
-                  setNinios={setNinios}
-                  infant={infant}
-                  setInfant={setInfant}
+                <Input_Nacionalidad
+                  value={nacionalidad}
+                  setValue={setNacionalidad}
+                />
+                <Input_DateRangeMobile
+                  habitacion={habitacion}
+                  setHabitacion={setHabitacion}
+                  roomData={roomData}
+                  setRoomData={setRoomData}
                 />
               </div>
               <button
@@ -122,42 +111,31 @@ function Buscador_Transfers() {
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-600 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Transfers
+            Buscador de Hoteles
           </h2>
-          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Destinos
-              placeholder={"Origen"}
-              destinos={destinos}
-              destino={origen}
-              setDestino={setOrigen}
-            />
-            <Input_Destinos
+          <div className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
+            <Input_Buscador
               placeholder={"Destino"}
               destinos={destinos}
               destino={destino}
               setDestino={setDestino}
             />
             <Input_DateRange
-              placeholder={"Para cuando"}
-              hora={horaRecogida}
-              date={startDate}
-              setDate={setStartDate}
-              setHora={setHoraRecogida}
+              startDate={startDate}
+              endDate={endDate}
+              setStartDate={setStartDate}
+              setEndDate={setEndDate}
             />
-            <Input_DateRange
-              placeholder={"Vuelta"}
-              hora={horaDevolucion}
-              date={endDate}
-              setDate={setEndDate}
-              setHora={setHoraDevolucion}
+
+            <Input_Nacionalidad
+              value={nacionalidad}
+              setValue={setNacionalidad}
             />
-            <Input_Personas
-              adultos={adultos}
-              setAdultos={setAdultos}
-              ninios={ninios}
-              setNinios={setNinios}
-              infant={infant}
-              setInfant={setInfant}
+            <Input_Hab_Ad_Nin
+              habitacion={habitacion}
+              setHabitacion={setHabitacion}
+              roomData={roomData}
+              setRoomData={setRoomData}
             />
           </div>
           <button
@@ -173,4 +151,4 @@ function Buscador_Transfers() {
   );
 }
 
-export default Buscador_Transfers;
+export default Buscador_Cruceros;
