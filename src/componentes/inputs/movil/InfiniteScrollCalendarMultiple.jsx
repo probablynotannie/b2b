@@ -124,7 +124,7 @@ const InfiniteScrollCalendar = ({
         "dd/MM/yyyy"
       )}`;
     }
-    return "Selecciona un rango de fechas";
+    return "Selecciona Fechas";
   };
 
   return (

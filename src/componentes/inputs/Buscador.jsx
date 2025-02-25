@@ -1,9 +1,17 @@
 import { useState, useEffect, useRef } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaPlane, FaSearch } from "react-icons/fa";
 import { FaHotel } from "react-icons/fa";
 import { FaMap } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
-function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
+function Buscador({
+  destinos,
+  destino,
+  setDestino,
+  disable,
+  placeholder,
+  vuelo,
+}) {
+  console.log(vuelo);
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);
@@ -15,7 +23,7 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
     if (value) {
       setTimeout(() => {
         const filteredSuggestions = destinos.filter((suggestion) =>
-          suggestion.name.toLowerCase().includes(value.toLowerCase())
+          suggestion.destino.toLowerCase().includes(value.toLowerCase())
         );
         setSuggestions(filteredSuggestions);
         setIsDropdownOpen(true);
@@ -81,7 +89,13 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
                 <div key={type}>
                   <div className="tw-relative">
                     <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-right-1 tw-text-white tw-h-full tw-rounded-tr-md tw-rounded-br-md tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-lg">
-                      {type === "Hotel" ? <FaHotel /> : <FaMap />}
+                      {type === "Hotel" ? (
+                        <FaHotel />
+                      ) : type === 2 ? (
+                        <FaPlane />
+                      ) : (
+                        <FaMap />
+                      )}
                     </div>
                   </div>
                   <ul>
@@ -95,8 +109,10 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
                           <span className="tw-text-secondary tw-text-lg">
                             {type === "Hotel" ? (
                               <FaHotel />
+                            ) : type == 2 ? (
+                              <FaPlane />
                             ) : (
-                              type === "Destino" && <FaMap />
+                              <FaMap />
                             )}
                           </span>
                           <span>{suggestion.name}</span>
@@ -127,7 +143,7 @@ function Buscador({ destinos, destino, setDestino, disable, placeholder }) {
         <IoClose className="tw-text-lg" />
       </div>
       <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-        <FaSearch />
+        {vuelo && vuelo === true ? <FaPlane /> : <FaSearch />}
       </div>
     </div>
   );
