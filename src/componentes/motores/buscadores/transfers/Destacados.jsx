@@ -61,7 +61,9 @@ function Destacados() {
   ];
   return (
     <div className="tw-p-5 tw-mt-5">
-      <h2 className="tw-text-2xl tw-font-semibold">Búsqueda rápida</h2>
+      <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">
+        Búsqueda rápida
+      </h2>
       <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 tw-mt-4">
         {destacados.map((destacado) => (
           <div

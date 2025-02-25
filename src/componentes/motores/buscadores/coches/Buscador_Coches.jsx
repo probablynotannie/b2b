@@ -114,7 +114,7 @@ function Buscador_Coches() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-600 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Coches
