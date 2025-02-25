@@ -16,14 +16,6 @@ function Fecha({ fecha, name, setValue, edadSelector }) {
     const formattedDate = date;
     setValue(name, formattedDate, { shouldValidate: true });
   };
-  /*   const formatDate = (date) => {
-    console.log(date);
-    const d = new Date(date);
-    const day = String(d.getDate()).padStart(2, "0");
-    const month = String(d.getMonth() + 1).padStart(2, "0");
-    const year = d.getFullYear();
-    return `${year}/${day}/${month}`;
-  }; */
 
   return (
     <div>
@@ -46,7 +38,7 @@ function Fecha({ fecha, name, setValue, edadSelector }) {
               }}
               styles={(theme) => ({
                 input: {
-                  padding: "0.57rem",
+                  padding: "0.62rem",
                   paddingLeft: "2.6rem",
                   borderRadius: theme.radius.md,
                 },

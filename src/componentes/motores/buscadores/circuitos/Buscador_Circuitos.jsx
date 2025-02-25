@@ -39,7 +39,7 @@ function Buscador_Destinos() {
             </button>
             <form>
               <h2 className="tw-text-xl tw-font-bold dark:tw-text-white tw-mb-4">
-                Buscador de Destinos
+                Buscador de Circuitos
               </h2>
               <div className="tw-space-y-2">
                 <Input_Destinos
@@ -70,7 +70,7 @@ function Buscador_Destinos() {
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Destinos
+            Buscador de Circuitos
           </h2>
           <div className="tw-grid tw-grid-cols-2 tw-gap-4 tw-mt-4">
             <Input_Destinos

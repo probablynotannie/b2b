@@ -49,40 +49,42 @@ function Vehiculos({
   const isNoSelectedInLast = remolque === "0";
 
   return (
-    <div className="relative w-full">
+    <div className="tw-relative tw-w-full">
       <Popover
         aria-labelledby="area-popover"
         open={open}
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
+            <div className="tw-bg-slate-800 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
               Tipo de vehiculo
             </div>
-            <div className="w-96 space-y-3 p-4 text-sm text-gray-500">
+            <div className="tw-w-96 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500">
               <div>
-                <span className="text-primary font-semibold">Vehiculos</span>
-                <div className="relative">
+                <span className="tw-text-slate-700 tw-font-semibold">
+                  Vehiculos
+                </span>
+                <div className="tw-relative">
                   <select
                     onChange={handleAmountChange}
-                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                    className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                   >
                     <option value={0}>0</option>
                     <option value={1}>1</option>
                   </select>
-                  <div className=" absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2">
                     <FaCar />
                   </div>
                 </div>
               </div>
               {vehiculos === 1 && (
                 <>
-                  <div className="grid grid-cols-2 gap-2">
-                    <div className=" col-span-2">
-                      <div className="relative">
+                  <div className="tw-grid tw-grid-cols-2 tw-gap-2">
+                    <div className="tw-col-span-2">
+                      <div className="tw-relative">
                         <select
                           onChange={handleSecondSelectChange}
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                         >
                           <option value="Turismo. altura menor a 2 metros">
                             Turismo. altura menor a 2 metros
@@ -104,7 +106,7 @@ function Vehiculos({
                           <option value="Autocaravana">Autocaravana</option>
                           <option value="Bicicleta">Bicicleta</option>
                         </select>
-                        <div className=" absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                        <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2">
                           <FaCarSide />
                         </div>
                       </div>
@@ -114,44 +116,44 @@ function Vehiculos({
                         <div>
                           <span>Longitud</span>
 
-                          <div className="relative">
+                          <div className="tw-relative">
                             <select
                               value={longitud}
                               onChange={handleLongitudChange}
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                             >
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none bg-primary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                               <FaArrowsAltH />
                             </div>
                           </div>
                         </div>
                         <div>
                           <span>Altura</span>
-                          <div className="relative">
+                          <div className="tw-relative">
                             <select
                               value={altura}
                               onChange={handleAlturaChange}
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                             >
                               <option value={0}>1m 00cm</option>
                               <option value={1}>1m 05cm</option>
                               <option value={2}>1m 10cm</option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none bg-primary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                               <FaArrowsAltV />
                             </div>
                           </div>
                         </div>
-                        <div className="col-span-2">
+                        <div className="tw-col-span-2">
                           <span>Remolque</span>
-                          <div className="relative col-span-2">
+                          <div className="tw-relative tw-col-span-2">
                             <select
                               onChange={handleLastDropdownChange}
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                             >
                               <option value={0}>No</option>
                               <option value={1}>
@@ -162,7 +164,7 @@ function Vehiculos({
                               </option>
                               <option value={3}>Caravana</option>
                             </select>
-                            <div className=" absolute top-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+                            <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2">
                               <FaTrailer />
                             </div>
                           </div>
@@ -171,34 +173,34 @@ function Vehiculos({
                           <>
                             <div>
                               <span>Longirud remolque</span>
-                              <div className="relative">
+                              <div className="tw-relative">
                                 <select
                                   value={longitudRemolque}
                                   onChange={handleLongitudRemolqueChange}
-                                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                                  className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                                 >
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>
                                 </select>
-                                <div className="absolute top-0 pointer-events-none bg-primary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                                <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                                   <FaArrowsAltH />
                                 </div>
                               </div>
                             </div>
                             <div>
                               <span>Altura remolque</span>
-                              <div className="relative">
+                              <div className="tw-relative">
                                 <select
                                   value={alturaRemolque}
                                   onChange={handleAlturaRemolqueChange}
-                                  className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                                  className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                                 >
                                   <option value={0}>1m 00cm</option>
                                   <option value={1}>1m 05cm</option>
                                   <option value={2}>1m 10cm</option>
                                 </select>
-                                <div className="absolute top-0 pointer-events-none bg-primary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                                <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                                   <FaArrowsAltV />
                                 </div>
                               </div>
@@ -214,11 +216,11 @@ function Vehiculos({
           </div>
         }
       >
-        <div className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+        <div className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer">
           Vehiculos
         </div>
       </Popover>
-      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaCar />{" "}
       </div>
     </div>
