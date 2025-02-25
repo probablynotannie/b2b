@@ -60,57 +60,64 @@ function Buscador_Coches() {
         </button>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
-          <div className="tw-bg-white tw-rounded-lg tw-p-6 tw-relative tw-w-[90%] tw-max-w-md dark:tw-bg-slate-700">
-            <button
-              className="tw-absolute tw-top-3 tw-right-3 tw-text-gray-600 dark:tw-text-gray-300"
-              onClick={() => setIsModalOpen(false)}
-            >
-              ✕
-            </button>
-            <form>
-              <h2 className="tw-text-xl tw-font-bold dark:tw-text-white tw-mb-4">
-                Buscador de Coches
+        <div className="tw-fixed  tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+          <div className="tw-bg-white tw-rounded-lg  tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
+              <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                Buscador
               </h2>
-              <div className="tw-grid tw-grid-cols-1 tw-gap-4">
-                <Input_Destinos
-                  placeholder={"Origen"}
-                  destinos={destinos}
-                  destino={origen}
-                  setDestino={setOrigen}
-                />
-                <Input_Destinos
-                  placeholder={"Destino"}
-                  destinos={destinos}
-                  destino={destino}
-                  setDestino={setDestino}
-                />
-                <Input_DateRangeMobile
-                  startDate={startDate}
-                  endDate={endDate}
-                  setStartDate={setStartDate}
-                  setEndDate={setEndDate}
-                />
-                <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
-                <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
-                <Input_Edad
-                  edadMinima={22}
-                  edadMaxima={90}
-                  edad={edad}
-                  setEdad={setEdad}
-                />
-              </div>
               <button
-                type="button"
-                className="tw-w-full tw-mt-4 tw-bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
-                onClick={() => {
-                  handleSubmit();
-                  setIsModalOpen(false);
-                }}
+                onClick={() => setIsModalOpen(false)}
+                className="tw-text-xl tw-text-white"
               >
-                Buscar
+                &times;
               </button>
-            </form>
+            </div>
+            <div className="tw-p-3">
+              <form>
+                <div className="tw-grid tw-grid-cols-1 tw-gap-4">
+                  <Input_Destinos
+                    placeholder={"Origen"}
+                    destinos={destinos}
+                    destino={origen}
+                    setDestino={setOrigen}
+                  />
+                  <Input_Destinos
+                    placeholder={"Destino"}
+                    destinos={destinos}
+                    destino={destino}
+                    setDestino={setDestino}
+                  />
+                  <Input_DateRangeMobile
+                    startDate={startDate}
+                    endDate={endDate}
+                    setStartDate={setStartDate}
+                    setEndDate={setEndDate}
+                  />
+                  <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
+                  <Input_Hora
+                    hora={horaDevolucion}
+                    setHora={setHoraDevolucion}
+                  />
+                  <Input_Edad
+                    edadMinima={22}
+                    edadMaxima={90}
+                    edad={edad}
+                    setEdad={setEdad}
+                  />
+                </div>
+                <button
+                  type="button"
+                  className="tw-w-full tw-mt-4 tw-bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
+                  onClick={() => {
+                    handleSubmit();
+                    setIsModalOpen(false);
+                  }}
+                >
+                  Buscar
+                </button>
+              </form>
+            </div>
           </div>
         </div>
       )}

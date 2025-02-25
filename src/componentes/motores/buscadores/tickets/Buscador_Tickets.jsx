@@ -56,51 +56,63 @@ function Buscador_Tickets() {
         </button>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
-          <div className="tw-bg-white tw-rounded-lg tw-p-6 tw-relative tw-w-[90%] tw-max-w-md dark:tw-bg-slate-700">
-            <button
-              className="tw-absolute tw-top-3 tw-right-3 tw-text-gray-600 dark:tw-text-gray-300"
-              onClick={() => setIsModalOpen(false)}
-            >
-              ✕
-            </button>
-            <form>
-              <h2 className="tw-text-xl tw-font-bold dark:tw-text-white tw-mb-4">
-                Buscador de Tickets
+        <div className="tw-fixed  tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+          <div className="tw-bg-white tw-rounded-lg  tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
+              <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                Buscador
               </h2>
-              <div className="tw-space-y-2">
-                <Input_Buscador
-                  placeholder={"Destino"}
-                  destinos={destinos}
-                  destino={destino}
-                  setDestino={setDestino}
-                />
-                <Input_DateRangeMobile
-                  startDate={startDate}
-                  setStartDate={setStartDate}
-                  endDate={endDate}
-                  setEndDate={setEndDate}
-                />
-                <Input_AdultoNInio
-                  adultos={adultos}
-                  setAdultos={setAdultos}
-                  setNinios={setNinios}
-                  ninios={ninios}
-                  ninioAges={ninioAges}
-                  setNinioAges={setNinioAges}
-                />
-              </div>
               <button
-                type="button"
-                className="tw-w-full tw-mt-4 tw-bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
-                onClick={() => {
-                  handleSubmit();
-                  setIsModalOpen(false);
-                }}
+                onClick={() => setIsModalOpen(false)}
+                className="tw-text-xl tw-text-white"
               >
-                Buscar
+                &times;
               </button>
-            </form>
+            </div>
+            <div className="tw-p-3">
+              <form>
+                <div className="tw-space-y-2">
+                  <Input_Buscador
+                    placeholder={"Destino"}
+                    destinos={destinos}
+                    destino={destino}
+                    setDestino={setDestino}
+                  />
+                  <Input_DateRangeMobile
+                    startDate={startDate}
+                    setStartDate={setStartDate}
+                    endDate={endDate}
+                    setEndDate={setEndDate}
+                  />
+                  <Input_AdultoNInio
+                    adultos={adultos}
+                    setAdultos={setAdultos}
+                    setNinios={setNinios}
+                    ninios={ninios}
+                    ninioAges={ninioAges}
+                    setNinioAges={setNinioAges}
+                  />
+                </div>
+                <button
+                  onClick={() => {
+                    handleSubmit();
+                    setIsModalOpen(false);
+                  }}
+                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
+                >
+                  <FaSearch className="tw-text-white tw-text-xl" />
+                </button>
+              </form>
+              <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
+                <button
+                  className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  X
+                </button>
+                <span className="tw-text-slate-400">Cerrar</span>
+              </div>
+            </div>
           </div>
         </div>
       )}

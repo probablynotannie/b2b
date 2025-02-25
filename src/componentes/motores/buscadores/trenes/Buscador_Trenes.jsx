@@ -3,9 +3,9 @@ import { FaSearch } from "react-icons/fa";
 import Input_Select from "../../../inputs/Select";
 import Input_Fecha from "../../../inputs/Fecha";
 import Input_DateRange from "../../../inputs/DateRange";
-import Input_Vehiculos from "../../../inputs/Vehiculos";
-import Input_Bonificacion from "../../../inputs/Bonificacion";
+import Input_Bonificacion from "../../../inputs/Pasajeros_Descuentos";
 import { useNavigate } from "react-router-dom";
+import { MdCancel } from "react-icons/md";
 
 function Buscador_Destinos() {
   const navigate = useNavigate();
@@ -13,20 +13,20 @@ function Buscador_Destinos() {
   const [viaje, setViaje] = useState("ida");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [vehiculos, setNumVehiculos] = useState(0);
-  const [tipoVehiculo, setTipoVehiculo] = useState("");
-  const [remolque, setRemolque] = useState("0");
-  const [longitud, setLongitud] = useState(0);
-  const [altura, setAltura] = useState(0);
-  const [longitudRemolque, setLongitudRemolque] = useState(0);
-  const [alturaRemolque, setAlturaRemolque] = useState(0);
-  const [ages, setAges] = useState({});
-  const [pasajeros, setPasajeros] = useState(1);
+  const [fecha, setFecha] = useState(null);
+  const [adultos, setAdultos] = useState(2);
+  const [ninios, setNinios] = useState(0);
+  const [ninioAges, setNinioAges] = useState([]);
+  const [descuentos, setDescuentos] = useState(false);
+  const [discapacidad, setDiscapacidad] = useState(false);
+  const [selectedDiscapacidad, setSelectedDiscapacidad] = useState({
+    adultos: [],
+    ninios: [],
+  });
 
   const handleviajeChange = (type) => {
     setViaje(type);
   };
-  const [fecha, setFecha] = useState(null);
   const handleSubmit = () => {
     const newRequestData = {
       destination: 0,
@@ -62,7 +62,7 @@ function Buscador_Destinos() {
             </div>
             <div className="tw-p-3">
               <form>
-                <div className="grid grid-cols-2 gap-3 mt-2 text-sm tw-mb-5">
+                <div className="grid grid-cols-2 gap-3 text-sm tw-mb-5 ">
                   <button
                     type="button"
                     className={`p-2.5 rounded-lg font-bold tw-text-white ${
@@ -100,29 +100,19 @@ function Buscador_Destinos() {
                     />
                   )}
                   <Input_Bonificacion
-                    ages={ages}
-                    setAges={setAges}
-                    pasajeros={pasajeros}
-                    setPasajeros={setPasajeros}
+                    adultos={adultos}
+                    ninios={ninios}
+                    setAdultos={setAdultos}
+                    setNinios={setNinios}
+                    ninioAges={ninioAges}
+                    setNinioAges={setNinioAges}
+                    descuentos={descuentos}
+                    setDescuentos={setDescuentos}
+                    discapacidad={discapacidad}
+                    setDiscapacidad={setDiscapacidad}
+                    selectedDiscapacidad={selectedDiscapacidad}
+                    setSelectedDiscapacidad={setSelectedDiscapacidad}
                   />
-                  <div>
-                    <Input_Vehiculos
-                      vehiculos={vehiculos}
-                      setNumVehiculos={setNumVehiculos}
-                      tipoVehiculo={tipoVehiculo}
-                      setTipoVehiculo={setTipoVehiculo}
-                      remolque={remolque}
-                      setRemolque={setRemolque}
-                      longitud={longitud}
-                      setLongitud={setLongitud}
-                      altura={altura}
-                      setAltura={setAltura}
-                      longitudRemolque={longitudRemolque}
-                      setLongitudRemolque={setLongitudRemolque}
-                      alturaRemolque={alturaRemolque}
-                      setAlturaRemolque={setAlturaRemolque}
-                    />
-                  </div>
                 </div>
                 <button
                   onClick={() => {
@@ -171,7 +161,7 @@ function Buscador_Destinos() {
             </div>
           </div>
 
-          <div className="tw-grid tw-grid-cols-3  2xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
+          <div className="tw-grid tw-grid-cols-3  2xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
             <Input_Select placeholder={"Origen"} />
             <Input_Select placeholder={"Destino"} />
             {viaje === "ida" ? (
@@ -186,28 +176,18 @@ function Buscador_Destinos() {
             )}
             <div>
               <Input_Bonificacion
-                ages={ages}
-                setAges={setAges}
-                pasajeros={pasajeros}
-                setPasajeros={setPasajeros}
-              />
-            </div>
-            <div>
-              <Input_Vehiculos
-                vehiculos={vehiculos}
-                setNumVehiculos={setNumVehiculos}
-                tipoVehiculo={tipoVehiculo}
-                setTipoVehiculo={setTipoVehiculo}
-                remolque={remolque}
-                setRemolque={setRemolque}
-                longitud={longitud}
-                setLongitud={setLongitud}
-                altura={altura}
-                setAltura={setAltura}
-                longitudRemolque={longitudRemolque}
-                setLongitudRemolque={setLongitudRemolque}
-                alturaRemolque={alturaRemolque}
-                setAlturaRemolque={setAlturaRemolque}
+                adultos={adultos}
+                ninios={ninios}
+                setAdultos={setAdultos}
+                setNinios={setNinios}
+                ninioAges={ninioAges}
+                setNinioAges={setNinioAges}
+                descuentos={descuentos}
+                setDescuentos={setDescuentos}
+                discapacidad={discapacidad}
+                setDiscapacidad={setDiscapacidad}
+                selectedDiscapacidad={selectedDiscapacidad}
+                setSelectedDiscapacidad={setSelectedDiscapacidad}
               />
             </div>
           </div>

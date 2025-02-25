@@ -35,7 +35,7 @@ function Aside() {
             <SidebarContent values={values} setValues={setValues} />
             <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
               <button
-                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
                 onClick={() => setIsModalOpen(false)}
               >
                 X

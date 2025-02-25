@@ -52,7 +52,7 @@ function SelectorPersonas({
     setSelectedDiscapacidad(newSelection);
   };
   return (
-    <div className="relative w-full">
+    <div className="tw-relative tw-w-full">
       <Popover
         placement="right"
         aria-labelledby="area-popover"
@@ -60,17 +60,17 @@ function SelectorPersonas({
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
+            <div className="tw-bg-slate-800 tw-rounded-t-lg tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
               Adultos / Niños
             </div>
-            <div className="px-3 pb-5 max-h-[60vh] overflow-y-auto w-72  ">
+            <div className="tw-px-3 tw-pb-5 tw-max-h-[60vh] tw-overflow-y-auto tw-w-72">
               <div>
-                <span className="text-sm">Adultos</span>
-                <div className="relative">
+                <span className="tw-text-sm">Adultos</span>
+                <div className="tw-relative">
                   <select
                     onChange={onAdultosChange}
                     id="habitaciones"
-                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                    className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                   >
                     <option value={1}>1</option>
                     <option value={2} selected>
@@ -81,7 +81,7 @@ function SelectorPersonas({
                     <option value={5}>5</option>
                     <option value={6}>6</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                     <FaPerson />
                   </div>
                 </div>
@@ -89,12 +89,12 @@ function SelectorPersonas({
 
               {/* Niños */}
               <div>
-                <span className="text-sm">Niños</span>
-                <div className="relative">
+                <span className="tw-text-sm">Niños</span>
+                <div className="tw-relative">
                   <select
                     onChange={onNiniosChange}
                     id="habitaciones"
-                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                    className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                   >
                     <option value={0} selected>
                       0
@@ -103,14 +103,14 @@ function SelectorPersonas({
                     <option value={2}>2</option>
                     <option value={3}>3</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                     <FaChild />
                   </div>
                 </div>
                 {ninios > 0 && (
-                  <div className="grid grid-cols-3 gap-1">
+                  <div className="tw-grid tw-grid-cols-3 tw-gap-1">
                     {Array.from({ length: ninios }).map((_, index) => (
-                      <div key={index} className="mt-4">
+                      <div key={index} className="tw-mt-4">
                         <input
                           required
                           type="number"
@@ -119,7 +119,7 @@ function SelectorPersonas({
                           onChange={(e) =>
                             handleAgeChange(index, e.target.value)
                           }
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                           placeholder="Edad"
                         />
                       </div>
@@ -127,31 +127,31 @@ function SelectorPersonas({
                   </div>
                 )}
               </div>
-              <div className="flex justify-between mt-3">
+              <div className="tw-flex tw-justify-between tw-mt-3">
                 <div>
-                  <label className="inline-flex items-center cursor-pointer">
+                  <label className="tw-inline-flex tw-items-center tw-cursor-pointer">
                     <input
                       type="checkbox"
                       value=""
-                      className="sr-only peer"
+                      className="tw-sr-only tw-peer"
                       onChange={handleDescuentoChange}
                     />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
-                    <span className="ms-1 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 peer-focus:tw-outline-none peer-focus:tw-ring-4 peer-focus:tw-ring-blue-300 dark:peer-focus:tw-ring-blue-800 tw-rounded-full tw-peer dark:tw-bg-gray-700 peer-checked:after:tw-translate-x-full rtl:peer-checked:after:tw--translate-x-full peer-checked:after:border-tw-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all dark:tw-border-gray-600 peer-checked:tw-bg-secondary"></div>
+                    <span className="tw-ms-1 tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-gray-300">
                       Descuentos
                     </span>
                   </label>
                 </div>
                 <div>
-                  <label className="inline-flex items-center cursor-pointer">
+                  <label className="tw-inline-flex tw-items-center tw-cursor-pointer">
                     <input
                       type="checkbox"
                       value=""
-                      className="sr-only peer"
+                      className="tw-sr-only tw-peer"
                       onChange={handleDiscapacidadChange}
                     />
-                    <div className="relative w-11 h-6 bg-gray-200 peer-focus:outline-none peer-focus:ring-4 peer-focus:ring-blue-300 dark:peer-focus:ring-blue-800 rounded-full peer dark:bg-gray-700 peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all dark:border-gray-600 peer-checked:bg-secondary"></div>
-                    <span className="ms-1 text-sm font-medium text-gray-900 dark:text-gray-300">
+                    <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 peer-focus:tw-outline-none peer-focus:tw-ring-4 peer-focus:tw-ring-blue-300 dark:peer-focus:tw-ring-blue-800 tw-rounded-full tw-peer dark:tw-bg-gray-700 peer-checked:after:tw-translate-x-full rtl:peer-checked:after:tw--translate-x-full peer-checked:after:border-tw-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all dark:tw-border-gray-600 peer-checked:tw-bg-secondary"></div>
+                    <span className="tw-ms-1 tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-gray-300">
                       Discapacidad
                     </span>
                   </label>
@@ -159,17 +159,17 @@ function SelectorPersonas({
               </div>
 
               {descuentos && (
-                <div className="space-y-4 mt-4">
+                <div className="tw-space-y-4 tw-mt-4">
                   {[...Array(adultos)].map((_, index) => (
                     <div
                       key={`adulto-${index}`}
-                      className="flex items-center justify-between w-full space-x-4"
+                      className="tw-flex tw-items-center tw-justify-between tw-w-full tw-space-x-4"
                     >
-                      <span className="text-sm text-center flex flex-row w-1/3 dark:text-white">
+                      <span className="tw-text-sm tw-text-center tw-flex tw-flex-row tw-w-1/3 dark:tw-text-white">
                         Adulto {index + 1}:
                       </span>
 
-                      <select className="border text-sm p-2 rounded-lg dark:bg-slate-700 dark:text-slate-200 w-1/2">
+                      <select className="tw-border tw-text-sm tw-p-2 tw-rounded-lg dark:tw-bg-slate-700 dark:tw-text-slate-200 tw-w-1/2">
                         <option value="0">Ninguno</option>
                         <option value="des_familia_num_gen">
                           Familia numerosa general
@@ -187,7 +187,7 @@ function SelectorPersonas({
                           onClick={() =>
                             handleDiscapacidadSelection("adultos", index)
                           }
-                          className={`p-2 border dark:border-0 rounded-lg ${
+                          className={`tw-p-2 tw-border dark:tw-border-0 tw-rounded-lg ${
                             selectedDiscapacidad.adultos.includes(index)
                               ? "bg-blue-500 dark:bg-blue-700 text-white"
                               : "bg-gray-200"
@@ -202,12 +202,12 @@ function SelectorPersonas({
                   {[...Array(ninios)].map((_, index) => (
                     <div
                       key={`nino-${index}`}
-                      className="flex items-center justify-between w-full space-x-4"
+                      className="tw-flex tw-items-center tw-justify-between tw-w-full tw-space-x-4"
                     >
-                      <span className="w-1/3 dark:text-white">
+                      <span className="tw-w-1/3 dark:tw-text-white">
                         Niño {index + 1}:
                       </span>
-                      <select className="border text-sm p-2 rounded-lg dark:bg-slate-700 dark:text-slate-200 w-1/2">
+                      <select className="tw-border tw-text-sm tw-p-2 tw-rounded-lg dark:tw-bg-slate-700 dark:tw-text-slate-200 tw-w-1/2">
                         <option value="0">Ninguno</option>
                         <option value="des_familia_num_gen">
                           Familia numerosa general
@@ -225,7 +225,7 @@ function SelectorPersonas({
                           onClick={() =>
                             handleDiscapacidadSelection("ninios", index)
                           }
-                          className={`p-2 border dark:border-0 rounded-lg ${
+                          className={`tw-p-2 tw-border dark:tw-border-0 tw-rounded-lg ${
                             selectedDiscapacidad.ninios.includes(index)
                               ? "bg-blue-500 dark:bg-blue-700 text-white"
                               : "bg-gray-200"
@@ -242,11 +242,11 @@ function SelectorPersonas({
           </div>
         }
       >
-        <div className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+        <div className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer">
           {adultos} adultos {ninios} niños
         </div>
       </Popover>
-      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <MdPeopleAlt />
       </div>
     </div>
