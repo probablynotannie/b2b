@@ -1,7 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
-import Buscador_Transfers from "./buscadores/hoteles/Buscador_Hoteles";
+import Buscador_Hoteles from "./buscadores/hoteles/Buscador_Hoteles";
 import Destacados from "./buscadores/hoteles/Destacados";
-function Transfers() {
+function Hoteles() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
@@ -15,7 +15,7 @@ function Transfers() {
           }}
         >
           <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
-            <Buscador_Transfers />
+            <Buscador_Hoteles />
           </div>
         </div>
         <Destacados />
@@ -24,4 +24,4 @@ function Transfers() {
   );
 }
 
-export default Transfers;
+export default Hoteles;

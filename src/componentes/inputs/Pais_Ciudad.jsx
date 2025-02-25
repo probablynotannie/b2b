@@ -27,19 +27,19 @@ function SelectorPaisCiudad({
     setIsDropdownOpen(false);
   };
   return (
-    <div className="relative w-full">
+    <div className="tw-relative tw-w-full">
       <button
-        className="bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border px-2 pl-9 border-gray-300 text-slate-950 text-sm rounded-lg w-full py-3 flex items-center justify-between"
+        className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border tw-px-2 tw-pl-9 tw-border-gray-300 tw-text-slate-950 tw-text-sm tw-rounded-lg tw-w-full tw-py-3 tw-flex tw-items-center tw-justify-between"
         type="button"
         onClick={toggleDropdown}
       >
-        <span className="mx-2 overflow-hidden text-ellipsis whitespace-nowrap">
+        <span className="tw-mx-2 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap">
           {selectedRegion
             ? selectedContinent.name + " - " + selectedRegion
             : "Selecciona continente y región"}
         </span>
         <svg
-          className="w-2.5 h-2.5"
+          className="tw-w-2.5 tw-h-2.5"
           aria-hidden="true"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
@@ -54,22 +54,22 @@ function SelectorPaisCiudad({
           />
         </svg>
       </button>
-      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaMap />
       </div>
 
       {isDropdownOpen && (
-        <div className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 shadow w-full">
-          <ul className="py-2 text-sm text-gray-700">
+        <div className="tw-absolute tw-z-10 tw-mt-2 tw-bg-white tw-divide-y tw-divide-gray-100 tw-shadow tw-w-full">
+          <ul className="tw-py-2 tw-text-sm tw-text-gray-700">
             {step === 1
               ? continents.map((continent) => (
                   <li key={continent.name}>
                     <button
                       type="button"
-                      className="inline-flex w-full px-4 py-2 text-sm hover:bg-gray-100"
+                      className="tw-inline-flex tw-w-full tw-px-4 tw-py-2 tw-text-sm hover:tw-bg-gray-100"
                       onClick={() => selectContinent(continent)}
                     >
-                      <span className="mr-2">{continent.flag}</span>
+                      <span className="tw-mr-2">{continent.flag}</span>
                       {continent.name}
                     </button>
                   </li>
@@ -78,7 +78,7 @@ function SelectorPaisCiudad({
                   <li key={region}>
                     <button
                       type="button"
-                      className="inline-flex w-full px-4 py-2 text-sm hover:bg-gray-100"
+                      className="tw-inline-flex tw-w-full tw-px-4 tw-py-2 tw-text-sm hover:tw-bg-gray-100"
                       onClick={() => selectRegion(region)}
                     >
                       {region}

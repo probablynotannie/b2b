@@ -17,11 +17,11 @@ function InputMes({ mes, setMes }) {
       <DatesProvider settings={{ locale: "es" }}>
         <div className="tw-relative">
           <MonthPickerInput
-            value={mes ? new Date(2023, mes, 1) : null}
+            value={mes ? new Date(2023, mes, 0) : null}
             placeholder="Mes"
             classNames={{
               input:
-                "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer",
+                "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer",
             }}
             onChange={handleMonthChange}
           />

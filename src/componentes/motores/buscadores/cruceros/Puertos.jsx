@@ -10,10 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Puertos({ setRequestData }) {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
-
-  // Filter ports with 'destacado' equal to 1
   const highlightedPorts = puertos.filter((zona) => zona.destacado === 1);
-
   const handlePortClick = (producto) => {
     const newRequestData = {
       puerto: producto.id_puerto,

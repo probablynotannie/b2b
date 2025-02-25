@@ -196,3 +196,7 @@ body {
 .swiper-button-next:hover, .swiper-button-prev:hover {
   color: #ff5733 !important; /* Change arrow color on hover */
 }
+.m_dc6a3c71:where([data-selected]) {
+  background-color: var(--mantine-primary-color-filled);
+  color: var(--mantine-primary-color-contrast, var(--mantine-color-white));
+}

@@ -60,7 +60,7 @@ import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* CESTA */
 import ReservaCoche from "../reservas/productos/coches/reserva/ReservaFinal";
-import ReservaTransfer from "../reservas/productos/transfers/reserva/reservaFinal";
+import ReservaTransfer from "../reservas/productos/transfers/reserva/ReservaFinal";
 import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
 import ReservaEntrada from "../reservas/productos/entradas/reserva/ReservaFinal";
 import ReservaTickets from "../reservas/productos/tickets/reserva/ReservaFinal";
