@@ -29,7 +29,7 @@ function SelectorPaisCiudad({
   return (
     <div className="tw-relative tw-w-full">
       <button
-        className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border tw-px-2 tw-pl-9 tw-border-gray-300 tw-text-slate-950 tw-text-sm tw-rounded-lg tw-w-full tw-py-3 tw-flex tw-items-center tw-justify-between"
+        className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border tw-px-2 tw-pl-9 tw-border-gray-300 tw-text-slate-950 tw-text-sm tw-rounded-lg tw-w-full tw-py-2.5 tw-flex tw-items-center tw-justify-between"
         type="button"
         onClick={toggleDropdown}
       >

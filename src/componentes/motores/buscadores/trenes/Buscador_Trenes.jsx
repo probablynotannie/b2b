@@ -146,13 +146,21 @@ function Buscador_Destinos() {
             <div>
               <ul className="tw-flex tw-items-center tw-gap-2">
                 <li
-                  className="tw-bg-pink-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-pink-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md"
+                  className={`tw-bg-pink-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-pink-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md ${
+                    viaje === "ida"
+                      ? "tw-ring-2 tw-ring-pink-500 tw-font-bold"
+                      : ""
+                  }`}
                   onClick={() => handleviajeChange("ida")}
                 >
                   Solo ida
                 </li>
                 <li
-                  className="tw-bg-blue-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-blue-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md"
+                  className={`tw-bg-blue-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-blue-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md ${
+                    viaje === "ida_vuelta"
+                      ? "tw-ring-2 tw-ring-blue-500 tw-font-bold"
+                      : ""
+                  }`}
                   onClick={() => handleviajeChange("ida_vuelta")}
                 >
                   Ida y vuelta

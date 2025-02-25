@@ -1,37 +1,59 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import Input_Select from "../../../inputs/Select";
-import Input_Fecha from "../../../inputs/Fecha";
-import Input_DateRange from "../../../inputs/DateRange";
+import Input_Destinos from "../../../inputs/Pais_Ciudad";
+import {
+  FaGlobeAfrica,
+  FaGlobeAsia,
+  FaGlobeEurope,
+  FaGlobeAmericas,
+} from "react-icons/fa";
 import Input_Vehiculos from "../../../inputs/Vehiculos";
-import Input_Bonificacion from "../../../inputs/Bonificacion";
+import Input_Bonificaciones from "../../../inputs/Bonificacion";
+import Input_DateRange from "../../../inputs/DateRange";
 import { useNavigate } from "react-router-dom";
 
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [viaje, setViaje] = useState("ida");
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
+  const [selectedContinent, setSelectedContinent] = useState(null);
+  const [selectedRegion, setSelectedRegion] = useState("");
   const [vehiculos, setNumVehiculos] = useState(0);
   const [tipoVehiculo, setTipoVehiculo] = useState("");
   const [remolque, setRemolque] = useState("0");
   const [longitud, setLongitud] = useState(0);
-  const [altura, setAltura] = useState(0);
   const [longitudRemolque, setLongitudRemolque] = useState(0);
   const [alturaRemolque, setAlturaRemolque] = useState(0);
+  const [altura, setAltura] = useState(0);
   const [ages, setAges] = useState({});
   const [pasajeros, setPasajeros] = useState(1);
 
-  const handleviajeChange = (type) => {
-    setViaje(type);
+  const continents = [
+    { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
+    { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
+    { name: "Asia", shortName: "AS", flag: <FaGlobeAsia /> },
+    { name: "Europa", shortName: "EU", flag: <FaGlobeEurope /> },
+    { name: "Oceanía", shortName: "OC", flag: <FaGlobeEurope /> },
+    {
+      name: "Haiku",
+      shortName: "HK",
+      flag: <img src="../../logo.png" alt="logo" className="tw-w-5 tw-h-4" />,
+    },
+  ];
+  const regions = {
+    AF: ["Nigeria", "Africa", "Egipto"],
+    AM: ["USA", "Canada", "Mexico"],
+    AS: ["China", "Japón", "India"],
+    EU: ["Alemania", "Francia", "Italia"],
+    OC: ["Australia", "Fiji"],
+    HK: ["Hola", "Haiku", "Vuela"],
   };
-  const [fecha, setFecha] = useState(null);
   const handleSubmit = () => {
     const newRequestData = {
       destination: 0,
     };
-    navigate("/listadoFerris", { state: { newRequestData } });
+    navigate("/listadoTickets", { state: { newRequestData } });
   };
   return (
     <>
@@ -62,50 +84,24 @@ function Buscador_Destinos() {
             </div>
             <div className="tw-p-3">
               <form>
-                <div className="grid grid-cols-2 gap-3 mt-2 text-sm tw-mb-5">
-                  <button
-                    type="button"
-                    className={`p-2.5 rounded-lg font-bold tw-text-white ${
-                      viaje === "ida"
-                        ? "tw-bg-secondary"
-                        : "bg-gray-400 dark:bg-slate-600"
-                    }`}
-                    onClick={() => handleviajeChange("ida")}
-                  >
-                    Solo ida
-                  </button>
-                  <button
-                    type="button"
-                    className={`p-2 rounded-lg font-bold tw-text-white ${
-                      viaje === "ida_vuelta"
-                        ? "tw-bg-secondary"
-                        : "bg-gray-400 dark:bg-slate-600"
-                    }`}
-                    onClick={() => handleviajeChange("ida_vuelta")}
-                  >
-                    Ida y vuelta
-                  </button>
-                </div>
                 <div className="tw-space-y-2">
-                  <Input_Select placeholder={"Origen"} />
-                  <Input_Select placeholder={"Destino"} />
-                  {viaje === "ida" ? (
-                    <Input_Fecha fecha={fecha} setFecha={setFecha} />
-                  ) : (
+                  <div className="tw-col-span-2 lg:tw-col-span-2">
                     <Input_DateRange
                       startDate={startDate}
                       endDate={endDate}
                       setStartDate={setStartDate}
                       setEndDate={setEndDate}
                     />
-                  )}
-                  <Input_Bonificacion
-                    ages={ages}
-                    setAges={setAges}
-                    pasajeros={pasajeros}
-                    setPasajeros={setPasajeros}
-                  />
-                  <div>
+                  </div>
+                  <div className="tw-col-span-2 lg:tw-col-span-1">
+                    <Input_Bonificaciones
+                      ages={ages}
+                      setAges={setAges}
+                      pasajeros={pasajeros}
+                      setPasajeros={setPasajeros}
+                    />
+                  </div>
+                  <div className="tw-col-span-2 lg:tw-col-span-1">
                     <Input_Vehiculos
                       vehiculos={vehiculos}
                       setNumVehiculos={setNumVehiculos}
@@ -121,6 +117,16 @@ function Buscador_Destinos() {
                       setLongitudRemolque={setLongitudRemolque}
                       alturaRemolque={alturaRemolque}
                       setAlturaRemolque={setAlturaRemolque}
+                    />
+                  </div>
+                  <div className="tw-col-span-2 lg:tw-col-span-2">
+                    <Input_Destinos
+                      continents={continents}
+                      regions={regions}
+                      setSelectedContinent={setSelectedContinent}
+                      selectedContinent={selectedContinent}
+                      selectedRegion={selectedRegion}
+                      setSelectedRegion={setSelectedRegion}
                     />
                   </div>
                 </div>
@@ -149,75 +155,49 @@ function Buscador_Destinos() {
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full">
-          <div className="tw-flex tw-justify-between">
-            <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-              Buscador de Ferris
-            </h2>
-            <div>
-              <ul className="tw-flex tw-items-center tw-gap-2">
-                <li
-                  className={`tw-bg-pink-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-pink-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md ${
-                    viaje === "ida"
-                      ? "tw-ring-2 tw-ring-pink-500 tw-font-bold"
-                      : ""
-                  }`}
-                  onClick={() => handleviajeChange("ida")}
-                >
-                  Solo ida
-                </li>
-                <li
-                  className={`tw-bg-blue-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-blue-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md ${
-                    viaje === "ida_vuelta"
-                      ? "tw-ring-2 tw-ring-blue-500 tw-font-bold"
-                      : ""
-                  }`}
-                  onClick={() => handleviajeChange("ida_vuelta")}
-                >
-                  Ida y vuelta
-                </li>
-              </ul>
-            </div>
-          </div>
+          <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
+            Buscador de Hotel + Ferry
+          </h2>
+          <div className="tw-grid tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-4 tw-mt-4">
+            <Input_DateRange
+              startDate={startDate}
+              endDate={endDate}
+              setStartDate={setStartDate}
+              setEndDate={setEndDate}
+            />
 
-          <div className="tw-grid tw-grid-cols-3  2xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Select placeholder={"Origen"} />
-            <Input_Select placeholder={"Destino"} />
-            {viaje === "ida" ? (
-              <Input_Fecha fecha={fecha} setValue={setFecha} />
-            ) : (
-              <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
-              />
-            )}
-            <div>
-              <Input_Bonificacion
-                ages={ages}
-                setAges={setAges}
-                pasajeros={pasajeros}
-                setPasajeros={setPasajeros}
-              />
-            </div>
-            <div>
-              <Input_Vehiculos
-                vehiculos={vehiculos}
-                setNumVehiculos={setNumVehiculos}
-                tipoVehiculo={tipoVehiculo}
-                setTipoVehiculo={setTipoVehiculo}
-                remolque={remolque}
-                setRemolque={setRemolque}
-                longitud={longitud}
-                setLongitud={setLongitud}
-                altura={altura}
-                setAltura={setAltura}
-                longitudRemolque={longitudRemolque}
-                setLongitudRemolque={setLongitudRemolque}
-                alturaRemolque={alturaRemolque}
-                setAlturaRemolque={setAlturaRemolque}
-              />
-            </div>
+            <Input_Bonificaciones
+              ages={ages}
+              setAges={setAges}
+              pasajeros={pasajeros}
+              setPasajeros={setPasajeros}
+            />
+
+            <Input_Vehiculos
+              vehiculos={vehiculos}
+              setNumVehiculos={setNumVehiculos}
+              tipoVehiculo={tipoVehiculo}
+              setTipoVehiculo={setTipoVehiculo}
+              remolque={remolque}
+              setRemolque={setRemolque}
+              longitud={longitud}
+              setLongitud={setLongitud}
+              altura={altura}
+              setAltura={setAltura}
+              longitudRemolque={longitudRemolque}
+              setLongitudRemolque={setLongitudRemolque}
+              alturaRemolque={alturaRemolque}
+              setAlturaRemolque={setAlturaRemolque}
+            />
+
+            <Input_Destinos
+              continents={continents}
+              regions={regions}
+              setSelectedContinent={setSelectedContinent}
+              selectedContinent={selectedContinent}
+              selectedRegion={selectedRegion}
+              setSelectedRegion={setSelectedRegion}
+            />
           </div>
           <button
             type="button"

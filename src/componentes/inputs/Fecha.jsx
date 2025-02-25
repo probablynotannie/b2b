@@ -22,10 +22,10 @@ function Fecha({ fecha, name, setValue, edadSelector }) {
       <div
         className={`${edadSelector === true ? "tw-hidden" : "md:tw-hidden"}`}
       >
-        {edadSelector === true && "holi"}
         <InfiniteScrollCalendarSingle name={name} setValue={setValue} />
       </div>
-      <div className={` ${edadSelector !== true && "tw-hidden md:tw-block"} `}>
+      ñ
+      <div className={` ${edadSelector !== true && "tw-hidden md:tw-block"}`}>
         <DatesProvider settings={{ locale: "es" }}>
           <div className="tw-relative">
             <DatePickerInput
@@ -44,7 +44,6 @@ function Fecha({ fecha, name, setValue, edadSelector }) {
                 },
               })}
             />
-
             <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
               <FaCalendarAlt />
             </div>
