@@ -44,16 +44,16 @@ function Buscador_Coches() {
       pickupTime: horaRecogida ? horaRecogida : 0,
       returnTime: horaDevolucion ? horaDevolucion : 0,
     };
-    navigate("/listadoTransfers", { state: { newRequestData } });
+    navigate("/listadoCoches", { state: { newRequestData } });
   };
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
+          className=" tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
-          Cambiar busqueda
+          Buscador de Coches
           <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
@@ -107,16 +107,24 @@ function Buscador_Coches() {
                   />
                 </div>
                 <button
-                  type="button"
-                  className="tw-w-full tw-mt-4 tw-bg-secondary tw-text-white tw-font-bold tw-p-3 tw-rounded-lg"
                   onClick={() => {
                     handleSubmit();
                     setIsModalOpen(false);
                   }}
+                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
                 >
-                  Buscar
+                  <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
+              <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
+                <button
+                  className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300  dark:tw-border-slate-600"
+                  onClick={() => setIsModalOpen(false)}
+                >
+                  X
+                </button>
+                <span className="tw-text-slate-400">Cerrar</span>
+              </div>
             </div>
           </div>
         </div>

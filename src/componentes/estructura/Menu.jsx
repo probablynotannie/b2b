@@ -16,7 +16,7 @@ const Dropdown = () => {
       key: "motores",
       texto: "Motores",
       subItems: [
-        { id: 0, texto: "Hoteles", to: "/" },
+        { id: 0, texto: "Hoteles", to: "/hoteles" },
         { id: 1, texto: "Destinos", to: "/destinos" },
         { id: 2, texto: "Cruceros", to: "/cruceros" },
         { id: 2, texto: "Transfers", to: "/transfers" },

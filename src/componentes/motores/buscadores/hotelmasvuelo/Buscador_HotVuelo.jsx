@@ -46,7 +46,7 @@ function Buscador_Cruceros() {
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
-          Cambiar busqueda
+          Buscador de Hotel + Vuelo
           <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
@@ -57,7 +57,7 @@ function Buscador_Cruceros() {
           <div className="tw-bg-white tw-rounded-lg tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
             <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
-                Buscador aef
+                Buscador
               </h2>
               <button
                 onClick={() => setIsModalOpen(false)}

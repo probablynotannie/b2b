@@ -5,7 +5,6 @@ import { FaRegClock } from "react-icons/fa";
 const SelectorHora = ({ hora, setHora }) => {
   const ref = useRef(null);
   const handleTimeChange = (newTime) => {
-
     setHora(newTime.target.value);
   };
   return (
@@ -17,7 +16,7 @@ const SelectorHora = ({ hora, setHora }) => {
         onClick={() => ref.current?.showPicker()}
         classNames={{
           input:
-            "tw-border  dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 tw-border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer",
+            "tw-border  dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 tw-border-slate-300 text-slate-500 text-sm rounded-lg pl-10 w-full cursor-pointe tw-h-[40px]r",
         }}
         styles={(theme) => ({
           input: {
@@ -27,7 +26,7 @@ const SelectorHora = ({ hora, setHora }) => {
           },
         })}
       />
-      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaRegClock />
       </div>
     </div>
