@@ -1,7 +1,6 @@
 import { useState } from "react";
 import PrecioRange from "../../../../inputs/PrecioRange";
 import { IoMdOptions } from "react-icons/io";
-
 function Aside({ values, setValues, minMax }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

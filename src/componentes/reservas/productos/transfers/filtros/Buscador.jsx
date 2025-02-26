@@ -5,12 +5,11 @@ import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
 import Input_Personas from "../../../../inputs/Adulto_Ninio_Infant";
 import { FaSearch } from "react-icons/fa";
-function Buscador() {
+function Buscador() { 
   const [horaRecogida, setHoraRecogida] = useState("12:00");
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-
   const [devolucion, setDevolucion] = useState();
   const [adultos, setAdultos] = useState(1);
   const [ninios, setNinios] = useState();
@@ -18,7 +17,6 @@ function Buscador() {
   const [destino, setDestino] = useState(0);
   const [origen, setOrigen] = useState(0);
 
-  console.log(devolucion);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },

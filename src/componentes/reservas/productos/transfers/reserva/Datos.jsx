@@ -1,18 +1,14 @@
 /* CRUCEROS */
-import { FaMars, FaVenus, FaUser } from "react-icons/fa";
 import Reserva from "../../../datos/Reserva";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
-import FormatearFecha from "../../../estructura/FormatearFecha";
-import Fecha from "../../../../inputs/Fecha";
 
 const Transfer = () => {
   const location = useLocation();
   const coche = location.state || {};
-  console.log(coche);
   const navigate = useNavigate();
   const img = "/banner_coches.jpg";
   const {

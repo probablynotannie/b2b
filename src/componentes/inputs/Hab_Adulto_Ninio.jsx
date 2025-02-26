@@ -1,11 +1,10 @@
 import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { Popover } from "flowbite-react";
-import { CiCirclePlus } from "react-icons/ci";
+import { FaPlusCircle } from "react-icons/fa";
 import { MdMeetingRoom } from "react-icons/md";
 import VersionMovil from "./movil/Hab_Adulto_Ninio_Movil";
 import { FaTrashAlt } from "react-icons/fa";
-
 function SelectorPersonas({
   habitacion,
   setHabitacion,
@@ -19,7 +18,6 @@ function SelectorPersonas({
       { id: Date.now() + Math.random(), adultos: 1, ninios: 0, ninioAges: [] },
     ]);
   };
-
   const deleteRoom = (roomId) => {
     setRoomData((prevData) => {
       const updatedData = prevData.filter((room) => room.id !== roomId);
@@ -35,7 +33,6 @@ function SelectorPersonas({
       )
     );
   };
-
   const onNiniosChange = (roomId, e) => {
     const count = parseInt(e.target.value, 10);
     setRoomData((prevData) =>
@@ -54,7 +51,6 @@ function SelectorPersonas({
       )
     );
   };
-
   const handleAgeChange = (roomId, childIndex, age) => {
     setRoomData((prevData) =>
       prevData.map((room) =>
@@ -69,7 +65,6 @@ function SelectorPersonas({
       )
     );
   };
-
   const totalAdults = roomData.reduce((acc, room) => acc + room.adultos, 0);
   const totalChildren = roomData.reduce((acc, room) => acc + room.ninios, 0);
 
@@ -95,14 +90,14 @@ function SelectorPersonas({
           placement="right"
           aria-labelledby="default-popover"
           content={
-            <div className="tw-w-96 tw-text-sm">
-              <div className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
+            <div className="tw-w-96 tw-text-sm ">
+              <div className="tw-bg-slate-800 tw-rounded-t-lg dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
                 Adultos / Niños
               </div>
-              <div className="tw-px-3 tw-pb-5 tw-max-h-[80vh] tw-overflow-y-auto">
+              <div className="tw-px-3 tw-pb-5 tw-max-h-[80vh] tw-overflow-y-auto dark:tw-bg-slate-800 tw-rounded-b-lg">
                 {roomData.map((room, roomIndex) => (
                   <div
-                    className="tw-relative tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700 dark:tw-shadow-inner dark:tw-shadow-slate-600 tw-shadow tw-mt-10 tw-p-2 tw-py-5 tw-rounded-lg"
+                    className="tw-relative tw-rounded-lg tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700 dark:tw-shadow-inner dark:tw-shadow-slate-600 tw-shadow tw-mt-10 tw-p-2 tw-py-5"
                     key={room.id}
                   >
                     <span className="tw-absolute -tw-top-5 tw-p-2 tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow-lg">
@@ -188,11 +183,11 @@ function SelectorPersonas({
                 ))}
                 <div
                   onClick={addRoom}
-                  className="tw-text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 tw-mt-5 tw-pt-2"
+                  className="tw-text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-mt-5 tw-pt-2"
                 >
                   <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
                     <span>Agregar una habitación </span>
-                    <CiCirclePlus className="dark:tw-text-secondary tw-text-lg" />
+                    <FaPlusCircle className="dark:tw-text-secondary tw-text-lg" />
                   </div>
                 </div>
               </div>
@@ -204,7 +199,7 @@ function SelectorPersonas({
               <div className="tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary tw-text-slate-700 tw-border-2 tw-p-2.5 tw-rounded-lg tw-text-sm tw-pl-10">
                 {habitacion} Hab - {totalAdults} Ad - {totalChildren} Niños
               </div>
-              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-secondary dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                 <MdMeetingRoom />
               </div>
             </div>

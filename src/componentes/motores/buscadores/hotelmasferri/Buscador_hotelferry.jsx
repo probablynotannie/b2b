@@ -28,7 +28,6 @@ function Buscador_Destinos() {
   const [altura, setAltura] = useState(0);
   const [ages, setAges] = useState({});
   const [pasajeros, setPasajeros] = useState(1);
-
   const continents = [
     { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
     { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
@@ -165,14 +164,12 @@ function Buscador_Destinos() {
               setStartDate={setStartDate}
               setEndDate={setEndDate}
             />
-
             <Input_Bonificaciones
               ages={ages}
               setAges={setAges}
               pasajeros={pasajeros}
               setPasajeros={setPasajeros}
             />
-
             <Input_Vehiculos
               vehiculos={vehiculos}
               setNumVehiculos={setNumVehiculos}

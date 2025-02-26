@@ -2,15 +2,20 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
-import Input_Nacionalidad from "../../../inputs/Nacionalidad";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_Hab_Ad_Nin from "../../../inputs/Hab_Adulto_Ninio";
 import { useNavigate } from "react-router-dom";
 
-function Buscador_Cruceros() {
+function Buscador_Entradas() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [startDate, setStartDate] = useState();
+  const [habitacion, setHabitacion] = useState(1);
+  const [roomData, setRoomData] = useState([
+    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
+  ]);
+  console.log(roomData);
+
   const [endDate, setEndDate] = useState();
   const [destino, setDestino] = useState();
   const destinos = [
@@ -29,19 +34,13 @@ function Buscador_Cruceros() {
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
 
-  const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState([
-    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
-  ]);
-  const [nacionalidad, setNacionalidad] = useState();
-
   const handleSubmit = () => {
     const newRequestData = {
       destination: destino ? destino.id : 0,
       departureDate: startDate ? startDate : 0,
       returnDate: endDate ? endDate : 0,
     };
-    navigate("/listadoHoteles", { state: { newRequestData } });
+    navigate("/listadoEntradas", { state: { newRequestData } });
   };
   return (
     <>
@@ -57,11 +56,11 @@ function Buscador_Cruceros() {
         </button>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
-          <div className="tw-bg-white tw-rounded-lg tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
+        <div className="tw-fixed  tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+          <div className="tw-bg-white tw-rounded-lg  tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
             <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
-                Buscador aef
+                Buscador
               </h2>
               <button
                 onClick={() => setIsModalOpen(false)}
@@ -79,16 +78,11 @@ function Buscador_Cruceros() {
                     destino={destino}
                     setDestino={setDestino}
                   />
-
-                  <Input_DateRange
+                  <Input_DateRangeMobile
                     startDate={startDate}
-                    endDate={endDate}
                     setStartDate={setStartDate}
+                    endDate={endDate}
                     setEndDate={setEndDate}
-                  />
-                  <Input_Nacionalidad
-                    value={nacionalidad}
-                    setValue={setNacionalidad}
                   />
                   <Input_Hab_Ad_Nin
                     habitacion={habitacion}
@@ -109,7 +103,7 @@ function Buscador_Cruceros() {
               </form>
               <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
                 <button
-                  className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300  dark:tw-border-slate-600"
+                  className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
                   onClick={() => setIsModalOpen(false)}
                 >
                   X
@@ -120,12 +114,12 @@ function Buscador_Cruceros() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Hoteles
+            Buscador de Entradas
           </h2>
-          <div className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
+          <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-mt-4">
             <Input_Buscador
               placeholder={"Destino"}
               destinos={destinos}
@@ -137,11 +131,6 @@ function Buscador_Cruceros() {
               endDate={endDate}
               setStartDate={setStartDate}
               setEndDate={setEndDate}
-            />
-
-            <Input_Nacionalidad
-              value={nacionalidad}
-              setValue={setNacionalidad}
             />
             <Input_Hab_Ad_Nin
               habitacion={habitacion}
@@ -163,4 +152,4 @@ function Buscador_Cruceros() {
   );
 }
 
-export default Buscador_Cruceros;
+export default Buscador_Entradas;

@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useEffect } from "react";
 import { Range, getTrackBackground } from "react-range";
 
 const PriceRangeSlider = ({ values, setValues, minMax }) => {

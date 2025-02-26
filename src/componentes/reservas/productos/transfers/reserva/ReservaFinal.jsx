@@ -1,27 +1,18 @@
-import { useLocation } from "react-router-dom";
+import { useLocation, Link } from "react-router-dom";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Reserva from "../../../estructura/reserva/Resumen";
 import Detalles from "./Detalles";
-import { Link } from "react-router-dom";
-import {
-  FaArrowDown,
-  FaArrowLeft,
-  FaArrowRight,
-  FaArrowUp,
-} from "react-icons/fa";
+import { FaArrowRight } from "react-icons/fa";
 
 function ReservaFinal() {
   const location = useLocation();
   const { coche, data } = location.state || {};
-
-  console.log(coche);
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
         <h1 className="tw-text-2xl tw-font-bold dark:tw-text-white tw-items-center tw-border-b-2 tw-pb-5 tw-border-slate-100 dark:tw-border-slate-700">
           {coche.name}
         </h1>
-
         <DatosContacto
           nombre={data.nombre}
           apellidos={data.apellido}
