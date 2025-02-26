@@ -165,7 +165,7 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              placeholder={"Fecha recogida"}
+              placeholder={"Fecha Recogida"}
               hora={horaRecogida}
               date={startDate}
               setDate={setStartDate}
@@ -174,7 +174,7 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              placeholder={"Fecha vuelta"}
+              placeholder={"Fecha Vuelta"}
               hora={horaDevolucion}
               date={endDate}
               setDate={setEndDate}

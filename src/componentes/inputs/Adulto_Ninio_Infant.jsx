@@ -13,11 +13,11 @@ function SelectorPersonas({
   setInfant,
 }) {
   const [open, setOpen] = useState(false);
-
   function onAdultosChange(e) {
     let resultado = e.target.value;
     setAdultos(resultado);
   }
+
   function onNiniosChange(e) {
     const count = parseInt(e.target.value, 10);
     setNinios(count);
@@ -35,11 +35,11 @@ function SelectorPersonas({
         open={open}
         onOpenChange={setOpen}
         content={
-          <div className="tw-border tw-rounded-lg dark:tw-border-slate-900">
+          <div className="tw-rounded-lg tw-border dark:tw-border-slate-900">
             <div className=" tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold tw-rounded-t-lg">
               Adultos / Niños
             </div>
-            <div className="tw-w-72 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500 dark:tw-bg-slate-800">
+            <div className="tw-w-72 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500 dark:tw-bg-slate-800 tw-rounded-b-lg">
               <div>
                 <span className="tw-text-sm">Adultos </span>
                 <div className="tw-relative">
@@ -117,7 +117,7 @@ function SelectorPersonas({
           )}
         </div>
       </Popover>
-      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <MdPeopleAlt />
       </div>
     </div>
