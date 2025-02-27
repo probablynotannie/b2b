@@ -1,5 +1,4 @@
 import Reserva from "../../../datos/Reserva";
-import { Link } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
@@ -9,7 +8,6 @@ import FormatearFecha from "../../../estructura/FormatearFecha";
 function Datos() {
   const location = useLocation();
   const { producto, tickets } = location.state || {};
-
   const fechaIda = (
     <div className="tw-p-3 bg-opacity-40 tw-rounded-lg">
       {tickets.map((ticket, index) => (
@@ -26,15 +24,13 @@ function Datos() {
     </div>
   );
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
-    console.log(data);
-    navigate("/reservatickets", {
+    navigate("/reservaTickets", {
       state: { data, producto, tickets },
     });
   };
@@ -47,24 +43,28 @@ function Datos() {
           </h2>
           <group className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
+              required={true}
               tipo={"Nombre"}
               name="nombre"
               register={register}
               errors={errors}
             />
             <Input_Texto
+              required={true}
               tipo={"Apellido"}
               name="apellido"
               register={register}
               errors={errors}
             />
             <Input_Numero
+              required={true}
               tipo="numero"
               register={register}
               errors={errors}
               name="numero"
             />
             <Input_Email
+              required={true}
               tipo="email"
               register={register}
               errors={errors}

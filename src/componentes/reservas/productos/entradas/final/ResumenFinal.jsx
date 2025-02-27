@@ -5,7 +5,7 @@ import Resumen from "../../../estructura/reserva/Resumen";
 import Detalles from "./Entradas";
 function ResumenFinal() {
   const location = useLocation();
-  const { producto, tickets, datosContacto } = location.state || {};
+  const { producto, tickets, data } = location.state || {};
   const numReserva = "HGALIUHJ198AJK";
   console.log(tickets);
   return (
@@ -25,10 +25,10 @@ function ResumenFinal() {
       <Detalles producto={producto} tickets={tickets} cesta={true} />
       <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:tw-border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
         <DatosContacto
-          nombre={datosContacto.nombre}
-          apellidos={datosContacto.apellido}
-          email={datosContacto.email}
-          numero={datosContacto.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
         <div className="mt-10 flex justify-end ">
           <Link to={"/"}>

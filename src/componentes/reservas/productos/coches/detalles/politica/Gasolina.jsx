@@ -5,11 +5,11 @@ export default class Gasolina extends Component {
   render() {
     return (
       <div>
-        <div className="flex justify-between">
-          <h3 className="text-lg font-bold text-slate-900 dark:tw-text-white mb-2">
+        <div className="tw-flex tw-justify-between">
+          <h3 className="tw-text-lg tw-font-bold tw-text-slate-900 dark:tw-text-white tw-mb-2">
             Política sobre gasolina
           </h3>
-          <BsFillFuelPumpFill className="text-xl tw-text-secondary" />
+          <BsFillFuelPumpFill className="tw-text-xl tw-text-secondary" />
         </div>
         <p>
           Igual-Igual: el cliente tiene que devolver el coche con la misma

@@ -38,7 +38,7 @@ function Datos() {
           <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
           </h2>
-          <group className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
+          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
               tipo={"Nombre"}
               name="nombre"
@@ -63,7 +63,7 @@ function Datos() {
               errors={errors}
               name="email"
             />
-          </group>
+          </div>
           <Reserva
             img={img}
             position={"center"}

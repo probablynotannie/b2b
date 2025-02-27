@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTicket } from "react-icons/fa6";
 import Detalles from "../Detalles";
-function Entradas({ producto, tickets }) {
+function Entradas({ producto, tickets, data }) {
   const calculateTotalPrice = () => {
     return tickets.reduce((total, ticket) => {
       const pricePerTicket =
@@ -29,7 +29,12 @@ function Entradas({ producto, tickets }) {
         </div>
       </section>
       <section>
-        <Detalles producto={producto} tickets={tickets} cesta={true} />
+        <Detalles
+          producto={producto}
+          tickets={tickets}
+          cesta={true}
+          data={data}
+        />
       </section>
     </section>
   );

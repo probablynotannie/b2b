@@ -7,7 +7,6 @@ function ResumenFinal() {
   const location = useLocation();
   const { producto, tickets, data } = location.state || {};
   const numReserva = "HGALIUHJ198AJK";
-  console.log(tickets);
   return (
     <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
       <section>
@@ -22,7 +21,12 @@ function ResumenFinal() {
           finalizada={true}
         />
       </section>
-      <Detalles producto={producto} tickets={tickets} cesta={true} />
+      <Detalles
+        producto={producto}
+        tickets={tickets}
+        cesta={true}
+        data={data}
+      />
       <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
         <DatosContacto
           nombre={data.nombre}

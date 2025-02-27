@@ -29,7 +29,6 @@ function Vuelo() {
     ? FormatearFecha(vuelta.flight.returnDate)
     : null;
 
-  // ✅ Using "pasajeros" as an array in defaultValues
   const {
     register,
     handleSubmit,
@@ -86,41 +85,42 @@ function Vuelo() {
 
   return (
     <main className="my-10 flex justify-center tw-container min-h-[68vh]">
-      <article className="p-5 w-full border-2 border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
+      <article className="p-5 w-full border-2 border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:tw-bg-slate-800">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h1 className="font-semibold text-xl dark:tw-text-white">
             Datos Contacto
           </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
             <Input_Texto
+              required={true}
               tipo={"Nombre"}
               name="nombre"
               register={register}
               errors={errors}
             />
             <Input_Texto
+              required={true}
               tipo={"Apellido"}
               name="apellido"
               register={register}
               errors={errors}
             />
             <Input_Numero
+              required={true}
               tipo="numero"
               register={register}
               errors={errors}
               name="numero"
             />
             <Input_Email
+              required={true}
               tipo="email"
               register={register}
               errors={errors}
               name="email"
             />
           </div>
-          <h2 className="font-semibold mt-5 dark:tw-text-white">
-            Datos Pasajeros
-          </h2>
-          {renderPassengerFields()}
+
           <Reserva
             img={img}
             position={"center"}
@@ -129,6 +129,12 @@ function Vuelo() {
             fechaIda={fechaIda}
             fechaVuelta={fechaVuelta}
           />
+          <div className="my-5">
+            <h2 className="font-semibold mt-5 dark:tw-text-white">
+              Datos Pasajeros
+            </h2>
+            {renderPassengerFields()}
+          </div>
           <div className="flex justify-end">
             <button
               type="submit"

@@ -54,7 +54,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
 
   return (
     <div>
-      <div className="tw-grid tw-grid-cols-2 tw-gap-5">
+      <div className="tw-grid md:tw-grid-cols-2 tw-gap-5">
         {tickets.map((ticket, index) => (
           <div
             key={index}

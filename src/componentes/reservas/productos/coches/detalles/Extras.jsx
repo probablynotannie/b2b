@@ -28,25 +28,25 @@ function Precio({ coche, extras, setExtras, setSelectedExtras }) {
     });
   };
   return (
-    <div className="relative">
-      <div className="flex justify-between">
-        <h2 className="font-semibold dark:tw-text-white">Extras</h2>
-        <span className="font-bold bg-green-500 dark:bg-green-700 text-white rounded-lg text-sm p-1 px-2">
+    <div className="tw-relative">
+      <div className="tw-flex tw-justify-between">
+        <h2 className="tw-font-semibold dark:tw-text-white">Extras</h2>
+        <span className="tw-font-bold tw-bg-green-500 dark:tw-bg-green-700 tw-text-white tw-rounded-lg tw-text-sm tw-p-1 tw-px-2">
           {extras.toFixed(2)}€
         </span>
       </div>
 
       {coche.extras.map((extra) => (
-        <div className="grid grid-cols-1 gap-2" key={extra.id}>
-          <div className="relative flex justify-between items-center mt-3">
-            <span className="w-full p-2 font-bold text-slate-600 dark:tw-text-slate-400">
+        <div className="tw-grid tw-grid-cols-1 tw-gap-2" key={extra.id}>
+          <div className="tw-relative tw-flex tw-justify-between tw-items-center tw-mt-3">
+            <span className="tw-w-full tw-p-2 tw-font-bold tw-text-slate-600 dark:tw-text-slate-400">
               {extra.id === "GPS" && "GPS"}
               {extra.id === "sillitabebe" && "Sillita bebé"}
               {extra.id === "sillitaninio" && "Sillita niño"}
               {extra.id === "elevador" && "Elevador"}
             </span>
             <select
-              className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5"
+              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5"
               onChange={(e) =>
                 handleChange(extra.id, extra.precio, e.target.value)
               }
