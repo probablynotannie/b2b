@@ -6,35 +6,35 @@ function Hoteles() {
       {Array.from({ length: 5 }, (_, index) => (
         <article
           key={index}
-          className="lg:flex flex-row bg-slate-100 dark:bg-slate-800 shadow-lg border-2 border-slate-100 dark:border-slate-800 rounded-xl mt-10 relative min-h-[15vh] animate-pulse"
+          className="lg:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-lg tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-mt-10 tw-relative tw-min-h-[15vh] tw-animate-pulse"
         >
-          <div className="w-full h-[25vh] lg:h-auto lg:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
-            <div className="h-full w-full bg-slate-300 dark:bg-slate-900"></div>
+          <div className="tw-w-full tw-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
+            <div className="tw-h-full tw-w-full tw-bg-slate-300 dark:tw-bg-slate-900"></div>
           </div>
-          <div className="p-5 lg:w-2/3">
-            <div className="border-b-2 border-slate-200 dark:border-slate-900 pb-2">
-              <div className="flex justify-between w-full">
-                <div className="h-6 w-3/5 bg-slate-300 dark:bg-slate-900 rounded"></div>
-                <div className="flex space-x-1">
+          <div className="tw-p-5 lg:tw-w-2/3">
+            <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-900 tw-pb-2">
+              <div className="tw-flex tw-justify-between tw-w-full">
+                <div className="tw-h-6 tw-w-3/5 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
+                <div className="tw-flex tw-space-x-1">
                   {[...Array(5)].map((_, i) => (
                     <div
                       key={i}
-                      className="h-4 w-4 bg-slate-300 dark:bg-slate-900 rounded"
+                      className="tw-h-4 tw-w-4 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"
                     ></div>
                   ))}
                 </div>
               </div>
-              <div className="h-4 w-2/3 bg-slate-300 dark:bg-slate-900 rounded mt-3"></div>
-              <div className="flex flex-wrap gap-2 justify-between mt-4 text-sm">
-                <div className="h-3 w-1/3 bg-slate-300 dark:bg-slate-900 rounded"></div>
-                <div className="h-3 w-1/3 bg-slate-300 dark:bg-slate-900 rounded"></div>
-                <div className="h-3 w-1/3 bg-slate-300 dark:bg-slate-900 rounded"></div>
-                <div className="h-3 w-1/3 bg-slate-300 dark:bg-slate-900 rounded"></div>
+              <div className="tw-h-4 tw-w-2/3 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded tw-mt-3"></div>
+              <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-4 tw-text-sm">
+                <div className="tw-h-3 tw-w-1/3 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
+                <div className="tw-h-3 tw-w-1/3 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
+                <div className="tw-h-3 tw-w-1/3 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
+                <div className="tw-h-3 tw-w-1/3 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
               </div>
             </div>
-            <div className="mt-4 h-5 w-full bg-slate-300 dark:bg-slate-900 rounded"></div>
-            <div className="flex justify-end mt-4">
-              <div className="h-10 w-32 bg-slate-300 dark:bg-slate-900 rounded"></div>
+            <div className="tw-mt-4 tw-h-5 tw-w-full tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
+            <div className="tw-flex tw-justify-end tw-mt-4">
+              <div className="tw-h-10 tw-w-32 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded"></div>
             </div>
           </div>
         </article>

@@ -55,7 +55,9 @@ function Productos() {
               <PlaceHolder />
             </>
           ) : (
+            <>
             <Hoteles hoteles={hoteles} />
+            </>
           )}
         </section>
       </article>

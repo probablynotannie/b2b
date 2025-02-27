@@ -19,6 +19,7 @@
   display: none; 
 }
 body {
+  overflow-x: hidden !important;
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 }
 .m_396ce5cb:where([data-selected]){

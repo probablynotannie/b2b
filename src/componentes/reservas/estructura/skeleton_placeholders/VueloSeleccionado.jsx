@@ -1,58 +1,56 @@
-
-
 function VueloSeleccionado() {
   return (
     <>
-      <div className="border-slate-100 rounded-t-xl dark:bg-slate-800 animate-pulse mt-5">
+      <div className="tw-border-slate-100 tw-rounded-t-xl dark:tw-bg-slate-800 tw-animate-pulse tw-mt-5">
         <div
-          className={`grid border-2 grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 rounded-t-xl  transition relative border-b-2 border-slate-100 dark:border-slate-600`}
+          className={`tw-grid tw-border-2 tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-800 tw-rounded-t-xl tw-transition tw-relative tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600`}
         >
-          <span className="absolute -top-5 left-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
-            <div className="w-6 h-6 bg-slate-200 dark:bg-slate-600 rounded-full"></div>
+          <span className="tw-absolute -tw-top-5 tw-left-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-300 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
+            <div className="tw-w-6 tw-h-6 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded-full"></div>
           </span>
-          <div className="flex flex-col items-center justify-center dark:text-slate-400">
-            <div className="w-[50px] h-[30px] bg-slate-200 dark:bg-slate-600 rounded"></div>
-            <span className="h-2 w-20 bg-slate-200 dark:bg-slate-600 rounded mt-2"></span>
-            <span className="h-2 w-12 bg-slate-200 dark:bg-slate-600 rounded mt-1"></span>
+          <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">
+            <div className="tw-w-[50px] tw-h-[30px] tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></div>
+            <span className="tw-h-2 tw-w-20 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-2"></span>
+            <span className="tw-h-2 tw-w-12 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-1"></span>
           </div>
-          <div className="flex flex-col items-center dark:text-slate-200">
-            <span className="h-5 w-28 bg-slate-200 dark:bg-slate-600 rounded"></span>
-            <span className="h-4 w-24 bg-slate-200 dark:bg-slate-600 rounded mt-2"></span>
+          <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+            <span className="tw-h-5 tw-w-28 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></span>
+            <span className="tw-h-4 tw-w-24 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-2"></span>
           </div>
-          <div className="flex flex-col items-center dark:text-slate-200">
-            <span className="h-5 w-28 bg-slate-200 dark:bg-slate-600 rounded"></span>
-            <span className="h-4 w-16 bg-slate-200 dark:bg-slate-600 rounded mt-2"></span>
+          <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+            <span className="tw-h-5 tw-w-28 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></span>
+            <span className="tw-h-4 tw-w-16 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-2"></span>
           </div>
-          <div className="text-sm flex flex-row justify-between items-center">
-            <div className="text-center flex flex-col items-center w-full">
-              <span className="h-5 w-24 bg-slate-200 dark:bg-slate-600 rounded"></span>
+          <div className="tw-text-sm tw-flex tw-flex-row tw-justify-between tw-items-center">
+            <div className="tw-text-center tw-flex tw-flex-col tw-items-center tw-w-full">
+              <span className="tw-h-5 tw-w-24 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></span>
             </div>
           </div>
         </div>
       </div>
-      <div className="border-slate-100 rounded-b-xl dark:bg-slate-800 animate-pulse">
+      <div className="tw-border-slate-100 tw-rounded-b-xl dark:tw-bg-slate-800 tw-animate-pulse">
         <div
-          className={`grid border-2 grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 rounded-b-xl  transition relative border-b-2 border-slate-100 dark:border-slate-600`}
+          className={`tw-grid tw-border-2 tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-800 tw-rounded-b-xl tw-transition tw-relative tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600`}
         >
-          <span className="absolute -bottom-5 right-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-300 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
-            <div className="w-6 h-6 bg-slate-200 dark:bg-slate-600 rounded-full"></div>
+          <span className="tw-absolute -tw-bottom-5 tw-right-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-300 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
+            <div className="tw-w-6 tw-h-6 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded-full"></div>
           </span>
-          <div className="flex flex-col items-center justify-center dark:text-slate-400">
-            <div className="w-[50px] h-[30px] bg-slate-200 dark:bg-slate-600 rounded"></div>
-            <span className="h-2 w-20 bg-slate-200 dark:bg-slate-600 rounded mt-2"></span>
-            <span className="h-2 w-12 bg-slate-200 dark:bg-slate-600 rounded mt-1"></span>
+          <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">
+            <div className="tw-w-[50px] tw-h-[30px] tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></div>
+            <span className="tw-h-2 tw-w-20 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-2"></span>
+            <span className="tw-h-2 tw-w-12 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-1"></span>
           </div>
-          <div className="flex flex-col items-center dark:text-slate-200">
-            <span className="h-5 w-28 bg-slate-200 dark:bg-slate-600 rounded"></span>
-            <span className="h-4 w-24 bg-slate-200 dark:bg-slate-600 rounded mt-2"></span>
+          <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+            <span className="tw-h-5 tw-w-28 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></span>
+            <span className="tw-h-4 tw-w-24 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-2"></span>
           </div>
-          <div className="flex flex-col items-center dark:text-slate-200">
-            <span className="h-5 w-28 bg-slate-200 dark:bg-slate-600 rounded"></span>
-            <span className="h-4 w-16 bg-slate-200 dark:bg-slate-600 rounded mt-2"></span>
+          <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+            <span className="tw-h-5 tw-w-28 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></span>
+            <span className="tw-h-4 tw-w-16 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mt-2"></span>
           </div>
-          <div className="text-sm flex flex-row justify-between items-center">
-            <div className="text-center flex flex-col items-center w-full">
-              <span className="h-5 w-24 bg-slate-200 dark:bg-slate-600 rounded"></span>
+          <div className="tw-text-sm tw-flex tw-flex-row tw-justify-between tw-items-center">
+            <div className="tw-text-center tw-flex tw-flex-col tw-items-center tw-w-full">
+              <span className="tw-h-5 tw-w-24 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded"></span>
             </div>
           </div>
         </div>

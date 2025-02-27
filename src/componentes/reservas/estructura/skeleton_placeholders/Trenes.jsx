@@ -1,29 +1,29 @@
 function Trenes() {
   return (
-    <section className="pb-12 md:mt-5 flex flex-col gap-5 animate-pulse">
+    <section className="tw-pb-12 md:tw-mt-5 tw-flex tw-flex-col tw-gap-5 tw-animate-pulse">
       {[...Array(3)].map((_, index) => (
         <div
-          className="h-[20vh] w-full bg-slate-100 dark:bg-slate-800 rounded-t-lg p-5 flex flex-col gap-4 py-10"
+          className="tw-h-[20vh] tw-w-full tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-t-lg tw-p-5 tw-flex tw-flex-col tw-gap-4 tw-py-10"
           key={index}
         >
-          <div className="flex justify-between">
-            <div className="border-l-2 border-slate-400 dark:border-slate-700 pl-3 flex flex-col gap-3">
-              <div className="h-2 w-52 bg-slate-300 dark:bg-slate-900 rounded" />
-              <div className="h-2 w-52 bg-slate-300 dark:bg-slate-900 rounded" />
-              <div className="h-2 w-52 bg-slate-300 dark:bg-slate-900 rounded" />
+          <div className="tw-flex tw-justify-between">
+            <div className="tw-border-l-2 tw-border-slate-400 dark:tw-border-slate-700 tw-pl-3 tw-flex tw-flex-col tw-gap-3">
+              <div className="tw-h-2 tw-w-52 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded" />
+              <div className="tw-h-2 tw-w-52 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded" />
+              <div className="tw-h-2 tw-w-52 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded" />
             </div>
-            <div className="flex gap-2">
-              <div className="h-8 w-16 bg-slate-300 dark:bg-slate-900  rounded" />
-              <div className="h-8 w-16 bg-slate-300 dark:bg-slate-900  rounded" />
-              <div className="h-8 w-16 bg-slate-300 dark:bg-slate-900  rounded" />
+            <div className="tw-flex tw-gap-2">
+              <div className="tw-h-8 tw-w-16 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded" />
+              <div className="tw-h-8 tw-w-16 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded" />
+              <div className="tw-h-8 tw-w-16 tw-bg-slate-300 dark:tw-bg-slate-900 tw-rounded" />
             </div>
           </div>
-          <div className="flex justify-between">
-            <div className="flex gap-3">
-              <div className="h-8 w-20 rounded-lg bg-slate-400 dark:bg-slate-700" />
-              <div className="h-8 w-20 rounded-lg bg-slate-300 dark:bg-slate-600" />
+          <div className="tw-flex tw-justify-between">
+            <div className="tw-flex tw-gap-3">
+              <div className="tw-h-8 tw-w-20 tw-rounded-lg tw-bg-slate-400 dark:tw-bg-slate-700" />
+              <div className="tw-h-8 tw-w-20 tw-rounded-lg tw-bg-slate-300 dark:tw-bg-slate-600" />
             </div>
-            <div className="h-8 w-20 rounded-lg bg-slate-300 dark:bg-slate-900" />
+            <div className="tw-h-8 tw-w-20 tw-rounded-lg tw-bg-slate-300 dark:tw-bg-slate-900" />
           </div>
         </div>
       ))}

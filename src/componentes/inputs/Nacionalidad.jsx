@@ -51,7 +51,7 @@ const InputNacionalidad = ({ value, setValue }) => {
         value={valorInput}
         onChange={manejarCambio}
         placeholder="Introduce la nacionalidad"
-        className="tw-w-full dark:tw-placeholder-slate-400 dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-pl-10 tw-text-sm tw-py-2.5 tw-border dark:tw-border-2 tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-blue-500"
+        className="tw-w-full dark:tw-placeholder-slate-400 dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-pl-10 tw-text-sm  tw-h-[40px] tw-border dark:tw-border-2 tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-blue-500"
       />
       {sugerencias.length > 0 && (
         <ul className="tw-absolute tw-z-10 tw-w-full tw-bg-white tw-border tw-border-gray-300 tw-rounded-md tw-shadow-lg tw-max-h-48 tw-overflow-y-auto">
@@ -66,7 +66,7 @@ const InputNacionalidad = ({ value, setValue }) => {
           ))}
         </ul>
       )}
-      <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+      <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaGlobe />
       </div>
     </div>
