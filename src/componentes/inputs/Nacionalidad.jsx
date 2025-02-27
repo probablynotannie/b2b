@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState } from "react";
 import { FaGlobe } from "react-icons/fa";
 
 const nacionalidades = [
@@ -16,17 +16,23 @@ const nacionalidades = [
   "Azerbaiyano",
 ];
 
-const InputNacionalidad = ({ value, setValue }) => {
-  const [valorInput, setValorInput] = useState(value);
+const InputNacionalidad = ({
+  tipo,
+  name,
+  register,
+  errors,
+  required,
+  setValue,
+}) => {
+  const [valorInput, setValorInput] = useState("");
   const [sugerencias, setSugerencias] = useState([]);
 
-  useEffect(() => {
-    setValorInput(value);
-  }, [value]);
+  const error = errors?.[name];
 
   const manejarCambio = (e) => {
     const valor = e.target.value;
     setValorInput(valor);
+    setValue(tipo, valor);
 
     if (valor.length > 0) {
       const sugerenciasFiltradas = nacionalidades.filter((nacionalidad) =>
@@ -40,24 +46,29 @@ const InputNacionalidad = ({ value, setValue }) => {
 
   const manejarClickSugerencia = (sugerencia) => {
     setValorInput(sugerencia);
-    setSugerencias([]);
-    setValue(sugerencia);
+    setValue(tipo, sugerencia); 
+    setSugerencias([]); 
   };
 
   return (
-    <div className="tw-relative tw-text-black">
+    <div className="tw-relative">
       <input
+        {...register(
+          name,
+          required ? { required: `${tipo} es obligatorio` } : {}
+        )}
         type="text"
         value={valorInput}
         onChange={manejarCambio}
-        placeholder="Introduce la nacionalidad"
-        className="tw-w-full dark:tw-placeholder-slate-400 dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-pl-10 tw-text-sm  tw-h-[40px] tw-border dark:tw-border-2 tw-border-gray-300 tw-rounded-md focus:tw-outline-none focus:tw-ring-2 focus:tw-ring-blue-500"
+        placeholder={tipo || "Selecciona tu nacionalidad"}
+        className="tw-w-full tw-border tw-border-slate-200 tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-sm tw-rounded-lg tw-pl-10 tw-h-[40px]"
       />
       {sugerencias.length > 0 && (
         <ul className="tw-absolute tw-z-10 tw-w-full tw-bg-white tw-border tw-border-gray-300 tw-rounded-md tw-shadow-lg tw-max-h-48 tw-overflow-y-auto">
           {sugerencias.map((sugerencia, index) => (
             <li
               key={index}
+              onMouseDown={(e) => e.preventDefault()} // Prevents input losing focus
               onClick={() => manejarClickSugerencia(sugerencia)}
               className="tw-px-3 tw-py-2 tw-cursor-pointer hover:tw-bg-blue-100 tw-border-b last:tw-border-none tw-border-gray-200"
             >
@@ -66,9 +77,11 @@ const InputNacionalidad = ({ value, setValue }) => {
           ))}
         </ul>
       )}
-      <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaGlobe />
       </div>
+
+      {error && <p className="tw-text-red-500 tw-text-xs">{error.message}</p>}
     </div>
   );
 };

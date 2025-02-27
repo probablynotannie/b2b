@@ -8,10 +8,12 @@ import Map from "../../estructura/hoteles/Map";
 import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
 import Head from "../../estructura/ProductoHeader";
 import { useLocation } from "react-router-dom";
+import { useState } from "react";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
-
+  const [values, setValues] = useState([0, 5000]);
+  const [minMax, setMinMax] = useState([0, 5000]);
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-my-10  tw-px-5 md:tw-px-0">
       <div className="tw-container">
@@ -89,12 +91,18 @@ function Producto() {
           </section>
           <section className="tw-col-span-5">
             <Listado2
+              values={values}
+              setValues={setValues}
+              minMax={minMax}
               producto={producto}
               habitaciones={producto.habitaciones}
             />
           </section>
           <section className="tw-col-span-5">
             <Listado_cajas
+              values={values}
+              setValues={setValues}
+              minMax={minMax}
               producto={producto}
               habitaciones={producto.habitaciones}
             />

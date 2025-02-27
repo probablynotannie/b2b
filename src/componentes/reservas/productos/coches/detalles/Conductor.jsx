@@ -13,7 +13,7 @@ function Conductor({ coche, conductor,setConductor }) {
   };
   return (
     <div>
-      <h2 className="font-semibold text-lg dark:text-white">
+      <h2 className="font-semibold text-lg dark:tw-text-white">
         Detalles del conductor
       </h2>
 
@@ -29,20 +29,20 @@ function Conductor({ coche, conductor,setConductor }) {
       </div>
       <div className="mt-3">
         <form>
-          <div className="grid grid-cols-2 gap-2 border-y-2 border-slate-100 dark:border-slate-700 p-3 mb-2">
+          <div className="grid grid-cols-2 gap-2 border-y-2 border-slate-100 dark:tw-border-slate-700 p-3 mb-2">
             <div className="relative">
               <select
                 id="titulo"
                 value={conductor.titulo}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               >
                 <option value="">Titulo</option>
                 <option value="Sr">Sr</option>
                 <option value="Sra">Sra</option>
                 <option value="Sin especificar">Sin especificar</option>
               </select>
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                 <IoPersonSharp />
               </div>
             </div>
@@ -52,9 +52,9 @@ function Conductor({ coche, conductor,setConductor }) {
                 placeholder="N vuelo"
                 value={conductor.numVuelo}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               />
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                 <FaPlane />
               </div>
             </div>
@@ -64,9 +64,9 @@ function Conductor({ coche, conductor,setConductor }) {
                 placeholder="Nombre"
                 value={conductor.nombre}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               />
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
                 No
               </div>
             </div>
@@ -76,9 +76,9 @@ function Conductor({ coche, conductor,setConductor }) {
                 placeholder="Apellido/s"
                 value={conductor.apellido}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
               />
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
+              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
                 Ap
               </div>
             </div>
@@ -87,20 +87,20 @@ function Conductor({ coche, conductor,setConductor }) {
             <input
               id="default-checkbox"
               type="checkbox"
-              className="w-4 h-4 tw-text-secondary bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              className="w-4 h-4 tw-text-secondary bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:tw-border-gray-600"
             />
             <label
               htmlFor="default-checkbox"
-              className="ms-2 text-sm font-medium dark:text-slate-400"
+              className="ms-2 text-sm font-medium dark:tw-text-slate-400"
             >
               Acepto{" "}
               <a href="/condiciones_de_reserva" target="_blank">
-                <span className="font-bold underline underline-offset-4 dark:text-slate-200">
+                <span className="font-bold underline underline-offset-4 dark:tw-text-slate-200">
                   Condiciones de reserva
                 </span>{" "}
               </a>
               y la{" "}
-              <span className="font-bold underline underline-offset-4 dark:text-slate-200">
+              <span className="font-bold underline underline-offset-4 dark:tw-text-slate-200">
                 política de privacidad{" "}
               </span>
             </label>

@@ -26,7 +26,7 @@ function ResumenFinal() {
       </section>
       <Hotel hotel={selectedHotel} habitacion={habitacion} />
       <Vuelo ida={ida} vuelta={vuelta} pasajeros={pasajeros} />
-      <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+      <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:tw-border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
         <DatosContacto
           nombre={datosContacto.nombre}
           apellidos={datosContacto.apellido}

@@ -21,14 +21,14 @@ function Detalles({ producto, cesta }) {
           </div>
         )}
 
-        <h3 className="dark:text-white tw-text-secondary font-bold mt-3 text-xl">
+        <h3 className="dark:tw-text-white tw-text-secondary font-bold mt-3 text-xl">
           Detalles
         </h3>
-        <p className="dark:text-slate-300">{producto.descripcion}</p>
+        <p className="dark:tw-text-slate-300">{producto.descripcion}</p>
         <div className="mt-5 border-b-2 border-slate-100 pb-5">
           <Incluidos destino={producto} />
         </div>
-        <h3 className="dark:text-white text-slate-700 font-bold mt-3 text-xl">
+        <h3 className="dark:tw-text-white text-slate-700 font-bold mt-3 text-xl">
           Recorrido
         </h3>
         <div className="mt-1">

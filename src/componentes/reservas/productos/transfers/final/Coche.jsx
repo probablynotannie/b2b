@@ -6,14 +6,14 @@ function Coche({ producto, precio, conductor, extras }) {
     <div>
       <div className="h-fit gap-3 my-5 white w-fit p-5 rounded-lg">
         <h3 className="font-bold dark:tw-text-secondary">Extras:</h3>
-        <ul className="dark:text-slate-300 flex flex-wrap gap-3 ml-2">
+        <ul className="dark:tw-text-slate-300 flex flex-wrap gap-3 ml-2">
           {extras.map((extra, index) => (
             <li
               key={index}
               className="flex justify-between bg-slate-500 p-1 font-bold text-white rounded-lg"
             >
               <span>
-                <span className="font-semibold mr-1 dark:text-slate-100">
+                <span className="font-semibold mr-1 dark:tw-text-slate-100">
                   {extra.quantity}x
                 </span>
                 {extra.id === "GPS" && "GPS"}
@@ -25,9 +25,9 @@ function Coche({ producto, precio, conductor, extras }) {
           ))}
         </ul>
       </div>
-      <div className="h-fit gap-3 my-5 white w-fit p-5 rounded-lg dark:text-slate-300">
+      <div className="h-fit gap-3 my-5 white w-fit p-5 rounded-lg dark:tw-text-slate-300">
         <h3 className="font-bold dark:tw-text-secondary">Conductor</h3>
-        <div className="flex flex-wrap gap-3  border-l-2 border-slate-500 dark:border-secondaryDark pl-4 ml-3">
+        <div className="flex flex-wrap gap-3  border-l-2 border-slate-500 dark:tw-border-secondaryDark pl-4 ml-3">
           <p className="flex items-center gap-1">
             <span className="text-sm">
               {conductor.nombre} {conductor.apellido}
@@ -44,13 +44,13 @@ function Coche({ producto, precio, conductor, extras }) {
     </div>
   );
   return (
-    <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
-      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
+    <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:tw-border-slate-700  rounded-lg">
+      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:tw-border-slate-700 pb-2 mb-5">
         <div>
-          <h3 className="text-lg font-bold dark:text-white">
+          <h3 className="text-lg font-bold dark:tw-text-white">
             {producto.nombre}
           </h3>
-          <p className="text-slate-500 dark:text-slate-300 flex gap-2 items-center">
+          <p className="text-slate-500 dark:tw-text-slate-300 flex gap-2 items-center">
             {formatearFecha(producto.recogida.fecha)} -{" "}
             {formatearFecha(producto.devolucion.fecha)}
           </p>

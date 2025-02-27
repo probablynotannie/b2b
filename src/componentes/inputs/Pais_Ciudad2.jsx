@@ -123,7 +123,7 @@ function SelectorPaisCiudad() {
         </button>
         {isRegionDropdownOpen && selectedContinent && (
           <div className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 shadow w-full">
-            <ul className="py-2 text-sm text-gray-700 dark:text-gray-200">
+            <ul className="py-2 text-sm text-gray-700 dark:tw-text-gray-200">
               {regions[selectedContinent.shortName].map((region) => (
                 <li key={region}>
                   <button

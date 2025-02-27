@@ -5,10 +5,10 @@ function Detalles({ hotel, ferry }) {
   console.log(ferry.ida.cancelaciones);
   function renderFerry(ferry, type, tipo) {
     return (
-      <div className=" dark:bg-slate-800 dark:text-slate-100 p-3">
-        <div className="flex justify-between items-center border-b-2 pb-2 border-slate-100 dark:border-slate-700">
+      <div className=" dark:bg-slate-800 dark:tw-text-slate-100 p-3">
+        <div className="flex justify-between items-center border-b-2 pb-2 border-slate-100 dark:tw-border-slate-700">
           <div>
-            <h3 className="font-bold text-lg dark:text-slate-300">
+            <h3 className="font-bold text-lg dark:tw-text-slate-300">
               {tipo}: {type.puerto_origen} - {type.puerto_origen}
             </h3>
             <span className="text-slate-400 text-sm">
@@ -28,7 +28,7 @@ function Detalles({ hotel, ferry }) {
               <h4 className="flex items-center gap-2 font-bold  text-center">
                 {type.tipo}
               </h4>
-              <span className="text-slate-500 dark:text-slate-400 text-sm">
+              <span className="text-slate-500 dark:tw-text-slate-400 text-sm">
                 {type.precio.toFixed(2)}€
               </span>
             </div>
@@ -42,23 +42,23 @@ function Detalles({ hotel, ferry }) {
   }
   return (
     <div>
-      <h1 className="text-xl font-bold pb-1 border-b-2 border-slate-100 dark:border-slate-700 dark:text-white mb-2">
+      <h1 className="text-xl font-bold pb-1 border-b-2 border-slate-100 dark:tw-border-slate-700 dark:tw-text-white mb-2">
         Reservando Hotel + Ferry
       </h1>
       <HotelDetalles hotel={hotel} />
       <section>
-        <h2 className="font-bold dark:text-white">
+        <h2 className="font-bold dark:tw-text-white">
           Ferry de ida {ferry.vuelta && " y vuelta"}
         </h2>
-        <div className="border-2 dark:border-slate-700 border-slate-100 rounded-xl shadow p-2 mt-2">
+        <div className="border-2 dark:tw-border-slate-700 border-slate-100 rounded-xl shadow p-2 mt-2">
           {renderFerry(ferry, ferry.ida, "Ida")}
 
           {ferry.vuelta && (
-            <div className="border-t border-slate-300 dark:border-green-700">
+            <div className="border-t border-slate-300 dark:tw-border-green-700">
               {renderFerry(ferry, ferry.vuelta, "Vuelta")}{" "}
             </div>
           )}
-          <div className="text-sm text-slate-500 dark:text-slate-400 flex justify-center items-center p-3 border-t-2 border-slate-100 dark:border-slate-700 mt-3">
+          <div className="text-sm text-slate-500 dark:tw-text-slate-400 flex justify-center items-center p-3 border-t-2 border-slate-100 dark:tw-border-slate-700 mt-3">
             Cambios:{" "}
             <span className="font-medium">
               {ferry.ida.cambios === true ? "Permitidos" : "No Permitidos"}

@@ -7,7 +7,7 @@ function Resultado({ entradas }) {
         <Link
           to={"/circuito"}
           state={actividad}
-          className="border-2  bg-white dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl hover:scale-105 duration-300 transition cursor-pointer"
+          className="border-2  bg-white dark:bg-slate-800 relative border-slate-100 dark:tw-border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl hover:scale-105 duration-300 transition cursor-pointer"
           key={index}
         >
           <div className="relative ">
@@ -19,23 +19,23 @@ function Resultado({ entradas }) {
             <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
           </div>
           <div className="p-5">
-            <h1 className="font-semibold text-slate-600 dark:text-slate-300">
+            <h1 className="font-semibold text-slate-600 dark:tw-text-slate-300">
               {actividad.titulo}
             </h1>
             <ul className="text-xs pl-5">
               {actividad.incluido.slice(0, 5).map((incluido, index) => (
                 <li
                   key={index}
-                  className="flex items-center gap-2 dark:text-slate-300"
+                  className="flex items-center gap-2 dark:tw-text-slate-300"
                 >
-                  <FaCheckCircle className="text-green-800 dark:text-green-400" />
+                  <FaCheckCircle className="text-green-800 dark:tw-text-green-400" />
                   <span>{incluido}</span>
                 </li>
               ))}
             </ul>
             <p className="mt-3 text-lg">
               <span className="text-slate-400 text-sm mr-1">Desde:</span>
-              <span className="font-bold text-green-600 dark:text-green-400">
+              <span className="font-bold text-green-600 dark:tw-text-green-400">
                 {actividad.precio}€
               </span>
             </p>

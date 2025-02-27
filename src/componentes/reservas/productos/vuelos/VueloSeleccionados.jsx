@@ -43,56 +43,58 @@ function Vuelos({ ida, vuelta, cesta }) {
   const vueloVuelta = vuelta ? formatDate(vuelta.flight.returnDate) : null;
 
   return (
-    <div className="mb-5">
+    <div className="tw-mb-5">
       {cesta !== true && (
-        <div className="flex justify-between">
-          <h3 className="tw-text-secondary font-semibold text-lg mb-3">
+        <div className="tw-flex tw-justify-between">
+          <h3 className="tw-text-secondary tw-font-semibold tw-text-lg tw-mb-3">
             Vuelo seleccionado
             <span>
               ({ida.flight.precio + (vuelta ? vuelta.flight.precio : 0)}€)
             </span>
           </h3>
           <Link to={"/datosVuelo"} state={{ ida, vuelta }}>
-            <button className="bg-slate-500 font-bold text-white px-2 p-1 rounded-lg">
+            <button className="tw-bg-slate-500 tw-font-bold tw-text-white tw-px-2 tw-p-1 tw-rounded-lg">
               Reservar
             </button>
           </Link>
         </div>
       )}
-      <div className="mt-10 sm:block grid grid-cols-2 shadow rounded-xl border-2 border-slate-100 dark:border-slate-700">
-        <div className="border-slate-100 rounded-t-xl dark:bg-slate-800">
+      <div className="tw-mt-10 sm:tw-block tw-grid tw-grid-cols-2 tw-shadow tw-rounded-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-700">
+        <div className="tw-border-slate-100 tw-rounded-t-xl dark:tw-bg-slate-800">
           <div
-            className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100 sm:rounded-t-xl dark:hover:bg-slate-900 transition relative  border-r-2 sm:border-r-0 sm:border-b-2 border-slate-100 dark:border-slate-600 `}
+            className={`tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-800 hover:tw-bg-slate-100 sm:tw-rounded-t-xl dark:hover:tw-bg-slate-900 tw-transition tw-relative tw-border-r-2 sm:tw-border-r-0 sm:tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600`}
           >
-            <span className="absolute -top-5 left-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
+            <span className="tw-absolute -tw-top-5 tw-left-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-700 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
               <FaPlaneDeparture />
             </span>
-            <div className="flex flex-col items-center justify-center dark:text-slate-400">
+            <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">
               <img
                 src={ida.flight.logo}
                 alt="logo aerolinea"
-                className="w-[50px] h-[30px]"
+                className="tw-w-[50px] tw-h-[30px]"
               />
-              <span className="text-sm">{ida.flight.aerolinea}</span>
-              <span className="text-green-700 dark:text-green-400 font-bold">
+              <span className="tw-text-sm">{ida.flight.aerolinea}</span>
+              <span className="tw-text-green-700 dark:tw-text-green-400 tw-font-bold">
                 {ida.flight.precio} €
               </span>
             </div>
-            <div className="flex flex-col items-center dark:text-slate-200">
-              <h4 className="font-semibold">
+            <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+              <h4 className="tw-font-semibold">
                 {ida.flight.departure} - {ida.flight.arrival}
               </h4>
-              <span className="text-xs sm:text-sm text-center">{vueloIda}</span>
+              <span className="tw-text-xs sm:tw-text-sm tw-text-center">
+                {vueloIda}
+              </span>
             </div>
-            <div className="flex flex-col items-center dark:text-slate-200">
-              <h4 className="font-semibold">Duración</h4>
-              <span className="text-sm">
+            <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+              <h4 className="tw-font-semibold">Duración</h4>
+              <span className="tw-text-sm">
                 {duracion(ida.flight.departure, ida.flight.arrival)}
               </span>
             </div>
-            <div className="text-sm flex flex-row justify-between items-center ">
-              <div className="text-center flex flex-col items-center w-full ">
-                <span className="font-bold text-green-700 dark:text-green-400">
+            <div className="tw-text-sm tw-flex tw-flex-row tw-justify-between tw-items-center">
+              <div className="tw-text-center tw-flex tw-flex-col tw-items-center tw-w-full">
+                <span className="tw-font-bold tw-text-green-700 dark:tw-text-green-400">
                   {ida.flight.escalas > 0
                     ? `${ida.flight.escalas} ${
                         ida.flight.escalas > 1 ? "Escalas" : "Escala"
@@ -104,39 +106,39 @@ function Vuelos({ ida, vuelta, cesta }) {
           </div>
         </div>
         {vuelta && (
-          <div className="rounded-b-xl dark:bg-slate-800">
-            <div className="grid  grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 bg-white dark:bg-slate-800 hover:bg-slate-100  sm:rounded-b-xl dark:hover:bg-slate-900 transition relative">
-              <span className="absolute -bottom-5 right-3 p-2 text-2xl bg-white dark:bg-slate-800 border-2 border-slate-700 dark:border-slate-500 text-slate-700 dark:text-slate-500 rounded-full">
+          <div className="tw-rounded-b-xl dark:tw-bg-slate-800">
+            <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-800 hover:tw-bg-slate-100 sm:tw-rounded-b-xl dark:hover:tw-bg-slate-900 tw-transition tw-relative">
+              <span className="tw-absolute -tw-bottom-5 tw-right-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-700 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
                 <FaPlaneArrival />
               </span>
-              <div className="flex flex-col items-center justify-center dark:text-slate-400">
+              <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">
                 <img
                   src={vuelta.flight.logo}
                   alt="logo aerolinea"
-                  className="w-[50px] h-[30px]"
+                  className="tw-w-[50px] tw-h-[30px]"
                 />
-                <span className="text-sm">{vuelta.flight.aerolinea}</span>
-                <span className="text-green-700 dark:text-green-400 font-bold">
+                <span className="tw-text-sm">{vuelta.flight.aerolinea}</span>
+                <span className="tw-text-green-700 dark:tw-text-green-400 tw-font-bold">
                   {vuelta.flight.precio} €
                 </span>
               </div>
-              <div className="flex flex-col items-center dark:text-slate-200">
-                <h4 className="font-semibold">
+              <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+                <h4 className="tw-font-semibold">
                   {vuelta.flight.departure} - {vuelta.flight.arrival}
                 </h4>
-                <span className="text-xs sm:text-sm text-center">
+                <span className="tw-text-xs sm:tw-text-sm tw-text-center">
                   {vueloVuelta}
                 </span>
               </div>
-              <div className="flex flex-col items-center dark:text-slate-200">
-                <h4 className="font-semibold">Duración</h4>
-                <span className="text-sm">
+              <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+                <h4 className="tw-font-semibold">Duración</h4>
+                <span className="tw-text-sm">
                   {duracion(vuelta.flight.departure, vuelta.flight.arrival)}
                 </span>
               </div>
-              <div className="text-sm flex flex-row justify-between items-center ">
-                <div className="text-center flex flex-col items-center w-full ">
-                  <span className="font-bold text-green-700 dark:text-green-400">
+              <div className="tw-text-sm tw-flex tw-flex-row tw-justify-between tw-items-center">
+                <div className="tw-text-center tw-flex tw-flex-col tw-items-center tw-w-full">
+                  <span className="tw-font-bold tw-text-green-700 dark:tw-text-green-400">
                     {vuelta.flight.escalas > 0
                       ? `${vuelta.flight.escalas} ${
                           vuelta.flight.escalas > 1 ? "Escalas" : "Escala"

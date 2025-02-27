@@ -41,21 +41,21 @@ function Info() {
               index === 0 ? "bg-green-100" : "bg-orange-100"
             } `}
           >
-            <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:tw-text-white">
               {condicion.titulo}
             </h5>
-            <p className="font-normal text-slate-700 dark:text-slate-400">
+            <p className="font-normal text-slate-700 dark:tw-text-slate-400">
               {condicion.texto}
             </p>
           </Card>
         ))}
       </div>
       <Card className="my-10 mx-10 hover:shadow-xl transition bg-red-100 dark:bg-slate-700 dark:hover:bg-slate-900 p-6">
-        <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+        <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:tw-text-white mb-4">
           {cancelacion.titulo}
         </h5>
         <p
-          className={`font-normal text-slate-700 dark:text-slate-400 ${
+          className={`font-normal text-slate-700 dark:tw-text-slate-400 ${
             !isExpanded ? "line-clamp-3" : ""
           }`}
         >
@@ -63,7 +63,7 @@ function Info() {
         </p>
         <button
           onClick={toggleReadMore}
-          className="text-slate-500 dark:text-slate-300 mt-2 font-semibold"
+          className="text-slate-500 dark:tw-text-slate-300 mt-2 font-semibold"
         >
           {isExpanded ? "Leer menos" : "Leer más"}
         </button>

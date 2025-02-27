@@ -6,7 +6,7 @@ import { MdMeetingRoom } from "react-icons/md";
 function Info({ reserva }) {
   return (
     <div>
-      <div className="flex justify-between gap-3 flex-wrap text-slate-600 mt-3 dark:text-slate-100">
+      <div className="flex justify-between gap-3 flex-wrap text-slate-600 mt-3 dark:tw-text-slate-100">
         <div className="flex items-center gap-1">
           <FaPerson className="tw-text-secondary dark:tw-text-secondary" />
           <span>{reserva.pax}x</span>
@@ -25,7 +25,7 @@ function Info({ reserva }) {
           <span> {reserva.desayunos}x Desayunos</span>
         </div>
       </div>
-      <section className="border-t mt-3 border-slate-200 dark:border-slate-700">
+      <section className="border-t mt-3 border-slate-200 dark:tw-border-slate-700">
         <Desglose precio={reserva.precio} />
       </section>
     </div>

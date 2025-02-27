@@ -63,7 +63,7 @@ function Imagenes({ imagenes }) {
             <img
               src={imagenes[selectedImageIndex]}
               alt={`Large view of Gallery Image ${selectedImageIndex + 1}`}
-              className="tw-w-[80vw] tw-h-[80vh] tw-object-cover tw-max-h-[80vh] tw-rounded-lg"
+              className="tw-w-[80vw] tw-h-[60vh] tw-object-contain tw-max-h-[80vh] tw-rounded-lg"
             />
 
             <div className="tw-flex tw-justify-between tw-w-full md:tw-w-auto tw-space-x-32 tw-mt-4 md:tw-mt-0">

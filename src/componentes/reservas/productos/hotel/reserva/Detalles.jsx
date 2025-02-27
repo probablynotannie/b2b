@@ -21,7 +21,6 @@ function Detalles({ producto, datosContacto }) {
       <section className="h-full mt-5 lg:mt-5 tw-space-y-8">
         <Map location={producto.ubicacion} />
         <Imagenes imagenes={producto.habitacionImgs} />
-
       </section>
     </article>
   );

@@ -10,9 +10,9 @@ function ReservaFinal() {
     location.state || {};
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
-        <div className="flex justify-between items-center border-b-2 pb-5 border-slate-100 dark:border-slate-700">
-          <h1 className="text-2xl font-bold dark:text-white">
+      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:tw-border-slate-700 dark:bg-slate-900 p-5">
+        <div className="flex justify-between items-center border-b-2 pb-5 border-slate-100 dark:tw-border-slate-700">
+          <h1 className="text-2xl font-bold dark:tw-text-white">
             {" "}
             {producto.nombre}{" "}
           </h1>
@@ -22,32 +22,32 @@ function ReservaFinal() {
         </div>
         <Detalles coche={producto} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
+      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:tw-border-slate-800 dark:bg-slate-900 p-5">
         <Reserva img={producto.img} txt={producto.nombre} />
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+        <h2 className="font-semibold border-b-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 pb-2">
           Datos de contacto
         </h2>
 
-        <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
-          <FaUser className="text-slate-700 dark:text-slate-200" />
+        <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:tw-text-slate-400">
+          <FaUser className="text-slate-700 dark:tw-text-slate-200" />
           <span>{datosContacto.nombre}</span>
           <span>{datosContacto.apellido}</span>
         </div>
-        <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
-          <MdEmail className="text-slate-700 dark:text-slate-200" />
+        <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:tw-text-slate-400">
+          <MdEmail className="text-slate-700 dark:tw-text-slate-200" />
           <span>{datosContacto.email}</span>
         </div>
-        <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:text-slate-400">
-          <MdPhoneAndroid className="text-slate-700 dark:text-slate-200" />
+        <div className="flex flex-nowrap gap-2 mt-2 items-center text-slate-500 dark:tw-text-slate-400">
+          <MdPhoneAndroid className="text-slate-700 dark:tw-text-slate-200" />
           <span>{datosContacto.numero}</span>
         </div>
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2 mt-3 mb-2">
+        <h2 className="font-semibold border-b-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 pb-2 mt-3 mb-2">
           Coche y Extras
         </h2>
-        <div className="dark:text-slate-300">
+        <div className="dark:tw-text-slate-300">
           <div className="flex justify-between gap-2 mt-2 items-center ">
             <div className="flex items-center">
-              <FaCar className="text-slate-700 dark:text-slate-200 mr-1" />
+              <FaCar className="text-slate-700 dark:tw-text-slate-200 mr-1" />
               <span>{producto.nombre}</span>
             </div>
             <span>{producto.dias} días</span>
@@ -61,7 +61,7 @@ function ReservaFinal() {
               {selectedExtras.map((extra, index) => (
                 <li key={index} className="flex justify-between">
                   <span>
-                    <span className="font-semibold mr-1 dark:text-slate-100">
+                    <span className="font-semibold mr-1 dark:tw-text-slate-100">
                       {extra.quantity}x
                     </span>
                     {extra.id === "GPS" && "GPS"}
@@ -75,16 +75,16 @@ function ReservaFinal() {
             </ul>
           </div>
         </div>
-        <h2 className="font-semibold border-b-2 mt-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+        <h2 className="font-semibold border-b-2 mt-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 pb-2">
           Datos de conductor
         </h2>
-        <div className="flex flex-nowrap gap-2 mt-2 items-center  dark:text-slate-100">
-          <FaUser className="text-slate-700 dark:text-slate-200" />
+        <div className="flex flex-nowrap gap-2 mt-2 items-center  dark:tw-text-slate-100">
+          <FaUser className="text-slate-700 dark:tw-text-slate-200" />
           <span>
             {conductor.nombre} {conductor.apellido}
           </span>
         </div>
-        <p className="text-sm text-red-400 dark:text-red-500 mt-2">
+        <p className="text-sm text-red-400 dark:tw-text-red-500 mt-2">
           Comprueba los datos de contacto para poder comunicar cualquier cambio
           con la resera.
         </p>

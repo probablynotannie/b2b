@@ -22,7 +22,7 @@ function Aside({
     <div className="sticky top-5">
       {dates.startDate ? (
         <>
-          <h2 className="font-semibold text-xl dark:text-white">
+          <h2 className="font-semibold text-xl dark:tw-text-white">
             {producto.nombre}
           </h2>
           <img
@@ -30,7 +30,7 @@ function Aside({
             className="object-cover w-full h-[20vh] shadow rounded-md"
             alt="imagen destino"
           />
-          <div className="text-sm border-b-2 border-slate-100 dark:border-slate-700 text-slate-500 dark:text-slate-400 py-2">
+          <div className="text-sm border-b-2 border-slate-100 dark:tw-border-slate-700 text-slate-500 dark:tw-text-slate-400 py-2">
             <p className="grid grid-cols-2 mt-2 ">
               {producto.pax !== 0 && (
                 <span className="flex items-center">
@@ -38,7 +38,7 @@ function Aside({
                   {producto.pax}x
                 </span>
               )}
-              <span className="dark:text-slate-300 font-bold text-end">
+              <span className="dark:tw-text-slate-300 font-bold text-end">
                 {pvp}€
               </span>
             </p>
@@ -69,11 +69,11 @@ function Aside({
               <Popover
                 aria-labelledby="default-popover"
                 content={
-                  <div className="w-64 text-sm text-slate-500 dark:text-slate-400">
-                    <div className="border-b border-slate-200 bg-slate-100 px-3 py-2 dark:border-slate-600 dark:bg-slate-700">
+                  <div className="w-64 text-sm text-slate-500 dark:tw-text-slate-400">
+                    <div className="border-b border-slate-200 bg-slate-100 px-3 py-2 dark:tw-border-slate-600 dark:bg-slate-700">
                       <h3
                         id="default-popover"
-                        className="font-semibold text-slate-900 dark:text-white"
+                        className="font-semibold text-slate-900 dark:tw-text-white"
                       >
                         Nueva habitación
                       </h3>
@@ -94,7 +94,7 @@ function Aside({
                           </div>
                           <div className="relative">
                             <select
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                               id={`room-type-${habitacion.id}`}
                               value={habitacion.pax}
                               onChange={(e) =>
@@ -112,7 +112,7 @@ function Aside({
                                 Habitación Triple (+3 pax)
                               </option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <MdMeetingRoom />
                             </div>
                           </div>
@@ -124,7 +124,7 @@ function Aside({
                         </label>
                         <select
                           id="new-room-type"
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
                           onChange={(e) => addRoom(e.target.value)}
                         >
                           <option value="Habitación Doble">
@@ -136,7 +136,7 @@ function Aside({
                           <option value="Cama Adicional">Cama Adicional</option>
                         </select>
                       </div>
-                      <div className="text-black dark:text-slate-400 hover:tw-text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2">
+                      <div className="text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:tw-border-slate-500 mt-5 pt-2">
                         <div className="w-fit flex items-center space-x-1 font-semibold">
                           <FaPlusCircle className="dark:tw-text-secondary" />
                           <span onClick={() => addRoom("Habitación Doble")}>
@@ -162,7 +162,7 @@ function Aside({
               TOTAL: {producto.precio}€
             </button>
           </Link>
-          <div className="flex justify-center text-slate-400 dark:text-slate-400 mt-2">
+          <div className="flex justify-center text-slate-400 dark:tw-text-slate-400 mt-2">
             <button>Descargar la oferta</button>
           </div>
         </>

@@ -170,6 +170,7 @@ const Vuelo = () => {
                 <div className="tw-space-y-3 tw-text-sm tw-mt-4">
                   <div className="tw-grid md:tw-grid-cols-2 tw-gap-3">
                     <Input_Texto
+                      required={true}
                       tipo={"Nombre"}
                       name={`pasajeros[${index}].nombre`}
                       register={register}
@@ -177,6 +178,7 @@ const Vuelo = () => {
                     />
 
                     <Input_Texto
+                      required={true}
                       tipo={"Apellido/s"}
                       name={`pasajeros[${index}].apellido`}
                       register={register}

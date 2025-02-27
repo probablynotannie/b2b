@@ -10,7 +10,7 @@ function Importante({ destino }) {
         <div>
           <h3
             onClick={() => setOpenModal(true)}
-            className="font-semibold mt-3 pl-3 bg-orange-100 dark:bg-orange-800 dark:text-white rounded p-1 mb-2"
+            className="font-semibold mt-3 pl-3 bg-orange-100 dark:bg-orange-800 dark:tw-text-white rounded p-1 mb-2"
           >
             Notas importantes
           </h3>
@@ -20,11 +20,11 @@ function Importante({ destino }) {
               <div>
                 {destino.notas.map((info) => (
                   <div key={info.id}>
-                    <h4 className="font-semibold underline dark:text-white">
+                    <h4 className="font-semibold underline dark:tw-text-white">
                       {info.title}
                     </h4>
                     {info.datos.map((dato, index) => (
-                      <p className="text-sm dark:text-slate-400" key={index}>
+                      <p className="text-sm dark:tw-text-slate-400" key={index}>
                         {dato}
                       </p>
                     ))}

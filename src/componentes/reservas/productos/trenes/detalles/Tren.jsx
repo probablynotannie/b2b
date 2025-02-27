@@ -11,8 +11,8 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
       <div className="w-full relative mt-5">
         <div className="flex justify-between items-center">
           <div className="flex flex-col">
-            <h2 className="font-bold text-lg dark:text-white">Tren {tipo}</h2>
-            <p className="text-xs text-slate-600 dark:text-slate-400 font-bold">
+            <h2 className="font-bold text-lg dark:tw-text-white">Tren {tipo}</h2>
+            <p className="text-xs text-slate-600 dark:tw-text-slate-400 font-bold">
               Clase:{tren.claseElegida.nombre}
             </p>
           </div>
@@ -35,7 +35,7 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
           </div>
         </div>
       </div>
-      <div className="pl-4 border-l-2 mt-4 border-slate-400 dark:border-slate-700 dark:text-slate-300">
+      <div className="pl-4 border-l-2 mt-4 border-slate-400 dark:tw-border-slate-700 dark:tw-text-slate-300">
         <div className="text-sm">{tren.departureStationName}</div>
         <div className="text-sm">{duration(tren.duration)}</div>
         <div className="text-sm">{tren.arrivalStationName}</div>
@@ -47,7 +47,7 @@ function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
       />
 
       {cesta !== true && (
-        <div className="border-t-2 border-slate-100 dark:border-slate-700 mt-5">
+        <div className="border-t-2 border-slate-100 dark:tw-border-slate-700 mt-5">
           <span
             className="dark:tw-text-secondary mt-4 font-bold mb-5 block"
           >

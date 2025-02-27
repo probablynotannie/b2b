@@ -26,7 +26,7 @@ function Buscador_Cruceros() {
       departureDate: startDate ? startDate : 0,
       returnDate: endDate ? endDate : 0,
     };
-    navigate("/listadoHoteles", { state: { newRequestData } });
+    navigate("/listadoVuelos", { state: { newRequestData } });
   };
   return (
     <>
@@ -105,7 +105,7 @@ function Buscador_Cruceros() {
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Hoteles
+            Buscador de Vuelos
           </h2>
           <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-mt-4">
             <Input_Buscador

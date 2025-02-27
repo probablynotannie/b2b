@@ -7,14 +7,14 @@ function Reserva() {
 
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
-        <h1 className="font-bold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-800 pb-2">
+      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:tw-border-slate-700 dark:bg-slate-900 p-5">
+        <h1 className="font-bold border-b-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 pb-2">
           Reservando Ferry
         </h1>
         <Detalles ida={ida} vuelta={vuelta} datosContacto={datosContacto} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:tw-border-slate-800 dark:bg-slate-900 p-5">
+        <h2 className="font-semibold border-b-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 pb-2">
           Resumen
         </h2>
         <img
@@ -23,9 +23,9 @@ function Reserva() {
           alt="Reserva ferry"
         />
         {ida && vuelta ? (
-          <h3 className="font-semibold dark:text-slate-100">Ida y vuelta</h3>
+          <h3 className="font-semibold dark:tw-text-slate-100">Ida y vuelta</h3>
         ) : (
-          <h3 className="font-semibold dark:text-slate-100">Solo ida</h3>
+          <h3 className="font-semibold dark:tw-text-slate-100">Solo ida</h3>
         )}
         <ul>
           <li className="flex justify-between items-center">

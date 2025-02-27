@@ -37,7 +37,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
               onChange={(e) => setOpenInNewTab(e.target.checked)}
             />
             <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-800 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4 rounded-full peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:tw-bg-secondary"></div>
-            <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
+            <span className="ms-3 text-sm font-medium text-slate-500 dark:tw-text-slate-400">
               Abrir enlace pestaña nueva
             </span>
           </label>
@@ -49,7 +49,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
           className={`lg:flex flex-row transition mt-10 relative min-h-[15vh] rounded-xl ${
             selectedHotel?.id === hotel.id
               ? "bg-elegido dark:bg-slate-900 border-secondary"
-              : "bg-slate-100 dark:bg-slate-800 border-slate-100 dark:border-slate-800"
+              : "bg-slate-100 dark:bg-slate-800 border-slate-100 dark:tw-border-slate-800"
           } shadow-xl lg:shadow-lg hover:shadow-xl border-2`}
         >
           <div className="w-full h-[25vh] lg:h-auto lg:w-1/3 lg:rounded-l-lg rounded-t-lg overflow-hidden">
@@ -65,7 +65,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
             </Carousel>
           </div>
           <div className="p-5 lg:w-2/3">
-            <div className="border-b-2 border-slate-200 dark:border-slate-700 pb-2">
+            <div className="border-b-2 border-slate-200 dark:tw-border-slate-700 pb-2">
               <div className="flex justify-between w-full">
                 <h4 className="tw-text-secondary font-semibold">
                   {hotel.nombre}
@@ -83,11 +83,11 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                   )}
                 </div>
               </div>
-              <span className="text-slate-400 dark:text-slate-400 text-sm flex items-center mb-2">
-                <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+              <span className="text-slate-400 dark:tw-text-slate-400 text-sm flex items-center mb-2">
+                <FaMapPin className="text-slate-600 dark:tw-text-slate-500 mr-2" />
                 {hotel.direccion}
               </span>
-              <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
+              <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:tw-text-slate-400 font-semibold text-sm">
                 <span className="flex items-center">
                   <FaPerson className="text-lg" /> {reserva.pax} adulto
                   {reserva.pax !== 1 && "s"}
@@ -105,7 +105,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                 </span>
               </div>
             </div>
-            <p className="lg:text-slate-600 mt-2 dark:text-slate-400 text-sm text-slate-500 line-clamp-2">
+            <p className="lg:text-slate-600 mt-2 dark:tw-text-slate-400 text-sm text-slate-500 line-clamp-2">
               {hotel.descripcion}
             </p>
             <div className="flex justify-end mt-3">
@@ -127,12 +127,12 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                 <Modal.Body className="bg-white dark:bg-slate-900">
                   <div className="container">
                     <article className="grid grid-cols-5 lg:gap-10 my-5 mt-10 ">
-                      <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
+                      <section className=" col-span-5 lg:col-span-1 flex flex-col  justify-between border-2 border-gray-200 dark:tw-border-slate-800 rounded-xl p-3 text-slate-700 bg-slate-500 dark:bg-slate-800 shadow-xl">
                         <h4 className="p-3 font-bold text-cen rounded-t-xl   tw-text-secondary">
                           Resumen
                         </h4>
-                        <div className="flex justify-between pb-2 border-b-2 border-slate-100  dark:border-slate-700">
-                          <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
+                        <div className="flex justify-between pb-2 border-b-2 border-slate-100  dark:tw-border-slate-700">
+                          <div className="flex items-center space-x-1 text-sm font-semibold  dark:tw-text-slate-100">
                             <FaPerson className="text-xl tw-text-secondary" />
                             <span className="text-white">{hotel.pax}</span>
                             <span className="text-white">
@@ -140,7 +140,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                             </span>
                           </div>
                           {hotel.pax_ninios > 0 && (
-                            <div className="flex items-center space-x-1 text-sm font-semibold  dark:text-slate-100">
+                            <div className="flex items-center space-x-1 text-sm font-semibold  dark:tw-text-slate-100">
                               <FaChild className="text-lg tw-text-secondary" />
                               <span className="text-white">
                                 {hotel.pax_ninios} niño
@@ -150,31 +150,31 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                           )}
                         </div>
                         <div className="text-slateo-700 mx-2 mt-3 text-sm ">
-                          <span className="font-semibold dark:text-slate-400 text-white">
+                          <span className="font-semibold dark:tw-text-slate-400 text-white">
                             Entrada
                           </span>
                           <div className="relative">
                             <input
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                               type="text"
                               disabled
                               value={hotel.fecha}
                             />
-                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <FaRegCalendarAlt />
                             </div>
                           </div>
-                          <span className="block mt-2 font-semibold text-white dark:text-slate-400">
+                          <span className="block mt-2 font-semibold text-white dark:tw-text-slate-400">
                             Salida
                           </span>
                           <div className="relative">
                             <input
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                               type="text"
                               disabled
                               value={hotel.fechaSalida}
                             />
-                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                               <FaRegCalendarAlt />
                             </div>
                           </div>
@@ -212,7 +212,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                         />
                       </section>
                       <section className="col-span-5">
-                        <h4 className="font-bold text-lg mb-3 dark:text-white">
+                        <h4 className="font-bold text-lg mb-3 dark:tw-text-white">
                           Imagenes
                         </h4>
                         <Imagenes imagenes={hotel.habitacionImgs} />

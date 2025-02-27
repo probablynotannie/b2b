@@ -45,7 +45,7 @@ function Productos() {
             <div className="container relative">
               <Buscador />
             </div>
-            <aside className="lg:hidden col-span-9 lg:col-span-3 h-fit lg:sticky top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
+            <aside className="lg:hidden col-span-9 lg:col-span-3 h-fit lg:sticky top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:tw-border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
               <Aside />
             </aside>
           </div>
@@ -55,7 +55,7 @@ function Productos() {
             className={`px-4 py-2 border-b-2 flex items-center ${
               activeTab === "Resultados"
                 ? "border-secondary tw-text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
+                : " text-slate-700 dark:tw-text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Resultados")}
           >
@@ -65,7 +65,7 @@ function Productos() {
             className={`px-4 py-2 border-b-2 flex items-center ${
               activeTab === "Vuelos"
                 ? "border-secondary tw-text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
+                : " text-slate-700 dark:tw-text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Vuelos")}
           >
@@ -75,7 +75,7 @@ function Productos() {
             className={`px-4 py-2 border-b-2 flex items-center ${
               activeTab === "Cesta"
                 ? "border-secondary tw-text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
+                : " text-slate-700 dark:tw-text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Cesta")}
           >
@@ -85,7 +85,7 @@ function Productos() {
         <article className="grid grid-cols-9 lg:gap-8 xs:gap-28 container">
           {activeTab === "Resultados" && (
             <>
-              <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky  top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
+              <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky  top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:tw-border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
                 <Aside />
               </aside>
               <section className="col-span-9 lg:col-span-6 p-3">

@@ -159,8 +159,8 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                         <td
                           className={`tw-text-center tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-p-1 ${
                             extras.cantidad > 1
-                              ? "dark:text-green-400 text-green-500"
-                              : "dark:text-red-400 text-red-500"
+                              ? "dark:tw-text-green-400 text-green-500"
+                              : "dark:tw-text-red-400 text-red-500"
                           }`}
                         >
                           {extras.cantidad}
@@ -348,7 +348,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                                 className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                                   activeTab === tab.id
                                     ? "text-white tw-bg-secondary dark:bg-slate-900"
-                                    : "bg-gray-50 dark:bg-gray-800 dark:text-gray-400"
+                                    : "bg-gray-50 dark:bg-gray-800 dark:tw-text-gray-400"
                                 }`}
                                 onClick={() => setActiveTab(tab.id)}
                               >

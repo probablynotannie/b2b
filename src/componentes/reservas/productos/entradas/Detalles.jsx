@@ -14,7 +14,7 @@ function Detalles({ producto, tickets, setTickets, cesta }) {
               alt="imagen producto"
               className="w-full h-[30vh] object-cover  object-top my-3 rounded"
             />
-            <p className="text-sm dark:text-slate-200">
+            <p className="text-sm dark:tw-text-slate-200">
               {producto.descripcion_corta}
             </p>
           </>

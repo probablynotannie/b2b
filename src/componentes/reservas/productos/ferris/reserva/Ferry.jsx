@@ -3,8 +3,8 @@ import { FaCheck } from "react-icons/fa";
 
 function Ferry({ producto, tipo }) {
   return (
-    <div className="w-full p-3 border border-slate-100 dark:bg-slate-800 dark:border-slate-700 shadow my-5">
-      <div className="flex justify-between items-center border-b pb-3 border-slate-100 dark:border-slate-700 dark:text-slate-100 mb-3">
+    <div className="w-full p-3 border border-slate-100 dark:bg-slate-800 dark:tw-border-slate-700 shadow my-5">
+      <div className="flex justify-between items-center border-b pb-3 border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 mb-3">
         <div>
           <h3 className="ml-1 font-semibold">
             Ferry {tipo}{" "}
@@ -20,7 +20,7 @@ function Ferry({ producto, tipo }) {
           />
         </div>
       </div>
-      <div className="bg-slate-50 text-sm dark:bg-slate-700 dark:text-slate-200 p-2">
+      <div className="bg-slate-50 text-sm dark:bg-slate-700 dark:tw-text-slate-200 p-2">
         <div className="md:flex justify-between items-center">
           <p>Duración de viaje: {producto.duracion_viaje}</p>
           <p>

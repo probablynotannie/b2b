@@ -26,29 +26,29 @@ function ReservaFinal() {
           </h2>
           <ul>
             <li className="tw-flex tw-items-center tw-gap-1">
-              <FaPerson className="tw-text-xl" />
+              <FaPerson className="tw-text-xl tw-text-secondary" />
               <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {producto.pax}x adulto{producto.pax !== 1 && "s"}
               </span>
             </li>
             {producto.pax_ninios > 0 && (
               <li className="tw-flex tw-items-center tw-gap-1">
-                <FaChild className="tw-text-xl" />
+                <FaChild className="tw-text-xl tw-text-secondary" />
                 <span className="tw-text-slate-500 dark:tw-text-slate-400">
-                  {producto.pax}x adulto{producto.pax !== 1 && "s"}
+                  {producto.pax}x Niños{producto.pax !== 1 && "s"}
                 </span>
               </li>
             )}
 
             <li className="tw-flex tw-items-center tw-gap-1">
-              <FaCalendar />
+              <FaCalendar className="tw-text-secondary" />
               <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {producto.fecha} - {producto.fechaSalida}
               </span>
             </li>
 
             <li className="tw-flex tw-items-center tw-gap-1">
-              <FaDoorOpen />
+              <FaDoorOpen className="tw-text-secondary" />
 
               <span className="tw-text-slate-500 dark:tw-text-slate-400">
                 {habitacion.nombre} ( {habitacion.regimen})

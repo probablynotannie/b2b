@@ -45,7 +45,7 @@ function FlightSelection({
 
   const FlightOption = ({ flight, selected, onSelect }) => (
     <div
-      className={`flex items-center justify-between p-4 border-b dark:border-slate-800 ${
+      className={`tw-flex tw-items-center tw-justify-between tw-p-4 tw-border-b dark:tw-border-slate-800 ${
         selected ? "bg-slate-100 dark:bg-slate-700" : ""
       }`}
       onClick={() => onSelect(flightSetId, flight.id)}
@@ -54,45 +54,47 @@ function FlightSelection({
         type="radio"
         checked={selected}
         onChange={() => onSelect(flightSetId, flight.id)}
-        className="mr-3 tw-text-secondary"
+        className="tw-mr-3 tw-text-secondary"
       />
-      <img src="./logo.png" alt="Airline logo" className="w-12" />
-      <div className="flex-1">
-        <p className="text-sm font-semibold flex items-center dark:text-slate-300">
+      <img src="./logo.png" alt="Airline logo" className="tw-w-12" />
+      <div className="tw-flex-1">
+        <p className="tw-text-sm tw-font-semibold tw-flex tw-items-center dark:tw-text-slate-300">
           {flight.departure}{" "}
-          <span className="text-slate-400 dark:text-slate-400 ml-1">
+          <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-ml-1">
             {flight.salida}
           </span>{" "}
-          <FaLongArrowAltRight className="mx-1 text-slate-600 dark:text-orange-400" />
+          <FaLongArrowAltRight className="tw-mx-1 tw-text-slate-600 dark:tw-text-orange-400" />
           {flight.arrival}{" "}
-          <span className="text-slate-400 dark:text-slate-400 ml-1">
+          <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-ml-1">
             {flight.llegada}
           </span>
-          <span className="text-xs ml-2 font-semibold text-green-500 dark:text-green-400">
+          <span className="tw-text-xs tw-ml-2 tw-font-semibold tw-text-green-500 dark:tw-text-green-400">
             ({flight.precio}€)
           </span>
         </p>
-        <span className="text-sm dark:text-slate-400">{flight.duration}</span>
+        <span className="tw-text-sm dark:tw-text-slate-400">
+          {flight.duration}
+        </span>
         {flight.plazasDisponibles <= 5 ? (
-          <p className="text-red-500 text-xs"> ¡Últimas plazas! </p>
+          <p className="tw-text-red-500 tw-text-xs"> ¡Últimas plazas! </p>
         ) : (
           flight.plazasDisponibles > 5 &&
           flight.plazasDisponibles <= 8 && (
-            <p className="text-orange-400 text-xs">
+            <p className="tw-text-orange-400 tw-text-xs">
               Quedan {flight.plazasDisponibles} plazas
             </p>
           )
         )}
       </div>
-      <div className="text-sm text-end">
+      <div className="tw-text-sm tw-text-end">
         {flight.escalas > 0 ? (
           <div>
-            <span className="dark:tw-text-secondary dark:font-semibold">
+            <span className="dark:tw-text-secondary dark:tw-font-semibold">
               {flight.escalas > 1
                 ? `${flight.escalas} Escalas`
                 : `${flight.escalas} Escala`}
             </span>
-            <div className="text-xs mt-1 text-slate-500 dark:text-slate-400">
+            <div className="tw-text-xs tw-mt-1 tw-text-slate-500 dark:tw-text-slate-400">
               {flight.escalaSitio.map((sitio, index) => (
                 <div key={index}>
                   <span>{flight.escalaDuracion[index]}</span> -{" "}
@@ -102,7 +104,7 @@ function FlightSelection({
             </div>
           </div>
         ) : (
-          <span className="font-bold text-green-700 dark:text-green-400">
+          <span className="tw-font-bold tw-text-green-700 dark:tw-text-green-400">
             Directo
           </span>
         )}
@@ -148,14 +150,14 @@ function FlightSelection({
 
   return (
     <div>
-      <div className="p-4 dark:bg-slate-800 dark:border-slate-700 mx-auto border rounded-xl shadow-lg hover:shadow-xl transition duration-300">
+      <div className="tw-p-4 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-mx-auto tw-border tw-rounded-xl tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
         <div>
-          <h4 className="text-2xl text-end font-bold text-orange-400 dark:text-green-400 rounded-lg shadow-l w-fit p-2">
+          <h4 className="tw-text-2xl tw-text-end tw-font-bold tw-text-orange-400 dark:tw-text-green-400 tw-rounded-lg tw-shadow-l tw-w-fit tw-p-2">
             Total: {totalPrice}€
           </h4>
-          <div className="bg-slate-200 dark:bg-slate-900 p-4 rounded-t-lg mt-3">
-            <span className="text-slate-600 dark:text-slate-300 text-sm flex items-center gap-2">
-              <FaPlaneDeparture className="text-lg text-slate-600 dark:text-slate-300" />{" "}
+          <div className="tw-bg-slate-200 dark:tw-bg-slate-900 tw-p-4 tw-rounded-t-lg tw-mt-3">
+            <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm tw-flex tw-items-center tw-gap-2">
+              <FaPlaneDeparture className="tw-text-lg tw-text-slate-600 dark:tw-text-slate-300" />{" "}
               ida {outboundDate}
             </span>
           </div>
@@ -171,9 +173,9 @@ function FlightSelection({
               onSelect={handleOutboundSelection}
             />
           ))}
-          <div className="bg-slate-200 dark:bg-slate-900 p-4 mt-4 rounded-t-lg">
-            <span className="text-slate-600 dark:text-slate-300 text-sm flex items-center gap-2">
-              <FaPlaneArrival className="text-lg text-slate-600 dark:text-slate-300" />{" "}
+          <div className="tw-bg-slate-200 dark:tw-bg-slate-900 tw-p-4 tw-mt-4 tw-rounded-t-lg">
+            <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm tw-flex tw-items-center tw-gap-2">
+              <FaPlaneArrival className="tw-text-lg tw-text-slate-600 dark:tw-text-slate-300" />{" "}
               vuelta {returnDate}
             </span>
           </div>
@@ -190,7 +192,7 @@ function FlightSelection({
             />
           ))}
         </div>
-        <div className="mt-4 text-center text-slate-500 dark:text-slate-400 text-xs">
+        <div className="tw-mt-4 tw-text-center tw-text-slate-500 dark:tw-text-slate-400 tw-text-xs">
           Tasas y gastos de gestión incluidos. El precio incluye gastos de
           gestión y/o descuento, en función del medio de pago seleccionado.
         </div>

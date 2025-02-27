@@ -11,14 +11,14 @@ import seguro from "./Seguro.json";
 function Resultado() {
   return (
     <div className="grid lg:grid-cols-3 gap-y-10 lg:gap-16 container my-10 min-h-[70vh] overflow-visible mt-10">
-      <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:border-slate-700 border-slate-100 col-span-2 p-3">
-        <h1 className="text-xl font-semibold mb-5 dark:text-white">
+      <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:tw-border-slate-700 border-slate-100 col-span-2 p-3">
+        <h1 className="text-xl font-semibold mb-5 dark:tw-text-white">
           {seguro.titulo}
         </h1>
         <Pdfs />
         <Precios
           precios={seguro.preciosEquipajes}
-          icono={<BsFillLuggageFill className="text-slate-700 dark:text-slate-300" />}
+          icono={<BsFillLuggageFill className="text-slate-700 dark:tw-text-slate-300" />}
           titulo={"Equipajes"}
         />
         <Precios
@@ -48,7 +48,7 @@ function Resultado() {
         />
       </section>
       <aside className="w-full flex flex-col gap-10">
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:tw-border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
           <Aside seguro={seguro} />
         </section>
       </aside>

@@ -8,12 +8,12 @@ function Detalles({ actividad, cesta }) {
 
   const tabContent = {
     itinerario: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:tw-text-slate-400 dark:bg-slate-800 rounded-lg w-full">
         <Itinerario actividad={actividad} />
       </div>
     ),
     incluye: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:tw-text-slate-400 dark:bg-slate-800 rounded-lg w-full">
         <Incluye
           incluido={actividad.incluido}
           no_incluido={actividad.no_incluido}
@@ -21,7 +21,7 @@ function Detalles({ actividad, cesta }) {
       </div>
     ),
     excursiones: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:tw-text-slate-400 dark:bg-slate-800 rounded-lg w-full">
         <Incluye
           incluido={actividad.excursiones_incluidos}
           no_incluido={actividad.excursiones_no_incluidos}
@@ -29,8 +29,8 @@ function Detalles({ actividad, cesta }) {
       </div>
     ),
     notas: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:tw-text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+        <h3 className="text-lg font-bold text-slate-900 dark:tw-text-white mb-2">
           Notas
         </h3>
         <ul>
@@ -49,7 +49,7 @@ function Detalles({ actividad, cesta }) {
     <div>
       {!cesta && <Fotos fotos={actividad.imagenes} />}
       <div className="md:flex mt-9">
-        <ul className="flex-column space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400 md:me-4 mb-4 md:mb-0">
+        <ul className="flex-column space-y-4 text-sm font-medium text-slate-500 dark:tw-text-slate-400 md:me-4 mb-4 md:mb-0">
           {["itinerario", "incluye", "excursiones", "notas"].map((tab) => (
             <li key={tab}>
               <button

@@ -5,7 +5,7 @@ function Actividad({ actividad }) {
   return (
     <>
       <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2 ">
-        <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:border-slate-700 dark:text-slate-400">
+        <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-400">
           <span className="flex items-center">
             <FaPerson className="text-lg" /> {actividad.paxReserva.adultos}{" "}
             adulto
@@ -18,7 +18,7 @@ function Actividad({ actividad }) {
         </div>
         <div className="flex justify-between col-span-2">
           <span
-            className={`mt-2 text-lg text-slate-500 dark:text-green-400 rounded-lg px-2 p-1 font-bold `}
+            className={`mt-2 text-lg text-slate-500 dark:tw-text-green-400 rounded-lg px-2 p-1 font-bold `}
           >
             {actividad.precioTotal}€
           </span>
@@ -42,12 +42,12 @@ function Actividad({ actividad }) {
         <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
       </div>
       <div className="p-5">
-        <h1 className="font-semibold text-slate-600 dark:text-slate-300">
+        <h1 className="font-semibold text-slate-600 dark:tw-text-slate-300">
           {actividad.titulo}
         </h1>
 
         <div>
-          <p className="flex items-center gap-2 dark:text-slate-400">
+          <p className="flex items-center gap-2 dark:tw-text-slate-400">
             <FaCalendarAlt className="tw-text-secondary" />
             {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
             {actividad.horaSeleccionada}

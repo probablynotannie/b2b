@@ -7,6 +7,9 @@ import { FaCheck } from "react-icons/fa";
 import { Link } from "react-router-dom";
 
 function Listado({
+  values,
+  setValues,
+  minMax,
   producto,
   habitaciones,
   seleccion,
@@ -26,7 +29,7 @@ function Listado({
   };
   return (
     <div className="tw-space-y-10 tw-w-full">
-      <TipoHabitacion minPrice={minPrice} maxPrice={maxPrice} />
+      <TipoHabitacion values={values} setValues={setValues} minMax={minMax} />
       <table className="tw-w-full">
         <thead className="tw-bg-slate-700 dark:tw-bg-slate-900">
           <tr>

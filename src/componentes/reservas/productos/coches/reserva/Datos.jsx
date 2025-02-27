@@ -23,7 +23,7 @@ function Vuelo() {
         selectedExtras.map((extra) => (
           <span
             key={extra.id}
-            className="text-white dark:text-slate-200 tw-bg-secondary dark:tw-bg-secondary p-1 rounded  mr-2"
+            className="text-white dark:tw-text-slate-200 tw-bg-secondary dark:tw-bg-secondary p-1 rounded  mr-2"
           >
             {extra.id === "GPS" && "GPS"}
             {extra.id === "sillitabebe" && "Sillita bebé"}
@@ -53,9 +53,9 @@ function Vuelo() {
 
   return (
     <main className="my-10  flex justify-center container min-h-[68vh]">
-      <article className="p-5 w-full border-2  border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
+      <article className="p-5 w-full border-2  border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
         <form onSubmit={handleSubmit}>
-          <h1 className="font-semibold text-xl dark:text-white">
+          <h1 className="font-semibold text-xl dark:tw-text-white">
             Datos Contacto
           </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">

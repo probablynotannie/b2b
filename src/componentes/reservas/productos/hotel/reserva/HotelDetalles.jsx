@@ -6,7 +6,7 @@ function HotelDetalles({ hotel }) {
   return (
     <section>
       <Foto img={hotel.img} txt={<p>{hotel.nombre}</p>} />
-      <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm">
+      <div className="flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:tw-text-slate-400 font-semibold text-sm">
         {
           <span className="flex items-center">
             <FaPerson className="text-lg" /> {hotel.pax} adulto

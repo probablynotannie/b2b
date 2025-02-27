@@ -39,9 +39,9 @@ function Cesta({
     <div className="mt-5">
       <div className="min-h-[30vh] grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
         {hotel && (
-          <section className=" border-2 pb-20 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition">
+          <section className=" border-2 pb-20 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:tw-border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition">
             <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
-              <div className="col-span-2 flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:text-slate-400 font-semibold text-sm border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-2">
+              <div className="col-span-2 flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:tw-text-slate-400 font-semibold text-sm border-b-2 border-slate-100 dark:tw-border-slate-700 pb-2 mb-2">
                 <span className="flex items-center">
                   <FaPerson className="text-lg" /> {reserva.pax} adulto
                   {reserva.pax > 1 && "s"}
@@ -61,7 +61,7 @@ function Cesta({
               </div>
               <div className="col-span-2 flex justify-between ">
                 <span
-                  className={`mt-2 text-lg text-slate-500 dark:text-green-400 rounded-lg px-2 p-1 font-bold `}
+                  className={`mt-2 text-lg text-slate-500 dark:tw-text-green-400 rounded-lg px-2 p-1 font-bold `}
                 >
                   {hotel.precio}€
                 </span>
@@ -95,8 +95,8 @@ function Cesta({
                 </span>
               </h4>
               <div className=" pb-2">
-                <span className="text-slate-400 dark:text-slate-400 text-sm flex items-center mb-2">
-                  <FaMapPin className="text-slate-600 dark:text-slate-500 mr-2" />
+                <span className="text-slate-400 dark:tw-text-slate-400 text-sm flex items-center mb-2">
+                  <FaMapPin className="text-slate-600 dark:tw-text-slate-500 mr-2" />
                   {hotel.direccion}
                 </span>
               </div>
@@ -111,7 +111,7 @@ function Cesta({
                 key={index}
               >
                 <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
-                  <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:border-slate-700 dark:text-slate-400">
+                  <div className="col-span-2 flex justify-between pb-2 mb-2 border-b-2 border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-400">
                     <span className="flex items-center">
                       <FaPerson className="text-lg" />{" "}
                       {actividad.paxReserva.adultos} adulto
@@ -125,7 +125,7 @@ function Cesta({
                   </div>
                   <div className="flex justify-between col-span-2">
                     <span
-                      className={`mt-2 text-lg text-slate-500 dark:text-green-400 rounded-lg px-2 p-1 font-bold `}
+                      className={`mt-2 text-lg text-slate-500 dark:tw-text-green-400 rounded-lg px-2 p-1 font-bold `}
                     >
                       {actividad.precioTotal}€
                     </span>
@@ -160,12 +160,12 @@ function Cesta({
                   <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
                 </div>
                 <div className="p-5">
-                  <h1 className="font-semibold text-slate-600 dark:text-slate-300">
+                  <h1 className="font-semibold text-slate-600 dark:tw-text-slate-300">
                     {actividad.titulo}
                   </h1>
 
                   <div>
-                    <p className="flex items-center gap-2 dark:text-slate-400">
+                    <p className="flex items-center gap-2 dark:tw-text-slate-400">
                       <FaCalendarAlt className="tw-text-secondary" />
                       {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
                       {actividad.horaSeleccionada}

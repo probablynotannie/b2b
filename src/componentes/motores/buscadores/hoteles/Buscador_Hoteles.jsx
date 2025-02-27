@@ -6,7 +6,7 @@ import Input_Nacionalidad from "../../../inputs/Nacionalidad";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_Hab_Ad_Nin from "../../../inputs/Hab_Adulto_Ninio";
 import { useNavigate } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -33,16 +33,18 @@ function Buscador_Cruceros() {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-  const [nacionalidad, setNacionalidad] = useState();
 
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: destino ? destino.id : 0,
-      departureDate: startDate ? startDate : 0,
-      returnDate: endDate ? endDate : 0,
-    };
-    navigate("/listadoHoteles", { state: { newRequestData } });
+  const onSubmit = (data) => {
+    navigate("/listadoHoteles", {
+      state: { datosContacto: data },
+    });
   };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({});
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -71,7 +73,7 @@ function Buscador_Cruceros() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Buscador
                     placeholder={"Destino"}
@@ -87,8 +89,12 @@ function Buscador_Cruceros() {
                     setEndDate={setEndDate}
                   />
                   <Input_Nacionalidad
-                    value={nacionalidad}
-                    setValue={setNacionalidad}
+                    setValue={setValue}
+                    required={false}
+                    name={`Nacionalidad`}
+                    register={register}
+                    errors={errors}
+                    tipo={"Nacionalidad"}
                   />
                   <Input_Hab_Ad_Nin
                     habitacion={habitacion}
@@ -121,7 +127,7 @@ function Buscador_Cruceros() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Hoteles
           </h2>
@@ -140,8 +146,12 @@ function Buscador_Cruceros() {
             />
 
             <Input_Nacionalidad
-              value={nacionalidad}
-              setValue={setNacionalidad}
+              setValue={setValue}
+              required={false}
+              name={`Nacionalidad`}
+              register={register}
+              errors={errors}
+              tipo={"Nacionalidad"}
             />
             <Input_Hab_Ad_Nin
               habitacion={habitacion}
@@ -150,11 +160,7 @@ function Buscador_Cruceros() {
               setRoomData={setRoomData}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

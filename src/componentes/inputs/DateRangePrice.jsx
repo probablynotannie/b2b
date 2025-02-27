@@ -120,7 +120,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     return (
       <div className="grid grid-cols-7 text-center font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="p-1 text-black dark:text-white text-sm">
+          <div key={day} className="p-1 text-black dark:tw-text-white text-sm">
             {day}
           </div>
         ))}
@@ -164,8 +164,8 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                     : isSameDay(day, endDate)
                     ? "tw-bg-secondary dark:bg-slate-900 text-white"
                     : startDate && endDate && day > startDate && day < endDate
-                    ? "bg-orange-100 dark:bg-slate-600 dark:text-white"
-                    : "dark:text-slate-100"
+                    ? "bg-orange-100 dark:bg-slate-600 dark:tw-text-white"
+                    : "dark:tw-text-slate-100"
                 } ${isDateDisabled ? "text-slate-400 cursor-no-drop" : ""}`}
                 onClick={() => !isDateDisabled && handleDateClick(day)}
               >
@@ -208,7 +208,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
           <div className="relative">
             <div
               onClick={() => setIsModalOpen(true)}
-              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+              className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
             >
               {startDate && endDate
                 ? `${format(startDate, "dd/MM/yyyy")} - ${format(

@@ -86,8 +86,8 @@ function ReservaFinalizada() {
         </div>
       </header>
 
-      <section className="border-2 border-slate-100 dark:border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
-        <header className=" dark:text-white">
+      <section className="border-2 border-slate-100 dark:tw-border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
+        <header className=" dark:tw-text-white">
           <div className="flex flex-col md:flex-row justify-between ">
             <h3 className="font-semibold text-lg">
               Resumen de compra ( {reserva.type} )

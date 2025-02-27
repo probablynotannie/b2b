@@ -30,25 +30,25 @@ function Producto() {
 
   return (
     <div className="grid lg:grid-cols-3 gap-y-10 lg:gap-16 container my-10 min-h-[70vh] overflow-visible mt-10">
-      <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:border-slate-700 border-slate-100 col-span-2 p-3">
+      <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:tw-border-slate-700 border-slate-100 col-span-2 p-3">
         <Detalles coche={producto} />
       </section>
       <aside className="col-span-2 lg:col-span-1 flex flex-col gap-10">
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:tw-border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
           <Conductor
             conductor={conductor}
             setConductor={setConductor}
             coche={producto}
           />
         </section>
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:tw-border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
           <Reembolso
             contratar={contratar}
             setContratar={setContratar}
             reembolso={reembolso}
           />
         </section>
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:tw-border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
           <Precio
             coche={producto}
             extras={totalExtras}

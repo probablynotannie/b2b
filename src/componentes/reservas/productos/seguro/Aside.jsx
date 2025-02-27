@@ -12,11 +12,11 @@ function Aside({ seguro }) {
   const [modalMargen, setModalMargen] = useState(false);
   return (
     <div>
-      <h2 className="text-xl font-semibold dark:text-white border-b-2 border-slate-100 dark:border-slate-700 pb-1 mb-1">
+      <h2 className="text-xl font-semibold dark:tw-text-white border-b-2 border-slate-100 dark:tw-border-slate-700 pb-1 mb-1">
         Resumen de coberturas
       </h2>
       <div>
-        <ul className="text-slate-500 dark:text-slate-300">
+        <ul className="text-slate-500 dark:tw-text-slate-300">
           <li className="flex items-center gap-1">
             <FaPerson className=" tw-text-secondary dark:tw-text-secondary" />
             Personas aseguradas: {seguro.personas}x
@@ -34,7 +34,7 @@ function Aside({ seguro }) {
             {seguro.destino}
           </li>
         </ul>
-        <ul className="border border-slate-100 dark:border-slate-700 p-3 dark:text-slate-300">
+        <ul className="border border-slate-100 dark:tw-border-slate-700 p-3 dark:tw-text-slate-300">
           <li className="flex items-center gap-1">
             <MdCancel className="tw-text-secondary dark:tw-text-secondary" />
             Cancelaciónes hasta {seguro.cancelación.toFixed(2)}€
@@ -49,7 +49,7 @@ function Aside({ seguro }) {
           </li>
         </ul>
         <div className="flex justify-end mt-1">
-          <button className="flex items-center dark:text-white gap-1">
+          <button className="flex items-center dark:tw-text-white gap-1">
             Descargar
             <FaFilePdf />
           </button>

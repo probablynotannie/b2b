@@ -14,7 +14,7 @@ function Itinerario({ destino }) {
                   Día {destino.dia}
                 </span>
               </Timeline.Time>
-              <Timeline.Title className="tw-text-secondary dark:text-white">
+              <Timeline.Title className="tw-text-secondary dark:tw-text-white">
                 {destino.ciudad}, alojamiento en {destino.alojamiento}
               </Timeline.Title>
               <Timeline.Body>

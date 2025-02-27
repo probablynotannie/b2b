@@ -19,7 +19,7 @@ function Aside() {
     <>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:hidden relative border-2 border-gray-200 dark:border-slate-600 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 dark:text-slate-500 shadow-xl"
+        className="lg:hidden relative border-2 border-gray-200 dark:tw-border-slate-600 rounded-xl p-3 text-slate-700 bg-white dark:bg-slate-800 dark:tw-text-slate-500 shadow-xl"
       >
         <IoMdOptions className="text-xl" />
       </button>
@@ -57,7 +57,7 @@ function Aside() {
 function SidebarContent({ values, setValues, duracion, setDuracion }) {
   return (
     <div>
-      <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:border-slate-600">
+      <div className="flex justify-between items-center mb-4 bg-primary  lg:bg-inherit p-5 lg:p-3 border-b-2 dark:tw-border-slate-600">
         <h3 className="font-semibold text-white lg:tw-text-secondary text-xl ">
           Filtrado
         </h3>
@@ -66,14 +66,14 @@ function SidebarContent({ values, setValues, duracion, setDuracion }) {
         <div>
           <label
             htmlFor="first_name"
-            className="block mb-2 text-sm font-medium text-gray-900 dark:text-slate-400"
+            className="block mb-2 text-sm font-medium text-gray-900 dark:tw-text-slate-400"
           >
             Nombre de programa
           </label>
           <input
             type="text"
             id="first_name"
-            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full"
+            className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full"
             required
           />
         </div>

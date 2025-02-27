@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
 function Listado({
+  values,
+  setValues,
+  minMax,
   producto,
   habitaciones,
   seleccion,
@@ -24,10 +27,7 @@ function Listado({
 
   return (
     <div className="tw-space-y-5 tw-mt-12 tw-mb-16 lg:tw-mt-0">
-      <TipoHabitacion
-        minPrice={Math.min(...habitaciones.map((h) => parseFloat(h.precio)))}
-        maxPrice={Math.max(...habitaciones.map((h) => parseFloat(h.precio)))}
-      />
+      <TipoHabitacion values={values} setValues={setValues} minMax={minMax} />
       <div className="tw-grid tw-grid-cols-4 tw-gap-5">
         {habitaciones.map((habitacion) => (
           <div
@@ -41,7 +41,6 @@ function Listado({
             <span className="tw-text-slate-400 tw-text-sm">
               {habitacion.regimen}
             </span>
-
             {habitacion.reembolso === "NO" ? (
               <span className="tw-bg-danger tw-text-white tw-text-xs tw-font-medium tw-me-2 tw-px-2.5 tw-py-0.5 tw-rounded tw-mt-1">
                 No reembolsablee

@@ -17,10 +17,10 @@ function Seleccion() {
   return (
     <article className="container my-10 lg:mb-10 lg:mt-auto ">
       <article className="my-5 mt-10 grid grid-cols-3 gap-10">
-        <section className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[55vh] dark:bg-slate-800">
+        <section className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:tw-border-slate-700 min-h-[55vh] dark:bg-slate-800">
           <Detalles hotel={hotel} actividades={actividades} />
         </section>
-        <section className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit sticky top-24 dark:bg-slate-800">
+        <section className="col-span-3 lg:col-span-1 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:tw-border-slate-700 h-fit sticky top-24 dark:bg-slate-800">
           <Aside hotel={hotel} actividades={actividades} />
 
           <Link

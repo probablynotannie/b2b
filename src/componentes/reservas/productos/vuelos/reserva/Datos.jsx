@@ -6,6 +6,8 @@ import Input_Email from "../../../../inputs/Email";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useState } from "react";
 import FormatearFecha from "../../../estructura/FormatearFecha";
+import { useForm } from "react-hook-form";
+
 function Vuelo() {
   const location = useLocation();
   const navigate = useNavigate();
@@ -19,96 +21,103 @@ function Vuelo() {
       nacionalidad: "",
     }))
   );
+
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
   const fechaIda = FormatearFecha(ida.flight.outboundDate);
   const fechaVuelta = vuelta?.flight?.returnDate
     ? FormatearFecha(vuelta.flight.returnDate)
     : null;
-  const handlePassengerChange = (index, field, value) => {
-    setPasajeros((prevpasajeros) => {
-      const updatedpasajeros = [...prevpasajeros];
-      updatedpasajeros[index][field] = value;
-      return updatedpasajeros;
-    });
-  };
+
+  // ✅ Using "pasajeros" as an array in defaultValues
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    defaultValues: { pasajeros },
+  });
+
   const renderPassengerFields = () => {
-    return pasajeros.map((passenger, index) => (
+    return pasajeros.map((_, index) => (
       <div
         key={index}
         className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-3"
       >
         <Input_Texto
-          tipo={`Nombre (Pasajero ${index + 1})`}
-          value={passenger.nombre}
-          setValue={(value) => handlePassengerChange(index, "nombre", value)}
+          required={true}
+          name={`pasajeros.${index}.nombre`}
+          register={register}
+          errors={errors}
+          tipo={"Nombre"}
         />
         <Input_Texto
-          tipo={`Apellido/s (Pasajero ${index + 1})`}
-          value={passenger.apellido}
-          setValue={(value) => handlePassengerChange(index, "apellido", value)}
+          required={true}
+          name={`pasajeros.${index}.apellido`}
+          register={register}
+          errors={errors}
+          tipo={"Apellido/s"}
         />
         <Input_Texto
-          tipo={`Pasaporte (Pasajero ${index + 1})`}
-          value={passenger.pasaporte}
-          setValue={(value) => handlePassengerChange(index, "pasaporte", value)}
+          required={true}
+          name={`pasajeros.${index}.pasaporte`}
+          register={register}
+          errors={errors}
+          tipo={"Pasaporte"}
         />
         <Input_Nacionalidad
-          value={passenger.nacionalidad}
-          setValue={(value) =>
-            handlePassengerChange(index, "nacionalidad", value)
-          }
+          setValue={setValue}
+          required={true}
+          name={`pasajeros.${index}.nacionalidad`}
+          register={register}
+          errors={errors}
+          tipo={"Nacionalidad"}
         />
       </div>
     ));
   };
-  const handleSubmit = (event) => {
-    event.preventDefault();
 
+  const onSubmit = (data) => {
     navigate("/reservavuelo", {
-      state: { ida, vuelta, datosContacto, pasajeros },
+      state: { ida, vuelta, data },
     });
   };
-  const [datosContacto, setDatosContacto] = useState({
-    email: "",
-    nombre: "",
-    apellido: "",
-    numero: "",
-  });
-  const handleChange = (key, value) => {
-    setDatosContacto((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
+
   return (
-    <main className="my-10 flex justify-center container min-h-[68vh]">
-      <article className="p-5 w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
-        <form onSubmit={handleSubmit}>
-          <h1 className="font-semibold text-xl dark:text-white">
+    <main className="my-10 flex justify-center tw-container min-h-[68vh]">
+      <article className="p-5 w-full border-2 border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h1 className="font-semibold text-xl dark:tw-text-white">
             Datos Contacto
           </h1>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
             <Input_Texto
-              value={datosContacto.nombre}
-              setValue={(value) => handleChange("nombre", value)}
-              tipo="Nombre"
+              tipo={"Nombre"}
+              name="nombre"
+              register={register}
+              errors={errors}
             />
             <Input_Texto
-              value={datosContacto.apellido}
-              setValue={(value) => handleChange("apellido", value)}
-              tipo="Apellido/s"
+              tipo={"Apellido"}
+              name="apellido"
+              register={register}
+              errors={errors}
             />
             <Input_Numero
-              value={datosContacto.numero}
-              setValue={(value) => handleChange("numero", value)}
+              tipo="numero"
+              register={register}
+              errors={errors}
+              name="numero"
             />
             <Input_Email
-              email={datosContacto.email}
-              setEmail={(value) => handleChange("email", value)}
+              tipo="email"
+              register={register}
+              errors={errors}
+              name="email"
             />
           </div>
-          <h2 className="font-semibold mt-5 dark:text-white">
+          <h2 className="font-semibold mt-5 dark:tw-text-white">
             Datos Pasajeros
           </h2>
           {renderPassengerFields()}

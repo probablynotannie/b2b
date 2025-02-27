@@ -117,8 +117,8 @@ function Resultado({ tickets, actividades, setActividades }) {
             onClick={() => setActiveActividad(actividad)}
             className={`border-2 hover:scale-[102%] duration-300  relative  h-auto max-w-full rounded-lg rounded-t-lg shadow-lg hover:shadow-xl transition cursor-pointer ${
               isSelected
-                ? "bg-elegido dark:bg-green-950 border-2 border-secondary dark:border-green-500"
-                : "bg-white  dark:bg-slate-800 border-slate-100 dark:border-slate-700 "
+                ? "bg-elegido dark:bg-green-950 border-2 border-secondary dark:tw-border-green-500"
+                : "bg-white  dark:bg-slate-800 border-slate-100 dark:tw-border-slate-700 "
             }`}
           >
             <span
@@ -139,15 +139,15 @@ function Resultado({ tickets, actividades, setActividades }) {
               <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
             </div>
             <div className="p-5">
-              <h1 className="font-semibold text-slate-600 dark:text-slate-300">
+              <h1 className="font-semibold text-slate-600 dark:tw-text-slate-300">
                 {actividad.titulo}
               </h1>
-              <p className="text-sm dark:text-slate-400">
+              <p className="text-sm dark:tw-text-slate-400">
                 {actividad.descripcion_corta}
               </p>
               <p className="mt-3 text-lg">
                 <span className="text-slate-400 text-sm mr-1">Desde:</span>
-                <span className="font-bold text-green-600 dark:text-green-400">
+                <span className="font-bold text-green-600 dark:tw-text-green-400">
                   {actividad.precio}€
                 </span>
               </p>
@@ -166,7 +166,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                 src={activeActividad.img}
                 className="w-full h-[20vh] object-cover rounded-lg"
               />
-              <p className="dark:text-slate-300">
+              <p className="dark:tw-text-slate-300">
                 {activeActividad.descripcion_corta}
               </p>
               <div className="grid grid-cols-2 gap-5">
@@ -179,7 +179,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                     <div className="relative ">
                       <select
                         id="fecha"
-                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                        className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                         value={fechaSeleccionada}
                         onChange={(e) => setFechaSeleccionada(e.target.value)}
                       >
@@ -192,7 +192,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                           )
                         )}
                       </select>
-                      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                         <FaCalendarAlt />
                       </div>
                     </div>
@@ -203,7 +203,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                     <div className="relative ">
                       <select
                         id="hora"
-                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                        className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
                         value={horaSeleccionada}
                         onChange={(e) => setHoraSeleccionada(e.target.value)}
                       >
@@ -216,7 +216,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                           </option>
                         ))}
                       </select>
-                      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                      <div className="absolute top-0 pointer-events-none tw-bg-inputIcon dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
                         <FaClock />
                       </div>
                     </div>
@@ -225,7 +225,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               </div>
               {fechaSeleccionada && horaSeleccionada && (
                 <div className="mt-4">
-                  <label className="block font-semibold  dark:text-slate-100">
+                  <label className="block font-semibold  dark:tw-text-slate-100">
                     Entradas:
                   </label>
                   {isSelected ? (
@@ -248,14 +248,14 @@ function Resultado({ tickets, actividades, setActividades }) {
                       <div>
                         <label
                           htmlFor="adulto"
-                          className="block text-sm  dark:text-slate-100"
+                          className="block text-sm  dark:tw-text-slate-100"
                         >
                           Adultos ({activeActividad.tiposEntradas.adulto.precio}
                           €)
                         </label>
                         <select
                           id="adulto"
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
                           value={entradasSeleccionadas.adulto}
                           onChange={(e) =>
                             handleTicketChange("adulto", e.target.value)
@@ -278,13 +278,13 @@ function Resultado({ tickets, actividades, setActividades }) {
                       <div>
                         <label
                           htmlFor="niño"
-                          className="block text-sm  dark:text-slate-100"
+                          className="block text-sm  dark:tw-text-slate-100"
                         >
                           Niños ({activeActividad.tiposEntradas.niño.precio}€)
                         </label>
                         <select
                           id="niño"
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="border bg-white dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
                           value={entradasSeleccionadas.niño}
                           onChange={(e) =>
                             handleTicketChange("niño", e.target.value)

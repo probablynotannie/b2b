@@ -6,18 +6,18 @@ import { ImSpoonKnife } from "react-icons/im";
 import { MdMeetingRoom } from "react-icons/md";
 function Destino({ reserva }) {
   return (
-    <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
-      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
+    <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:tw-border-slate-700  rounded-lg">
+      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:tw-border-slate-700 pb-2 mb-5">
         <div>
           <div>
-            <h3 className="text-lg font-bold dark:text-white">
+            <h3 className="text-lg font-bold dark:tw-text-white">
               {reserva.nombre}
             </h3>
-            <span className="text-sm dark:text-slate-400">
+            <span className="text-sm dark:tw-text-slate-400">
               {reserva.fechaIda} - {reserva.fechaVuelta}
             </span>
           </div>
-          <div className="flex justify-between gap-3 flex-wrap text-slate-600 dark:text-slate-100">
+          <div className="flex justify-between gap-3 flex-wrap text-slate-600 dark:tw-text-slate-100">
             <div className="flex items-center gap-1">
               <FaPerson className="tw-text-secondary dark:tw-text-secondary" />
               <span>{reserva.pax}x</span>

@@ -12,20 +12,20 @@ function Reembolso({ contratar, setContratar, reembolso }) {
   return (
     <div>
       <div className="flex justify-between">
-        <h2 className="font-semibold dark:text-white">
+        <h2 className="font-semibold dark:tw-text-white">
           Reembolso Franquicia Total
         </h2>
         <span className="bg-green-500 rounded-md p-1 px-2 font-bold text-white text-sm">
           {reembolso} €
         </span>
       </div>
-      <p className="text-sm dark:text-slate-200">
+      <p className="text-sm dark:tw-text-slate-200">
         El seguro que incluye el alquiler tiene una franquicia que el cliente
         deberá pagar al proveedor en caso de devolver el coche con daños. Por
         sólo 10.00€/día, nosotros le devolvemos la franquicia a su regreso. Este
         producto incluye:
       </p>
-      <ul className="text-sm flex flex-col gap-2 dark:text-slate-200">
+      <ul className="text-sm flex flex-col gap-2 dark:tw-text-slate-200">
         <li className="flex items-center ml-5">
           <FaCheckCircle className="text-lg mr-2 text-green-500" />
           Franquicia por daños al coche
@@ -86,14 +86,14 @@ function Reembolso({ contratar, setContratar, reembolso }) {
               ].map((text, index) => (
                 <li className="flex items-center" key={index}>
                   <FaCheckCircle className="w-5 h-5 text-green-500 flex-shrink-0" />
-                  <span className="ml-2 text-sm text-slate-700 dark:text-slate-400">
+                  <span className="ml-2 text-sm text-slate-700 dark:tw-text-slate-400">
                     {text}
                   </span>
                 </li>
               ))}
             </ul>
 
-            <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400">
+            <p className="text-base leading-relaxed text-slate-500 dark:tw-text-slate-400">
               Este tipo de producto no será reembolsable una vez iniciado el
               contrato de alquiler. Es decir, si tu cliente se arrepiente de
               haberlo contratado con nosotros, deberías eliminarlo de la reserva
@@ -104,7 +104,7 @@ function Reembolso({ contratar, setContratar, reembolso }) {
               <CiNoWaitingSign className="mr-2" />
               Este producto cubre:
             </h3>
-            <p className="text-base leading-relaxed text-slate-500 dark:text-white">
+            <p className="text-base leading-relaxed text-slate-500 dark:tw-text-white">
               El "reembolso de franquicia total" pierde su validez:
             </p>
             <ul className="space-y-4">
@@ -117,13 +117,13 @@ function Reembolso({ contratar, setContratar, reembolso }) {
               ].map((text, index) => (
                 <li className="flex items-center" key={index}>
                   <FaMinusCircle className="w-5 h-5 text-red-500 flex-shrink-0" />
-                  <span className="ml-2 text-sm text-slate-700 dark:text-slate-400">
+                  <span className="ml-2 text-sm text-slate-700 dark:tw-text-slate-400">
                     {text}
                   </span>
                 </li>
               ))}
             </ul>
-            <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400">
+            <p className="text-base leading-relaxed text-slate-500 dark:tw-text-slate-400">
               En estos casos la responsabilidad del cliente no se limita al
               importe de la franquicia, sino que deberá pagar el total de los
               gastos pudiendo incluso exceder el importe de la franquicia.
@@ -132,7 +132,7 @@ function Reembolso({ contratar, setContratar, reembolso }) {
               <CiNoWaitingSign className="mr-2" />
               Este producto cubre:
             </h3>
-            <p className="text-base leading-relaxed text-slate-500 dark:text-slate-400">
+            <p className="text-base leading-relaxed text-slate-500 dark:tw-text-slate-400">
               Si la compañía de alquiler local cobrara a tu cliente la
               franquicia y previamente nos has contratado el Producto de
               Reembolso de Franquicia Total, envíanos la documentación detallada
@@ -149,7 +149,7 @@ function Reembolso({ contratar, setContratar, reembolso }) {
               ].map((documento, index) => (
                 <li key={index} className="flex items-center">
                   <GoDotFill className="w-3 h-3 text-orange-400 flex-shrink-0" />
-                  <span className="ml-2 text-sm text-slate-700 dark:text-slate-400 ">
+                  <span className="ml-2 text-sm text-slate-700 dark:tw-text-slate-400 ">
                     {documento}
                   </span>
                 </li>
@@ -159,7 +159,7 @@ function Reembolso({ contratar, setContratar, reembolso }) {
         </Modal.Body>
         <Modal.Footer>
           <button
-            className="dark:text-slate-200"
+            className="dark:tw-text-slate-200"
             onClick={() => setOpenModal(false)}
           >
             Cerrar

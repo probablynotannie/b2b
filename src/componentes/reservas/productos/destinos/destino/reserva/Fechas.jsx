@@ -93,8 +93,8 @@ function Fechas() {
   };
   return (
     <article className="container mt-10 grid grid-cols-3 gap-10">
-      <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
-        <h1 className="font-semibold dark:text-white text-2xl">
+      <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:tw-border-slate-700 min-h-[70vh] dark:bg-slate-800">
+        <h1 className="font-semibold dark:tw-text-white text-2xl">
           Selecciona el rango de fechas
         </h1>
         <Input_Fecha
@@ -103,7 +103,7 @@ function Fechas() {
           prices={localProducto.prices}
           setDates={setDates}
         />
-        <p className="flex justify-between mt-2 text-slate-500 dark:text-slate-400">
+        <p className="flex justify-between mt-2 text-slate-500 dark:tw-text-slate-400">
           <span>
             {dates.startDate
               ? dates.startDate.toLocaleDateString("es-ES", {
@@ -131,7 +131,7 @@ function Fechas() {
           </section>
         )}
       </main>
-      <aside className="col-span-3 lg:col-span-1 sticky top-5 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
+      <aside className="col-span-3 lg:col-span-1 sticky top-5 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:tw-border-slate-700 h-fit dark:bg-slate-800">
         <Aside
           dates={dates}
           handleRoomTypeChange={handleRoomTypeChange}

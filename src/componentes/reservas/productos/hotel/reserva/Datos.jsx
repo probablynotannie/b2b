@@ -11,12 +11,6 @@ function Datos() {
   const { producto, habitacion } = location.state;
   const img = "/banner_hoteles.jpg";
   const navigate = useNavigate();
-
-  const {
-    register,
-    handleSubmit,
-    formState: { errors },
-  } = useForm();
   const extras = (
     <div>
       {producto.pax !== 0 && (
@@ -25,6 +19,12 @@ function Datos() {
       {producto.pax_ninios !== 0 && <span> Niños: {producto.pax_ninios}</span>}
     </div>
   );
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+
   const onSubmit = (data) => {
     navigate("/reservaHotel", {
       state: { data, producto, habitacion },

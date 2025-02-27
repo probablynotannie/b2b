@@ -24,15 +24,15 @@ function ferris({ ferry }) {
   return (
     <>
       {ferry?.ida && (
-        <section className="border-2 pb-20 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition">
+        <section className="border-2 pb-20 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:tw-border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition">
           <img
             className="h-[25vh] w-full object-cover  rounded-t-lg"
             src={ferry.ida.barco}
             alt="imagen hotel"
           />
-          <div className="absolute border-2 border-slate-100 dark:border-slate-700 bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
+          <div className="absolute border-2 border-slate-100 dark:tw-border-slate-700 bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
             <span
-              className={`mt-2 text-lg text-slate-500 dark:text-green-400 rounded-lg px-2 p-1 font-bold `}
+              className={`mt-2 text-lg text-slate-500 dark:tw-text-green-400 rounded-lg px-2 p-1 font-bold `}
             >
               {ferry.vuelta?.precio
                 ? `${ferry.ida.precio + ferry.vuelta.precio}€`
@@ -58,7 +58,7 @@ function ferris({ ferry }) {
               </span>
             </h4>
             <div className="flex items-center gap-2">
-              <span className="text-sm flex items-center dark:text-slate-300 gap-1">
+              <span className="text-sm flex items-center dark:tw-text-slate-300 gap-1">
                 {ferry.ida.cambios === true ? (
                   <FaCheck className="text-green-500" />
                 ) : (
@@ -66,7 +66,7 @@ function ferris({ ferry }) {
                 )}
                 Cambios
               </span>
-              <span className="text-sm flex items-center dark:text-slate-300 gap-1">
+              <span className="text-sm flex items-center dark:tw-text-slate-300 gap-1">
                 {ferry.ida.cancelaciones === true ? (
                   <FaCheck className="text-green-500" />
                 ) : (
@@ -75,7 +75,7 @@ function ferris({ ferry }) {
                 Cancelaciones
               </span>
             </div>
-            <div className="flex justify-between dark:text-slate-300">
+            <div className="flex justify-between dark:tw-text-slate-300">
               <span className="flex items-center gap-1">
                 <FaCalendarAlt className="tw-text-secondary" />
                 {formatSpanishDate(ferry.ida.fecha)}

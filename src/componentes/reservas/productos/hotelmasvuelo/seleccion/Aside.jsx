@@ -3,14 +3,14 @@ import { FaCalendarAlt } from "react-icons/fa";
 import FormatearFecha from "../../../estructura/FormatearFecha";
 function Aside({ hotel, ida, vuelta }) {
   return (
-    <ul className="dark:text-slate-200">
+    <ul className="dark:tw-text-slate-200">
       <li>
         <ul>
           <li className="flex items-center gap-2 font-semibold">
             <FaHotel className="tw-text-secondary dark:tw-text-secondary" />
             {hotel.nombre}
           </li>
-          <li className="text-slate-600 dark:text-slate-400 flex items-center gap-2 ml-2 text-sm">
+          <li className="text-slate-600 dark:tw-text-slate-400 flex items-center gap-2 ml-2 text-sm">
             <FaCalendarAlt className="text-slate-300" /> {hotel.fecha} -{" "}
             {hotel.fechaSalida}
           </li>

@@ -6,7 +6,7 @@ export default class Gasolina extends Component {
     return (
       <div>
         <div className="flex justify-between">
-          <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+          <h3 className="text-lg font-bold text-slate-900 dark:tw-text-white mb-2">
             Política sobre gasolina
           </h3>
           <BsFillFuelPumpFill className="text-xl tw-text-secondary" />

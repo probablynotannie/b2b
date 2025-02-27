@@ -19,7 +19,7 @@ function Resultado({ trenes, setTren, tipo }) {
       {trenes.map((tren, index) => (
         <article
           key={index}
-          className="lg:flex flex-row bg-slate-100 dark:bg-slate-800 shadow-lg lg:shadow-md hover:shadow-xl border-2 border-slate-100 dark:border-slate-800 rounded-xl mt-8 relative transition-all hover:scale-[102%] duration-300"
+          className="lg:flex flex-row bg-slate-100 dark:bg-slate-800 shadow-lg lg:shadow-md hover:shadow-xl border-2 border-slate-100 dark:tw-border-slate-800 rounded-xl mt-8 relative transition-all hover:scale-[102%] duration-300"
         >
           <div className="p-6 w-full">
             <div className="w-full relative">
@@ -42,7 +42,7 @@ function Resultado({ trenes, setTren, tipo }) {
               </div>
             </div>
 
-            <div className="pl-4 border-l-2 mt-4 border-slate-400 dark:border-slate-700 dark:text-slate-300">
+            <div className="pl-4 border-l-2 mt-4 border-slate-400 dark:tw-border-slate-700 dark:tw-text-slate-300">
               <div className="text-sm">{tren.departureStationName}</div>
               <div className="text-sm">{duration(tren.duration)}</div>
               <div className="text-sm">{tren.arrivalStationName}</div>
@@ -63,12 +63,12 @@ function Resultado({ trenes, setTren, tipo }) {
                   onClose={() => setOpenModal(null)}
                 >
                   <Modal.Header className="bg-white dark:bg-slate-900">
-                    <h2 className="text-lg text-slate-800 dark:text-white">
+                    <h2 className="text-lg text-slate-800 dark:tw-text-white">
                       {tren.departureStationName} - {tren.arrivalStationName}
                     </h2>
                   </Modal.Header>
                   <Modal.Body className="bg-white dark:bg-slate-900">
-                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 text-start dark:text-white mb-5">
+                    <div className="grid grid-cols-2 md:grid-cols-3 gap-4 mt-4 text-start dark:tw-text-white mb-5">
                       <div className="p-3 shadow-md rounded-lg bg-blue-100 dark:bg-slate-800 text-sm text-center">
                         <b>Duracion:</b> {duration(tren.duration)}
                       </div>

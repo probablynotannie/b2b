@@ -49,13 +49,13 @@ function Productos() {
                 id="first_name"
                 value={searchTerm}
                 onChange={handleSearchChange}
-                className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
+                className="bg-slate-50 border border-slate-300 text-slate-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:tw-border-slate-600 dark:placeholder-gray-400 dark:tw-text-white dark:focus:ring-secondary dark:focus:border-secondary"
                 placeholder="Buscar por nombre"
                 required
               />
               <select
                 id="tipos"
-                className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:border-slate-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-secondary dark:focus:border-secondary"
+                className="bg-slate-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-secondary focus:border-secondary block w-full p-2.5 dark:bg-slate-800 p.2.5 dark:tw-border-slate-600 dark:placeholder-gray-400 dark:tw-text-white dark:focus:ring-secondary dark:focus:border-secondary"
               >
                 <option selected>Todos</option>
               </select>

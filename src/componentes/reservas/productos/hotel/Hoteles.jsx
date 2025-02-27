@@ -7,7 +7,6 @@ import { Carousel } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Imagenes from "../../estructura/hoteles/Imgs";
-
 function Resultado({ hoteles }) {
   const reserva = {
     pax: 2,
@@ -116,7 +115,7 @@ function Resultado({ hoteles }) {
                       </div>
                       <button
                         onClick={() => setOpenModal(false)}
-                        className="tw-text-xl tw-text-slate-700"
+                        className="tw-text-xl tw-text-slate-700 dark:tw-text-white"
                       >
                         &times;
                       </button>
