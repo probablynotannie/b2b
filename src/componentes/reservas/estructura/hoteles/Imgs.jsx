@@ -9,38 +9,28 @@ function Imagenes({ imagenes }) {
   const closeModal = () => {
     setSelectedImageIndex(null);
   };
-
-  // Función para ir a la imagen anterior
   const goToPrevious = () => {
     setSelectedImageIndex(
       (prevIndex) => (prevIndex - 1 + imagenes.length) % imagenes.length
     );
   };
-
-  // Función para ir a la siguiente imagen
   const goToNext = () => {
     setSelectedImageIndex((prevIndex) => (prevIndex + 1) % imagenes.length);
   };
 
-  // UseEffect para escuchar los eventos del teclado
   useEffect(() => {
-    // Función que maneja los eventos de teclado
     const handleKeyDown = (event) => {
       if (event.key === "ArrowLeft") {
-        goToPrevious(); // Navegar a la imagen anterior
+        goToPrevious();
       } else if (event.key === "ArrowRight") {
-        goToNext(); // Navegar a la imagen siguiente
+        goToNext();
       } else if (event.key === "Escape") {
-        closeModal(); // Cerrar el modal cuando se presiona Escape
+        closeModal();
       }
     };
-
-    // Añadir el listener cuando el modal está abierto
     if (selectedImageIndex !== null) {
       window.addEventListener("keydown", handleKeyDown);
     }
-
-    // Limpiar el listener cuando el modal se cierra o cuando el componente se desmonta
     return () => {
       window.removeEventListener("keydown", handleKeyDown);
     };
@@ -48,50 +38,52 @@ function Imagenes({ imagenes }) {
 
   return (
     <div>
-  <div className="tw-columns-2 md:tw-columns-4 tw-gap-4 tw-space-y-4">
-    {imagenes.map((url, index) => (
-      <img
-        key={index}
-        className="tw-w-full tw-rounded-lg tw-break-inside-avoid tw-transition tw-cursor-pointer"
-        src={url}
-        alt={`Gallery Image ${index + 1}`}
-        onClick={() => openModal(index)}
-      />
-    ))}
-  </div>
-
-  {selectedImageIndex !== null && (
-    <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-80 tw-flex tw-items-center tw-justify-center tw-p-5 tw-z-50">
-      <button
-        onClick={closeModal}
-        className="tw-absolute tw-top-4 tw-right-4 tw-text-white tw-text-2xl tw-font-bold tw-p-5"
-      >
-        &times;
-      </button>
-
-      <div className="tw-flex tw-flex-col tw-items-center tw-space-y-4 md:tw-space-y-0 md:tw-flex-col md:tw-space-x-4">
-        <img
-          src={imagenes[selectedImageIndex]}
-          alt={`Large view of Gallery Image ${selectedImageIndex + 1}`}
-          className="tw-w-[80vw] tw-h-[80vh] tw-object-cover tw-max-h-[80vh] tw-rounded-lg"
-        />
-
-        <div className="tw-flex tw-justify-between tw-w-full md:tw-w-auto tw-space-x-32 tw-mt-4 md:tw-mt-0">
-          <button
-            onClick={goToPrevious}
-            className="tw-text-white tw-text-3xl tw-p-5"
-          >
-            &#10094;
-          </button>
-          <button onClick={goToNext} className="tw-text-white tw-text-3xl tw-p-5">
-            &#10095;
-          </button>
-        </div>
+      <div className="tw-columns-2 md:tw-columns-4 tw-gap-4 tw-space-y-4">
+        {imagenes.map((url, index) => (
+          <img
+            key={index}
+            className="tw-w-full hover:tw-scale-105 tw-rounded-lg tw-break-inside-avoid tw-transition tw-cursor-pointer"
+            src={url}
+            alt={`Gallery Image ${index + 1}`}
+            onClick={() => openModal(index)}
+          />
+        ))}
       </div>
-    </div>
-  )}
-</div>
 
+      {selectedImageIndex !== null && (
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-80 tw-flex tw-items-center tw-justify-center tw-p-5 tw-z-50">
+          <button
+            onClick={closeModal}
+            className="tw-absolute tw-top-4 tw-right-4 tw-text-white tw-text-2xl tw-font-bold tw-p-5"
+          >
+            &times;
+          </button>
+
+          <div className="tw-flex tw-flex-col tw-items-center tw-space-y-4 md:tw-space-y-0 md:tw-flex-col md:tw-space-x-4">
+            <img
+              src={imagenes[selectedImageIndex]}
+              alt={`Large view of Gallery Image ${selectedImageIndex + 1}`}
+              className="tw-w-[80vw] tw-h-[80vh] tw-object-cover tw-max-h-[80vh] tw-rounded-lg"
+            />
+
+            <div className="tw-flex tw-justify-between tw-w-full md:tw-w-auto tw-space-x-32 tw-mt-4 md:tw-mt-0">
+              <button
+                onClick={goToPrevious}
+                className="tw-text-white tw-text-3xl tw-p-5"
+              >
+                &#10094;
+              </button>
+              <button
+                onClick={goToNext}
+                className="tw-text-white tw-text-3xl tw-p-5"
+              >
+                &#10095;
+              </button>
+            </div>
+          </div>
+        </div>
+      )}
+    </div>
   );
 }
 

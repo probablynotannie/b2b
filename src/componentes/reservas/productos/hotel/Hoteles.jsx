@@ -1,12 +1,10 @@
 import { IoMdStar, IoMdStarOutline, IoMdStarHalf } from "react-icons/io";
-import { FaMapPin } from "react-icons/fa";
+import { FaDoorOpen, FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
 import { Carousel } from "flowbite-react";
-import { FaDoorOpen } from "react-icons/fa";
-import { Modal } from "flowbite-react";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Imagenes from "../../estructura/hoteles/Imgs";
 
@@ -18,9 +16,18 @@ function Resultado({ hoteles }) {
     noches: 7,
   };
   const [openModal, setOpenModal] = useState(null);
-
+  useEffect(() => {
+    if (openModal !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "";
+    }
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [openModal]);
   return (
-    <section className="pb-12">
+    <section className="tw-pb-12">
       <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
         Resultados ({hoteles.length})
       </h3>
@@ -77,8 +84,7 @@ function Resultado({ hoteles }) {
                 </span>
                 <span className="tw-flex tw-items-center">
                   <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
-                  {reserva.habitaciones}
-                  Habitación/es
+                  {reserva.habitaciones} Habitación/es
                 </span>
                 <span className="tw-flex tw-items-center">
                   <MdModeNight className="tw-text-lg" />
@@ -96,45 +102,54 @@ function Resultado({ hoteles }) {
               >
                 Detalles
               </button>
-              <Modal
-                size="4xl"
-                dismissible
-                show={openModal === index}
-                onClose={() => setOpenModal(null)}
-              >
-                <Modal.Header className="tw-bg-white dark:tw-bg-slate-900">
-                  {hotel.nombre}
-                  <p className="tw-text-sm tw-text-slate-400">
-                    {hotel.fecha} - {hotel.fechaSalida}
-                  </p>
-                </Modal.Header>
-                <Modal.Body className="tw-bg-white dark:tw-bg-slate-900">
-                  <div className="tw-space-y-6 tw-mt-2">
-                    <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
-                      {hotel.descripcion}
-                    </p>
-                    <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-                      <span className="tw-font-semibold">
-                        Precio por noche:
-                      </span>{" "}
-                      ${hotel.precio}
-                    </p>
-                    <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-                      <span className="tw-font-semibold">Extras:</span>{" "}
-                      {hotel.extras.join(", ")}
-                    </p>
-                    <Imagenes imagenes={hotel.habitacionImgs} />
+              {openModal === index && (
+                <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65 z-50 flex items-center justify-center bg-black bg-opacity-50">
+                  <div className="tw-bg-white tw-border-2 tw-border-secondary dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-4xl tw-max-h-[90vh] tw-overflow-y-auto">
+                    <div className="tw-border-b tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-between tw-items-center">
+                      <div>
+                        <h4 className="tw-text-secondary tw-font-semibold tw-text-xl">
+                          {hotel.nombre}
+                        </h4>
+                        <p className="tw-text-sm tw-text-slate-400">
+                          {hotel.fecha} - {hotel.fechaSalida}
+                        </p>
+                      </div>
+                      <button
+                        onClick={() => setOpenModal(false)}
+                        className="tw-text-xl tw-text-slate-700"
+                      >
+                        &times;
+                      </button>
+                    </div>
+                    <div className="tw-p-5">
+                      <div className="tw-space-y-6">
+                        <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
+                          {hotel.descripcion}
+                        </p>
+                        <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                          <span className="tw-font-semibold">
+                            Precio por noche:
+                          </span>{" "}
+                          ${hotel.precio}
+                        </p>
+                        <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                          <span className="tw-font-semibold">Extras:</span>{" "}
+                          {hotel.extras.join(", ")}
+                        </p>
+                        <Imagenes imagenes={hotel.habitacionImgs} />
+                      </div>
+                    </div>
+                    <div className="tw-border-t tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-end">
+                      <button
+                        className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-bg-secondary tw-font-bold tw-rounded-xl tw-text-white"
+                        onClick={() => setOpenModal(null)}
+                      >
+                        Cerrar
+                      </button>
+                    </div>
                   </div>
-                </Modal.Body>
-                <Modal.Footer className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end">
-                  <button
-                    className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-tw-bg-secondary tw-font-bold tw-rounded-xl tw-text-white"
-                    onClick={() => setOpenModal(null)}
-                  >
-                    Cerrar
-                  </button>
-                </Modal.Footer>
-              </Modal>
+                </div>
+              )}
               <Link to="/hotel" state={hotel}>
                 <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow">
                   Reservar
