@@ -181,7 +181,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
           >
             <article className="xl:tw-flex tw-flex-row tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]">
               <div className="tw-w-full tw-h-[25vh] lg:tw-h-auto xl:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden tw-relative tw-group">
-                <div className="tw-bg-black tw-rounded-t-lg bg-opacity-0 tw-transition-opacity tw-duration-500 tw-delay-200 tw-absolute tw-top-0 tw-w-full tw-h-full group-hover:flex tw-justify-center tw-items-center tw-text-5xl group-hover:bg-opacity-45 tw-text-white tw-font-bold tw-hidden">
+                <div className="tw-bg-black tw-rounded-t-lg  tw-bg-opacity-0 tw-transition-opacity tw-duration-500 tw-delay-200 tw-absolute tw-top-0 tw-w-full tw-h-full group-hover:flex tw-justify-center tw-items-center tw-text-5xl group-hover:bg-opacity-45 tw-text-white tw-font-bold tw-hidden">
                   {coche.precio * coche.dias}€
                 </div>
                 <img

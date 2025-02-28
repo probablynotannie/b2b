@@ -235,7 +235,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+        <div className="fixed inset-0 bg-black  tw-bg-opacity-50 flex justify-center items-center z-50">
           <div
             ref={modalRef} // Attach the ref to the modal container
             className="bg-white dark:bg-slate-700 w-full md:w-[90vw] md:h-[90vh] lg:w-[60vw] lg:h-[90vh] xl:w-[60vw] xl:h-[90vh] h-full mx-auto relative"

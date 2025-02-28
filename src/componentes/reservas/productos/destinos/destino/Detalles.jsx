@@ -13,7 +13,7 @@ function Detalles({ producto, cesta }) {
               className="h-full w-full object-cover rounded"
               alt="imagen Destino"
             />
-            <div className="bg-black bg-opacity-45 h-full w-full absolute top-0 flex items-center justify-center">
+            <div className="bg-black  tw-bg-opacity-45 h-full w-full absolute top-0 flex items-center justify-center">
               <h2 className="text-4xl text-slate-100 font-bold">
                 {producto.nombre}
               </h2>

@@ -23,6 +23,8 @@ const Dropdown = () => {
         { id: 2, texto: "Cruceros", to: "/cruceros" },
         { id: 3, texto: "Transfers", to: "/transfers" },
         { id: 4, texto: "Vuelo + hotel", to: "/vueloHotel" },
+        { id: 11, texto: "Hotel + actividades", to: "/hotelmasactividades" },
+        { id: 12, texto: "Hotel + vuelos", to: "/vueloHotel" },
         { id: 5, texto: "Coches", to: "/coches" },
         { id: 6, texto: "Tickets", to: "/tickets" },
         { id: 7, texto: "Entradas", to: "/entradas" },

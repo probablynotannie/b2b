@@ -65,9 +65,9 @@ function SelectorPersonas({
       )
     );
   };
+
   const totalAdults = roomData.reduce((acc, room) => acc + room.adultos, 0);
   const totalChildren = roomData.reduce((acc, room) => acc + room.ninios, 0);
-
   return (
     <div>
       <div className="lg:tw-hidden">

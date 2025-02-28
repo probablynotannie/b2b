@@ -3,10 +3,10 @@ import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
-import { useState } from "react";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../../estructura/FormatearFecha";
-
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function Vuelo() {
   const location = useLocation();
   const { producto, selectedExtras, conductor, reembolso, precio } =
@@ -34,48 +34,53 @@ function Vuelo() {
       {reembolso && <span> + Reembolso franquicia total </span>}
     </div>
   );
-  const handleSubmit = (event) => {
-    event.preventDefault();
-  };
+  const navigate = useNavigate();
 
-  const [datosContacto, setDatosContacto] = useState({
-    email: "",
-    nombre: "",
-    apellido: "",
-    numero: "",
-  });
-  const handleChange = (key, value) => {
-    setDatosContacto((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
+  const {
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm();
+  const onSubmit = (data) => {
+    navigate("/reservaCoche", {
+      state: { data, producto, selectedExtras, conductor, reembolso, precio },
+    });
   };
-
   return (
     <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
       <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-xl tw-bg-white dark:tw-bg-slate-800">
-        <form onSubmit={handleSubmit}>
-          <h1 className="tw-font-semibold tw-text-xl dark:tw-text-white">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
-          </h1>
+          </h2>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
-              value={datosContacto.nombre}
-              setValue={(value) => handleChange("nombre", value)}
-              tipo="Nombre"
+              required={true}
+              tipo={"Nombre"}
+              name="nombre"
+              register={register}
+              errors={errors}
             />
             <Input_Texto
-              value={datosContacto.apellido}
-              setValue={(value) => handleChange("apellido", value)}
-              tipo="Apellido/s"
+              required={true}
+              tipo={"Apellido"}
+              name="apellido"
+              register={register}
+              errors={errors}
             />
             <Input_Numero
-              value={datosContacto.numero}
-              setValue={(value) => handleChange("numero", value)}
+              required={true}
+              tipo="numero"
+              register={register}
+              errors={errors}
+              name="numero"
             />
             <Input_Email
-              email={datosContacto.email}
-              setEmail={(value) => handleChange("email", value)}
+              required={true}
+              tipo="email"
+              register={register}
+              errors={errors}
+              name="email"
             />
           </div>
           <Reserva
@@ -88,21 +93,9 @@ function Vuelo() {
             extras={extras}
           />
           <div className="tw-flex tw-justify-end">
-            <Link
-              to={"/reservaCoche"}
-              state={{
-                producto,
-                selectedExtras,
-                datosContacto,
-                reembolso,
-                conductor,
-                precio,
-              }}
-            >
-              <button className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
-                Reservar
-              </button>
-            </Link>
+            <button className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
+              Reservar
+            </button>
           </div>
         </form>
       </article>

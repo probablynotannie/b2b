@@ -8,12 +8,12 @@ function Cruceros() {
               key={index}
               className={`tw-transition-all tw-duration-300 tw-w-[33.33%] sm:tw-w-[25%] tw-bg-slate-300 dark:tw-bg-slate-800 tw-min-h-[20vh] tw-max-h-[45vh] tw-flex tw-justify-center tw-items-center`}
             >
-              <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
+              <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800  tw-bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
                 <div className="tw-w-20 tw-h-4 tw-bg-slate-300 dark:tw-bg-slate-700 tw-rounded"></div>
               </div>
             </div>
           ))}
-          <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-slate-400 dark:tw-bg-slate-900 bg-opacity-90 tw-text-white tw-font-bold tw-px-5 tw-h-2"></div>
+          <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-slate-400 dark:tw-bg-slate-900  tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5 tw-h-2"></div>
         </div>
         <div className="tw-flex tw-items-center tw-font-semibold tw-bg-slate-300 dark:tw-bg-slate-700 tw-text-white tw-px-2 tw-p-1 tw-rounded-full tw-absolute tw-top-5 tw-right-5 tw-w-16 tw-h-8"></div>
       </div>

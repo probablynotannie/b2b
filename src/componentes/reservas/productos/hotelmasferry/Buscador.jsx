@@ -37,7 +37,7 @@ function Buscador() {
       </button>
 
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+        className={`fixed inset-0 z-50 flex items-center justify-center bg-black  tw-bg-opacity-50 transition-opacity duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >

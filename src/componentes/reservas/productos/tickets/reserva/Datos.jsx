@@ -9,7 +9,7 @@ function Datos() {
   const location = useLocation();
   const { producto, tickets } = location.state || {};
   const fechaIda = (
-    <div className="tw-p-3 bg-opacity-40 tw-rounded-lg">
+    <div className="tw-p-3  tw-bg-opacity-40 tw-rounded-lg">
       {tickets.map((ticket, index) => (
         <div
           className="tw-text-sm tw-mt-3 tw-pl-2 tw-bg-secondary tw-text-white tw-p-1 tw-rounded-lg tw-font-semibold"
@@ -41,7 +41,7 @@ function Datos() {
           <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
           </h2>
-          <group className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
+          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
               required={true}
               tipo={"Nombre"}
@@ -70,7 +70,7 @@ function Datos() {
               errors={errors}
               name="email"
             />
-          </group>
+          </div>
           <Reserva
             img={"/banner_actividades2.jpg"}
             position={"center"}

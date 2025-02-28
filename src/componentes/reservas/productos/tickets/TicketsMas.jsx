@@ -136,7 +136,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                 src={actividad.img}
                 alt={actividad.titulo}
               />
-              <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
+              <div className="bg-emerald-500  tw-bg-opacity-15 absolute top-0 w-full h-full" />
             </div>
             <div className="p-5">
               <h1 className="font-semibold text-slate-600 dark:tw-text-slate-300">

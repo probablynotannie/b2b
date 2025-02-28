@@ -119,7 +119,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
         </div>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+        <div className="tw-fixed tw-inset-0 tw-bg-black  tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white tw-w-full tw-h-full tw-mx-auto tw-relative">
             <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">

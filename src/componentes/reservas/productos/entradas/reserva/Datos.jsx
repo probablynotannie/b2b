@@ -9,7 +9,7 @@ function Datos() {
   const location = useLocation();
   const { producto, tickets } = location.state || {};
   const fechaIda = (
-    <div className="tw-p-3 bg-opacity-40 tw-rounded-lg">
+    <div className="tw-p-3  tw-bg-opacity-40 tw-rounded-lg">
       {tickets.map((ticket, index) => (
         <div
           className="tw-text-sm tw-mt-3 tw-pl-2 tw-bg-secondary tw-text-white tw-p-1 tw-rounded-lg tw-font-semibold"

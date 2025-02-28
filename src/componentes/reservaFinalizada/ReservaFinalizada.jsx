@@ -73,7 +73,7 @@ function ReservaFinalizada() {
           className="w-full h-full object-cover rounded-lg shadow-lg"
           alt="Imagen de reserva completada"
         />
-        <div className="bg-black rounded-lg shadow-lg bg-opacity-45 top-0 absolute w-full h-full flex items-center justify-center">
+        <div className="bg-black rounded-lg shadow-lg  tw-bg-opacity-45 top-0 absolute w-full h-full flex items-center justify-center">
           <div>
             <h2 className="text-white text-center font-bold text-4xl md:text-6xl">
               Reserva completada con éxito

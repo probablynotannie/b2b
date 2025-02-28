@@ -29,7 +29,7 @@ function Aside({ values, setValues, minMax }) {
       </div>
       {isModalOpen && (
         <div
-          className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black bg-opacity-50"
+          className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black  tw-bg-opacity-50"
           onClick={() => setIsModalOpen(false)}
         >
           <div

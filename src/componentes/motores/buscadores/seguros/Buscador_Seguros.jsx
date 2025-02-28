@@ -89,7 +89,7 @@ function Buscador_Destinos() {
     const newRequestData = {
       destination: 0,
     };
-    navigate("/listadoTickets", { state: { newRequestData } });
+    navigate("/seguro", { state: { newRequestData } });
   };
   return (
     <>
@@ -153,7 +153,7 @@ function Buscador_Destinos() {
                   />
 
                   <Input_selectNum
-                    placeholder={"Núm pasajeros"}
+                    placeholder={"Núm asegurados"}
                     valor={pasajeros}
                     setValor={setPasajeros}
                     num={maxPasajeros}

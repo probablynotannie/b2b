@@ -6,38 +6,38 @@ import { FaGlobe } from "react-icons/fa";
 
 function Detalles({ seguro }) {
   return (
-    <div className="grid grid-cols-2 xl:grid-cols-5 gap-10 mt-3 place-items-center">
-      <div className="flex flex-col justify-center items-center text-slate-500 dark:tw-text-slate-400 font-bold w-32 h-32 rounded-full ">
-        <span className="rounded-full flex items-center justify-center text-4xl w-16 h-16">
+    <div className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-5 tw-gap-10 tw-mt-3 tw-place-items-center">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-slate-500 dark:tw-text-slate-400 tw-font-bold tw-w-32 tw-h-32 tw-rounded-full">
+        <span className="tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-4xl tw-w-16 tw-h-16">
           <FaGlobe />
         </span>
         <span>{seguro.destino}</span>
       </div>
-      <div className="flex flex-col justify-center items-center text-slate-500 dark:tw-text-slate-400 font-bold w-32 h-32 rounded-full ">
-        <span className="rounded-full flex items-center justify-center text-4xl w-16 h-16">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-slate-500 dark:tw-text-slate-400 tw-font-bold tw-w-32 tw-h-32 tw-rounded-full">
+        <span className="tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-4xl tw-w-16 tw-h-16">
           <FaPerson />
         </span>
         <span>{seguro.personas}x</span>
       </div>
-      <div className="flex flex-col justify-center items-center text-slate-500 dark:tw-text-slate-400 font-bold w-32 h-32 rounded-full ">
-        <span className="rounded-full flex items-center justify-center text-4xl w-16 h-16">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-slate-500 dark:tw-text-slate-400 tw-font-bold tw-w-32 tw-h-32 tw-rounded-full">
+        <span className="tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-4xl tw-w-16 tw-h-16">
           <MdLuggage />
         </span>
-        <span className="text-sm">Hasta</span>
+        <span className="tw-text-sm">Hasta</span>
         <span>{seguro.equipaje.toFixed(2)}€</span>
       </div>
-      <div className="flex flex-col justify-center items-center text-slate-500 dark:tw-text-slate-400 font-bold w-32 h-32 rounded-full ">
-        <span className="rounded-full flex items-center justify-center text-4xl w-16 h-16">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-slate-500 dark:tw-text-slate-400 tw-font-bold tw-w-32 tw-h-32 tw-rounded-full">
+        <span className="tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-4xl tw-w-16 tw-h-16">
           <FaBriefcaseMedical />
         </span>
-        <span className="text-sm">Hasta</span>
+        <span className="tw-text-sm">Hasta</span>
         <span>{seguro.asistenciaMedica.toFixed(2)}€</span>
       </div>
-      <div className="flex flex-col justify-center items-center text-slate-500 dark:tw-text-slate-400 font-bold w-32 h-32 rounded-full ">
-        <span className="rounded-full flex items-center justify-center text-4xl w-16 h-16">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-slate-500 dark:tw-text-slate-400 tw-font-bold tw-w-32 tw-h-32 tw-rounded-full">
+        <span className="tw-rounded-full tw-flex tw-items-center tw-justify-center tw-text-4xl tw-w-16 tw-h-16">
           <MdCancel />
         </span>
-        <span className="text-sm">Hasta</span>
+        <span className="tw-text-sm">Hasta</span>
         <span>{seguro.cancelación.toFixed(2)}€</span>
       </div>
     </div>

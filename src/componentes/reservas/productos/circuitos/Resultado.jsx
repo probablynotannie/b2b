@@ -29,7 +29,7 @@ function Productos() {
           backgroundImage: "url('/banner_actividades2.jpg')",
         }}
       >
-        <div className="bg-indigo-200 dark:bg-black text-pink-600 bg-opacity-50 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+        <div className="bg-indigo-200 dark:bg-black text-pink-600  tw-bg-opacity-50 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
         <div className="container relative">
           <Buscador />
         </div>

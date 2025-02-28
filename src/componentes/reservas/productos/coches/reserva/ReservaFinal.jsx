@@ -6,7 +6,7 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
-  const { producto, selectedExtras, precio, datosContacto, conductor } =
+  const { producto, selectedExtras, precio, data, conductor } =
     location.state || {};
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
@@ -30,16 +30,16 @@ function ReservaFinal() {
 
         <div className="tw-flex tw-flex-nowrap tw-gap-2 tw-mt-2 tw-items-center tw-text-slate-500 dark:tw-text-slate-400">
           <FaUser className="tw-text-slate-700 dark:tw-text-slate-200" />
-          <span>{datosContacto.nombre}</span>
-          <span>{datosContacto.apellido}</span>
+          <span>{data.nombre}</span>
+          <span>{data.apellido}</span>
         </div>
         <div className="tw-flex tw-flex-nowrap tw-gap-2 tw-mt-2 tw-items-center tw-text-slate-500 dark:tw-text-slate-400">
           <MdEmail className="tw-text-slate-700 dark:tw-text-slate-200" />
-          <span>{datosContacto.email}</span>
+          <span>{data.email}</span>
         </div>
         <div className="tw-flex tw-flex-nowrap tw-gap-2 tw-mt-2 tw-items-center tw-text-slate-500 dark:tw-text-slate-400">
           <MdPhoneAndroid className="tw-text-slate-700 dark:tw-text-slate-200" />
-          <span>{datosContacto.numero}</span>
+          <span>{data.numero}</span>
         </div>
         <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2 tw-mt-3 tw-mb-2">
           Coche y Extras
@@ -90,7 +90,7 @@ function ReservaFinal() {
         </p>
         <Link
           to={"/resumenCoche"}
-          state={{ producto, selectedExtras, precio, datosContacto, conductor }}
+          state={{ producto, selectedExtras, precio, data, conductor }}
         >
           <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             {precio.toFixed(2)}€

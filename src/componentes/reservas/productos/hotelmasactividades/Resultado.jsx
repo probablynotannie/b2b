@@ -37,7 +37,7 @@ function Productos() {
             backgroundImage: "url('/banner_avion.jpg')",
           }}
         >
-          <div className="bg-indigo-300 dark:bg-black text-pink-600 bg-opacity-55 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+          <div className="bg-indigo-300 dark:bg-black text-pink-600  tw-bg-opacity-55 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
           <div className="flex">
             <div className="container relative">
               <Buscador />

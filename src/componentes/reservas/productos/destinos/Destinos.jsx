@@ -30,7 +30,7 @@ function Resultado() {
               </div>
             ) : (
               <div className="relative h-[25vh] rounded-t-lg">
-                <div className="bg-indigo-700 bg-opacity-40 w-full h-full rounded-t-lg absolute" />
+                <div className="bg-indigo-700  tw-bg-opacity-40 w-full h-full rounded-t-lg absolute" />
                 <img
                   src={destino.img}
                   alt="destino"

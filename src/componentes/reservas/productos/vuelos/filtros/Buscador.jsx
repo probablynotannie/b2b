@@ -36,7 +36,7 @@ function Buscador() {
         </span>
       </button>
       <div
-        className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black bg-opacity-50 tw-transition-opacity tw-duration-300 ${
+        className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black  tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
       >

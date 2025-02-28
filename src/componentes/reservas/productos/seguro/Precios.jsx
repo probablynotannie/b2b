@@ -1,21 +1,24 @@
 function Precios({ precios, titulo, icono }) {
   return (
-    <div className="mt-5 border-t-2 dark:tw-border-slate-800 bg-slate-100 dark:bg-slate-900 rounded-xl">
-      <div className="flex justify-between items-center pr-2">
-        <h2 className="p-3 font-bold dark:tw-text-slate-100">{titulo}</h2>
-        <span className="text-xl p-2 px-5 bg-slate-200 dark:bg-slate-700 shadow-inner rounded-lg">
+    <div className="tw-mt-5 tw-border-t-2 dark:tw-border-slate-800 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-xl">
+      <div className="tw-flex tw-justify-between tw-items-center tw-pr-2">
+        <h2 className="tw-p-3 tw-font-bold dark:tw-text-slate-100">{titulo}</h2>
+        <span className="tw-text-xl tw-p-2 tw-px-5 tw-bg-slate-200 dark:tw-bg-slate-700 tw-shadow-inner tw-rounded-lg">
           {icono}
         </span>
       </div>
-      <table className="table-auto w-full ">
-        <tbody className="border-2 border-slate-100 dark:tw-border-slate-700 shadow-inner ">
+      <table className="tw-table-auto tw-w-full">
+        <tbody className="tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-shadow-inner">
           {precios.map((precio) => (
             <tr key={precio.id}>
-              <td colSpan={precio.precio ? 1 : 2} className="text-start p-2 dark:tw-text-slate-300">
+              <td
+                colSpan={precio.precio ? 1 : 2}
+                className="tw-text-start tw-p-2 dark:tw-text-slate-300"
+              >
                 {precio.texto}
               </td>
               {precio.precio && (
-                <td className=" text-end p-2 font-semibold text-green-700">
+                <td className="tw-text-end tw-p-2 tw-font-semibold tw-text-green-700">
                   {typeof precio.precio === "number" ? (
                     <span>{precio.precio.toFixed(2)}€</span>
                   ) : (
