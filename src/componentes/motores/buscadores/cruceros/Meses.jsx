@@ -11,10 +11,8 @@ function Meses({ setRequestData }) {
     };
 
     setRequestData(newRequestData);
-    console.log(monthNumber);
     navigate("/listadoCruceros", { state: { newRequestData } });
   };
-
   return (
     <section className="tw-flex tw-items-center dark:tw-text-white tw-flex-col tw-py-5">
       <h2 className="tw-font-bold tw-text-xl tw-mb-5 tw-text-center tw-text-gray-800 dark:tw-text-slate-100">
