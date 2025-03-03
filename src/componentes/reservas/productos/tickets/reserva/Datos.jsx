@@ -4,7 +4,9 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 function Datos() {
   const location = useLocation();
   const { producto, tickets } = location.state || {};

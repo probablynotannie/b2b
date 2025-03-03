@@ -22,7 +22,6 @@ function Puertos({ setRequestData }) {
       titulo: producto.name,
       desc: producto.descripcion,
     };
-    console.log(producto);
     setRequestData(newRequestData);
     navigate("/listadoCruceros", { state: { newRequestData } });
   };

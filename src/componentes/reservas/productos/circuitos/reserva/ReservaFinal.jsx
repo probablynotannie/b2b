@@ -10,47 +10,47 @@ import { MdMeetingRoom } from "react-icons/md";
 
 function ReservaFinal() {
   const location = useLocation();
-  const { datosContacto, fechaIda, actividad, habitacion, roomData } =
+  const { data, fechaIda, actividad, habitacion, roomData } =
     location.state || {};
   const adultos = roomData.reduce((acc, room) => acc + room.adultos, 0);
   const ninios = roomData.reduce((acc, room) => acc + room.ninios, 0);
 
   return (
-    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:tw-border-slate-700 dark:bg-slate-900 p-5">
-        <h1 className="font-bold border-b-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 pb-2">
+    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
+      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+        <h1 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
           Reservando coche
         </h1>
         <DatosContacto
-          nombre={datosContacto?.nombre}
-          apellidos={datosContacto?.apellido}
-          email={datosContacto?.email}
-          numero={datosContacto?.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
         <Detalles actividad={actividad} cesta={true} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100 dark:tw-border-slate-800 dark:bg-slate-900 p-5">
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 pb-2">
+      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+        <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Resumen
         </h2>
         <Reserva img={actividad?.img} txt={actividad?.titulo} />
-        <ul className="mt-3">
-          <li className="flex items-center gap-2 text-slate-500 dark:tw-text-slate-300">
-            <MdCalendarMonth className="text-lg tw-text-secondary dark:tw-text-secondary" />
+        <ul className="tw-mt-3">
+          <li className="tw-flex tw-items-center tw-gap-2 tw-text-slate-500 dark:tw-text-slate-300">
+            <MdCalendarMonth className="tw-text-lg tw-text-secondary dark:tw-text-secondary" />
             {fechaIda}
           </li>
-          <li className="flex items-center gap-2 text-slate-500 dark:tw-text-slate-300">
-            <MdMeetingRoom className="text-lg tw-text-secondary dark:tw-text-secondary" />
-            {habitacion} Habitaciones - <FaPerson className="tw-text-secondary" />{" "}
-            {adultos} Adultos - <FaChild className="tw-text-secondary" /> {ninios}{" "}
-            Niños
+          <li className="tw-flex tw-flex-wrap tw-items-center tw-gap-2 tw-text-slate-500 dark:tw-text-slate-300">
+            <MdMeetingRoom className="tw-text-lg tw-text-secondary dark:tw-text-secondary" />
+            {habitacion} Habitaciones
+            <FaPerson className="tw-text-secondary" /> {adultos} Adultos
+            <FaChild className="tw-text-secondary" /> {ninios} Niños
           </li>
         </ul>
 
         <Link
           to={"/resumenCircuito"}
           state={{
-            datosContacto,
+            data,
             fechaIda,
             actividad,
             habitacion,
@@ -58,7 +58,7 @@ function ReservaFinal() {
             ninios,
           }}
         >
-          <button className="w-full tw-bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             {actividad?.precio?.toFixed(2)}€
           </button>
         </Link>

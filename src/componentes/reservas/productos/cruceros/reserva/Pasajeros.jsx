@@ -1,6 +1,8 @@
 import { FaMars, FaVenus, FaGlobe, FaBirthdayCake } from "react-icons/fa";
 
-import formatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 function Pasajeros({ pasajeros }) {
   return (
     <section className="tw-my-6 tw-space-y-2">

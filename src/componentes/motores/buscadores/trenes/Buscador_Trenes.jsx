@@ -5,7 +5,6 @@ import Input_Fecha from "../../../inputs/Fecha";
 import Input_DateRange from "../../../inputs/DateRange";
 import Input_Bonificacion from "../../../inputs/Pasajeros_Descuentos";
 import { useNavigate } from "react-router-dom";
-import { MdCancel } from "react-icons/md";
 
 function Buscador_Destinos() {
   const navigate = useNavigate();
@@ -31,7 +30,7 @@ function Buscador_Destinos() {
     const newRequestData = {
       destination: 0,
     };
-    navigate("/listadoFerris", { state: { newRequestData } });
+    navigate("/listadoTrenes", { state: { newRequestData } });
   };
   return (
     <>

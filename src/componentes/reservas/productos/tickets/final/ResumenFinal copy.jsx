@@ -7,7 +7,6 @@ function ResumenFinal() {
   const location = useLocation();
   const { producto, tickets, datosContacto } = location.state || {};
   const numReserva = "HGALIUHJ198AJK";
-  console.log(tickets);
   return (
     <main className="container min-h-[55vh] my-10 p-5">
       <section>

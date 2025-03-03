@@ -9,12 +9,12 @@ function Circuitos() {
         <div
           className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
-            backgroundImage: `url(/banner_Circuitos.jpg)`,
+            backgroundImage: `url(/banner_circuitos.jpg)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
+          <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900  tw-bg-opacity-40 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-p-5 tw-flex tw-items-center tw-justify-center">
             <Buscador_Circuitos />
           </div>
         </div>

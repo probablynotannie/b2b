@@ -74,7 +74,14 @@ function Buscador() {
               <Input_Mes mes={mes} setMes={setMes} />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Destinos />
+              <Input_Destinos
+                continents={continents}
+                regions={regions}
+                setSelectedContinent={setSelectedContinent}
+                selectedContinent={selectedContinent}
+                selectedRegion={selectedRegion}
+                setSelectedRegion={setSelectedRegion}
+              />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
               <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">

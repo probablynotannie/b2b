@@ -1,6 +1,8 @@
 import { FaHotel } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 function Aside({ hotel, ida, vuelta }) {
   return (
     <ul className="dark:tw-text-slate-200">

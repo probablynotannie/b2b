@@ -3,7 +3,8 @@ import { GiCruiser } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import formatearFecha from "../../../estructura/FormatearFecha";
+import formatoFecha from "../../../../../helpers/FormatearFecha";
+
 import PriceCarousel from "./Carousel";
 import { AiFillEuroCircle } from "react-icons/ai";
 import { TbTaxEuro } from "react-icons/tb";
@@ -114,7 +115,6 @@ function Tarifas({
         cabin: cabin.title,
         datos: cabin.datos,
       });
-      console.log(temporal);
     }
   };
 

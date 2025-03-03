@@ -3,7 +3,6 @@ import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
-import { GoDotFill } from "react-icons/go";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 function Productos() {

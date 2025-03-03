@@ -13,7 +13,6 @@ function Detalles({ coche }) {
       <div className="tw-mb-3 tw-text-slate-600 dark:tw-text-slate-400">
         {coche.description}
       </div>
-
       <div className="tw-flex tw-flex-col lg:tw-flex-row tw-gap-8">
         <div className="tw-flex-1">
           <div className="tw-mb-3">

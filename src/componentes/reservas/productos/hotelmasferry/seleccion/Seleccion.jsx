@@ -7,7 +7,6 @@ function Seleccion() {
   const hotel = producto.hotel;
   const ferry = producto.ferry;
   const habitacion = producto.habitacion;
-  console.log(habitacion);
   return (
     <article className="container my-10 lg:mb-10 lg:mt-auto ">
       <article className="my-5 mt-10 grid grid-cols-3 gap-10">

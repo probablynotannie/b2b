@@ -1,8 +1,9 @@
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import { FaFerry } from "react-icons/fa6";
 import HotelDetalles from "../../hotel/reserva/HotelDetalles";
 function Detalles({ hotel, ferry }) {
-  console.log(ferry.ida.cancelaciones);
   function renderFerry(ferry, type, tipo) {
     return (
       <div className=" dark:bg-slate-800 dark:tw-text-slate-100 p-3">

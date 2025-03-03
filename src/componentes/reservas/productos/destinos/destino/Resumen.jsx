@@ -1,4 +1,4 @@
-import { FaPerson } from "react-icons/fa6";
+
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,7 +6,6 @@ import { FaMapPin, FaClock } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import { MdRestaurant } from "react-icons/md";
 function Resumen({ producto, selectedHotel, handleHotelChange }) {
-  console.log(producto);
   return (
     <>
       <h2 className="text-xl font-bold dark:tw-text-slate-300">

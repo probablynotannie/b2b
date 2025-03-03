@@ -16,7 +16,6 @@ function Productos() {
   const handleSearchChange = (event) => {
     const value = event.target.value.toLowerCase();
     setSearchTerm(value);
-    console.log("filtrando", tickets);
     const filtered = tickets.filter((ticket) =>
       ticket.titulo.toLowerCase().includes(value)
     );

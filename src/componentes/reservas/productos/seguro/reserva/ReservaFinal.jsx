@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
-import formatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import { FaCalendar } from "react-icons/fa6";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Detalles from "./Detalles";

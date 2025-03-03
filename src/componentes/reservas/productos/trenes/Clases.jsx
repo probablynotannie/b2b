@@ -31,19 +31,19 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
 
   if (clases.length === 0) {
     return (
-      <div className="p-6 bg-slate-50 text-slate-500 dark:tw-text-slate-400 dark:bg-slate-800 rounded-lg">
+      <div className="tw-p-6 tw-bg-slate-50 tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg">
         No hay otras clases.
       </div>
     );
   }
 
   return (
-    <div className="md:flex">
-      <ul className="flex flex-col  space-y-4 text-sm font-medium text-slate-500 dark:tw-text-slate-400 md:me-4 mb-4 md:mb-0">
+    <div className="md:tw-flex">
+      <ul className="tw-flex tw-flex-col tw-space-y-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-slate-400 md:tw-me-4 tw-mb-4 md:tw-mb-0">
         {clases.map((clase) => (
           <li key={clase.nombre}>
             <button
-              className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+              className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                 classSeat?.name === clase.nombre && classSeat?.type === "class"
                   ? "tw-bg-secondary text-white dark:bg-blue-600"
                   : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
@@ -55,39 +55,38 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
           </li>
         ))}
       </ul>
-      <div className="p-6 bg-slate-100 text-medium text-slate-500 dark:tw-text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="tw-p-6 tw-bg-slate-100 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
         {classSeat && (
           <div>
-            <h3 className="text-lg font-bold text-slate-900 dark:tw-text-white mb-2">
+            <h3 className="tw-text-lg tw-font-bold tw-text-slate-900 dark:tw-text-white tw-mb-2">
               {classSeat.name}
             </h3>
             <ul>
               {classSeat.informacion?.map((info, index) => (
                 <li
                   key={index}
-                  className="grid lg:grid-cols-3 gap-3 p-2 mt-3 border-b border-slate-100 dark:tw-border-slate-700"
+                  className="tw-grid lg:tw-grid-cols-3 tw-gap-3 tw-p-2 tw-mt-3 tw-border-b tw-border-slate-100 dark:tw-border-slate-700"
                 >
-                  <h4 className="font-semibold tw-text-secondary">
+                  <h4 className="tw-font-semibold tw-text-secondary">
                     {info.titulo}
                   </h4>
-                  <p className="text-slate-500 dark:tw-text-slate-400 text-sm col-span-2">
+                  <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm tw-col-span-2">
                     {info.texto}e
                   </p>
                 </li>
               ))}
             </ul>
-
             {classSeat.subclases && (
               <div>
-                <h3 className="text-lg font-bold text-slate-900 dark:tw-text-white mb-2">
+                <h3 className="tw-text-lg tw-font-bold tw-text-slate-900 dark:tw-text-white tw-mb-2">
                   Subclasses
                 </h3>
-                <ul className="flex flex-col space-y-2 mb-4">
+                <ul className="tw-flex tw-flex-col tw-space-y-2 tw-mb-4">
                   {classSeat.subclases.map((subclass) => (
                     <li key={subclass.nombre}>
-                      <div className="lg:flex gap-3 items-center justify-between mt-3">
+                      <div className="lg:tw-flex tw-gap-3 tw-items-center tw-justify-between tw-mt-3">
                         <button
-                          className={`px-4 py-2 rounded-lg w-full ${
+                          className={`tw-px-4 tw-py-2 tw-rounded-lg tw-w-full ${
                             classSeat?.name === subclass.nombre &&
                             classSeat?.type === "subclass"
                               ? "bg-blue-500 text-white dark:bg-blue-700"
@@ -100,7 +99,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                           {subclass.nombre} (Extra: {subclass.precioExtra}€)
                         </button>
                         <button
-                          className="tw-bg-secondary mt-2 lg:mt-0 p-1.5 w-full text-white rounded-lg dark:bg-slate-500 dark:hover:bg-slate-600 dark:tw-text-slate-200"
+                          className="tw-bg-secondary tw-mt-2 lg:tw-mt-0 tw-p-1.5 tw-w-full tw-text-white tw-rounded-lg dark:tw-bg-slate-500 dark:hover:tw-bg-slate-600 dark:tw-text-slate-200"
                           onClick={() => toggleSubclassPreview(subclass)}
                         >
                           {expandedSubclass?.nombre === subclass.nombre
@@ -109,8 +108,8 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                         </button>
                       </div>
                       {expandedSubclass?.nombre === subclass.nombre && (
-                        <div className="mt-2 p-4 border dark:tw-border-slate-700 rounded-lg bg-slate-200 dark:bg-slate-900">
-                          <h4 className="text-lg font-bold mb-2">
+                        <div className="tw-mt-2 tw-p-4 tw-border dark:tw-border-slate-700 tw-rounded-lg tw-bg-slate-200 dark:tw-bg-slate-900">
+                          <h4 className="tw-text-lg tw-font-bold tw-mb-2">
                             {subclass.nombre} (Extra: €
                             {subclass.precioExtra.toFixed(2)})
                           </h4>
@@ -118,12 +117,12 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                             {subclass.informacion?.map((info, index) => (
                               <li
                                 key={index}
-                                className="grid grid-cols-3 gap-3 p-2 border-b dark:tw-border-slate-700"
+                                className="tw-grid tw-grid-cols-3 tw-gap-3 tw-p-2 tw-border-b dark:tw-border-slate-700"
                               >
-                                <h4 className="font-semibold tw-text-secondary">
+                                <h4 className="tw-font-semibold tw-text-secondary">
                                   {info.titulo}
                                 </h4>
-                                <p className="text-slate-500 dark:tw-text-slate-400 text-sm col-span-2">
+                                <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm tw-col-span-2">
                                   {info.texto}
                                 </p>
                               </li>

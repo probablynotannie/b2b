@@ -3,7 +3,9 @@ import { Link } from "react-router-dom";
 import Seleccion from "../seleccion/Detalles";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { FaHotel, FaShip } from "react-icons/fa";
-import formatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 
 import DatosContacto from "../../../estructura/DatosContacto";
 function ReservaFinal() {

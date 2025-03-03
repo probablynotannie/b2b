@@ -113,7 +113,6 @@ const Dropdown = () => {
     },
   ];
 
-  // Hide dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
@@ -129,7 +128,6 @@ const Dropdown = () => {
     return () => document.removeEventListener("mousedown", handleClickOutside);
   }, []);
 
-  // Prevent body scroll when dropdown is open
   useEffect(() => {
     if (openDropdown) {
       document.body.style.overflow = "hidden";
@@ -173,30 +171,29 @@ const Dropdown = () => {
             }`}
               >
                 {category.subItems.map((subItem) => (
-                  <li
-                    className="tw-flex tw-items-center tw-px-5 tw-p-3 dark:tw-text-slate-400 tw-group"
+                  <Link
                     key={subItem.id}
+                    to={subItem.to}
+                    onClick={handleItemClick}
                   >
-                    <div className="tw-relative">
-                      {subItem.icon.map((IconComponent, index) => (
-                        <IconComponent
-                          key={index}
-                          className={`tw-duration-300 tw-transition ${
-                            index === 1
-                              ? "tw--ml-1 tw-text-xl tw-bg-blue-400 absolute tw-p-1 tw--right-3 tw--bottom-2 tw-rounded-full tw-text-white"
-                              : "tw-text-xl dark:tw-text-white group-hover:tw-text-secondary"
-                          }`}
-                        />
-                      ))}
-                    </div>
-                    <Link
-                      to={subItem.to}
-                      className="tw-block tw-px-4 tw-py-2 tw-transition-all"
-                      onClick={handleItemClick}
-                    >
-                      {subItem.texto}
-                    </Link>
-                  </li>
+                    <li className="tw-flex tw-items-center tw-px-5 tw-p-3 dark:tw-text-slate-400 tw-group">
+                      <div className="tw-relative">
+                        {subItem.icon.map((IconComponent, index) => (
+                          <IconComponent
+                            key={index}
+                            className={`tw-duration-300 tw-transition ${
+                              index === 1
+                                ? "tw--ml-1 tw-text-xl tw-bg-blue-400 absolute tw-p-1 tw--right-3 tw--bottom-2 tw-rounded-full tw-text-white"
+                                : "tw-text-xl dark:tw-text-white group-hover:tw-text-secondary"
+                            }`}
+                          />
+                        ))}
+                      </div>
+                      <span className="tw-block tw-px-4 tw-py-2 tw-transition-all">
+                        {subItem.texto}
+                      </span>
+                    </li>
+                  </Link>
                 ))}
               </ul>
             )}

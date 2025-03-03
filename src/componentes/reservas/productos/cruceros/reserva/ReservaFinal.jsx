@@ -1,5 +1,7 @@
 import { useLocation } from "react-router-dom";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import { SiMentorcruise } from "react-icons/si";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";

@@ -19,7 +19,6 @@ function Cesta({
     hotel: hotel || null,
     actividades: actividades || [],
   };
-  console.log(reservaFinal);
   const removeHotel = () => {
     setHotel(null);
   };

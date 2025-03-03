@@ -15,7 +15,6 @@ const fetchData = async (newRequestData) => {
     throw new Error("Error cargando datos");
   }
   const data = await response.json();
-  console.log(data);
   return data.traslados;
 };
 

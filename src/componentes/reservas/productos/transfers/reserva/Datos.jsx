@@ -9,8 +9,8 @@ import Input_Email from "../../../../inputs/Email";
 const Transfer = () => {
   const location = useLocation();
   const coche = location.state || {};
-  const navigate = useNavigate();
   const img = "/banner_coches.jpg";
+  const navigate = useNavigate();
   const {
     register,
     handleSubmit,
@@ -18,7 +18,6 @@ const Transfer = () => {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
     navigate("/reservaTransfer", {
       state: { data, coche },
     });

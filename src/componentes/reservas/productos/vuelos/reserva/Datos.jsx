@@ -5,7 +5,9 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useState } from "react";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import { useForm } from "react-hook-form";
 
 function Vuelo() {

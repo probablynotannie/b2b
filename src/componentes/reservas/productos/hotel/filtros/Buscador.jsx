@@ -7,8 +7,8 @@ import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
-  const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
-  const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const [destino, setDestino] = useState("");
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([

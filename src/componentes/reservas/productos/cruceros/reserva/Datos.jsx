@@ -6,7 +6,8 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
 import Fecha from "../../../../inputs/Fecha";
 
 const Vuelo = () => {
@@ -49,7 +50,6 @@ const Vuelo = () => {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
     navigate("/reservaCrucero", {
       state: { data, producto, precioSeleccionado },
     });
@@ -79,7 +79,6 @@ const Vuelo = () => {
   const calcularEdad = (birthDate) => {
     const today = new Date();
     const birthDateObj = new Date(birthDate);
-    console.log(birthDate);
     let age = today.getFullYear() - birthDateObj.getFullYear();
     const hasBirthdayOccurred =
       today.getMonth() > birthDateObj.getMonth() ||
@@ -150,7 +149,7 @@ const Vuelo = () => {
             position={"center"}
             tipo={"Crucero"}
             itinerario={producto.recorrido}
-            fechaIda={"Salida: " + FormatearFecha(precioSeleccionado.date)}
+            fechaIda={"Salida: " + formatearFecha(precioSeleccionado.date)}
             extras={infoPasajeros}
           />
           <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">

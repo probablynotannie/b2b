@@ -11,7 +11,6 @@ function Buscador({
   placeholder,
   vuelo,
 }) {
-  console.log(vuelo);
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
   const [loading, setLoading] = useState(false);

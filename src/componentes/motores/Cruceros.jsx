@@ -18,7 +18,6 @@ function Cruceros() {
     idPuerto: 0,
     idNav: 0,
   });
-  console.log("hola", requestData);
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10">
       <Sidebar />

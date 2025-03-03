@@ -1,4 +1,6 @@
-import formatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import Detalles from "../reserva/Detalles";
 import { FaKitMedical } from "react-icons/fa6";
 function Seguro({ seguro }) {

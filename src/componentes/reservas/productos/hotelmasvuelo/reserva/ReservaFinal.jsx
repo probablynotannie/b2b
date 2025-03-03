@@ -8,7 +8,6 @@ import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
   const { selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion } = location.state || {};
-  console.log(pasajeros)
   return (
     <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
       <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:tw-border-slate-700 dark:bg-slate-900 p-5">

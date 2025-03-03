@@ -4,7 +4,9 @@ import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import { Link } from "react-router-dom";
 function Datos() {
   const location = useLocation();
@@ -22,7 +24,6 @@ function Datos() {
       [key]: value,
     }));
   };
-  console.log(ida);
   return (
     <main className="my-10  flex justify-center container min-h-[68vh]">
       <article className="p-5 w-full border-2 border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">

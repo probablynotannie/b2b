@@ -93,7 +93,6 @@ function Resultado({ tickets, actividades, setActividades }) {
 
     setActiveActividad(null);
   };
-  console.log(actividades);
   const handleTicketChange = (type, value) => {
     setEntradasSeleccionadas((prev) => ({
       ...prev,

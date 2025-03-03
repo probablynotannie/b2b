@@ -30,7 +30,6 @@ function Productos() {
     habitaciones: 2,
     noches: 7,
   };
-  console.log(habitacion);
   return (
     <main className=" flex justify-center flex-col items-center  mb-10">
       <div className="w-full">

@@ -12,7 +12,7 @@ function Buscador_Destinos() {
     const newRequestData = {
       destination: 0,
     };
-    navigate("/listadoTickets", { state: { newRequestData } });
+    navigate("/listadoCircuitos", { state: { newRequestData } });
   };
   return (
     <>

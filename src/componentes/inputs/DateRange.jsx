@@ -22,7 +22,6 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
   const toggleDatePicker = () => {
     setIsOpen(!isOpen);
   };
-
   const highlightWeekends = (date) => {
     const day = date.getDay();
     return day === 0 || day === 6 ? "weekend-day" : "";

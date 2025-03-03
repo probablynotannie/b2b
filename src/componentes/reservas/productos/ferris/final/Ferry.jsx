@@ -1,7 +1,6 @@
 import { FaFerry } from "react-icons/fa6";
 import DetalleFerry from "../reserva/Ferry";
 function Ferry({ ida, vuelta }) {
-  console.log(ida);
   return (
     <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:tw-border-slate-700  rounded-lg">
       <section className="flex justify-between items-center border-b-2 border-slate-100 dark:tw-border-slate-700 pb-2 mb-5">

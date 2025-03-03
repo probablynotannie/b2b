@@ -5,13 +5,13 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
 import { Link } from "react-router-dom";
-import formatearFecha from "../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
 import { useNavigate } from "react-router-dom";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+
 function Datos() {
   const location = useLocation();
-  const { selectedHotel, ida, vuelta,habitacion } = location.state || {};
+  const { selectedHotel, ida, vuelta, habitacion } = location.state || {};
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
   const fechaIda = formatearFecha(ida.flight.outboundDate);
@@ -27,7 +27,6 @@ function Datos() {
       ...prev,
       [key]: value,
     }));
-    
   };
   const [pasajeros, setPasajeros] = useState(
     Array.from({ length: 2 }, () => ({
@@ -74,7 +73,6 @@ function Datos() {
       </div>
     ));
   };
-  console.log(pasajeros);
   return (
     <main className="my-10  flex justify-center container min-h-[68vh]">
       <article className="p-5 w-full border-2 border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
@@ -118,7 +116,14 @@ function Datos() {
         <div className="flex justify-end">
           <Link
             to={"/reservahotelmasvuelo"}
-            state={{ selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion }}
+            state={{
+              selectedHotel,
+              ida,
+              vuelta,
+              datosContacto,
+              pasajeros,
+              habitacion,
+            }}
           >
             <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
               Reservar

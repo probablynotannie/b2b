@@ -1,5 +1,4 @@
 function Pasajeros_Display({ pasajeros, precio }) {
-  console.log(precio);
   return (
     <>
       {" "}
