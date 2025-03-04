@@ -5,7 +5,7 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 function Datos() {
   const location = useLocation();

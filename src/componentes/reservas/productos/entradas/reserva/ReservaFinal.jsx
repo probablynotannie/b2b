@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 
 import DatosContacto from "../../../estructura/DatosContacto";
 import Detalles from "../Detalles";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 
 import Reserva from "../../../estructura/reserva/Resumen";

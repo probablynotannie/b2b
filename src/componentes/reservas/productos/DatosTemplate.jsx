@@ -18,7 +18,7 @@ function Datos() {
   } = useForm();
 
   const onSubmit = (data) => {
-    navigate("/reservaTransfer", {
+    navigate("/reservaFerry", {
       state: { data, producto },
     });
   };
@@ -70,7 +70,7 @@ function Datos() {
             <button
               type="submit"
               className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-mt-3"
-            >
+            > 
               Reservar
             </button>
           </div>

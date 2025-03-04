@@ -1,7 +1,7 @@
 import { FaTrain } from "react-icons/fa";
 import Tren from "../detalles/Tren";
 import Map from "../Mapa";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 function Trenes({ tren }) {
   const ida = tren.ida;

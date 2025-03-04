@@ -5,7 +5,7 @@ import Resumen from "../../../estructura/reserva/Resumen";
 import Coche from "./Coche";
 function ResumenFinal() {
   const location = useLocation();
-  const { producto, selectedExtras, precio, datosContacto, conductor } =
+  const { producto, selectedExtras, precio, data, conductor } =
     location.state || {};
   const numReserva = "HGALIUHJ198AJK";
   return (
@@ -30,10 +30,10 @@ function ResumenFinal() {
       />
       <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
         <DatosContacto
-          nombre={datosContacto.nombre}
-          apellidos={datosContacto.apellido}
-          email={datosContacto.email}
-          numero={datosContacto.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
         <div className="tw-mt-10 tw-flex tw-justify-end">
           <Link to={"/"}>

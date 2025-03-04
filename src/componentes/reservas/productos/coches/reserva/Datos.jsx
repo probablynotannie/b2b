@@ -3,9 +3,7 @@ import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
-import { Link } from "react-router-dom";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
-
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";

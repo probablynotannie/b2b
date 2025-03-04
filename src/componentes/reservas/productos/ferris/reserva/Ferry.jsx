@@ -1,52 +1,56 @@
-import formatearFecha from "../../../../../helpers/FormatearFecha";
-
-
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { FaCheck } from "react-icons/fa";
 
 function Ferry({ producto, tipo }) {
   return (
-    <div className="w-full p-3 border border-slate-100 dark:bg-slate-800 dark:tw-border-slate-700 shadow my-5">
-      <div className="flex justify-between items-center border-b pb-3 border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 mb-3">
+    <div className="tw-w-full tw-p-3 tw-border tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-shadow tw-my-5">
+      <div className="tw-flex tw-justify-between tw-items-center tw-border-b tw-pb-3 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-mb-3">
         <div>
-          <h3 className="ml-1 font-semibold">
+          <h3 className="tw-ml-1 tw-font-semibold">
             Ferry {tipo}{" "}
-            <span className="ml-1 text-sm"> ({producto.ruta})</span>
+            <span className="tw-ml-1 tw-text-sm"> ({producto.ruta})</span>
           </h3>
-          <p className="text-sm">{FormatearFecha(producto.fecha)}</p>
+          <p className="tw-text-sm">{FormatearFecha(producto.fecha)}</p>
         </div>
-        <div className=" dark:bg-slate-200 p-1 rounded-lg">
+        <div className="dark:tw-bg-slate-200 tw-p-1 tw-rounded-lg">
           <img
             src={producto.compania}
             alt={"logo compania"}
-            className="w-[100px]"
+            className="tw-w-[100px]"
           />
         </div>
       </div>
-      <div className="bg-slate-50 text-sm dark:bg-slate-700 dark:tw-text-slate-200 p-2">
-        <div className="md:flex justify-between items-center">
+      <div className="tw-bg-slate-50 tw-text-sm dark:tw-bg-slate-700 dark:tw-text-slate-200 tw-p-2">
+        <div className="md:tw-flex tw-justify-between tw-items-center">
           <p>Duración de viaje: {producto.duracion_viaje}</p>
           <p>
             {producto.hora_salida} - {producto.hora_llegada}
           </p>
         </div>
         <ul>
-          <li className="flex items-center gap-1">
+          <li className="tw-flex tw-items-center tw-gap-1">
             Cambios:
             <span>
               {producto.cambios === true ? (
-                <FaCheck className="text-green-500 text-sm" />
+                <FaCheck className="tw-text-green-500 tw-text-sm" />
               ) : (
-                <span className="text-red font-bold text-red-500"> X </span>
+                <span className="text-red tw-font-bold tw-text-red-500">
+                  {" "}
+                  X{" "}
+                </span>
               )}{" "}
             </span>
           </li>
-          <li className="flex items-center gap-1">
+          <li className="tw-flex tw-items-center tw-gap-1">
             cancelaciones:
             <span>
               {producto.cancelaciones === true ? (
-                <FaCheck className="text-green-500 text-sm" />
+                <FaCheck className="tw-text-green-500 tw-text-sm" />
               ) : (
-                <span className="text-red font-bold text-red-500"> X </span>
+                <span className="text-red tw-font-bold tw-text-red-500">
+                  {" "}
+                  X{" "}
+                </span>
               )}{" "}
             </span>
           </li>

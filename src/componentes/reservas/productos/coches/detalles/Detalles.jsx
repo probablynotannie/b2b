@@ -14,8 +14,7 @@ import Politica from "./politica/Politica";
 import Gasolina from "./politica/Gasolina";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { useState } from "react";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
-
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 function Detalles({ coche, extraInfo }) {
   const [activeTab, setActiveTab] = useState("franquicia");

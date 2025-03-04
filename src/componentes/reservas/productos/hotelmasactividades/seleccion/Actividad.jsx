@@ -1,6 +1,6 @@
 import { FaPerson, FaChild } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 
 function Actividad({ actividad }) {

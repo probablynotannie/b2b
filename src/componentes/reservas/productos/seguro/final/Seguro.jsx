@@ -1,4 +1,4 @@
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 
 import Detalles from "../reserva/Detalles";

@@ -2,7 +2,6 @@ import { useState } from "react";
 
 function Clases({ clases, tren, classSeat, setClassSeat }) {
   const [expandedSubclass, setExpandedSubclass] = useState(null);
-
   const handleClassSelect = (clase) => {
     setClassSeat({
       type: "class",
@@ -44,9 +43,12 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
           <li key={clase.nombre}>
             <button
               className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
-                classSeat?.name === clase.nombre && classSeat?.type === "class"
-                  ? "tw-bg-secondary text-white dark:bg-blue-600"
-                  : "bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
+                (classSeat?.nombre === clase.nombre &&
+                  classSeat?.type === "class") ||
+                (classSeat?.parentClass === clase.nombre &&
+                  classSeat?.type === "subclass")
+                  ? "tw-bg-blue-500 tw-text-white dark:tw-bg-blue-700"
+                  : "tw-bg-slate-50 hover:tw-bg-slate-100 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-700 dark:hover:tw-text-white"
               }`}
               onClick={() => handleClassSelect(clase)}
             >
@@ -59,7 +61,7 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
         {classSeat && (
           <div>
             <h3 className="tw-text-lg tw-font-bold tw-text-slate-900 dark:tw-text-white tw-mb-2">
-              {classSeat.name}
+              {classSeat.nombre}
             </h3>
             <ul>
               {classSeat.informacion?.map((info, index) => (
@@ -87,10 +89,12 @@ function Clases({ clases, tren, classSeat, setClassSeat }) {
                       <div className="lg:tw-flex tw-gap-3 tw-items-center tw-justify-between tw-mt-3">
                         <button
                           className={`tw-px-4 tw-py-2 tw-rounded-lg tw-w-full ${
-                            classSeat?.name === subclass.nombre &&
-                            classSeat?.type === "subclass"
-                              ? "bg-blue-500 text-white dark:bg-blue-700"
-                              : "bg-slate-200 hover:bg-slate-300 dark:bg-slate-700 dark:hover:bg-slate-600 dark:tw-text-slate-200"
+                            (classSeat?.name === subclass.nombre &&
+                              classSeat?.type === "subclass") ||
+                            (classSeat?.parentClass === subclass.nombre &&
+                              classSeat?.type === "subclass")
+                              ? "tw-bg-blue-500 tw-text-white dark:tw-bg-blue-700"
+                              : "tw-bg-slate-200 hover:tw-bg-slate-300 dark:tw-bg-slate-700 dark:tw-hover:bg-slate-600 dark:tw-text-slate-200"
                           }`}
                           onClick={() =>
                             handleSubclassSelect(subclass, classSeat)

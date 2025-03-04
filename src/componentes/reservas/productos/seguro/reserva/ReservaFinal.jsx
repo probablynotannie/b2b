@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 
 import { FaCalendar } from "react-icons/fa6";

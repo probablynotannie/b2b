@@ -13,8 +13,7 @@ function ReservaFinal() {
       <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
         <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-pb-5 tw-border-slate-100 dark:tw-border-slate-700">
           <h1 className="tw-text-2xl tw-font-bold dark:tw-text-white">
-            {" "}
-            {producto.nombre}{" "}
+            {producto.nombre}
           </h1>
           <span className="tw-bg-slate-500 tw-rounded-md tw-text-white tw-p-2">
             {producto.tipo}

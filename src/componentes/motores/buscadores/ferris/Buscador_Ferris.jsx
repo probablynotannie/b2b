@@ -6,6 +6,7 @@ import Input_DateRange from "../../../inputs/DateRange";
 import Input_Vehiculos from "../../../inputs/Vehiculos";
 import Input_Bonificacion from "../../../inputs/Bonificacion";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 
 function Buscador_Destinos() {
   const navigate = useNavigate();
@@ -22,17 +23,22 @@ function Buscador_Destinos() {
   const [alturaRemolque, setAlturaRemolque] = useState(0);
   const [ages, setAges] = useState({});
   const [pasajeros, setPasajeros] = useState(1);
-
   const handleviajeChange = (type) => {
     setViaje(type);
   };
-  const [fecha, setFecha] = useState(null);
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: 0,
-    };
-    navigate("/listadoFerris", { state: { newRequestData } });
+  const [fecha, setFecha] = useState();
+  const onSubmit = (data) => {
+    navigate("/listadoFerris", {
+      state: { datosForm: data },
+    });
   };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -61,7 +67,7 @@ function Buscador_Destinos() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="grid grid-cols-2 gap-3 mt-2 text-sm tw-mb-5">
                   <button
                     type="button"
@@ -90,7 +96,13 @@ function Buscador_Destinos() {
                   <Input_Select placeholder={"Origen"} />
                   <Input_Select placeholder={"Destino"} />
                   {viaje === "ida" ? (
-                    <Input_Fecha fecha={fecha} setFecha={setFecha} />
+                    <Input_Fecha
+                      fecha={fecha}
+                      name={"fecha"}
+                      setValue={setValue}
+                      control={control}
+                      required={true}
+                    />
                   ) : (
                     <Input_DateRange
                       startDate={startDate}
@@ -148,7 +160,7 @@ function Buscador_Destinos() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <div className="tw-flex tw-justify-between">
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
               Buscador de Ferris
@@ -183,7 +195,13 @@ function Buscador_Destinos() {
             <Input_Select placeholder={"Origen"} />
             <Input_Select placeholder={"Destino"} />
             {viaje === "ida" ? (
-              <Input_Fecha fecha={fecha} setValue={setFecha} />
+              <Input_Fecha
+                fecha={fecha}
+                name={"fecha"}
+                setValue={setValue}
+                control={control}
+                required={true}
+              />
             ) : (
               <Input_DateRange
                 startDate={startDate}
@@ -219,11 +237,7 @@ function Buscador_Destinos() {
               />
             </div>
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

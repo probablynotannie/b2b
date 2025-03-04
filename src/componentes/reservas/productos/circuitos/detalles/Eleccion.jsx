@@ -30,6 +30,7 @@ const Eleccion = ({
     register,
     handleSubmit,
     setValue,
+    control,
     formState: { errors },
   } = useForm();
   const onSubmit = (data) => {
@@ -40,7 +41,13 @@ const Eleccion = ({
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
       <Origen datos={destinos} destino={origen} setDestino={setOrigen} />
-      <Fecha fecha={fecha} name={"fecha"} setValue={setValue} />
+      <Fecha
+        fecha={fecha}
+        name={"fecha"}
+        setValue={setValue}
+        control={control} // Pass control here
+        required={true} // Optional: You can pass `required` as true or false
+      />
       <Input_Hab_Ad_Ni
         habitacion={habitacion}
         setHabitacion={setHabitacion}

@@ -14,7 +14,7 @@ function DatosTren({ tren, tipo }) {
           {tren.price.toFixed(2)}
           <span className="tw-text-sm">Precio Base</span>
         </div>
-        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
           +{tren.claseElegida.precioExtra.toFixed(2)}€
           <span
             className={`${
@@ -30,7 +30,6 @@ function DatosTren({ tren, tipo }) {
           <span>
             {(tren.claseElegida.precioExtra + tren.price).toFixed(2)}€
           </span>
-
           <span className="tw-text-sm tw-font-bold">TOTAL</span>
         </div>
       </div>

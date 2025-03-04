@@ -1,5 +1,5 @@
 import { GiCruiser } from "react-icons/gi";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 
 import Detalles from "../reserva/Detalles";
