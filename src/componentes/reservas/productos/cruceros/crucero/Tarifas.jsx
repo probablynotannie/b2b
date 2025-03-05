@@ -135,7 +135,7 @@ function Tarifas({
   }, [isModalOpen]);
 
   return (
-    <div >
+    <div>
       <section className="tw-block md:tw-hidden">
         <PriceCarousel
           precios={precios}
@@ -163,7 +163,7 @@ function Tarifas({
                 </li>
                 <li className="tw-flex tw-items-center tw-gap-1">
                   <FaCalendarAlt className="tw-text-secondary" />
-                  {formatearFecha(precioSeleccionado.date)}
+                  {FormatearFecha(precioSeleccionado.date)}
                 </li>
                 <li className="tw-flex tw-items-center tw-gap-1">
                   <FaEuroSign className="tw-text-secondary" />
@@ -434,7 +434,7 @@ function Tarifas({
                     </div>
                     <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
                       <FaCalendarAlt className="tw-text-3xl" />
-                      {formatearFecha(temporal.date)}
+                      {FormatearFecha(temporal.date)}
                     </div>
                     <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
                       <TbTaxEuro className="tw-text-3xl" />

@@ -35,7 +35,7 @@ function SelectorPersonas({
       {isOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black  tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-relative tw-bg-slate-50 dark:tw-bg-slate-800 tw-w-full tw-h-full tw-max-w-4xl tw-overflow-auto">
-            <div className="tw-sticky tw-top-0 tw-z-50 tw-flex tw-justify-between tw-items-center tw-mb-4 bg-primary dark:tw-bg-slate-900 tw-p-5">
+            <div className="tw-sticky tw-top-0 tw-z-50 tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Habitaciones
               </h2>

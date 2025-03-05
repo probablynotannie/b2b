@@ -134,11 +134,11 @@ function Resultado({ destinos }) {
                 </p>
               </div>
               {destino.pax2ADRestrin === 1 && (
-                <div className="tw-mx-3 tw-p-1 tw-text-white tw-rounded-lg tw-shadow tw-mb-3 tw-w-fit tw-bg-yellow-400 tw-text-sm tw-font-semibold">
+                <div className="tw-mx-3 tw-p-1 tw-text-white tw-rounded-lg tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
                   Restringida a dos personas
                 </div>
               )}
-              <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10">
+              <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10 tw-bg-white tw-shadow-inner tw-items-center">
                 {destino.tarifas.slice(0, 8).map((tarifa) => {
                   const proximaSalida = new Date(
                     tarifa.fecha

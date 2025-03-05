@@ -97,11 +97,10 @@ function Buscador_Destinos() {
                   <Input_Select placeholder={"Destino"} />
                   {viaje === "ida" ? (
                     <Input_Fecha
+                      edadSelector={true}
                       fecha={fecha}
-                      name={"fecha"}
+                      name={`Fecha`}
                       setValue={setValue}
-                      control={control}
-                      required={true}
                     />
                   ) : (
                     <Input_DateRange
@@ -153,7 +152,7 @@ function Buscador_Destinos() {
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <div className="tw-flex tw-justify-between">
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-              Buscador de Ferris
+              Buscador de Trenes
             </h2>
             <div>
               <ul className="tw-flex tw-items-center tw-gap-2">
@@ -186,11 +185,10 @@ function Buscador_Destinos() {
             <Input_Select placeholder={"Destino"} />
             {viaje === "ida" ? (
               <Input_Fecha
-                fecha={fecha}
-                name={"fecha"}
-                setValue={setValue}
-                control={control}
                 required={true}
+                fecha={fecha}
+                name={`Fecha`}
+                setValue={setValue}
               />
             ) : (
               <Input_DateRange
@@ -217,9 +215,7 @@ function Buscador_Destinos() {
               />
             </div>
           </div>
-          <button
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

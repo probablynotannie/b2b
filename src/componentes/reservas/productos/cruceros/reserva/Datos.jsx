@@ -15,7 +15,7 @@ const Vuelo = () => {
   const { producto, pasajeros, precioSeleccionado } = location.state || {};
   const navigate = useNavigate();
   const img = "/banner_cruise.jfif";
-
+  console.log(pasajeros);
   const {
     register,
     handleSubmit,
@@ -149,7 +149,7 @@ const Vuelo = () => {
             position={"center"}
             tipo={"Crucero"}
             itinerario={producto.recorrido}
-            fechaIda={"Salida: " + formatearFecha(precioSeleccionado.date)}
+            fechaIda={"Salida: " + FormatearFecha(precioSeleccionado.date)}
             extras={infoPasajeros}
           />
           <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">

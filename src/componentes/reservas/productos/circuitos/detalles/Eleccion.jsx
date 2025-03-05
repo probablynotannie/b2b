@@ -4,6 +4,7 @@ import Origen from "../../../../inputs/Destinos";
 import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
+import formatearFecha from "../../../../../helpers/FormatearFecha";
 
 const Eleccion = ({
   fecha,
@@ -25,29 +26,41 @@ const Eleccion = ({
     { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
+
   const navigate = useNavigate();
   const {
     register,
     handleSubmit,
     setValue,
-    control,
+    setError,
+    clearErrors,
     formState: { errors },
   } = useForm();
+
   const onSubmit = (data) => {
-    navigate("/datosCircuito", {
-      state: { datosForm: data, actividad, habitacion, roomData },
-    });
+
+    console.log(data);
+    // You can navigate here if everything is valid
+    // navigate("/datosCircuito", {
+    //   state: { datosForm: data, actividad, habitacion, roomData },
+    // });
   };
+
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
-      <Origen datos={destinos} destino={origen} setDestino={setOrigen} />
+      <Origen datos={destinos} destino={origen} setDestino={setOrigen} edad />
       <Fecha
+        clearErrors={clearErrors}
+        setError={setError}
         fecha={fecha}
-        name={"fecha"}
+        name="fecha"
         setValue={setValue}
-        control={control} // Pass control here
-        required={true} // Optional: You can pass `required` as true or false
+        required={true}
       />
+      {errors.fecha && (
+        <p className="tw-text-red-500 tw-text-sm">{errors.fecha.message}</p>
+      )}
+
       <Input_Hab_Ad_Ni
         habitacion={habitacion}
         setHabitacion={setHabitacion}

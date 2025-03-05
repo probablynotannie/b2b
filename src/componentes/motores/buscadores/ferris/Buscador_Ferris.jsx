@@ -97,6 +97,7 @@ function Buscador_Destinos() {
                   <Input_Select placeholder={"Destino"} />
                   {viaje === "ida" ? (
                     <Input_Fecha
+                      errors={errors}
                       fecha={fecha}
                       name={"fecha"}
                       setValue={setValue}
@@ -195,13 +196,19 @@ function Buscador_Destinos() {
             <Input_Select placeholder={"Origen"} />
             <Input_Select placeholder={"Destino"} />
             {viaje === "ida" ? (
-              <Input_Fecha
-                fecha={fecha}
-                name={"fecha"}
-                setValue={setValue}
-                control={control}
-                required={true}
-              />
+              <div className="tw-flex tw-flex-col">
+                <Input_Fecha
+                  errors={errors}
+                  fecha={fecha}
+                  name={"fecha"}
+                  setValue={setValue}
+                  control={control}
+                  required={true}
+                />
+                {errors.fecha && (
+                  <p className="text-red-500 text-sm">{errors.fecha.message}</p>
+                )}
+              </div>
             ) : (
               <Input_DateRange
                 startDate={startDate}
