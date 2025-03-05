@@ -5,7 +5,7 @@ import Input_DateRange from "../../../inputs/DateRangeWithTime";
 import Input_Edad from "../../../inputs/Edad";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_Hora from "../../../inputs/Hora";
-
+import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
 function Buscador_Coches() {
@@ -34,17 +34,28 @@ function Buscador_Coches() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
-  const handleSubmit = () => {
-    const newRequestData = {
-      origin: origen ? origen.id : 0,
-      destination: destino ? destino.id : 0,
-      departureDate: startDate ? startDate : 0,
-      returnDate: endDate ? endDate : 0,
-      edad: edad ? edad : 0,
-      pickupTime: horaRecogida ? horaRecogida : 0,
-      returnTime: horaDevolucion ? horaDevolucion : 0,
-    };
-    navigate("/listadoCoches", { state: { newRequestData } });
+
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adultos: 2,
+      ninios: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+    },
+  });
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+        state: { data },
+      }); */
   };
   return (
     <>
@@ -74,19 +85,23 @@ function Buscador_Coches() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
+                    required={true}
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
                     placeholder={"Origen"}
                     destinos={destinos}
-                    destino={origen}
-                    setDestino={setOrigen}
                   />
                   <Input_Destinos
+                    required={true}
+                    control={control}
+                    name={"destino"}
+                    setValue={setValue}
                     placeholder={"Destino"}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
                   <Input_DateRangeMobile
                     startDate={startDate}
@@ -94,10 +109,17 @@ function Buscador_Coches() {
                     setStartDate={setStartDate}
                     setEndDate={setEndDate}
                   />
-                  <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
                   <Input_Hora
-                    hora={horaDevolucion}
-                    setHora={setHoraDevolucion}
+                    control={control}
+                    setValue={setValue}
+                    name={"horaRecogida"}
+                    defaultValue="12:00"
+                  />
+                  <Input_Hora
+                    control={control}
+                    setValue={setValue}
+                    name={"horaDevolucion"}
+                    defaultValue="12:00"
                   />
                   <Input_Edad
                     edadMinima={22}
@@ -106,13 +128,7 @@ function Buscador_Coches() {
                     setEdad={setEdad}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -130,22 +146,26 @@ function Buscador_Coches() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Coches
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
-              destino={origen}
-              setDestino={setOrigen}
             />
             <Input_Destinos
+              required={true}
+              control={control}
+              name={"destino"}
+              setValue={setValue}
               placeholder={"Destino"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
             <Input_DateRange
               placeholder={"Recogida"}

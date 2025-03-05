@@ -6,19 +6,16 @@ import Input_Personas from "../../../inputs/Adulto_Ninio_Infant";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_Hora from "../../../inputs/Hora";
 import { useNavigate } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 function Buscador_Transfers() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [infant, setInfant] = useState(0);
+
   const [horaRecogida, setHoraRecogida] = useState("12:00");
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
+
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -34,20 +31,45 @@ function Buscador_Transfers() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
-  const handleSubmit = () => {
-    const newRequestData = {
-      origin: origen ? origen.id : 0,
-      destination: destino ? destino.id : 0,
-      departureDate: startDate ? startDate : 0,
-      returnDate: endDate ? endDate : 0,
-      adults: adultos ? adultos : 0,
-      children: ninios ? ninios : 0,
-      infants: infant ? infant : 0,
-      pickupTime: horaRecogida ? horaRecogida : 0,
-      returnTime: horaDevolucion ? horaDevolucion : 0,
-    };
-    navigate("/listadoTransfers", { state: { newRequestData } });
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adulto: 2,
+      ninio: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+      state: { data },
+    }); */
   };
+  const newRequestData = {
+    departureDate: startDate ? startDate : 0,
+    returnDate: endDate ? endDate : 0,
+    returnTime: horaDevolucion ? horaDevolucion : 0,
+  };
+  // origen
+  // destino
+  // startDate
+  // endDate
+  // + horaRecogida
+  // + horaDevolucion
+  // + adultos
+  // + niños
+  // + infants
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -76,50 +98,52 @@ function Buscador_Transfers() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <h2 className="tw-text-xl tw-font-bold dark:tw-text-white tw-mb-4">
                   Buscador de Transfers
                 </h2>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
+                    required={true}
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
                     placeholder={"Origen"}
                     destinos={destinos}
-                    destino={origen}
-                    setDestino={setOrigen}
                   />
                   <Input_Destinos
+                    required={true}
+                    control={control}
+                    name={"destino"}
+                    setValue={setValue}
                     placeholder={"Destino"}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
                   <Input_DateRangeMobile
+                    control={control}
                     startDate={startDate}
                     endDate={endDate}
                     setStartDate={setStartDate}
                     setEndDate={setEndDate}
                   />
-                  <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
                   <Input_Hora
-                    hora={horaDevolucion}
-                    setHora={setHoraDevolucion}
+                    control={control}
+                    setValue={setValue}
+                    name={"horaRecogida"}
+                  />
+                  <Input_Hora
+                    control={control}
+                    setValue={setValue}
+                    name={"horaDevolucion"}
                   />
                   <Input_Personas
-                    adultos={adultos}
-                    setAdultos={setAdultos}
-                    ninios={ninios}
-                    setNinios={setNinios}
-                    infant={infant}
-                    setInfant={setInfant}
+                    control={control}
+                    nameAdult={"adulto"}
+                    nameKid={"ninio"}
+                    nameInfant={"infant"}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -137,24 +161,29 @@ function Buscador_Transfers() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-600 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form className="tw-w-full" onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Transfers
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
-              destino={origen}
-              setDestino={setOrigen}
             />
             <Input_Destinos
+              required={true}
+              control={control}
+              name={"destino"}
+              setValue={setValue}
               placeholder={"Destino"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
             <Input_DateRange
+              control={control}
               placeholder={"Para cuando"}
               hora={horaRecogida}
               date={startDate}
@@ -169,19 +198,13 @@ function Buscador_Transfers() {
               setHora={setHoraDevolucion}
             />
             <Input_Personas
-              adultos={adultos}
-              setAdultos={setAdultos}
-              ninios={ninios}
-              setNinios={setNinios}
-              infant={infant}
-              setInfant={setInfant}
+              control={control}
+              nameAdult={"adulto"}
+              nameKid={"ninio"}
+              nameInfant={"infant"}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

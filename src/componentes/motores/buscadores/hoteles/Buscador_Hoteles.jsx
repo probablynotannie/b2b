@@ -12,7 +12,6 @@ function Buscador_Cruceros() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  const [destino, setDestino] = useState();
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -42,6 +41,7 @@ function Buscador_Cruceros() {
   const {
     register,
     handleSubmit,
+    control,
     setValue,
     formState: { errors },
   } = useForm({});
@@ -76,10 +76,12 @@ function Buscador_Cruceros() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Buscador
-                    placeholder={"Destino"}
+                    required={true}
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
+                    placeholder={"Origen"}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
 
                   <Input_DateRange
@@ -133,10 +135,12 @@ function Buscador_Cruceros() {
           </h2>
           <div className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
             <Input_Buscador
-              placeholder={"Destino"}
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
             <Input_DateRange
               startDate={startDate}

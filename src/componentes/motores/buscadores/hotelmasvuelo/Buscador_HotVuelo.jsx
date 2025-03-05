@@ -4,7 +4,7 @@ import Input_Buscador from "../../../inputs/Buscador";
 import Input_HabAdNin from "../../../inputs/Hab_Adulto_Ninio";
 import Input_DateRange from "../../../inputs/DateRange";
 import { useNavigate } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,8 +14,26 @@ function Buscador_Cruceros() {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    navigate("/listadohotelmasvuelo", {
+      state: { data },
+    });
+  };
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -31,14 +49,7 @@ function Buscador_Cruceros() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: destino ? destino.id : 0,
-      departureDate: startDate ? startDate : 0,
-      returnDate: endDate ? endDate : 0,
-    };
-    navigate("/listadoHoteles", { state: { newRequestData } });
-  };
+
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -67,19 +78,22 @@ function Buscador_Cruceros() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Buscador
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
                     placeholder={"Origen"}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
+
                   <Input_Buscador
+                    control={control}
+                    name={"destino"}
+                    setValue={setValue}
                     placeholder={"Destino"}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
 
                   <Input_DateRange
@@ -119,22 +133,25 @@ function Buscador_Cruceros() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Hotel + Vuelo
           </h2>
           <div className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
             <Input_Buscador
+              control={control}
+              name={"origen"}
+              setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
+
             <Input_Buscador
+              control={control}
+              name={"destino"}
+              setValue={setValue}
               placeholder={"Destino"}
               destinos={destinos}
-              destino={origen}
-              setDestino={setOrigen}
             />
 
             <Input_DateRange
@@ -150,11 +167,7 @@ function Buscador_Cruceros() {
               setRoomData={setRoomData}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

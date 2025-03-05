@@ -3,7 +3,7 @@ import { FaSearch } from "react-icons/fa";
 import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
 import { useNavigate } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -20,13 +20,30 @@ function Buscador_Cruceros() {
     { id: 7, type: 2, name: "Hotel Sevilla", destino: "Sevilla" },
   ];
 
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: destino ? destino.id : 0,
-      departureDate: startDate ? startDate : 0,
-      returnDate: endDate ? endDate : 0,
-    };
-    navigate("/listadoVuelos", { state: { newRequestData } });
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adulto: 2,
+      ninio: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+       state: { data },
+     }); */
   };
   return (
     <>
@@ -56,21 +73,21 @@ function Buscador_Cruceros() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Buscador
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
                     placeholder={"Origen"}
-                    vuelo={true}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
                   <Input_Buscador
+                    control={control}
+                    name={"destino"}
+                    setValue={setValue}
                     placeholder={"Destino"}
-                    vuelo={true}
                     destinos={destinos}
-                    destino={origen}
-                    setDestino={setOrigen}
                   />
                   <Input_DateRange
                     startDate={startDate}
@@ -79,13 +96,7 @@ function Buscador_Cruceros() {
                     setEndDate={setEndDate}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -103,24 +114,26 @@ function Buscador_Cruceros() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Vuelos
           </h2>
           <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-mt-4">
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
               placeholder={"Origen"}
-              vuelo={true}
               destinos={destinos}
-              destino={origen}
-              setDestino={setOrigen}
             />
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"destino"}
+              setValue={setValue}
               placeholder={"Destino"}
-              vuelo={true}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
             <Input_DateRange
               startDate={startDate}
@@ -129,11 +142,7 @@ function Buscador_Cruceros() {
               setEndDate={setEndDate}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

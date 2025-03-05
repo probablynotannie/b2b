@@ -5,7 +5,7 @@ import Input_DateRange from "../../../inputs/DateRange";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_AdultoNInio from "../../../inputs/Adulto_Ninio";
 import { useNavigate } from "react-router-dom";
-
+import { useForm } from "react-hook-form";
 function Buscador_Tickets() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -14,7 +14,6 @@ function Buscador_Tickets() {
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
   const [endDate, setEndDate] = useState();
-  const [destino, setDestino] = useState();
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -30,18 +29,26 @@ function Buscador_Tickets() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      startDate: 0,
+    },
+  });
 
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: destino ? destino.id : 0,
-      salida: startDate ? startDate : 0,
-      vuelta: endDate ? endDate : 0,
-      adultos: adultos,
-      ninios: ninios,
-      niniosAges: ninioAges,
-    };
-    navigate("/listadoTickets", { state: { newRequestData } });
+  const onSubmit = (data) => {
+    console.log(data);
+
+    navigate("/listadoTickets", {
+      state: { data },
+    });
   };
+
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -70,13 +77,14 @@ function Buscador_Tickets() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Buscador
-                    placeholder={"Destino"}
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
+                    placeholder={"Origen"}
                     destinos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
                   />
                   <Input_DateRangeMobile
                     startDate={startDate}
@@ -93,13 +101,7 @@ function Buscador_Tickets() {
                     setNinioAges={setNinioAges}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -117,16 +119,17 @@ function Buscador_Tickets() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Tickets
           </h2>
           <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-mt-4">
             <Input_Buscador
-              placeholder={"Destino"}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
             <Input_DateRange
               startDate={startDate}
@@ -143,11 +146,7 @@ function Buscador_Tickets() {
               setNinioAges={setNinioAges}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

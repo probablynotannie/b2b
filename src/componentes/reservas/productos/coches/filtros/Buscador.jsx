@@ -5,15 +5,13 @@ import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
 import Input_Personas from "../../../../inputs/Adulto_Ninio_Infant";
 import { FaSearch } from "react-icons/fa";
+import { useForm } from "react-hook-form";
 function Buscador() {
   const [horaRecogida, setHoraRecogida] = useState("12:00");
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const [devolucion, setDevolucion] = useState();
-  const [adultos, setAdultos] = useState(1);
-  const [ninios, setNinios] = useState();
-  const [infant, setInfant] = useState();
   const [destino, setDestino] = useState(0);
   const [origen, setOrigen] = useState(0);
 
@@ -35,6 +33,28 @@ function Buscador() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adulto: 1,
+      ninios: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+    },
+  });
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+          state: { data },
+        }); */
+  };
   return (
     <>
       <button
@@ -73,7 +93,7 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+          <form className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
                 placeholder={"Recogida"}
@@ -99,19 +119,27 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
+              <Input_Hora
+                control={control}
+                setValue={setValue}
+                name={"horaRecogida"}
+                defaultValue="12:00"
+              />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
+              <Input_Hora
+                control={control}
+                setValue={setValue}
+                name={"horaDevolucion"}
+                defaultValue="12:00"
+              />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Personas
-                adultos={adultos}
-                setAdultos={setAdultos}
-                ninios={ninios}
-                setNinios={setNinios}
-                infant={infant}
-                setInfant={setInfant}
+                control={control}
+                nameAdult={"adulto"}
+                nameKid={"ninio"}
+                nameInfant={"infant"}
               />
             </div>
 
@@ -138,7 +166,7 @@ function Buscador() {
               </button>
               <span className="tw-text-slate-400">Cerrar</span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
@@ -146,7 +174,10 @@ function Buscador() {
         <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="tw-grid tw-grid-cols-12 tw-gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+        >
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
               placeholder={"Recogida"}
@@ -183,18 +214,16 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">
             <Input_Personas
-              adultos={adultos}
-              setAdultos={setAdultos}
-              ninios={ninios}
-              setNinios={setNinios}
-              infant={infant}
-              setInfant={setInfant}
+              control={control}
+              nameAdult={"adulto"}
+              nameKid={"ninio"}
+              nameInfant={"infant"}
             />
           </div>
           <button className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1 2xl:tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
-        </div>
+        </form>
       </div>
     </>
   );
