@@ -1,9 +1,9 @@
-import React from "react";
+
 
 function Circuitos() {
   return (
     <section className="tw-pb-12 md:tw-mt-5 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4 tw-animate-pulse">
-      {[...Array(2)].map((_, index) => (
+      {[...Array(3)].map((_, index) => (
         <div
           className="tw-border-2 tw-bg-white dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-shadow-lg"
           key={index}

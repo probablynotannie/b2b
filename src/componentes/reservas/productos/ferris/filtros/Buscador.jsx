@@ -3,14 +3,12 @@ import Input_Destinos from "../../../../inputs/Destinos";
 import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Bonificaciones from "../../../../inputs/Bonificacion";
-
+import { useForm } from "react-hook-form";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [destino, setDestino] = useState("");
-  const [origen, setOrigen] = useState("");
   const [ages, setAges] = useState({});
   const [pasajeros, setPasajeros] = useState(1);
   const origenes = [
@@ -33,6 +31,19 @@ function Buscador() {
     { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
+  const onSubmit = (data) => {
+    console.log(data);
+    /*     navigate("/listadoFerris", {
+        state: { datosForm: data },
+      }); */
+  };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <button
@@ -55,7 +66,7 @@ function Buscador() {
         >
           <div>
             <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
-              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 bg-primary dark:tw-bg-slate-900 tw-p-5">
+              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
                 <h2 className="tw-text-xl tw-font-bold tw-text-white">
                   Buscador
                 </h2>
@@ -68,20 +79,24 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
+          >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={destinos}
-                destino={destino}
-                setDestino={setDestino}
+                name="destino"
+                control={control}
+                placeholder="Selecciona un origen"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={origenes}
-                destino={origen}
-                setDestino={setOrigen}
-                placeholder="Opcional"
+                name="destino"
+                control={control}
+                placeholder="Selecciona un destino"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -101,19 +116,19 @@ function Buscador() {
               />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-              <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+              <button className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                 <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
-            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
-              <button
-                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
-                onClick={toggleModal}
-              >
-                X
-              </button>
-              <span className="tw-text-slate-400">Cerrar</span>
-            </div>
+          </form>
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
+            <button
+              className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
+              onClick={toggleModal}
+            >
+              X
+            </button>
+            <span className="tw-text-slate-400">Cerrar</span>
           </div>
         </div>
       </div>
@@ -122,20 +137,24 @@ function Buscador() {
         <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="tw-grid tw-grid-cols-12 tw-gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+        >
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
             <Input_Destinos
-              datos={destinos}
-              destino={destino}
-              setDestino={setDestino}
+              datos={origenes}
+              name="origen"
+              control={control}
+              placeholder="Selecciona un origen"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
             <Input_Destinos
-              datos={origenes}
-              destino={origen}
-              setDestino={setOrigen}
-              placeholder="Opcional"
+              datos={destinos}
+              name="destino"
+              control={control}
+              placeholder="Selecciona un destino"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
@@ -155,11 +174,11 @@ function Buscador() {
             />
           </div>
           <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-2 xl:tw-col-span-2 2xl:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-            <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+            <button className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
               <FaSearch className="tw-text-white tw-text-xl" />
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

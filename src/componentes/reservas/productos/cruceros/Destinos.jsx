@@ -80,7 +80,7 @@ function Resultado({ destinos }) {
         year: "numeric",
       }).format(nextDate);
     } else {
-      return "No upcoming departures";
+      return "No hay próximas salidas";
     }
   }
   return (

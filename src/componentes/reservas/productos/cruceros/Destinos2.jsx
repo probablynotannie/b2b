@@ -20,6 +20,7 @@ function Resultado({ destinos }) {
       ? new Date(proximaTarifa.fecha).toLocaleDateString()
       : "No disponible";
   };
+
   return (
     <section className="tw-pb-12">
       {destinos.map((destino, index) => {
@@ -138,7 +139,7 @@ function Resultado({ destinos }) {
                   Restringida a dos personas
                 </div>
               )}
-              <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10 tw-bg-white tw-shadow-inner tw-items-center">
+              <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10  tw-shadow-inner tw-items-center">
                 {destino.tarifas.slice(0, 8).map((tarifa) => {
                   const proximaSalida = new Date(
                     tarifa.fecha

@@ -9,11 +9,9 @@ import { useNavigate } from "react-router-dom";
 import datos_destinos from "./destinos.json";
 import datos_puertos from "./puertos.json";
 import datos_navieras from "./navieras.json";
-
+import { useForm } from "react-hook-form";
 function Buscador_Cruceros({
-  setDestino,
   setPuerto,
-  destino,
   naviera,
   mes,
   setNaviera,
@@ -26,12 +24,6 @@ function Buscador_Cruceros({
 }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const handleSubmit = () => {
-    const newRequestData = requestData;
-    navigate("/listadoCruceros", { state: { newRequestData } });
-  };
-
   const updateRequestData = (key, value) => {
     const newRequestData = {
       ...requestData,
@@ -39,7 +31,19 @@ function Buscador_Cruceros({
     };
     setRequestData(newRequestData);
   };
-
+  const onSubmit = (data) => {
+    console.log(data);
+    /*     navigate("/listadoFerris", {
+      state: { datosForm: data },
+    }); */
+  };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -68,16 +72,15 @@ function Buscador_Cruceros({
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
                     datos={datos_destinos}
-                    destino={destino}
-                    setDestino={(value) => {
-                      setDestino(value);
-                      updateRequestData("idZona", value);
-                    }}
+                    name="destino"
+                    control={control}
+                    placeholder="Selecciona un destino"
                   />
+
                   <Input_Puertos
                     datos={datos_puertos}
                     puerto={puerto}
@@ -109,13 +112,7 @@ function Buscador_Cruceros({
                     }}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -134,18 +131,16 @@ function Buscador_Cruceros({
       )}
 
       <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form>
+        <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Cruceros
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 lg:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
               datos={datos_destinos}
-              destino={destino}
-              setDestino={(value) => {
-                setDestino(value);
-                updateRequestData("idZona", value);
-              }}
+              name="destino"
+              control={control}
+              placeholder="Selecciona un destino"
             />
             <Input_Puertos
               datos={datos_puertos}
@@ -178,11 +173,7 @@ function Buscador_Cruceros({
               }}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

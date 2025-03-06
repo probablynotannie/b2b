@@ -168,7 +168,6 @@ function Buscador_Transfers() {
               destinos={destinos}
             />
             <Input_DateRange
-              control={control}
               placeholder={"Para cuando"}
               hora={horaRecogida}
               date={startDate}

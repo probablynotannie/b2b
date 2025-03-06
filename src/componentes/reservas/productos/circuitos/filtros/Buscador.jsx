@@ -2,35 +2,26 @@ import { useState } from "react";
 import Input_Destinos from "../../../../inputs/Destinos";
 import Input_DateRange from "../../../../inputs/Fecha";
 import { FaSearch } from "react-icons/fa";
-
+import { useForm } from "react-hook-form";
+import destinos from "./destinos.json";
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [destino, setDestino] = useState("");
-  const [origen, setOrigen] = useState("");
 
-  const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
-  const origenes = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
   const [fecha, setFecha] = useState(null);
-
+  const onSubmit = (data) => {
+    console.log(data);
+    /*     navigate("/listadoFerris", {
+      state: { datosForm: data },
+    }); */
+  };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <button
@@ -66,19 +57,24 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
+          >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={destinos}
-                destino={destino}
-                setDestino={setDestino}
+                name="origen"
+                control={control}
+                placeholder="Selecciona un destino"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
-                datos={origenes}
-                destino={origen}
-                setDestino={setOrigen}
+                datos={destinos}
+                name="destino"
+                control={control}
+                placeholder="Selecciona un destino"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -90,15 +86,15 @@ function Buscador() {
                 <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
-            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
-              <button
-                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
-                onClick={toggleModal}
-              >
-                X
-              </button>
-              <span className="tw-text-slate-400">Cerrar</span>
-            </div>
+          </form>
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
+            <button
+              className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
+              onClick={toggleModal}
+            >
+              X
+            </button>
+            <span className="tw-text-slate-400">Cerrar</span>
           </div>
         </div>
       </div>
@@ -107,23 +103,33 @@ function Buscador() {
         <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="tw-grid tw-grid-cols-12 tw-gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+        >
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3">
             <Input_Destinos
               datos={destinos}
-              destino={destino}
-              setDestino={setDestino}
+              name="origen"
+              control={control}
+              placeholder="Selecciona un destino"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-4">
             <Input_Destinos
-              datos={origenes}
-              destino={origen}
-              setDestino={setOrigen}
+              datos={destinos}
+              name="destino"
+              control={control}
+              placeholder="Selecciona un destino"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
-            <Input_DateRange fecha={fecha} setFecha={setFecha} />
+            <Input_DateRange
+              fecha={fecha}
+              name={"fecha"}
+              setValue={setValue}
+              setFecha={setFecha}
+            />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-1 xl:tw-col-span-1"></div>
           <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-1 xl:tw-col-span-2 2xl:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
@@ -131,7 +137,7 @@ function Buscador() {
               <FaSearch className="tw-text-white tw-text-xl" />
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

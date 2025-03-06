@@ -3,17 +3,22 @@ import { FaSearch } from "react-icons/fa";
 import destinos from "./destinos.json";
 import Input_Destinos from "../../../inputs/Destinos";
 import { useNavigate } from "react-router-dom";
+import { useForm } from "react-hook-form";
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: 0,
-    };
-    navigate("/listadoCircuitos", { state: { newRequestData } });
+  const onSubmit = (data) => {
+    navigate("/listadocircuitos", {
+      state: { datosForm: data },
+    });
   };
+  const {
+    register,
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm();
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -42,26 +47,22 @@ function Buscador_Destinos() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Destinos
                     datos={destinos}
-                    destino={destino}
-                    setDestino={setDestino}
+                    name="origen"
+                    control={control}
+                    placeholder="Selecciona un origen"
                   />
                   <Input_Destinos
                     datos={destinos}
-                    destino={origen}
-                    setDestino={setOrigen}
+                    name="destino"
+                    control={control}
+                    placeholder="Selecciona un destino"
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -79,27 +80,25 @@ function Buscador_Destinos() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Circuitos
           </h2>
           <div className="tw-grid tw-grid-cols-2 tw-gap-4 tw-mt-4">
             <Input_Destinos
               datos={destinos}
-              destino={destino}
-              setDestino={setDestino}
-            />
+              name="origen"
+              control={control}
+              placeholder="Selecciona un origen"
+            />{" "}
             <Input_Destinos
               datos={destinos}
-              destino={origen}
-              setDestino={setOrigen}
+              name="destino"
+              control={control}
+              placeholder="Selecciona un destino"
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

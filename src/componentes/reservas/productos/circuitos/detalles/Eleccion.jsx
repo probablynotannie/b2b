@@ -15,7 +15,6 @@ const Eleccion = ({
   setRoomData,
   actividad,
 }) => {
-  const [origen, setOrigen] = useState("");
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -33,12 +32,12 @@ const Eleccion = ({
     handleSubmit,
     setValue,
     setError,
+    control,
     clearErrors,
     formState: { errors },
   } = useForm();
 
   const onSubmit = (data) => {
-
     console.log(data);
     // You can navigate here if everything is valid
     // navigate("/datosCircuito", {
@@ -48,7 +47,12 @@ const Eleccion = ({
 
   return (
     <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
-      <Origen datos={destinos} destino={origen} setDestino={setOrigen} edad />
+      <Origen
+        datos={destinos}
+        name="destino"
+        control={control}
+        placeholder="Selecciona un destino"
+      />
       <Fecha
         clearErrors={clearErrors}
         setError={setError}

@@ -15,22 +15,8 @@ const fetchData = async (newRequestData) => {
     throw new Error("Error cargando datos");
   }
   const data = await response.json();
-  if (
-    (newRequestData.idZona === 0 ||
-      Number(data.idZona) === newRequestData.idZona) &&
-    (newRequestData.idPuerto === 0 ||
-      Number(data.idPuerto) === newRequestData.idPuerto) &&
-    (newRequestData.idNav === 0 ||
-      Number(data.idNav) === newRequestData.idNav) &&
-    (newRequestData.fechSal === 0 ||
-      Number(data.fechSal) === newRequestData.fechSal) &&
-    (newRequestData.duracion === 0 ||
-      Number(data.duracion) === newRequestData.duracion)
-  ) {
-    return data.items;
-  } else {
-    return null;
-  }
+
+  return data.items;
 };
 
 function Productos() {
@@ -56,7 +42,7 @@ function Productos() {
           </div>
         </div>
       </div>
-      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
+      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[55vh] lg:tw-min-h-[40vh]">
         {newRequestData.img && (
           <section className="tw-mb-10">
             <h1 className="tw-text-2xl tw-text-secondary tw-font-extrabold tw-mb-5 ">

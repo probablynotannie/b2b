@@ -48,6 +48,7 @@ function Buscador() {
        state: { data },
      }); */
   };
+
   return (
     <>
       <button
@@ -134,14 +135,13 @@ function Buscador() {
                 className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
                 onClick={toggleModal}
               >
-                X
+                0 X
               </button>
               <span className="tw-text-slate-400">Cerrar</span>
             </div>
           </form>
         </div>
       </div>
-
       <div
         onSubmit={handleSubmit(onSubmit)}
         className="tw-hidden tw-p-5 tw-bg-white tw-border-2 tw-shadow-lg lg:tw-block dark:tw-border-slate-800 tw-rounded-xl tw-min-h-28 dark:tw-bg-slate-800"
@@ -184,5 +184,4 @@ function Buscador() {
     </>
   );
 }
-
 export default Buscador;
