@@ -4,12 +4,12 @@ import Input_DateRange from "../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio";
 import Input_Aeropuertos from "../../../inputs/Aeropuertos";
+import { useForm } from "react-hook-form";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
-  const toggleModal = () => setIsModalOpen(!isModalOpen); // Toggle modal visibility
-  const [destino, setDestino] = useState("");
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -24,6 +24,31 @@ function Buscador() {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adulto: 2,
+      ninio: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+       state: { data },
+     }); */
+  };
   return (
     <>
       <button
@@ -55,12 +80,18 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3 p-5 ">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="grid grid-cols-12 gap-3 p-5 "
+          >
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
@@ -96,21 +127,25 @@ function Buscador() {
               </button>
               <span className="text-slate-400">Cerrar</span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
-
-      {/* For smaller screens, show as normal layout (not a modal) */}
       <div className="hidden lg:block border-2 dark:tw-border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
         <h2 className="mb-4 font-bold text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="grid grid-cols-12 gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="grid grid-cols-12 gap-3"
+        >
           <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3 ">
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
@@ -137,7 +172,7 @@ function Buscador() {
               <FaSearch className="text-white text-xl" />
             </button>
           </div>
-        </div>
+        </form>
       </div>
     </>
   );

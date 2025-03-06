@@ -9,8 +9,7 @@ function Buscador_Cruceros() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
+
   const destinos = [
     { id: 0, type: 2, name: "Aeródromo Balmaceda", destino: "Balmaceda" },
     { id: 1, type: 2, name: "El Prat", destino: "Barcelona" },

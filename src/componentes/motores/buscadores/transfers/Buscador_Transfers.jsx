@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 function Buscador_Transfers() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const [horaRecogida, setHoraRecogida] = useState("12:00");
   const [horaDevolucion, setHoraDevolucion] = useState("12:00");
   const [startDate, setStartDate] = useState();
@@ -46,30 +45,20 @@ function Buscador_Transfers() {
       horaDevolucion: "12:00",
       startDate: 0,
       endDate: 0,
+      destino: 0,
+      origen: 0,
     },
   });
 
   const onSubmit = (data) => {
     console.log(data);
-
     /*  navigate("/listadotransfers", {
       state: { data },
     }); */
   };
-  const newRequestData = {
-    departureDate: startDate ? startDate : 0,
-    returnDate: endDate ? endDate : 0,
-    returnTime: horaDevolucion ? horaDevolucion : 0,
-  };
-  // origen
-  // destino
   // startDate
   // endDate
-  // + horaRecogida
-  // + horaDevolucion
-  // + adultos
-  // + niños
-  // + infants
+
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -104,7 +93,6 @@ function Buscador_Transfers() {
                 </h2>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
-                    required={true}
                     control={control}
                     name={"origen"}
                     setValue={setValue}
@@ -112,7 +100,6 @@ function Buscador_Transfers() {
                     destinos={destinos}
                   />
                   <Input_Destinos
-                    required={true}
                     control={control}
                     name={"destino"}
                     setValue={setValue}
@@ -167,7 +154,6 @@ function Buscador_Transfers() {
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
-              required={true}
               control={control}
               name={"origen"}
               setValue={setValue}
@@ -175,7 +161,6 @@ function Buscador_Transfers() {
               destinos={destinos}
             />
             <Input_Destinos
-              required={true}
               control={control}
               name={"destino"}
               setValue={setValue}

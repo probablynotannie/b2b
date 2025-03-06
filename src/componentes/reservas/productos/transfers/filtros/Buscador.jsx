@@ -13,8 +13,6 @@ function Buscador() {
   const [startDate, setStartDate] = useState();
   const [endDate, setEndDate] = useState();
   const [devolucion, setDevolucion] = useState();
-  const [destino, setDestino] = useState(0);
-  const [origen, setOrigen] = useState(0);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -99,18 +97,22 @@ function Buscador() {
           >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
                 placeholder={"Origen"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
                 placeholder={"Destino"}
                 destinos={destinos}
-                destino={origen}
-                setDestino={setOrigen}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -181,18 +183,22 @@ function Buscador() {
         >
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
-              placeholder={"Destino"}
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={devolucion}
-              setDestino={setDevolucion}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">

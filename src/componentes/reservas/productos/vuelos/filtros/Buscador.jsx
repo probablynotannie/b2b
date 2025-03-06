@@ -4,6 +4,7 @@ import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio";
 import Input_Aeropuertos from "../../../../inputs/Aeropuertos";
+import { useForm } from "react-hook-form";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -24,6 +25,31 @@ function Buscador() {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adulto: 2,
+      ninio: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+       state: { data },
+     }); */
+  };
   return (
     <>
       <button
@@ -59,12 +85,18 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
+          >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -100,19 +132,25 @@ function Buscador() {
               </button>
               <span className="tw-text-slate-400">Cerrar</span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
         <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="tw-grid tw-grid-cols-12 tw-gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+        >
           <div className="tw-col-span-4">
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
           </div>
           <div className="tw-col-span-4">
@@ -134,7 +172,7 @@ function Buscador() {
           <button className="tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
-        </div>
+        </form>
       </div>
     </>
   );

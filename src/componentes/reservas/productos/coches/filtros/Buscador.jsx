@@ -96,18 +96,22 @@ function Buscador() {
           <form className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
-                placeholder={"Recogida"}
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
-                placeholder={"Devolución"}
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"destino"}
                 destinos={destinos}
-                destino={origen}
-                setDestino={setOrigen}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -180,18 +184,22 @@ function Buscador() {
         >
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
-              placeholder={"Recogida"}
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
-              placeholder={"Devolución"}
+              required={true}
+              control={control}
+              name={"destino"}
+              setValue={setValue}
+              placeholder={"destino"}
               destinos={destinos}
-              destino={devolucion}
-              setDestino={setDevolucion}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
