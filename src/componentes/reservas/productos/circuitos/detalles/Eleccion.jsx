@@ -39,10 +39,9 @@ const Eleccion = ({
 
   const onSubmit = (data) => {
     console.log(data);
-    // You can navigate here if everything is valid
-    // navigate("/datosCircuito", {
-    //   state: { datosForm: data, actividad, habitacion, roomData },
-    // });
+    navigate("/datosCircuito", {
+      state: { datosForm: data, actividad, habitacion, roomData },
+    });
   };
 
   return (

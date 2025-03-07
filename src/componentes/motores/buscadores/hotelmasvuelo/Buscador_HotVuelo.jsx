@@ -8,22 +8,16 @@ import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
       startDate: 0,
       endDate: 0,
+      origen: 0,
+      destino: 0,
     },
   });
 
@@ -97,10 +91,10 @@ function Buscador_Cruceros() {
                   />
 
                   <Input_DateRange
-                    startDate={startDate}
-                    endDate={endDate}
-                    setStartDate={setStartDate}
-                    setEndDate={setEndDate}
+                    control={control}
+                    nameStartDate="startDate"
+                    nameEndDate="endDate"
+                    placeholder="Selecciona un rango de fechas"
                   />
                   <Input_HabAdNin
                     habitacion={habitacion}
@@ -109,13 +103,7 @@ function Buscador_Cruceros() {
                     setRoomData={setRoomData}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -155,10 +143,10 @@ function Buscador_Cruceros() {
             />
 
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              nameStartDate="startDate"
+              nameEndDate="endDate"
+              placeholder="Selecciona un rango de fechas"
             />
             <Input_HabAdNin
               habitacion={habitacion}

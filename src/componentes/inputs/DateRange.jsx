@@ -12,22 +12,22 @@ const DateRange = ({ control, nameStartDate, nameEndDate, placeholder }) => {
   const isSwiping = useRef(false);
 
   const { field: fieldStartDate } = useController({
-    name: nameStartDate, // Field for start date
+    name: nameStartDate,
     control,
-    defaultValue: null, // Default value
+    defaultValue: null,
   });
 
   const { field: fieldEndDate } = useController({
-    name: nameEndDate, // Field for end date
+    name: nameEndDate,
     control,
-    defaultValue: null, // Default value
+    defaultValue: null,
   });
 
   const handleChange = (dates) => {
     if (!isSwiping.current) {
       const [start, end] = dates;
-      fieldStartDate.onChange(start); // Update start date field
-      fieldEndDate.onChange(end); // Update end date field
+      fieldStartDate.onChange(start);
+      fieldEndDate.onChange(end);
       if (start && end) {
         setIsOpen(false);
       }

@@ -4,11 +4,11 @@ function Detalles({ hotel, actividades }) {
   return (
     <div>
       <HotelDetalles hotel={hotel} />
-      <div className="grid md:grid-cols-2 gap-5">
+      <div className="tw-grid md:tw-grid-cols-2 tw-gap-5">
         {actividades.map((actividad, index) => (
           <section
             key={index}
-            className="pb-20 bg-white duration-300 dark:bg-slate-800 h-auto max-w-full rounded-lg rounded-t-lg  shadow transition relative dark:tw-border-2 dark:tw-border-slate-700"
+            className="tw-pb-20 tw-bg-white tw-duration-300 dark:tw-bg-slate-800 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow tw-transition tw-relative dark:tw-border-2 dark:tw-border-slate-700"
           >
             <Actividad actividad={actividad} />
           </section>

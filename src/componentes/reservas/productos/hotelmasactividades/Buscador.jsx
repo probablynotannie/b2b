@@ -5,56 +5,46 @@ import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio";
 import Input_Aeropuertos from "../../../inputs/Aeropuertos";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const navigate = useNavigate();
+
   const [isModalOpen, setIsModalOpen] = useState(false); // State for opening and closing the modal
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
-    defaultValues: {
-      adulto: 2,
-      ninio: 0,
-      infant: 0,
-      horaRecogida: "12:00",
-      horaDevolucion: "12:00",
-      startDate: 0,
-      endDate: 0,
+  const destinos = [
+    { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { id: 2, type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { id: 3, type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    {
+      id: 4,
+      type: "Destino",
+      name: "MADRID - CAPE GIRARDEAU",
+      destino: "Madrid",
     },
-  });
+    { id: 5, type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+  ];
 
   const onSubmit = (data) => {
     console.log(data);
-
-    /*  navigate("/listadotransfers", {
-       state: { data },
-     }); */
+    navigate("/listadohotelmasactividades", {
+      state: { datosForm: data },
+    });
   };
+  const { handleSubmit, control, setValue } = useForm({
+    defaultValues: {
+      idZona: 0,
+    },
+  });
   return (
     <>
-      <button
-        onClick={toggleModal}
-        className="relative border-2 dark:tw-border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
-      >
+      <button className="relative border-2 dark:tw-border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer">
         Cambiar busqueda
         <span className="absolute dark:bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 top-0 left-0 pointer-events-none tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
           <FaSearch />
@@ -96,10 +86,10 @@ function Buscador() {
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
               <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                nameStartDate="startDate"
+                nameEndDate="endDate"
+                placeholder="Selecciona un rango de fechas"
               />
             </div>
             <div className="col-span-12 md:col-span-6 lg:col-span-4">
@@ -150,10 +140,10 @@ function Buscador() {
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              nameStartDate="startDate"
+              nameEndDate="endDate"
+              placeholder="Selecciona un rango de fechas"
             />
           </div>
           <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">

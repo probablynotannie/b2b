@@ -8,12 +8,12 @@ function Seleccion() {
   const ferry = producto.ferry;
   const habitacion = producto.habitacion;
   return (
-    <article className="container my-10 lg:mb-10 lg:mt-auto ">
-      <article className="my-5 mt-10 grid grid-cols-3 gap-10">
-        <section className="col-span-3 lg:col-span-2 shadow-lg hover:shadow-xl duration-300 transition rounded-lg p-5 border-2 border-slate-100 dark:tw-border-slate-700 min-h-[55vh] dark:bg-slate-800">
+    <article className="tw-container tw-my-10 lg:tw-mb-10 lg:tw-mt-auto">
+      <article className="tw-my-5 tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
+        <section className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[55vh] dark:tw-bg-slate-800">
           <Detalles hotel={hotel} ferry={ferry} />
         </section>
-        <section className="col-span-3 lg:col-span-1 shadow-lg hover:shadow-xl duration-300 transition rounded-lg p-5 border-2 border-slate-100 dark:tw-border-slate-700 h-fit sticky top-24 dark:bg-slate-800">
+        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-24 dark:tw-bg-slate-800">
           <Aside hotel={hotel} ferry={ferry} habitacion={habitacion} />
         </section>
       </article>

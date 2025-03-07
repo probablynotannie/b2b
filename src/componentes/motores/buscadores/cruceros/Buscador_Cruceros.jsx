@@ -14,12 +14,11 @@ function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const onSubmit = (data) => {
-    console.log(data);
-    /*  navigate("/listadocruceros", {
+    navigate("/listadocruceros", {
       state: { datosForm: data },
-    }); */
+    });
   };
-  const { handleSubmit, control, setValue } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: {
       idZona: 0,
       idPuerto: 0,
@@ -76,12 +75,7 @@ function Buscador_Cruceros() {
                     control={control}
                     placeholder="Selecciona una naviera"
                   />
-                  <Input_Mes
-                    setValue={setValue}
-                    control={control}
-                    monthName="fechSalMonth"
-                    yearName="fechSalYear"
-                  />
+                  <Input_Mes control={control} name="fechSal" />
                   <Input_Dias control={control} name="duracion" />
                 </div>
                 <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -101,13 +95,12 @@ function Buscador_Cruceros() {
           </div>
         </div>
       )}
-
       <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Cruceros
           </h2>
-          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 lg:tw-grid-cols-5 tw-gap-4 tw-mt-4">
+          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
               datos={datos_destinos}
               name="idZona"
@@ -126,12 +119,7 @@ function Buscador_Cruceros() {
               control={control}
               placeholder="Selecciona una naviera"
             />
-            <Input_Mes
-              setValue={setValue}
-              control={control}
-              monthName="fechSalMonth"
-              yearName="fechSalYear"
-            />
+            <Input_Mes name={"fechSal"} control={control} />
             <Input_Dias control={control} name="duracion" />
           </div>
           <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">

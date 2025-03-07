@@ -60,7 +60,7 @@ const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
           }}
           classNames={{
             input:
-              "tw-border tw-bg-white dark:tw-border-y-2 dark:tw-border-slate-600 dark:tw-bg-slate-700 dark:tw-text-slate-300 tw-text-xs 2xl:tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer",
+              "tw-border tw-bg-white dark:tw-border-y-2 dark:tw-border-slate-700 dark:tw-bg-slate-700 dark:tw-text-slate-300 tw-text-xs 2xl:tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer",
           }}
         />
         <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-700 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">

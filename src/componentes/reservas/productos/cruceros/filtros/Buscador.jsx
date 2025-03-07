@@ -15,12 +15,11 @@ function Buscador() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(data);
     navigate("/listadocruceros", {
       state: { datosForm: data },
     });
   };
-  const { handleSubmit, control, setValue } = useForm({
+  const { handleSubmit, control } = useForm({
     defaultValues: {
       idZona: 0,
       idPuerto: 0,
@@ -95,12 +94,7 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
-              <Input_Mes
-                setValue={setValue}
-                control={control}
-                monthName="fechSalMonth"
-                yearName="fechSalYear"
-              />
+              <Input_Mes control={control} name="fechSal" />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Dias control={control} name="duracion" />
@@ -158,12 +152,7 @@ function Buscador() {
             />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
-            <Input_Mes
-              setValue={setValue}
-              control={control}
-              monthName="fechSalMonth"
-              yearName="fechSalYear"
-            />
+            <Input_Mes control={control} name="fechSal" />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Dias control={control} name="duracion" />
