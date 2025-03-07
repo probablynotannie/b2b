@@ -3,18 +3,15 @@ import Input_Buscador from "../../../../inputs/Buscador";
 import Input_DateRange from "../../../../inputs/DateRangeWithTime";
 import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
-import Input_Personas from "../../../../inputs/Adulto_Ninio_Infant";
+import Input_Edad from "../../../../inputs/Edad";
 import { FaSearch } from "react-icons/fa";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [horaRecogida, setHoraRecogida] = useState("12:00");
-  const [horaDevolucion, setHoraDevolucion] = useState("12:00");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
+  const navigate = useNavigate();
   const [devolucion, setDevolucion] = useState();
-  const [destino, setDestino] = useState(0);
-  const [origen, setOrigen] = useState(0);
-
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -31,29 +28,23 @@ function Buscador() {
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
-      adulto: 1,
-      ninios: 0,
-      infant: 0,
+      edadConductor: 2,
       horaRecogida: "12:00",
       horaDevolucion: "12:00",
+      origen: 0,
+      destino: 0,
+      startDate: 0,
+      endDate: 0,
     },
   });
   const onSubmit = (data) => {
     console.log(data);
 
-    /*  navigate("/listadotransfers", {
-          state: { data },
-        }); */
+    navigate("/listadoCoches", {
+      state: { data },
+    });
   };
   return (
     <>
@@ -110,16 +101,16 @@ function Buscador() {
                 control={control}
                 name={"destino"}
                 setValue={setValue}
-                placeholder={"destino"}
+                placeholder={"Destino"}
                 destinos={destinos}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRangeMobile
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                nameStartDate="startDate"
+                nameEndDate="endDate"
+                placeholder="Selecciona un rango de fechas"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -139,20 +130,11 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Personas
+              <Input_Edad
                 control={control}
-                nameAdult={"adulto"}
-                nameKid={"ninio"}
-                nameInfant={"infant"}
-              />
-            </div>
-
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Buscador
-                placeholder={"Destino"}
-                destinos={destinos}
-                destino={devolucion}
-                setDestino={setDevolucion}
+                name="edadConductor"
+                edadMinima={18}
+                edadMaxima={100}
               />
             </div>
 
@@ -198,34 +180,32 @@ function Buscador() {
               control={control}
               name={"destino"}
               setValue={setValue}
-              placeholder={"destino"}
+              placeholder={"Destino"}
               destinos={destinos}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              placeholder={"Fecha Recogida"}
-              hora={horaRecogida}
-              date={startDate}
-              setDate={setStartDate}
-              setHora={setHoraRecogida}
+              control={control}
+              nameFecha="startDate"
+              nameHora="horaRecogida"
+              placeholder="Selecciona una fecha y hora"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              placeholder={"Fecha Vuelta"}
-              hora={horaDevolucion}
-              date={endDate}
-              setDate={setEndDate}
-              setHora={setHoraDevolucion}
+              control={control}
+              nameFecha="endDate"
+              nameHora="horaDevolucion"
+              placeholder="Selecciona una fecha y hora"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">
-            <Input_Personas
+            <Input_Edad
               control={control}
-              nameAdult={"adulto"}
-              nameKid={"ninio"}
-              nameInfant={"infant"}
+              name="edadConductor"
+              edadMinima={18}
+              edadMaxima={100}
             />
           </div>
           <button className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1 2xl:tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">

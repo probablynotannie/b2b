@@ -11,14 +11,7 @@ import { useNavigate } from "react-router-dom";
 function Buscador_Coches() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [edad, setEdad] = useState();
 
-  const [horaRecogida, setHoraRecogida] = useState("12:00");
-  const [horaDevolucion, setHoraDevolucion] = useState("12:00");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [destino, setDestino] = useState();
-  const [origen, setOrigen] = useState();
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -35,27 +28,23 @@ function Buscador_Coches() {
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
 
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
-      adultos: 2,
-      ninios: 0,
-      infant: 0,
+      edadConductor: 2,
       horaRecogida: "12:00",
       horaDevolucion: "12:00",
+      origen: 0,
+      destino: 0,
+      startDate: 0,
+      endDate: 0,
     },
   });
   const onSubmit = (data) => {
     console.log(data);
 
-    /*  navigate("/listadotransfers", {
-        state: { data },
-      }); */
+    navigate("/listadoCoches", {
+      state: { data },
+    });
   };
   return (
     <>
@@ -122,10 +111,10 @@ function Buscador_Coches() {
                     defaultValue="12:00"
                   />
                   <Input_Edad
-                    edadMinima={22}
-                    edadMaxima={90}
-                    edad={edad}
-                    setEdad={setEdad}
+                    control={control}
+                    name="edadConductor"
+                    edadMinima={18}
+                    edadMaxima={100}
                   />
                 </div>
                 <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -168,31 +157,25 @@ function Buscador_Coches() {
               destinos={destinos}
             />
             <Input_DateRange
-              placeholder={"Recogida"}
-              hora={horaRecogida}
-              date={startDate}
-              setDate={setStartDate}
-              setHora={setHoraRecogida}
+              control={control}
+              nameFecha="startDate"
+              nameHora="horaRecogida"
+              placeholder="Selecciona una fecha y hora"
             />
             <Input_DateRange
-              placeholder={"Devolución"}
-              hora={horaDevolucion}
-              date={endDate}
-              setDate={setEndDate}
-              setHora={setHoraDevolucion}
+              control={control}
+              nameFecha="endDate"
+              nameHora="horaDevolucion"
+              placeholder="Selecciona una fecha y hora"
             />
             <Input_Edad
-              edadMinima={22}
-              edadMaxima={90}
-              edad={edad}
-              setEdad={setEdad}
+              control={control}
+              name="edadConductor"
+              edadMinima={18}
+              edadMaxima={100}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

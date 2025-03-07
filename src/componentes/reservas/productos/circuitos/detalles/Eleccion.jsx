@@ -28,12 +28,9 @@ const Eleccion = ({
 
   const navigate = useNavigate();
   const {
-    register,
     handleSubmit,
     setValue,
-    setError,
     control,
-    clearErrors,
     formState: { errors },
   } = useForm();
 

@@ -87,7 +87,7 @@ function Resultado({ destinos }) {
                     return (
                       <div
                         key={destination.puerto.id_puerto}
-                        className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-border-lg dark:tw-border-slate-800 tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
+                        className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-border-slate-100 dark:tw-border-slate-800 tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
                           isLast ? "tw-rounded-tr-lg" : ""
                         }`}
                         style={{
