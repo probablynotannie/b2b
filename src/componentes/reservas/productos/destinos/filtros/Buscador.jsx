@@ -2,6 +2,8 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Input_Mes from "../../../../inputs/Mes";
 import Input_Destinos from "../../../../inputs/Pais_Ciudad";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 import {
   FaGlobeAfrica,
   FaGlobeAsia,
@@ -11,29 +13,64 @@ import {
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [mes, setMes] = useState();
-  const [selectedContinent, setSelectedContinent] = useState(null);
-  const [selectedRegion, setSelectedRegion] = useState("");
+  const navigate = useNavigate();
   const continents = [
-    { name: "Africa", shortName: "AF", flag: <FaGlobeAfrica /> },
-    { name: "América", shortName: "AM", flag: <FaGlobeAmericas /> },
-    { name: "Asia", shortName: "AS", flag: <FaGlobeAsia /> },
-    { name: "Europa", shortName: "EU", flag: <FaGlobeEurope /> },
-    { name: "Oceanía", shortName: "OC", flag: <FaGlobeEurope /> },
+    { id: "AF", name: "Africa", flag: <FaGlobeAfrica /> },
+    { id: "AM", name: "América", flag: <FaGlobeAmericas /> },
+    { id: "AS", name: "Asia", flag: <FaGlobeAsia /> },
+    { id: "EU", name: "Europa", flag: <FaGlobeEurope /> },
+    { id: "OC", name: "Oceanía", flag: <FaGlobeEurope /> },
     {
+      id: "HK",
       name: "Haiku",
-      shortName: "HK",
-      flag: <img src="../../logo.png" alt="logo" className="w-5 h-4" />,
+      flag: <img src="../../logo.png" alt="logo" className="tw-w-5 tw-h-4" />,
     },
   ];
   const regions = {
-    AF: ["Nigeria", "Africa", "Egipto"],
-    AM: ["USA", "Canada", "Mexico"],
-    AS: ["China", "Japón", "India"],
-    EU: ["Alemania", "Francia", "Italia"],
-    OC: ["Australia", "Fiji"],
-    HK: ["Hola", "Haiku", "Vuela"],
+    AF: [
+      { id: 1, name: "Nigeria" },
+      { id: 2, name: "Africa" },
+      { id: 3, name: "Egipto" },
+    ],
+    AM: [
+      { id: 4, name: "USA" },
+      { id: 5, name: "Canada" },
+      { id: 6, name: "Mexico" },
+    ],
+    AS: [
+      { id: 7, name: "China" },
+      { id: 8, name: "Japón" },
+      { id: 9, name: "India" },
+    ],
+    EU: [
+      { id: 10, name: "Alemania" },
+      { id: 11, name: "Francia" },
+      { id: 12, name: "Italia" },
+    ],
+    OC: [
+      { id: 13, name: "Australia" },
+      { id: 14, name: "Fiji" },
+    ],
+    HK: [
+      { id: 15, name: "Hola" },
+      { id: 16, name: "Haiku" },
+      { id: 17, name: "Vuela" },
+    ],
   };
+
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate("/listadoDestinos", {
+      state: { datosForm: data },
+    });
+  };
+  const { handleSubmit, control } = useForm({
+    defaultValues: {
+      continent: 0,
+      region: 0,
+      fechSal: 0,
+    },
+  });
   return (
     <>
       <button
@@ -69,18 +106,20 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <div className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
+          >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Mes mes={mes} setMes={setMes} />
+              <Input_Mes name={"fechSal"} control={control} />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
+                control={control}
+                nameContinent="continent"
+                nameRegion="region"
                 continents={continents}
                 regions={regions}
-                setSelectedContinent={setSelectedContinent}
-                selectedContinent={selectedContinent}
-                selectedRegion={selectedRegion}
-                setSelectedRegion={setSelectedRegion}
               />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
@@ -97,31 +136,33 @@ function Buscador() {
               </button>
               <span className="tw-text-slate-400">Cerrar</span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
         <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
           Buscador
         </h2>
-        <div className="tw-grid tw-grid-cols-9 tw-gap-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-9 tw-gap-3"
+        >
           <div className="tw-col-span-4">
-            <Input_Mes mes={mes} setMes={setMes} />
+            <Input_Mes name={"fechSal"} control={control} />
           </div>
           <div className="tw-col-span-4">
             <Input_Destinos
+              control={control}
+              nameContinent="continent"
+              nameRegion="region"
               continents={continents}
               regions={regions}
-              setSelectedContinent={setSelectedContinent}
-              selectedContinent={selectedContinent}
-              selectedRegion={selectedRegion}
-              setSelectedRegion={setSelectedRegion}
             />
           </div>
           <button className="tw-bg-slate-700 tw-col-span-1 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
-        </div>
+        </form>
       </div>
     </>
   );

@@ -8,7 +8,7 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
 
-  const [fecha, setFecha] = useState(null);
+  const [fecha, setFecha] = useState();
   const onSubmit = (data) => {
     console.log(data);
     /*     navigate("/listadoFerris", {
@@ -78,7 +78,12 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_DateRange fecha={fecha} setFecha={setFecha} />
+              <Input_DateRange
+                edadSelector={true}
+                fecha={fecha}
+                name={`fecha`}
+                setValue={setValue}
+              />
             </div>
 
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
@@ -125,18 +130,16 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
             <Input_DateRange
+              edadSelector={true}
               fecha={fecha}
-              name={"fecha"}
+              name={`fecha`}
               setValue={setValue}
-              setFecha={setFecha}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-1 xl:tw-col-span-1"></div>
-          <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-1 xl:tw-col-span-2 2xl:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-            <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
-              <FaSearch className="tw-text-white tw-text-xl" />
-            </button>
-          </div>
+          <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
         </form>
       </div>
     </>

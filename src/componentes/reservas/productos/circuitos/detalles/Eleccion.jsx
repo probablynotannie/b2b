@@ -53,14 +53,7 @@ const Eleccion = ({
         control={control}
         placeholder="Selecciona un destino"
       />
-      <Fecha
-        clearErrors={clearErrors}
-        setError={setError}
-        fecha={fecha}
-        name="fecha"
-        setValue={setValue}
-        required={true}
-      />
+      <Fecha fecha={fecha} name={`fecha`} setValue={setValue} />
       {errors.fecha && (
         <p className="tw-text-red-500 tw-text-sm">{errors.fecha.message}</p>
       )}

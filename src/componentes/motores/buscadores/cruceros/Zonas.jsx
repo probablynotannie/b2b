@@ -3,8 +3,6 @@ import { useNavigate } from "react-router-dom";
 
 function Zonas({ setRequestData }) {
   const navigate = useNavigate();
-
-  // Filter zones with 'destacado' equal to 1, then limit to the first 4
   const highlightedZones = zonas
     .filter((zona) => zona.destacado === 1)
     .slice(0, 4);

@@ -104,10 +104,10 @@ function Buscador_Coches() {
                     destinos={destinos}
                   />
                   <Input_DateRangeMobile
-                    startDate={startDate}
-                    endDate={endDate}
-                    setStartDate={setStartDate}
-                    setEndDate={setEndDate}
+                    control={control}
+                    nameStartDate="startDate"
+                    nameEndDate="endDate"
+                    placeholder="Selecciona un rango de fechas"
                   />
                   <Input_Hora
                     control={control}

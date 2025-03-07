@@ -12,15 +12,25 @@ import {
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
+import { useController } from "react-hook-form"; // Import useController
 
-const InfiniteScrollCalendar = ({
-  startDate,
-  setStartDate,
-  endDate,
-  setEndDate,
-}) => {
+const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
+  // Register the fields with React Hook Form
+  const { field: fieldStartDate } = useController({
+    name: nameStartDate, // Field for start date
+    control,
+    defaultValue: null, // Default value
+  });
+
+  const { field: fieldEndDate } = useController({
+    name: nameEndDate, // Field for end date
+    control,
+    defaultValue: null, // Default value
+  });
+
   useEffect(() => {
     const initialMonths = [startOfMonth(new Date())];
     for (let i = 1; i < 3; i++) {
@@ -28,6 +38,7 @@ const InfiniteScrollCalendar = ({
     }
     setMonths(initialMonths);
   }, []);
+
   const loadMoreMonths = useCallback(() => {
     const lastMonth = months[months.length - 1];
     const newMonths = [];
@@ -38,16 +49,17 @@ const InfiniteScrollCalendar = ({
   }, [months]);
 
   const handleDateClick = (date) => {
-    if (!startDate || (startDate && endDate)) {
-      setStartDate(date);
-      setEndDate(null);
-    } else if (date < startDate) {
-      setStartDate(date);
+    if (!fieldStartDate.value || (fieldStartDate.value && fieldEndDate.value)) {
+      fieldStartDate.onChange(date);
+      fieldEndDate.onChange(null); // Reset end date
+    } else if (date < fieldStartDate.value) {
+      fieldStartDate.onChange(date);
     } else {
-      setEndDate(date);
+      fieldEndDate.onChange(date);
       closeModal();
     }
   };
+
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
@@ -60,11 +72,13 @@ const InfiniteScrollCalendar = ({
       </div>
     );
   };
+
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
+
     return (
       <div key={month} className="tw-mb-8">
         <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
@@ -81,11 +95,14 @@ const InfiniteScrollCalendar = ({
               className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm ${
                 isBefore(startOfDay(day), startOfDay(new Date()))
                   ? " tw-text-slate-400 tw-cursor-not-allowed"
-                  : isSameDay(day, startDate)
+                  : isSameDay(day, fieldStartDate.value)
                   ? "tw-bg-secondary tw-text-white"
-                  : isSameDay(day, endDate)
+                  : isSameDay(day, fieldEndDate.value)
                   ? "tw-bg-secondary tw-text-white"
-                  : startDate && endDate && day > startDate && day < endDate
+                  : fieldStartDate.value &&
+                    fieldEndDate.value &&
+                    day > fieldStartDate.value &&
+                    day < fieldEndDate.value
                   ? "tw-bg-orange-100"
                   : ""
               }`}
@@ -118,9 +135,9 @@ const InfiniteScrollCalendar = ({
   };
 
   const formatDateRange = () => {
-    if (startDate && endDate) {
-      return `${format(startDate, "dd/MM/yyyy")} - ${format(
-        endDate,
+    if (fieldStartDate.value && fieldEndDate.value) {
+      return `${format(fieldStartDate.value, "dd/MM/yyyy")} - ${format(
+        fieldEndDate.value,
         "dd/MM/yyyy"
       )}`;
     }

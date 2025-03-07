@@ -10,10 +10,6 @@ import { useForm } from "react-hook-form";
 function Buscador_Transfers() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [horaRecogida, setHoraRecogida] = useState("12:00");
-  const [horaDevolucion, setHoraDevolucion] = useState("12:00");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
 
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
@@ -30,13 +26,7 @@ function Buscador_Transfers() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
       adulto: 2,
       ninio: 0,
@@ -51,13 +41,10 @@ function Buscador_Transfers() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-    /*  navigate("/listadotransfers", {
+    navigate("/listadotransfers", {
       state: { data },
-    }); */
+    });
   };
-  // startDate
-  // endDate
 
   return (
     <>
@@ -108,10 +95,9 @@ function Buscador_Transfers() {
                   />
                   <Input_DateRangeMobile
                     control={control}
-                    startDate={startDate}
-                    endDate={endDate}
-                    setStartDate={setStartDate}
-                    setEndDate={setEndDate}
+                    nameStartDate="startDate"
+                    nameEndDate="endDate"
+                    placeholder="Selecciona un rango de fechas"
                   />
                   <Input_Hora
                     control={control}
@@ -147,7 +133,7 @@ function Buscador_Transfers() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-600 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80  tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form className="tw-w-full" onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Transfers
@@ -168,18 +154,16 @@ function Buscador_Transfers() {
               destinos={destinos}
             />
             <Input_DateRange
-              placeholder={"Para cuando"}
-              hora={horaRecogida}
-              date={startDate}
-              setDate={setStartDate}
-              setHora={setHoraRecogida}
+              control={control}
+              nameFecha="startDate"
+              nameHora="horaRecogida"
+              placeholder="Selecciona una fecha y hora"
             />
             <Input_DateRange
-              placeholder={"Vuelta"}
-              hora={horaDevolucion}
-              date={endDate}
-              setDate={setEndDate}
-              setHora={setHoraDevolucion}
+              control={control}
+              nameFecha="endDate"
+              nameHora="horaDevolucion"
+              placeholder="Selecciona una fecha y hora"
             />
             <Input_Personas
               control={control}

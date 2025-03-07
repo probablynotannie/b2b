@@ -99,7 +99,7 @@ function SelectorPersonas({
                     {/* Child Age Inputs */}
                     {room.ninios > 0 && (
                       <div className="tw-col-span-6 md:tw-col-span-3">
-                        <span className="tw-text-sm tw-text-black">
+                        <span className="tw-text-sm tw-text-black dark:tw-text-slate-200">
                           Edad de los niños
                         </span>
                         <div className="tw-grid tw-grid-cols-3 tw-gap-3">

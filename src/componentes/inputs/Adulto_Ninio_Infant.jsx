@@ -12,7 +12,7 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="tw-relative tw-w-full">
+    <div className="tw-relative tw-hidden lg:tw-grid tw-grid-cols-1 tw-gap-3">
       <Popover
         aria-labelledby="area-popover"
         open={open}
@@ -29,14 +29,13 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
                   <Controller
                     name={nameAdult}
                     control={control}
-                    defaultValue={2}
                     render={({ field }) => (
                       <select
                         {...field}
                         value={field.value || 2}
                         onChange={(e) => {
                           setAdultos(parseInt(e.target.value, 10));
-                          field.onChange(e);
+                          field.onChange(Number(e.target.value));
                         }}
                         className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-text-white tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
                       >
@@ -48,12 +47,11 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
                       </select>
                     )}
                   />
-                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-700 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                     <FaPerson />
                   </div>
                 </div>
               </div>
-
               {/* Niños */}
               <div>
                 <span className="tw-text-sm">Niños</span>
@@ -61,14 +59,13 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
                   <Controller
                     name={nameKid}
                     control={control}
-                    defaultValue={2}
                     render={({ field }) => (
                       <select
                         {...field}
-                        value={field.value || 2}
+                        value={field.value}
                         onChange={(e) => {
                           setNinios(parseInt(e.target.value, 10));
-                          field.onChange(e);
+                          field.onChange(Number(e.target.value));
                         }}
                         className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-text-white tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
                       >
@@ -85,7 +82,6 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
                   </div>
                 </div>
               </div>
-
               {/* Infants */}
               <div>
                 <span className="tw-text-sm">Infants</span>
@@ -93,14 +89,13 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
                   <Controller
                     name={nameInfant}
                     control={control}
-                    defaultValue={2}
                     render={({ field }) => (
                       <select
                         {...field}
-                        value={field.value || 2}
+                        value={field.value}
                         onChange={(e) => {
                           setInfants(parseInt(e.target.value, 10));
-                          field.onChange(e);
+                          field.onChange(Number(e.target.value));
                         }}
                         className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-text-white tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
                       >
@@ -123,7 +118,7 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
       >
         <div className="tw-border tw-flex tw-items-center tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer">
           <span>
-            {adultos} Adultos, {ninios} Niños, {infants} Infants
+            {adultos} Ad, {ninios} Niñ, {infants} Inf
           </span>
         </div>
       </Popover>

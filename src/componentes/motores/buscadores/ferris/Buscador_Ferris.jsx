@@ -28,6 +28,7 @@ function Buscador_Destinos() {
   };
   const [fecha, setFecha] = useState();
   const onSubmit = (data) => {
+    console.log(data);
     navigate("/listadoFerris", {
       state: { datosForm: data },
     });
@@ -137,13 +138,7 @@ function Buscador_Destinos() {
                     />
                   </div>
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -198,7 +193,6 @@ function Buscador_Destinos() {
             {viaje === "ida" ? (
               <div className="tw-flex tw-flex-col">
                 <Input_Fecha
-                  errors={errors}
                   fecha={fecha}
                   name={"fecha"}
                   setValue={setValue}

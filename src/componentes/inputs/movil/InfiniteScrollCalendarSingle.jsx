@@ -34,7 +34,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
   const handleDateClick = (date) => {
     setSelectedDate(date);
     setIsModalOpen(false);
-    console.log(name,date)
+    console.log(name, date);
     setValue(name, date);
   };
 

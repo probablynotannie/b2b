@@ -65,7 +65,6 @@ function SelectorPersonas({
       )
     );
   };
-
   const totalAdults = roomData.reduce((acc, room) => acc + room.adultos, 0);
   const totalChildren = roomData.reduce((acc, room) => acc + room.ninios, 0);
   return (
@@ -90,7 +89,7 @@ function SelectorPersonas({
           placement="right"
           aria-labelledby="default-popover"
           content={
-            <div className="tw-w-96 tw-text-sm ">
+            <div className="tw-w-96 tw-text-sm">
               <div className="tw-bg-slate-800 tw-rounded-t-lg dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
                 Adultos / Niños
               </div>
@@ -171,7 +170,7 @@ function SelectorPersonas({
                                     e.target.value
                                   )
                                 }
-                                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
+                                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                                 placeholder="Edad"
                               />
                             </div>

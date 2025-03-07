@@ -18,14 +18,14 @@ function Datos() {
   } = useForm();
 
   const onSubmit = (data) => {
-    navigate("/reservaHotel", {
+    navigate("/reservaDestino", {
       state: { data, reserva },
     });
   };
 
   return (
-    <main className="my-10  flex justify-center container min-h-[68vh]">
-      <article className="p-5 w-full border-2 border-slate-200 dark:tw-border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
+    <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
+      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-xl tw-bg-white dark:tw-bg-slate-800">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
@@ -60,20 +60,20 @@ function Datos() {
               name="email"
             />
           </div>
+          <Reserva
+            img={img}
+            position={"center"}
+            tipo={"Destino"}
+            itinerario={reserva.nombre}
+            fechaIda={reserva.fechaIda}
+            fechaVuelta={reserva.fechaVuelta}
+          />
+          <div className="tw-flex tw-justify-end">
+            <button className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
+              Reservar
+            </button>
+          </div>
         </form>
-        <Reserva
-          img={img}
-          position={"center"}
-          tipo={"Destino"}
-          itinerario={reserva.nombre}
-          fechaIda={reserva.fechaIda}
-          fechaVuelta={reserva.fechaVuelta}
-        />
-        <div className="flex justify-end">
-          <button className="tw-bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
-            Reservar
-          </button>
-        </div>
       </article>
     </main>
   );

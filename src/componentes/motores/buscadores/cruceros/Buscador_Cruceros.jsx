@@ -10,40 +10,24 @@ import datos_destinos from "./destinos.json";
 import datos_puertos from "./puertos.json";
 import datos_navieras from "./navieras.json";
 import { useForm } from "react-hook-form";
-function Buscador_Cruceros({
-  setPuerto,
-  naviera,
-  mes,
-  setNaviera,
-  setMes,
-  setDuracion,
-  duracion,
-  puerto,
-  requestData,
-  setRequestData,
-}) {
+function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const updateRequestData = (key, value) => {
-    const newRequestData = {
-      ...requestData,
-      [key]: value,
-    };
-    setRequestData(newRequestData);
-  };
   const onSubmit = (data) => {
     console.log(data);
-    /*     navigate("/listadoFerris", {
+    /*  navigate("/listadocruceros", {
       state: { datosForm: data },
     }); */
   };
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    control,
-    formState: { errors },
-  } = useForm();
+  const { handleSubmit, control, setValue } = useForm({
+    defaultValues: {
+      idZona: 0,
+      idPuerto: 0,
+      idNav: 0,
+      fechSal: 0,
+      duracion: 0,
+    },
+  });
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -76,41 +60,29 @@ function Buscador_Cruceros({
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
                     datos={datos_destinos}
-                    name="destino"
+                    name="idZona"
                     control={control}
                     placeholder="Selecciona un destino"
                   />
-
                   <Input_Puertos
                     datos={datos_puertos}
-                    puerto={puerto}
-                    setPuerto={(value) => {
-                      setPuerto(value);
-                      updateRequestData("idPuerto", value);
-                    }}
+                    name="idPuerto"
+                    control={control}
+                    placeholder="Selecciona un puerto"
                   />
                   <Input_Navieras
-                    naviera={naviera}
-                    setNaviera={(value) => {
-                      setNaviera(value);
-                      updateRequestData("idNav", value);
-                    }}
                     datos={datos_navieras}
+                    name="idNav"
+                    control={control}
+                    placeholder="Selecciona una naviera"
                   />
                   <Input_Mes
-                    mes={mes}
-                    setMes={(value) => {
-                      setMes(value);
-                      updateRequestData("fechSal", value);
-                    }}
+                    setValue={setValue}
+                    control={control}
+                    monthName="fechSalMonth"
+                    yearName="fechSalYear"
                   />
-                  <Input_Dias
-                    duracion={duracion}
-                    setDuracion={(value) => {
-                      setDuracion(value);
-                      updateRequestData("duracion", value);
-                    }}
-                  />
+                  <Input_Dias control={control} name="duracion" />
                 </div>
                 <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
@@ -138,40 +110,29 @@ function Buscador_Cruceros({
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 lg:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
               datos={datos_destinos}
-              name="destino"
+              name="idZona"
               control={control}
               placeholder="Selecciona un destino"
             />
             <Input_Puertos
               datos={datos_puertos}
-              puerto={puerto}
-              setPuerto={(value) => {
-                setPuerto(value);
-                updateRequestData("idPuerto", value);
-              }}
+              name="idPuerto"
+              control={control}
+              placeholder="Selecciona un puerto"
             />
             <Input_Navieras
-              naviera={naviera}
-              setNaviera={(value) => {
-                setNaviera(value);
-                updateRequestData("idNav", value);
-              }}
               datos={datos_navieras}
+              name="idNav"
+              control={control}
+              placeholder="Selecciona una naviera"
             />
             <Input_Mes
-              mes={mes}
-              setMes={(value) => {
-                setMes(value);
-                updateRequestData("fechSal", value);
-              }}
+              setValue={setValue}
+              control={control}
+              monthName="fechSalMonth"
+              yearName="fechSalYear"
             />
-            <Input_Dias
-              duracion={duracion}
-              setDuracion={(value) => {
-                setDuracion(value);
-                updateRequestData("duracion", value);
-              }}
-            />
+            <Input_Dias control={control} name="duracion" />
           </div>
           <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar

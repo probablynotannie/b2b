@@ -6,13 +6,10 @@ import Input_Hora from "../../../../inputs/Hora";
 import Input_Personas from "../../../../inputs/Adulto_Ninio_Infant";
 import { FaSearch } from "react-icons/fa";
 import { useForm } from "react-hook-form";
-
+import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [horaRecogida, setHoraRecogida] = useState("12:00");
-  const [horaDevolucion, setHoraDevolucion] = useState("12:00");
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-  const [devolucion, setDevolucion] = useState();
+  const navigate = useNavigate();
+
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -31,27 +28,25 @@ function Buscador() {
 
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
-      adulto: 1,
-      ninios: 0,
+      adulto: 2,
+      ninio: 0,
       infant: 0,
       horaRecogida: "12:00",
       horaDevolucion: "12:00",
+      startDate: 0,
+      endDate: 0,
+      destino: 0,
+      origen: 0,
     },
   });
+
   const onSubmit = (data) => {
     console.log(data);
-
-    /*  navigate("/listadotransfers", {
-            state: { data },
-          }); */
+    navigate("/listadotransfers", {
+      state: { data },
+    });
   };
   return (
     <>
@@ -64,7 +59,6 @@ function Buscador() {
           <FaSearch />
         </span>
       </button>
-
       <div
         className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
           isModalOpen
@@ -117,10 +111,10 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRangeMobile
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                nameStartDate="startDate"
+                nameEndDate="endDate"
+                placeholder="Selecciona un rango de fechas"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
@@ -143,15 +137,6 @@ function Buscador() {
                 nameAdult={"adulto"}
                 nameKid={"ninio"}
                 nameInfant={"infant"}
-              />
-            </div>
-
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Buscador
-                placeholder={"Destino"}
-                destinos={destinos}
-                destino={devolucion}
-                setDestino={setDevolucion}
               />
             </div>
 
@@ -203,20 +188,18 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              placeholder={"Fecha recogida"}
-              hora={horaRecogida}
-              date={startDate}
-              setDate={setStartDate}
-              setHora={setHoraRecogida}
+              control={control}
+              nameFecha="startDate"
+              nameHora="horaRecogida"
+              placeholder="Selecciona una fecha y hora"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              placeholder={"Fecha vuelta"}
-              hora={horaDevolucion}
-              date={endDate}
-              setDate={setEndDate}
-              setHora={setHoraDevolucion}
+              control={control}
+              nameFecha="endDate"
+              nameHora="horaDevolucion"
+              placeholder="Selecciona una fecha y hora"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">

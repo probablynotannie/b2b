@@ -77,11 +77,11 @@ function Buscador({
           <>
             <input
               type="text"
-              value={inputText} // ✅ Always display user input
+              value={inputText}
               onChange={handleInputChange}
               placeholder={placeholder}
               disabled={disable}
-              className="tw-h-[40px] tw-pl-10 dark:tw-placeholder-slate-400 tw-text-sm tw-border dark:tw-border-2 dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
+              className="tw-h-[40px] tw-pl-10 dark:tw-placeholder-slate-400 tw-text-sm tw-border dark:tw-border-2 dark:tw-bg-slate-700 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
             />
             {error && (
               <p className="tw-text-red-500 tw-text-xs tw-mt-1">
@@ -137,11 +137,11 @@ function Buscador({
           setInputText("");
           setValue(name, "");
         }}
-        className="tw-absolute tw-top-0 tw-right-0 tw-text-slate-300 hover:tw-text-slate-500 tw-text-sm  tw-h-[40px] tw-flex tw-items-center tw-justify-center tw-w-8"
+        className="tw-absolute tw-top-0 tw-right-0 tw-text-slate-300 hover:tw-text-slate-500 tw-text-sm tw-h-[40px] tw-flex tw-items-center tw-justify-center tw-w-8"
       >
         <IoClose className="tw-text-lg" />
       </div>
-      <div className="tw-absolute tw-h-[40px] tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 tw-text-white tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         {vuelo ? <FaPlane /> : <FaSearch />}
       </div>
     </div>

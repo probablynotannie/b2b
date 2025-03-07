@@ -31,20 +31,7 @@ function Cruceros() {
           }}
         >
           <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
-            <Buscador_Cruceros
-              setDestino={setDestino}
-              setPuerto={setPuerto}
-              destino={destino}
-              naviera={naviera}
-              mes={mes}
-              setNaviera={setNaviera}
-              setMes={setMes}
-              setDuracion={setDuracion}
-              duracion={duracion}
-              puerto={puerto}
-              requestData={requestData}
-              setRequestData={setRequestData}
-            />
+            <Buscador_Cruceros setDuracion={setDuracion} duracion={duracion} />
           </div>
         </div>
         <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">

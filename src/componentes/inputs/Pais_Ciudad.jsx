@@ -1,31 +1,51 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { FaMap } from "react-icons/fa";
+import { useController } from "react-hook-form"; // Import useController
+
 function SelectorPaisCiudad({
-  selectedContinent,
-  setSelectedContinent,
-  selectedRegion,
-  setSelectedRegion,
-  regions,
+  control,
+  nameContinent,
+  nameRegion,
   continents,
+  regions,
 }) {
+  const { field: fieldContinent } = useController({
+    name: nameContinent,
+    control,
+    defaultValue: "",
+  });
+
+  const { field: fieldRegion } = useController({
+    name: nameRegion,
+    control,
+    defaultValue: "",
+  });
+
   const [step, setStep] = useState(1);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
+
+  const selectContinent = (continent) => {
+    fieldContinent.onChange(continent.id);
+    fieldRegion.onChange("");
+    setStep(2);
+  };
+
+  const selectRegion = (region) => {
+    fieldRegion.onChange(region.id);
+    setIsDropdownOpen(false);
+  };
+
   const toggleDropdown = () => {
     setIsDropdownOpen(!isDropdownOpen);
     if (!isDropdownOpen) {
       setStep(1);
     }
   };
-  const selectContinent = (continent) => {
-    setSelectedContinent(continent);
-    setSelectedRegion("");
 
-    setStep(2);
-  };
-  const selectRegion = (region) => {
-    setSelectedRegion(region);
-    setIsDropdownOpen(false);
-  };
+  useEffect(() => {
+    fieldRegion.onChange("");
+  }, [fieldContinent.value]);
+
   return (
     <div className="tw-relative tw-w-full">
       <button
@@ -34,8 +54,14 @@ function SelectorPaisCiudad({
         onClick={toggleDropdown}
       >
         <span className="tw-mx-2 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap">
-          {selectedRegion
-            ? selectedContinent.name + " - " + selectedRegion
+          {fieldRegion.value
+            ? `${
+                continents.find((c) => c.id === fieldContinent.value)?.name
+              } - ${
+                regions[fieldContinent.value]?.find(
+                  (r) => r.id === fieldRegion.value
+                )?.name
+              }`
             : "Selecciona continente y región"}
         </span>
         <svg
@@ -63,7 +89,7 @@ function SelectorPaisCiudad({
           <ul className="tw-py-2 tw-text-sm tw-text-gray-700">
             {step === 1
               ? continents.map((continent) => (
-                  <li key={continent.name}>
+                  <li key={continent.id}>
                     <button
                       type="button"
                       className="tw-inline-flex tw-w-full tw-px-4 tw-py-2 tw-text-sm hover:tw-bg-gray-100"
@@ -74,14 +100,14 @@ function SelectorPaisCiudad({
                     </button>
                   </li>
                 ))
-              : regions[selectedContinent.shortName].map((region) => (
-                  <li key={region}>
+              : regions[fieldContinent.value]?.map((region) => (
+                  <li key={region.id}>
                     <button
                       type="button"
                       className="tw-inline-flex tw-w-full tw-px-4 tw-py-2 tw-text-sm hover:tw-bg-gray-100"
                       onClick={() => selectRegion(region)}
                     >
-                      {region}
+                      {region.name}
                     </button>
                   </li>
                 ))}

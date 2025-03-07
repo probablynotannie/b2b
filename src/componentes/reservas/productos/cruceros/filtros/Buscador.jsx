@@ -3,33 +3,32 @@ import Input_Destinos from "../../../../inputs/Destinos";
 import Input_Puertos from "../../../../inputs/Puertos";
 import Input_Navieras from "../../../../inputs/Navieras";
 import Input_Mes from "../../../../inputs/Mes";
-import Input_Duracion from "../../../../inputs/SelectorDias";
+import Input_Dias from "../../../../inputs/SelectorDias";
 import { FaSearch } from "react-icons/fa";
 import datos_destinos from "../../../../motores/buscadores/cruceros/destinos.json";
 import datos_puertos from "../../../../motores/buscadores/cruceros/puertos.json";
 import datos_navieras from "../../../../motores/buscadores/cruceros/navieras.json";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [destino, setDestino] = useState("");
-  const [mes, setMes] = useState("");
-  const [duracion, setDuracion] = useState(2);
-  const [puerto, setPuerto] = useState("");
-  const [naviera, setNaviera] = useState("");
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     console.log(data);
-    /*     navigate("/listadoFerris", {
+    navigate("/listadocruceros", {
       state: { datosForm: data },
-    }); */
+    });
   };
-  const {
-    register,
-    handleSubmit,
-    setValue,
-    control,
-    formState: { errors },
-  } = useForm();
+  const { handleSubmit, control, setValue } = useForm({
+    defaultValues: {
+      idZona: 0,
+      idPuerto: 0,
+      idNav: 0,
+      fechSal: 0,
+      duracion: 0,
+    },
+  });
   return (
     <>
       <button
@@ -74,29 +73,37 @@ function Buscador() {
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={datos_destinos}
-                destino={destino}
-                setDestino={setDestino}
+                name="idZona"
+                control={control}
+                placeholder="Selecciona un destino"
               />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Puertos
                 datos={datos_puertos}
-                puerto={puerto}
-                setPuerto={setPuerto}
+                name="idPuerto"
+                control={control}
+                placeholder="Selecciona un puerto"
               />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
               <Input_Navieras
                 datos={datos_navieras}
-                naviera={naviera}
-                setNaviera={setNaviera}
+                name="idNav"
+                control={control}
+                placeholder="Selecciona una naviera"
               />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
-              <Input_Mes mes={mes} setMes={setMes} />
+              <Input_Mes
+                setValue={setValue}
+                control={control}
+                monthName="fechSalMonth"
+                yearName="fechSalYear"
+              />
             </div>
             <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4">
-              <Input_Duracion duracion={duracion} setDuracion={setDuracion} />
+              <Input_Dias control={control} name="duracion" />
             </div>
 
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 tw-md:col-span-6">
@@ -127,30 +134,39 @@ function Buscador() {
         >
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Destinos
+              required={true}
               datos={datos_destinos}
-              destino={destino}
-              setDestino={setDestino}
+              name="idZona"
+              control={control}
+              placeholder="Selecciona un destino"
             />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Puertos
               datos={datos_puertos}
-              puerto={puerto}
-              setPuerto={setPuerto}
+              name="idPuerto"
+              control={control}
+              placeholder="Selecciona un puerto"
             />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Navieras
               datos={datos_navieras}
-              naviera={naviera}
-              setNaviera={setNaviera}
+              name="idNav"
+              control={control}
+              placeholder="Selecciona una naviera"
             />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
-            <Input_Mes mes={mes} setMes={setMes} />
+            <Input_Mes
+              setValue={setValue}
+              control={control}
+              monthName="fechSalMonth"
+              yearName="fechSalYear"
+            />
           </div>
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
-            <Input_Duracion duracion={duracion} setDuracion={setDuracion} />
+            <Input_Dias control={control} name="duracion" />
           </div>
           <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-12 xl:tw-col-span-2 tw-2xl:col-span-1 tw-col-span-12 tw-md:col-span-6">
             <button className="tw-bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">

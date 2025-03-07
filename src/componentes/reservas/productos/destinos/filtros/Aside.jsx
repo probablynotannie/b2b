@@ -1,6 +1,5 @@
 import { useState } from "react";
 import PrecioRange from "../../../../inputs/PrecioRange";
-import Dias from "../../../../inputs/SelectorDias";
 import Viajeros from "./Viajeros";
 import Regimenes from "./Regimenes";
 import Categoria from "./Categoria";
@@ -93,12 +92,6 @@ function SidebarContent({
         </div>
         <div className="tw-mx-3 tw-mt-5 dark:tw-text-secondary">
           <PrecioRange values={values} setValues={setValues} minMax={minMax} />
-        </div>
-        <div className="tw-mt-5 dark:tw-text-secondary">
-          <span className="tw-text-sm tw-font-semibold tw-block tw-mb-1">
-            Duración
-          </span>
-          <Dias duracion={duracion} setDuracion={setDuracion} />
         </div>
         <div className="tw-mt-5 dark:tw-text-secondary">
           <span className="tw-text-sm tw-font-semibold tw-block tw-mb-1">

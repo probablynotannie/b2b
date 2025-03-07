@@ -4,6 +4,7 @@ import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio";
 import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
@@ -41,12 +42,12 @@ function Buscador() {
       endDate: 0,
     },
   });
-
+  const navigate = useNavigate();
   const onSubmit = (data) => {
     console.log(data);
-    /*  navigate("/listadotransfers", {
-       state: { data },
-     }); */
+    navigate("/listadotransfers", {
+      state: { data },
+    });
   };
 
   return (
@@ -111,10 +112,10 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                nameStartDate="startDate"
+                nameEndDate="endDate"
+                placeholder="Selecciona un rango de fechas"
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
@@ -150,7 +151,7 @@ function Buscador() {
           Buscador
         </h2>
         <form className="tw-grid tw-grid-cols-12 tw-gap-3">
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
             <Input_Buscador
               control={control}
               name={"origen"}
@@ -159,7 +160,7 @@ function Buscador() {
               destinos={destinos}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 2xl:tw-col-span-4">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
             <Input_Buscador
               control={control}
               name={"destino"}
@@ -168,7 +169,15 @@ function Buscador() {
               destinos={destinos}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 2xl:tw-col-span-3">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
+            <Input_DateRange
+              control={control}
+              nameStartDate="startDate"
+              nameEndDate="endDate"
+              placeholder="Selecciona un rango de fechas"
+            />
+          </div>
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
             <Input_Hab_Adulto_Ninio
               habitacion={habitacion}
               setHabitacion={setHabitacion}
