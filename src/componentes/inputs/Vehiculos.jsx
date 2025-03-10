@@ -7,43 +7,61 @@ import { FaTrailer } from "react-icons/fa";
 import { FaCarSide } from "react-icons/fa6";
 
 function Vehiculos({
-  vehiculos,
-  setNumVehiculos,
-  tipoVehiculo,
-  setTipoVehiculo,
-  remolque,
-  setRemolque,
-  longitud,
-  setLongitud,
-  altura,
-  setAltura,
-  alturaRemolque,
-  setAlturaRemolque,
-  longitudRemolque,
-  setLongitudRemolque,
+  setValue,
+  nameVehiculos,
+  nameTipoVehiculo,
+  nameRemolque,
+  nameLongitud,
+  nameAltura,
+  nameLongRemolque,
+  nameAltRemolque,
 }) {
+  const [vehiculos, setNumVehiculos] = useState(0);
+  const [tipoVehiculo, setTipoVehiculo] = useState("");
+  const [remolque, setRemolque] = useState("0");
+  const [longitud, setLongitud] = useState(0);
+  const [altura, setAltura] = useState(0);
+  const [longitudRemolque, setLongitudRemolque] = useState(0);
+  const [alturaRemolque, setAlturaRemolque] = useState(0);
   const [open, setOpen] = useState(false);
   function handleAmountChange(e) {
-    setNumVehiculos(Number(e.target.value));
+    const val = Number(e.target.value);
+    setNumVehiculos(val);
+    setValue(nameVehiculos, val);
   }
+  function handleSecondSelectChange(e) {
+    const val = Number(e.target.value);
+    setTipoVehiculo(val);
+    setValue(nameTipoVehiculo, val);
+  }
+
   const handleLongitudRemolqueChange = (e) => {
-    setLongitudRemolque(e.target.value);
+    const val = Number(e.target.value);
+    setLongitudRemolque(val);
+    setValue(nameLongRemolque, val);
   };
 
   const handleAlturaRemolqueChange = (e) => {
-    setAlturaRemolque(e.target.value);
+    const val = Number(e.target.value);
+    setAlturaRemolque(val);
+    setValue(nameAltRemolque, val);
   };
+
   const handleLongitudChange = (e) => {
-    setLongitud(e.target.value);
+    const val = Number(e.target.value);
+    setLongitud(val);
+    setValue(nameLongitud, val);
   };
   const handleAlturaChange = (e) => {
-    setAltura(e.target.value);
+    const val = Number(e.target.value);
+    setAltura(val);
+    setValue(nameAltura, val);
   };
-  function handleSecondSelectChange(e) {
-    setTipoVehiculo(e.target.value);
-  }
+
   function handleLastDropdownChange(e) {
-    setRemolque(e.target.value);
+    const val = Number(e.target.value);
+    setRemolque(val);
+    setValue(nameRemolque, val);
   }
   const isMotoSelectedInSecond = tipoVehiculo.includes("Moto");
   const isNoSelectedInLast = remolque === "0";
@@ -56,18 +74,18 @@ function Vehiculos({
         onOpenChange={setOpen}
         content={
           <div>
-            <div className="tw-bg-slate-800 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
+            <div className=" tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold tw-rounded-t-lg">
               Tipo de vehiculo
             </div>
-            <div className="tw-w-96 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500">
+            <div className="tw-w-96 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500 dark:tw-bg-slate-800">
               <div>
-                <span className="tw-text-slate-700 tw-font-semibold">
+                <span className="tw-text-slate-700 dark:tw-text-slate-300 tw-font-semibold">
                   Vehiculos
                 </span>
                 <div className="tw-relative">
                   <select
                     onChange={handleAmountChange}
-                    className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+                    className=" tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
                   >
                     <option value={0}>0</option>
                     <option value={1}>1</option>

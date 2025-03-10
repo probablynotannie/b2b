@@ -1,45 +1,47 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
-import Input_Select from "../../../inputs/Select";
+import Input_Destinos from "../../../inputs/Destinos";
+import datos_destinos from "./destinos.json";
 import Input_Fecha from "../../../inputs/Fecha";
 import Input_DateRange from "../../../inputs/DateRange";
 import Input_Vehiculos from "../../../inputs/Vehiculos";
 import Input_Bonificacion from "../../../inputs/Bonificacion";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
+import { useWatch } from "react-hook-form";
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viaje, setViaje] = useState("ida");
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [vehiculos, setNumVehiculos] = useState(0);
-  const [tipoVehiculo, setTipoVehiculo] = useState("");
-  const [remolque, setRemolque] = useState("0");
-  const [longitud, setLongitud] = useState(0);
-  const [altura, setAltura] = useState(0);
-  const [longitudRemolque, setLongitudRemolque] = useState(0);
-  const [alturaRemolque, setAlturaRemolque] = useState(0);
-  const [ages, setAges] = useState({});
-  const [pasajeros, setPasajeros] = useState(1);
+
+  const [fecha, setFecha] = useState();
+
   const handleviajeChange = (type) => {
     setViaje(type);
   };
-  const [fecha, setFecha] = useState();
   const onSubmit = (data) => {
     console.log(data);
-    navigate("/listadoFerris", {
+    /*  navigate("/listadoFerris", {
       state: { datosForm: data },
-    });
+    }); */
   };
   const {
-    register,
     handleSubmit,
     setValue,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      vehiculos: 0,
+      tipoVehiculo: "",
+      remolque: "0",
+      longitud: 0,
+      altura: 0,
+      longitudRemolque: 0,
+      alturaRemolque: 0,
+    },
+  });
+
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -94,8 +96,18 @@ function Buscador_Destinos() {
                   </button>
                 </div>
                 <div className="tw-space-y-2">
-                  <Input_Select placeholder={"Origen"} />
-                  <Input_Select placeholder={"Destino"} />
+                  <Input_Destinos
+                    datos={datos_destinos}
+                    name="idZonaOrigen"
+                    control={control}
+                    placeholder="Selecciona un origen"
+                  />
+                  <Input_Destinos
+                    datos={datos_destinos}
+                    name="idZona"
+                    control={control}
+                    placeholder="Selecciona un destino"
+                  />
                   {viaje === "ida" ? (
                     <Input_Fecha
                       errors={errors}
@@ -107,34 +119,19 @@ function Buscador_Destinos() {
                     />
                   ) : (
                     <Input_DateRange
-                      startDate={startDate}
-                      endDate={endDate}
-                      setStartDate={setStartDate}
-                      setEndDate={setEndDate}
+                      control={control}
+                      placeholder={"Fechas"}
+                      nameStartDate={"salida"}
+                      nameEndDate={"llegada"}
                     />
                   )}
-                  <Input_Bonificacion
-                    ages={ages}
-                    setAges={setAges}
-                    pasajeros={pasajeros}
-                    setPasajeros={setPasajeros}
-                  />
+                  <div>{/*   <Input_Bonificacion /> */}</div>
                   <div>
-                    <Input_Vehiculos
-                      vehiculos={vehiculos}
-                      setNumVehiculos={setNumVehiculos}
-                      tipoVehiculo={tipoVehiculo}
-                      setTipoVehiculo={setTipoVehiculo}
-                      remolque={remolque}
-                      setRemolque={setRemolque}
-                      longitud={longitud}
-                      setLongitud={setLongitud}
-                      altura={altura}
-                      setAltura={setAltura}
-                      longitudRemolque={longitudRemolque}
-                      setLongitudRemolque={setLongitudRemolque}
-                      alturaRemolque={alturaRemolque}
-                      setAlturaRemolque={setAlturaRemolque}
+                    <Input_Bonificacion
+                      setValue={setValue}
+                      namePasajeros="pasajeros"
+                      control={control}
+                      errors={errors}
                     />
                   </div>
                 </div>
@@ -188,8 +185,18 @@ function Buscador_Destinos() {
           </div>
 
           <div className="tw-grid tw-grid-cols-3  2xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Select placeholder={"Origen"} />
-            <Input_Select placeholder={"Destino"} />
+            <Input_Destinos
+              datos={datos_destinos}
+              name="idZonaOrigen"
+              control={control}
+              placeholder="Selecciona un origen"
+            />
+            <Input_Destinos
+              datos={datos_destinos}
+              name="idZona"
+              control={control}
+              placeholder="Selecciona un destino"
+            />
             {viaje === "ida" ? (
               <div className="tw-flex tw-flex-col">
                 <Input_Fecha
@@ -204,37 +211,33 @@ function Buscador_Destinos() {
                 )}
               </div>
             ) : (
-              <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
-              />
+              <>
+                <Input_DateRange
+                  control={control}
+                  placeholder={"Fechas"}
+                  nameStartDate={"salida"}
+                  nameEndDate={"llegada"}
+                />
+              </>
             )}
             <div>
               <Input_Bonificacion
-                ages={ages}
-                setAges={setAges}
-                pasajeros={pasajeros}
-                setPasajeros={setPasajeros}
+                setValue={setValue}
+                namePasajeros="pasajeros"
+                control={control}
+                errors={errors}
               />
             </div>
             <div>
               <Input_Vehiculos
-                vehiculos={vehiculos}
-                setNumVehiculos={setNumVehiculos}
-                tipoVehiculo={tipoVehiculo}
-                setTipoVehiculo={setTipoVehiculo}
-                remolque={remolque}
-                setRemolque={setRemolque}
-                longitud={longitud}
-                setLongitud={setLongitud}
-                altura={altura}
-                setAltura={setAltura}
-                longitudRemolque={longitudRemolque}
-                setLongitudRemolque={setLongitudRemolque}
-                alturaRemolque={alturaRemolque}
-                setAlturaRemolque={setAlturaRemolque}
+                setValue={setValue}
+                nameVehiculos="vehiculos"
+                nameTipoVehiculo="tipoVehiculo"
+                nameRemolque="remolque"
+                nameLongitud="longitud"
+                nameAltura={"altura"}
+                nameLongRemolque={"longitudRemolque"}
+                nameAltRemolque={"alturaRemolque"}
               />
             </div>
           </div>

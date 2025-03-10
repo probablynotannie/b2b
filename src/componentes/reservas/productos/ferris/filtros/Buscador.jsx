@@ -1,44 +1,38 @@
 import { useState } from "react";
 import Input_Destinos from "../../../../inputs/Destinos";
 import Input_DateRange from "../../../../inputs/DateRange";
+import Input_Fecha from "../../../../inputs/Fecha";
 import { FaSearch } from "react-icons/fa";
 import Input_Bonificaciones from "../../../../inputs/Bonificacion";
 import { useForm } from "react-hook-form";
+import destinos from "./Destinos.json";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const [viaje, setViaje] = useState("ida");
+  const [vehiculos, setNumVehiculos] = useState(0);
+  const [tipoVehiculo, setTipoVehiculo] = useState("");
+  const [remolque, setRemolque] = useState("0");
+  const [longitud, setLongitud] = useState(0);
+  const [altura, setAltura] = useState(0);
+  const [longitudRemolque, setLongitudRemolque] = useState(0);
+  const [alturaRemolque, setAlturaRemolque] = useState(0);
   const [ages, setAges] = useState({});
   const [pasajeros, setPasajeros] = useState(1);
-  const origenes = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
-  const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
+  const [fecha, setFecha] = useState();
+
+  const handleviajeChange = (type) => {
+    setViaje(type);
+  };
   const onSubmit = (data) => {
     console.log(data);
-    /*     navigate("/listadoFerris", {
-        state: { datosForm: data },
-      }); */
+    navigate("/listadoFerris", {
+      state: { datosForm: data },
+    });
   };
   const {
-    register,
     handleSubmit,
     setValue,
     control,
@@ -83,6 +77,30 @@ function Buscador() {
             onSubmit={handleSubmit(onSubmit)}
             className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
           >
+            <div className="grid grid-cols-2 gap-3 mt-2 text-sm tw-mb-5">
+              <button
+                type="button"
+                className={`p-2.5 rounded-lg font-bold tw-text-white ${
+                  viaje === "ida"
+                    ? "tw-bg-secondary"
+                    : "bg-gray-400 dark:bg-slate-600"
+                }`}
+                onClick={() => handleviajeChange("ida")}
+              >
+                Solo ida
+              </button>
+              <button
+                type="button"
+                className={`p-2 rounded-lg font-bold tw-text-white ${
+                  viaje === "ida_vuelta"
+                    ? "tw-bg-secondary"
+                    : "bg-gray-400 dark:bg-slate-600"
+                }`}
+                onClick={() => handleviajeChange("ida_vuelta")}
+              >
+                Ida y vuelta
+              </button>
+            </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={destinos}
@@ -93,7 +111,7 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
-                datos={origenes}
+                datos={destinos}
                 name="destino"
                 control={control}
                 placeholder="Selecciona un destino"
@@ -101,10 +119,10 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
@@ -134,16 +152,42 @@ function Buscador() {
       </div>
 
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
-        <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
-          Buscador
-        </h2>
+        <div className="tw-flex tw-justify-between">
+          <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondary">
+            Buscador
+          </h2>
+          <div>
+            <ul className="tw-flex tw-items-center tw-gap-2">
+              <li
+                className={`tw-bg-pink-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-pink-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md ${
+                  viaje === "ida"
+                    ? "tw-ring-2 tw-ring-pink-500 tw-font-bold"
+                    : ""
+                }`}
+                onClick={() => handleviajeChange("ida")}
+              >
+                Solo ida
+              </li>
+              <li
+                className={`tw-bg-blue-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-blue-900 tw-cursor-pointer hover:tw-scale-105 tw-transition tw-duration-300 hover:tw-shadow-md ${
+                  viaje === "ida_vuelta"
+                    ? "tw-ring-2 tw-ring-blue-500 tw-font-bold"
+                    : ""
+                }`}
+                onClick={() => handleviajeChange("ida_vuelta")}
+              >
+                Ida y vuelta
+              </li>
+            </ul>
+          </div>
+        </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
             <Input_Destinos
-              datos={origenes}
+              datos={destinos}
               name="origen"
               control={control}
               placeholder="Selecciona un origen"
@@ -158,12 +202,29 @@ function Buscador() {
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
-            <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
-            />
+            {viaje === "ida" ? (
+              <div className="tw-flex tw-flex-col">
+                <Input_Fecha
+                  fecha={fecha}
+                  name={"fecha"}
+                  setValue={setValue}
+                  control={control}
+                  required={true}
+                />
+                {errors.fecha && (
+                  <p className="text-red-500 text-sm">{errors.fecha.message}</p>
+                )}
+              </div>
+            ) : (
+              <>
+                <Input_DateRange
+                  control={control}
+                  placeholder={"Fechas"}
+                  nameStartDate={"salida"}
+                  nameEndDate={"llegada"}
+                />
+              </>
+            )}
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 2xl:tw-col-span-3">
             <Input_Bonificaciones
