@@ -8,15 +8,19 @@ import Input_Vehiculos from "../../../inputs/Vehiculos";
 import Input_Bonificacion from "../../../inputs/Bonificacion";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import { useWatch } from "react-hook-form";
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viaje, setViaje] = useState("ida");
-
   const [fecha, setFecha] = useState();
-
   const handleviajeChange = (type) => {
+    console.log(type);
+    if (type === "ida") {
+      setValue("tipo", 0);
+    } else {
+      setValue("tipo", 1);
+    }
+
     setViaje(type);
   };
   const onSubmit = (data) => {
@@ -32,9 +36,11 @@ function Buscador_Destinos() {
     formState: { errors },
   } = useForm({
     defaultValues: {
+      tipo: 0,
+      fecha: 0,
       vehiculos: 0,
-      tipoVehiculo: "",
-      remolque: "0",
+      tipoVehiculo: 0,
+      remolque: 0,
       longitud: 0,
       altura: 0,
       longitudRemolque: 0,
@@ -125,7 +131,18 @@ function Buscador_Destinos() {
                       nameEndDate={"llegada"}
                     />
                   )}
-                  <div>{/*   <Input_Bonificacion /> */}</div>
+                  <div>
+                    <Input_Vehiculos
+                      setValue={setValue}
+                      nameVehiculos="vehiculos"
+                      nameTipoVehiculo="tipoVehiculo"
+                      nameRemolque="remolque"
+                      nameLongitud="longitud"
+                      nameAltura={"altura"}
+                      nameLongRemolque={"longitudRemolque"}
+                      nameAltRemolque={"alturaRemolque"}
+                    />
+                  </div>
                   <div>
                     <Input_Bonificacion
                       setValue={setValue}
@@ -204,21 +221,15 @@ function Buscador_Destinos() {
                   name={"fecha"}
                   setValue={setValue}
                   control={control}
-                  required={true}
                 />
-                {errors.fecha && (
-                  <p className="text-red-500 text-sm">{errors.fecha.message}</p>
-                )}
               </div>
             ) : (
-              <>
-                <Input_DateRange
-                  control={control}
-                  placeholder={"Fechas"}
-                  nameStartDate={"salida"}
-                  nameEndDate={"llegada"}
-                />
-              </>
+              <Input_DateRange
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
+              />
             )}
             <div>
               <Input_Bonificacion

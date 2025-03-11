@@ -9,11 +9,9 @@ import { useForm } from "react-hook-form";
 function Buscador_Tickets() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [startDate, setStartDate] = useState();
   const [adultos, setAdultos] = useState(2);
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
-  const [endDate, setEndDate] = useState();
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -30,7 +28,6 @@ function Buscador_Tickets() {
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
   const {
-    register,
     setValue,
     control,
     handleSubmit,
@@ -87,10 +84,10 @@ function Buscador_Tickets() {
                     destinos={destinos}
                   />
                   <Input_DateRangeMobile
-                    startDate={startDate}
-                    setStartDate={setStartDate}
-                    endDate={endDate}
-                    setEndDate={setEndDate}
+                    control={control}
+                    placeholder={"Fechas"}
+                    nameStartDate={"salida"}
+                    nameEndDate={"llegada"}
                   />
                   <Input_AdultoNInio
                     adultos={adultos}
@@ -132,10 +129,10 @@ function Buscador_Tickets() {
               destinos={destinos}
             />
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              placeholder={"Fechas"}
+              nameStartDate={"salida"}
+              nameEndDate={"llegada"}
             />
             <Input_AdultoNInio
               adultos={adultos}

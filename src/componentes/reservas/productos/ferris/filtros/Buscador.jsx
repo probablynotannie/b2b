@@ -12,13 +12,6 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const [viaje, setViaje] = useState("ida");
-  const [vehiculos, setNumVehiculos] = useState(0);
-  const [tipoVehiculo, setTipoVehiculo] = useState("");
-  const [remolque, setRemolque] = useState("0");
-  const [longitud, setLongitud] = useState(0);
-  const [altura, setAltura] = useState(0);
-  const [longitudRemolque, setLongitudRemolque] = useState(0);
-  const [alturaRemolque, setAlturaRemolque] = useState(0);
   const [ages, setAges] = useState({});
   const [pasajeros, setPasajeros] = useState(1);
   const [fecha, setFecha] = useState();
@@ -104,7 +97,7 @@ function Buscador() {
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={destinos}
-                name="destino"
+                name="origen"
                 control={control}
                 placeholder="Selecciona un origen"
               />

@@ -10,10 +10,6 @@ import { useForm } from "react-hook-form";
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [noches, setNoches] = useState();
-  const maxNoches = 8;
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [adultos, setAdultos] = useState(2);
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
@@ -24,7 +20,6 @@ function Buscador() {
     }); */
   };
   const {
-    register,
     handleSubmit,
     setValue,
     control,
@@ -79,18 +74,18 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_selectNum
-                valor={noches}
-                setValor={setNoches}
-                num={maxNoches}
+                control={control}
+                name="noches"
                 placeholder={"Noches"}
+                num={5}
                 icono={<FaMoon />}
               />
             </div>
@@ -141,21 +136,22 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3">
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              placeholder={"Fechas"}
+              nameStartDate={"salida"}
+              nameEndDate={"llegada"}
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-2">
             <Input_selectNum
-              valor={noches}
-              setValor={setNoches}
-              num={maxNoches}
+              control={control}
+              name="noches"
               placeholder={"Noches"}
+              num={5}
               icono={<FaMoon />}
             />
           </div>
+
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-3">
             <Input_adultoNinio
               adultos={adultos}
@@ -166,11 +162,9 @@ function Buscador() {
               setNinioAges={setNinioAges}
             />
           </div>
-          <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-2 xl:tw-col-span-2 2xl:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-            <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
-              <FaSearch className="tw-text-white tw-text-xl" />
-            </button>
-          </div>
+          <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
         </form>
       </div>
     </>

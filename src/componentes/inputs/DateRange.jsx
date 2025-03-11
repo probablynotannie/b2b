@@ -6,43 +6,56 @@ import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
 import { useController } from "react-hook-form";
-
-const DateRange = ({ control, nameStartDate, nameEndDate, placeholder }) => {
+const DateRange = ({
+  control,
+  nameStartDate,
+  nameEndDate,
+  placeholder,
+  required,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const isSwiping = useRef(false);
-
-  const { field: fieldStartDate } = useController({
+  const {
+    field: fieldStartDate,
+    fieldState: { error: errorStart },
+  } = useController({
     name: nameStartDate,
     control,
     defaultValue: null,
+    rules:
+      required === true
+        ? { required: "La fecha de inicio es obligatoria" }
+        : {},
   });
-
-  const { field: fieldEndDate } = useController({
+  const {
+    field: fieldEndDate,
+    fieldState: { error: errorEnd },
+  } = useController({
     name: nameEndDate,
     control,
     defaultValue: null,
+    rules:
+      required === true ? { required: "La fecha de fin es obligatoria" } : {},
   });
-
   const handleChange = (dates) => {
     if (!isSwiping.current) {
       const [start, end] = dates;
       fieldStartDate.onChange(start);
       fieldEndDate.onChange(end);
+      fieldStartDate.onBlur();
+      fieldEndDate.onBlur();
       if (start && end) {
         setIsOpen(false);
       }
     }
   };
-
   const toggleDatePicker = () => {
     setIsOpen(!isOpen);
   };
-
   const highlightWeekends = (date) => {
     const day = date.getDay();
     return day === 0 || day === 6 ? "weekend-day" : "";
   };
-
   return (
     <div>
       <div className="tw-relative tw-hidden lg:tw-block">
@@ -89,7 +102,14 @@ const DateRange = ({ control, nameStartDate, nameEndDate, placeholder }) => {
               wrapperClassName="custom-wrapper"
               calendarClassName="my-custom-datepicker"
             />
+            <div></div>
           </div>
+        )}
+        {errorStart && (
+          <p className="tw-text-red-500 tw-text-sm">{errorStart.message}</p>
+        )}
+        {errorEnd && (
+          <p className="tw-text-red-500 tw-text-sm">{errorEnd.message}</p>
         )}
       </div>
     </div>

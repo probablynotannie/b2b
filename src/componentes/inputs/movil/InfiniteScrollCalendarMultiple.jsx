@@ -12,23 +12,20 @@ import {
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
-import { useController } from "react-hook-form"; // Import useController
-
+import { useController } from "react-hook-form";
 const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  // Register the fields with React Hook Form
   const { field: fieldStartDate } = useController({
-    name: nameStartDate, // Field for start date
+    name: nameStartDate,
     control,
-    defaultValue: null, // Default value
+    defaultValue: null,
   });
 
   const { field: fieldEndDate } = useController({
-    name: nameEndDate, // Field for end date
+    name: nameEndDate,
     control,
-    defaultValue: null, // Default value
+    defaultValue: null,
   });
 
   useEffect(() => {
@@ -51,7 +48,7 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
   const handleDateClick = (date) => {
     if (!fieldStartDate.value || (fieldStartDate.value && fieldEndDate.value)) {
       fieldStartDate.onChange(date);
-      fieldEndDate.onChange(null); // Reset end date
+      fieldEndDate.onChange(null);
     } else if (date < fieldStartDate.value) {
       fieldStartDate.onChange(date);
     } else {

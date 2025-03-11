@@ -32,14 +32,12 @@ const Transfer = () => {
           </h2>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
-              required={true}
               tipo={"Nombre"}
               name="nombre"
               register={register}
               errors={errors}
             />
             <Input_Texto
-              required={true}
               tipo={"Apellido"}
               name="apellido"
               register={register}

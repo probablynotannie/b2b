@@ -97,17 +97,17 @@ function Buscador_Destinos() {
                   <Input_Select placeholder={"Destino"} />
                   {viaje === "ida" ? (
                     <Input_Fecha
-                      edadSelector={true}
                       fecha={fecha}
-                      name={`Fecha`}
+                      name={"fecha"}
                       setValue={setValue}
+                      control={control}
                     />
                   ) : (
                     <Input_DateRange
-                      startDate={startDate}
-                      endDate={endDate}
-                      setStartDate={setStartDate}
-                      setEndDate={setEndDate}
+                      control={control}
+                      placeholder={"Fechas"}
+                      nameStartDate={"salida"}
+                      nameEndDate={"llegada"}
                     />
                   )}
                   <Input_Bonificacion
@@ -185,17 +185,17 @@ function Buscador_Destinos() {
             <Input_Select placeholder={"Destino"} />
             {viaje === "ida" ? (
               <Input_Fecha
-                required={true}
                 fecha={fecha}
-                name={`Fecha`}
+                name={"fecha"}
                 setValue={setValue}
+                control={control}
               />
             ) : (
               <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
               />
             )}
             <div>
