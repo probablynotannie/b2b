@@ -12,9 +12,9 @@ function Datos() {
   const { ida, vuelta } = location.state || {};
   const img = "/banner_trenes.jpeg";
   const itinerario = "";
-  const fechaIda = formatearFecha(ida.searchSummary.depDate);
+  const fechaIda = FormatearFecha(ida.searchSummary.depDate);
   const fechaVuelta = ida.searchSummary.retDate
-    ? formatearFecha(ida.searchSummary.retDate)
+    ? FormatearFecha(ida.searchSummary.retDate)
     : "Sin vuelta";
   const navigate = useNavigate();
   const {

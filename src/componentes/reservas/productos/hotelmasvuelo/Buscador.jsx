@@ -3,11 +3,8 @@ import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio";
-import Input_Aeropuertos from "../../../inputs/Aeropuertos";
 import { useForm } from "react-hook-form";
 function Buscador() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
@@ -110,7 +107,15 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Aeropuertos />
+              <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
+                destinos={destinos}
+                vuelo={true}
+              />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Hab_Adulto_Ninio
@@ -147,7 +152,7 @@ function Buscador() {
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3">
+          <div className="tw-col-span-12 lg:tw-col-span-3 xl:tw-col-span-3">
             <Input_Buscador
               required={true}
               control={control}
@@ -157,7 +162,7 @@ function Buscador() {
               destinos={destinos}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2">
+          <div className="tw-col-span-12 lg:tw-col-span-3 xl:tw-col-span-2">
             <Input_DateRange
               control={control}
               nameStartDate="startDate"
@@ -165,10 +170,18 @@ function Buscador() {
               placeholder="Selecciona un rango de fechas"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2">
-            <Input_Aeropuertos />
+          <div className="tw-col-span-12 lg:tw-col-span-3 xl:tw-col-span-3">
+            <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
+              destinos={destinos}
+              vuelo={true}
+            />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
+          <div className="tw-col-span-12 lg:tw-col-span-2 xl:tw-col-span-3">
             <Input_Hab_Adulto_Ninio
               habitacion={habitacion}
               setHabitacion={setHabitacion}
@@ -176,11 +189,9 @@ function Buscador() {
               setRoomData={setRoomData}
             />
           </div>
-          <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-12 xl:tw-col-span-2 2xl:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-            <button className="tw-bg-slate-900 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
-              <FaSearch className="tw-text-white tw-text-xl" />
-            </button>
-          </div>
+          <button className="tw-bg-slate-900 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
         </form>
       </div>
     </>

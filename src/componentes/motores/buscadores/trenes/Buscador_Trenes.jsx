@@ -10,35 +10,35 @@ function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viaje, setViaje] = useState("ida");
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [fecha, setFecha] = useState();
-
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [ninioAges, setNinioAges] = useState([]);
-  const [descuentos, setDescuentos] = useState(false);
-  const [discapacidad, setDiscapacidad] = useState(false);
-  const [selectedDiscapacidad, setSelectedDiscapacidad] = useState({
-    adultos: [],
-    ninios: [],
-  });
 
   const handleviajeChange = (type) => {
     setViaje(type);
   };
   const onSubmit = (data) => {
+    console.log(data);
     navigate("/listadoTrenes", {
       state: { datosForm: data },
     });
   };
   const {
     register,
+    watch,
     handleSubmit,
     setValue,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      adultos: 2,
+      ninios: 0,
+      ninioAges: [],
+      descuentos: false,
+      discapacidad: false,
+      selectedDiscapacidad: { adultos: [], ninios: [] },
+      selectedDescuentos: { adultos: [], ninios: [] },
+    },
+  });
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -111,18 +111,10 @@ function Buscador_Destinos() {
                     />
                   )}
                   <Input_Bonificacion
-                    adultos={adultos}
-                    ninios={ninios}
-                    setAdultos={setAdultos}
-                    setNinios={setNinios}
-                    ninioAges={ninioAges}
-                    setNinioAges={setNinioAges}
-                    descuentos={descuentos}
-                    setDescuentos={setDescuentos}
-                    discapacidad={discapacidad}
-                    setDiscapacidad={setDiscapacidad}
-                    selectedDiscapacidad={selectedDiscapacidad}
-                    setSelectedDiscapacidad={setSelectedDiscapacidad}
+                    register={register}
+                    setValue={setValue}
+                    watch={watch}
+                    control={control}
                   />
                 </div>
                 <button
@@ -200,18 +192,10 @@ function Buscador_Destinos() {
             )}
             <div>
               <Input_Bonificacion
-                adultos={adultos}
-                ninios={ninios}
-                setAdultos={setAdultos}
-                setNinios={setNinios}
-                ninioAges={ninioAges}
-                setNinioAges={setNinioAges}
-                descuentos={descuentos}
-                setDescuentos={setDescuentos}
-                discapacidad={discapacidad}
-                setDiscapacidad={setDiscapacidad}
-                selectedDiscapacidad={selectedDiscapacidad}
-                setSelectedDiscapacidad={setSelectedDiscapacidad}
+                register={register}
+                setValue={setValue}
+                watch={watch}
+                control={control}
               />
             </div>
           </div>

@@ -8,19 +8,8 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 function Buscador() {
   const navigate = useNavigate();
-
-  const [adultos, setAdultos] = useState(2);
-  const [ninios, setNinios] = useState(0);
-  const [ninioAges, setNinioAges] = useState([]);
-  const [descuentos, setDescuentos] = useState(false);
-  const [discapacidad, setDiscapacidad] = useState(false);
-  const [selectedDiscapacidad, setSelectedDiscapacidad] = useState({
-    adultos: [],
-    ninios: [],
-  });
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-
   const onSubmit = (data) => {
     console.log(data);
     navigate("/listadoFerris", {
@@ -28,11 +17,23 @@ function Buscador() {
     });
   };
   const {
+    register,
+    watch,
     handleSubmit,
     setValue,
     control,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    defaultValues: {
+      adultos: 2,
+      ninios: 0,
+      ninioAges: [],
+      descuentos: false,
+      discapacidad: false,
+      selectedDiscapacidad: { adultos: [], ninios: [] },
+      selectedDescuentos: { adultos: [], ninios: [] },
+    },
+  });
   return (
     <>
       <button
@@ -99,18 +100,10 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Descuentos
-                adultos={adultos}
-                ninios={ninios}
-                setAdultos={setAdultos}
-                setNinios={setNinios}
-                ninioAges={ninioAges}
-                setNinioAges={setNinioAges}
-                descuentos={descuentos}
-                setDescuentos={setDescuentos}
-                discapacidad={discapacidad}
-                setDiscapacidad={setDiscapacidad}
-                selectedDiscapacidad={selectedDiscapacidad}
-                setSelectedDiscapacidad={setSelectedDiscapacidad}
+                register={register}
+                setValue={setValue}
+                watch={watch}
+                control={control}
               />
             </div>
             <div className=" tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12">
@@ -165,18 +158,10 @@ function Buscador() {
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 2xl:tw-col-span-3">
             <Input_Descuentos
-              adultos={adultos}
-              ninios={ninios}
-              setAdultos={setAdultos}
-              setNinios={setNinios}
-              ninioAges={ninioAges}
-              setNinioAges={setNinioAges}
-              descuentos={descuentos}
-              setDescuentos={setDescuentos}
-              discapacidad={discapacidad}
-              setDiscapacidad={setDiscapacidad}
-              selectedDiscapacidad={selectedDiscapacidad}
-              setSelectedDiscapacidad={setSelectedDiscapacidad}
+              register={register}
+              setValue={setValue}
+              watch={watch}
+              control={control}
             />
           </div>
           <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-rounded-lg tw-shadow">

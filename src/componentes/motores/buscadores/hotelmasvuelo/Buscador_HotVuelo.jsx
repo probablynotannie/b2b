@@ -133,7 +133,6 @@ function Buscador_Cruceros() {
               placeholder={"Origen"}
               destinos={destinos}
             />
-
             <Input_Buscador
               control={control}
               name={"destino"}
@@ -141,7 +140,6 @@ function Buscador_Cruceros() {
               placeholder={"Destino"}
               destinos={destinos}
             />
-
             <Input_DateRange
               control={control}
               nameStartDate="startDate"

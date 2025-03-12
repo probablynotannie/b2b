@@ -8,11 +8,11 @@ function CochesSkeleton() {
         >
           <div className="tw-relative tw-w-full xl:tw-w-1/3 xl:tw-h-auto tw-rounded-t-xl xl:tw-rounded-l-xl tw-overflow-hidden">
             <div className="tw-w-full tw-h-[200px] xl:tw-h-full tw-bg-slate-300 dark:tw-bg-slate-900"></div>
-            <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-slate-600 tw-bg-opacity-60 tw-text-white tw-flex tw-justify-around tw-py-2">
+            <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-slate-600 dark:tw-bg-slate-800 tw-bg-opacity-60 tw-text-white tw-flex tw-justify-around tw-py-2">
               {[...Array(4)].map((_, i) => (
                 <span
                   key={i}
-                  className="tw-flex tw-items-center tw-gap-1 tw-w-10 tw-h-5 tw-bg-slate-400 dark:tw-bg-slate-700 tw-rounded"
+                  className="tw-flex tw-items-center tw-gap-1 tw-w-10 tw-h-5 tw-bg-slate-400 dark:tw-bg-slate-900 tw-rounded"
                 ></span>
               ))}
             </div>

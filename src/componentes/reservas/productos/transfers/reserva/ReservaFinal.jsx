@@ -33,7 +33,7 @@ function ReservaFinal() {
         <p className="tw-text-center dark:tw-text-slate-300">
           Por favor, confirma todos los datos antes de hacer el pago.
         </p>
-        <Link to={"/resumenCoche"} state={{ coche, data }}>
+        <Link to={"/resumenTransfer"} state={{ coche, data }}>
           <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             {coche.price.toFixed(2)}€
           </button>

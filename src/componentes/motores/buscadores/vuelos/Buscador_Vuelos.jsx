@@ -7,9 +7,6 @@ import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
-
   const destinos = [
     { id: 0, type: 2, name: "Aeródromo Balmaceda", destino: "Balmaceda" },
     { id: 1, type: 2, name: "El Prat", destino: "Barcelona" },
@@ -20,7 +17,6 @@ function Buscador_Cruceros() {
   ];
 
   const {
-    register,
     setValue,
     control,
     handleSubmit,
@@ -28,12 +24,6 @@ function Buscador_Cruceros() {
   } = useForm({
     defaultValues: {
       adulto: 2,
-      ninio: 0,
-      infant: 0,
-      horaRecogida: "12:00",
-      horaDevolucion: "12:00",
-      startDate: 0,
-      endDate: 0,
     },
   });
 
@@ -89,10 +79,10 @@ function Buscador_Cruceros() {
                     destinos={destinos}
                   />
                   <Input_DateRange
-                    startDate={startDate}
-                    endDate={endDate}
-                    setStartDate={setStartDate}
-                    setEndDate={setEndDate}
+                    control={control}
+                    placeholder={"Fechas"}
+                    nameStartDate={"salida"}
+                    nameEndDate={"llegada"}
                   />
                 </div>
                 <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -135,10 +125,10 @@ function Buscador_Cruceros() {
               destinos={destinos}
             />
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              placeholder={"Fechas"}
+              nameStartDate={"salida"}
+              nameEndDate={"llegada"}
             />
           </div>
           <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">

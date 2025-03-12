@@ -97,7 +97,7 @@ function SelectorPersonas({
               <div className="tw-px-3 tw-pb-5 tw-max-h-[80vh] tw-overflow-y-auto dark:tw-bg-slate-800 tw-rounded-b-lg">
                 {roomData.map((room, roomIndex) => (
                   <div
-                    className="tw-relative tw-rounded-lg tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700 dark:tw-shadow-inner dark:tw-shadow-slate-600 tw-shadow tw-mt-10 tw-p-2 tw-py-5"
+                    className="tw-relative tw-rounded-lg tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700/50 dark:tw-shadow-slate-600 tw-shadow dark:tw-shadow-none tw-mt-10 tw-p-2 tw-py-5"
                     key={room.id}
                   >
                     <span className="tw-absolute -tw-top-5 tw-p-2 tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow-lg">

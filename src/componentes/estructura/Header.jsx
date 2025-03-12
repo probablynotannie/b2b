@@ -21,7 +21,6 @@ import Busqueda_Ferris from "../motores/Ferris";
 import Busqueda_Trenes from "../motores/Trenes";
 import Busqueda_Seguros from "../motores/Seguros";
 
-
 import Busqueda_Vuelos from "../motores/Vuelos";
 import Busqueda_Circuitos from "../motores/Circuitos";
 /* LISTADOS */
@@ -97,6 +96,7 @@ import DatosHotelMasVuelo from "../reservas/productos/hotelmasvuelo/reserva/Dato
 /* RESUMEN FINAL */
 import ResumenCircuitos from "../reservas/productos/circuitos/final/ResumenFinal";
 import ResumenCoches from "../reservas/productos/coches/final/ResumenFinal";
+import ResumenTransfer from "../reservas/productos/transfers/final/ResumenFinal";
 import ResumenCrucero from "../reservas/productos/cruceros/final/ResumenFinal";
 import ResumenDestino from "../reservas/productos/destinos/final/ResumenFinal";
 import ResumenEntradas from "../reservas/productos/entradas/final/ResumenFinal";
@@ -226,6 +226,7 @@ function Header() {
         <Route path="/resumenHotel" element={<ResumenHotel />} />
         <Route path="/resumenCircuito" element={<ResumenCircuitos />} />
         <Route path="/resumenCoche" element={<ResumenCoches />} />
+        <Route path="/resumenTransfer" element={<ResumenTransfer />} />
         <Route path="/resumenCrucero" element={<ResumenCrucero />} />
         <Route path="/resumenDestino" element={<ResumenDestino />} />
         <Route path="/resumenEntradas" element={<ResumenEntradas />} />

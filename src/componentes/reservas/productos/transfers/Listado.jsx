@@ -30,11 +30,7 @@ function Listado({ coches }) {
     minicoach: "tw-bg-orange-500",
     minibus: "tw-bg-pink-500",
   };
-  /*   const formatearMinutos = (minutes) => {
-    const hours = Math.floor(minutes / 60);
-    const mins = minutes % 60;
-    return `${hours}h ${mins}min`;
-  }; */
+
   return (
     <>
       {coches.map((coche, index) => (

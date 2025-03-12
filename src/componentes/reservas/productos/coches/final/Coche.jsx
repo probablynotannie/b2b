@@ -2,7 +2,6 @@ import Detalles from "../detalles/Detalles";
 import { FaCar, FaPlaneArrival } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
-
 function Coche({ producto, precio, conductor, extras }) {
   const extraInfo = (
     <div>
@@ -55,8 +54,8 @@ function Coche({ producto, precio, conductor, extras }) {
             {producto.nombre}
           </h3>
           <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
-            {formatearFecha(producto.recogida.fecha)} -{" "}
-            {formatearFecha(producto.devolucion.fecha)}
+            {FormatearFecha(producto.recogida.fecha)} -{" "}
+            {FormatearFecha(producto.devolucion.fecha)}
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">

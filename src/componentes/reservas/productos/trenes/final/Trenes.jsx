@@ -14,8 +14,8 @@ function Trenes({ tren }) {
             Tren de ida {vuelta && "y vuelta"}
           </h3>
           <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
-            {formatearFecha(ida.searchSummary.depDate)} -{" "}
-            {formatearFecha(ida.searchSummary.retDate)}
+            {FormatearFecha(ida.searchSummary.depDate)} -{" "}
+            {FormatearFecha(ida.searchSummary.retDate)}
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
