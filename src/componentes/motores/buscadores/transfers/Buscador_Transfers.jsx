@@ -28,15 +28,15 @@ function Buscador_Transfers() {
   ];
   const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
-      adulto: 2,
-      ninio: 0,
-      infant: 0,
+      adults: 2,
+      children: 0,
+      infants: 0,
       horaRecogida: "12:00",
       horaDevolucion: "12:00",
       startDate: 0,
       endDate: 0,
-      destino: 0,
-      origen: 0,
+      destination: 0,
+      origin: 0,
     },
   });
 
@@ -81,14 +81,14 @@ function Buscador_Transfers() {
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
                     control={control}
-                    name={"origen"}
+                    name={"origin"}
                     setValue={setValue}
                     placeholder={"Origen"}
                     destinos={destinos}
                   />
                   <Input_Destinos
                     control={control}
-                    name={"destino"}
+                    name={"destination"}
                     setValue={setValue}
                     placeholder={"Destino"}
                     destinos={destinos}
@@ -111,9 +111,9 @@ function Buscador_Transfers() {
                   />
                   <Input_Personas
                     control={control}
-                    nameAdult={"adulto"}
-                    nameKid={"ninio"}
-                    nameInfant={"infant"}
+                    nameAdult={"adults"}
+                    nameKid={"children"}
+                    nameInfant={"infants"}
                   />
                 </div>
                 <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -141,14 +141,14 @@ function Buscador_Transfers() {
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
               control={control}
-              name={"origen"}
+              name={"origin"}
               setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
             />
             <Input_Destinos
               control={control}
-              name={"destino"}
+              name={"destination"}
               setValue={setValue}
               placeholder={"Destino"}
               destinos={destinos}
@@ -167,9 +167,9 @@ function Buscador_Transfers() {
             />
             <Input_Personas
               control={control}
-              nameAdult={"adulto"}
-              nameKid={"ninio"}
-              nameInfant={"infant"}
+              nameAdult={"adults"}
+              nameKid={"children"}
+              nameInfant={"infants"}
             />
           </div>
           <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">

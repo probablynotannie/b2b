@@ -2,7 +2,6 @@ import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
-import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_AdultoNInio from "../../../inputs/Adulto_Ninio";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -83,7 +82,7 @@ function Buscador_Tickets() {
                     placeholder={"Origen"}
                     destinos={destinos}
                   />
-                  <Input_DateRangeMobile
+                  <Input_DateRange
                     control={control}
                     placeholder={"Fechas"}
                     nameStartDate={"salida"}

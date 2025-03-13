@@ -66,49 +66,49 @@ function ReservaFinalizada() {
     },
   ];
   return (
-    <main className="container my-10">
-      <header className="relative h-[40vh]">
+    <main className="tw-container tw-my-10">
+      <header className="tw-relative tw-h-[40vh]">
         <img
           src="/completado.jpg"
-          className="w-full h-full object-cover rounded-lg shadow-lg"
+          className="tw-w-full tw-h-full tw-object-cover tw-rounded-lg tw-shadow-lg"
           alt="Imagen de reserva completada"
         />
-        <div className="bg-black rounded-lg shadow-lg  tw-bg-opacity-45 top-0 absolute w-full h-full flex items-center justify-center">
+        <div className="tw-bg-black tw-rounded-lg tw-shadow-lg tw-bg-opacity-45 tw-top-0 tw-absolute tw-w-full tw-h-full tw-flex tw-items-center tw-justify-center">
           <div>
-            <h2 className="text-white text-center font-bold text-4xl md:text-6xl">
+            <h2 className="tw-text-white tw-text-center tw-font-bold tw-text-4xl md:tw-text-6xl">
               Reserva completada con éxito
             </h2>
-            <span className="block text-center text-white md:text-4xl text-2xl mt-2">
+            <span className="tw-block tw-text-center tw-text-white md:tw-text-4xl tw-text-2xl tw-mt-2">
               Núm:
-              <span className=" font-bold ml-2 text-center">{numReserva}</span>
+              <span className="tw-font-bold tw-ml-2 tw-text-center">{numReserva}</span>
             </span>
           </div>
         </div>
       </header>
 
-      <section className="border-2 border-slate-100 dark:tw-border-slate-800 shadow-xl mt-5 p-5 rounded-lg bg-white dark:bg-slate-800">
-        <header className=" dark:tw-text-white">
-          <div className="flex flex-col md:flex-row justify-between ">
-            <h3 className="font-semibold text-lg">
+      <section className="tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-shadow-xl tw-mt-5 tw-p-5 tw-rounded-lg tw-bg-white dark:tw-bg-slate-800">
+        <header className="dark:tw-text-white">
+          <div className="tw-flex tw-flex-col md:tw-flex-row tw-justify-between">
+            <h3 className="tw-font-semibold tw-text-lg">
               Resumen de compra ( {reserva.type} )
             </h3>
-            <span className="block mt-2">
+            <span className="tw-block tw-mt-2">
               Reserva:
-              <span className="font-bold ml-2 text-center">{numReserva}</span>
+              <span className="tw-font-bold tw-ml-2 tw-text-center">{numReserva}</span>
             </span>
           </div>
-          <div className="flex flex-col md:flex-row md:gap-3">
+          <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-3">
             <div>
-              <span className="font-semibold tw-text-secondary"> fecha:</span>
-              <span className="lowercase"> {reserva.fecha}</span>
+              <span className="tw-font-semibold tw-text-secondary"> fecha:</span>
+              <span className="tw-lowercase"> {reserva.fecha}</span>
             </div>
             {reserva.fechaSalida && (
               <div>
-                <span className="font-semibold tw-text-secondary">
+                <span className="tw-font-semibold tw-text-secondary">
                   {" "}
                   Fecha vuelta:
                 </span>
-                <span className="lowercase"> {reserva.fechaSalida}</span>
+                <span className="tw-lowercase"> {reserva.fechaSalida}</span>
               </div>
             )}
           </div>
@@ -122,12 +122,12 @@ function ReservaFinalizada() {
       <section>
         <Hotel hotel={hotel} />
       </section>
-      <section className="mt-10">
-        <div className="reservation-actions flex justify-end flex-row gap-x-5 mt-5">
-          <button className="hover:shadow-xl transition bg-slate-700 dark:bg-slate-800 p-3 rounded-lg shadow-lg text-white font-semibold">
+      <section className="tw-mt-10">
+        <div className="reservation-actions tw-flex tw-justify-end tw-flex-row tw-gap-x-5 tw-mt-5">
+          <button className="hover:tw-shadow-xl tw-transition tw-bg-slate-700 dark:tw-bg-slate-800 tw-p-3 tw-rounded-lg tw-shadow-lg tw-text-white tw-font-semibold">
             Volver a la página principal
           </button>
-          <button className="hover:shadow-xl transition tw-bg-secondary p-3 rounded-lg shadow-lg text-white font-semibold">
+          <button className="hover:tw-shadow-xl tw-transition tw-bg-secondary tw-p-3 tw-rounded-lg tw-shadow-lg tw-text-white tw-font-semibold">
             Descargar PDF
           </button>
         </div>

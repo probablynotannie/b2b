@@ -54,8 +54,8 @@ function Productos() {
             <button
               className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
                 activeTab === "Resultados"
-                  ? "border-secondary tw-text-secondary font-bold "
-                  : " text-slate-700 dark:tw-text-slate-200 border-none"
+                  ? "tw-border-secondary tw-text-secondary tw-font-bold "
+                  : "tw-text-slate-700 dark:tw-text-slate-200 tw-border-none"
               }`}
               onClick={() => setActiveTab("Resultados")}
             >
@@ -69,8 +69,8 @@ function Productos() {
             <button
               className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
                 activeTab === "actividades"
-                  ? "border-secondary tw-text-secondary font-bold "
-                  : " text-slate-700 dark:tw-text-slate-200 border-none"
+                  ? "tw-border-secondary tw-text-secondary font-bold"
+                  : "tw-text-slate-700 dark:tw-text-slate-200 tw-border-none"
               }`}
               onClick={() => setActiveTab("actividades")}
             >
@@ -91,8 +91,8 @@ function Productos() {
             <button
               className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
                 activeTab === "Cesta"
-                  ? "border-secondary tw-text-secondary font-bold "
-                  : " text-slate-700 dark:tw-text-slate-200 border-none"
+                  ? "tw-border-secondary tw-text-secondary tw-font-bold "
+                  : "tw-text-slate-700 dark:tw-text-slate-200 tw-border-none"
               }`}
               onClick={() => setActiveTab("Cesta")}
             >

@@ -15,7 +15,7 @@ function Buscador() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    navigate("/listadocruceros", {
+    navigate("/listadoCruceros", {
       state: { datosForm: data },
     });
   };

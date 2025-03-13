@@ -1,72 +1,75 @@
+import { useState } from "react";
 import { Popover } from "flowbite-react";
-import { FaUserCog } from "react-icons/fa";
-import { FaStar } from "react-icons/fa";
+import { FaUserCog, FaStar, FaUser } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 import { IoSettings } from "react-icons/io5";
-import { FaUser } from "react-icons/fa";
 
 function Usuario() {
+  const [user] = useState({
+    name: "VPK Desarrollo",
+    image: "../../dit.png",
+    role: "DIT España Freelance",
+    testAccount: "Test LIO",
+    emails: {
+      reservas: "soporte@ditgestion.com",
+      admin: "holavpk@gmail.com",
+    },
+  });
+
   return (
     <Popover
       aria-labelledby="profile-popover"
       content={
-        <div className="tw-w-64 tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-rounded-lg tw-border-slate-400  dark:tw-border-slate-600">
-          <div className="tw-pb-2 tw-mb-2 tw-flex tw-items-center tw-justify-between">
-            <span className="tw-font-bold text-primary dark:tw-text-slate-100">
-              vpk desarrollo
-            </span>
+        <div className="tw-w-72 tw-p-4 tw-bg-white dark:tw-bg-slate-800 tw-border tw-border-slate-300 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg">
+          {/* Header */}
+          <div className="tw-flex tw-items-center tw-gap-3 tw-mb-3">
             <img
-              className="tw-h-10 tw-w-16 tw-rounded-full"
-              src="../../dit.png"
-              alt="Jese Leos"
+              className="tw-w-12 tw-h-12 tw-rounded-full tw-object-contain tw-border tw-border-slate-300 dark:tw-border-slate-600"
+              src={user.image}
+              alt={user.name}
+              onError={(e) => (e.target.src = "https://via.placeholder.com/48")}
             />
-          </div>
-          <div>
-            <div className="tw-text-sm">
-              <ul className="tw-space-y-3 tw-text-sm tw-border-y-2 dark:tw-border-slate-700 tw-border-slate-100 tw-py-2">
-                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="tw-text-secondary">
-                    <FaStar />
-                  </span>
-                  <span>DIT España Freelance</span>
-                </li>
-                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="tw-text-secondary">
-                    <FaUser />
-                  </span>
-                  <span>Test LIO</span>
-                </li>
-                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="tw-text-secondary">
-                    <MdEmail />
-                  </span>
-                  <span>Reservas: soporte@ditgestion.com</span>
-                </li>
-                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="tw-text-secondary">
-                    <MdEmail />
-                  </span>
-                  <span>Admin: holavpk@gmail.com</span>
-                </li>
-                <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-600 dark:tw-text-slate-200">
-                  <span className="tw-text-secondary">
-                    <IoSettings />
-                  </span>
-                  <span>Modificar margenes</span>
-                </li>
-              </ul>
-              <div className="tw-mt-4 tw-flex tw-justify-end ">
-                <button className="tw-text-slate-400 dark:tw-text-slate-300 dark:hover:tw-text-slate-200 hover:tw-text-slate-700 tw-transition tw-p-2">
-                  Cerrar sesión
-                </button>
-              </div>
+            <div>
+              <h3 className="tw-text-base tw-font-semibold tw-text-slate-900 dark:tw-text-white">
+                {user.name}
+              </h3>
+              <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-300">
+                {user.role}
+              </p>
             </div>
+          </div>
+          <ul className="tw-space-y-3 tw-border-y tw-border-slate-200 dark:tw-border-slate-700 tw-py-3">
+            <li className="tw-flex tw-items-center tw-gap-2 tw-text-slate-700 dark:tw-text-slate-300">
+              <FaStar className="tw-text-primary" />
+              <span>{user.role}</span>
+            </li>
+            <li className="tw-flex tw-items-center tw-gap-2 tw-text-slate-700 dark:tw-text-slate-300">
+              <FaUser className="tw-text-primary" />
+              <span>{user.testAccount}</span>
+            </li>
+            <li className="tw-flex tw-items-center tw-gap-2 tw-text-slate-700 dark:tw-text-slate-300">
+              <MdEmail className="tw-text-primary" />
+              <span>Reservas: {user.emails.reservas}</span>
+            </li>
+            <li className="tw-flex tw-items-center tw-gap-2 tw-text-slate-700 dark:tw-text-slate-300">
+              <MdEmail className="tw-text-primary" />
+              <span>Admin: {user.emails.admin}</span>
+            </li>
+            <li className="tw-flex tw-items-center tw-gap-2 tw-text-slate-700 dark:tw-text-slate-300">
+              <IoSettings className="tw-text-primary" />
+              <span>Modificar márgenes</span>
+            </li>
+          </ul>
+          <div className="tw-mt-4 tw-flex tw-justify-end">
+            <button className="tw-text-sm tw-text-red-500 hover:tw-text-red-600 tw-transition">
+              Cerrar sesión
+            </button>
           </div>
         </div>
       }
     >
-      <div className="tw-text-white tw-w-fit tw-cursor-pointer hover:tw-text-secondary tw-transition tw-flex tw-justify-center tw-items-center">
-        <FaUserCog className="tw-text-3xl" />
+      <div className="tw-text-white tw-relative hover:tw-text-secondary tw-transition tw-cursor-pointer dark:tw-bg-slate-700 tw-bg-slate-700 tw-flex tw-items-center tw-justify-center tw-w-[35px] tw-h-[35px] tw-rounded-full tw-text-2xl">
+        <FaUserCog />
       </div>
     </Popover>
   );

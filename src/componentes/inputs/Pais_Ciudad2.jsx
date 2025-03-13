@@ -25,7 +25,7 @@ function SelectorPaisCiudad() {
     {
       name: "Haiku",
       shortName: "HK",
-      flag: <img src="../../logo.png" className="w-5 h-4" alt="logo" />,
+      flag: <img src="../../logo.png" className="tw-w-5 tw-h-4" alt="logo" />,
     },
   ];
 
@@ -62,31 +62,31 @@ function SelectorPaisCiudad() {
   };
 
   return (
-    <div className="flex w-full">
-      <div className="relative">
+    <div className="tw-flex tw-w-full">
+      <div className="tw-relative">
         <button
-          className="flex-shrink-0 z-10 w-[50px] inline-flex py-2  px-2 justify-center items-center text-sm font-medium border tw-bg-inputIcon border-inputIcon rounded-l-lg text-white"
+          className="tw-flex-shrink-0 tw-z-10 tw-w-[50px] tw-inline-flex tw-py-2 tw-px-2 tw-justify-center tw-items-center tw-text-sm tw-font-medium tw-border tw-bg-inputIcon tw-border-inputIcon tw-rounded-l-lg tw-text-white"
           type="button"
           onClick={toggleContinentDropdown}
         >
-          <div className="flex items-center space-x-2 text-white">
-            <span className="max-h-[20px] overflow-hidden text-ellipsis whitespace-nowrap">
+          <div className="tw-flex tw-items-center tw-space-x-2 tw-text-white">
+            <span className="tw-max-h-[20px] tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap">
               {selectedContinent.shortName}
             </span>
             {isContinentDropdownOpen ? <FaChevronUp /> : <FaChevronDown />}
           </div>
         </button>
         {isContinentDropdownOpen && (
-          <div className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 shadow max-w-[200px]">
-            <ul className="py-2 text-sm text-gray-700">
+          <div className="tw-absolute tw-z-10 tw-mt-2 tw-bg-white tw-divide-y tw-divide-gray-100 tw-shadow tw-max-w-[200px]">
+            <ul className="tw-py-2 tw-text-sm tw-text-gray-700">
               {continents.map((continent) => (
                 <li key={continent.name}>
                   <button
                     type="button"
-                    className="inline-flex w-full px-4 py-2 text-sm hover:bg-gray-100"
+                    className="tw-inline-flex tw-w-full tw-px-4 tw-py-2 tw-text-sm hover:tw-bg-gray-100"
                     onClick={() => selectContinent(continent)}
                   >
-                    <span className="mr-2">{continent.flag}</span>
+                    <span className="tw-mr-2">{continent.flag}</span>
                     {continent.name}
                   </button>
                 </li>
@@ -95,18 +95,18 @@ function SelectorPaisCiudad() {
           </div>
         )}
       </div>
-      <div className="relative flex-grow ">
+      <div className="tw-relative tw-flex-grow">
         <button
-          className="bg-white  text-slate-950 text-sm justify-between rounded-r-lg flex-shrink-0 z-10 inline-flex items-center w-full py-2 pr-3 border border-gray-300"
+          className="tw-bg-white tw-text-slate-950 tw-text-sm tw-justify-between tw-rounded-r-lg tw-flex-shrink-0 tw-z-10 tw-inline-flex tw-items-center tw-w-full tw-py-2 tw-pr-3 tw-border tw-border-gray-300"
           type="button"
           onClick={toggleRegionDropdown}
           disabled={!selectedContinent}
         >
-          <span className="mx-2 max-h-[20px] text-start  overflow-hidden text-ellipsis whitespace-nowrap">
+          <span className="tw-mx-2 tw-max-h-[20px] tw-text-start tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap">
             {selectedRegion || "Region"}
           </span>
           <svg
-            className="w-2.5 h-2.5 ms-2.5"
+            className="tw-w-2.5 tw-h-2.5 tw-ms-2.5"
             aria-hidden="true"
             xmlns="http://www.w3.org/2000/svg"
             fill="none"
@@ -122,13 +122,13 @@ function SelectorPaisCiudad() {
           </svg>
         </button>
         {isRegionDropdownOpen && selectedContinent && (
-          <div className="absolute z-10 mt-2 bg-white divide-y divide-gray-100 shadow w-full">
-            <ul className="py-2 text-sm text-gray-700 dark:tw-text-gray-200">
+          <div className="tw-absolute tw-z-10 tw-mt-2 tw-bg-white tw-divide-y tw-divide-gray-100 tw-shadow tw-w-full">
+            <ul className="tw-py-2 tw-text-sm tw-text-gray-700 dark:tw-text-gray-200">
               {regions[selectedContinent.shortName].map((region) => (
                 <li key={region}>
                   <button
                     type="button"
-                    className="inline-flex w-full px-4 py-2 text-sm hover:bg-gray-100"
+                    className="tw-inline-flex tw-w-full tw-px-4 tw-py-2 tw-text-sm hover:tw-bg-gray-100"
                     onClick={() => selectRegion(region)}
                   >
                     {region}

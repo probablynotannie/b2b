@@ -1,75 +1,89 @@
+import { useState } from "react";
 import { Popover } from "flowbite-react";
 import { CiBellOn } from "react-icons/ci";
 
 function Notificaciones() {
-  const notificaciones = [
+  const [notificaciones, setNotificaciones] = useState([
     {
       id: 0,
       titulo: "Vuelve a estar disponible",
       texto:
-        "La reserva de Barcelona-Italia vuelve a estar disponible, reservalo ya para que no te quedes sin. porfa?",
+        "La reserva de Barcelona-Italia vuelve a estar disponible. ¡Resérvalo ya antes de que se agote!",
+      fecha: "Hace 2h",
     },
     {
       id: 1,
       titulo: "Error en reserva",
-      texto: "Hola que tal estas jajaj ",
+      texto:
+        "Hubo un problema con tu reserva. Inténtalo de nuevo o contacta con soporte.",
+      fecha: "Hace 5h",
     },
     {
       id: 2,
-      titulo: "Reserva completado",
-      texto: "Hola que tal estas jajaj",
+      titulo: "Reserva completada",
+      texto: "Tu reserva se ha completado con éxito. ¡Disfruta tu viaje!",
+      fecha: "Ayer",
     },
     {
-      id: 4,
+      id: 3,
       titulo: "Agotado",
-      texto:
-        "El billete reservado para el día 27 de octubre para las entradas al festival de programación se han agotado. :(",
+      texto: "Las entradas para el festival de programación se han agotado. :(",
+      fecha: "Hace 2 días",
     },
-  ];
+  ]);
 
   return (
     <Popover
-      aria-labelledby="profile-popover"
+      aria-labelledby="notificaciones-popover"
       content={
-        <div className="tw-w-96 tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-400 tw-rounded-lg dark:tw-border-slate-600">
-          <div className="tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600 tw-pb-2 tw-mb-2 tw-flex tw-items-center tw-justify-between">
-            <span className="tw-font-bold text-primary dark:tw-text-slate-100">
+        <div className="tw-w-80 tw-p-4 tw-bg-white dark:tw-bg-slate-800 tw-border tw-border-slate-300 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg">
+          <div className="tw-flex tw-items-center tw-justify-between tw-border-b tw-pb-2 dark:tw-border-slate-700">
+            <span className="tw-font-semibold tw-text-slate-700 dark:tw-text-white">
               Notificaciones
             </span>
-            <img
-              className="tw-h-10 tw-w-16 tw-rounded-md dark:tw-bg-white tw-p-1"
-              src="../../dit.png"
-              alt="Jese Leos"
-            />
+            <button
+              className="tw-text-xs tw-text-primary dark:tw-text-slate-300 hover:tw-underline"
+              onClick={() => setNotificaciones([])}
+            >
+              Marcar todas como leídas
+            </button>
           </div>
-          <div>
-            {notificaciones.map((notificacion) => (
-              <div
-                key={notificacion.id}
-                className="tw-bg-slate-50 hover:tw-bg-gray-200 dark:tw-bg-slate-700 dark:hover:tw-bg-slate-600 tw-transition tw-cursor-pointer tw-rounded-xl tw-mt-2 tw-p-2 tw-pt-1 tw-shadow-sm tw-grid tw-grid-cols-6 tw-items-center tw-space-x-2"
-              >
-                <div className="tw-bg-slate-700 dark:tw-bg-slate-800 tw-rounded-full tw-border tw-text-white tw-border-slate-300 dark:tw-border-slate-800 tw-flex tw-justify-center tw-items-center tw-w-10 tw-h-10">
-                  <CiBellOn className="tw-text-3xl" />
+          <div className="tw-space-y-3 tw-mt-3">
+            {notificaciones.length > 0 ? (
+              notificaciones.map((notificacion) => (
+                <div
+                  key={notificacion.id}
+                  className="tw-flex tw-items-center tw-gap-3 tw-p-3 tw-rounded-lg tw-bg-slate-100 dark:tw-bg-slate-700 hover:tw-bg-slate-200 dark:hover:tw-bg-slate-600 tw-transition"
+                >
+                  <div className="tw-flex-1">
+                    <h3 className="tw-text-sm tw-font-medium tw-text-slate-800 dark:tw-text-white">
+                      {notificacion.titulo}
+                    </h3>
+                    <p className="tw-text-xs tw-text-slate-600 dark:tw-text-slate-300 tw-line-clamp-2">
+                      {notificacion.texto}
+                    </p>
+                    <span className="tw-text-[11px] tw-text-slate-500 dark:tw-text-slate-400 tw-block tw-text-end">
+                      {notificacion.fecha}
+                    </span>
+                  </div>
                 </div>
-                <div className="tw-col-span-5">
-                  <h3 className="tw-text-sm tw-font-semibold tw-text-secondary dark:tw-text-slate-100">
-                    {notificacion.titulo}
-                  </h3>
-                  <p className="tw-text-xs tw-line-clamp-2 tw-text-slate-500 dark:tw-text-slate-300">
-                    {notificacion.texto}
-                  </p>
-                </div>
-              </div>
-            ))}
+              ))
+            ) : (
+              <p className="tw-text-center tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm">
+                No tienes notificaciones nuevas.
+              </p>
+            )}
           </div>
         </div>
       }
     >
-      <div className="tw-relative tw-text-slate-400 tw-cursor-pointer hover:tw-text-secondary tw-transition tw-flex tw-items-center tw-rounded-full tw-justify-center tw-h-10">
-        <CiBellOn className="tw-text-4xl" />
-        <div className="tw-absolute tw-select-none -tw-top-1 tw-left-4 tw-text-sm tw-bg-secondary tw-text-white tw-rounded-full tw-w-5 tw-flex tw-justify-center tw-items-center tw-font-bold">
-          {notificaciones.length}
-        </div>
+      <div className="tw-text-white tw-relative hover:tw-text-secondary tw-transition tw-cursor-pointer dark:tw-bg-slate-700 tw-bg-slate-700 tw-flex tw-items-center tw-justify-center tw-w-[35px] tw-h-[35px] tw-rounded-full tw-text-2xl">
+        <CiBellOn className="tw-text-3xl" />
+        {notificaciones.length > 0 && (
+          <div className="tw-absolute -tw-top-1 tw-right-0 tw-bg-red-500 tw-text-white tw-text-xs tw-font-bold tw-rounded-full tw-w-5 tw-h-5 tw-flex tw-items-center tw-justify-center">
+            {notificaciones.length}
+          </div>
+        )}
       </div>
     </Popover>
   );

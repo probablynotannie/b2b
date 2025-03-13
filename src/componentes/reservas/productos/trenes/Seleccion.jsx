@@ -21,8 +21,8 @@ function Seleccion({ tren, reservar, setTren }) {
             <div
               className={
                 tren.stops === 0
-                  ? " text-sm  bg-green-700 dark:bg-green-900 rounded text-white p-1 "
-                  : " text-sm  bg-orange-400 dark:bg-orange-600 rounded text-white p-1"
+                  ? "tw-text-sm tw-bg-green-700 dark:tw-bg-green-900 tw-rounded tw-text-white tw-p-1 "
+                  : "tw-text-sm tw-bg-orange-400 dark:tw-bg-orange-600 tw-rounded tw-text-white tw-p-1"
               }
             >
               {tren.stops} parada{tren.stops < 1 && "s"}
@@ -102,7 +102,7 @@ function Seleccion({ tren, reservar, setTren }) {
                   ].map((item, index) => (
                     <div
                       key={index}
-                      className="tw-justify-center tw-flex tw-items-center tw-gap-2 tw-p-3 tw-bg-white dark:tw-bg-slate-800 "
+                      className="tw-justify-center tw-flex tw-items-center tw-gap-2 tw-p-3 tw-bg-white dark:tw-bg-slate-800"
                     >
                       <div className="tw-text-lg">{item.icono}</div>
                       <p className="tw-text-xs tw-font-bold tw-uppercase tw-text-gray-600 dark:tw-text-gray-300">

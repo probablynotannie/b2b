@@ -27,9 +27,6 @@ function Resultado({ hoteles }) {
   }, [openModal]);
   return (
     <section className="tw-pb-12">
-      <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-        Resultados ({hoteles.length})
-      </h3>
       {hoteles.map((hotel, index) => (
         <article
           key={index}
@@ -102,7 +99,7 @@ function Resultado({ hoteles }) {
                 Detalles
               </button>
               {openModal === index && (
-                <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65 z-50 flex items-center justify-center bg-black  tw-bg-opacity-50">
+                <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65 z-50 flex items-center justify-center">
                   <div className="tw-bg-white tw-border-2 tw-border-secondary dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-4xl tw-max-h-[90vh] tw-overflow-y-auto">
                     <div className="tw-border-b tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-between tw-items-center">
                       <div>

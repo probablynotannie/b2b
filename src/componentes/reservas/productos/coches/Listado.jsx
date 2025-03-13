@@ -256,7 +256,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                   </div>
                 </div>
                 <ul className="tw-grid md:tw-grid-cols-2 tw-gap-x-10 dark:tw-text-slate-300">
-                  <li className="tw-flex tw-mt-2 bg-red">
+                  <li className="tw-flex tw-mt-2">
                     <BsFillFuelPumpFill />
                     <span className="tw-text-sm tw-ml-2">
                       {coche.lleno === true ? "Lleno" : "Vacío"}

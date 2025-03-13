@@ -8,17 +8,11 @@ import { FaPerson } from "react-icons/fa6";
 import Input_selectNum from "../../../inputs/SelectorNums";
 import { useNavigate } from "react-router-dom";
 import { FaSearch } from "react-icons/fa";
+import { useForm } from "react-hook-form";
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [seguro, setSeguro] = useState();
-  const [destinosSeguro, setDestinoSeguro] = useState();
-  const [residente, setResidente] = useState();
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [pasajeros, setPasajeros] = useState(1);
   const maxPasajeros = 10;
-
   const destinos = [
     {
       id: 0,
@@ -85,12 +79,22 @@ function Buscador_Destinos() {
       texto: "Asistencia + Anulación PREEXISENCIS",
     },
   ];
-  const handleSubmit = () => {
-    const newRequestData = {
-      destination: 0,
-    };
-    navigate("/seguro", { state: { newRequestData } });
+  const {
+    control,
+    register,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {},
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate("/seguro", {
+      state: { data },
+    });
   };
+
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -107,7 +111,7 @@ function Buscador_Destinos() {
       {isModalOpen && (
         <div className="tw-fixed  tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white tw-rounded-lg  tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Buscador
               </h2>
@@ -119,54 +123,51 @@ function Buscador_Destinos() {
               </button>
             </div>
             <div className="tw-p-3">
-              <form>
+              <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-space-y-2">
                   <Input_Select
+                    errors={errors}
                     icono={<FaUserShield />}
                     placeholder="Tipo seguro"
                     opciones={seguros}
-                    values={seguro}
-                    setValues={setSeguro}
+                    name={"tipo"}
+                    register={register}
                   />
 
                   <Input_Select
-                    icono={<FaGlobe />}
-                    placeholder="Destino"
-                    opciones={destinos}
-                    values={destinosSeguro}
-                    setValues={setDestinoSeguro}
+                    errors={errors}
+                    icono={<FaUserShield />}
+                    placeholder="Tipo seguro"
+                    opciones={seguros}
+                    name={"destino"}
+                    register={register}
                   />
 
                   <Input_dateRange
-                    startDate={startDate}
-                    endDate={endDate}
-                    setStartDate={setStartDate}
-                    setEndDate={setEndDate}
+                    control={control}
+                    placeholder={"Fechas"}
+                    nameStartDate={"salida"}
+                    nameEndDate={"llegada"}
                   />
 
                   <Input_Select
+                    errors={errors}
                     icono={<IoPersonSharp />}
                     placeholder="Residencia"
                     opciones={residentes}
-                    values={residente}
-                    setValues={setResidente}
+                    name="residente"
+                    register={register}
                   />
 
                   <Input_selectNum
-                    placeholder={"Núm asegurados"}
-                    valor={pasajeros}
-                    setValor={setPasajeros}
+                    placeholder={"Núm pasajeros"}
+                    control={control}
+                    name={"pasajeros"}
                     num={maxPasajeros}
                     icono={<FaPerson />}
                   />
                 </div>
-                <button
-                  onClick={() => {
-                    handleSubmit();
-                    setIsModalOpen(false);
-                  }}
-                  className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow"
-                >
+                <button className="tw-bg-slate-800 tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -184,55 +185,50 @@ function Buscador_Destinos() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form className="tw-w-full">
+        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Destinos
           </h2>
           <div className="tw-grid tw-grid-cols-3 lg:tw-grid-cols-3 2xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Select
+              errors={errors}
               icono={<FaUserShield />}
               placeholder="Tipo seguro"
               opciones={seguros}
-              values={seguro}
-              setValues={setSeguro}
+              name={"tipo"}
+              register={register}
             />
-
             <Input_Select
+              errors={errors}
               icono={<FaGlobe />}
               placeholder="Destino"
               opciones={destinos}
-              values={destinosSeguro}
-              setValues={setDestinoSeguro}
+              name={"destino"}
+              register={register}
             />
-
             <Input_dateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              placeholder={"Fechas"}
+              nameStartDate={"salida"}
+              nameEndDate={"llegada"}
             />
-
             <Input_Select
+              errors={errors}
               icono={<IoPersonSharp />}
               placeholder="Residencia"
               opciones={residentes}
-              values={residente}
-              setValues={setResidente}
+              name="residente"
+              register={register}
             />
-
             <Input_selectNum
               placeholder={"Núm pasajeros"}
-              valor={pasajeros}
-              setValor={setPasajeros}
+              control={control}
+              name={"pasajeros"}
               num={maxPasajeros}
               icono={<FaPerson />}
             />
           </div>
-          <button
-            type="button"
-            className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white"
-            onClick={handleSubmit}
-          >
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-bg-secondary tw-p-3 tw-font-bold tw-rounded-lg tw-text-white">
             Buscar
           </button>
         </form>

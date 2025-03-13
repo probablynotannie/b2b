@@ -21,25 +21,25 @@ function Productos() {
     setFilteredEntradas(filtered);
   };
   return (
-    <main className="flex justify-center flex-col items-center mb-10 min-h-[0vh]">
+    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10 tw-min-h-[0vh]">
       <div
-        className="w-full bg-cover bg-center p-8 relative shadow-md"
+        className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
         style={{
           backgroundImage: "url('/banner_actividades2.jpg')",
         }}
       >
-        <div className="bg-indigo-200 dark:bg-black text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
+        <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-container tw-relative">
           <Buscador />
         </div>
       </div>
-      <article className="grid grid-cols-1 lg:gap-10 xs:gap-28 w-full container mt-10 min-h-[35vh]">
-        <div className="grid md:grid-cols-2 gap-5 md:gap-10 mb-5 md:mb-0 h-fit">
+      <article className="tw-grid tw-grid-cols-1 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[35vh]">
+        <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 md:tw-gap-10 tw-mb-5 md:tw-mb-0 tw-h-fit">
           {loading ? (
             <>
-              <div className="h-10 w-full bg-slate-200 dark:bg-slate-800 rounded mb-3 animate-pulse"></div>
+              <div className="tw-h-10 tw-w-full tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded tw-mb-3 tw-animate-pulse"></div>
 
-              <div className="h-10 w-full bg-slate-200 dark:bg-slate-800 rounded mb-3 animate-pulse"></div>
+              <div className="tw-h-10 tw-w-full tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded tw-mb-3 tw-animate-pulse"></div>
             </>
           ) : (
             <>

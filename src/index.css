@@ -214,3 +214,38 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
+
+
+
+
+
+
+/* Custom Popup styles */
+.custom-popup {
+  width: 300px !important; /* Make the popup wider */
+  height: auto;
+  padding: 15px !important;
+  font-size: 18px;
+}
+
+.popup-img {
+  width: 100%;
+  height: auto;
+  max-width: 250px; /* Adjust image width */
+}
+
+/* Custom Tooltip styles */
+.custom-tooltip {
+  font-size: 18px;
+  background-color: rgba(255, 255, 255, 0.8);
+  color: white;
+  padding: 10px;
+  border-radius: 5px;
+  width: 200px; /* Tooltip width can be controlled here */
+  white-space: nowrap;
+}
+
+.tooltip-img {
+  width: 50px;
+  height: 50px;
+}

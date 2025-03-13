@@ -107,7 +107,7 @@ function SidebarContent({
     <div>
       <div className="tw-flex tw-items-center tw-justify-between tw-p-5 tw-mb-4 tw-border-b-2 tw-bg-primary lg:tw-bg-inherit lg:tw-p-3 dark:tw-border-slate-600">
         <h3 className="tw-text-xl tw-font-semibold tw-text-white lg:tw-text-secondary">
-          Filtrado ef
+          Filtrado
         </h3>
       </div>
       <div className="tw-p-6 lg:tw-p-3 lg:tw-pt-1">

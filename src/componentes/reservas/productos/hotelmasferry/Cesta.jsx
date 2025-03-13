@@ -22,67 +22,67 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
     : ferry.ida?.precio + (ferry.vuelta?.precio || 0);
 
   return (
-    <div className="mt-5 w-full col-span-9">
-      <div className="min-h-[30vh] grid lg:grid-cols-2 xl:grid-cols-3 gap-4">
+    <div className="tw-mt-5 tw-w-full tw-col-span-9">
+      <div className="tw-min-h-[30vh] tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-4">
         {hotel && (
-          <section className="border-2 pb-20 bg-white hover:scale-[102%] duration-300 dark:bg-slate-800 relative border-slate-100 dark:tw-border-slate-700 h-auto max-w-full rounded-lg rounded-t-lg  shadow-lg hover:shadow-xl transition">
-            <div className="absolute bottom-0 grid grid-cols-2 justify-between items-center w-full p-2">
-              <div className="col-span-2 flex flex-wrap gap-2 justify-between mt-2 text-slate-900 dark:tw-text-slate-400 font-semibold text-sm border-b-2 border-slate-100 dark:tw-border-slate-700 pb-2 mb-2">
-                <span className="flex items-center">
-                  <FaPerson className="text-lg" /> {reserva.pax} adulto
+          <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
+            <div className="tw-absolute tw-bottom-0 tw-grid tw-grid-cols-2 tw-justify-between tw-items-center tw-w-full tw-p-2">
+              <div className="tw-col-span-2 tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-2">
+                <span className="tw-flex tw-items-center">
+                  <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
                   {reserva.pax > 1 && "s"}
                 </span>
-                <span className="flex items-center">
-                  <FaChild className="text-lg" /> {reserva.pax_ninios} niño
+                <span className="tw-flex tw-items-center">
+                  <FaChild className="tw-text-lg" /> {reserva.pax_ninios} niño
                   {reserva.pax_ninios > 1 && "s"}
                 </span>
-                <span className="flex items-center">
-                  <FaDoorOpen className="text-lg mr-1" /> {reserva.habitaciones}{" "}
-                  Habitación/es
+                <span className="tw-flex tw-items-center">
+                  <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
+                  {reserva.habitaciones} Habitación/es
                 </span>
-                <span className="flex items-center">
-                  <MdModeNight className="text-lg" />
+                <span className="tw-flex tw-items-center">
+                  <MdModeNight className="tw-text-lg" />
                   {reserva.noches} noches
                 </span>
               </div>
-              <div className="col-span-2 flex justify-between ">
+              <div className="tw-col-span-2 tw-flex tw-justify-between">
                 <span
-                  className={`mt-2 text-lg text-slate-500 dark:tw-text-green-400 rounded-lg px-2 p-1 font-bold `}
+                  className={`tw-mt-2 tw-text-lg tw-text-slate-500 dark:tw-text-green-400 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold`}
                 >
                   {hotel.precio}€
                 </span>
                 <button
                   onClick={removeHotel}
-                  className="mt-1 text-sm rounded-lg shadow bg-red-500 dark:bg-red-800 text-white h-fit p-2"
+                  className="tw-mt-1 tw-text-sm tw-rounded-lg tw-shadow tw-bg-red-500 dark:tw-bg-red-800 tw-text-white tw-h-fit tw-p-2"
                 >
                   <FaRegTrashAlt />
                 </button>
               </div>
             </div>
             <span
-              className={`absolute rotate-45 tw-bg-secondary rounded-lg px-2 p-1  font-bold text-sm top-5 right-5 z-10 shadow-lg`}
+              className={`tw-absolute tw-rotate-45 tw-bg-secondary tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg`}
             >
               Hotel
             </span>
 
-            <div className="relative">
+            <div className="tw-relative">
               <img
-                className="h-[25vh] w-full object-cover  rounded-t-lg"
+                className="tw-h-[25vh] tw-w-full tw-object-cover tw-rounded-t-lg"
                 src={hotel.img}
                 alt="imagen hotel"
               />
-              <div className="bg-emerald-500  tw-bg-opacity-15 absolute top-0 w-full h-full" />
+              <div className="tw-bg-emerald-500 tw-bg-opacity-15 tw-absolute tw-top-0 tw-w-full tw-h-full" />
             </div>
-            <div className="p-3">
-              <h4 className="tw-text-secondary font-semibold">
+            <div className="tw-p-3">
+              <h4 className="tw-text-secondary tw-font-semibold">
                 {hotel.nombre}
-                <span className="text-sm ml-1 text-slate-400 font-normal">
+                <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
                   - {hotel.regimen}
                 </span>
               </h4>
-              <div className=" pb-2">
-                <span className="text-slate-400 dark:tw-text-slate-400 text-sm flex items-center mb-2">
-                  <FaMapPin className="text-slate-600 dark:tw-text-slate-500 mr-2" />
+              <div className="tw-pb-2">
+                <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
+                  <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
                   {hotel.direccion}
                 </span>
               </div>
@@ -93,7 +93,7 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
       </div>
       {hotel && (
         <Link state={reservaFinal} to={"/hotelmasferry"}>
-          <button className="tw-bg-secondary font-semibold text-white p-3 rounded-lg shadow hover:shadow-lg transition mt-10">
+          <button className="tw-bg-secondary tw-font-semibold tw-text-white tw-p-3 tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-mt-10">
             Total: {totalPrice}€
           </button>
         </Link>

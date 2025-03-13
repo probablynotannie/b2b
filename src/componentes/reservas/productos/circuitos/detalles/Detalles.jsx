@@ -60,7 +60,7 @@ function Detalles({ actividad, cesta }) {
                 className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                   activeTab === tab
                     ? "text-white tw-bg-secondary dark:tw-bg-secondary"
-                    : "hover:text-slate-900 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
+                    : "hover:text-slate-900 tw-bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
                 }`}
               >
                 {tab}

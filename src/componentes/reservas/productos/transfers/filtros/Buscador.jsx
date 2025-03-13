@@ -30,15 +30,15 @@ function Buscador() {
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
-      adulto: 2,
-      ninio: 0,
-      infant: 0,
+      adults: 2,
+      children: 0,
+      infants: 0,
       horaRecogida: "12:00",
       horaDevolucion: "12:00",
       startDate: 0,
       endDate: 0,
-      destino: 0,
-      origen: 0,
+      destination: 0,
+      origin: 0,
     },
   });
 
@@ -93,7 +93,7 @@ function Buscador() {
               <Input_Buscador
                 required={true}
                 control={control}
-                name={"origen"}
+                name={"origin"}
                 setValue={setValue}
                 placeholder={"Origen"}
                 destinos={destinos}
@@ -103,7 +103,7 @@ function Buscador() {
               <Input_Buscador
                 required={true}
                 control={control}
-                name={"destino"}
+                name={"destination"}
                 setValue={setValue}
                 placeholder={"Destino"}
                 destinos={destinos}
@@ -134,9 +134,9 @@ function Buscador() {
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Personas
                 control={control}
-                nameAdult={"adulto"}
-                nameKid={"ninio"}
-                nameInfant={"infant"}
+                nameAdult={"adults"}
+                nameKid={"children"}
+                nameInfant={"infants"}
               />
             </div>
 
@@ -170,7 +170,7 @@ function Buscador() {
             <Input_Buscador
               required={true}
               control={control}
-              name={"origen"}
+              name={"origin"}
               setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
@@ -180,9 +180,9 @@ function Buscador() {
             <Input_Buscador
               required={true}
               control={control}
-              name={"origen"}
+              name={"destination"}
               setValue={setValue}
-              placeholder={"Origen"}
+              placeholder={"Destino"}
               destinos={destinos}
             />
           </div>
@@ -205,9 +205,9 @@ function Buscador() {
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">
             <Input_Personas
               control={control}
-              nameAdult={"adulto"}
-              nameKid={"ninio"}
-              nameInfant={"infant"}
+              nameAdult={"adults"}
+              nameKid={"children"}
+              nameInfant={"infants"}
             />
           </div>
           <button className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1 2xl:tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">

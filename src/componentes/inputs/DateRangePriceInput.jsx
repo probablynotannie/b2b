@@ -21,7 +21,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lockedIdaPrice, setLockedIdaPrice] = useState(null);
 
-  const modalRef = useRef(null); 
+  const modalRef = useRef(null);
 
   const TRIP_DAYS = dias;
   const today = new Date();
@@ -101,9 +101,12 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
-      <div className="grid grid-cols-7 text-center font-bold">
+      <div className="tw-grid tw-grid-cols-7 tw-text-center tw-font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="p-1 text-black dark:tw-text-white text-sm">
+          <div
+            key={day}
+            className="tw-p-1 tw-text-black dark:tw-text-white tw-text-sm"
+          >
             {day}
           </div>
         ))}
@@ -118,14 +121,14 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     });
 
     return (
-      <div key={month} className="mb-8">
-        <h3 className="text-lg font-bold text-center mb-2 tw-text-secondary">
+      <div key={month} className="tw-mb-8">
+        <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
         </h3>
         {renderWeekDays()}
-        <div className="grid grid-cols-7 gap-1 mb-3">
+        <div className="tw-grid tw-grid-cols-7 tw-gap-1 tw-mb-3">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="p-4"></div>
+            <div key={`empty-${i}`} className="tw-p-4"></div>
           ))}
           {daysInMonth.map((day) => {
             const formattedDate = format(day, "yyyy-MM-dd");
@@ -149,7 +152,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
             return (
               <div
                 key={day}
-                className={`p-4 text-center rounded-lg cursor-pointer text-black text-sm relative ${
+                className={`tw-p-4 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm tw-relative ${
                   isTodayDay
                     ? "bg-blue-500 dark:tw-bg-secondary text-white"
                     : ""
@@ -166,11 +169,11 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
               >
                 <div>{format(day, "d")}</div>
                 {price && (
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs text-center">
+                  <div className="tw-absolute tw-bottom-1 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-text-xs tw-text-center">
                     <span
-                      className={`text-slate-900 dark:tw-text-secondary ${
+                      className={`tw-text-slate-900 dark:tw-text-secondary ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
-                          ? "text-white font-bold" 
+                          ? "text-white font-bold"
                           : ""
                       }`}
                     >
@@ -223,28 +226,28 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   };
   return (
     <div>
-      <div className="relative">
+      <div className="tw-relative">
         <div
           onClick={openModal}
-          className="border bg-white  dark:bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
           {formatDateRange()}
-          <div className="absolute top-0 left-0 pointer-events-none dark:bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+          <div className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaCalendarAlt />
           </div>
         </div>
       </div>
       {isModalOpen && (
-        <div className="fixed inset-0 bg-black  tw-bg-opacity-50 flex justify-center items-center z-50">
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div
             ref={modalRef} // Attach the ref to the modal container
-            className="bg-white dark:bg-slate-700 w-full md:w-[90vw] md:h-[90vh] lg:w-[60vw] lg:h-[90vh] xl:w-[60vw] xl:h-[90vh] h-full mx-auto relative"
+            className="tw-bg-white dark:tw-bg-slate-700 tw-w-full md:tw-w-[90vw] md:tw-h-[90vh] lg:tw-w-[60vw] lg:tw-h-[90vh] xl:tw-w-[60vw] xl:tw-h-[90vh] tw-h-full tw-mx-auto tw-relative"
           >
-            <div className="flex justify-between items-center mb-4 bg-primary p-5">
-              <h2 className="text-xl font-bold text-white">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary tw-p-5">
+              <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Selecciona fechas
               </h2>
-              <button onClick={closeModal} className="text-xl text-white">
+              <button onClick={closeModal} className="tw-text-xl tw-text-white">
                 &times;
               </button>
             </div>
@@ -252,12 +255,12 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
             {/* Reset Button */}
             <button
               onClick={resetSelection}
-              className="absolute top-5 right-10 bg-red-500 text-white py-1 px-3 rounded-lg"
+              className="tw-absolute tw-top-5 tw-right-10 tw-bg-red-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
             >
               Borrar
             </button>
             <div
-              className="custom-scrollbar overflow-y-auto h-[calc(100%-85px)] p-4"
+              className="custom-scrollbar tw-overflow-y-auto tw-h-[calc(100%-85px)] tw-p-4"
               onScroll={handleScroll}
             >
               {months.map((month) => renderMonth(month))}
