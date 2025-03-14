@@ -53,7 +53,7 @@ function Notificaciones() {
               notificaciones.map((notificacion) => (
                 <div
                   key={notificacion.id}
-                  className="tw-flex tw-items-center tw-gap-3 tw-p-3 tw-rounded-lg tw-bg-slate-100 dark:tw-bg-slate-700 hover:tw-bg-slate-200 dark:hover:tw-bg-slate-600 tw-transition"
+                  className="tw-cursor-pointer tw-flex tw-items-center tw-gap-3 tw-p-3 tw-rounded-lg tw-bg-slate-100 dark:tw-bg-slate-700 hover:tw-bg-slate-200 dark:hover:tw-bg-slate-600 tw-transition"
                 >
                   <div className="tw-flex-1">
                     <h3 className="tw-text-sm tw-font-medium tw-text-slate-800 dark:tw-text-white">

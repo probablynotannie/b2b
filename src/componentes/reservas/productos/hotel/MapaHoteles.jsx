@@ -2,7 +2,8 @@ import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
 import L from "leaflet";
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
-
+import { Carousel } from "flowbite-react";
+import { Link } from "react-router-dom";
 const customIconUrl = "/logos/hotel.png";
 
 const MapaHoteles = ({ hoteles }) => {
@@ -36,16 +37,39 @@ const MapaHoteles = ({ hoteles }) => {
             }
           >
             <Popup className="custom-popup">
-              <h3 className="popup-title">{hotel.nombre}</h3>
-              <img
-                src={hotel.imagenes[0].src}
-                className="popup-image"
-                alt="imagen hotel"
-              />
-              <p className="popup-price">Precio: €{hotel.precio}</p>
+              <Link
+                to={"/hotel"}
+                state={hotel}
+                className="tw-space-y-2 tw-my-3"
+              >
+                <div className="tw-h-[200px] tw-w-[300px]">
+                  <Carousel slide={false} indicators={true}>
+                    {hotel.fotos.map((foto, idx) => (
+                      <img
+                        key={idx}
+                        src={foto}
+                        alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
+                        className="tw-h-full tw-w-full tw-object-cover"
+                      />
+                    ))}
+                  </Carousel>
+                </div>
+                <div className="tw-space-y-0">
+                  <h3 className="tw-font-bold tw-text-lg tw-text-secondary">
+                    {hotel.nombre}
+                  </h3>
+                  <p className="tw-font-medium tw-text-slate-400">
+                    Precio: €{hotel.precio}
+                  </p>
+                </div>
+              </Link>
             </Popup>
-
-            <Tooltip direction="top" offset={[0, -30]} permanent>
+            <Tooltip
+              className="custom-tooltip"
+              direction="top"
+              offset={[0, -30]}
+              permanent
+            >
               <div className="tw-text-black">
                 <span>€{hotel.precio}</span>
               </div>

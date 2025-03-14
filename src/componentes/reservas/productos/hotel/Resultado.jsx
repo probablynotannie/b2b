@@ -44,7 +44,7 @@ function Productos() {
       </div>
 
       <article
-        className={`tw-px-28 tw-grid tw-w-full tw-grid-cols-9 tw-mt-10 lg:tw-gap-10 xs:gap-28`}
+        className={`lg:tw-px-28 tw-px-5 tw-grid tw-w-full tw-grid-cols-9 tw-mt-10 lg:tw-gap-10 xs:gap-28`}
       >
         <aside
           className={`
