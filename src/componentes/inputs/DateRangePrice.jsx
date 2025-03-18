@@ -70,30 +70,25 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     setMonths((prevMonths) => [...prevMonths, ...newMonths]);
   }, [months]);
 
-  const handleDateClick = (date) => {
+  const [tipo, setTipo] = useState();
+  const handleDateClick = (date, tipo) => {
+    console.log(tipo);
+    setTipo(tipo);
     const formattedDate = format(date, "yyyy-MM-dd");
+    const priceData = prices[formattedDate];
 
-    if (!prices[formattedDate]) {
-      return;
-    }
+    if (!priceData) return;
 
-    if (!startDate || (startDate && endDate)) {
-      setStartDate(date);
-      const newEndDate = addDays(date, TRIP_DAYS - 1);
-      setEndDate(newEndDate);
-      setLockedIdaPrice(prices[formattedDate]);
-    } else if (date < startDate) {
-      setStartDate(date);
-      setEndDate(addDays(date, TRIP_DAYS - 1));
-    } else {
-      setEndDate(date);
-    }
+    setStartDate(date);
+    const newEndDate = addDays(date, TRIP_DAYS - 1);
+    setEndDate(newEndDate);
+    setLockedIdaPrice(priceData.price);
   };
 
   useEffect(() => {
     if (startDate && endDate) {
       const startDateFormatted = format(startDate, "yyyy-MM-dd");
-      const startDatePrice = prices[startDateFormatted] || null;
+      const startDatePrice = prices[startDateFormatted]?.price || null;
 
       if (
         dates.startDate !== startDate ||
@@ -130,18 +125,42 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       </div>
     );
   };
-
+  const colores = {
+    1: "pink",
+    2: "purple",
+    3: "orange",
+    4: "blue",
+  };
+  const tipoPrecios = [
+    {
+      id: 1,
+      texto: "Raro",
+    },
+    {
+      id: 2,
+      texto: "Favorito",
+    },
+    {
+      id: 3,
+      texto: "No tanto especial",
+    },
+    {
+      id: 4,
+      texto: "Especial",
+    },
+  ];
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-
     return (
-      <div key={month} className="tw-mb-8">
-        <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
-          {format(month, "MMMM yyyy", { locale: es })}
-        </h3>
+      <div key={month} className="tw-mb-8 tw-relative">
+        <div className="md:tw-sticky tw-top-0 tw-bg-gray-100 dark:tw-bg-slate-700 tw-z-10 tw-py-2">
+          <h3 className="tw-text-lg tw-font-bold tw-text-center tw-text-secondary">
+            {format(month, "MMMM yyyy", { locale: es })}
+          </h3>
+        </div>
         {renderWeekDays()}
         <div className="tw-grid tw-grid-cols-7 tw-gap-1 tw-mb-3">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
@@ -149,40 +168,59 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
           ))}
           {daysInMonth.map((day) => {
             const formattedDate = format(day, "yyyy-MM-dd");
-            const isDateDisabled =
-              !prices[formattedDate] || isBefore(day, today);
+            const priceData = prices[formattedDate];
+            const price = priceData ? priceData.price : null;
+            const isDateDisabled = !priceData || isBefore(day, today);
             const isTodayDay = isToday(day);
-
             return (
               <div
                 key={day}
                 ref={isTodayDay ? todayRef : null}
                 className={`tw-p-4 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm tw-relative ${
                   isTodayDay
-                    ? "bg-blue-500 dark:tw-bg-secondary text-white"
+                    ? "tw-bg-blue-500 dark:tw-bg-secondary tw-text-white"
                     : ""
                 } ${
                   isSameDay(day, startDate)
-                    ? "tw-bg-secondary dark:bg-slate-900 text-white"
+                    ? `${
+                        tipo
+                          ? `tw-bg-${colores[tipo]}-500`
+                          : "tw-bg-secondary dark:tw-bg-slate-900"
+                      }  tw-text-white`
                     : isSameDay(day, endDate)
-                    ? "tw-bg-secondary dark:bg-slate-900 text-white"
+                    ? `${
+                        tipo
+                          ? `tw-bg-${colores[tipo]}-500`
+                          : "tw-bg-secondary dark:tw-bg-slate-900"
+                      }  tw-text-white`
                     : startDate && endDate && day > startDate && day < endDate
-                    ? "bg-orange-100 dark:bg-slate-600 dark:tw-text-white"
+                    ? `${
+                        tipo
+                          ? `tw-bg-${colores[tipo]}-300`
+                          : "tw-bg-orange-100 dark:tw-bg-slate-600"
+                      }  tw-text-white`
                     : "dark:tw-text-slate-100"
                 } ${isDateDisabled ? "text-slate-400 cursor-no-drop" : ""}`}
-                onClick={() => !isDateDisabled && handleDateClick(day)}
+                onClick={() =>
+                  !isDateDisabled && handleDateClick(day, priceData.type)
+                }
               >
-                <div>{format(day, "d")}</div>
-                {!isBefore(day, today) && prices[formattedDate] && (
+                <div>{format(day, "d")} </div>
+                {!isBefore(day, today) && priceData && (
                   <div className="tw-absolute tw-bottom-1 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-text-xs tw-text-center">
                     <span
-                      className={`tw-text-slate-900 dark:tw-text-secondaryDark ${
+                      className={` ${
+                        priceData?.type &&
+                        `tw-text-${
+                          colores[priceData.type]
+                        }-500 tw-font-bold tw-text-md`
+                      } dark:tw-text-secondaryDark ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
-                          ? "text-white font-bold"
+                          ? "tw-text-white tw-font-bold dark:tw-text-white"
                           : ""
                       }`}
                     >
-                      {prices[formattedDate]}€
+                      {price}€
                     </span>
                   </div>
                 )}
@@ -204,6 +242,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       startDatePrice: null,
     });
   };
+
   return (
     <div>
       {isMobile ? (
@@ -248,7 +287,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                   Borrar
                 </button>
                 <div
-                  className="custom-scrollbar tw-overflow-y-auto tw-h-[calc(100%-85px)] tw-p-4"
+                  className="custom-scrollbar tw-overflow-y-auto tw-h-full tw-p-4"
                   onScroll={(e) => {
                     const { scrollTop, scrollHeight, clientHeight } = e.target;
                     if (scrollHeight - scrollTop <= clientHeight + 100) {
@@ -263,35 +302,55 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
           )}
         </>
       ) : (
-        <div className="tw-p-4 tw-bg-gray-100 dark:tw-bg-slate-700 tw-rounded-lg tw-shadow">
-          <div className="tw-flex tw-justify-end tw-items-center tw-mb-4">
-            <div className="tw-flex tw-space-x-4">
-              <button
-                onClick={scrollToToday}
-                className="tw-bg-blue-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
+        <>
+          <h1 className="tw-font-semibold dark:tw-text-white tw-text-2xl">
+            Selecciona el rango de fechas
+          </h1>
+          <div className="tw-flex tw-flex-wrap tw-gap-2">
+            {tipoPrecios.map((tipo) => (
+              <div
+                className="tw-flex tw-gap-1 tw-items-center tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm"
+                key={tipo.id}
               >
-                Hoy
-              </button>
-              <button
-                onClick={resetSelection}
-                className="tw-bg-red-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
-              >
-                Borrar
-              </button>
+                <div
+                  className={`tw-w-[7px] tw-h-[7px] tw-rounded-full tw-bg-${
+                    colores[tipo.id]
+                  }-500`}
+                ></div>
+                <span> {tipo.texto}</span>
+              </div>
+            ))}
+          </div>
+          <div className="tw-p-4 tw-bg-gray-100 dark:tw-bg-slate-700 tw-rounded-lg tw-shadow">
+            <div className="tw-flex tw-justify-end tw-items-center tw-mb-4">
+              <div className="tw-flex tw-space-x-4">
+                <button
+                  onClick={scrollToToday}
+                  className="tw-bg-blue-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
+                >
+                  Hoy
+                </button>
+                <button
+                  onClick={resetSelection}
+                  className="tw-bg-red-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
+                >
+                  Borrar
+                </button>
+              </div>
+            </div>
+            <div
+              className="custom-scrollbar tw-overflow-y-auto tw-h-[400px]"
+              onScroll={(e) => {
+                const { scrollTop, scrollHeight, clientHeight } = e.target;
+                if (scrollHeight - scrollTop <= clientHeight + 100) {
+                  loadMoreMonths();
+                }
+              }}
+            >
+              {months.map((month) => renderMonth(month))}
             </div>
           </div>
-          <div
-            className="custom-scrollbar tw-overflow-y-auto tw-h-[360px]"
-            onScroll={(e) => {
-              const { scrollTop, scrollHeight, clientHeight } = e.target;
-              if (scrollHeight - scrollTop <= clientHeight + 100) {
-                loadMoreMonths();
-              }
-            }}
-          >
-            {months.map((month) => renderMonth(month))}
-          </div>
-        </div>
+        </>
       )}
     </div>
   );

@@ -4,16 +4,17 @@ import Input_DateRange from "../../../../inputs/Fecha";
 import { FaSearch } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import destinos from "./destinos.json";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
+  const navigate = useNavigate();
 
   const [fecha, setFecha] = useState();
   const onSubmit = (data) => {
-    console.log(data);
-    /*     navigate("/listadoFerris", {
+    navigate("/listadocircuitos", {
       state: { datosForm: data },
-    }); */
+    });
   };
   const {
     register,
@@ -61,7 +62,7 @@ function Buscador() {
             onSubmit={handleSubmit(onSubmit)}
             className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
           >
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+            {/*  <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Destinos
                 datos={destinos}
                 name="origen"
@@ -84,7 +85,7 @@ function Buscador() {
                 name={`fecha`}
                 setValue={setValue}
               />
-            </div>
+            </div> */}
 
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
               <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -110,17 +111,17 @@ function Buscador() {
         </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="tw-grid tw-grid-cols-12 tw-gap-3"
+          className="tw-grid tw-grid-cols-12 tw-gap-3 "
         >
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3">
+          <div className="tw-col-span-6">
             <Input_Destinos
               datos={destinos}
               name="origen"
               control={control}
-              placeholder="Selecciona un destino"
+              placeholder="Selecciona un origen"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-4">
+          <div className="tw-col-span-5">
             <Input_Destinos
               datos={destinos}
               name="destino"
@@ -128,15 +129,7 @@ function Buscador() {
               placeholder="Selecciona un destino"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
-            <Input_DateRange
-              edadSelector={true}
-              fecha={fecha}
-              name={`fecha`}
-              setValue={setValue}
-            />
-          </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-1 xl:tw-col-span-1"></div>
+
           <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>

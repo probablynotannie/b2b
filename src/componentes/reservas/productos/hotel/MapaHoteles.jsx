@@ -22,7 +22,6 @@ const MapaHoteles = ({ hoteles }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
         {hoteles.map((hotel) => (
           <Marker
             key={hotel.id}
@@ -67,7 +66,7 @@ const MapaHoteles = ({ hoteles }) => {
             <Tooltip
               className="custom-tooltip"
               direction="top"
-              offset={[0, -30]}
+              offset={[0, -30]} 
               permanent
             >
               <div className="tw-text-black">

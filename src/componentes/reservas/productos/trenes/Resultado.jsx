@@ -14,12 +14,14 @@ function Productos() {
       setLoading(false);
     }, 3000);
   }, []);
+  
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const hasVueltas = trenes.vueltas && trenes.vueltas.length > 0;
   const seleccion = vuelta ? [ida, vuelta] : [ida];
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10">
       <div
@@ -38,7 +40,7 @@ function Productos() {
           </aside>
         </div>
       </div>
-      <article className="tw-grid tw-grid-cols-9 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[38vh]">
+      <article className="tw-grid tw-grid-cols-9 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
         <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-24 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
           <Aside values={values} setValues={setValues} minMax={minMax} />
         </aside>

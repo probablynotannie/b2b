@@ -4,7 +4,7 @@ function CochesSkeleton() {
       {Array.from({ length: 2 }, (_, index) => (
         <article
           key={index}
-          className="tw-flex tw-flex-col tw-mb-5 xl:tw-flex-row tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-animate-pulse tw-bg-white dark:tw-bg-slate-800"
+          className="tw-flex tw-flex-col tw-mb-5 xl:tw-flex-row tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-animate-pulse tw-bg-slate-100 dark:tw-bg-slate-800"
         >
           <div className="tw-relative tw-w-full xl:tw-w-1/3 xl:tw-h-auto tw-rounded-t-xl xl:tw-rounded-l-xl tw-overflow-hidden">
             <div className="tw-w-full tw-h-[200px] xl:tw-h-full tw-bg-slate-300 dark:tw-bg-slate-900"></div>

@@ -39,16 +39,16 @@ function Fechas() {
     setLocalProducto((prevState) => {
       const updatedHabitaciones = [
         ...prevState.habitaciones,
-        { id: Date.now(), pax: 2, tipo }, 
+        { id: Date.now(), pax: 2, tipo },
       ];
-  
+
       const totalPax = updatedHabitaciones.reduce(
         (sum, hab) => sum + hab.pax,
         2
       );
-  
+
       const totalPrice = totalPax * 100;
-  
+
       return {
         ...prevState,
         habitaciones: updatedHabitaciones,
@@ -94,9 +94,7 @@ function Fechas() {
   return (
     <article className="tw-container tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
       <main className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[70vh] dark:tw-bg-slate-800">
-        <h1 className="tw-font-semibold dark:tw-text-white tw-text-2xl">
-          Selecciona el rango de fechas
-        </h1>
+      
         <Input_Fecha
           dates={dates}
           dias={localProducto.dias}

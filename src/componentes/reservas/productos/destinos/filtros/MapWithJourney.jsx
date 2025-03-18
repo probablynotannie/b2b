@@ -8,9 +8,15 @@ import {
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
 
+// 15 dias es un monton no? No entiendo que es esto jajaj En fin... 
+// Espero poder hacer todo a mi ritmo.
+// Yo creo que voy a sufrir demasiado.
+// Ya no me entero de nada que es esta mierda
+// Tio eso de mirar los pies me da un poco de mal rollete eh.. No se como lo voy a llevar
+// Cuantas calorias seran esas.
+
 const MapWithJourney = ({ destino }) => {
   const positions = destino.noches.map(({ lat, lng }) => [lat, lng]);
-
   return (
     <div className="w-full h-full z-0 mb-0 ">
       <MapContainer
@@ -21,7 +27,6 @@ const MapWithJourney = ({ destino }) => {
           width: "100%",
         }}
         zoomControl={false}
-        className=""
       >
         <TileLayer
           url="https://maps.wikimedia.org/osm-intl/{z}/{x}/{y}.png"
@@ -30,7 +35,7 @@ const MapWithJourney = ({ destino }) => {
         {destino.noches.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
             <Tooltip permanent offset={[0, -20]}>
-              <strong>{location.name}</strong>
+              <stron>{location.name}</stron>
               <br />
               {location.country}
               <br />

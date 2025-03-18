@@ -90,7 +90,7 @@ function Buscador_Destinos() {
               name="origen"
               control={control}
               placeholder="Selecciona un origen"
-            />{" "}
+            />
             <Input_Destinos
               datos={destinos}
               name="destino"
