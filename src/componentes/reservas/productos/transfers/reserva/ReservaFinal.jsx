@@ -21,7 +21,7 @@ function ReservaFinal() {
         />
         <Detalles coche={coche} />
       </section>
-      <article className="tw-sticky tw-top-24 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
         <Reserva img={coche.img} txt={coche.name} />
         <div className="tw-flex tw-border-2 tw-border-dashed dark:tw-border-slate-700 tw-text-slate-600 dark:tw-text-slate-400 tw-text-md tw-items-center tw-gap-2 tw-flex-wrap tw-justify-center tw-p-3 tw-my-3">
           {coche.route.origin.name}

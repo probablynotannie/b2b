@@ -30,7 +30,7 @@ function Detalles({ coche }) {
             <div className="tw-flex tw-flex-wrap tw-gap-4 tw-mt-2">
               <div className="tw-flex tw-items-center tw-gap-1 tw-bg-indigo-100 dark:tw-bg-indigo-900 tw-text-indigo-700 dark:tw-text-indigo-300 tw-text-sm tw-font-medium tw-py-1 tw-px-3 tw-rounded-lg">
                 <FaClock className="tw-text-indigo-700" /> Duración:{" "}
-                {formatDuration(coche.route.duration)} 
+                {formatDuration(coche.route.duration)}
               </div>
               <div className="tw-flex tw-items-center tw-gap-1 tw-bg-green-100 dark:tw-bg-green-900 tw-text-green-700 dark:tw-text-green-300 tw-text-sm tw-font-medium tw-py-1 tw-px-3 tw-rounded-lg">
                 <FaMapPin className="tw-text-green-600 tw-text-lg" /> Distancia:{" "}
@@ -80,13 +80,13 @@ function Detalles({ coche }) {
                   const penalty = date.split("|")[1];
                   const formattedDate = new Date(datePart).toLocaleDateString();
                   return (
-                    <p className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-300">
+                    <div className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-300">
                       <p className="tw-font-semibold tw-flex tw-items-center tw-gap-1">
                         <FaCalendar className="tw-text-slate-600 dark:tw-text-slate-200" />{" "}
                         Gratis hasta {formattedDate}
                       </p>{" "}
                       Después penalización: <strong>{penalty}%</strong>
-                    </p>
+                    </div>
                   );
                 })()}
               </div>

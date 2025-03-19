@@ -5,7 +5,6 @@ import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
 import { Carousel } from "flowbite-react";
 import { FaDoorOpen } from "react-icons/fa";
-import { Modal } from "flowbite-react";
 import { useState } from "react";
 import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
 import Listado2 from "../../estructura/hoteles/Listado";
@@ -21,7 +20,6 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
     noches: 7,
   };
   const [openModal, setOpenModal] = useState(null);
-  const [openInNewTab, setOpenInNewTab] = useState(false);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   return (
@@ -30,20 +28,6 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
         <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
           Resultados ({hoteles.length})
         </h3>
-        <div className="tw-flex tw-flex-col tw-gap-5 md:tw-flex-row md:tw-justify-between">
-          <label className="tw-inline-flex tw-items-center tw-cursor-pointer">
-            <input
-              type="checkbox"
-              className="tw-sr-only tw-peer"
-              checked={openInNewTab}
-              onChange={(e) => setOpenInNewTab(e.target.checked)}
-            />
-            <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-800 dark:md:tw-bg-slate-800 peer-focus:outline-none peer-focus:ring-4 tw-rounded-full tw-peer peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all peer-checked:tw-bg-secondary"></div>
-            <span className="tw-ms-3 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-slate-400">
-              Abrir enlace pestaña nueva
-            </span>
-          </label>
-        </div>
       </div>
       {hoteles.map((hotel, index) => (
         <>

@@ -13,7 +13,7 @@ function Seleccion() {
         <section className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[55vh] dark:tw-bg-slate-800">
           <Detalles hotel={hotel} ferry={ferry} />
         </section>
-        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-24 dark:tw-bg-slate-800">
+        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-10 dark:tw-bg-slate-800">
           <Aside hotel={hotel} ferry={ferry} habitacion={habitacion} />
         </section>
       </article>

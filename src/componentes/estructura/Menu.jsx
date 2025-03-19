@@ -13,6 +13,8 @@ import {
   FaEuroSign,
   FaVoicemail,
 } from "react-icons/fa";
+import { MdModeOfTravel } from "react-icons/md";
+
 import { FaFerry, FaTicket } from "react-icons/fa6";
 import { IoTicket } from "react-icons/io5";
 import { Link } from "react-router-dom";
@@ -77,7 +79,7 @@ const Dropdown = () => {
           id: 14,
           texto: "Circuitos",
           to: "/circuitos",
-          icon: [FaPlane],
+          icon: [MdModeOfTravel ],
         },
       ],
     },
