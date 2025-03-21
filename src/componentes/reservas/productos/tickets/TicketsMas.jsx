@@ -117,14 +117,14 @@ function Resultado({ tickets, actividades, setActividades }) {
             className={`tw-border-2 hover:tw-scale-[102%] tw-duration-300 tw-relative tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer ${
               isSelected
                 ? "tw-bg-elegido dark:tw-bg-green-950 tw-border-2 tw-border-secondary dark:tw-border-green-500"
-                : "tw-bg-white  darktw-:bg-slate-800 tw-border-slate-100 dark:tw-border-slate-700 "
+                : "tw-bg-white dark:tw-bg-slate-800 tw-border-slate-100 dark:tw-border-slate-700 "
             }`}
           >
             <span
               className={`tw-absolute tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg ${
                 actividad.tipoPrecio === "Neto"
-                  ? "bg-green-300 text-green-800"
-                  : "bg-red-500 text-red-200"
+                  ? "tw-bg-green-300 tw-text-green-800"
+                  : "tw-bg-red-500 tw-text-red-200"
               }`}
             >
               {actividad.tipoPrecio}
@@ -156,7 +156,6 @@ function Resultado({ tickets, actividades, setActividades }) {
           </article>
         );
       })}
-
       {activeActividad && (
         <Modal dismissible show={true} onClose={() => setActiveActividad(null)}>
           <Modal.Header>{activeActividad.titulo}</Modal.Header>

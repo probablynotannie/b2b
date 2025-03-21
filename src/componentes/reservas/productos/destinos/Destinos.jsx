@@ -56,7 +56,7 @@ function Resultado() {
                   {destino.titulo}
                 </h4>
               </div>
-              <div className="tw-flex tw-flex-wrap tw-gap-5 tw-border-b-2 tw-border-slate-100 tw-pb-5">
+              <div className="tw-flex tw-flex-wrap tw-gap-5 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-5">
                 <div className="tw-flex tw-flex-wrap">
                   <span className="tw-font-semibold tw-flex tw-items-center">
                     Noches en:

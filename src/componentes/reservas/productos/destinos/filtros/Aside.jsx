@@ -53,6 +53,19 @@ function Aside({ values, setValues, minMax }) {
               setDuracion={setDuracion}
               setIsModalOpen={setIsModalOpen}
             />
+            <div className="tw-my-5 tw-flex tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-justify-center tw-items-center tw-py-10">
+              <button
+                className="tw-mt-10"
+                onClick={() => setIsModalOpen(false)}
+              >
+                <div className="tw-border-2 tw-text-slate-300 tw-border-slate-300 dark:tw-border-secondaryDark dark:tw-text-secondary tw-w-[50px] tw-h-[50px] tw-text-2xl tw-rounded-full tw-flex tw-justify-center tw-items-center">
+                  X
+                </div>
+                <span className="tw-text-slate-400 dark:tw-text-secondary">
+                  Cerrar
+                </span>
+              </button>
+            </div>
           </div>
         </div>
       )}
@@ -60,12 +73,7 @@ function Aside({ values, setValues, minMax }) {
   );
 }
 
-function SidebarContent({
-  values,
-  setValues,
-  minMax,
-  setIsModalOpen,
-}) {
+function SidebarContent({ values, setValues, minMax, setIsModalOpen }) {
   return (
     <div>
       <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary lg:tw-bg-inherit tw-p-5 lg:tw-p-3 tw-border-b-2 dark:tw-border-slate-600">
@@ -111,7 +119,7 @@ function SidebarContent({
         </div>
         <div className="tw-mt-5 dark:tw-text-secondary">
           <span className="tw-text-sm tw-font-semibold tw-block tw-mb-1">
-            Isnpiración
+            Inspiración
           </span>
           <Inspiracion />
         </div>
@@ -132,16 +140,6 @@ function SidebarContent({
             Paises
           </span>
           <Paises />
-        </div>
-        <div className="tw-my-5 tw-flex tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-justify-center tw-items-center tw-py-10">
-          <button className="tw-mt-10" onClick={() => setIsModalOpen(false)}>
-            <div className="tw-border-2 tw-text-slate-300 tw-border-slate-300 dark:tw-border-secondaryDark dark:tw-text-secondary tw-w-[50px] tw-h-[50px] tw-text-2xl tw-rounded-full tw-flex tw-justify-center tw-items-center">
-              X
-            </div>
-            <span className="tw-text-slate-400 dark:tw-text-secondary">
-              Cerrar
-            </span>
-          </button>
         </div>
       </div>
     </div>

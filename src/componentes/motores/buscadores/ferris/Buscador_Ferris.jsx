@@ -25,9 +25,9 @@ function Buscador_Destinos() {
   };
   const onSubmit = (data) => {
     console.log(data);
-    /*  navigate("/listadoFerris", {
+     navigate("/listadoFerris", {
       state: { datosForm: data },
-    }); */
+    });
   };
   const {
     handleSubmit,

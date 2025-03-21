@@ -7,18 +7,13 @@ function DarkMode() {
   useEffect(() => {
     const isDarkMode = localStorage.getItem("darkMode") === "true";
     setDarkMode(isDarkMode);
-    // Ensure to toggle the `tw-dark` class here
     document.documentElement.classList.toggle("tw-dark", isDarkMode);
   }, []);
 
   const handleToggle = () => {
     const newDarkMode = !darkMode;
     setDarkMode(newDarkMode);
-
-    // Toggle the `tw-dark` class based on the new state
     document.documentElement.classList.toggle("tw-dark", newDarkMode);
-
-    // Save the preference to localStorage
     localStorage.setItem("darkMode", newDarkMode);
   };
 

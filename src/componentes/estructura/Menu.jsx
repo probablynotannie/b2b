@@ -79,7 +79,7 @@ const Dropdown = () => {
           id: 14,
           texto: "Circuitos",
           to: "/circuitos",
-          icon: [MdModeOfTravel ],
+          icon: [MdModeOfTravel],
         },
       ],
     },
@@ -180,8 +180,8 @@ const Dropdown = () => {
                   >
                     <li className="tw-flex tw-items-center tw-px-5 tw-p-3 dark:tw-text-slate-400 tw-group">
                       <div className="tw-relative">
-                        {subItem.icon.map((IconComponent, index) => (
-                          <IconComponent
+                        {subItem.icon.map((Icon, index) => (
+                          <Icon
                             key={index}
                             className={`tw-duration-300 tw-transition ${
                               index === 1

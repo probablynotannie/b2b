@@ -15,11 +15,7 @@ function Cesta({
   setActividades,
   habitacion,
 }) {
-  const reservaFinal = {
-    hotel: hotel || null,
-    actividades: actividades || [],
-  };
-  const removeHotel = () => {
+  const borrarHotel = () => {
     setHotel(null);
   };
   const removeActividad = (actividad) => {
@@ -65,7 +61,7 @@ function Cesta({
                   {hotel.precio}€
                 </span>
                 <button
-                  onClick={removeHotel}
+                  onClick={borrarHotel}
                   className="tw-mt-1 tw-text-sm tw-rounded-lg tw-shadow tw-bg-red-500 dark:tw-bg-red-800 tw-text-white tw-h-fit tw-p-2"
                 >
                   <FaRegTrashAlt />

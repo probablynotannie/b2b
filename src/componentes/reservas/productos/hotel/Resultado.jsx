@@ -5,12 +5,12 @@ import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import MapaHoteles from "./MapaHoteles"; // New map component
+import MapaHoteles from "./MapaHoteles";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 
 function Productos() {
   const [loading, setLoading] = useState(true);
-  const [viewMode, setViewMode] = useState("list"); // "list" or "map"
+  const [viewMode, setViewMode] = useState("list");
 
   useEffect(() => {
     setTimeout(() => {
@@ -75,8 +75,8 @@ function Productos() {
                   <button
                     className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
                       viewMode === "list"
-                        ? "tw-bg-blue-400 tw-text-white"
-                        : "tw-bg-gray-200"
+                        ? "tw-bg-blue-400 dark:tw-bg-blue-700 tw-text-white"
+                        : "tw-bg-gray-200 dark:tw-bg-slate-500 dark:tw-text-slate-200"
                     }`}
                     onClick={() => setViewMode("list")}
                   >
@@ -85,8 +85,8 @@ function Productos() {
                   <button
                     className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-ml-2 tw-rounded-md ${
                       viewMode === "map"
-                        ? "tw-bg-blue-400 tw-text-white"
-                        : "tw-bg-gray-200"
+                        ? "tw-bg-blue-400 dark:tw-bg-blue-700 tw-text-white"
+                        : "tw-bg-gray-200 dark:tw-bg-slate-500 dark:tw-text-slate-200"
                     }`}
                     onClick={() => setViewMode("map")}
                   >

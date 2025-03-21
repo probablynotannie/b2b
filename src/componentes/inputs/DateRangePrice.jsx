@@ -205,7 +205,16 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                   !isDateDisabled && handleDateClick(day, priceData.type)
                 }
               >
-                <div>{format(day, "d")} </div>
+                <div>
+                  {format(day, "d")}
+                  {priceData?.type && (
+                    <div
+                      className={`tw-w-1.5 tw-h-1.5 tw-rounded-full tw-absolute tw-top-3 tw-animate-pulse
+                       tw-bg-${colores[priceData?.type]}-500
+                      }`}
+                    ></div>
+                  )}
+                </div>
                 {!isBefore(day, today) && priceData && (
                   <div className="tw-absolute tw-bottom-1 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-text-xs tw-text-center">
                     <span
@@ -214,7 +223,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                         `tw-text-${
                           colores[priceData.type]
                         }-500 tw-font-bold tw-text-md`
-                      } dark:tw-text-secondaryDark ${
+                      }  ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
                           ? "tw-text-white tw-font-bold dark:tw-text-white"
                           : ""

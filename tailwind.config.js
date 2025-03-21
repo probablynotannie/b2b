@@ -20,9 +20,6 @@ module.exports = {
         secondaryDark: "#ff8c4c", // Naranja
         danger: "#f84048", // texto rojo fondo
         danger_text: "#ea756f", //texto rojo
-        success: "",
-        text: "",
-        text_dark: "",
         muted: "#e8ecf4", // Gris apagado
       },
       keyframes: {

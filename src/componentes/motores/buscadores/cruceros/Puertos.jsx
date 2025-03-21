@@ -36,14 +36,14 @@ function Puertos({ setRequestData }) {
         spaceBetween={20}
         slidesPerView={1}
         breakpoints={{
-          640: { slidesPerView: 2 },
+          640: { slidesPerView: 1 },
           1024: { slidesPerView: 1 },
         }}
         navigation
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        className="tw-mt-3"
+        className="tw-mt-3 tw-bg-pink-700"
       >
         {highlightedPorts.map((zona, index) => (
           <SwiperSlide key={index}>
