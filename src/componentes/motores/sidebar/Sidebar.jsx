@@ -13,7 +13,7 @@ function Sidebar() {
     {
       id: 1,
       icono: (
-        <FaMapMarkedAlt className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <FaMapMarkedAlt className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Destinos",
       to: "/destinos",
@@ -21,7 +21,7 @@ function Sidebar() {
     {
       id: 2,
       icono: (
-        <SiMentorcruise className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <SiMentorcruise className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Cruceros",
       to: "/cruceros",
@@ -29,7 +29,7 @@ function Sidebar() {
     {
       id: 3,
       icono: (
-        <IoAirplane className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <IoAirplane className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Vuelo+Hotel",
       to: "/vueloHotel",
@@ -37,7 +37,7 @@ function Sidebar() {
     {
       id: 4,
       icono: (
-        <FaCarOn className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <FaCarOn className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Coches",
       to: "/coches",
@@ -45,7 +45,7 @@ function Sidebar() {
     {
       id: 5,
       icono: (
-        <IoTicket className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <IoTicket className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Tickets",
       to: "/tickets",
@@ -53,7 +53,7 @@ function Sidebar() {
     {
       id: 6,
       icono: (
-        <FaTicketAlt className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <FaTicketAlt className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Entradas",
       to: "/entradas",
@@ -61,7 +61,7 @@ function Sidebar() {
     {
       id: 7,
       icono: (
-        <FaFerry className="tw-text-2xl tw-text-white dark:tw-text-secondary" />
+        <FaFerry className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
       texto: "Ferris",
       to: "/ferris",
@@ -72,7 +72,7 @@ function Sidebar() {
     <div className="tw-bg-white dark:tw-text-slate-300 tw-py-3 dark:tw-bg-slate-800 tw-hidden tw-h-[70vh] lg:tw-flex lg:tw-col-span-3 xl:tw-col-span-2 xl:tw-flex tw-flex-row tw-flex-wrap md:tw-flex-col tw-justify-around tw-border-2 tw-border-slate-100 dark:tw-border-slate-600 tw-px-5 tw-rounded-xl tw-shadow-lg tw-mb-2">
       <div className="tw-flex tw-gap-3 tw-items-center ">
         <div className="tw-border-2 tw-bg-slate-800 tw-p-3 tw-rounded-full dark:tw-bg-slate-700 dark:tw-border-slate-600">
-          <FaHotel className="tw-text-2xl tw-text-white dark:tw-text-secondary " />
+          <FaHotel className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark " />
         </div>
         <Link to="/hoteles">
           <span className="tw-font-semibold">Hoteles</span>

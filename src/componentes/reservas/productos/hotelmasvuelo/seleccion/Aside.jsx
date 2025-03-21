@@ -8,7 +8,7 @@ function Aside({ hotel, ida, vuelta }) {
       <li>
         <ul>
           <li className="tw-flex tw-items-center tw-gap-2 tw-font-semibold">
-            <FaHotel className="tw-text-secondary dark:tw-text-secondary" />
+            <FaHotel className="tw-text-secondary dark:tw-text-secondaryDark" />
             {hotel.nombre}
           </li>
           <li className="tw-text-slate-600 dark:tw-text-slate-400 tw-flex tw-items-center tw-gap-2 tw-ml-2 tw-text-sm">

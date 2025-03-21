@@ -34,7 +34,7 @@ function Aside({
             <p className="tw-grid tw-grid-cols-2 tw-mt-2">
               {producto.pax !== 0 && (
                 <span className="tw-flex tw-items-center">
-                  <FaPerson className="tw-text-secondary dark:tw-text-secondary" />
+                  <FaPerson className="tw-text-secondary dark:tw-text-secondaryDark" />
                   {producto.pax}x
                 </span>
               )}
@@ -43,14 +43,14 @@ function Aside({
               </span>
             </p>
             <p className="tw-flex tw-gap-2 tw-items-center">
-              <FaClock className="tw-text-secondary dark:tw-text-secondary" />
+              <FaClock className="tw-text-secondary dark:tw-text-secondaryDark" />
               <span>{producto.dias} días</span>
-              <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondary" />
+              <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondaryDark" />
               <span> {producto.desayunos}x Desayunos</span>
             </p>
 
             <div className="tw-flex tw-gap-2 tw-items-center">
-              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondary" />
+              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondaryDark" />
               <p className="tw-flex tw-flex-row">
                 <span className="tw-mr-1">
                   {format(new Date(dates.startDate), "d 'de' MMMM yyyy", {
@@ -141,7 +141,7 @@ function Aside({
                       </div>
                       <div className="tw-text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-500 tw-mt-5 tw-pt-2">
                         <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
-                          <FaPlusCircle className="dark:tw-text-secondary" />
+                          <FaPlusCircle className="dark:tw-text-secondaryDark" />
                           <span onClick={() => addRoom("Habitación Doble")}>
                             Agregar una habitación
                           </span>
@@ -152,7 +152,7 @@ function Aside({
                 }
               >
                 <button className="tw-mt-2 tw-flex tw-items-center dark:hover:tw-text-slate-200 hover:tw-text-slate-700 tw-transition">
-                  <FaPlusCircle className="tw-text-secondary dark:tw-text-secondary tw-mr-2" />
+                  <FaPlusCircle className="tw-text-secondary dark:tw-text-secondaryDark tw-mr-2" />
                   Agregar una habitación ( {producto.habitaciones.length + 1} )
                 </button>
               </Popover>

@@ -147,7 +147,7 @@ function Buscador() {
         onSubmit={handleSubmit(onSubmit)}
         className="tw-hidden tw-p-5 tw-bg-white tw-border-2 tw-shadow-lg lg:tw-block dark:tw-border-slate-800 tw-rounded-xl tw-min-h-28 dark:tw-bg-slate-800"
       >
-        <h2 className="tw-mb-4 tw-text-xl tw-font-bold dark:tw-text-secondary">
+        <h2 className="tw-mb-4 tw-text-xl tw-font-bold dark:tw-text-secondaryDark">
           Buscador
         </h2>
         <form className="tw-grid tw-grid-cols-12 tw-gap-3">

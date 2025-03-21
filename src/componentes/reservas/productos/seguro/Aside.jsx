@@ -18,33 +18,33 @@ function Aside({ seguro }) {
       <div>
         <ul className="tw-text-slate-500 dark:tw-text-slate-300">
           <li className="tw-flex tw-items-center tw-gap-1">
-            <FaPerson className="tw-text-secondary dark:tw-text-secondary" />
+            <FaPerson className="tw-text-secondary dark:tw-text-secondaryDark" />
             Personas aseguradas: {seguro.personas}x
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <FaCalendar className="tw-text-secondary dark:tw-text-secondary" />
+            <FaCalendar className="tw-text-secondary dark:tw-text-secondaryDark" />
             {FormatearFecha(seguro.inicio)}
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <FaCalendar className="tw-text-secondary dark:tw-text-secondary" />
+            <FaCalendar className="tw-text-secondary dark:tw-text-secondaryDark" />
             {FormatearFecha(seguro.fin)}
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <TiWorld className="tw-text-secondary dark:tw-text-secondary" />
+            <TiWorld className="tw-text-secondary dark:tw-text-secondaryDark" />
             {seguro.destino}
           </li>
         </ul>
         <ul className="tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-3 dark:tw-text-slate-300">
           <li className="tw-flex tw-items-center tw-gap-1">
-            <MdCancel className="tw-text-secondary dark:tw-text-secondary" />
+            <MdCancel className="tw-text-secondary dark:tw-text-secondaryDark" />
             Cancelaciónes hasta {seguro.cancelación.toFixed(2)}€
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <LuLuggage className="tw-text-secondary dark:tw-text-secondary" />
+            <LuLuggage className="tw-text-secondary dark:tw-text-secondaryDark" />
             Equipaje hasta {seguro.equipaje.toFixed(2)}€
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <FaBriefcaseMedical className="tw-text-secondary dark:tw-text-secondary" />
+            <FaBriefcaseMedical className="tw-text-secondary dark:tw-text-secondaryDark" />
             Asistencia médica hasta {seguro.asistenciaMedica.toFixed(2)}€
           </li>
         </ul>

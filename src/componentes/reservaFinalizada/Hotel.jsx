@@ -57,7 +57,7 @@ function Hotel({ hotel }) {
                 </div>
               </div>
               <p className="flex mt-1 text-sm items-center dark:tw-text-slate-400">
-                <FaMapPin className="text-slate-700 dark:tw-text-secondary text-lg" />
+                <FaMapPin className="text-slate-700 dark:tw-text-secondaryDark text-lg" />
                 {hotel.direccion}
               </p>
               <div className="grid grid-cols-3 mt-5">

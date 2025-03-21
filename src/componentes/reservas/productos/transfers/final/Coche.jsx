@@ -5,10 +5,10 @@ function Coche({ transfer }) {
   const extraInfo = (
     <div>
       <div className="tw-h-fit tw-gap-3 tw-my-5 white tw-w-fit tw-p-5 tw-rounded-lg">
-        <h3 className="tw-font-bold dark:tw-text-secondary">Extras:</h3>
+        <h3 className="tw-font-bold dark:tw-text-secondaryDark">Extras:</h3>
       </div>
       <div className="tw-h-fit tw-gap-3 tw-my-5 white tw-w-fit tw-p-5 tw-rounded-lg dark:tw-text-slate-300">
-        <h3 className="tw-font-bold dark:tw-text-secondary">Conductor</h3>
+        <h3 className="tw-font-bold dark:tw-text-secondaryDark">Conductor</h3>
       </div>
     </div>
   );
@@ -31,8 +31,8 @@ function Coche({ transfer }) {
           </ul>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaCar className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <FaCar className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {Number(transfer.price).toFixed(2)}
             {transfer.currency === "EUR" ? "€" : "$"}
           </span>

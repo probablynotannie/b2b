@@ -35,7 +35,7 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
                 key={cabin.tarifaId}
                 className="tw-p-3 tw-border-2 dark:tw-border-slate-900 dark:tw-bg-slate-700"
               >
-                <h4 className="tw-text-center tw-text-secondary tw-font-semibold dark:tw-text-secondaryDarks">
+                <h4 className="tw-text-center tw-text-secondary tw-font-semibold dark:tw-text-secondaryDarkDarks">
                   {cabin.title}
                 </h4>
 

@@ -127,7 +127,7 @@ function SidebarContent({
         </div>
         <div className="tw-flex tw-mt-3">
           <label className="tw-inline-flex tw-items-center tw-justify-between tw-w-full">
-            <span className="tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-secondary">
+            <span className="tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-secondaryDark">
               Reembolsable
             </span>
             <input
@@ -148,7 +148,7 @@ function SidebarContent({
           />
         </div>
         <div className="tw-mt-5">
-          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
+          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
             Categoría de Hotel
           </span>
           <div className="tw-mt-2">
@@ -158,7 +158,7 @@ function SidebarContent({
           </div>
         </div>
         <div className="tw-mt-5">
-          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
+          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
             Régimen
           </span>
           <div className="tw-mt-2">
@@ -166,7 +166,7 @@ function SidebarContent({
           </div>
         </div>
         <div className="tw-mt-5">
-          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondary">
+          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
             Localidades
           </span>
           <div className="tw-mt-2">

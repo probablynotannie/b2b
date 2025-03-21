@@ -66,7 +66,7 @@ function Producto() {
             conductor,
             ...(contratar && { reembolso }),
           }}
-          className="tw-p-3 tw-shadow-lg hover:tw-shadow-xl dark:tw-bg-secondary tw-rounded-lg tw-bg-secondary tw-text-white tw-font-bold"
+          className="tw-p-3 tw-shadow-lg hover:tw-shadow-xl dark:tw-bg-secondaryDark tw-rounded-lg tw-bg-secondary tw-text-white tw-font-bold"
         >
           <button>Reservar {precio}€</button>
         </Link>

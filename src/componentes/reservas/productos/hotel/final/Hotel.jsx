@@ -12,14 +12,14 @@ function Hote({ hotel, habitacion }) {
             {hotel.nombre} ({habitacion.nombre}) - {habitacion.regimen}
           </h3>
           <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
-            <FaMapPin className="tw-text-secondary dark:tw-text-secondary" />
+            <FaMapPin className="tw-text-secondary dark:tw-text-secondaryDark" />
             {hotel.ubicacion}
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaHotel className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
+          <FaHotel className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
 
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {parseFloat(habitacion.precio).toFixed(2)}€
           </span>
         </div>
@@ -47,7 +47,7 @@ function Hote({ hotel, habitacion }) {
               </div>
             </div>
             <span className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-items-center tw-text-sm tw-gap-2">
-              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondary" />
+              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondaryDark" />
               {hotel.fecha} - {hotel.fechaSalida}
             </span>
           </div>

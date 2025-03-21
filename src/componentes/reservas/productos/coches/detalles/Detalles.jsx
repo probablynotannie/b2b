@@ -111,7 +111,7 @@ function Detalles({ coche, extraInfo }) {
                 onClick={() => setActiveTab("franquicia")}
                 className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "franquicia"
-                    ? "tw-bg-secondary text-white dark:tw-bg-secondary"
+                    ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -123,7 +123,7 @@ function Detalles({ coche, extraInfo }) {
                 onClick={() => setActiveTab("condiciones")}
                 className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "condiciones"
-                    ? "tw-bg-secondary text-white dark:tw-bg-secondary"
+                    ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -136,7 +136,7 @@ function Detalles({ coche, extraInfo }) {
                 onClick={() => setActiveTab("gasolina")}
                 className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "gasolina"
-                    ? "tw-bg-secondary text-white dark:tw-bg-secondary"
+                    ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >

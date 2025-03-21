@@ -23,7 +23,7 @@ function Detalles({ hotel, ferry }) {
         </div>
         <div className="tw-flex tw-justify-between tw-gap-2 tw-items-center tw-mt-4">
           <div className="tw-flex tw-gap-3 tw-items-center">
-            <FaFerry className="tw-text-secondary dark:tw-text-secondary" />
+            <FaFerry className="tw-text-secondary dark:tw-text-secondaryDark" />
             <div className="tw-flex tw-flex-col">
               <h4 className="tw-flex tw-items-center tw-gap-2 tw-font-bold tw-text-center">
                 {type.tipo}

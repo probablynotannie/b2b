@@ -154,7 +154,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                 key={day}
                 className={`tw-p-4 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm tw-relative ${
                   isTodayDay
-                    ? "bg-blue-500 dark:tw-bg-secondary text-white"
+                    ? "bg-blue-500 dark:tw-bg-secondaryDark text-white"
                     : ""
                 } ${
                   isSameDay(day, startDate)
@@ -171,7 +171,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                 {price && (
                   <div className="tw-absolute tw-bottom-1 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-text-xs tw-text-center">
                     <span
-                      className={`tw-text-slate-900 dark:tw-text-secondary ${
+                      className={`tw-text-slate-900 dark:tw-text-secondaryDark ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
                           ? "text-white font-bold"
                           : ""

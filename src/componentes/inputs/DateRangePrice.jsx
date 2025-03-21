@@ -20,7 +20,6 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [lockedIdaPrice, setLockedIdaPrice] = useState(null);
 
   const todayRef = useRef(null);
   const modalRef = useRef(null);
@@ -45,22 +44,6 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        closeModal();
-      }
-    };
-
-    if (isModalOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isModalOpen]);
-
   const loadMoreMonths = useCallback(() => {
     const lastMonth = months[months.length - 1];
     const newMonths = [];
@@ -72,19 +55,14 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
 
   const [tipo, setTipo] = useState();
   const handleDateClick = (date, tipo) => {
-    console.log(tipo);
     setTipo(tipo);
     const formattedDate = format(date, "yyyy-MM-dd");
     const priceData = prices[formattedDate];
-
     if (!priceData) return;
-
     setStartDate(date);
     const newEndDate = addDays(date, TRIP_DAYS - 1);
     setEndDate(newEndDate);
-    setLockedIdaPrice(priceData.price);
   };
-
   useEffect(() => {
     if (startDate && endDate) {
       const startDateFormatted = format(startDate, "yyyy-MM-dd");
@@ -129,7 +107,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     1: "pink",
     2: "purple",
     3: "orange",
-    4: "blue",
+    4: "green",
   };
   const tipoPrecios = [
     {
@@ -178,7 +156,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                 ref={isTodayDay ? todayRef : null}
                 className={`tw-p-4 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm tw-relative ${
                   isTodayDay
-                    ? "tw-bg-blue-500 dark:tw-bg-secondary tw-text-white"
+                    ? "tw-bg-blue-500 dark:tw-bg-secondaryDark tw-text-white"
                     : ""
                 } ${
                   isSameDay(day, startDate)
@@ -244,7 +222,6 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const resetSelection = () => {
     setStartDate(null);
     setEndDate(null);
-    setLockedIdaPrice(null);
     setDates({
       startDate: null,
       endDate: null,

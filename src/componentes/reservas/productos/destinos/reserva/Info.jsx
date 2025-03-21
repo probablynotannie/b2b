@@ -8,20 +8,20 @@ function Info({ reserva }) {
     <div>
       <div className="tw-flex tw-justify-between tw-gap-3 tw-flex-wrap tw-text-slate-600 tw-mt-3 dark:tw-text-slate-100">
         <div className="tw-flex tw-items-center tw-gap-1">
-          <FaPerson className="tw-text-secondary dark:tw-text-secondary" />
+          <FaPerson className="tw-text-secondary dark:tw-text-secondaryDark" />
           <span>{reserva.pax}x</span>
         </div>
         <div className="tw-flex tw-items-center tw-gap-1">
-          <MdMeetingRoom className="tw-text-secondary dark:tw-text-secondary" />
+          <MdMeetingRoom className="tw-text-secondary dark:tw-text-secondaryDark" />
 
           <span>{reserva.habitaciones.length + 1}x hab</span>
         </div>
         <div className="tw-flex tw-items-center tw-gap-1">
-          <FaClock className="tw-text-secondary dark:tw-text-secondary" />
+          <FaClock className="tw-text-secondary dark:tw-text-secondaryDark" />
           <span>{reserva.dias} días</span>
         </div>
         <div className="tw-flex tw-items-center tw-gap-1">
-          <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondary" />
+          <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondaryDark" />
           <span> {reserva.desayunos}x Desayunos</span>
         </div>
       </div>

@@ -19,9 +19,9 @@ function Actividades({ actividades }) {
           </h3>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaUser className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
+          <FaUser className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
 
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {calculateTotalPrice()}€
           </span>
         </div>

@@ -14,9 +14,9 @@ function Vuelos({ ida, vuelta, pasajeros }) {
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaPlane className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
+          <FaPlane className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
 
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {(ida.flight.precio + (vuelta?.flight.precio || 0)).toFixed(2)}€
           </span>
         </div>

@@ -35,11 +35,11 @@ function Reserva() {
             Destino: {seguro.destino}
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <FaCalendar className="tw-text-secondary dark:tw-text-secondary" />
+            <FaCalendar className="tw-text-secondary dark:tw-text-secondaryDark" />
             {formatearFecha(seguro.inicio)}
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
-            <FaCalendar className="tw-text-secondary dark:tw-text-secondary" />
+            <FaCalendar className="tw-text-secondary dark:tw-text-secondaryDark" />
             {formatearFecha(seguro.fin)}
           </li>
         </ul>

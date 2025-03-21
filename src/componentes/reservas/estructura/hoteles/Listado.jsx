@@ -53,7 +53,7 @@ function Listado({
               className="tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700"
               key={habitacion.id}
             >
-              <td className="tw-p-3 tw-font-semibold dark:tw-text-secondary">
+              <td className="tw-p-3 tw-font-semibold dark:tw-text-secondaryDark">
                 {habitacion.nombre}
               </td>
               <td className="tw-p-3 tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">

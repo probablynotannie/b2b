@@ -23,7 +23,7 @@ function Vuelo() {
         selectedExtras.map((extra) => (
           <span
             key={extra.id}
-            className="tw-text-white dark:tw-text-slate-200 tw-bg-secondary dark:tw-bg-secondary tw-p-1 tw-rounded tw-mr-2"
+            className="tw-text-white dark:tw-text-slate-200 tw-bg-secondary dark:tw-bg-secondaryDark tw-p-1 tw-rounded tw-mr-2"
           >
             {extra.id === "GPS" && "GPS"}
             {extra.id === "sillitabebe" && "Sillita bebé"}

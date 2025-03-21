@@ -223,7 +223,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                         onChange={(e) =>
                           handleCompareChange(coche, e.target.checked)
                         }
-                        className="tw-w-4 tw-h-4 tw-text-secondary dark:tw-text-secondary tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-secondary dark:focus:tw-ring-secondaryDark dark:tw-ring-offset-gray-800 focus:tw-ring-2 dark:tw-bg-gray-700 dark:tw-border-gray-600"
+                        className="tw-w-4 tw-h-4 tw-text-secondary dark:tw-text-secondaryDark tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-secondary dark:focus:tw-ring-secondaryDark dark:tw-ring-offset-gray-800 focus:tw-ring-2 dark:tw-bg-gray-700 dark:tw-border-gray-600"
                       />
                       <label
                         htmlFor={`checkbox-${coche.id}`}

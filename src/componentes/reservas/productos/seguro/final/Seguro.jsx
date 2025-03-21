@@ -16,8 +16,8 @@ function Seguro({ seguro }) {
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaKitMedical className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <FaKitMedical className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {parseFloat(seguro.precio).toFixed(2)}€
           </span>
         </div>

@@ -187,7 +187,7 @@ function SelectorPersonas({
                 >
                   <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
                     <span>Agregar una habitación </span>
-                    <FaPlusCircle className="dark:tw-text-secondary tw-text-lg" />
+                    <FaPlusCircle className="dark:tw-text-secondaryDark tw-text-lg" />
                   </div>
                 </div>
               </div>

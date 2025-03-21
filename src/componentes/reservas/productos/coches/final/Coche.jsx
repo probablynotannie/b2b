@@ -6,7 +6,7 @@ function Coche({ producto, precio, conductor, extras }) {
   const extraInfo = (
     <div>
       <div className="tw-h-fit tw-gap-3 tw-my-5 white tw-w-fit tw-p-5 tw-rounded-lg">
-        <h3 className="tw-font-bold dark:tw-text-secondary">Extras:</h3>
+        <h3 className="tw-font-bold dark:tw-text-secondaryDark">Extras:</h3>
         <ul className="dark:tw-text-slate-300 tw-flex tw-flex-wrap tw-gap-3 tw-ml-2">
           {extras.map((extra, index) => (
             <li
@@ -27,7 +27,7 @@ function Coche({ producto, precio, conductor, extras }) {
         </ul>
       </div>
       <div className="tw-h-fit tw-gap-3 tw-my-5 white tw-w-fit tw-p-5 tw-rounded-lg dark:tw-text-slate-300">
-        <h3 className="tw-font-bold dark:tw-text-secondary">Conductor</h3>
+        <h3 className="tw-font-bold dark:tw-text-secondaryDark">Conductor</h3>
         <div className="tw-flex tw-flex-wrap tw-gap-3 tw-border-l-2 tw-border-slate-500 dark:tw-border-secondaryDark tw-pl-4 tw-ml-3">
           <p className="tw-flex tw-items-center tw-gap-1">
             <span className="tw-text-sm">
@@ -59,8 +59,8 @@ function Coche({ producto, precio, conductor, extras }) {
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaCar className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <FaCar className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {precio.toFixed(2)}€
           </span>
         </div>

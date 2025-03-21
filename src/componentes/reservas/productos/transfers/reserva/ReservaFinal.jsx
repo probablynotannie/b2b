@@ -25,9 +25,9 @@ function ReservaFinal() {
         <Reserva img={coche.img} txt={coche.name} />
         <div className="tw-flex tw-border-2 tw-border-dashed dark:tw-border-slate-700 tw-text-slate-600 dark:tw-text-slate-400 tw-text-md tw-items-center tw-gap-2 tw-flex-wrap tw-justify-center tw-p-3 tw-my-3">
           {coche.route.origin.name}
-          <FaArrowRight className="tw-animate-pulse tw-animate-delay-500 tw-text-black dark:tw-text-secondary" />
+          <FaArrowRight className="tw-animate-pulse tw-animate-delay-500 tw-text-black dark:tw-text-secondaryDark" />
           {coche.route.distance} km
-          <FaArrowRight className="tw-animate-pulse tw-text-black dark:tw-text-secondary" />
+          <FaArrowRight className="tw-animate-pulse tw-text-black dark:tw-text-secondaryDark" />
           {coche.route.destination.name}
         </div>
         <p className="tw-text-center dark:tw-text-slate-300">

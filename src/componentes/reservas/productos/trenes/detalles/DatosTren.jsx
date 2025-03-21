@@ -4,7 +4,7 @@ function DatosTren({ tren, tipo }) {
   return (
     <div className="tw-p-2 tw-mt-3 tw-rounded tw-border tw-border-slate-100 dark:tw-border-slate-700">
       <div className="tw-flex tw-justify-between tw-items-center tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-mb-2">
-        <h3 className="tw-font-semibold tw-text-secondary dark:tw-text-secondary">
+        <h3 className="tw-font-semibold tw-text-secondary dark:tw-text-secondaryDark">
           Tren de {tipo}
         </h3>
         <img className="tw-h-5" src={tren.carrier[0].logo} alt="logo" />

@@ -57,10 +57,10 @@ function Aside({ values, setValues, minMax }) {
                 className="tw-mt-10"
                 onClick={() => setIsModalOpen(false)}
               >
-                <div className="tw-border-2 tw-text-slate-300 tw-border-slate-300 dark:tw-border-secondaryDark dark:tw-text-secondary tw-w-[50px] tw-h-[50px] tw-text-2xl tw-rounded-full tw-flex tw-justify-center tw-items-center">
+                <div className="tw-border-2 tw-text-slate-300 tw-border-slate-300 dark:tw-border-secondaryDark dark:tw-text-secondaryDark tw-w-[50px] tw-h-[50px] tw-text-2xl tw-rounded-full tw-flex tw-justify-center tw-items-center">
                   X
                 </div>
-                <span className="tw-text-slate-400 dark:tw-text-secondary">
+                <span className="tw-text-slate-400 dark:tw-text-secondaryDark">
                   Cerrar
                 </span>
               </button>
@@ -94,7 +94,7 @@ function SidebarContent({
           <PrecioRange values={values} setValues={setValues} minMax={minMax} />
         </div>
         <div className="tw-mx-3 tw-mt-5">
-          <span className="tw-text-sm tw-font-bold tw-text-slate-900 dark:tw-text-secondary">
+          <span className="tw-text-sm tw-font-bold tw-text-slate-900 dark:tw-text-secondaryDark">
             Proveedores
           </span>
           <Proveedores
@@ -103,7 +103,7 @@ function SidebarContent({
           />
         </div>
         <div className="tw-mx-3 tw-mt-5">
-          <span className="tw-text-sm tw-font-bold tw-text-slate-900 dark:tw-text-secondary">
+          <span className="tw-text-sm tw-font-bold tw-text-slate-900 dark:tw-text-secondaryDark">
             Tipo coches
           </span>
           <TiposCoches tipos={tipos} setTipos={setTipos} />

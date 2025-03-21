@@ -185,7 +185,7 @@ const Tarifa_lista = ({
         {selectedPrice && selectedDate && selectedCabinId && (
           <div className="tw-flex tw-flex-wrap md:tw-grid-cols-3 tw-justify-center tw-flex-row tw-text-sm tw-gap-3">
             <p className="tw-flex tw-items-center tw-gap-1">
-              <MdMeetingRoom className="tw-text-md tw-text-secondary dark:tw-text-secondary" />
+              <MdMeetingRoom className="tw-text-md tw-text-secondary dark:tw-text-secondaryDark" />
               {cabinTitle}
               {selectedSubrowTitle && (
                 <span className="tw-text-sm tw-text-gray-600 dark:tw-text-gray-400">
@@ -194,11 +194,11 @@ const Tarifa_lista = ({
               )}
             </p>
             <p className="tw-flex tw-items-center tw-gap-1 dark:tw-text-slate-200">
-              <FaCalendarAlt className="tw-text-md tw-text-secondary dark:tw-text-secondary" />
+              <FaCalendarAlt className="tw-text-md tw-text-secondary dark:tw-text-secondaryDark" />
               {formatDate(selectedDate)}
             </p>
             <p className="tw-flex tw-items-center tw-gap-1 dark:tw-text-slate-200">
-              <FaEuroSign className="tw-text-md tw-text-secondary dark:tw-text-secondary" />
+              <FaEuroSign className="tw-text-md tw-text-secondary dark:tw-text-secondaryDark" />
               {selectedPrice}€ + tasas ({tasas}€) p/p
             </p>
           </div>

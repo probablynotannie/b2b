@@ -52,7 +52,7 @@ function Resultado() {
           <Link to="/destino" state={destino}>
             <div className="tw-px-5 tw-py-3 dark:tw-text-slate-300">
               <div className="tw-flex tw-justify-between tw-items-center">
-                <h4 className="dark:tw-text-secondary tw-font-semibold tw-text-secondary">
+                <h4 className="dark:tw-text-secondaryDark tw-font-semibold tw-text-secondary">
                   {destino.titulo}
                 </h4>
               </div>

@@ -3,7 +3,7 @@ function FooterComponent() {
     <footer className="lg:tw-mt-16 tw-bg-slate-100 dark:tw-bg-primary tw-px-10">
       <div className="tw-w-full tw-text-center tw-py-8 ">
         <div className="tw-w-full tw-justify-between sm:tw-flex sm:tw-items-center sm:tw-justify-between">
-          <span className="tw-text-secondary dark:tw-text-secondary tw-text-2xl tw-font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-text-2xl tw-font-bold">
             Haiku
           </span>
           <div className="tw-flex tw-space-x-4">

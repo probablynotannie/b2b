@@ -137,7 +137,7 @@ function Resultado({ hoteles }) {
                     </div>
                     <div className="tw-border-t tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-end">
                       <button
-                        className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-bg-secondary tw-font-bold tw-rounded-xl tw-text-white"
+                        className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-bg-secondaryDark tw-font-bold tw-rounded-xl tw-text-white"
                         onClick={() => setOpenModal(null)}
                       >
                         Cerrar

@@ -34,7 +34,7 @@ function Reserva({ pasajeros, setPasajeros, restringido }) {
   return (
     <div className="tw-min-h-[10vh] tw-my-10 tw-p-6 tw-rounded-lg tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-shadow-sm hover:tw-shadow- tw-transition tw-duration-300">
       <div className="tw-mb-5">
-        <span className="tw-font-semibold dark:tw-text-secondary tw-text-lg">
+        <span className="tw-font-semibold dark:tw-text-secondaryDark tw-text-lg">
           Seleccionar Pasajeros
         </span>
         <p className="tw-text-slate-500 tw-font-semibold">
@@ -58,7 +58,7 @@ function Reserva({ pasajeros, setPasajeros, restringido }) {
       </div>
       {pasajeros.length > 0 && (
         <div>
-          <span className="tw-font-semibold dark:tw-text-secondary tw-text-lg">
+          <span className="tw-font-semibold dark:tw-text-secondaryDark tw-text-lg">
             Edad de los pasajeros
           </span>
           <div className="tw-flex tw-gap-4 tw-mt-3">

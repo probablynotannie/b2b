@@ -13,8 +13,8 @@ function Ferry({ ida, vuelta }) {
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <FaFerry className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <FaFerry className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {(
               parseFloat(ida.precio) + parseFloat(vuelta ? vuelta.precio : 0)
             ).toFixed(2)}

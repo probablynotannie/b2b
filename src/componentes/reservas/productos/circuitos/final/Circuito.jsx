@@ -18,8 +18,8 @@ function Circuito({ actividad, fechaIda, adultos, ninios, habitacion }) {
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <IoMdFunnel className="tw-text-xl tw-text-secondary dark:tw-text-secondary" />
-          <span className="tw-text-secondary dark:tw-text-secondary tw-font-bold">
+          <IoMdFunnel className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {actividad.precio.toFixed(2)}€
           </span>
         </div>
@@ -64,7 +64,7 @@ function Circuito({ actividad, fechaIda, adultos, ninios, habitacion }) {
           />
         </div>
         <div>
-          <h4 className="tw-font-bold tw-text-lg tw-text-secondary dark:tw-text-secondary">
+          <h4 className="tw-font-bold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
             Notas
           </h4>
           <ul>
