@@ -154,14 +154,12 @@ function Buscador() {
           <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Mes control={control} name="fechSal" />
           </div>
-          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
             <Input_Dias control={control} name="duracion" />
           </div>
-          <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-12 xl:tw-col-span-2 tw-2xl:col-span-1 tw-col-span-12 tw-md:col-span-6">
-            <button className="tw-bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
-              <FaSearch className="tw-text-white tw-text-xl" />
-            </button>
-          </div>
+          <button className="lg:tw-col-span-4 xl:tw-col-span-1 tw-bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
         </form>
       </div>
     </>

@@ -197,7 +197,7 @@ function SelectorPersonas({
           <div>
             <div className="tw-relative">
               <div className="tw-bg-white tw-flex tw-items-center dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary tw-text-slate-700 tw-border-2 tw-h-[40px] tw-rounded-lg tw-text-sm tw-pl-10">
-                {habitacion} Hab - {totalAdults} Ad - {totalChildren} Niños
+                {habitacion} Ha - {totalAdults} Ad - {totalChildren} Ni
               </div>
               <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-secondary dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white  tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                 <MdMeetingRoom />

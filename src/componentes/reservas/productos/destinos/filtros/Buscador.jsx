@@ -145,12 +145,12 @@ function Buscador() {
         </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
-          className="tw-grid tw-grid-cols-9 tw-gap-3"
+          className="tw-grid tw-grid-cols-11 tw-gap-3"
         >
-          <div className="tw-col-span-4">
+          <div className="tw-col-span-5">
             <Input_Mes name={"fechSal"} control={control} />
           </div>
-          <div className="tw-col-span-4">
+          <div className="tw-col-span-5">
             <Input_Destinos
               control={control}
               nameContinent="continent"

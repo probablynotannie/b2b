@@ -3,14 +3,12 @@ import Input_Buscador from "../../../../inputs/Buscador";
 import Input_DateRange from "../../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio";
-import Input_Aeropuertos from "../../../../inputs/Aeropuertos";
 import { useForm } from "react-hook-form";
 function Buscador() {
   const [startDate, setStartDate] = useState(null);
   const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [destino, setDestino] = useState("");
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -107,9 +105,7 @@ function Buscador() {
                 setEndDate={setEndDate}
               />
             </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Aeropuertos />
-            </div>
+      
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Hab_Adulto_Ninio
                 habitacion={habitacion}

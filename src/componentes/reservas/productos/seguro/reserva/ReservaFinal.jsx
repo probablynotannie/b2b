@@ -1,7 +1,5 @@
 import { useLocation } from "react-router-dom";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
-
 import { FaCalendar } from "react-icons/fa6";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Detalles from "./Detalles";
@@ -36,11 +34,11 @@ function Reserva() {
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
             <FaCalendar className="tw-text-secondary dark:tw-text-secondaryDark" />
-            {formatearFecha(seguro.inicio)}
+            {FormatearFecha(seguro.inicio)}
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">
             <FaCalendar className="tw-text-secondary dark:tw-text-secondaryDark" />
-            {formatearFecha(seguro.fin)}
+            {FormatearFecha(seguro.fin)}
           </li>
         </ul>
         <p className="tw-text-red-500 dark:tw-text-red-400 tw-my-3 tw-text-sm tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-4">

@@ -12,8 +12,6 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const [viaje, setViaje] = useState("ida");
-  const [ages, setAges] = useState({});
-  const [pasajeros, setPasajeros] = useState(1);
   const [fecha, setFecha] = useState();
 
   const handleviajeChange = (type) => {
@@ -120,10 +118,10 @@ function Buscador() {
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Bonificaciones
-                ages={ages}
-                setAges={setAges}
-                pasajeros={pasajeros}
-                setPasajeros={setPasajeros}
+                control={control}
+                errors={errors}
+                setValue={setValue}
+                namePasajeros={"bonificaciones"}
               />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
@@ -178,7 +176,7 @@ function Buscador() {
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
+          <div className="tw-col-span-3">
             <Input_Destinos
               datos={destinos}
               name="origen"
@@ -186,7 +184,7 @@ function Buscador() {
               placeholder="Selecciona un origen"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
+          <div className="tw-col-span-3">
             <Input_Destinos
               datos={destinos}
               name="destino"
@@ -194,7 +192,7 @@ function Buscador() {
               placeholder="Selecciona un destino"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
+          <div className="tw-col-span-3">
             {viaje === "ida" ? (
               <div className="tw-flex tw-flex-col">
                 <Input_Fecha
@@ -204,9 +202,6 @@ function Buscador() {
                   control={control}
                   required={true}
                 />
-                {errors.fecha && (
-                  <p className="text-red-500 text-sm">{errors.fecha.message}</p>
-                )}
               </div>
             ) : (
               <>
@@ -219,19 +214,17 @@ function Buscador() {
               </>
             )}
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 2xl:tw-col-span-3">
+          <div className="tw-col-span-2">
             <Input_Bonificaciones
-              ages={ages}
-              setAges={setAges}
-              pasajeros={pasajeros}
-              setPasajeros={setPasajeros}
+              control={control}
+              errors={errors}
+              setValue={setValue}
+              namePasajeros={"bonificaciones"}
             />
           </div>
-          <div className="tw-flex lg:tw-justify-end tw-justify-end lg:tw-col-span-2 xl:tw-col-span-2 2xl:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-            <button className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
-              <FaSearch className="tw-text-white tw-text-xl" />
-            </button>
-          </div>
+          <button className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
         </form>
       </div>
     </>

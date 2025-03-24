@@ -174,7 +174,7 @@ function Buscador() {
               control={control}
               nameStartDate="startDate"
               nameEndDate="endDate"
-              placeholder="Selecciona un rango de fechas"
+              placeholder="Fechas"
             />
           </div>
           <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2">
@@ -185,7 +185,7 @@ function Buscador() {
               setRoomData={setRoomData}
             />
           </div>
-          <button className="tw-flex tw-items-center tw-justify-center tw-h-full tw-p-3  tw-rounded-lg tw-shadow tw-bg-slate-700 dark:tw-bg-slate-900">
+          <button className="tw-flex tw-items-center tw-justify-center tw-h-[40px] tw-p-3  tw-rounded-lg tw-shadow tw-bg-slate-700 dark:tw-bg-slate-900">
             <FaSearch className="tw-text-xl tw-text-white" />
           </button>
         </form>

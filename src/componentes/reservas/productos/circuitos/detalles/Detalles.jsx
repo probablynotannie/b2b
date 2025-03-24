@@ -59,8 +59,8 @@ function Detalles({ actividad, cesta }) {
                 onClick={() => setActiveTab(tab)}
                 className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                   activeTab === tab
-                    ? "text-white tw-bg-secondary dark:tw-bg-secondaryDark"
-                    : "hover:text-slate-900 tw-bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
+                    ? "tw-text-white tw-bg-secondary dark:tw-bg-secondaryDark"
+                    : "hover:tw-text-slate-700 dark:hover:tw-text-slate-300 tw-bg-slate-50 hover:bg-slate-100 dark:tw-bg-slate-800 dark:tw-hover:bg-slate-700 dark:tw-hover:text-white"
                 }`}
               >
                 {tab}

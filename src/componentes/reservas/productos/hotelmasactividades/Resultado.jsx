@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Resultado from "../hotel/HotelMas";
 import Entradas from "../tickets/TicketsMas";
-import Buscador from "./Buscador";
+import Buscador from "./filtros/Buscador";
 import { FaHotel } from "react-icons/fa";
 import { PiMaskHappyFill } from "react-icons/pi";
 import Cesta from "./Cesta";
@@ -62,7 +62,7 @@ function Productos() {
               <FaHotel className="tw-mr-1" /> Hoteles
             </button>
             {selectedHotel && (
-              <FaCheck className="tw-text-xs tw-text-green-500 tw-animate-bounce dark:tw-text-secondaryDark tw-absolute -tw-top-1 tw-left-5" />
+              <FaCheck className="tw-text-xs tw-text-green-500 tw-animate-bounce dark:tw-text-secondaryDark tw-absolute -tw-top-0 tw-left-5" />
             )}
           </div>
           <div className="tw-flex tw-items-center tw-relative">
@@ -77,7 +77,7 @@ function Productos() {
               <PiMaskHappyFill className="tw-mr-1" /> Actividades
             </button>
             {actividades.length > 0 && (
-              <FaCheck className="tw-text-xs tw-text-green-500 tw-animate-bounce dark:tw-text-secondaryDark tw-absolute -tw-top-1 tw-left-5" />
+              <FaCheck className="tw-text-xs tw-text-green-500 tw-animate-bounce dark:tw-text-secondaryDark tw-absolute -tw-top-0 tw-left-5" />
             )}
           </div>
           <div className="tw-flex tw-items-center tw-relative">

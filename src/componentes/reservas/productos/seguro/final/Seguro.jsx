@@ -1,6 +1,5 @@
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
-
 import Detalles from "../reserva/Detalles";
 import { FaKitMedical } from "react-icons/fa6";
 function Seguro({ seguro }) {
@@ -12,7 +11,7 @@ function Seguro({ seguro }) {
             {seguro.titulo}
           </h3>
           <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
-            {formatearFecha(seguro.inicio)} - {formatearFecha(seguro.fin)}
+            {FormatearFecha(seguro.inicio)} - {FormatearFecha(seguro.fin)}
           </p>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">

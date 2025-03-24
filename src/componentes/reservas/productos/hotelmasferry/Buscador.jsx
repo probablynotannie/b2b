@@ -3,7 +3,6 @@ import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio";
-import Input_Aeropuertos from "../../../inputs/Aeropuertos";
 import { useForm } from "react-hook-form";
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);

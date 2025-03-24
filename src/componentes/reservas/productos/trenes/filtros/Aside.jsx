@@ -36,6 +36,15 @@ function Aside({ values, setValues, minMax }) {
               setValues={setValues}
               minMax={minMax}
             />
+            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center ">
+              <button
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
+                onClick={() => setIsModalOpen(false)}
+              >
+                X
+              </button>
+              <span className="tw-text-slate-400">Cerrar</span>
+            </div>
           </div>
         </div>
       )}

@@ -117,7 +117,6 @@ function Buscador() {
               placeholder="Selecciona un destino"
             />
           </div>
-
           <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>

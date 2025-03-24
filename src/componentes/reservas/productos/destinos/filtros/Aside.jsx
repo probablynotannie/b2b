@@ -73,7 +73,7 @@ function Aside({ values, setValues, minMax }) {
   );
 }
 
-function SidebarContent({ values, setValues, minMax, setIsModalOpen }) {
+function SidebarContent({ values, setValues, minMax }) {
   return (
     <div>
       <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary lg:tw-bg-inherit tw-p-5 lg:tw-p-3 tw-border-b-2 dark:tw-border-slate-600">

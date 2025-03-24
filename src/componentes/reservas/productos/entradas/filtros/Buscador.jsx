@@ -126,7 +126,7 @@ function Buscador() {
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3">
+          <div className="tw-col-span-3">
             <Input_Destinos
               datos={datos_destinos}
               name="destino"
@@ -134,7 +134,7 @@ function Buscador() {
               placeholder="Selecciona un destino"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3">
+          <div className="tw-col-span-3">
             <Input_DateRange
               control={control}
               placeholder={"Fechas"}
@@ -142,7 +142,7 @@ function Buscador() {
               nameEndDate={"llegada"}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-2">
+          <div className="tw-col-span-2">
             <Input_selectNum
               control={control}
               name="noches"
@@ -152,7 +152,7 @@ function Buscador() {
             />
           </div>
 
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-3">
+          <div className="tw-col-span-3">
             <Input_adultoNinio
               adultos={adultos}
               setAdultos={setAdultos}

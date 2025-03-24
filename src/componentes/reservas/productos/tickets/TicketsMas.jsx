@@ -158,9 +158,11 @@ function Resultado({ tickets, actividades, setActividades }) {
       })}
       {activeActividad && (
         <Modal dismissible show={true} onClose={() => setActiveActividad(null)}>
-          <Modal.Header>{activeActividad.titulo}</Modal.Header>
-          <Modal.Body>
-            <div className="tw-space-y-6">
+          <Modal.Header className="dark:tw-bg-slate-800">
+            {activeActividad.titulo}
+          </Modal.Header>
+          <Modal.Body className="dark:tw-bg-slate-800">
+            <div className="tw-space-y-6 ">
               <img
                 alt="Imagen actividad"
                 src={activeActividad.img}
@@ -310,7 +312,9 @@ function Resultado({ tickets, actividades, setActividades }) {
               )}
             </div>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer
+          className="dark:tw-bg-slate-800"
+          >
             <button
               className="tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
               onClick={() => setActiveActividad(null)}
