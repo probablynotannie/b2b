@@ -1,15 +1,12 @@
 import { useState } from "react";
-import Input_Buscador from "../../../inputs/Buscador2";
+import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
 import { FaSearch } from "react-icons/fa";
-import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio2";
-import Input_Aeropuertos from "../../../inputs/Aeropuertos";
+import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio";
+import { useForm } from "react-hook-form";
 function Buscador() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const [destino, setDestino] = useState("");
   const destinos = [
     { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -24,59 +21,103 @@ function Buscador() {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
+  const {
+    register,
+    setValue,
+    control,
+    handleSubmit,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      adulto: 2,
+      ninio: 0,
+      infant: 0,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+
+  const onSubmit = (data) => {
+    console.log(data);
+
+    /*  navigate("/listadotransfers", {
+         state: { data },
+       }); */
+  };
   return (
     <>
       <button
         onClick={toggleModal}
-        className="relative border-2 dark:border-slate-600 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
+        className="tw-relative tw-border-2 dark:tw-border-slate-600 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
       >
         Cambiar busqueda
-        <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
           <FaSearch />
         </span>
       </button>
 
       {/* Modal for md screens and above */}
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
+        className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
         // Close modal when clicking outside
       >
         <div
-          className=" bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
+          className="tw-bg-white tw-w-full tw-h-full md:tw-w-full md:tw-h-full tw-rounded-none md:tw-rounded-xl tw-shadow-lg dark:tw-bg-slate-800"
           onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
         >
           <div>
-            <div className="w-full h-full mx-auto  relative ">
-              <div className="flex justify-between items-center mb-4 bg-primary dark:bg-slate-900  p-5 ">
-                <h2 className="text-xl font-bold text-white ">Buscador</h2>
-                <button onClick={toggleModal} className="text-xl text-white">
+            <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
+              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-900 dark:tw-bg-slate-900 tw-p-5">
+                <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                  Buscador
+                </h2>
+                <button
+                  onClick={toggleModal}
+                  className="tw-text-xl tw-text-white"
+                >
                   &times;
                 </button>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3 p-5 ">
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <form
+            onSubmit={handleSubmit(onSubmit)}
+            className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
+          >
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+                control={control}
+                nameStartDate="startDate"
+                nameEndDate="endDate"
+                placeholder="Selecciona un rango de fechas"
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Aeropuertos />
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
+                destinos={destinos}
+                vuelo={true}
+              />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-3">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Hab_Adulto_Ninio
                 habitacion={habitacion}
                 setHabitacion={setHabitacion}
@@ -84,49 +125,63 @@ function Buscador() {
                 setRoomData={setRoomData}
               />
             </div>
-            <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
-              <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
-                <FaSearch className="text-white text-xl" />
+            <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
+              <button className="tw-bg-slate-900 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+                <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
-            <div className="flex flex-col justify-center items-center col-span-12 ">
+            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
               <button
-                className="text-2xl rounded-full w-[50px] h-[50px] border-2 mt-10 text-slate-300 border-slate-300"
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300"
                 onClick={toggleModal}
               >
                 X
               </button>
-              <span className="text-slate-400">Cerrar</span>
+              <span className="tw-text-slate-400">Cerrar</span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
       {/* For smaller screens, show as normal layout (not a modal) */}
-      <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
-        <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
+      <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
+        <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondaryDark">
           Buscador
         </h2>
-        <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-3 ">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+        >
+          <div className="tw-col-span-12 lg:tw-col-span-3 xl:tw-col-span-3">
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
+          <div className="tw-col-span-12 lg:tw-col-span-3 xl:tw-col-span-2">
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              nameStartDate="startDate"
+              nameEndDate="endDate"
+              placeholder="Selecciona un rango de fechas"
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-3 xl:col-span-2">
-            <Input_Aeropuertos />
+          <div className="tw-col-span-12 lg:tw-col-span-3 xl:tw-col-span-3">
+            <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
+              destinos={destinos}
+              vuelo={true}
+            />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-4 xl:col-span-3">
+          <div className="tw-col-span-12 lg:tw-col-span-2 xl:tw-col-span-3">
             <Input_Hab_Adulto_Ninio
               habitacion={habitacion}
               setHabitacion={setHabitacion}
@@ -134,12 +189,10 @@ function Buscador() {
               setRoomData={setRoomData}
             />
           </div>
-          <div className="flex lg:justify-end justify-end lg:col-span-12 xl:col-span-2 2xl:col-span-1 col-span-12 md:col-span-6 ">
-            <button className="bg-primary dark:bg-slate-900 flex justify-center items-center h-full p-3 px-10 rounded-lg shadow">
-              <FaSearch className="text-white text-xl" />
-            </button>
-          </div>
-        </div>
+          <button className="tw-bg-slate-900 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
+        </form>
       </div>
     </>
   );

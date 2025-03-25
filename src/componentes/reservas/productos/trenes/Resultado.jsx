@@ -14,33 +14,37 @@ function Productos() {
       setLoading(false);
     }, 3000);
   }, []);
+
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const hasVueltas = trenes.vueltas && trenes.vueltas.length > 0;
   const seleccion = vuelta ? [ida, vuelta] : [ida];
+  const [values, setValues] = useState([0, 5000]);
+  const [minMax, setMinMax] = useState([0, 5000]);
+
   return (
-    <main className="flex justify-center flex-col items-center mb-10">
+    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10">
       <div
-        className="w-full bg-cover bg-center p-8 relative shadow-md"
+        className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
         style={{
           backgroundImage: "url('/banner_trenes.jpeg')",
         }}
       >
-        <div className="bg-indigo-400 dark:bg-black text-pink-600 bg-opacity-45 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-        <div className="flex">
-          <div className="container relative">
+        <div className="tw-bg-indigo-400 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-45 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
+        <div className="tw-flex">
+          <div className="tw-container tw-relative">
             <Buscador />
           </div>
-          <aside className="lg:hidden col-span-9 lg:col-span-3 h-fit lg:sticky top-5 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200 dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
-            <Aside />
+          <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
+            <Aside values={values} setValues={setValues} minMax={minMax} />
           </aside>
         </div>
       </div>
-      <article className="grid grid-cols-9 lg:gap-10 xs:gap-28 w-full container mt-10">
-        <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky top-24 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200 dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
-          <Aside />
+      <article className="tw-grid tw-grid-cols-9 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh]">
+        <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-10 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
+          <Aside values={values} setValues={setValues} minMax={minMax} />
         </aside>
-        <section className="col-span-9 lg:col-span-6 p-3 min-h-[35vh]">
+        <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3 tw-min-h-[55vh] lg:tw-min-h-[35vh]">
           {loading ? (
             <>
               <Cargando /> <PlaceHolder />
@@ -66,14 +70,14 @@ function Productos() {
                   </div>
                 ) : (
                   <div>
-                    <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-                      <h3 className="text-secondary font-semibold text-lg ">
+                    <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-md lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
+                      <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
                         Confirmar ida
                       </h3>
                     </div>
                     <Seleccion tren={ida} />
                     <Link to={"/tren"}>
-                      <button className="mt-10 w-full bg-secondary p-3 rounded-lg shadow-xl text-white font-bold">
+                      <button className="tw-mt-10 tw-w-full tw-bg-secondary tw-p-3 tw-rounded-lg tw-shadow-xl tw-text-white tw-font-bold">
                         Total: {ida.price}€
                       </button>
                     </Link>
@@ -81,12 +85,12 @@ function Productos() {
                 )
               ) : (
                 <div>
-                  <div className="flex items-center justify-between flex-row ">
-                    <h3 className="text-secondary font-semibold text-lg ">
+                  <div className="tw-flex tw-items-center tw-justify-between tw-flex-row">
+                    <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
                       Confirmar ida y vuelta
                     </h3>
                     <Link to={"/tren"} state={seleccion}>
-                      <button className=" bg-secondary p-3 rounded-lg  text-white font-bold">
+                      <button className="tw-bg-secondary tw-p-3 tw-rounded-lg tw-text-white tw-font-bold">
                         Total:{" "}
                         {parseFloat(
                           ida.price + (vuelta ? vuelta.price : 0)

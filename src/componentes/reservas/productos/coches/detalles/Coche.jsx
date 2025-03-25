@@ -29,26 +29,26 @@ function Producto() {
   });
 
   return (
-    <div className="grid lg:grid-cols-3 gap-y-10 lg:gap-16 container my-10 min-h-[70vh] overflow-visible mt-10">
-      <section className="shadow-lg h-fit hover:shadow-xl transition dark:bg-slate-800 rounded-xl border-2 dark:border-slate-700 border-slate-100 col-span-2 p-3">
+    <div className="tw-grid lg:tw-grid-cols-3 tw-gap-y-10 lg:tw-gap-16 tw-container tw-my-10 tw-min-h-[70vh] tw-overflow-visible tw-mt-10">
+      <section className="tw-shadow-lg tw-h-fit hover:tw-shadow-xl tw-transition dark:tw-bg-slate-800 tw-rounded-xl tw-border-2 dark:tw-border-slate-700 tw-border-slate-100 tw-col-span-2 tw-p-3">
         <Detalles coche={producto} />
       </section>
-      <aside className="col-span-2 lg:col-span-1 flex flex-col gap-10">
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+      <aside className="tw-col-span-2 lg:tw-col-span-1 tw-flex tw-flex-col tw-gap-10">
+        <section className="tw-p-3 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-rounded-xl tw-border-2 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-border-slate-100 tw-pb-3">
           <Conductor
             conductor={conductor}
             setConductor={setConductor}
             coche={producto}
           />
         </section>
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+        <section className="tw-p-3 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-rounded-xl tw-border-2 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-border-slate-100 tw-pb-3">
           <Reembolso
             contratar={contratar}
             setContratar={setContratar}
             reembolso={reembolso}
           />
         </section>
-        <section className="p-3 shadow-lg hover:shadow-xl transition rounded-xl border-2 dark:border-slate-700 dark:bg-slate-800 border-slate-100 pb-3">
+        <section className="tw-p-3 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-rounded-xl tw-border-2 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-border-slate-100 tw-pb-3">
           <Precio
             coche={producto}
             extras={totalExtras}
@@ -66,7 +66,7 @@ function Producto() {
             conductor,
             ...(contratar && { reembolso }),
           }}
-          className="p-3 shadow-lg hover:shadow-xl dark:bg-secondaryDark rounded-lg bg-secondary text-white  font-bold"
+          className="tw-p-3 tw-shadow-lg hover:tw-shadow-xl dark:tw-bg-secondaryDark tw-rounded-lg tw-bg-secondary tw-text-white tw-font-bold"
         >
           <button>Reservar {precio}€</button>
         </Link>

@@ -19,46 +19,46 @@ function Aside({
 }) {
   const pvp = dates.startDatePrice;
   return (
-    <div className="sticky top-5">
+    <div className="tw-sticky tw-top-5">
       {dates.startDate ? (
         <>
-          <h2 className="font-semibold text-xl dark:text-white">
+          <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             {producto.nombre}
           </h2>
           <img
             src={producto.img}
-            className="object-cover w-full h-[20vh] shadow rounded-md"
+            className="tw-object-cover tw-w-full tw-h-[20vh] tw-shadow tw-rounded-md"
             alt="imagen destino"
           />
-          <div className="text-sm border-b-2 border-slate-100 dark:border-slate-700 text-slate-500 dark:text-slate-400 py-2">
-            <p className="grid grid-cols-2 mt-2 ">
+          <div className="tw-text-sm tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-text-slate-500 dark:tw-text-slate-400 tw-py-2">
+            <p className="tw-grid tw-grid-cols-2 tw-mt-2">
               {producto.pax !== 0 && (
-                <span className="flex items-center">
-                  <FaPerson className="text-secondary dark:text-secondary" />
+                <span className="tw-flex tw-items-center">
+                  <FaPerson className="tw-text-secondary dark:tw-text-secondaryDark" />
                   {producto.pax}x
                 </span>
               )}
-              <span className="dark:text-slate-300 font-bold text-end">
+              <span className="dark:tw-text-slate-300 tw-font-bold tw-text-end">
                 {pvp}€
               </span>
             </p>
-            <p className="flex gap-2 items-center  ">
-              <FaClock className="text-secondary dark:text-secondaryDark" />
+            <p className="tw-flex tw-gap-2 tw-items-center">
+              <FaClock className="tw-text-secondary dark:tw-text-secondaryDark" />
               <span>{producto.dias} días</span>
-              <ImSpoonKnife className="text-secondary dark:text-secondaryDark" />
+              <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondaryDark" />
               <span> {producto.desayunos}x Desayunos</span>
             </p>
 
-            <div className="flex gap-2 items-center">
-              <FaCalendarAlt className="text-secondary dark:text-secondaryDark" />
-              <p className="flex flex-row">
-                <span className="mr-1">
+            <div className="tw-flex tw-gap-2 tw-items-center">
+              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondaryDark" />
+              <p className="tw-flex tw-flex-row">
+                <span className="tw-mr-1">
                   {format(new Date(dates.startDate), "d 'de' MMMM yyyy", {
                     locale: es,
                   })}
                 </span>
                 <span> -</span>
-                <span className="ml-1">
+                <span className="tw-ml-1">
                   {format(new Date(dates.endDate), "d 'de' MMMM yyyy", {
                     locale: es,
                   })}
@@ -69,32 +69,32 @@ function Aside({
               <Popover
                 aria-labelledby="default-popover"
                 content={
-                  <div className="w-64 text-sm text-slate-500 dark:text-slate-400">
-                    <div className="border-b border-slate-200 bg-slate-100 px-3 py-2 dark:border-slate-600 dark:bg-slate-700">
+                  <div className="tw-w-64 tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                    <div className="tw-border-b tw-border-slate-200 tw-bg-slate-100 tw-px-3 tw-py-2 dark:tw-border-slate-600 dark:tw-bg-slate-700">
                       <h3
                         id="default-popover"
-                        className="font-semibold text-slate-900 dark:text-white"
+                        className="tw-font-semibold tw-text-slate-900 dark:tw-text-white"
                       >
                         Nueva habitación
                       </h3>
                     </div>
-                    <div className="px-3 py-2">
+                    <div className="tw-px-3 tw-py-2">
                       {producto.habitaciones.map((habitacion) => (
-                        <div className="mb-2" key={habitacion.id}>
-                          <div className="flex justify-between items-center mb-1">
+                        <div className="tw-mb-2" key={habitacion.id}>
+                          <div className="tw-flex tw-justify-between tw-items-center tw-mb-1">
                             <label htmlFor={`room-type-${habitacion.id}`}>
                               Tipo de habitación:
                             </label>
                             <button
                               onClick={() => deleteRoom(habitacion.id)}
-                              className="rounded-full text-red-500 text-lg p-1"
+                              className="tw-rounded-full tw-text-red-500 tw-text-lg tw-p-1"
                             >
                               <FaRegTrashAlt />
                             </button>
                           </div>
-                          <div className="relative">
+                          <div className="tw-relative">
                             <select
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                               id={`room-type-${habitacion.id}`}
                               value={habitacion.pax}
                               onChange={(e) =>
@@ -112,19 +112,22 @@ function Aside({
                                 Habitación Triple (+3 pax)
                               </option>
                             </select>
-                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                            <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                               <MdMeetingRoom />
                             </div>
                           </div>
                         </div>
                       ))}
-                      <div className="mt-3">
-                        <label htmlFor="new-room-type" className="block mb-2">
+                      <div className="tw-mt-3">
+                        <label
+                          htmlFor="new-room-type"
+                          className="tw-block tw-mb-2"
+                        >
                           Seleccione el tipo de habitación:
                         </label>
                         <select
                           id="new-room-type"
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                           onChange={(e) => addRoom(e.target.value)}
                         >
                           <option value="Habitación Doble">
@@ -136,9 +139,9 @@ function Aside({
                           <option value="Cama Adicional">Cama Adicional</option>
                         </select>
                       </div>
-                      <div className="text-black dark:text-slate-400 hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer border-t-2 border-slate-100 dark:border-slate-500 mt-5 pt-2">
-                        <div className="w-fit flex items-center space-x-1 font-semibold">
-                          <FaPlusCircle className="dark:text-secondaryDark" />
+                      <div className="tw-text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-500 tw-mt-5 tw-pt-2">
+                        <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
+                          <FaPlusCircle className="dark:tw-text-secondaryDark" />
                           <span onClick={() => addRoom("Habitación Doble")}>
                             Agregar una habitación
                           </span>
@@ -148,28 +151,28 @@ function Aside({
                   </div>
                 }
               >
-                <button className="mt-2 flex items-center dark:hover:text-slate-200 hover:text-slate-700 transition">
-                  <FaPlusCircle className="text-secondary dark:text-secondaryDark mr-2" />
+                <button className="tw-mt-2 tw-flex tw-items-center dark:hover:tw-text-slate-200 hover:tw-text-slate-700 tw-transition">
+                  <FaPlusCircle className="tw-text-secondary dark:tw-text-secondaryDark tw-mr-2" />
                   Agregar una habitación ( {producto.habitaciones.length + 1} )
                 </button>
               </Popover>
             </div>
           </div>
           <Desglose precio={producto.precio} />
-          <div className="grid grid-cols-3 justify-around w-full text-center"></div>
+          <div className="tw-grid tw-grid-cols-3 tw-justify-around tw-w-full tw-text-center"></div>
           <Link to="/datosDestino" state={reserva}>
-            <button className="bg-secondary mt-5 w-full text-white text-lg font-semibold rounded-lg shadow-md p-2">
+            <button className="tw-bg-secondary tw-mt-5 tw-w-full tw-text-white tw-text-lg tw-font-semibold tw-rounded-lg tw-shadow-md tw-p-2">
               TOTAL: {producto.precio}€
             </button>
           </Link>
-          <div className="flex justify-center text-slate-400 dark:text-slate-400 mt-2">
+          <div className="tw-flex tw-justify-center tw-text-slate-400 dark:tw-text-slate-400 tw-mt-2">
             <button>Descargar la oferta</button>
           </div>
         </>
       ) : (
-        <div className="flex flex-col justify-center items-center">
-          <FaExclamationCircle className="text-orange-400 text-3xl animate-pulse" />
-          <p className=" font-semibold text-orange-300">
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+          <FaExclamationCircle className="tw-text-orange-400 tw-text-3xl tw-animate-pulse" />
+          <p className="tw-font-semibold tw-text-orange-300">
             Por favor selecciona una fecha para continuar
           </p>
         </div>

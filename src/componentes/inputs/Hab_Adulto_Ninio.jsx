@@ -1,195 +1,213 @@
-import { useState } from "react";
-import { MdMeetingRoom } from "react-icons/md";
 import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { Popover } from "flowbite-react";
-function SelectorPersonas() {
-  const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState(
-    Array.from({ length: 3 }, () => ({ adultos: 1, ninios: 0, ninioAges: [] }))
-  );
-  const onHabitacionChange = (e) => {
-    const count = parseInt(e.target.value, 10);
-    setHabitacion(count);
-    setRoomData((prevData) =>
-      prevData.length < count
-        ? [
-            ...prevData,
-            ...Array.from({ length: count - prevData.length }, () => ({
-              adultos: 1,
-              ninios: 0,
-              ninioAges: [],
-            })),
-          ]
-        : prevData.slice(0, count)
-    );
+import { FaPlusCircle } from "react-icons/fa";
+import { MdMeetingRoom } from "react-icons/md";
+import VersionMovil from "./movil/Hab_Adulto_Ninio_Movil";
+import { FaTrashAlt } from "react-icons/fa";
+function SelectorPersonas({
+  habitacion,
+  setHabitacion,
+  roomData,
+  setRoomData,
+}) {
+  const addRoom = () => {
+    setHabitacion((prevCount) => prevCount + 1);
+    setRoomData((prevData) => [
+      ...prevData,
+      { id: Date.now() + Math.random(), adultos: 1, ninios: 0, ninioAges: [] },
+    ]);
   };
-  const onAdultosChange = (roomIndex, e) => {
-    const count = parseInt(e.target.value, 10);
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].adultos = count;
-    setRoomData(newRoomData);
-  };
-  const onNiniosChange = (roomIndex, e) => {
-    const count = parseInt(e.target.value, 10);
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].ninios = count;
+  const deleteRoom = (roomId) => {
     setRoomData((prevData) => {
-      const updatedData = [...prevData];
-      if (updatedData[roomIndex].ninioAges.length < count) {
-        updatedData[roomIndex].ninioAges = [
-          ...updatedData[roomIndex].ninioAges,
-          ...new Array(count - updatedData[roomIndex].ninioAges.length).fill(
-            ""
-          ),
-        ];
-      } else {
-        updatedData[roomIndex].ninioAges = updatedData[
-          roomIndex
-        ].ninioAges.slice(0, count);
-      }
+      const updatedData = prevData.filter((room) => room.id !== roomId);
+      setHabitacion(Math.max(updatedData.length, 1));
       return updatedData;
     });
   };
-  const handleAgeChange = (roomIndex, childIndex, age) => {
-    const newRoomData = [...roomData];
-    newRoomData[roomIndex].ninioAges[childIndex] = age;
-    setRoomData(newRoomData);
+  const onAdultosChange = (roomId, e) => {
+    const count = parseInt(e.target.value, 10);
+    setRoomData((prevData) =>
+      prevData.map((room) =>
+        room.id === roomId ? { ...room, adultos: count } : room
+      )
+    );
   };
+  const onNiniosChange = (roomId, e) => {
+    const count = parseInt(e.target.value, 10);
+    setRoomData((prevData) =>
+      prevData.map((room) =>
+        room.id === roomId
+          ? {
+              ...room,
+              ninios: count,
+              ninioAges: room.ninioAges
+                .slice(0, count)
+                .concat(
+                  new Array(Math.max(count - room.ninioAges.length, 0)).fill("")
+                ),
+            }
+          : room
+      )
+    );
+  };
+  const handleAgeChange = (roomId, childIndex, age) => {
+    setRoomData((prevData) =>
+      prevData.map((room) =>
+        room.id === roomId
+          ? {
+              ...room,
+              ninioAges: room.ninioAges.map((a, i) =>
+                i === childIndex ? age : a
+              ),
+            }
+          : room
+      )
+    );
+  };
+
+  const totalAdults = roomData.reduce((acc, room) => acc + room.adultos, 0);
+  const totalChildren = roomData.reduce((acc, room) => acc + room.ninios, 0);
   return (
-    <div className="">
-      <div className="relative">
-        <select
-          onChange={onHabitacionChange}
-          id="habitaciones"
-          className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-        >
-          <option value={0} defaultValue>
-            Número de habitaciones
-          </option>
-          <option value={1}>1</option>
-          <option value={2}>2</option>
-          <option value={3}>3</option>
-        </select>
-        <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-          <MdMeetingRoom />
-        </div>
+    <div>
+      <div className="lg:tw-hidden">
+        <VersionMovil
+          deleteRoom={deleteRoom}
+          totalAdults={totalAdults}
+          totalChildren={totalChildren}
+          habitacion={habitacion}
+          setHabitacion={setHabitacion}
+          roomData={roomData}
+          setRoomData={setRoomData}
+          addRoom={addRoom}
+          onAdultosChange={onAdultosChange}
+          onNiniosChange={onNiniosChange}
+          handleAgeChange={handleAgeChange}
+        />
       </div>
-      <div className="grid grid-cols-2 gap-3">
-        {Array.from({ length: habitacion }).map((_, roomIndex) => (
-          <div key={roomIndex}>
-            <Popover
-              aria-labelledby="default-popover"
-              content={
-                <div className="w-64 text-sm">
-                  <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
-                    Adultos / Niños
-                  </div>
-                  <div className="px-3">
-                    <div key={roomIndex}>
-                      <div className="grid grid-cols-2  gap-2 pb-3">
-                        <div>
-                          <span className="text-sm">Adultos</span>
-                          <div className="relative">
-                            <select
-                              onChange={(e) => onAdultosChange(roomIndex, e)}
-                              id={`adultos-${roomIndex}`}
-                              className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-                            >
-                              <option defaultValue value={1}>
-                                1
+      <div className="tw-hidden lg:tw-grid tw-grid-cols-1 tw-gap-3">
+        <Popover
+          placement="right"
+          aria-labelledby="default-popover"
+          content={
+            <div className="tw-w-96 tw-text-sm ">
+              <div className="tw-bg-slate-800 tw-rounded-t-lg dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
+                Adultos / Niños
+              </div>
+              <div className="tw-px-3 tw-pb-5 tw-max-h-[80vh] tw-overflow-y-auto dark:tw-bg-slate-800 tw-rounded-b-lg">
+                {roomData.map((room, roomIndex) => (
+                  <div
+                    className="tw-relative tw-rounded-lg tw-text-black dark:tw-text-slate-400 tw-bg-slate-100 dark:tw-bg-slate-700/50 dark:tw-shadow-slate-600 tw-shadow dark:tw-shadow-none tw-mt-10 tw-p-2 tw-py-5"
+                    key={room.id}
+                  >
+                    <span className="tw-absolute -tw-top-5 tw-p-2 tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow-lg">
+                      Habitación {roomIndex + 1}
+                    </span>
+                    <div className="tw-grid tw-grid-cols-3 tw-gap-2">
+                      <div>
+                        <span className="tw-text-sm tw-text-black dark:tw-text-slate-400">
+                          Adultos
+                        </span>
+                        <div className="tw-relative">
+                          <select
+                            onChange={(e) => onAdultosChange(room.id, e)}
+                            value={room.adultos}
+                            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+                          >
+                            {[1, 2, 3, 4, 5, 6].map((num) => (
+                              <option key={num} value={num}>
+                                {num}
                               </option>
-                              <option value={2}>2</option>
-                              <option value={3}>3</option>
-                              <option value={4}>4</option>
-                              <option value={5}>5</option>
-                              <option value={6}>6</option>
-                            </select>
-
-                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-                              <FaPerson />
-                            </div>
-                          </div>
-                        </div>
-                        <div>
-                          <span className="text-sm">Niños</span>
-                          <div className="relative">
-                            <select
-                              onChange={(e) => onNiniosChange(roomIndex, e)}
-                              id={`ninios-${roomIndex}`}
-                              className="pl-10 bg-white border border-gray-300 text-gray-900 text-sm rounded-lg focus:border-0 focus:ring-blue-500 focus:border-blue-500 w-full p-2.5"
-                            >
-                              <option value={0} defaultValue>
-                                0
-                              </option>
-                              <option value={1}>1</option>
-                              <option value={2}>2</option>
-                              <option value={3}>3</option>
-                            </select>
-
-                            <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-                              <FaChild />
-                            </div>
+                            ))}
+                          </select>
+                          <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                            <FaPerson />
                           </div>
                         </div>
                       </div>
                       <div>
-                        {roomData[roomIndex].ninios > 0 && (
-                          <div className="grid grid-cols-3 gap-1 pb-4 mt-2">
-                            {Array.from({
-                              length: roomData[roomIndex].ninios,
-                            }).map((_, childIndex) => (
-                              <div key={childIndex}>
-                                <label
-                                  htmlFor={`child-age-${roomIndex}-${childIndex}`}
-                                  className="text-sm text-primary"
-                                >
-                                  Niño {childIndex + 1}
-                                </label>
-                                <input
-                                  required
-                                  type="number"
-                                  id={`child-age-${roomIndex}-${childIndex}`}
-                                  value={
-                                    roomData[roomIndex].ninioAges[childIndex] ||
-                                    ""
-                                  }
-                                  onChange={(e) =>
-                                    handleAgeChange(
-                                      roomIndex,
-                                      childIndex,
-                                      e.target.value
-                                    )
-                                  }
-                                  className="mt-1 block w-full px-3 py-2 border text-primary border-gray-300 rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm"
-                                  placeholder="Edad"
-                                />
-                              </div>
+                        <span className="tw-text-sm tw-text-black dark:tw-text-slate-400">
+                          Niños
+                        </span>
+                        <div className="tw-relative">
+                          <select
+                            onChange={(e) => onNiniosChange(room.id, e)}
+                            value={room.ninios}
+                            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+                          >
+                            {[0, 1, 2, 3].map((num) => (
+                              <option key={num} value={num}>
+                                {num}
+                              </option>
                             ))}
+                          </select>
+                          <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                            <FaChild />
                           </div>
-                        )}
+                        </div>
                       </div>
+                      {roomIndex !== 0 && (
+                        <button
+                          onClick={() => deleteRoom(room.id)}
+                          className="tw-absolute -tw-top-5 tw-cursor-pointer tw-right-5 tw-bg-white dark:tw-bg-slate-900 tw-rounded tw-border-2 tw-border-red-500 dark:tw-border-red-700 tw-p-2 tw-text-red-500 dark:tw-text-red-700 dark:hover:tw-bg-red-800 hover:tw-bg-danger hover:tw-text-white tw-transition tw-flex tw-items-center tw-justify-end tw-pb-2 tw-flex-col"
+                        >
+                          <FaTrashAlt />
+                        </button>
+                      )}
+                    </div>
+                    <div>
+                      {room.ninios > 0 && (
+                        <div className="tw-grid tw-grid-cols-3 tw-gap-1 tw-pb-2 tw-mt-2">
+                          {room.ninioAges.map((age, childIndex) => (
+                            <div key={childIndex}>
+                              <input
+                                required
+                                type="number"
+                                value={age || ""}
+                                onChange={(e) =>
+                                  handleAgeChange(
+                                    room.id,
+                                    childIndex,
+                                    e.target.value
+                                  )
+                                }
+                                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
+                                placeholder="Edad"
+                              />
+                            </div>
+                          ))}
+                        </div>
+                      )}
                     </div>
                   </div>
-                </div>
-              }
-            >
-              <div className="mt-4">
-                <div className="relative">
-                  <div className="bg-white text-primary border-secondary border-2 mt-1 p-2.5  rounded-lg text-sm font-semibold pl-4">
-                    {` ${roomData[roomIndex].adultos} adultos, ${roomData[roomIndex].ninios} niños`}
-                  </div>
-                  <div className="absolute -top-2 right-2 space-x-1 text-white font-semibold flex text-center text-xs rounded-full  bg-secondary py-1 px-2">
-                    <span>Hab</span>
-                    <span>{roomIndex + 1}</span>
+                ))}
+                <div
+                  onClick={addRoom}
+                  className="tw-text-black dark:tw-text-slate-400 hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-mt-5 tw-pt-2"
+                >
+                  <div className="tw-w-fit tw-flex tw-items-center tw-space-x-1 tw-font-semibold">
+                    <span>Agregar una habitación </span>
+                    <FaPlusCircle className="dark:tw-text-secondaryDark tw-text-lg" />
                   </div>
                 </div>
               </div>
-            </Popover>
+            </div>
+          }
+        >
+          <div>
+            <div className="tw-relative">
+              <div className="tw-bg-white tw-flex tw-items-center dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondary tw-text-slate-700 tw-border-2 tw-h-[40px] tw-rounded-lg tw-text-sm tw-pl-10">
+                {habitacion} Ha - {totalAdults} Ad - {totalChildren} Ni
+              </div>
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-secondary dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white  tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                <MdMeetingRoom />
+              </div>
+            </div>
           </div>
-        ))}
+        </Popover>
       </div>
     </div>
   );
 }
+
 export default SelectorPersonas;

@@ -39,16 +39,16 @@ function Fechas() {
     setLocalProducto((prevState) => {
       const updatedHabitaciones = [
         ...prevState.habitaciones,
-        { id: Date.now(), pax: 2, tipo }, 
+        { id: Date.now(), pax: 2, tipo },
       ];
-  
+
       const totalPax = updatedHabitaciones.reduce(
         (sum, hab) => sum + hab.pax,
         2
       );
-  
+
       const totalPrice = totalPax * 100;
-  
+
       return {
         ...prevState,
         habitaciones: updatedHabitaciones,
@@ -92,18 +92,15 @@ function Fechas() {
     });
   };
   return (
-    <article className="container mt-10 grid grid-cols-3 gap-10">
-      <main className="col-span-3 lg:col-span-2 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 min-h-[70vh] dark:bg-slate-800">
-        <h1 className="font-semibold dark:text-white text-2xl">
-          Selecciona el rango de fechas
-        </h1>
+    <article className="tw-container tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
+      <main className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[70vh] dark:tw-bg-slate-800">
         <Input_Fecha
           dates={dates}
           dias={localProducto.dias}
           prices={localProducto.prices}
           setDates={setDates}
         />
-        <p className="flex justify-between mt-2 text-slate-500 dark:text-slate-400">
+        <p className="tw-flex tw-justify-between tw-mt-2 tw-text-slate-500 dark:tw-text-slate-400">
           <span>
             {dates.startDate
               ? dates.startDate.toLocaleDateString("es-ES", {
@@ -121,7 +118,7 @@ function Fechas() {
                 })
               : "Fecha vuelta"}
           </span>
-          <span className="font-semibold text-secondary dark:text-secondaryDark">
+          <span className="tw-font-semibold tw-text-secondary dark:tw-text-secondaryDark">
             {dates.startDatePrice ? `${dates.startDatePrice}€` : "Precio"}
           </span>
         </p>
@@ -131,7 +128,7 @@ function Fechas() {
           </section>
         )}
       </main>
-      <aside className="col-span-3 lg:col-span-1 sticky top-5 shadow-xl rounded-lg p-5 border-2 border-slate-100 dark:border-slate-700 h-fit dark:bg-slate-800">
+      <aside className="tw-col-span-3 lg:tw-col-span-1 tw-sticky tw-top-5 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit dark:tw-bg-slate-800">
         <Aside
           dates={dates}
           handleRoomTypeChange={handleRoomTypeChange}

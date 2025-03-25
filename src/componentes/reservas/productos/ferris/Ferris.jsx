@@ -74,12 +74,10 @@ function Ferris({
       return nuevoFerry;
     });
   };
-  console.log(ferry);
-
   return (
     <section>
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg">
+      <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-md lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
+        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
           Resultados ({ferris.length})
         </h3>
       </div>
@@ -94,66 +92,66 @@ function Ferris({
         return (
           <div
             key={ferrySet.id}
-            className="mb-6 relative border mt-5 md:mt-0 dark:border-slate-700 rounded-lg shadow-lg bg-white dark:bg-slate-800 transition-all rounded-t-xl"
+            className="tw-mb-6 tw-relative tw-border tw-mt-5 md:tw-mt-0 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-rounded-t-xl"
           >
             <div
-              className="flex justify-between flex-wrap items-center p-4 bg-white dark:bg-slate-800 transition cursor-pointer rounded-xl"
+              className="tw-flex tw-justify-between tw-flex-wrap tw-items-center tw-p-4 tw-bg-white dark:tw-bg-slate-800 tw-transition tw-cursor-pointer tw-rounded-xl"
               onClick={() => toggleDropdown(ferrySet.id)}
             >
-              <div className="w-full md:w-fit">
+              <div className="tw-w-full md:tw-w-fit">
                 {ida?.ferryId === ferrySet.id && (
-                  <GoDotFill className="absolute top-3 left-3 text-green-500 animate-bounce" />
+                  <GoDotFill className="tw-absolute tw-top-3 tw-left-3 tw-text-green-500 tw-animate-bounce" />
                 )}
-                <div className="md:w-fit flex w-full justify-between items-center">
-                  <h3 className="text-lg font-bold text-slate-800 dark:text-slate-200">
+                <div className="md:tw-w-fit tw-flex tw-w-full tw-justify-between tw-items-center">
+                  <h3 className="tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-slate-200">
                     Tarifa: {ferrySet.tarifa.toUpperCase()}
                   </h3>
 
-                  <span className="ml-3 font-bold bg-green-100 dark:bg-green-800 text-green-600 dark:text-green-200 border-2 border-green-100 dark:border-green-800 px-2 py-1 text-base rounded-full">
+                  <span className="tw-ml-3 tw-font-bold tw-bg-green-100 dark:tw-bg-green-800 tw-text-green-600 dark:tw-text-green-200 tw-border-2 tw-border-green-100 dark:tw-border-green-800 tw-px-2 tw-py-1 tw-text-base tw-rounded-full">
                     Desde: {minTotalPrice}€
                   </span>
                 </div>
-                <p className="text-sm text-slate-600 dark:text-slate-400">
+                <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-400">
                   Cambios:{" "}
-                  <span className="font-medium">
+                  <span className="tw-font-medium">
                     {ferrySet.cambios ? "Permitidos" : "No Permitidos"}
                   </span>{" "}
                   | Cancelaciones:{" "}
-                  <span className="font-medium">
+                  <span className="tw-font-medium">
                     {ferrySet.cancelaciones ? "Permitidas" : "No Permitidas"}
                   </span>
                 </p>
               </div>
-              <div className=" text-xs text-center justify-center flex-col flex items-center space-x-4 w-full md:w-fit mt-5 md:mt-0">
-                <div className="dark:bg-slate-100 px-2 flex justify-center items-center w-full">
+              <div className="tw-text-xs tw-text-center tw-justify-center tw-flex-col tw-flex tw-items-center tw-space-x-4 tw-w-full md:tw-w-fit tw-mt-5 md:tw-mt-0">
+                <div className="dark:tw-bg-slate-100 tw-px-2 tw-flex tw-justify-center tw-items-center tw-w-full">
                   <img
                     src={ferrySet.compania}
                     alt="logo compania"
-                    className=" h-14 md:w-16 w-full object-contain rounded-md"
+                    className="tw-h-14 md:tw-w-16 tw-w-full tw-object-contain tw-rounded-md"
                   />
                 </div>
               </div>
             </div>
             <div
-              className={`transition-all duration-500 ease-in-out overflow-hidden ${
+              className={`tw-transition-all tw-duration-500 tw-ease-in-out tw-overflow-hidden ${
                 openFerrySets.includes(ferrySet.id) ? "max-h-screen" : "max-h-0"
               }`}
             >
-              <div className="p-4 border-t dark:border-slate-700">
-                <div className="flex justify-between">
-                  <span className="text-md font-bold text-slate-800 dark:text-slate-400 mb-3">
+              <div className="tw-p-4 tw-border-t dark:tw-border-slate-700">
+                <div className="tw-flex tw-justify-between">
+                  <span className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400 tw-mb-3">
                     Ida: {ferrySet.ida?.ruta || "Ruta no disponible"}
                   </span>
-                  <span className="text-slate-800 dark:text-slate-400 text-sm">
+                  <span className="tw-text-slate-800 dark:tw-text-slate-400 tw-text-sm">
                     {ferrySet.ida?.hora_salida} - {ferrySet.ida?.hora_llegada}
                   </span>
                 </div>
                 {ferrySet.ida?.precios?.map((option) => (
                   <div
                     key={option.id}
-                    className={`flex items-center gap-4 p-2 border-b dark:border-slate-700 ${
+                    className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
                       ida?.id === option.id && ida.ferryId === ferrySet.id
-                        ? "bg-blue-50 dark:bg-slate-900"
+                        ? "tw-bg-blue-50 dark:tw-bg-slate-900"
                         : ""
                     }`}
                   >
@@ -166,14 +164,14 @@ function Ferris({
                       onChange={() =>
                         handleSelection("ida", ferrySet.id, option)
                       }
-                      className="h-4 w-4 text-green-500 dark:text-green-400 focus:ring-green-400  border-slate-300 dark:border-slate-700"
+                      className="tw-h-4 tw-w-4 tw-text-green-500 dark:tw-text-green-400 focus:tw-ring-green-400 tw-border-slate-300 dark:tw-border-slate-700"
                     />
-                    <FaShip className="text-green-800 dark:text-green-300" />
+                    <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
                     <div>
-                      <p className="text-sm font-semibold text-slate-800 dark:text-slate-300">
+                      <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
                         {option.tipo}
                       </p>
-                      <p className="text-sm text-slate-600 dark:text-slate-500">
+                      <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
                         Precio: {option.precio}€
                       </p>
                     </div>
@@ -181,12 +179,12 @@ function Ferris({
                 ))}
               </div>
               {ferrySet.vuelta && (
-                <div className="p-4 border-t dark:border-slate-700">
-                  <div className="flex justify-between">
-                    <span className="text-md font-bold text-slate-800 dark:text-slate-400 mb-3">
+                <div className="tw-p-4 tw-border-t dark:tw-border-slate-700">
+                  <div className="tw-flex tw-justify-between">
+                    <span className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400 tw-mb-3">
                       Vuelta: {ferrySet.vuelta?.ruta || "Ruta no disponible"}
                     </span>
-                    <span className="text-slate-800 dark:text-slate-400 text-sm">
+                    <span className="tw-text-slate-800 dark:tw-text-slate-400 tw-text-sm">
                       {ferrySet.vuelta?.hora_salida} -{" "}
                       {ferrySet.vuelta?.hora_llegada}
                     </span>
@@ -194,10 +192,10 @@ function Ferris({
                   {ferrySet.vuelta?.precios?.map((option) => (
                     <div
                       key={option.id}
-                      className={`flex items-center gap-4 p-2 border-b dark:border-slate-700 ${
+                      className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
                         vuelta?.id === option.id &&
                         vuelta.ferryId === ferrySet.id
-                          ? "bg-blue-50 dark:bg-slate-900"
+                          ? "tw-bg-blue-50 dark:tw-bg-slate-900"
                           : ""
                       }`}
                     >
@@ -211,14 +209,14 @@ function Ferris({
                         onChange={() =>
                           handleSelection("vuelta", ferrySet.id, option)
                         }
-                        className="h-4 w-4 text-green-500 dark:text-green-400 focus:ring-green-400  border-slate-300 dark:border-slate-700"
+                        className="tw-h-4 tw-w-4 tw-text-green-500 dark:tw-text-green-400 focus:tw-ring-green-400 tw-border-slate-300 dark:tw-border-slate-700"
                       />
-                      <FaShip className="text-green-800 dark:text-green-300" />
+                      <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
                       <div>
-                        <p className="text-sm font-semibold text-slate-800 dark:text-slate-300">
+                        <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
                           {option.tipo}
                         </p>
-                        <p className="text-sm text-slate-600 dark:text-slate-500">
+                        <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
                           Precio: {option.precio}€
                         </p>
                       </div>
@@ -227,10 +225,10 @@ function Ferris({
                 </div>
               )}
               {seleccion !== true && (
-                <div className="flex justify-end mt-2 p-3">
+                <div className="tw-flex tw-justify-end tw-mt-2 tw-p-3">
                   {ida?.ferryId === ferrySet.id && (
                     <Link to={"/datosferry"} state={ferry}>
-                      <button className="font-semibold bg-secondary text-white p-2 rounded-md">
+                      <button className="tw-font-semibold tw-bg-secondary tw-text-white tw-p-2 tw-rounded-md">
                         Reservar por {calculateTotalPrice()}€
                       </button>
                     </Link>

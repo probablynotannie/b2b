@@ -1,114 +1,148 @@
-import { useState, useEffect } from "react";
-import { FaSearch } from "react-icons/fa";
-import { FaHotel } from "react-icons/fa";
-import { FaMap } from "react-icons/fa";
+import { useState, useEffect, useRef } from "react";
+import { FaPlane, FaSearch, FaHotel, FaMap } from "react-icons/fa";
+import { IoClose } from "react-icons/io5";
+import { Controller } from "react-hook-form";
 
-// Updated suggestions data with types
-const suggestionsData = [
-  { type: "Destino", name: "MADRID Centro" },
-  { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-  { type: "Destino", name: "SEVILLA" },
-  { type: "Destino", name: "MADRID - CAPE GIRARDEAU" },
-  { type: "Hotel", name: "Hotel Barcelona", destino: "Madrid" },
-  { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-  { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-];
-
-function Buscador() {
-  const [inputValue, setInputValue] = useState("");
+function Buscador({
+  destinos,
+  control,
+  name,
+  setValue,
+  disable,
+  placeholder,
+  required,
+  vuelo,
+}) {
   const [suggestions, setSuggestions] = useState([]);
   const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-  const [isLoading, setIsLoading] = useState(false); // Estado de carga
+  const [loading, setLoading] = useState(false);
+  const [selectedDestino, setSelectedDestino] = useState(null);
+  const [inputText, setInputText] = useState("");
+  const searchBoxRef = useRef(null);
 
   const handleInputChange = (event) => {
     const value = event.target.value;
-    setInputValue(value);
+    setInputText(value);
+    setSelectedDestino(null);
+    setLoading(true);
 
-    // Muestra el estado de "cargando"
-    setIsLoading(true);
-
-    // Simulamos un pequeño retraso para ver el estado de carga (opcional)
-    setTimeout(() => {
-      // Filter suggestions based on input
-      if (value) {
-        const filteredSuggestions = suggestionsData.filter((suggestion) =>
+    if (value) {
+      setTimeout(() => {
+        const filteredSuggestions = destinos.filter((suggestion) =>
           suggestion.name.toLowerCase().includes(value.toLowerCase())
         );
         setSuggestions(filteredSuggestions);
         setIsDropdownOpen(true);
-      } else {
-        setIsDropdownOpen(false);
-      }
-
-      // Finaliza el estado de carga
-      setIsLoading(false);
-    }, 500); // retraso de 500ms
+        setLoading(false);
+      }, 500);
+    } else {
+      setIsDropdownOpen(false);
+      setLoading(false);
+    }
   };
 
   const handleSuggestionClick = (suggestion) => {
-    setInputValue(suggestion.name);
+    setSelectedDestino(suggestion);
+    setValue(name, suggestion.id);
+    setInputText(suggestion.name);
     setSuggestions([]);
     setIsDropdownOpen(false);
   };
 
-  // Group suggestions by type
-  const groupedSuggestions = suggestions.reduce((acc, suggestion) => {
-    if (!acc[suggestion.type]) {
-      acc[suggestion.type] = [];
-    }
-    acc[suggestion.type].push(suggestion);
-    return acc;
-  }, {});
+  useEffect(() => {
+    const handleClickOutside = (event) => {
+      if (
+        searchBoxRef.current &&
+        !searchBoxRef.current.contains(event.target)
+      ) {
+        setIsDropdownOpen(false);
+      }
+    };
+
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+    };
+  }, []);
 
   return (
-    <div className="relative">
-      <input
-        type="text"
-        value={inputValue}
-        onChange={handleInputChange}
-        placeholder="Destino"
-        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-
+    <div className="tw-relative" ref={searchBoxRef}>
+      <Controller
+        name={name}
+        control={control}
+        rules={
+          required === true ? { required: "El destino es obligatorio" } : {}
+        }
+        render={({ field, fieldState: { error } }) => (
+          <>
+            <input
+              type="text"
+              value={inputText}
+              onChange={handleInputChange}
+              placeholder={placeholder}
+              disabled={disable}
+              className="tw-h-[40px] tw-pl-10 dark:tw-placeholder-slate-400 tw-text-sm tw-border dark:tw-border-2 dark:tw-bg-slate-700 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
+            />
+            {error && (
+              <p className="tw-text-red-500 tw-text-xs tw-mt-1">
+                {error.message}
+              </p>
+            )}
+          </>
+        )}
       />
       {isDropdownOpen && (
-        <ul className="absolute z-10 w-full bg-white border mt-2 border-gray-300 rounded-lg max-h-60 overflow-auto">
-          {isLoading ? (
-            // Mostrar "Cargando..." cuando está en proceso de búsqueda
-            <li className="p-2 text-center text-gray-500">Cargando...</li>
-          ) : suggestions.length === 0 ? (
-            // Mostrar "No hay resultados" cuando no haya sugerencias
-            <li className="p-2 text-center text-gray-500">
-              No hay ningún resultado para &quot;{inputValue}&quot;
-            </li>
-          ) : (
-            // Mostrar las sugerencias cuando ya no esté cargando
-            Object.entries(groupedSuggestions).map(([type, items]) => (
-              <div key={type}>
-                <h3 className="flex items-center space-x-2 font-semibold text-gray-700 p-2 border-t-2 border-slate-100">
-                  <span className="text-secondary text-lg">
-                    {type === "Hotel" ? <FaHotel /> : <FaMap />}
-                  </span>
-                  <span>{type}</span>
-                </h3>
-                {items.map((suggestion, index) => (
-                  <li
-                    key={index}
-                    onClick={() => handleSuggestionClick(suggestion)}
-                    className="p-2 flex justify-between text-gray-700 hover:bg-gray-100 cursor-pointer"
-                  >
-                    <span>{suggestion.name}</span>
-                    <span className="text-slate-300">
-                      {suggestion.destino && suggestion.destino}
+        <div className="tw-absolute tw-z-10 tw-w-full tw-bg-slate-50 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
+          {loading ? (
+            <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-text-slate-500">
+              Cargando...
+            </div>
+          ) : suggestions.length > 0 ? (
+            <ul>
+              {suggestions.map((suggestion) => (
+                <li
+                  key={suggestion.id}
+                  onClick={() => handleSuggestionClick(suggestion)}
+                  className="tw-p-2 tw-border-b tw-text-gray-700 hover:tw-bg-slate-50 tw-cursor-pointer"
+                >
+                  <span className="tw-flex tw-space-x-2 tw-items-center">
+                    <span className="tw-text-secondary tw-text-lg">
+                      {suggestion.type === "Hotel" ? (
+                        <FaHotel />
+                      ) : suggestion.type === "Vuelo" ? (
+                        <FaPlane />
+                      ) : (
+                        <FaMap />
+                      )}
                     </span>
-                  </li>
-                ))}
-              </div>
-            ))
+                    <span>{suggestion.name}</span>
+                  </span>
+                  <span className="tw-block tw-text-slate-300 tw-pl-6">
+                    {suggestion.destino}
+                  </span>
+                </li>
+              ))}
+            </ul>
+          ) : (
+            <div className="tw-p-4 tw-flex tw-justify-center tw-text-slate-500">
+              No hay resultados para{" "}
+              <span className="tw-text-red-500">{inputText}</span>
+            </div>
           )}
-        </ul>
+        </div>
       )}
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-        <FaSearch />
+      <div
+        onClick={() => {
+          setSelectedDestino(null);
+          setInputText("");
+          setValue(name, "");
+        }}
+        className="tw-absolute tw-top-0 tw-right-0 tw-text-slate-300 hover:tw-text-slate-500 tw-text-sm tw-h-[40px] tw-flex tw-items-center tw-justify-center tw-w-8"
+      >
+        <IoClose className="tw-text-lg" />
+      </div>
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+        {vuelo ? <FaPlane /> : <FaSearch />}
       </div>
     </div>
   );

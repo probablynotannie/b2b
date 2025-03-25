@@ -8,22 +8,24 @@ function Contacto({
   extras,
 }) {
   return (
-    <section className="pt-10 mb-10 border-t-2 border-slate-100 dark:border-slate-700 ">
+    <section className="tw-py-10 tw-my-10 tw-border-y-2  tw-border-slate-100 dark:tw-border-slate-700">
       <div
-        className="bg-cover border-2 dark:border-slate-800 dark:shadow-md dark:shadow-slate-700 shadow-md rounded-xl  w-full h-full"
+        className="tw-bg-cover tw-border-2 dark:tw-border-slate-800 dark:tw-shadow-md dark:tw-shadow-slate-700 tw-shadow-md tw-rounded-xl tw-w-full tw-h-full"
         style={{
           backgroundImage: `url(${img})`,
           backgroundSize: "cover",
           backgroundPosition: position,
         }}
       >
-        <div className="bg-black rounded-xl w-full min-h-[30vh] bg-opacity-45 flex justify-center items-center flex-col">
-          <h4 className="text-white font-bold text-7xl">{tipo}</h4>
-          <div className="flex flex-col justify-center items-center text-white">
-            <span className="font-semibold text-3xl text-center">
+        <div className="tw-bg-black tw-rounded-xl tw-w-full tw-min-h-[30vh] tw-bg-opacity-45 tw-flex tw-justify-center tw-items-center tw-flex-col">
+          <h4 className="tw-text-white tw-font-bold tw-text-7xl tw-text-center">
+            {tipo}
+          </h4>
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-white">
+            <span className="tw-font-semibold tw-text-3xl tw-text-center">
               {itinerario}
             </span>
-            <p className="text-slate-300 text-center px-4">
+            <p className="tw-text-slate-200 tw-text-center tw-px-4">
               {fechaIda}
               {fechaVuelta && <span> - {fechaVuelta} </span>}
             </p>

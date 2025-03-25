@@ -3,37 +3,45 @@ import DatosContacto from "../../../estructura/DatosContacto";
 import Reserva from "../../../estructura/reserva/Resumen";
 import Aside from "../seleccion/Aside";
 import Detalles from "../seleccion/Detalles";
-import Pasajeros from "../../vuelos/reserva/Pasajeros"
+import Pasajeros from "../../vuelos/reserva/Pasajeros";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();
-  const { selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion } = location.state || {};
-  console.log(pasajeros)
+  const { selectedHotel, ida, vuelta, data, habitacion } = location.state || {};
   return (
-    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
-        <h1 className="font-bold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-800 pb-2">
+    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
+      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+        <h1 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
           Reservando coche
         </h1>
         <DatosContacto
-          nombre={datosContacto.nombre}
-          apellidos={datosContacto.apellido}
-          email={datosContacto.email}
-          numero={datosContacto.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
         <Detalles ida={ida} vuelta={vuelta} hotel={selectedHotel} />
-        <Pasajeros pasajeros={pasajeros} />
+        <Pasajeros pasajeros={data.pasajeros} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+        <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Resumen
         </h2>
-        <div className="flex flex-col gap-3">
+        <div className="tw-flex tw-flex-col tw-gap-3">
           <Reserva img={selectedHotel.img} txt={"Hotel + vuelo"} />
           <Aside ida={ida} vuelta={vuelta} hotel={selectedHotel} />
         </div>
-        <Link to={"/resumenhotelmasvuelo"} state={{selectedHotel, ida, vuelta, datosContacto,pasajeros,habitacion}}>
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+        <Link
+          to={"/resumenhotelmasvuelo"}
+          state={{
+            selectedHotel,
+            ida,
+            vuelta,
+            data,
+            habitacion,
+          }}
+        >
+          <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             {(
               Number(selectedHotel.precio) +
               Number(ida.flight.precio) +

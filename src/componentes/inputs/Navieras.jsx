@@ -1,29 +1,51 @@
 import { FaShip } from "react-icons/fa";
+import { Controller } from "react-hook-form";
 
-function Navieras({ destinos, naviera, setNaviera }) {
-  const handleDestinationChange = (event) => {
-    setNaviera(event.target.value);
+function Navieras({ control, name, datos, placeholder }) {
+  const groupedpuertos = {
+    destacados: datos.filter((zona) => zona.destacado === 1),
+    resto: datos.filter((zona) => zona.destacado === 0),
   };
 
   return (
-    <div className="relative flex w-full">
-      <select
-        value={naviera}
-        onChange={handleDestinationChange}
-        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-      >
-        <option value="">Todos los Navieras</option>
-        {destinos.map((group) => (
-          <optgroup key={group.label} label={group.label}>
-            {group.options.map((option) => (
-              <option key={option.value} value={option.value}>
-                {option.label}
-              </option>
-            ))}
-          </optgroup>
-        ))}
-      </select>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+    <div className="tw-relative tw-flex tw-w-full">
+      <Controller
+        name={name}
+        control={control}
+        render={({ field }) => (
+          <select
+            {...field}
+            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+            onChange={(e) => field.onChange(Number(e.target.value))}
+          >
+            <option value="">{placeholder || "Todas las navieras"}</option>
+            {groupedpuertos.destacados.length > 0 && (
+              <optgroup label="Destacados">
+                {groupedpuertos.destacados.map((zona) => (
+                  <option key={zona.id_naviera} value={zona.id_naviera}>
+                    {zona.name}
+                  </option>
+                ))}
+              </optgroup>
+            )}
+            {groupedpuertos.resto.length > 0 && (
+              <optgroup
+                label={
+                  groupedpuertos.destacados.length > 0 ? "El resto" : "Navieras"
+                }
+              >
+                {groupedpuertos.resto.map((zona) => (
+                  <option key={zona.id_naviera} value={zona.id_naviera}>
+                    {zona.name_naviera}
+                  </option>
+                ))}
+              </optgroup>
+            )}
+          </select>
+        )}
+      />
+
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <FaShip />
       </div>
     </div>

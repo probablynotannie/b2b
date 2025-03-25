@@ -1,6 +1,6 @@
 import ElegirEntradas from "./ElegirEntradas";
 import { FaCheck } from "react-icons/fa";
-function Detalles({ producto, tickets, setTickets, cesta }) {
+function Detalles({ producto, tickets, setTickets, cesta, data }) {
   return (
     <>
       <section>
@@ -8,36 +8,44 @@ function Detalles({ producto, tickets, setTickets, cesta }) {
           ""
         ) : (
           <>
-            <h1 className="font-semibold">{producto.titulo}</h1>
+            <h1 className="tw-font-semibold">{producto.titulo}</h1>
             <img
               src={producto.img}
               alt="imagen producto"
-              className="w-full h-[30vh] object-cover  object-top my-3 rounded"
+              className="tw-w-full tw-h-[30vh] tw-object-cover tw-object-top tw-my-3 tw-rounded"
             />
-            <p className="text-sm dark:text-slate-200">
+            <p className="tw-text-sm dark:tw-text-slate-200">
               {producto.descripcion_corta}
             </p>
           </>
         )}
 
-        <section className="grid grid-cols-2">
+        <section className="tw-grid md:tw-grid-cols-2">
           <div>
-            <span className="text-green-700 font-semibold">Incluido</span>
-            <ul className="text-slate-600">
+            <span className="tw-text-green-700 tw-font-semibold">Incluido</span>
+            <ul className="tw-text-slate-600">
               {producto.incluido.map((incluido, index) => (
-                <li key={index} className="flex items-center text-slate-400">
-                  <FaCheck className="text-xs mr-1 text-green-500" />
+                <li
+                  key={index}
+                  className="tw-flex tw-items-center tw-text-slate-400"
+                >
+                  <FaCheck className="tw-text-xs tw-mr-1 tw-text-green-500" />
                   {incluido}
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <span className="text-red-700 font-semibold">No Incluido</span>
-            <ul className="text-slate-600">
+            <span className="tw-text-red-700 tw-font-semibold">
+              No Incluido
+            </span>
+            <ul className="tw-text-slate-600">
               {producto.excluidas.map((excluidas, index) => (
-                <li key={index} className="flex items-center text-slate-400">
-                  <span className="text-sm mr-1 text-red-500">X</span>
+                <li
+                  key={index}
+                  className="tw-flex tw-items-center tw-text-slate-400"
+                >
+                  <span className="tw-text-sm tw-mr-1 tw-text-red-500">X</span>
                   {excluidas}
                 </li>
               ))}
@@ -45,13 +53,15 @@ function Detalles({ producto, tickets, setTickets, cesta }) {
           </div>
         </section>
         {producto.importante && (
-          <div className="bg-red-50 p-2 rounded mt-5">
-            <h2 className="uppercase font-bold text-red-500">Importante</h2>
+          <div className="tw-bg-red-50 tw-p-2 dark:tw-bg-red-500 tw-rounded tw-mt-5">
+            <h2 className="tw-uppercase tw-font-bold tw-text-red-500 dark:tw-text-white">
+              Importante
+            </h2>
             <p>{producto.importante}</p>
           </div>
         )}
       </section>
-      <section className="mt-5">
+      <section className="tw-mt-5">
         <ElegirEntradas
           cesta={cesta}
           tickets={tickets}

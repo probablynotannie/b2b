@@ -1,40 +1,62 @@
-import { useState } from "react";
 import Fecha from "../../../../inputs/Fecha";
 import Origen from "../../../../inputs/Destinos";
-import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio2";
-const Eleccion = ({ fecha, setFecha, habitacion, setHabitacion, roomData, setRoomData }) => {
+import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import Datos_Destino from "../../../../../helpers/destinos.json";
+const Eleccion = ({
+  fecha,
+  habitacion,
+  setHabitacion,
+  roomData,
+  setRoomData,
+  actividad,
+}) => {
+  const navigate = useNavigate();
+  const {
+    handleSubmit,
+    setValue,
+    control,
+    formState: { errors },
+  } = useForm();
 
-  const [origen, setOrigen] = useState("");
-  const destinos = [
-    {
-      label: "Origenes",
-      options: [
-        { value: "Africa", label: "Africa" },
-        { value: "Caribe", label: "Caribe" },
-        { value: "Emiratos y Mar Rojo", label: "Emiratos y Mar Rojo" },
-        { value: "Persian Gulf", label: "Persian Gulf" },
-        { value: "Round World", label: "Round World" },
-      ],
-    },
-  ];
-  console.log(roomData);
+  const onSubmit = (data) => {
+    console.log(data);
+    navigate("/datosCircuito", {
+      state: { datosForm: data, actividad, habitacion, roomData },
+    });
+  };
+
+  
+
   return (
-    <div className="mt-4">
-      <div className="mb-4">
-        <Origen destinos={destinos} destino={origen} setDestino={setOrigen} />
-      </div>
-      <div className="mb-4">
-        <Fecha fecha={fecha} setFecha={setFecha} />
-      </div>
-      <div className="mb-4">
-        <Input_Hab_Ad_Ni
-          habitacion={habitacion}
-          setHabitacion={setHabitacion}
-          roomData={roomData}
-          setRoomData={setRoomData}
-        />
-      </div>
-    </div>
+    <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
+      <Origen
+        required={true}
+        datos={Datos_Destino}
+        name="destino"
+        control={control}
+        placeholder="Selecciona un destino"
+      />
+      <Fecha
+        required={true}
+        fecha={fecha}
+        name={"fecha"}
+        setValue={setValue}
+        control={control}
+      />
+
+      <Input_Hab_Ad_Ni
+        habitacion={habitacion}
+        setHabitacion={setHabitacion}
+        roomData={roomData}
+        setRoomData={setRoomData}
+      />
+
+      <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
+        {actividad.precio.toFixed(2)}€
+      </button>
+    </form>
   );
 };
 

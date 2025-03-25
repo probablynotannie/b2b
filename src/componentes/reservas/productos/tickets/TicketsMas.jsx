@@ -93,7 +93,6 @@ function Resultado({ tickets, actividades, setActividades }) {
 
     setActiveActividad(null);
   };
-  console.log(actividades);
   const handleTicketChange = (type, value) => {
     setEntradasSeleccionadas((prev) => ({
       ...prev,
@@ -106,7 +105,7 @@ function Resultado({ tickets, actividades, setActividades }) {
     : false;
 
   return (
-    <section className="pb-12 md:mt-5 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+    <section className="tw-pb-12 md:tw-mt-5 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4">
       {tickets.map((actividad, index) => {
         const isSelected = actividades.some(
           (item) => item.titulo === actividad.titulo
@@ -115,39 +114,41 @@ function Resultado({ tickets, actividades, setActividades }) {
           <article
             key={index}
             onClick={() => setActiveActividad(actividad)}
-            className={`border-2 hover:scale-[102%] duration-300  relative  h-auto max-w-full rounded-lg rounded-t-lg shadow-lg hover:shadow-xl transition cursor-pointer ${
+            className={`tw-border-2 hover:tw-scale-[102%] tw-duration-300 tw-relative tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer ${
               isSelected
-                ? "bg-elegido dark:bg-green-950 border-2 border-secondary dark:border-green-500"
-                : "bg-white  dark:bg-slate-800 border-slate-100 dark:border-slate-700 "
+                ? "tw-bg-elegido dark:tw-bg-green-950 tw-border-2 tw-border-secondary dark:tw-border-green-500"
+                : "tw-bg-white dark:tw-bg-slate-800 tw-border-slate-100 dark:tw-border-slate-700 "
             }`}
           >
             <span
-              className={`absolute rotate-45 bg-blue-500 rounded-lg px-2 p-1 font-bold text-sm top-5 right-5 z-10 shadow-lg ${
+              className={`tw-absolute tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg ${
                 actividad.tipoPrecio === "Neto"
-                  ? "bg-green-300 text-green-800"
-                  : "bg-red-500 text-red-200"
+                  ? "tw-bg-green-300 tw-text-green-800"
+                  : "tw-bg-red-500 tw-text-red-200"
               }`}
             >
               {actividad.tipoPrecio}
             </span>
-            <div className="relative">
+            <div className="tw-relative">
               <img
-                className="h-[25vh] w-full object-cover rounded-t-lg"
+                className="tw-h-[25vh] tw-w-full tw-object-cover tw-rounded-t-lg"
                 src={actividad.img}
                 alt={actividad.titulo}
               />
-              <div className="bg-emerald-500 bg-opacity-15 absolute top-0 w-full h-full" />
+              <div className="tw-bg-emerald-500 tw-bg-opacity-15 tw-absolute tw-top-0 tw-w-full tw-h-full" />
             </div>
-            <div className="p-5">
-              <h1 className="font-semibold text-slate-600 dark:text-slate-300">
+            <div className="tw-p-5">
+              <h1 className="tw-font-semibold tw-text-slate-600 dark:tw-text-slate-300">
                 {actividad.titulo}
               </h1>
-              <p className="text-sm dark:text-slate-400">
+              <p className="tw-text-sm dark:tw-text-slate-400">
                 {actividad.descripcion_corta}
               </p>
-              <p className="mt-3 text-lg">
-                <span className="text-slate-400 text-sm mr-1">Desde:</span>
-                <span className="font-bold text-green-600 dark:text-green-400">
+              <p className="tw-mt-3 tw-text-lg">
+                <span className="tw-text-slate-400 tw-text-sm tw-mr-1">
+                  Desde:
+                </span>
+                <span className="tw-font-bold tw-text-green-600 dark:tw-text-green-400">
                   {actividad.precio}€
                 </span>
               </p>
@@ -155,31 +156,32 @@ function Resultado({ tickets, actividades, setActividades }) {
           </article>
         );
       })}
-
       {activeActividad && (
         <Modal dismissible show={true} onClose={() => setActiveActividad(null)}>
-          <Modal.Header>{activeActividad.titulo}</Modal.Header>
-          <Modal.Body>
-            <div className="space-y-6">
+          <Modal.Header className="dark:tw-bg-slate-800">
+            {activeActividad.titulo}
+          </Modal.Header>
+          <Modal.Body className="dark:tw-bg-slate-800">
+            <div className="tw-space-y-6 ">
               <img
                 alt="Imagen actividad"
                 src={activeActividad.img}
-                className="w-full h-[20vh] object-cover rounded-lg"
+                className="tw-w-full tw-h-[20vh] tw-object-cover tw-rounded-lg"
               />
-              <p className="dark:text-slate-300">
+              <p className="dark:tw-text-slate-300">
                 {activeActividad.descripcion_corta}
               </p>
-              <div className="grid grid-cols-2 gap-5">
+              <div className="tw-grid tw-grid-cols-2 tw-gap-5">
                 {isSelected ? (
                   <div>
                     {formatearFecha(fechaSeleccionada)} - {horaSeleccionada}
                   </div>
                 ) : (
                   <>
-                    <div className="relative ">
+                    <div className="tw-relative">
                       <select
                         id="fecha"
-                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                         value={fechaSeleccionada}
                         onChange={(e) => setFechaSeleccionada(e.target.value)}
                       >
@@ -192,7 +194,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                           )
                         )}
                       </select>
-                      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                         <FaCalendarAlt />
                       </div>
                     </div>
@@ -200,10 +202,10 @@ function Resultado({ tickets, actividades, setActividades }) {
                 )}
                 {fechaSeleccionada && !isSelected && (
                   <>
-                    <div className="relative ">
+                    <div className="tw-relative">
                       <select
                         id="hora"
-                        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                         value={horaSeleccionada}
                         onChange={(e) => setHoraSeleccionada(e.target.value)}
                       >
@@ -216,7 +218,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                           </option>
                         ))}
                       </select>
-                      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                         <FaClock />
                       </div>
                     </div>
@@ -224,12 +226,12 @@ function Resultado({ tickets, actividades, setActividades }) {
                 )}
               </div>
               {fechaSeleccionada && horaSeleccionada && (
-                <div className="mt-4">
-                  <label className="block font-semibold  dark:text-slate-100">
+                <div className="tw-mt-4">
+                  <label className="tw-block tw-font-semibold dark:tw-text-slate-100">
                     Entradas:
                   </label>
                   {isSelected ? (
-                    <div className="flex gap-4">
+                    <div className="tw-flex tw-gap-4">
                       <div>
                         <p>
                           Adultos: {entradasSeleccionadas.adulto} (
@@ -244,18 +246,18 @@ function Resultado({ tickets, actividades, setActividades }) {
                       </div>
                     </div>
                   ) : (
-                    <div className="flex gap-4">
+                    <div className="tw-flex tw-gap-4">
                       <div>
                         <label
                           htmlFor="adulto"
-                          className="block text-sm  dark:text-slate-100"
+                          className="tw-block tw-text-sm dark:tw-text-slate-100"
                         >
                           Adultos ({activeActividad.tiposEntradas.adulto.precio}
                           €)
                         </label>
                         <select
                           id="adulto"
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                           value={entradasSeleccionadas.adulto}
                           onChange={(e) =>
                             handleTicketChange("adulto", e.target.value)
@@ -278,13 +280,13 @@ function Resultado({ tickets, actividades, setActividades }) {
                       <div>
                         <label
                           htmlFor="niño"
-                          className="block text-sm  dark:text-slate-100"
+                          className="tw-block tw-text-sm dark:tw-text-slate-100"
                         >
                           Niños ({activeActividad.tiposEntradas.niño.precio}€)
                         </label>
                         <select
                           id="niño"
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                           value={entradasSeleccionadas.niño}
                           onChange={(e) =>
                             handleTicketChange("niño", e.target.value)
@@ -310,15 +312,17 @@ function Resultado({ tickets, actividades, setActividades }) {
               )}
             </div>
           </Modal.Body>
-          <Modal.Footer>
+          <Modal.Footer
+          className="dark:tw-bg-slate-800"
+          >
             <button
-              className="p-3 bg-slate-500 text-white font-semibold rounded-lg shadow"
+              className="tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
               onClick={() => setActiveActividad(null)}
             >
               Cerrar
             </button>
             <button
-              className="p-3 bg-secondary text-white font-semibold rounded-lg shadow"
+              className="tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
               onClick={() => handleSelectActividad(activeActividad)}
             >
               {isSelected

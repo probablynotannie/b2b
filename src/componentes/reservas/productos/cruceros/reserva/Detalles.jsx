@@ -1,36 +1,15 @@
 import Itinerario from "../crucero/Itinerario";
-function Detalles({ cabinPhotos, producto }) {
+function Detalles({producto }) {
   return (
     <div>
-      <section className="mt-5">
-        <h3 className="font-semibold dark:text-slate-100">Incluidos</h3>
-        <div className="flex flex-wrap gap-3 mt-2">
-          {producto.incluidos.map((incluido, index) => (
-            <span
-              key={index}
-              className="rounded-lg bg-secondary font-semibold dark:bg-slate-700 text-sm p-1 text-white"
-            >
-              {incluido}
-            </span>
-          ))}
+      <section className="tw-mt-5">
+        <div className="tw-bg-slate-50 tw-mt-5 dark:tw-bg-slate-700 dark:tw-text-slate-300  tw-p-3 tw-my-5">
+          <h3 className="tw-font-semibold tw-text-lg">
+            {producto.barco.nombre.texto}
+          </h3>
+          <p className="tw-text-sm  tw-rounded">{producto.barco.descripcion}</p>
         </div>
-        <p className=" text-sm bg-slate-50 mt-5 dark:bg-slate-700 dark:text-slate-300 p-3 rounded">
-          {producto.descripcion}
-        </p>
-        <Itinerario producto={producto} />
-      </section>
-      <section className="p-3">
-        <h3 className="font-semibold dark:text-slate-100">Fotos Camarote</h3>
-        <div className="grid grid-cols-2 md:grid-cols-4 gap-4 mt-4 p-2">
-          {cabinPhotos.map((photo, index) => (
-            <img
-              key={index}
-              src={photo}
-              alt={`Photo`}
-              className="rounded-lg shadow-md hover:shadow-lg object-cover hover:scale-110 transition duration-300"
-            />
-          ))}
-        </div>
+        <Itinerario producto={producto.itin_dias} />
       </section>
     </div>
   );

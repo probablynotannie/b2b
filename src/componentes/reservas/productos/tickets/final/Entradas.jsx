@@ -1,7 +1,7 @@
 import React from "react";
 import { FaTicket } from "react-icons/fa6";
 import Detalles from "../Detalles";
-function Entradas({ producto, tickets }) {
+function Entradas({ producto, tickets, data }) {
   const calculateTotalPrice = () => {
     return tickets.reduce((total, ticket) => {
       const pricePerTicket =
@@ -14,22 +14,27 @@ function Entradas({ producto, tickets }) {
   };
 
   return (
-    <section className="mt-10 shadow-lg  hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
-      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
+    <section className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
+      <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
         <div>
-          <h3 className="text-lg font-bold dark:text-white">
+          <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
             {producto.titulo}
           </h3>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <FaTicket className="text-xl text-secondary dark:text-secondaryDark" />
-          <span className="text-secondary dark:text-secondaryDark font-bold">
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+          <FaTicket className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {calculateTotalPrice().toFixed(2)}€
           </span>
         </div>
       </section>
       <section>
-        <Detalles producto={producto} tickets={tickets} cesta={true} />
+        <Detalles
+          producto={producto}
+          tickets={tickets}
+          cesta={true}
+          data={data}
+        />
       </section>
     </section>
   );

@@ -1,184 +1,217 @@
 import { useState } from "react";
-import Input_Buscador from "../../../../inputs/Buscador2";
-import Input_DateRange from "../../../../inputs/DateRange";
+import Input_Buscador from "../../../../inputs/Buscador";
+import Input_DateRange from "../../../../inputs/DateRangeWithTime";
+import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
 import Input_Edad from "../../../../inputs/Edad";
 import { FaSearch } from "react-icons/fa";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [horaRecogida, setHoraRecogida] = useState(new Date());
-  const [horaDevolucion, setHoraDevolucion] = useState(new Date());
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [edad, setEdad] = useState();
-  const [destino, setDestino] = useState();
+  const navigate = useNavigate();
   const [devolucion, setDevolucion] = useState();
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+    { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
+    { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
+    { id: 2, type: "Destino", name: "BARCELONA", destino: "Madrid" },
+    { id: 3, type: "Destino", name: "SEVILLA", destino: "Sevilla" },
+    {
+      id: 4,
+      type: "Destino",
+      name: "MADRID - CAPE GIRARDEAU",
+      destino: "Madrid",
+    },
+    { id: 5, type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
+    { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
+    { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
 
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const [isEntregaCiudadChecked, setIsEntregaCiudadChecked] = useState(false);
-  const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const handleCheckboxChange = (event) => {
-    setIsEntregaCiudadChecked(event.target.checked);
-  };
+  const { setValue, control, handleSubmit } = useForm({
+    defaultValues: {
+      edadConductor: 2,
+      horaRecogida: "12:00",
+      horaDevolucion: "12:00",
+      origen: 0,
+      destino: 0,
+      startDate: 0,
+      endDate: 0,
+    },
+  });
+  const onSubmit = (data) => {
+    console.log(data);
 
+    navigate("/listadoCoches", {
+      state: { data },
+    });
+  };
   return (
     <>
-      {/* The search button */}
       <button
         onClick={toggleModal}
-        className="relative border-2 dark:border-slate-700 bg-white lg:hidden dark:bg-slate-800  dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-3 pl-10 w-full cursor-pointer"
+        className="tw-relative tw-border-2 dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
       >
         Cambiar busqueda
-        <span className="absolute dark:bg-slate-800 dark:border-slate-800 dark:border-y-2 dark:border-l-2 top-0 left-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
           <FaSearch />
         </span>
       </button>
 
-      {/* Modal for md screens and above */}
       <div
-        className={`fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ${
-          isModalOpen ? "opacity-100 z-50 " : "opacity-0 pointer-events-none"
+        className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
+          isModalOpen
+            ? "tw-opacity-100 tw-z-50 "
+            : "tw-opacity-0 tw-pointer-events-none"
         }`}
-        // Close modal when clicking outside
       >
         <div
-          className="bg-white w-full h-full md:w-full md:h-full rounded-none md:rounded-xl shadow-lg dark:bg-slate-800 "
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
+          className="tw-bg-white tw-w-full tw-h-full md:tw-w-full md:tw-h-full tw-rounded-none md:tw-rounded-xl tw-shadow-lg dark:tw-bg-slate-800"
+          onClick={(e) => e.stopPropagation()}
         >
           <div>
-            <div className="w-full h-full mx-auto  relative ">
-              <div className="flex justify-between items-center mb-4 bg-primary dark:bg-slate-900  p-5 ">
-                <h2 className="text-xl font-bold text-white ">Buscador</h2>
-                <button onClick={toggleModal} className="text-xl text-white">
+            <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
+              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-700 dark:tw-bg-slate-900 tw-p-5">
+                <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                  Buscador
+                </h2>
+                <button
+                  onClick={toggleModal}
+                  className="tw-text-xl tw-text-white"
+                >
                   &times;
                 </button>
               </div>
             </div>
           </div>
-          <div className="grid grid-cols-12 gap-3 p-5 ">
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
+          <form className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
                 destinos={destinos}
-                destino={destino}
-                setDestino={setDestino}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_Buscador
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
               />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_DateRangeMobile
+                control={control}
+                nameStartDate="startDate"
+                nameEndDate="endDate"
+                placeholder="Selecciona un rango de fechas"
+              />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_Hora
+                control={control}
+                setValue={setValue}
+                name={"horaRecogida"}
+                defaultValue="12:00"
+              />
             </div>
-            <div className="col-span-12 md:col-span-6 lg:col-span-4">
-              <Input_Edad edad={edad} setEdad={setEdad} />
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_Hora
+                control={control}
+                setValue={setValue}
+                name={"horaDevolucion"}
+                defaultValue="12:00"
+              />
+            </div>
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_Edad
+                control={control}
+                name="edadConductor"
+                edadMinima={18}
+                edadMaxima={100}
+              />
             </div>
 
-            {/* Conditional render based on checkbox */}
-            {isEntregaCiudadChecked && (
-              <div className="col-span-12 md:col-span-6 lg:col-span-4">
-                <Input_Buscador
-                  destinos={destinos}
-                  destino={devolucion}
-                  setDestino={setDevolucion}
-                />
-              </div>
-            )}
-
-            <div className="flex lg:justify-center justify-end lg:col-span-1 col-span-12 md:col-span-6">
-              <button className="bg-primary dark:bg-slate-900 flex justify-center items-center w-full h-full p-3 px-10 rounded-lg shadow">
-                <FaSearch className="text-white text-xl" />
+            <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
+              <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+                <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
-            <div className="flex flex-col justify-center items-center col-span-12 ">
+            <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
               <button
-                className="text-2xl rounded-full w-[50px] h-[50px] border-2 mt-10 text-slate-300 border-slate-300"
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
                 onClick={toggleModal}
               >
                 X
               </button>
-              <span className="text-slate-400">Cerrar</span>
+              <span className="tw-text-slate-400">Cerrar</span>
             </div>
-          </div>
+          </form>
         </div>
       </div>
 
-      <div className="hidden lg:block border-2 dark:border-slate-800 rounded-xl shadow-lg min-h-28 p-5 bg-white dark:bg-slate-800">
-        <h2 className="mb-4 font-bold text-xl dark:text-secondaryDark">
+      <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
+        <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondaryDark">
           Buscador
         </h2>
-        <div className="grid grid-cols-12 gap-3">
-          <div className="col-span-12 md:col-span-6 lg:col-span-3">
+        <form
+          onSubmit={handleSubmit(onSubmit)}
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+        >
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
               destinos={destinos}
-              destino={destino}
-              setDestino={setDestino}
             />
-            <div className="flex items-center mb-4">
-              <input
-                id="entrega_ciudad"
-                type="checkbox"
-                checked={isEntregaCiudadChecked}
-                onChange={handleCheckboxChange}
-                className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-secondary dark:focus:ring-secondary dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
-              />
-              <label
-                htmlFor="entrega_ciudad"
-                className="ms-2 text-sm font-medium text-gray-900 dark:text-gray-300"
-              >
-                Entrega en la misma ciudad
-              </label>
-            </div>
           </div>
-          {isEntregaCiudadChecked && (
-            <div className="col-span-12 md:col-span-6 lg:col-span-3">
-              <Input_Buscador
-                destinos={destinos}
-                destino={devolucion}
-                setDestino={setDevolucion}
-              />
-            </div>
-          )}
-          <div className="col-span-12 md:col-span-6 lg:col-span-2">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
+            <Input_Buscador
+              required={true}
+              control={control}
+              name={"destino"}
+              setValue={setValue}
+              placeholder={"Destino"}
+              destinos={destinos}
+            />
+          </div>
+          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
+              control={control}
+              nameFecha="startDate"
+              nameHora="horaRecogida"
+              placeholder="Selecciona una fecha y hora"
             />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-1">
-            <Input_Hora hora={horaRecogida} setHora={setHoraRecogida} />
+          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
+            <Input_DateRange
+              control={control}
+              nameFecha="endDate"
+              nameHora="horaDevolucion"
+              placeholder="Selecciona una fecha y hora"
+            />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-1">
-            <Input_Hora hora={horaDevolucion} setHora={setHoraDevolucion} />
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">
+            <Input_Edad
+              control={control}
+              name="edadConductor"
+              edadMinima={18}
+              edadMaxima={100}
+            />
           </div>
-          <div className="col-span-12 md:col-span-6 lg:col-span-1">
-            <Input_Edad edad={edad} setEdad={setEdad} />
-          </div>
-
-          <div className="flex lg:justify-end justify-end  lg:col-span-1 xl:col-span-12 2xl:col-span-1 col-span-12 md:col-span-6 ">
-            <button className="bg-primary dark:bg-slate-900  flex justify-center items-center h-fit p-3 px-10 rounded-lg shadow">
-              <FaSearch className="text-white text-xl" />
-            </button>
-          </div>
-        </div>
+          <button className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1 2xl:tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">
+            <FaSearch className="tw-text-white tw-text-xl" />
+          </button>
+        </form>
       </div>
     </>
   );

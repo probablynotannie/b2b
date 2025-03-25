@@ -1,4 +1,5 @@
 import { useNavigate } from "react-router-dom";
+
 function Landing() {
   const navigate = useNavigate();
   const imagenes = [
@@ -89,21 +90,22 @@ function Landing() {
   ];
 
   return (
-    <div className="grid grid-cols-2 md:grid-cols-4 w-full gap-0.5 flex-grow lg:-mb-16">
+    <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-4 tw-w-full tw-gap-0.5 tw-flex-grow lg:-tw-mb-16">
       {imagenes.map((img, index) => (
         <div
           key={index}
-          className={`relative transition bg-cover border-1 border-slate-100 bg-center cursor-pointer flex items-center justify-center text-white font-semibold text-lg ${
-            index >= imagenes.length - (imagenes.length % 4) && "md:col-span-2"
+          className={`tw-relative tw-transition tw-bg-cover tw-border-1 tw-border-slate-100 tw-bg-center tw-cursor-pointer tw-flex tw-items-center tw-justify-center tw-text-white tw-font-semibold tw-text-lg ${
+            index >= imagenes.length - (imagenes.length % 4) && "md:tw-col-span-2"
           }`}
           style={{ backgroundImage: `url(${img.url})` }}
           onClick={() => navigate(img.route)}
         >
-          <div className="absolute inset-0 bg-black dark:bg-opacity-25  dark:bg-black bg-opacity-20 hover:bg-opacity-50 transition duration-300"></div>
-          <span className="relative z-10 text-xl">{img.inner}</span>
+          <div className="tw-absolute tw-inset-0 tw-bg-black tw-dark:tw-bg-opacity-25 tw-dark:tw-bg-black tw-bg-opacity-20 hover:tw-bg-opacity-50 tw-transition tw-duration-300"></div>
+          <span className="tw-relative tw-z-10 tw-text-xl">{img.inner}</span>
         </div>
       ))}
     </div>
   );
 }
+
 export default Landing;

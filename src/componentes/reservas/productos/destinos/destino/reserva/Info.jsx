@@ -29,41 +29,41 @@ function Info() {
   };
   return (
     <div>
-      <h3 className="text-xl font-bold dark:text-secondaryDark flex items-center">
+      <h3 className="tw-text-xl tw-font-bold dark:tw-text-secondaryDark tw-flex tw-items-center">
         Información complementaria de la reserva
-        <FaInfoCircle className="text-xl ml-2" />
+        <FaInfoCircle className="tw-text-xl tw-ml-2" />
       </h3>
-      <div className="flex flex-row flex-wrap justify-around mt-5">
+      <div className="tw-flex tw-flex-row tw-flex-wrap tw-justify-around tw-mt-5 tw-gap-5">
         {condiciones.map((condicion, index) => (
           <Card
             key={index}
-            className={`max-w-sm hover:shadow-xl  transition dark:bg-slate-700 dark:hover:bg-slate-900 ${
-              index === 0 ? "bg-green-100" : "bg-orange-100"
+            className={`tw-max-w-sm hover:tw-shadow-xl tw-transition dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 ${
+              index === 0 ? "tw-bg-green-100" : "tw-bg-orange-100"
             } `}
           >
-            <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white">
+            <h5 className="tw-text-2xl tw-font-bold tw-tracking-tight tw-text-slate-900 dark:tw-text-white">
               {condicion.titulo}
             </h5>
-            <p className="font-normal text-slate-700 dark:text-slate-400">
+            <p className="tw-font-normal tw-text-slate-700 dark:tw-text-slate-400">
               {condicion.texto}
             </p>
           </Card>
         ))}
       </div>
-      <Card className="my-10 mx-10 hover:shadow-xl transition bg-red-100 dark:bg-slate-700 dark:hover:bg-slate-900 p-6">
-        <h5 className="text-2xl font-bold tracking-tight text-slate-900 dark:text-white mb-4">
+      <Card className="tw-my-10 md:tw-mx-0 hover:tw-shadow-xl tw-transition tw-bg-red-100 dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 tw-p-6">
+        <h5 className="tw-text-2xl tw-font-bold tw-tracking-tight tw-text-slate-900 dark:tw-text-white tw-mb-4">
           {cancelacion.titulo}
         </h5>
         <p
-          className={`font-normal text-slate-700 dark:text-slate-400 ${
-            !isExpanded ? "line-clamp-3" : ""
+          className={`tw-font-normal tw-text-slate-700 dark:tw-text-slate-400 ${
+            !isExpanded ? "tw-line-clamp-3" : ""
           }`}
         >
           {cancelacion.texto}
         </p>
         <button
           onClick={toggleReadMore}
-          className="text-slate-500 dark:text-slate-300 mt-2 font-semibold"
+          className="tw-text-slate-500 dark:tw-text-slate-300 tw-mt-2 tw-font-semibold"
         >
           {isExpanded ? "Leer menos" : "Leer más"}
         </button>

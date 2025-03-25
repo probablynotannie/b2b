@@ -1,54 +1,33 @@
 import { GiCruiser } from "react-icons/gi";
-import formatearFecha from "../../../estructura/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import Detalles from "../reserva/Detalles";
-import { FaUser } from "react-icons/fa6";
-function Crucero({
-  producto,
-  cabinPhotos,
-  pasajeros,
-  selectedDate,
-  endDate,
-  selectedPrice,
-}) {
+import Pasajeros from "../reserva/Pasajeros";
+
+function Crucero({ producto, pasajeros, selectedPrice }) {
   return (
-    <section className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
-      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
+    <section className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
+      <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
         <div>
-          <h3 className="text-lg font-bold dark:text-white">
-            {producto.titulo}
+          <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
+            {producto.barco.nombre.texto}
           </h3>
-          <p className="text-slate-500 dark:text-slate-300 flex gap-2 items-center">
-            {formatearFecha(selectedDate)} - {formatearFecha(endDate)}
+          <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
+            {formatearFecha(selectedPrice.date)}
           </p>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <GiCruiser className="text-xl text-secondary dark:text-secondaryDark" />
-          <span className="text-secondary dark:text-secondaryDark font-bold">
-            {selectedPrice.toFixed(2)}€
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+          <GiCruiser className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
+            {selectedPrice.price.toFixed(2)}€
           </span>
         </div>
       </section>
-      <section className="border-2 p-3 border-slate-100 dark:border-slate-700">
-        <h4 className="font-bold text-slate-700 dark:text-slate-200">
-          {pasajeros.length}x Pasajero{pasajeros.length > 1 ? "s" : ""}{" "}
-        </h4>
-        <div className="flex flex-wrap gap-10">
-          {pasajeros.map((pasajero, index) => (
-            <div
-              className="bg-slate-100 dark:bg-slate-700 dark:text-slate-300 shadow rounded-lg p-2 flex items-center gap-2"
-              key={pasajero.id}
-            >
-              <FaUser />
-              <p>
-                <span className="font-bold"> Pasajero {index + 1} </span>-{" "}
-                {pasajero.age} Años - {pasajero.discount}% descuento
-              </p>
-            </div>
-          ))}
-        </div>
-      </section>
-      <Detalles cabinPhotos={cabinPhotos} producto={producto} />
+      <Pasajeros pasajeros={pasajeros} />
+      <Detalles producto={producto} />
     </section>
   );
 }
+
 export default Crucero;

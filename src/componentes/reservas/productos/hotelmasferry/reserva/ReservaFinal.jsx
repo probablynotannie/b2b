@@ -3,60 +3,60 @@ import { Link } from "react-router-dom";
 import Seleccion from "../seleccion/Detalles";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { FaHotel, FaShip } from "react-icons/fa";
-import formatearFecha from "../../../estructura/FormatearFecha";
-
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import DatosContacto from "../../../estructura/DatosContacto";
+
 function ReservaFinal() {
   const location = useLocation();
-  const { hotel, ferry, datosContacto, habitacion } = location.state || {};
+  const { hotel, ferry, data, habitacion } = location.state || {};
   return (
-    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
+    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
+      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
         <Seleccion hotel={hotel} ferry={ferry} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+        <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Datos de pasajero
         </h2>
         <Reserva img={"/banner_ferry.jpg"} txt={"Hotel + Ferry"} />
-        <ul className="text-slate-500 dark:text-slate-300 text-sm my-3">
-          <li className="flex justify-between items-center">
-            <span className="flex items-center gap-1">
-              <FaHotel className="text-secondary" />
+        <ul className="tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm tw-my-3">
+          <li className="tw-flex tw-justify-between tw-items-center">
+            <span className="tw-flex tw-items-center tw-gap-1">
+              <FaHotel className="tw-text-secondary" />
               {hotel.nombre}
             </span>
             <span>{hotel.precio}€</span>
           </li>
-          <li className="flex items-center gap-1 text-slate-400">
+          <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-400">
             {hotel.fecha} - {hotel.fechaSalida}
           </li>
-          <li className="flex justify-between items-center">
-            <span className="flex items-center gap-1">
-              <FaShip className="text-secondary" />
+          <li className="tw-flex tw-justify-between tw-items-center">
+            <span className="tw-flex tw-items-center tw-gap-1">
+              <FaShip className="tw-text-secondary" />
               {ferry.ida.ruta}
             </span>
             <span>
               {(ferry.ida.precio + ferry.vuelta?.precio || 0).toFixed(2)}€
             </span>
           </li>
-          <li className="flex items-center gap-1 text-slate-400">
-            {formatearFecha(ferry.ida.fecha)} -{" "}
-            {formatearFecha(ferry.vuelta?.fecha)}
+          <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-400">
+            {FormatearFecha(ferry.ida.fecha)} -{" "}
+            {FormatearFecha(ferry.vuelta?.fecha)}
           </li>
         </ul>
-        <div className="border-t-2 border-slate-100 dark:border-slate-700 mt-5">
+        <div className="tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-mt-5">
           <DatosContacto
-            nombre={datosContacto.nombre}
-            apellidos={datosContacto.apellido}
-            email={datosContacto.email}
-            numero={datosContacto.numero}
+            nombre={data.nombre}
+            apellidos={data.apellido}
+            email={data.email}
+            numero={data.numero}
           />
         </div>
         <Link
           to={"/resumenHotelmasFerry"}
-          state={{ hotel, ferry, datosContacto, habitacion }}
+          state={{ hotel, ferry, data, habitacion }}
         >
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
+          <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
             {parseFloat(hotel.precio) +
               parseFloat(ferry.ida.precio.toFixed(2)) +
               parseFloat((ferry.vuelta?.precio || 0).toFixed(2))}

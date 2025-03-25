@@ -5,33 +5,32 @@ import { Link } from "react-router-dom";
 import { FaWallet } from "react-icons/fa";
 
 function Cajas({ selectedCars }) {
-  // Find the highest and lowest price in selectedCars
   const prices = selectedCars.map((car) => car.precio);
   const highestPrice = Math.max(...prices);
   const lowestPrice = Math.min(...prices);
 
   return (
     <div>
-      <div className="relative overflow-x-auto">
-        <table className="w-full text-sm text-left rtl:text-right text-slate-500 dark:text-slate-400">
-          <thead className="text-xs text-slate-700 uppercase bg-slate-50 dark:bg-slate-900 dark:text-slate-400">
+      <div className="tw-relative tw-overflow-x-auto tw-mt-5">
+        <table className="tw-w-full tw-text-sm tw-text-left rtl:tw-text-right tw-text-slate-500  dark:tw-text-slate-200">
+          <thead className="tw-text-xs tw-text-slate-700 tw-uppercase tw-bg-slate-50 dark:tw-bg-slate-900 dark:tw-text-slate-400">
             <tr>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="tw-px-6 tw-py-3">
                 Coche
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="tw-px-6 tw-py-3">
                 Puertas
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="tw-px-6 tw-py-3">
                 Pasajeros
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="tw-px-6 tw-py-3">
                 AC
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="tw-px-6 tw-py-3">
                 Cambio
               </th>
-              <th scope="col" className="px-6 py-3">
+              <th scope="col" className="tw-px-6 tw-py-3">
                 Precio
               </th>
             </tr>
@@ -44,24 +43,24 @@ function Cajas({ selectedCars }) {
               return (
                 <tr
                   key={index}
-                  className="bg-white border-b dark:bg-slate-800 dark:border-slate-700"
+                  className="tw-bg-white tw-border-b dark:tw-bg-slate-800 dark:tw-border-slate-700"
                 >
                   <Link to={"/coche"} state={coche}>
                     <th
                       scope="row"
-                      className="px-6 py-4 font-medium text-slate-900 whitespace-nowrap dark:text-white"
+                      className="tw-px-6 tw-py-4 tw-font-medium tw-text-slate-900 tw-whitespace-nowrap dark:tw-text-white"
                     >
                       {coche.nombre}
                     </th>
                   </Link>
-                  <td className="px-6 py-4">{coche.puertas}</td>
-                  <td className="px-6 py-4">{coche.capacidad}</td>
-                  <td className="px-6 py-4">
+                  <td className="tw-px-6 tw-py-4">{coche.puertas}</td>
+                  <td className="tw-px-6 tw-py-4">{coche.capacidad}</td>
+                  <td className="tw-px-6 tw-py-4">
                     {coche.AC === true ? "Sí" : "No"}
                   </td>
-                  <td className="px-6 py-4">{coche.cambio}</td>
+                  <td className="tw-px-6 tw-py-4">{coche.cambio}</td>
                   <td
-                    className={`px-6 py-4 ${
+                    className={`tw-px-6 tw-py-4 ${
                       isHighestPrice
                         ? "bg-red-400 dark:bg-red-800 text-white"
                         : isLowestPrice

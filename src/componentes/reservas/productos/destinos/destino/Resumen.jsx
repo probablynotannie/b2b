@@ -1,4 +1,3 @@
-import { FaPerson } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { Link } from "react-router-dom";
@@ -6,31 +5,30 @@ import { FaMapPin, FaClock } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import { MdRestaurant } from "react-icons/md";
 function Resumen({ producto, selectedHotel, handleHotelChange }) {
-  console.log(producto);
   return (
     <>
-      <h2 className="text-xl font-bold dark:text-slate-300">
+      <h2 className="tw-text-xl tw-font-bold dark:tw-text-slate-300">
         {producto.nombre}
       </h2>
-      <p className="flex items-center flex-wrap  font-semibold mb-5">
-        <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-          <FaMapPin className="text-secondary text-lg" />
+      <p className="tw-flex tw-items-center tw-flex-wrap tw-font-semibold tw-mb-5">
+        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-600 dark:tw-text-slate-400 tw-text-sm">
+          <FaMapPin className="tw-text-secondary tw-text-lg" />
           {producto.ubicacion}
         </span>
-        <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-          <FaClock className="mr-2 text-secondary text-lg" />
+        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-600 dark:tw-text-slate-400 tw-text-sm">
+          <FaClock className="tw-mr-2 tw-text-secondary tw-text-lg" />
           {producto.dias} días
         </span>
 
-        <span className="mr-2 flex items-center text-slate-600 dark:text-slate-400 text-sm">
-          <MdRestaurant className="mr-2 text-secondary text-lg" />
+        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-600 dark:tw-text-slate-400 tw-text-sm">
+          <MdRestaurant className="tw-mr-2 tw-text-secondary tw-text-lg" />
           {producto.desayunos} desayunos
         </span>
       </p>
-      <div className="mt-4">
-        <div className="relative">
+      <div className="tw-mt-4">
+        <div className="tw-relative">
           <select
-            className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
             value={selectedHotel}
             onChange={handleHotelChange}
           >
@@ -40,40 +38,40 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
               </option>
             ))}
           </select>
-          <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+          <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaBed />
           </div>
         </div>
       </div>
-      <div className="mt-5 border-t-2 border-slate-100 dark:border-slate-700 pt-3 text-sm">
-        <div className="flex justify-between dark:text-slate-300 text-slate-500">
+      <div className="tw-mt-5 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pt-3 tw-text-sm">
+        <div className="tw-flex tw-justify-between dark:tw-text-slate-300 tw-text-slate-500">
           <span>PAX</span>
-          <ul className="flex gap-2 dark:text-slate-300 ">
-            <li className="flex items-center">{producto.pax}x</li>
+          <ul className="tw-flex tw-gap-2 dark:tw-text-slate-300">
+            <li className="tw-flex tw-items-center">{producto.pax}x</li>
           </ul>
         </div>
-        <p className="dark:text-slate-300 flex justify-between text-slate-500 text-sm">
+        <p className="dark:tw-text-slate-300 tw-flex tw-justify-between tw-text-slate-500 tw-text-sm">
           <span>PVP Desde (por persona)</span>
           <span>{producto.precio} €</span>
         </p>
-        <p className=" text-secondary  flex justify-between font-bold mt-2 border-t-2 border-slate-100 dark:border-slate-600 pt-3">
+        <p className="tw-text-secondary tw-flex tw-justify-between tw-font-bold tw-mt-2 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-600 tw-pt-3">
           <span>Total</span>
           <span>
             {producto.pax * producto.precio}
-            <span className="text-secondary font-bold ml-1">€</span>
+            <span className="tw-text-secondary tw-font-bold tw-ml-1">€</span>
           </span>
         </p>
       </div>
-      <div className="mt-2 flex justify-center dark:text-slate-400 text-slate-500">
-        <button className="flex flex-row items-center justify-center font-semibold transition text-sm">
+      <div className="tw-mt-2 tw-flex tw-justify-center dark:tw-text-slate-400 tw-text-slate-500">
+        <button className="tw-flex tw-flex-row tw-items-center tw-justify-center tw-font-semibold tw-transition tw-text-sm">
           Descargar carteleria AAVV
-          <FaFilePdf className=" ml-1" />
+          <FaFilePdf className="tw-ml-1" />
         </button>
       </div>
-      <div className="mt-4">
+      <div className="tw-mt-4">
         <Link to="/fecha" state={producto}>
-          <button className="bg-secondary w-full p-3 rounded-lg font-bold text-white text-lg shadow-lg hover:shadow-xl transition flex flex-row justify-center items-center ">
-            <FaCalendarAlt className="dark:text-white text-xl mr-2" />
+          <button className="tw-bg-secondary tw-w-full tw-p-3 tw-rounded-lg tw-font-bold tw-text-white tw-text-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-flex tw-flex-row tw-justify-center tw-items-center">
+            <FaCalendarAlt className="dark:tw-text-white tw-text-xl tw-mr-2" />
             Ver fechas y precios
           </button>
         </Link>

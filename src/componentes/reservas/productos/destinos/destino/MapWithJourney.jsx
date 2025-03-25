@@ -12,7 +12,7 @@ const MapWithJourney = ({ destino }) => {
   const positions = destino.noches.map(({ lat, lng }) => [lat, lng]);
 
   return (
-    <div className="w-full h-full mb-0 ">
+    <div className="tw-w-full tw-h-full tw-mb-0">
       <MapContainer
         center={positions[0]}
         zoom={6}

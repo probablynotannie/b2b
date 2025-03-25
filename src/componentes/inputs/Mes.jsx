@@ -1,33 +1,47 @@
 import { FaCalendarAlt } from "react-icons/fa";
 import { DatesProvider, MonthPickerInput } from "@mantine/dates";
+import { Controller } from "react-hook-form";
 import "dayjs/locale/es";
-function InputMes({ mes, setMes }) {
-  const handleMonthChange = (newDate) => {
-    if (newDate) {
-      const updatedDate = new Date(newDate);
-      const month = updatedDate.getMonth();
-      setMes(month);
-    }
-  };
+import { useState } from "react";
+function InputMes({ control, name }) {
+  const [anioSel, setYear] = useState(new Date().getFullYear());
+
   return (
-    <div>
-      <DatesProvider settings={{ locale: "es" }}>
-        <div className="relative">
-          <MonthPickerInput
-            value={mes ? new Date(2023, mes, 1) : null}
-            placeholder="Mes"
-            classNames={{
-              input:
-                "border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer",
-            }}
-            onChange={handleMonthChange}
-          />
-          <div className="absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
-            <FaCalendarAlt />
-          </div>
+    <DatesProvider settings={{ locale: "es" }}>
+      <div className="tw-relative">
+        <Controller
+          name={name}
+          control={control}
+          render={({ field }) => (
+            <MonthPickerInput
+              {...field}
+              value={field.value ? new Date(anioSel, field.value - 1, 1) : null}
+              placeholder="Mes"
+              classNames={{
+                input:
+                  "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer",
+              }}
+              onChange={(newDate) => {
+                if (newDate) {
+                  const updatedDate = new Date(newDate);
+                  let month = updatedDate.getMonth() + 1;
+                  let year = updatedDate.getFullYear();
+                  setYear(year);
+                  month = String(month).padStart(2, "0");
+                  field.onChange(Number(month));
+                } else {
+                  field.onChange(null);
+                }
+              }}
+            />
+          )}
+        />
+
+        <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2">
+          <FaCalendarAlt />
         </div>
-      </DatesProvider>
-    </div>
+      </div>
+    </DatesProvider>
   );
 }
 

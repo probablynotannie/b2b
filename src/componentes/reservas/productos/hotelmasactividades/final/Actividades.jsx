@@ -10,27 +10,27 @@ function Actividades({ actividades }) {
     return actividadesTotal;
   };
   return (
-    <article className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
-      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
+    <article className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
+      <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
         <div>
-          <h3 className="text-lg font-bold dark:text-white">
+          <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
             {actividades.length} actividad{actividades.length > 1 ? "es" : ""}{" "}
             reservadas
           </h3>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <FaUser className="text-xl text-secondary dark:text-secondaryDark" />
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+          <FaUser className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
 
-          <span className="text-secondary dark:text-secondaryDark font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {calculateTotalPrice()}€
           </span>
         </div>
       </section>
-      <div className="grid md:grid-cols-3 gap-5">
+      <div className="tw-grid md:tw-grid-cols-3 tw-gap-5">
         {actividades.map((actividad, index) => (
           <section
             key={index}
-            className="pb-20 bg-white duration-300 dark:bg-slate-900 h-auto max-w-full rounded-lg rounded-t-lg  shadow transition relative dark:border-2 dark:border-slate-700"
+            className="tw-pb-20 tw-bg-white tw-duration-300 dark:tw-bg-slate-900 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow tw-transition tw-relative dark:tw-border-2 dark:tw-border-slate-700"
           >
             <Actividad actividad={actividad} />
           </section>

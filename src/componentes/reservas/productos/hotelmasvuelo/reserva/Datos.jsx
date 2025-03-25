@@ -4,30 +4,19 @@ import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useState } from "react";
-import { Link } from "react-router-dom";
-import formatearFecha from "../../../estructura/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { useNavigate } from "react-router-dom";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import { useForm, Controller } from "react-hook-form";
+
 function Datos() {
   const location = useLocation();
-  const { selectedHotel, ida, vuelta,habitacion } = location.state || {};
+  const { selectedHotel, ida, vuelta, habitacion } = location.state || {};
   const img = "/banner_avion.jpg";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
-  const fechaIda = formatearFecha(ida.flight.outboundDate);
-  const fechaVuelta = vuelta ? formatearFecha(vuelta.flight.returnDate) : "";
-  const [datosContacto, setDatosContacto] = useState({
-    email: "",
-    nombre: "",
-    apellido: "",
-    numero: "",
-  });
-  const handleChange = (key, value) => {
-    setDatosContacto((prev) => ({
-      ...prev,
-      [key]: value,
-    }));
-  };
+  const fechaIda = FormatearFecha(ida.flight.outboundDate);
+  const fechaVuelta = vuelta ? FormatearFecha(vuelta.flight.returnDate) : "";
+
   const [pasajeros, setPasajeros] = useState(
     Array.from({ length: 2 }, () => ({
       nombre: "",
@@ -36,94 +25,143 @@ function Datos() {
       nacionalidad: "",
     }))
   );
-  const handlePassengerChange = (index, field, value) => {
-    setPasajeros((prevpasajeros) => {
-      const updatedpasajeros = [...prevpasajeros];
-      updatedpasajeros[index][field] = value;
-      return updatedpasajeros;
+  const {
+    register,
+    handleSubmit,
+    control,
+    setValue,
+    formState: { errors },
+  } = useForm({
+    defaultValues: {
+      pasajeros: pasajeros,
+    },
+  });
+
+  // Handle form submit
+  const onSubmit = (data) => {
+    console.log("Form data", data); // Here you can see the pasajeros array data
+    navigate("/reservahotelmasvuelo", {
+      state: { data, selectedHotel, ida, vuelta, habitacion },
     });
   };
+
+  // Render passenger fields dynamically
   const renderPassengerFields = () => {
     return pasajeros.map((passenger, index) => (
       <div
         key={index}
-        className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-3"
+        className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-3"
       >
-        <Input_Texto
-          tipo={`Nombre (Pasajero ${index + 1})`}
-          value={passenger.nombre}
-          setValue={(value) => handlePassengerChange(index, "nombre", value)}
+        <Controller
+          control={control}
+          name={`pasajeros[${index}].nombre`} // Dynamically binding to the passenger array
+          render={({ field }) => (
+            <Input_Texto
+              required={true}
+              register={register}
+              errors={errors}
+              tipo="nombre"
+              {...field} // Spread field data to bind it
+            />
+          )}
         />
-        <Input_Texto
-          tipo={`Apellido/s (Pasajero ${index + 1})`}
-          value={passenger.apellido}
-          setValue={(value) => handlePassengerChange(index, "apellido", value)}
+        <Controller
+          control={control}
+          name={`pasajeros[${index}].apellido`}
+          render={({ field }) => (
+            <Input_Texto
+              required={true}
+              register={register}
+              errors={errors}
+              tipo="apellidos"
+              {...field}
+            />
+          )}
         />
-        <Input_Texto
-          tipo={`Pasaporte (Pasajero ${index + 1})`}
-          value={passenger.pasaporte}
-          setValue={(value) => handlePassengerChange(index, "pasaporte", value)}
+        <Controller
+          control={control}
+          name={`pasajeros[${index}].pasaporte`}
+          render={({ field }) => (
+            <Input_Texto
+              required={true}
+              register={register}
+              errors={errors}
+              tipo="pasaporte"
+              {...field}
+            />
+          )}
         />
-        <Input_Nacionalidad
-          value={passenger.nacionalidad}
-          setValue={(value) =>
-            handlePassengerChange(index, "nacionalidad", value)
-          }
+        <Controller
+          control={control}
+          name={`pasajeros[${index}].nacionalidad`}
+          render={({ field }) => (
+            <Input_Nacionalidad
+              setValue={setValue}
+              errors={errors}
+              required={true}
+              register={register}
+              tipo="nacionalidad"
+              {...field}
+            />
+          )}
         />
       </div>
     ));
   };
-  console.log(pasajeros);
+
+  const navigate = useNavigate();
+
   return (
-    <main className="my-10  flex justify-center container min-h-[68vh]">
-      <article className="p-5 w-full border-2 border-slate-200 dark:border-slate-800 rounded-xl shadow-xl bg-white dark:bg-slate-800">
-        <form>
-          <h1 className="font-semibold text-xl dark:text-white">
+    <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
+      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-xl tw-bg-white dark:tw-bg-slate-800">
+        <form onSubmit={handleSubmit(onSubmit)}>
+          <h1 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
           </h1>
-          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-3 text-sm mt-6">
+          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <Input_Texto
-              value={datosContacto.nombre}
-              setValue={(value) => handleChange("nombre", value)}
-              tipo="Nombre"
+              tipo={"Nombre"}
+              name="nombre"
+              register={register}
+              errors={errors}
             />
             <Input_Texto
-              value={datosContacto.apellido}
-              setValue={(value) => handleChange("apellido", value)}
-              tipo="Apellido/s"
+              tipo={"Apellido"}
+              name="apellido"
+              register={register}
+              errors={errors}
             />
             <Input_Numero
-              value={datosContacto.numero}
-              setValue={(value) => handleChange("numero", value)}
+              tipo="numero"
+              register={register}
+              errors={errors}
+              name="numero"
             />
             <Input_Email
-              email={datosContacto.email}
-              setEmail={(value) => handleChange("email", value)}
+              tipo="email"
+              register={register}
+              errors={errors}
+              name="email"
             />
           </div>
-          <h2 className="font-semibold mt-5 dark:text-white">
+          <h2 className="tw-font-semibold tw-mt-5 dark:tw-text-white">
             Datos Pasajeros
           </h2>
           {renderPassengerFields()}
-        </form>
-        <Reserva
-          img={img}
-          position={"center"}
-          tipo={"Hotel + vuelo"}
-          itinerario={itinerario}
-          fechaIda={fechaIda}
-          fechaVuelta={fechaVuelta}
-        />
-        <div className="flex justify-end">
-          <Link
-            to={"/reservahotelmasvuelo"}
-            state={{ selectedHotel, ida, vuelta, datosContacto, pasajeros,habitacion }}
-          >
-            <button className="bg-secondary p-3 text-white font-semibold rounded-lg shadow hover:shadow-lg transition duration-300">
+          <Reserva
+            img={img}
+            position={"center"}
+            tipo={"Hotel + vuelo"}
+            itinerario={itinerario}
+            fechaIda={fechaIda}
+            fechaVuelta={fechaVuelta}
+          />
+          <div className="tw-flex tw-justify-end">
+            <button className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
               Reservar
             </button>
-          </Link>
-        </div>
+          </div>
+        </form>
       </article>
     </main>
   );

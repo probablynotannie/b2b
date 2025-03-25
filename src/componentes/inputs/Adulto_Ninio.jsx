@@ -30,27 +30,27 @@ function SelectorPersonas({
     setNinioAges(newAges);
   };
   return (
-    <div className="relative w-full">
+    <div className="tw-relative tw-w-full">
       <Popover
         aria-labelledby="area-popover"
         open={open}
         onOpenChange={setOpen}
         content={
-          <div>
-            <div className="bg-slate-800 text-white h-14 flex items-center pl-4 font-semibold">
+          <div className="tw-border tw-rounded-lg dark:tw-border-slate-900">
+            <div className=" tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold tw-rounded-t-lg">
               Adultos / Niños
             </div>
-            <div className=" w-72 space-y-3 p-4 text-sm text-gray-500">
+            <div className="tw-w-72 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500 dark:tw-bg-slate-800">
               <div>
-                <span className="text-sm">Adultos {ninios} </span>
-                <div className="relative">
+                <span className="tw-text-sm">Adultos {ninios} </span>
+                <div className="tw-relative">
                   <select
                     onChange={onAdultosChange}
                     id="habitaciones"
-                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                    className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
                   >
                     <option value={1}>1</option>
-                    <option value={2} selected>
+                    <option value={2} defaultValue>
                       2
                     </option>
                     <option value={3}>3</option>
@@ -58,34 +58,34 @@ function SelectorPersonas({
                     <option value={5}>5</option>
                     <option value={6}>6</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                     <FaPerson />
                   </div>
                 </div>
               </div>
               <div>
-                <span className="text-sm">Niños</span>
-                <div className="relative">
+                <span className="tw-text-sm">Niños</span>
+                <div className="tw-relative">
                   <select
                     onChange={onNiniosChange}
                     id="habitaciones"
-                    className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                    className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
                   >
-                    <option value={0} selected>
+                    <option value={0} defaultValue>
                       0
                     </option>
                     <option value={1}>1</option>
                     <option value={2}>2</option>
                     <option value={3}>3</option>
                   </select>
-                  <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                  <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                     <FaChild />
                   </div>
                 </div>
                 {ninios > 0 && (
-                  <div className="grid grid-cols-3 gap-1">
+                  <div className="tw-grid tw-grid-cols-3 tw-gap-1">
                     {Array.from({ length: ninios }).map((_, index) => (
-                      <div key={index} className="mt-4">
+                      <div key={index} className="tw-mt-4">
                         <input
                           required
                           type="number"
@@ -94,7 +94,7 @@ function SelectorPersonas({
                           onChange={(e) =>
                             handleAgeChange(index, e.target.value)
                           }
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                           placeholder="Edad"
                         />
                       </div>
@@ -106,11 +106,11 @@ function SelectorPersonas({
           </div>
         }
       >
-        <div className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer">
+        <div className="tw-border tw-flex tw-items-center dark:tw-border-2 tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer">
           {adultos} adultos {ninios} niños
         </div>
       </Popover>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
         <MdPeopleAlt />
       </div>
     </div>

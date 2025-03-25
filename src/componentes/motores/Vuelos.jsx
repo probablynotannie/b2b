@@ -1,58 +1,26 @@
 import Sidebar from "./sidebar/Sidebar";
-import Input_Buscador from "../inputs/Buscador";
-import Input_Aeropuertos from "../inputs/Aeropuertos";
-import Input_DateRange from "../inputs/DateRange";
-import { Link } from "react-router-dom";
-import { useState } from "react";
-function Vuelomashotel() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+import Buscador_Vuelos from "./buscadores/vuelos/Buscador_Vuelos";
+import Destacados from "./buscadores/transfers/Destacados";
+function Vuelos() {
   return (
-    <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
+    <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
-      <div
-        className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
-        style={{
-          backgroundImage: `url(/banner_avion.jpg)`,
-          backgroundSize: "cover",
-        }}
-      >
+      <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
         <div
-          className={`absolute  z-0 bg-indigo-800 w-full h-full bg-opacity-35 rounded-lg shadow-lg px-10 `}
-        ></div>
-        <div className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-2/7 h-fit py-5 pb-16 rounded-lg shadow-xl">
-          <form>
-            <h2 className="lg:text-3xl text-xl font-bold ">
-              Buscador de vuelos
-            </h2>
-            <div className="grid grid-cols-2 gap-2 mt-2">
-              <div className="col-span-2">
-                <Input_Buscador />
-              </div>
-              <div className="col-span-2 lg:col-span-1">
-                <Input_Aeropuertos />
-              </div>
-              <div className="col-span-2 lg:col-span-1">
-                <Input_DateRange
-                  startDate={startDate}
-                  endDate={endDate}
-                  setStartDate={setStartDate}
-                  setEndDate={setEndDate}
-                />
-              </div>
-            </div>
-            <div className="absolute -bottom-5 right-5">
-              <Link to="/listadoVuelos">
-                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                  Buscar
-                </button>
-              </Link>
-            </div>
-          </form>
+          className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+          style={{
+            backgroundImage: `url(/banner_avion.jpg)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
+            <Buscador_Vuelos />
+          </div>
         </div>
+        <Destacados />
       </div>
-    </div>
+    </article>
   );
 }
-
-export default Vuelomashotel;
+export default Vuelos;

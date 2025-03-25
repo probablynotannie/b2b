@@ -1,32 +1,44 @@
 import { MdPerson } from "react-icons/md";
-
-function Edad({ edad, setEdad }) {
-  const ages = Array.from({ length: 100 }, (_, i) => i + 1);
-
-  const handleChange = (event) => {
-    setEdad(event.target.value);
-  };
+import { Controller } from "react-hook-form";
+function Edad({ edad, edadMinima, edadMaxima, control, name }) {
+  const ages = Array.from(
+    {
+      length:
+        (edadMaxima ? edadMaxima : 100) - (edadMinima ? edadMinima : 1) + 1,
+    },
+    (_, i) => i + (edadMinima ? edadMinima : 1)
+  );
 
   return (
-    <div className="relative">
-      <select
-        id="age"
-        name="age"
-        value={edad}
-        onChange={handleChange}
-        className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
-      >
-        {ages.map((age) => (
-          <option key={age} value={age}>
-            {age}
-          </option>
-        ))}
-      </select>
-      <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
-        <MdPerson />
-      </div>
+    <div className="tw-relative">
+      <Controller
+        control={control}
+        name={name}
+        defaultValue={edad}
+        render={({ field }) => (
+          <>
+            <select
+              id="age"
+              name="age"
+              value={field.value}
+              onChange={(e) => {
+                field.onChange(e);
+              }}
+              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+            >
+              {ages.map((age) => (
+                <option key={age} value={age}>
+                  {age}
+                </option>
+              ))}
+            </select>
+            <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+              <MdPerson />
+            </div>
+          </>
+        )}
+      />
     </div>
   );
 }
-
 export default Edad;

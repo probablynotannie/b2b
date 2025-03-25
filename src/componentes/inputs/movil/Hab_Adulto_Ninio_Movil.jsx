@@ -4,12 +4,9 @@ import { FaPerson } from "react-icons/fa6";
 import { CiCirclePlus } from "react-icons/ci";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaTrashAlt } from "react-icons/fa";
-
 function SelectorPersonas({
   habitacion,
-  setHabitacion,
   roomData,
-  setRoomData,
   addRoom,
   onAdultosChange,
   onNiniosChange,
@@ -24,44 +21,47 @@ function SelectorPersonas({
 
   return (
     <div>
-      <div className="relative">
+      <div className="tw-relative">
         <div
           onClick={openModal}
-          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+          className="tw-border tw-flex tw-items-center tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
         >
-          {habitacion} Habitaciones - {totalAdults} Adultos - {totalChildren}{" "}
-          Niños
+          {habitacion} Hab - {totalAdults} Ad - {totalChildren} Niños
         </div>
-        <div className=" absolute top-0 pointer-events-none bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2">
+        <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-[40px] tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2">
           <MdMeetingRoom />
         </div>
       </div>
       {isOpen && (
-        <div className="fixed inset-0 bg-black  bg-opacity-50 flex justify-center items-center z-50">
-          <div className="relative bg-slate-50 dark:bg-slate-800 w-full h-full max-w-4xl overflow-auto">
-            <div className="sticky top-0 z-50 flex justify-between items-center mb-4 bg-primary dark:bg-slate-900 p-5 ">
-              <h2 className="text-xl font-bold text-white">Habitaciones</h2>
-              <button onClick={closeModal} className="text-xl text-white">
+        <div className="tw-fixed tw-inset-0 tw-bg-black  tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+          <div className="tw-relative tw-bg-slate-50 dark:tw-bg-slate-800 tw-w-full tw-h-full tw-max-w-4xl tw-overflow-auto">
+            <div className="tw-sticky tw-top-0 tw-z-50 tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
+              <h2 className="tw-text-xl tw-font-bold tw-text-white">
+                Habitaciones
+              </h2>
+              <button onClick={closeModal} className="tw-text-xl tw-text-white">
                 &times;
               </button>
             </div>
-            <div className="px-3 pb-5 mt-12">
+            <div className="tw-px-3 tw-pb-5 tw-mt-12">
               {roomData.map((room, roomIndex) => (
                 <div
-                  className="relative bg-slate-100 dark:bg-slate-700 border border-slate-300 rounded-lg shadow-lg mb-10 p-3 py-12 text-black"
+                  className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-700 tw-border tw-border-slate-300 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg tw-mb-10 tw-p-3 tw-py-12 tw-text-black"
                   key={room.id}
                 >
-                  <span className="absolute -top-5 border-2 bg-primary text-white rounded-lg p-2 font-semibold">
+                  <span className="tw-absolute -tw-top-5 tw-border-2 tw-bg-slate-900 dark:tw-border-slate-600 tw-text-white tw-rounded-lg tw-p-2 tw-font-semibold">
                     Habitación {roomIndex + 1}
                   </span>
-                  <div className="grid grid-cols-6 gap-5">
-                    <div className="col-span-3 md:col-span-1">
-                      <span className="text-sm text-black dark:text-slate-300">Adultos</span>
-                      <div className="relative">
+                  <div className="tw-grid tw-grid-cols-6 tw-gap-5">
+                    <div className="tw-col-span-3 md:tw-col-span-1">
+                      <span className="tw-text-sm tw-text-black dark:tw-text-slate-300">
+                        Adultos
+                      </span>
+                      <div className="tw-relative">
                         <select
                           onChange={(e) => onAdultosChange(room.id, e)}
                           value={room.adultos}
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600  dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
                         >
                           {[1, 2, 3, 4, 5, 6].map((num) => (
                             <option key={num} value={num}>
@@ -69,18 +69,20 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="absolute dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                           <FaPerson />
                         </div>
                       </div>
                     </div>
-                    <div className="col-span-3 md:col-span-1">
-                      <span className="text-sm text-black dark:text-slate-300">Niños</span>
-                      <div className="relative">
+                    <div className="tw-col-span-3 md:tw-col-span-1">
+                      <span className="tw-text-sm tw-text-black dark:tw-text-slate-300">
+                        Niños
+                      </span>
+                      <div className="tw-relative">
                         <select
                           onChange={(e) => onNiniosChange(room.id, e)}
                           value={room.ninios}
-                          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full"
                         >
                           {[0, 1, 2, 3].map((num) => (
                             <option key={num} value={num}>
@@ -88,7 +90,7 @@ function SelectorPersonas({
                             </option>
                           ))}
                         </select>
-                        <div className="absolute dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 top-0 pointer-events-none bg-secondary text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+                        <div className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-pointer-events-none tw-bg-secondary tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                           <FaChild />
                         </div>
                       </div>
@@ -96,11 +98,11 @@ function SelectorPersonas({
 
                     {/* Child Age Inputs */}
                     {room.ninios > 0 && (
-                      <div className="col-span-6 md:col-span-3">
-                        <span className="text-sm text-black">
+                      <div className="tw-col-span-6 md:tw-col-span-3">
+                        <span className="tw-text-sm tw-text-black dark:tw-text-slate-200">
                           Edad de los niños
                         </span>
-                        <div className="grid grid-cols-3 gap-3">
+                        <div className="tw-grid tw-grid-cols-3 tw-gap-3">
                           {room.ninioAges.map((age, childIndex) => (
                             <select
                               key={childIndex}
@@ -112,7 +114,7 @@ function SelectorPersonas({
                                   e.target.value
                                 )
                               }
-                              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5  w-full cursor-pointer"
+                              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-w-full tw-cursor-pointer"
                             >
                               <option value="" disabled>
                                 -
@@ -128,11 +130,10 @@ function SelectorPersonas({
                       </div>
                     )}
                     {roomIndex !== 0 && (
-                      <div                           className="absolute -top-5 cursor-pointer right-5 bg-white dark:bg-slate-900 rounded border-2 border-red-500 dark:border-red-700 p-2 text-red-500 dark:text-red-700 dark:hover:bg-red-800 hover:bg-danger hover:text-white transition  flex items-center justify-end pb-2 flex-col"
->
+                      <div className="tw-absolute -tw-top-5 tw-cursor-pointer tw-right-5 tw-bg-white dark:tw-bg-slate-900 tw-rounded tw-border-2 tw-border-red-500 dark:tw-border-red-700 tw-p-2 tw-text-red-500 dark:tw-text-red-700 dark:hover:tw-bg-red-800 hover:tw-bg-danger hover:tw-text-white tw-transition tw-flex tw-items-center tw-justify-end tw-pb-2 tw-flex-col">
                         <button
                           onClick={() => deleteRoom(room.id)}
-                          className="text-xl"
+                          className="tw-text-xl"
                         >
                           <FaTrashAlt />
                         </button>
@@ -141,14 +142,14 @@ function SelectorPersonas({
                   </div>
                 </div>
               ))}
-              <div className="mt-10 text-black hover:text-secondary hover:font-semibold transition flex justify-end cursor-pointer">
+              <div className="tw-mt-10 tw-text-black hover:tw-text-secondary hover:tw-font-semibold tw-transition tw-flex tw-justify-end tw-cursor-pointer">
                 <button
                   type="button"
                   onClick={addRoom}
-                  className="w-full  flex justify-center items-center space-x-1 bg-secondary text-white p-3 rounded-lg shadow"
+                  className="tw-w-full tw-flex tw-justify-center tw-items-center tw-space-x-1 tw-bg-secondary tw-text-white tw-p-3 tw-rounded-lg tw-shadow"
                 >
                   <span>Agregar una habitación </span>
-                  <CiCirclePlus className="text-lg" />
+                  <CiCirclePlus className="tw-text-lg" />
                 </button>
               </div>
             </div>

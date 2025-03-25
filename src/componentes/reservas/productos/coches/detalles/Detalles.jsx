@@ -14,103 +14,104 @@ import Politica from "./politica/Politica";
 import Gasolina from "./politica/Gasolina";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
 import { useState } from "react";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
+
 function Detalles({ coche, extraInfo }) {
   const [activeTab, setActiveTab] = useState("franquicia");
 
   return (
     <div>
-      <div className="grid grid-cols-2 md:grid-cols-5 jujstify-center gap-10 mt-10 border-b-2 pb-5 border-slate-100 dark:border-slate-700">
-        <div className="flex justify-center">
-          <div className="flex flex-col justify-center items-center rounded-full h-[100px] w-[100px] font-bold shadow-md hover:shadow-lg hover:border-2 dark:border-transparent transition bg-pink-300 text-pink-500 dark:bg-pink-800 dark:text-pink-400">
-            <FaPerson className="text-lg" /> {coche.capacidad}x
+      <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-5 jujstify-center tw-gap-10 tw-mt-10 tw-border-b-2 tw-pb-5 tw-border-slate-100 dark:tw-border-slate-700">
+        <div className="tw-flex tw-justify-center">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-rounded-full tw-h-[100px] tw-w-[100px] tw-font-bold tw-shadow-md hover:tw-shadow-lg hover:tw-border-2 dark:tw-border-transparent tw-transition tw-bg-pink-300 tw-text-pink-500 dark:tw-bg-pink-800 dark:tw-text-pink-400">
+            <FaPerson className="tw-text-lg" /> {coche.capacidad}x
           </div>
         </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col justify-center items-center rounded-full h-[100px] w-[100px] font-bold shadow-md hover:shadow-lg hover:border-2 dark:border-transparent transition bg-orange-300 text-orange-500 dark:bg-orange-800 dark:text-orange-400">
-            <MdLuggage className="text-lg" /> {coche.maletero}x
+        <div className="tw-flex tw-justify-center">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-rounded-full tw-h-[100px] tw-w-[100px] tw-font-bold tw-shadow-md hover:tw-shadow-lg hover:tw-border-2 dark:tw-border-transparent tw-transition tw-bg-orange-300 tw-text-orange-500 dark:tw-bg-orange-800 dark:tw-text-orange-400">
+            <MdLuggage className="tw-text-lg" /> {coche.maletero}x
           </div>
         </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col justify-center items-center rounded-full h-[100px] w-[100px] font-bold shadow-md hover:shadow-lg hover:border-2 dark:border-transparent transition bg-blue-300 text-blue-500 dark:bg-blue-800 dark:text-blue-400">
-            <GiCarDoor className="text-lg" /> {coche.puertas}x
+        <div className="tw-flex tw-justify-center">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-rounded-full tw-h-[100px] tw-w-[100px] tw-font-bold tw-shadow-md hover:tw-shadow-lg hover:tw-border-2 dark:tw-border-transparent tw-transition tw-bg-blue-300 tw-text-blue-500 dark:tw-bg-blue-800 dark:tw-text-blue-400">
+            <GiCarDoor className="tw-text-lg" /> {coche.puertas}x
           </div>
         </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col justify-center items-center rounded-full h-[100px] w-[100px] font-bold shadow-md hover:shadow-lg hover:border-2 dark:border-transparent transition bg-green-300 text-green-500 dark:bg-green-800 dark:text-green-400">
-            <FaCar className="text-lg" /> {coche.tipo}
+        <div className="tw-flex tw-justify-center">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-rounded-full tw-h-[100px] tw-w-[100px] tw-font-bold tw-shadow-md hover:tw-shadow-lg hover:tw-border-2 dark:tw-border-transparent tw-transition tw-bg-green-300 tw-text-green-500 dark:tw-bg-green-800 dark:tw-text-green-400">
+            <FaCar className="tw-text-lg" /> {coche.tipo}
           </div>
         </div>
-        <div className="flex justify-center">
-          <div className="flex flex-col justify-center items-center rounded-full h-[100px] w-[100px] font-bold shadow-md hover:shadow-lg hover:border-2 dark:border-transparent transition bg-indigo-300 text-indigo-500 dark:bg-indigo-800 dark:text-indigo-400">
-            <MdSevereCold className="text-lg" />
+        <div className="tw-flex tw-justify-center">
+          <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-rounded-full tw-h-[100px] tw-w-[100px] tw-font-bold tw-shadow-md hover:tw-shadow-lg hover:tw-border-2 dark:tw-border-transparent tw-transition tw-bg-indigo-300 tw-text-indigo-500 dark:tw-bg-indigo-800 dark:tw-text-indigo-400">
+            <MdSevereCold className="tw-text-lg" />
             {coche.AC ? "Sí" : "No"}
           </div>
         </div>
       </div>
-      <div className="mt-10 grid grid-cols-5 items-center">
-        <div className="flex flex-col col-span-5 md:col-span-2 shadow-lg p-5 rounded-lg border-2 border-slate-100 dark:border-slate-800 dark:hover:bg-slate-700 transition bg-slate-100 dark:bg-slate-900 dark:text-slate-300 w-full">
-          <h3 className="font-semibold">Recogida</h3>
-          <div className="ml-2">
-            <p className="flex items-center gap-1">
+      <div className="tw-mt-10 tw-grid tw-grid-cols-5 tw-items-center">
+        <div className="tw-flex tw-flex-col tw-col-span-5 md:tw-col-span-2 tw-shadow-lg tw-p-5 tw-rounded-lg tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 dark:hover:tw-bg-slate-700 tw-transition tw-bg-slate-100 dark:tw-bg-slate-900 dark:tw-text-slate-300 tw-w-full">
+          <h3 className="tw-font-semibold">Recogida</h3>
+          <div className="tw-ml-2">
+            <p className="tw-flex tw-items-center tw-gap-1">
               <FaMapPin />
               {" - "}
-              <span className="text-sm">{coche.recogida.lugar}</span>
+              <span className="tw-text-sm">{coche.recogida.lugar}</span>
             </p>
-            <p className="flex items-center gap-1">
+            <p className="tw-flex tw-items-center tw-gap-1">
               <FaCalendarAlt />
               {" - "}
-              <span className="text-sm">
+              <span className="tw-text-sm">
                 {FormatearFecha(coche.recogida.fecha)}
               </span>
             </p>
-            <p className="flex items-center gap-1">
+            <p className="tw-flex tw-items-center tw-gap-1">
               <FaClock />
               {" - "}
-              <span className="text-sm">{coche.recogida.hora}</span>
+              <span className="tw-text-sm">{coche.recogida.hora}</span>
             </p>
           </div>
         </div>
-        <div className="flex md:flex-row flex-col gap-5 col-span-5 md:col-span-1 justify-center items-center my-2 dark:text-white">
-          <HiOutlineChevronDoubleLeft className="md:block hidden text-xl" />
-          <HiOutlineChevronDoubleRight className="md:block hidden text-xl" />
-          <HiOutlineChevronDoubleUp className="md:hidden block text-xl" />
-          <HiOutlineChevronDoubleDown className="md:hidden block text-xl" />
+        <div className="tw-flex md:tw-flex-row tw-flex-col tw-gap-5 tw-col-span-5 md:tw-col-span-1 tw-justify-center tw-items-center tw-my-2 dark:tw-text-white">
+          <HiOutlineChevronDoubleLeft className="md:tw-block tw-hidden tw-text-xl" />
+          <HiOutlineChevronDoubleRight className="md:tw-block tw-hidden tw-text-xl" />
+          <HiOutlineChevronDoubleUp className="md:tw-hidden tw-block tw-text-xl" />
+          <HiOutlineChevronDoubleDown className="md:tw-hidden tw-block tw-text-xl" />
         </div>
-        <div className="flex flex-col col-span-5 md:col-span-2 shadow-lg p-5 rounded-lg border-2 border-slate-100 dark:border-slate-800 dark:hover:bg-slate-700 transition bg-slate-100 dark:bg-slate-900 dark:text-slate-300 w-full">
-          <h3 className="font-semibold">Devolucion</h3>
-          <div className="ml-2">
-            <p className="flex items-center gap-1">
+        <div className="tw-flex tw-flex-col tw-col-span-5 md:tw-col-span-2 tw-shadow-lg tw-p-5 tw-rounded-lg tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 dark:hover:tw-bg-slate-700 tw-transition tw-bg-slate-100 dark:tw-bg-slate-900 dark:tw-text-slate-300 tw-w-full">
+          <h3 className="tw-font-semibold">Devolucion</h3>
+          <div className="tw-ml-2">
+            <p className="tw-flex tw-items-center tw-gap-1">
               <FaMapPin />
               {" - "}
-              <span className="text-sm">{coche.devolucion.lugar}</span>
+              <span className="tw-text-sm">{coche.devolucion.lugar}</span>
             </p>
-            <p className="flex items-center gap-1">
+            <p className="tw-flex tw-items-center tw-gap-1">
               <FaCalendarAlt />
               {" - "}
-              <span className="text-sm">
+              <span className="tw-text-sm">
                 {FormatearFecha(coche.devolucion.fecha)}
               </span>
             </p>
-            <p className="flex items-center gap-1">
+            <p className="tw-flex tw-items-center tw-gap-1">
               <FaClock />
               {" - "}
-              <span className="text-sm">{coche.devolucion.hora}</span>
+              <span className="tw-text-sm">{coche.devolucion.hora}</span>
             </p>
           </div>
         </div>
       </div>
 
       {extraInfo ? extraInfo : ""}
-      <div className="mt-10">
-        <div className="mt-10">
-          <ul className="flex space-x-4 text-sm font-medium text-slate-500 dark:text-slate-400">
+      <div className="tw-mt-10">
+        <div className="tw-mt-10">
+          <ul className="tw-flex tw-space-x-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-slate-400">
             <li>
               <button
                 onClick={() => setActiveTab("franquicia")}
-                className={`px-4 py-3 rounded-lg ${
+                className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "franquicia"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -120,9 +121,9 @@ function Detalles({ coche, extraInfo }) {
             <li>
               <button
                 onClick={() => setActiveTab("condiciones")}
-                className={`px-4 py-3 rounded-lg ${
+                className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "condiciones"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -133,9 +134,9 @@ function Detalles({ coche, extraInfo }) {
             <li>
               <button
                 onClick={() => setActiveTab("gasolina")}
-                className={`px-4 py-3 rounded-lg ${
+                className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "gasolina"
-                    ? "bg-secondary text-white dark:bg-secondaryDark"
+                    ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
                     : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
                 }`}
               >
@@ -144,8 +145,7 @@ function Detalles({ coche, extraInfo }) {
             </li>
           </ul>
         </div>
-        {/* Tab Content */}
-        <div className="mt-4 p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-900 rounded-lg">
+        <div className="tw-mt-4 tw-p-6 tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-900 tw-rounded-lg">
           {activeTab === "franquicia" && (
             <div>
               <Politica />

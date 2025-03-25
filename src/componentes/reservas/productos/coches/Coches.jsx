@@ -6,7 +6,6 @@ import coches from "./Coches.json";
 function Resultado() {
   const [comparar, setComparar] = useState(false);
   const [selectedCars, setSelectedCars] = useState([]);
-
   const handleCompareChange = (coche, isChecked) => {
     if (isChecked) {
       setSelectedCars((prev) => [...prev, coche]);
@@ -14,32 +13,32 @@ function Resultado() {
       setSelectedCars((prev) => prev.filter((car) => car.id !== coche.id));
     }
   };
-
   const handleCheckboxChange = (event) => {
     setComparar(event.target.checked);
   };
-
   return (
-    <section className="pb-12">
-      <div className="flex flex-col lg:flex-row lg:justify-between shadow-md lg:shadow-none p-3 rounded-xl  border-2 lg:border-0 border-slate-200 dark:bg-slate-800 dark:md:bg-inherit dark:md:border-0 dark:md:shadow-none dark:border-slate-600 lg:mt-0">
-        <h3 className="text-secondary font-semibold text-lg ">
+    <section className="tw-pb-12 tw-min-h-[50.2vh]">
+      <div className="tw-flex tw-justify-between tw-items-center">
+        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
           Resultados ({coches.length})
         </h3>
-        <div className="flex flex-col gap-5 md:flex-row md:justify-between">
-          <label className="inline-flex items-center cursor-pointer">
-            <input
-              type="checkbox"
-              value=""
-              className="sr-only peer"
-              checked={comparar}
-              onChange={handleCheckboxChange}
-            />
-            <div className="relative w-11 h-6 bg-gray-200 dark:bg-slate-700 dark:md:bg-slate-800 peer-focus:outline-none peer-focus:ring-4  rounded-full peer  peer-checked:after:translate-x-full rtl:peer-checked:after:-translate-x-full peer-checked:after:border-white after:content-[''] after:absolute after:top-[2px] after:start-[2px] after:bg-white after:border-gray-300 after:border after:rounded-full after:h-5 after:w-5 after:transition-all peer-checked:bg-secondary"></div>
-            <span className="ms-3 text-sm font-medium text-slate-500 dark:text-slate-400">
-              Comparar {selectedCars.length}
-            </span>
-          </label>
-        </div>
+        {selectedCars.length > 0 && (
+          <div className="tw-flex tw-flex-col tw-gap-5 md:tw-flex-row md:tw-justify-between">
+            <label className="tw-inline-flex tw-items-center tw-cursor-pointer">
+              <input
+                type="checkbox"
+                value=""
+                className="tw-sr-only tw-peer"
+                checked={comparar}
+                onChange={handleCheckboxChange}
+              />
+              <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-800 dark:md:tw-bg-slate-800 peer-focus:outline-none peer-focus:ring-4 tw-rounded-full tw-peer peer-checked:tw-after:translate-x-full rtl:peer-checked:tw-after:-translate-x-full peer-checked:tw-after:border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all peer-checked:tw-bg-secondary"></div>
+              <span className="tw-ms-3 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-slate-400">
+                Comparar {selectedCars.length}
+              </span>
+            </label>
+          </div>
+        )}
       </div>
       {comparar ? (
         <Cajas coches={coches} selectedCars={selectedCars} />

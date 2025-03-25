@@ -1,5 +1,3 @@
-import React, { useState } from "react";
-
 function Localidades({ selected, onChange }) {
   const options = [
     { id: 1, label: "Alicante" },
@@ -44,18 +42,18 @@ function Localidades({ selected, onChange }) {
   return (
     <div>
       {options.map((option) => (
-        <div key={option.id} className="flex items-center mb-2">
+        <div key={option.id} className="tw-flex tw-items-center tw-mb-2">
           <input
             type="checkbox"
             id={`localidad_${option.id}`}
             value={option.label}
             checked={selected.includes(option.label)} // Check if the option is selected
             onChange={handleCheckboxChange}
-            className="w-4 h-4 text-secondary bg-gray-100 dark:bg-slate-700 dark:border-slate-600 border-gray-300 rounded focus:ring-secondary focus:ring-2"
+            className="tw-w-4 tw-h-4 tw-bg-gray-100 tw-text-secondary tw-border-gray-300 tw-rounded tw-text-secondary dark:tw-bg-slate-700 dark:tw-border-slate-600 focus:tw-ring-secondary focus:tw-ring-2"
           />
           <label
             htmlFor={`localidad_${option.id}`}
-            className="ml-2 text-sm text-gray-900 dark:text-slate-400"
+            className="tw-ml-2 tw-text-sm tw-text-gray-900 dark:tw-text-slate-400"
           >
             {option.label}
           </label>

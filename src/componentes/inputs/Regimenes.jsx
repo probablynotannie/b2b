@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { FaBowlFood } from "react-icons/fa6";
 
 const Regimenes = () => {
@@ -25,40 +25,34 @@ const Regimenes = () => {
     setIsOpen(!isOpen);
   };
 
-  // Map selected options to their labels
-  const selectedLabels = options
-    .filter((option) => selectedOptions.includes(option.id))
-    .map((option) => option.label)
-    .join(", ");
-
   return (
     <div>
       <div>
         <button
           type="button"
           onClick={toggleDropdown}
-          className="relative border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+          className="tw-relative tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
           aria-haspopup="true"
           aria-expanded={isOpen}
         >
           Elige regimen
-          <div className="absolute top-0 left-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-lg">
+          <div className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-lg">
             <FaBowlFood />
           </div>
         </button>
       </div>
       {isOpen && (
         <div
-          className="absolute z-10 w-fit mt-2 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5"
+          className="tw-absolute tw-z-10 tw-w-fit tw-mt-2 tw-rounded-md tw-shadow-lg tw-bg-white tw-ring-1 tw-ring-black tw-ring-opacity-5"
           role="menu"
           aria-orientation="vertical"
           aria-labelledby="options-menu"
         >
-          <ul className="py-1">
+          <ul className="tw-py-1">
             {options.map((option) => (
               <li
                 key={option.id}
-                className="flex items-center px-4 py-2 text-sm text-gray-700"
+                className="tw-flex tw-items-center tw-px-4 tw-py-2 tw-text-sm tw-text-gray-700"
               >
                 <input
                   type="checkbox"
@@ -66,11 +60,11 @@ const Regimenes = () => {
                   id={`checkbox-${option.id}`}
                   checked={selectedOptions.includes(option.id)}
                   onChange={handleCheckboxChange}
-                  className="mr-2 w-4 h-4 text-secondary border-gray-300 rounded focus:ring-blue-500 focus:ring-2"
+                  className="tw-mr-2 tw-w-4 tw-h-4 tw-text-secondary tw-border-gray-300 tw-rounded focus:tw-ring-blue-500 focus:tw-ring-2"
                 />
                 <label
                   htmlFor={`checkbox-${option.id}`}
-                  className="cursor-pointer"
+                  className="tw-cursor-pointer"
                 >
                   {option.label}
                 </label>

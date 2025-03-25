@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import { Route, Routes } from "react-router-dom";
 /* ESTRUCTURA */
 import Navbar from "../estructura/Navbar";
 import Landing from "../Landing";
@@ -8,25 +8,28 @@ import Presupuestos from "../utilidades/Presupuestos";
 import EnvioPresupuestos from "../utilidades/EnvioPresupuestos";
 /* MOTORES */
 import Busqueda_Hoteles from "../motores/Hoteles";
-import Busqueda_Coches from "../motores/Coches";
-import Busqueda_Cruceros from "../motores/Cruceros";
 import Busqueda_Destinos from "../motores/Destinos";
+import Busqueda_Cruceros from "../motores/Cruceros";
+import Busqueda_Transfers from "../motores/Transfers";
+import Busqueda_Vuelomashotel from "../motores/Vuelomashotel";
+import Busqueda_hotelmasactividades from "../motores/hotelmasactividades";
+import Busqueda_hotelmasferris from "../motores/hotelmasferris";
+import Busqueda_Coches from "../motores/Coches";
+import Busqueda_Tickets from "../motores/Tickets";
 import Busqueda_Entradas from "../motores/Entradas";
 import Busqueda_Ferris from "../motores/Ferris";
-import Busqueda_Vuelos from "../motores/Vuelos";
 import Busqueda_Trenes from "../motores/Trenes";
-import Busqueda_Circuitos from "../motores/Circuitos";
-import Busqueda_Tickets from "../motores/Tickets";
-import Busqueda_Vuelomashotel from "../motores/Vuelomashotel";
-import Busqueda_hotelmasferris from "../motores/hotelmasferris";
-import Busqueda_hotelmasactividades from "../motores/hotelmasactividades";
 import Busqueda_Seguros from "../motores/Seguros";
+
+import Busqueda_Vuelos from "../motores/Vuelos";
+import Busqueda_Circuitos from "../motores/Circuitos";
 /* LISTADOS */
 import ListadoHoteles from "../reservas/productos/hotel/Resultado";
 import ListadoVueloMasHotel from "../reservas/productos/hotelmasvuelo/Resultado";
 import ListadoDestinos from "../reservas/productos/destinos/Resultado";
 import ListadoCruceros from "../reservas/productos/cruceros/Resultado";
 import ListadoCoches from "../reservas/productos/coches/Resultado";
+import ListadoTransfers from "../reservas/productos/transfers/Resultado";
 import ListadoTickets from "../reservas/productos/tickets/Resultado";
 import ListadoEntradas from "../reservas/productos/entradas/Resultado";
 import ListadoTrenes from "../reservas/productos/trenes/Resultado";
@@ -36,9 +39,10 @@ import ListadoHotelMasActividades from "../reservas/productos/hotelmasactividade
 import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
 import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
+/* Cruceros */
+import Cruceros from "../motores/Cruceros";
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
-import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
 import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/HotelMasVuelo";
 import Destino from "../reservas/productos/destinos/destino/Destino";
@@ -57,6 +61,8 @@ import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* CESTA */
 import ReservaCoche from "../reservas/productos/coches/reserva/ReservaFinal";
+import ReservaTransfer from "../reservas/productos/transfers/reserva/ReservaFinal";
+import ReservaVuelo from "../reservas/productos/vuelos/reserva/ReservaFinal";
 import ReservaEntrada from "../reservas/productos/entradas/reserva/ReservaFinal";
 import ReservaTickets from "../reservas/productos/tickets/reserva/ReservaFinal";
 import ReservaHotel from "../reservas/productos/hotel/reserva/ReservaFinal";
@@ -73,6 +79,7 @@ import ReservaHotelMasVuelo from "../reservas/productos/hotelmasvuelo/reserva/Re
 /* Datos */
 import DatosVuelo from "../reservas/productos/vuelos/reserva/Datos";
 import DatosCoche from "../reservas/productos/coches/reserva/Datos";
+import DatosTransfer from "../reservas/productos/transfers/reserva/Datos";
 import DatosCrucero from "../reservas/productos/cruceros/reserva/Datos";
 import DatosEntrada from "../reservas/productos/entradas/reserva/Datos";
 import DatosTickets from "../reservas/productos/tickets/reserva/Datos";
@@ -89,6 +96,7 @@ import DatosHotelMasVuelo from "../reservas/productos/hotelmasvuelo/reserva/Dato
 /* RESUMEN FINAL */
 import ResumenCircuitos from "../reservas/productos/circuitos/final/ResumenFinal";
 import ResumenCoches from "../reservas/productos/coches/final/ResumenFinal";
+import ResumenTransfer from "../reservas/productos/transfers/final/ResumenFinal";
 import ResumenCrucero from "../reservas/productos/cruceros/final/ResumenFinal";
 import ResumenDestino from "../reservas/productos/destinos/final/ResumenFinal";
 import ResumenEntradas from "../reservas/productos/entradas/final/ResumenFinal";
@@ -111,10 +119,13 @@ function Header() {
     <>
       <Navbar />
       <Routes>
+        {/* Cruceros */}
+        <Route path="/cruceros" element={<Cruceros />} />
         {/* MOTORES */}
         <Route path="/" element={<Landing />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/coches" element={<Busqueda_Coches />} />
+        <Route path="/transfers" element={<Busqueda_Transfers />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/cruceros" element={<Busqueda_Cruceros />} />
         <Route path="/destinos" element={<Busqueda_Destinos />} />
@@ -135,6 +146,7 @@ function Header() {
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />
         <Route path="/listadoTrenes" element={<ListadoTrenes />} />
         <Route path="/listadoCoches" element={<ListadoCoches />} />
+        <Route path="/listadoTransfers" element={<ListadoTransfers />} />
         <Route
           path="/listadohotelmasferry"
           element={<ListadoHotelMasFerry />}
@@ -169,6 +181,7 @@ function Header() {
         <Route path="/hotel+actividades" element={<HotelmAsActividades />} />
         {/* Reserva */}
         <Route path="/reservaCoche" element={<ReservaCoche />} />
+        <Route path="/reservaTransfer" element={<ReservaTransfer />} />
         <Route path="/reservavuelo" element={<ReservaVuelo />} />
         <Route path="/reservaentrada" element={<ReservaEntrada />} />
         <Route path="/reservatickets" element={<ReservaTickets />} />
@@ -192,6 +205,7 @@ function Header() {
         {/* DATOS */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
+        <Route path="/datosTransfer" element={<DatosTransfer />} />
         <Route path="/datosCrucero" element={<DatosCrucero />} />
         <Route path="/datosEntrada" element={<DatosEntrada />} />
         <Route path="/datostickets" element={<DatosTickets />} />
@@ -212,6 +226,7 @@ function Header() {
         <Route path="/resumenHotel" element={<ResumenHotel />} />
         <Route path="/resumenCircuito" element={<ResumenCircuitos />} />
         <Route path="/resumenCoche" element={<ResumenCoches />} />
+        <Route path="/resumenTransfer" element={<ResumenTransfer />} />
         <Route path="/resumenCrucero" element={<ResumenCrucero />} />
         <Route path="/resumenDestino" element={<ResumenDestino />} />
         <Route path="/resumenEntradas" element={<ResumenEntradas />} />

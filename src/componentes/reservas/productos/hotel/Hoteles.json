@@ -1,9 +1,11 @@
 [
   {
     "nombre": "Hotel Sol y Mar",
-    "habitacion":7,
-    "noches":4,
+    "habitacion": 7,
+    "noches": 4,
     "direccion": "Avenida del Mar, 45, Alicante, España",
+    "lat": 39.192884,
+    "lng": -0.481,
     "regimen": "solo alojamiento",
     "estrellas": 4,
     "fotos": ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg"],
@@ -122,9 +124,11 @@
   },
   {
     "nombre": "Gran Hotel Madrid",
-    "habitacion":7,
-    "noches":4,
+    "habitacion": 7,
+    "noches": 4,
     "direccion": "Calle Mayor, 12, Madrid, España",
+    "lat": 40.4154,
+    "lng": -3.7074,
     "regimen": "alojamiento y desayuno",
     "estrellas": 5,
     "fotos": ["/hotel2.jpg", "/hotel2.jpg", "/hotel1.jpg"],
@@ -188,12 +192,14 @@
   },
   {
     "nombre": "Costa Bella",
-    "habitacion":7,
-    "noches":4,
+    "habitacion": 7,
+    "noches": 4,
     "direccion": "Paseo Marítimo, 22, Barcelona, España",
+    "lat": 41.3785,
+    "lng": 2.1925,
     "regimen": "pensión completa",
     "estrellas": 3,
-    "fotos": ["/hotel3.jpg", "/hotel2.jpg", "/hote1.jpg"],
+    "fotos": ["/hotel3.jpg", "/hotel2.jpg", "/hotel1.jpg"],
     "descripcion": "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona, con fácil acceso a las mejores playas y actividades de la ciudad.",
     "extras": [
       "Wi-Fi",
@@ -212,7 +218,6 @@
     "imagenes": [
       { "id": 0, "src": "/hotel1.jpg" },
       { "id": 1, "src": "/hotel2.jpg" },
-      { "id": 2, "src": "/hotel3.jpg" },
       { "id": 3, "src": "/hotel4.jpg" }
     ],
     "img": "/hotel2.jpg",

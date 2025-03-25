@@ -5,10 +5,10 @@ import Resumen from "../../../estructura/reserva/Resumen";
 import Vuelos from "./Vuelos";
 function ResumenFinal() {
   const location = useLocation();
-  const { ida, vuelta, datosContacto, pasajeros } = location.state || {};
+  const { ida, vuelta, data } = location.state || {};
   const numReserva = "HGALIUHJ198AJK";
   return (
-    <main className="container min-h-[55vh] my-10 p-5">
+    <main className="tw-container min-h-[55vh] my-10 p-5">
       <section>
         <Resumen
           img={"/completado.jpg"}
@@ -21,17 +21,17 @@ function ResumenFinal() {
           finalizada={true}
         />
       </section>
-      <Vuelos ida={ida} vuelta={vuelta} pasajeros={pasajeros} />
-      <div className="mt-10 p-5 border-2 border-slate-100 dark:bg-slate-800 dark:border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
+      <Vuelos ida={ida} vuelta={vuelta} pasajeros={data.pasajeros} />
+      <div className="mt-10 p-5 border-2 border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 rounded-lg shadow-lg hover:shadow-xl transition duration-300">
         <DatosContacto
-          nombre={datosContacto.nombre}
-          apellidos={datosContacto.apellido}
-          email={datosContacto.email}
-          numero={datosContacto.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
         <div className="mt-10 flex justify-end ">
           <Link to={"/"}>
-            <button className="bg-slate-400 dark:bg-slate-700 p-3 font-bold text-white rounded-lg">
+            <button className="bg-slate-400 dark:tw-bg-slate-700 p-3 font-bold text-white rounded-lg">
               Volver a la página principal
             </button>
           </Link>

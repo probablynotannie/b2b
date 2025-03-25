@@ -2,10 +2,9 @@ import flowbite from "flowbite-react/tailwind";
 
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  /* prefix: 'tw-', */
-  darkMode: 'selector',
+  darkMode: 'class',
+  prefix: 'tw-',
   content: [
-    // ...
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
     flowbite.content(),
@@ -21,9 +20,6 @@ module.exports = {
         secondaryDark: "#ff8c4c", // Naranja
         danger: "#f84048", // texto rojo fondo
         danger_text: "#ea756f", //texto rojo
-        success: "",
-        text: "",
-        text_dark: "",
         muted: "#e8ecf4", // Gris apagado
       },
       keyframes: {
@@ -44,6 +40,7 @@ module.exports = {
   },
   plugins: [
     // ...
+    require('flowbite/plugin'),
     flowbite.plugin(),
     require('tailwindcss-animated')
   ],

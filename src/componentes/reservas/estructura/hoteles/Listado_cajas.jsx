@@ -1,9 +1,12 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
 function Listado({
+  values,
+  setValues,
+  minMax,
   producto,
   habitaciones,
   seleccion,
@@ -23,56 +26,53 @@ function Listado({
   };
 
   return (
-    <div className="space-y-5 mt-12 mb-16 lg:mt-0">
-      <TipoHabitacion
-        minPrice={Math.min(...habitaciones.map((h) => parseFloat(h.precio)))}
-        maxPrice={Math.max(...habitaciones.map((h) => parseFloat(h.precio)))}
-      />
-      <div className="grid grid-cols-4 gap-5">
+    <div className="tw-space-y-5 tw-mt-12 tw-mb-16 lg:tw-mt-0">
+      <TipoHabitacion values={values} setValues={setValues} minMax={minMax} />
+      <div className="tw-grid tw-grid-cols-4 tw-gap-5">
         {habitaciones.map((habitacion) => (
           <div
-            className="col-span-4 md:col-span-2 lg:col-span-1 relative mt-5 border-2 dark:border-slate-800 bg-slate-700 dark:bg-slate-800 dark:hover:bg-slate-900 hover:bg-slate-800 group transition rounded-lg flex flex-col items-center shadow-xl p-3 pb-10"
+            className="tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-mt-5 tw-border-2 dark:tw-border-slate-800 tw-bg-slate-700 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-800 tw-group tw-transition tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10"
             key={habitacion.id}
           >
-            <FaBed className="text-4xl text-white" />
-            <h3 className="text-center font-semibold text-white">
+            <FaBed className="tw-text-4xl tw-text-white" />
+            <h3 className="tw-text-center tw-font-semibold tw-text-white">
               {habitacion.nombre}
             </h3>
-            <span className="text-slate-400 text-sm">{habitacion.regimen}</span>
-
+            <span className="tw-text-slate-400 tw-text-sm">
+              {habitacion.regimen}
+            </span>
             {habitacion.reembolso === "NO" ? (
-              <span className="bg-danger text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded mt-1">
+              <span className="tw-bg-danger tw-text-white tw-text-xs tw-font-medium tw-me-2 tw-px-2.5 tw-py-0.5 tw-rounded tw-mt-1">
                 No reembolsablee
               </span>
             ) : (
-              <span className="bg-green-700 text-white text-xs font-medium me-2 px-2.5 py-0.5 rounded mt-1">
+              <span className="tw-bg-green-700 tw-text-white tw-text-xs tw-font-medium tw-me-2 tw-px-2.5 tw-py-0.5 tw-rounded tw-mt-1">
                 Reembolsable
               </span>
             )}
-
             {habitacion.reembolso === "NO" &&
               habitacion.reembolso_penalizacion && (
-                <div className="flex flex-col mt-2">
+                <div className="tw-flex tw-flex-col tw-mt-2">
                   {Array.isArray(habitacion.reembolso_penalizacion) ? (
                     habitacion.reembolso_penalizacion
                       .slice(0, 2)
                       .map((penalizacion, index) => (
                         <span
                           key={index}
-                          className="text-danger_text font-semibold text-xs"
+                          className="tw-text-danger_text tw-font-semibold tw-text-xs"
                         >
                           {penalizacion}
                         </span>
                       ))
                   ) : (
-                    <span className="text-danger_text font-semibold text-xs">
+                    <span className="tw-text-danger_text tw-font-semibold tw-text-xs">
                       {habitacion.reembolso_penalizacion}
                     </span>
                   )}
                   {Array.isArray(habitacion.reembolso_penalizacion) &&
                     habitacion.reembolso_penalizacion.length > 2 && (
                       <button
-                        className="text-slate-400 text-xs mt-2"
+                        className="tw-text-slate-400 tw-text-xs tw-mt-2"
                         onClick={() => openModal(habitacion)}
                       >
                         Ver más...
@@ -82,7 +82,7 @@ function Listado({
               )}
             {seleccion === "seleccionar" ? (
               <button
-                className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white font-semibold border-2 border-white  p-3 px-7 rounded-lg transition group-hover:shadow-xl"
+                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-bg-secondary tw-text-white tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
                 onClick={() => {
                   setHotel({ ...hotel, precio: habitacion.precio });
                   setHabitacion(habitacion);
@@ -93,7 +93,7 @@ function Listado({
               </button>
             ) : (
               <Link to={"/datosHotel"} state={{ producto, habitacion }}>
-                <button className="absolute -bottom-6 left-1/2 transform -translate-x-1/2 bg-secondary text-white font-semibold border-2 border-white  p-3 px-7 rounded-lg transition group-hover:shadow-xl">
+                <button className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-bg-secondary tw-text-white tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl">
                   {habitacion.precio}€
                 </button>
               </Link>
@@ -110,14 +110,14 @@ function Listado({
                 (penalizacion, index) => (
                   <div
                     key={index}
-                    className="text-danger_text font-semibold text-sm"
+                    className="tw-text-danger_text tw-font-semibold tw-text-sm"
                   >
                     {penalizacion}
                   </div>
                 )
               )
             ) : (
-              <div className="text-danger_text font-semibold text-sm">
+              <div className="tw-text-danger_text tw-font-semibold tw-text-sm">
                 {selectedHabitacion?.reembolso_penalizacion}
               </div>
             )}
@@ -125,7 +125,7 @@ function Listado({
         </Modal.Body>
         <Modal.Footer>
           <button
-            className="text-gray-500 bg-gray-200 hover:bg-gray-300 rounded-lg py-2 px-4"
+            className="tw-text-gray-500 tw-bg-gray-200 hover:tw-bg-gray-300 tw-rounded-lg tw-py-2 tw-px-4"
             onClick={closeModal}
           >
             Cerrar

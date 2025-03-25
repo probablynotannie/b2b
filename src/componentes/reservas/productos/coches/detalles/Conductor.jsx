@@ -2,8 +2,7 @@ import React, { useState } from "react";
 import { IoPersonSharp } from "react-icons/io5";
 import { FaPlane } from "react-icons/fa6";
 
-function Conductor({ coche, conductor,setConductor }) {
-
+function Conductor({ coche, conductor, setConductor }) {
   const handleChange = (e) => {
     const { id, value } = e.target;
     setConductor((prevData) => ({
@@ -13,94 +12,94 @@ function Conductor({ coche, conductor,setConductor }) {
   };
   return (
     <div>
-      <h2 className="font-semibold text-lg dark:text-white">
+      <h2 className="tw-font-semibold tw-text-lg dark:tw-text-white">
         Detalles del conductor
       </h2>
 
-      <div className="relative">
-        <h2 className="absolute top-0 w-full h-full bg-orange-600 bg-opacity-40 rounded-lg text-white flex justify-center items-center text-4xl font-bold">
+      <div className="tw-relative">
+        <h2 className="tw-absolute tw-top-0 tw-w-full tw-h-full tw-bg-orange-600 tw-bg-opacity-40 tw-rounded-lg tw-text-white tw-flex tw-justify-center tw-items-center tw-text-4xl tw-font-bold">
           {coche.nombre}
         </h2>
         <img
           src={coche.img}
           alt={coche.nombre}
-          className="h-[30vh] w-full object-cover rounded-lg"
+          className="tw-h-[30vh] tw-w-full tw-object-cover tw-rounded-lg"
         />
       </div>
-      <div className="mt-3">
+      <div className="tw-mt-3">
         <form>
-          <div className="grid grid-cols-2 gap-2 border-y-2 border-slate-100 dark:border-slate-700 p-3 mb-2">
-            <div className="relative">
+          <div className="tw-grid tw-grid-cols-2 tw-gap-2 tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-p-3 tw-mb-2">
+            <div className="tw-relative">
               <select
                 id="titulo"
                 value={conductor.titulo}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full"
               >
                 <option value="">Titulo</option>
                 <option value="Sr">Sr</option>
                 <option value="Sra">Sra</option>
                 <option value="Sin especificar">Sin especificar</option>
               </select>
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                 <IoPersonSharp />
               </div>
             </div>
-            <div className="relative">
+            <div className="tw-relative">
               <input
                 id="numVuelo"
                 placeholder="N vuelo"
                 value={conductor.numVuelo}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full"
               />
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                 <FaPlane />
               </div>
             </div>
-            <div className="relative">
+            <div className="tw-relative">
               <input
                 id="nombre"
                 placeholder="Nombre"
                 value={conductor.nombre}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full"
               />
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xs tw-uppercase tw-font-bold">
                 No
               </div>
             </div>
-            <div className="relative">
+            <div className="tw-relative">
               <input
                 id="apellido"
                 placeholder="Apellido/s"
                 value={conductor.apellido}
                 onChange={handleChange}
-                className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full"
+                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full"
               />
-              <div className="absolute top-0 pointer-events-none bg-slate-700 dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xs uppercase font-bold">
+              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-slate-700 dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xs tw-uppercase tw-font-bold">
                 Ap
               </div>
             </div>
           </div>
-          <div className="col-span-2 flex items-center mb-4">
+          <div className="tw-col-span-2 tw-flex tw-items-center tw-mb-4">
             <input
               id="default-checkbox"
               type="checkbox"
-              className="w-4 h-4 text-secondary bg-gray-100 border-gray-300 rounded focus:ring-blue-500 dark:focus:ring-blue-600 dark:ring-offset-gray-800 focus:ring-2 dark:bg-gray-700 dark:border-gray-600"
+              className="tw-w-4 tw-h-4 tw-text-secondary tw-bg-gray-100 tw-border-gray-300 tw-rounded focus:tw-ring-blue-500 dark:focus:tw-ring-blue-600 dark:tw-ring-offset-gray-800 focus:tw-ring-2 dark:tw-bg-gray-700 dark:tw-border-gray-600"
             />
             <label
               htmlFor="default-checkbox"
-              className="ms-2 text-sm font-medium dark:text-slate-400"
+              className="tw-ms-2 tw-text-sm tw-font-medium dark:tw-text-slate-400"
             >
               Acepto{" "}
               <a href="/condiciones_de_reserva" target="_blank">
-                <span className="font-bold underline underline-offset-4 dark:text-slate-200">
+                <span className="tw-font-bold tw-underline tw-underline-offset-4 dark:tw-text-slate-200">
                   Condiciones de reserva
                 </span>{" "}
               </a>
               y la{" "}
-              <span className="font-bold underline underline-offset-4 dark:text-slate-200">
+              <span className="tw-font-bold tw-underline tw-underline-offset-4 dark:tw-text-slate-200">
                 política de privacidad{" "}
               </span>
             </label>

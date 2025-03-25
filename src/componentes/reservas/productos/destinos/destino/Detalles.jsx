@@ -7,37 +7,37 @@ function Detalles({ producto, cesta }) {
     <>
       <section>
         {cesta !== null && cesta !== true && (
-          <div className="h-[35vh] relative shadow">
+          <div className="tw-h-[35vh] tw-relative tw-shadow">
             <img
               src={producto.img}
-              className="h-full w-full object-cover rounded"
+              className="tw-h-full tw-w-full tw-object-cover tw-rounded"
               alt="imagen Destino"
             />
-            <div className="bg-black bg-opacity-45 h-full w-full absolute top-0 flex items-center justify-center">
-              <h2 className="text-4xl text-slate-100 font-bold">
+            <div className="tw-bg-black tw-bg-opacity-45 tw-h-full tw-w-full tw-absolute tw-top-0 tw-flex tw-items-center tw-justify-center">
+              <h2 className="tw-text-4xl tw-text-slate-100 tw-font-bold">
                 {producto.nombre}
               </h2>
             </div>
           </div>
         )}
 
-        <h3 className="dark:text-white text-secondary font-bold mt-3 text-xl">
+        <h3 className="dark:tw-text-white tw-text-secondary tw-font-bold tw-mt-3 tw-text-xl">
           Detalles
         </h3>
-        <p className="dark:text-slate-300">{producto.descripcion}</p>
-        <div className="mt-5 border-b-2 border-slate-100 pb-5">
+        <p className="dark:tw-text-slate-300">{producto.descripcion}</p>
+        <div className="tw-mt-5 tw-border-b-2 tw-border-slate-100 tw-pb-5">
           <Incluidos destino={producto} />
         </div>
-        <h3 className="dark:text-white text-slate-700 font-bold mt-3 text-xl">
+        <h3 className="dark:tw-text-white tw-text-slate-700 tw-font-bold tw-mt-3 tw-text-xl">
           Recorrido
         </h3>
-        <div className="mt-1">
+        <div className="tw-mt-1">
           <Itinerario destino={producto} />
         </div>
-        <div className="h-64 mt-1 ">
+        <div className="tw-h-64 tw-mt-1">
           <MapWithJourney destino={producto} />
         </div>
-        <div className="mt-10 ">
+        <div className="tw-mt-10">
           <Importante destino={producto} />
         </div>
       </section>

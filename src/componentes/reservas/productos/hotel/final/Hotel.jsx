@@ -5,98 +5,105 @@ import { IoMdStar, IoMdStarOutline } from "react-icons/io";
 import { FaCalendarAlt, FaCheck } from "react-icons/fa";
 function Hote({ hotel, habitacion }) {
   return (
-    <article className="mt-10 shadow-lg hover:shadow-xl transition duration-300 border dark:bg-slate-800 bg-slate-50 p-5 border-slate-200 dark:border-slate-700  rounded-lg">
-      <section className="flex justify-between items-center border-b-2 border-slate-100 dark:border-slate-700 pb-2 mb-5">
+    <article className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
+      <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
         <div>
-          <h3 className="text-lg font-bold dark:text-white">
+          <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
             {hotel.nombre} ({habitacion.nombre}) - {habitacion.regimen}
           </h3>
-          <p className="text-slate-500 dark:text-slate-300 flex gap-2 items-center">
-            <FaMapPin className="text-secondary dark:text-secondaryDark" />
+          <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
+            <FaMapPin className="tw-text-secondary dark:tw-text-secondaryDark" />
             {hotel.ubicacion}
           </p>
         </div>
-        <div className="flex flex-col justify-center items-center">
-          <FaHotel className="text-xl text-secondary dark:text-secondaryDark" />
+        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+          <FaHotel className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
 
-          <span className="text-secondary dark:text-secondaryDark font-bold">
+          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
             {parseFloat(habitacion.precio).toFixed(2)}€
           </span>
         </div>
       </section>
-      <section className="my-10 2xl:flex gap-5">
+      <section className="tw-my-10 2xl:tw-flex tw-gap-5">
         <img
           src={hotel.img}
           alt="imagen Habitación"
-          className="w-full h-[30vh] 2xl:w-[30vw] object-cover rounded-lg shadow"
+          className="tw-w-full tw-h-[30vh] 2xl:tw-w-[30vw] tw-object-cover tw-rounded-lg tw-shadow"
         />
-        <div className="bg-slate-100 dark:bg-slate-800 rounded-lg shadow w-full p-5">
-          <div className="flex justify-between items-center border-b-2 border-slate-200 pb-2 mb-3 dark:border-slate-700">
-            <div className="flex gap-2">
-              <h4 className="font-bold dark:text-white">{hotel.nombre}</h4>
-              <div className="flex text-secondary">
+        <div className="tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-w-full tw-p-5">
+          <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-200 tw-pb-2 tw-mb-3 dark:tw-border-slate-700">
+            <div className="tw-flex tw-gap-2">
+              <h4 className="tw-font-bold dark:tw-text-white">
+                {hotel.nombre}
+              </h4>
+              <div className="tw-flex tw-text-secondary">
                 {Array.from({ length: 5 }, (_, i) =>
                   i < Number(hotel.estrellas) ? (
-                    <IoMdStar key={i} className="text-lg" />
+                    <IoMdStar key={i} className="tw-text-lg" />
                   ) : (
-                    <IoMdStarOutline key={i} className="text-lg" />
+                    <IoMdStarOutline key={i} className="tw-text-lg" />
                   )
                 )}
               </div>
             </div>
-            <span className="text-slate-500 dark:text-slate-300 flex items-center text-sm gap-2">
-              <FaCalendarAlt className="text-secondary dark:text-secondaryDark" />
+            <span className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-items-center tw-text-sm tw-gap-2">
+              <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondaryDark" />
               {hotel.fecha} - {hotel.fechaSalida}
             </span>
           </div>
-          <p className="text-sm dark:text-slate-400"> {hotel.descripcion}</p>
+          <p className="tw-text-sm dark:tw-text-slate-400">
+            {" "}
+            {hotel.descripcion}
+          </p>
 
-          <div className="grid lg:grid-cols-6 md:grid-cols-3 sm:grid-cols-2 mt-3">
-            <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
-              <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
+          <div className="tw-grid lg:tw-grid-cols-6 md:tw-grid-cols-3 sm:tw-grid-cols-2 tw-mt-3">
+            <div className="tw-bg-white dark:tw-bg-slate-500 dark:tw-text-slate-100 tw-text-xs">
+              <h5 className="tw-text-xs tw-font-bold tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400 tw-p-1">
                 Habitaciones
               </h5>
-              <span className="p-1">{habitacion.nombre}</span>
+              <span className="tw-p-1">{habitacion.nombre}</span>
             </div>
-            <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
-              <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
+            <div className="tw-bg-white dark:tw-bg-slate-500 dark:tw-text-slate-100 tw-text-xs">
+              <h5 className="tw-text-xs tw-font-bold tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400 tw-p-1">
                 Regimen
               </h5>
-              <span className="p-1">{habitacion.regimen}</span>
+              <span className="tw-p-1">{habitacion.regimen}</span>
             </div>
-            <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
-              <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
+            <div className="tw-bg-white dark:tw-bg-slate-500 dark:tw-text-slate-100 tw-text-xs">
+              <h5 className="tw-text-xs tw-font-bold tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400 tw-p-1">
                 Pax
               </h5>
-              <span className="p-1">{hotel.pax + hotel.pax_ninios}x</span>
+              <span className="tw-p-1">{hotel.pax + hotel.pax_ninios}x</span>
             </div>
-            <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
-              <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
+            <div className="tw-bg-white dark:tw-bg-slate-500 dark:tw-text-slate-100 tw-text-xs">
+              <h5 className="tw-text-xs tw-font-bold tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400 tw-p-1">
                 Noches
               </h5>
-              <span className="p-1">{hotel.noches}x</span>
+              <span className="tw-p-1">{hotel.noches}x</span>
             </div>
-            <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
-              <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
+            <div className="tw-bg-white dark:tw-bg-slate-500 dark:tw-text-slate-100 tw-text-xs">
+              <h5 className="tw-text-xs tw-font-bold tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400 tw-p-1">
                 Núm Hab
               </h5>
-              <span className="p-1">{hotel.habitacion}x</span>
+              <span className="tw-p-1">{hotel.habitacion}x</span>
             </div>
-            <div className="bg-white dark:bg-slate-500 dark:text-slate-100 text-xs">
-              <h5 className="text-xs font-bold text-gray-700 uppercase bg-gray-50 dark:bg-gray-700 dark:text-gray-400 p-1">
+            <div className="tw-bg-white dark:tw-bg-slate-500 dark:tw-text-slate-100 tw-text-xs">
+              <h5 className="tw-text-xs tw-font-bold tw-text-gray-700 tw-uppercase tw-bg-gray-50 dark:tw-bg-gray-700 dark:tw-text-gray-400 tw-p-1">
                 Total
               </h5>
-              <span className="p-1">
+              <span className="tw-p-1">
                 {parseFloat(habitacion.precio).toFixed(2)}€
               </span>
             </div>
           </div>
           <div>
-            <h5 className="font-bold mt-5 mb-2 dark:text-slate-100">Extras</h5>
-            <ul className="text-sm ml-3 dark:text-slate-300 flex w-full gap-2 text-slate-600">
+            <h5 className="tw-font-bold tw-mt-5 tw-mb-2 dark:tw-text-slate-100">
+              Extras
+            </h5>
+            <ul className="tw-text-sm tw-ml-3 dark:tw-text-slate-300 tw-flex tw-w-full tw-gap-2 tw-text-slate-600">
               {hotel.extras.map((extra, index) => (
-                <li key={index} className="flex gap-2">
-                  <FaCheck className="text-green-500" />
+                <li key={index} className="tw-flex tw-gap-2">
+                  <FaCheck className="tw-text-green-500" />
                   {extra}
                 </li>
               ))}
@@ -104,10 +111,11 @@ function Hote({ hotel, habitacion }) {
           </div>
         </div>
       </section>
-      <div className="h-[40vh]">
+      <div className="tw-h-[40vh]">
         <Map hotel={hotel} />
       </div>
     </article>
   );
 }
+
 export default Hote;

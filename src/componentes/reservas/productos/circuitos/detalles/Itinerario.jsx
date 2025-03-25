@@ -2,18 +2,18 @@ import { Timeline } from "flowbite-react";
 function Itinerario({ actividad }) {
   return (
     <>
-      <h3 className="font-bold text-lg mt-5 dark:text-white">Itinerario</h3>
+      <h3 className="tw-font-bold tw-text-lg dark:tw-text-white">Itinerario</h3>
       <Timeline>
         {actividad.itinerario.map((itinerario, index) => (
           <Timeline.Item key={index}>
             <Timeline.Point />
             <Timeline.Content>
-              <Timeline.Time className="dark:text-slate-400">
+              <Timeline.Time className="dark:tw-text-slate-400 tw-pl-4">
                 Día {itinerario.dia}
               </Timeline.Time>
               <Timeline.Title>{itinerario.titulo}</Timeline.Title>
               <Timeline.Body>
-                <p className="text-slate-600 dark:text-slate-200 mt-4">
+                <p className="tw-text-slate-600 dark:tw-text-slate-200 tw-mt-4">
                   {itinerario.descripcion}
                 </p>
               </Timeline.Body>

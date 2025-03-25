@@ -1,111 +1,121 @@
 import { useLocation } from "react-router-dom";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
+
+
 import { SiMentorcruise } from "react-icons/si";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 import Detalles from "./Detalles";
 import DatosContacto from "../../../estructura/DatosContacto";
+import Pasajeros from "./Pasajeros";
 function ReservaFinal() {
   const location = useLocation();
-  const {
-    datosContacto,
-    producto,
-    cabinPhotos,
-    pasajeros,
-    selectedDate,
-    endDate,
-    selectedPrice,
-  } = location.state || {};
+  const { data, producto, precioSeleccionado } = location.state || {};
+  const getImagenCrucero = (producto) => {
+    if (producto.barco?.img_header_embarcacion) {
+      return producto.barco.img_header_embarcacion;
+    }
+    const firstAvailablePortImage = producto.itin_dias
+      .map((dia) => dia.puerto?.img_puerto_header)
+      .find((img) => img && img.trim() !== "");
+    return firstAvailablePortImage;
+  };
+  const imagenCrucero = getImagenCrucero(producto);
+  const precioBase = Number(precioSeleccionado.price);
+  const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
+  const precioTotalPassajero = precioBase + tasasPorPasajero;
+  const precioTotal = precioTotalPassajero * data.pasajeros.length;
   return (
-    <main className="grid lg:grid-cols-3 min-h-[55vh] items-start container gap-y-10 my-10 lg:gap-12">
-      <section className="col-span-2 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-200 dark:border-slate-700 dark:bg-slate-900 p-5">
-        <div className="flex justify-between items-center  border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-800 pb-2">
-          <h1 className="font-bold">Crucero {producto.titulo}</h1>
+    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
+      <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+        <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
+          <div>
+            <h1 className="tw-font-bold">Reservando Crucero</h1>
+            <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm">
+              {producto.num_dias +
+                " días a bordo de " +
+                producto.barco.nombre.texto}
+            </p>
+          </div>
           <img
-            src={producto.logo}
-            className="w-[60px] rounded-full"
-            alt={producto.nombreCrucero}
+            className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow dark:tw-shadow-slate-500"
+            src={
+              "//pic-2.vpackage.net/cruceros_img/" +
+              producto.naviera.img_naviera
+            }
+            alt="logoNaviera"
           />
         </div>
         <DatosContacto
-          nombre={datosContacto.nombre}
-          apellidos={datosContacto.apellido}
-          email={datosContacto.email}
-          numero={datosContacto.numero}
+          nombre={data.nombre}
+          apellidos={data.apellido}
+          email={data.email}
+          numero={data.numero}
         />
-        <Detalles
-          datosContacto={datosContacto}
-          cabinPhotos={cabinPhotos}
-          producto={producto}
-        />
+        <Pasajeros pasajeros={data.pasajeros} />
+        <Detalles producto={producto} />
       </section>
-      <article className="sticky top-24 col-span-2 lg:col-span-1 shadow-lg hover:shadow-xl transition duration-300 rounded-lg min-h-[15vh] border border-slate-100  dark:border-slate-800 dark:bg-slate-900 p-5">
-        <h2 className="font-semibold border-b-2 border-slate-100 dark:text-slate-200 dark:border-slate-700 pb-2">
-          Resumen
-        </h2>
-        <Reserva img={producto.crucero} txt={producto.titulo} />
-
-        <ul className="mt-3 text-sm dark:text-white">
-          <li className="text-start flex items-center gap-1">
-            <SiMentorcruise className="text-secondary text-lg" />
-            {FormatearFecha(selectedDate)}
-          </li>
-          <li className="text-end flex items-center justify-end gap-1">
-            {endDate ? FormatearFecha(endDate) : "Fecha no seleccionada"}
-            <SiMentorcruise className="text-secondary text-lg" />
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+        <div className="w-border-b-2  tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-mb-4">
+          <h2 className="tw-font-semibold ">Resumen</h2>
+        </div>
+        <Reserva
+          img={"//pic-2.vpackage.net/cruceros_img/" + imagenCrucero}
+          txt={producto.barco.nombre.texto}
+        />
+        <ul className="tw-mt-3 tw-text-sm dark:tw-text-white">
+          <li className="tw-text-start tw-flex tw-items-center tw-gap-1">
+            <SiMentorcruise className="tw-text-secondary tw-text-lg" />
+            {FormatearFecha(precioSeleccionado.date)}
           </li>
         </ul>
-        {pasajeros.map((pasajero, index) => {
-          const discount = pasajero.discount || 0;
-          const discountedPrice = (
-            selectedPrice *
-            (1 - discount / 100)
-          ).toFixed(2);
+        {data.pasajeros.map((pasajero, index) => {
+          const discountedPrice = precioSeleccionado.price.toFixed(2);
           return (
             <div
               key={index}
-              className="border-b flex text-sm justify-between items-end dark:border-slate-700 py-2"
+              className="tw-border-b tw-flex tw-text-sm tw-justify-between tw-items-end dark:tw-border-slate-700 tw-py-2 tw-my-2"
             >
               <div>
-                <h4 className="dark:text-white font-semibold text-base">
+                <h4 className="dark:tw-text-white tw-font-semibold tw-text-base">
                   Pasajero {index + 1}
                 </h4>
-                <span className="dark:text-slate-300 block text-sm">
-                  Edad: {pasajero.age}
+                <span className="dark:tw-text-slate-300 tw-block">
+                  Base: {Number(discountedPrice).toFixed(2)}€
                 </span>
-                <span className="dark:text-slate-300 text-sm">
-                  Descuento: {discount}%
+                <span className="dark:tw-text-slate-300 tw-block">
+                  Tasas: {Number(precioSeleccionado.datos.tasas).toFixed(2)}€
                 </span>
               </div>
-              <span className="dark:text-white font-semibold">
-                Total: {discountedPrice}€
+              <span className="dark:tw-text-white tw-font-semibold">
+                Total:{" "}
+                {(
+                  Number(discountedPrice) +
+                  Number(precioSeleccionado.datos.tasas)
+                ).toFixed(2)}
+                €
               </span>
             </div>
           );
         })}
+
         <Link
           to={"/resumenCrucero"}
           state={{
-            datosContacto,
+            data,
             producto,
-            cabinPhotos,
-            pasajeros,
-            selectedDate,
-            endDate,
-            selectedPrice,
+            precioSeleccionado,
           }}
         >
-          <button className="w-full bg-secondary dark:bg-green-600 rounded-lg  hover:shadow-lg transition duration-300 text-white p-3 font-semibold mt-2">
-            {pasajeros
-              .reduce((total, pasajero) => {
-                const discount = pasajero.discount || 0;
-                const discountedPrice = selectedPrice * (1 - discount / 100);
-                return total + discountedPrice;
-              }, 0)
-              .toFixed(2)}
-            €
+          <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
+            TOTAL: {precioTotal.toFixed(2)} €
           </button>
         </Link>
+        <div className="tw-flex tw-justify-center">
+          <button className="tw-w-fit tw-text-slate-500 tw-mt-1">
+            descargar PDF
+          </button>
+        </div>
       </article>
     </main>
   );

@@ -1,164 +1,26 @@
 import Sidebar from "./sidebar/Sidebar";
-import { useState } from "react";
-import Input_Select from "../inputs/Selector";
-import Input_dateRange from "../inputs/DateRange";
-import { FaGlobe } from "react-icons/fa";
-import { FaUserShield } from "react-icons/fa";
-import { IoPersonSharp } from "react-icons/io5";
-import { FaPerson } from "react-icons/fa6";
-import Input_selectNum from "../inputs/SelectorNums";
-import { Link } from "react-router-dom";
+import Buscador_Seguros from "./buscadores/seguros/Buscador_Seguros";
+import Destacados from "./buscadores/transfers/Destacados";
 function Seguros() {
-  const [seguro, setSeguro] = useState();
-  const [destinosSeguro, setDestinoSeguro] = useState();
-  const [residente, setResidente] = useState();
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
-  const [pasajeros, setPasajeros] = useState(1);
-  const maxPasajeros = 10;
-
-  const destinos = [
-    {
-      id: 0,
-      texto: "España",
-    },
-    {
-      id: 1,
-      texto: "Portugal",
-    },
-    {
-      id: 2,
-      texto: "Europa y paises ribereños del mediterráneo",
-    },
-    {
-      id: 3,
-      texto: "Europa + Europa",
-    },
-    {
-      id: 4,
-      texto: "Resto del mundo",
-    },
-  ];
-  const residentes = [
-    {
-      id: 0,
-      texto: "España",
-    },
-    {
-      id: 1,
-      texto: "Portugal",
-    },
-    {
-      id: 2,
-      texto: "No residente",
-    },
-  ];
-  const seguros = [
-    {
-      id: 0,
-      texto: "Anulación (Vuelos, alojamientos,entradas,etc)",
-    },
-    {
-      id: 1,
-      texto: "Anulación Estancias",
-    },
-    {
-      id: 2,
-      texto: "Asitencia",
-    },
-    {
-      id: 3,
-      texto: "Asistencia + Anulación",
-    },
-    {
-      id: 4,
-      texto: "Asistencia + Anulación ampliada",
-    },
-    {
-      id: 5,
-      texto: "Asistencia + Anulación cruceros",
-    },
-    {
-      id: 6,
-      texto: "Asistencia + Anulación PREEXISENCIS",
-    },
-  ];
-
   return (
-    <div className="grid grid-cols-10 gap-10 lg:px-20 lg:min-h-[78vh] min-h-[90vh] lg:py-10">
+    <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
-      <div
-        className="relative flex  lg:block items-center justify-center h-full  col-span-10 lg:col-span-7 xl:col-span-8 min-h-[68vh] lg:rounded-lg lg:shadow-lg"
-        style={{
-          backgroundImage: `url(/banner_seguros.jpg)`,
-          backgroundSize: "cover",
-        }}
-      >
+      <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
         <div
-          className={`absolute  z-0 bg-indigo-800 w-full h-full bg-opacity-45 rounded-lg shadow-lg px-10 `}
-        ></div>
-        <div className="relative xl:top-32 lg:left-20 bg-CajaForms bg-opacity-80 dark:bg-opacity-90 text-white px-4 md:px-10 w-11/12 md:w-2/3 lg:w-2/4  2xl:w-2/7 h-fit py-5 pb-16 rounded-lg shadow-xl">
-          <form>
-            <h2 className="text-3xl font-bold">Buscador de seguros</h2>
-
-            <div className="mt-2 grid grid-cols-2 gap-2">
-              <div>
-                <Input_Select
-                  icono={<FaUserShield />}
-                  placeholder="Tipo seguro"
-                  opciones={seguros}
-                  values={seguro}
-                  setValues={setSeguro}
-                />
-              </div>
-              <div>
-                <Input_Select
-                  icono={<FaGlobe />}
-                  placeholder="Destino"
-                  opciones={destinos}
-                  values={destinosSeguro}
-                  setValues={setDestinoSeguro}
-                />
-              </div>
-              <div>
-                <Input_dateRange
-                  startDate={startDate}
-                  endDate={endDate}
-                  setStartDate={setStartDate}
-                  setEndDate={setEndDate}
-                />
-              </div>
-              <div>
-                <Input_Select
-                  icono={<IoPersonSharp />}
-                  placeholder="Residencia"
-                  opciones={residentes}
-                  values={residente}
-                  setValues={setResidente}
-                />
-              </div>
-              <div className="relative">
-                <Input_selectNum
-                  placeholder={"Núm pasajeros"}
-                  valor={pasajeros}
-                  setValor={setPasajeros}
-                  num={maxPasajeros}
-                  icono={<FaPerson />}
-                />
-              </div>
-            </div>
-            <div className="absolute -bottom-5 right-5">
-              <Link to={"/seguro"}>
-                <button className="bg-slate-900 border-2 border-white border-opacity-20 shadow-xl rounded-lg p-3 px-16 font-bold w-full">
-                  Buscar
-                </button>
-              </Link>
-            </div>
-          </form>
+          className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+          style={{
+            backgroundImage: `url(/banner_seguros.jpg)`,
+            backgroundSize: "cover",
+            backgroundPosition: "center",
+          }}
+        >
+          <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
+            <Buscador_Seguros />
+          </div>
         </div>
+        <Destacados />
       </div>
-    </div>
+    </article>
   );
 }
-
 export default Seguros;

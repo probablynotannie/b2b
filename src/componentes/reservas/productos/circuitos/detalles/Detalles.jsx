@@ -8,12 +8,12 @@ function Detalles({ actividad, cesta }) {
 
   const tabContent = {
     itinerario: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="tw-p-6 tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
         <Itinerario actividad={actividad} />
       </div>
     ),
     incluye: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="tw-p-6 tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
         <Incluye
           incluido={actividad.incluido}
           no_incluido={actividad.no_incluido}
@@ -21,7 +21,7 @@ function Detalles({ actividad, cesta }) {
       </div>
     ),
     excursiones: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
+      <div className="tw-p-6 tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
         <Incluye
           incluido={actividad.excursiones_incluidos}
           no_incluido={actividad.excursiones_no_incluidos}
@@ -29,14 +29,17 @@ function Detalles({ actividad, cesta }) {
       </div>
     ),
     notas: (
-      <div className="p-6 bg-slate-50 text-medium text-slate-500 dark:text-slate-400 dark:bg-slate-800 rounded-lg w-full">
-        <h3 className="text-lg font-bold text-slate-900 dark:text-white mb-2">
+      <div className="tw-p-6 tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
+        <h3 className="tw-text-lg tw-font-bold tw-text-slate-900 dark:tw-text-white tw-mb-2">
           Notas
         </h3>
         <ul>
           {actividad.notas.map((nota, index) => (
-            <li className="text-sm mt-5 flex gap-2 itesm-center" key={index}>
-              <FaInfoCircle className="w-5 h-5 flex-shrink-0 text-orange-400" />
+            <li
+              className="tw-text-sm tw-mt-5 tw-flex tw-gap-2 itesm-center"
+              key={index}
+            >
+              <FaInfoCircle className="tw-w-5 tw-h-5 tw-flex-shrink-0 tw-text-orange-400" />
               {nota}
             </li>
           ))}
@@ -48,16 +51,16 @@ function Detalles({ actividad, cesta }) {
   return (
     <div>
       {!cesta && <Fotos fotos={actividad.imagenes} />}
-      <div className="md:flex mt-9">
-        <ul className="flex-column space-y-4 text-sm font-medium text-slate-500 dark:text-slate-400 md:me-4 mb-4 md:mb-0">
+      <div className="md:tw-flex tw-mt-9">
+        <ul className="tw-flex-column tw-space-y-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-slate-400 md:tw-me-4 tw-mb-4 md:tw-mb-0">
           {["itinerario", "incluye", "excursiones", "notas"].map((tab) => (
             <li key={tab}>
               <button
                 onClick={() => setActiveTab(tab)}
-                className={`inline-flex items-center px-4 py-3 rounded-lg w-full ${
+                className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
                   activeTab === tab
-                    ? "text-white bg-secondary dark:bg-secondaryDark"
-                    : "hover:text-slate-900 bg-slate-50 hover:bg-slate-100 dark:bg-slate-800 dark:hover:bg-slate-700 dark:hover:text-white"
+                    ? "tw-text-white tw-bg-secondary dark:tw-bg-secondaryDark"
+                    : "hover:tw-text-slate-700 dark:hover:tw-text-slate-300 tw-bg-slate-50 hover:bg-slate-100 dark:tw-bg-slate-800 dark:tw-hover:bg-slate-700 dark:tw-hover:text-white"
                 }`}
               >
                 {tab}

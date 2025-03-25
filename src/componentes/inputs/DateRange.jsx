@@ -5,68 +5,94 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
-const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
+import { useController } from "react-hook-form";
+const DateRange = ({
+  control,
+  nameStartDate,
+  nameEndDate,
+  placeholder,
+  required,
+}) => {
   const [isOpen, setIsOpen] = useState(false);
   const isSwiping = useRef(false);
-
+  const {
+    field: fieldStartDate,
+    fieldState: { error: errorStart },
+  } = useController({
+    name: nameStartDate,
+    control,
+    defaultValue: null,
+    rules:
+      required === true
+        ? { required: "La fecha de inicio es obligatoria" }
+        : {},
+  });
+  const {
+    field: fieldEndDate,
+    fieldState: { error: errorEnd },
+  } = useController({
+    name: nameEndDate,
+    control,
+    defaultValue: null,
+    rules:
+      required === true ? { required: "La fecha de fin es obligatoria" } : {},
+  });
   const handleChange = (dates) => {
     if (!isSwiping.current) {
       const [start, end] = dates;
-      setStartDate(start);
-      setEndDate(end);
+      fieldStartDate.onChange(start);
+      fieldEndDate.onChange(end);
+      fieldStartDate.onBlur();
+      fieldEndDate.onBlur();
       if (start && end) {
         setIsOpen(false);
       }
     }
   };
-
   const toggleDatePicker = () => {
     setIsOpen(!isOpen);
   };
-
   const highlightWeekends = (date) => {
     const day = date.getDay();
     return day === 0 || day === 6 ? "weekend-day" : "";
   };
-
   return (
     <div>
-      <div className="relative hidden lg:block">
+      <div className="tw-relative tw-hidden lg:tw-block">
         <input
           type="text"
           readOnly
           onClick={toggleDatePicker}
           value={
-            startDate && endDate
-              ? `${format(startDate, "d 'de' MMMM 'de' yyyy", {
+            fieldStartDate.value && fieldEndDate.value
+              ? `${format(fieldStartDate.value, "d 'de' MMMM", {
                   locale: es,
-                })} - ${format(endDate, "d 'de' MMMM 'de' yyyy", {
+                })} - ${format(fieldEndDate.value, "d 'de' MMMM", {
                   locale: es,
                 })}`
-              : "Selecciona un rango de fechas"
+              : placeholder || "Fechas"
           }
-          className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white dark:focus:ring-slate-600 dark:focus:border-slate-600 border-slate-300 text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+          className="tw-border tw-bg-white tw-h-[40px] dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-pl-10 tw-w-full tw-cursor-pointer"
         />
-        <div className="absolute top-0 pointer-events-none bg-inputIcon dark:bg-slate-800 dark:border-slate-600 dark:border-y-2 dark:border-l-2 text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+        <div className="tw-absolute tw-h-[40px] tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
           <FaCalendarAlt />
         </div>
       </div>
-      <div className="lg:hidden">
+      <div className="lg:tw-hidden">
         <InfiniteScrollCalendar
-          startDate={startDate}
-          setStartDate={setStartDate}
-          endDate={endDate}
-          setEndDate={setEndDate}
+          control={control}
+          nameStartDate={nameStartDate}
+          nameEndDate={nameEndDate}
         />
       </div>
       <div>
         {isOpen && (
-          <div className="absolute z-50">
+          <div className="tw-absolute tw-z-50">
             <DatePicker
-              selected={startDate}
+              selected={fieldStartDate.value}
               onChange={handleChange}
-              startDate={startDate}
-              endDate={endDate}
+              startDate={fieldStartDate.value}
+              endDate={fieldEndDate.value}
               selectsRange
               inline
               dayClassName={highlightWeekends}
@@ -76,7 +102,14 @@ const DateRange = ({ startDate, setStartDate, endDate, setEndDate }) => {
               wrapperClassName="custom-wrapper"
               calendarClassName="my-custom-datepicker"
             />
+            <div></div>
           </div>
+        )}
+        {errorStart && (
+          <p className="tw-text-red-500 tw-text-sm">{errorStart.message}</p>
+        )}
+        {errorEnd && (
+          <p className="tw-text-red-500 tw-text-sm">{errorEnd.message}</p>
         )}
       </div>
     </div>

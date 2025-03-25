@@ -20,7 +20,6 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-  const [lockedIdaPrice, setLockedIdaPrice] = useState(null);
 
   const todayRef = useRef(null);
   const modalRef = useRef(null);
@@ -45,22 +44,6 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     return () => window.removeEventListener("resize", handleResize);
   }, []);
 
-  useEffect(() => {
-    const handleClickOutside = (e) => {
-      if (modalRef.current && !modalRef.current.contains(e.target)) {
-        closeModal();
-      }
-    };
-
-    if (isModalOpen) {
-      document.addEventListener("mousedown", handleClickOutside);
-    }
-
-    return () => {
-      document.removeEventListener("mousedown", handleClickOutside);
-    };
-  }, [isModalOpen]);
-
   const loadMoreMonths = useCallback(() => {
     const lastMonth = months[months.length - 1];
     const newMonths = [];
@@ -70,30 +53,20 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
     setMonths((prevMonths) => [...prevMonths, ...newMonths]);
   }, [months]);
 
-  const handleDateClick = (date) => {
+  const [tipo, setTipo] = useState();
+  const handleDateClick = (date, tipo) => {
+    setTipo(tipo);
     const formattedDate = format(date, "yyyy-MM-dd");
-
-    if (!prices[formattedDate]) {
-      return;
-    }
-
-    if (!startDate || (startDate && endDate)) {
-      setStartDate(date);
-      const newEndDate = addDays(date, TRIP_DAYS - 1);
-      setEndDate(newEndDate);
-      setLockedIdaPrice(prices[formattedDate]);
-    } else if (date < startDate) {
-      setStartDate(date);
-      setEndDate(addDays(date, TRIP_DAYS - 1));
-    } else {
-      setEndDate(date);
-    }
+    const priceData = prices[formattedDate];
+    if (!priceData) return;
+    setStartDate(date);
+    const newEndDate = addDays(date, TRIP_DAYS - 1);
+    setEndDate(newEndDate);
   };
-
   useEffect(() => {
     if (startDate && endDate) {
       const startDateFormatted = format(startDate, "yyyy-MM-dd");
-      const startDatePrice = prices[startDateFormatted] || null;
+      const startDatePrice = prices[startDateFormatted]?.price || null;
 
       if (
         dates.startDate !== startDate ||
@@ -118,68 +91,123 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
   const renderWeekDays = () => {
     const weekDays = ["Lun", "Mar", "Mie", "Jue", "Vie", "Sab", "Dom"];
     return (
-      <div className="grid grid-cols-7 text-center font-bold">
+      <div className="tw-grid tw-grid-cols-7 tw-text-center tw-font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="p-1 text-black dark:text-white text-sm">
+          <div
+            key={day}
+            className="tw-p-1 tw-text-black dark:tw-text-white tw-text-sm"
+          >
             {day}
           </div>
         ))}
       </div>
     );
   };
-
+  const colores = {
+    1: "pink",
+    2: "purple",
+    3: "orange",
+    4: "green",
+  };
+  const tipoPrecios = [
+    {
+      id: 1,
+      texto: "Raro",
+    },
+    {
+      id: 2,
+      texto: "Favorito",
+    },
+    {
+      id: 3,
+      texto: "No tanto especial",
+    },
+    {
+      id: 4,
+      texto: "Especial",
+    },
+  ];
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-  
     return (
-      <div key={month} className="mb-8">
-        <h3 className="text-lg font-bold text-center mb-2 text-secondary">
-          {format(month, "MMMM yyyy", { locale: es })}
-        </h3>
+      <div key={month} className="tw-mb-8 tw-relative">
+        <div className="md:tw-sticky tw-top-0 tw-bg-gray-100 dark:tw-bg-slate-700 tw-z-10 tw-py-2">
+          <h3 className="tw-text-lg tw-font-bold tw-text-center tw-text-secondary">
+            {format(month, "MMMM yyyy", { locale: es })}
+          </h3>
+        </div>
         {renderWeekDays()}
-        <div className="grid grid-cols-7 gap-1 mb-3">
+        <div className="tw-grid tw-grid-cols-7 tw-gap-1 tw-mb-3">
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
-            <div key={`empty-${i}`} className="p-4"></div>
+            <div key={`empty-${i}`} className="tw-p-4"></div>
           ))}
           {daysInMonth.map((day) => {
             const formattedDate = format(day, "yyyy-MM-dd");
-            const isDateDisabled =
-              !prices[formattedDate] || isBefore(day, today);
+            const priceData = prices[formattedDate];
+            const price = priceData ? priceData.price : null;
+            const isDateDisabled = !priceData || isBefore(day, today);
             const isTodayDay = isToday(day);
-  
             return (
               <div
                 key={day}
                 ref={isTodayDay ? todayRef : null}
-                className={`p-4 text-center rounded-lg cursor-pointer text-black text-sm relative ${
+                className={`tw-p-4 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm tw-relative ${
                   isTodayDay
-                    ? "bg-blue-500 dark:bg-secondaryDark text-white"
+                    ? "tw-bg-blue-500 dark:tw-bg-secondaryDark tw-text-white"
                     : ""
                 } ${
                   isSameDay(day, startDate)
-                    ? "bg-secondary dark:bg-slate-900 text-white"
+                    ? `${
+                        tipo
+                          ? `tw-bg-${colores[tipo]}-500`
+                          : "tw-bg-secondary dark:tw-bg-slate-900"
+                      }  tw-text-white`
                     : isSameDay(day, endDate)
-                    ? "bg-secondary dark:bg-slate-900 text-white"
+                    ? `${
+                        tipo
+                          ? `tw-bg-${colores[tipo]}-500`
+                          : "tw-bg-secondary dark:tw-bg-slate-900"
+                      }  tw-text-white`
                     : startDate && endDate && day > startDate && day < endDate
-                    ? "bg-orange-100 dark:bg-slate-600 dark:text-white"
-                    : "dark:text-slate-100"
+                    ? `${
+                        tipo
+                          ? `tw-bg-${colores[tipo]}-300`
+                          : "tw-bg-orange-100 dark:tw-bg-slate-600"
+                      }  tw-text-white`
+                    : "dark:tw-text-slate-100"
                 } ${isDateDisabled ? "text-slate-400 cursor-no-drop" : ""}`}
-                onClick={() => !isDateDisabled && handleDateClick(day)}
+                onClick={() =>
+                  !isDateDisabled && handleDateClick(day, priceData.type)
+                }
               >
-                <div>{format(day, "d")}</div>
-                {!isBefore(day, today) && prices[formattedDate] && (
-                  <div className="absolute bottom-1 left-1/2 transform -translate-x-1/2 text-xs text-center">
+                <div>
+                  {format(day, "d")}
+                  {priceData?.type && (
+                    <div
+                      className={`tw-w-1.5 tw-h-1.5 tw-rounded-full tw-absolute tw-top-3 tw-animate-pulse
+                       tw-bg-${colores[priceData?.type]}-500
+                      }`}
+                    ></div>
+                  )}
+                </div>
+                {!isBefore(day, today) && priceData && (
+                  <div className="tw-absolute tw-bottom-1 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-text-xs tw-text-center">
                     <span
-                      className={`text-slate-900 dark:text-secondaryDark ${
+                      className={` ${
+                        priceData?.type &&
+                        `tw-text-${
+                          colores[priceData.type]
+                        }-500 tw-font-bold tw-text-md`
+                      }  ${
                         isSameDay(day, startDate) || isSameDay(day, endDate)
-                          ? "text-white font-bold"
+                          ? "tw-text-white tw-font-bold dark:tw-text-white"
                           : ""
                       }`}
                     >
-                      {prices[formattedDate]}€
+                      {price}€
                     </span>
                   </div>
                 )}
@@ -190,25 +218,25 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       </div>
     );
   };
-  
+
   const resetSelection = () => {
     setStartDate(null);
     setEndDate(null);
-    setLockedIdaPrice(null);
     setDates({
       startDate: null,
       endDate: null,
       startDatePrice: null,
     });
   };
+
   return (
     <div>
       {isMobile ? (
         <>
-          <div className="relative">
+          <div className="tw-relative">
             <div
               onClick={() => setIsModalOpen(true)}
-              className="border bg-white dark:bg-slate-700 dark:border-slate-600 dark:placeholder-slate-400 dark:text-white text-slate-500 text-sm rounded-lg p-2.5 pl-10 w-full cursor-pointer"
+              className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
             >
               {startDate && endDate
                 ? `${format(startDate, "dd/MM/yyyy")} - ${format(
@@ -216,36 +244,36 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                     "dd/MM/yyyy"
                   )}`
                 : "Selecciona un rango de fechas"}
-              <div className="absolute top-0 left-0 bg-inputIcon text-white h-full rounded-tl-lg rounded-bl-lg flex items-center justify-center w-8 text-xl">
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
                 <FaCalendarAlt />
               </div>
             </div>
           </div>
           {isModalOpen && (
-            <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+            <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
               <div
                 ref={modalRef}
-                className="bg-white dark:bg-slate-700 w-full h-full mx-auto relative"
+                className="tw-bg-white dark:tw-bg-slate-700 tw-w-full tw-h-full tw-mx-auto tw-relative"
               >
-                <div className="flex justify-between items-center mb-4 bg-primary p-5">
-                  <h2 className="text-xl font-bold text-white">
+                <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary tw-p-5">
+                  <h2 className="tw-text-xl tw-font-bold tw-text-white">
                     Selecciona fechas
                   </h2>
                   <button
                     onClick={() => setIsModalOpen(false)}
-                    className="text-xl text-white"
+                    className="tw-text-xl tw-text-white"
                   >
                     &times;
                   </button>
                 </div>
                 <button
                   onClick={resetSelection}
-                  className="absolute top-5 right-10 bg-red-500 text-white py-1 px-3 rounded-lg"
+                  className="tw-absolute tw-top-5 tw-right-10 tw-bg-red-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
                 >
                   Borrar
                 </button>
                 <div
-                  className="custom-scrollbar overflow-y-auto h-[calc(100%-85px)] p-4"
+                  className="custom-scrollbar tw-overflow-y-auto tw-h-full tw-p-4"
                   onScroll={(e) => {
                     const { scrollTop, scrollHeight, clientHeight } = e.target;
                     if (scrollHeight - scrollTop <= clientHeight + 100) {
@@ -260,35 +288,55 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
           )}
         </>
       ) : (
-        <div className="p-4 bg-gray-100 dark:bg-slate-700 rounded-lg shadow">
-          <div className="flex justify-end items-center mb-4">
-            <div className="flex space-x-4">
-              <button
-                onClick={scrollToToday}
-                className="bg-blue-500 text-white py-1 px-3 rounded-lg"
+        <>
+          <h1 className="tw-font-semibold dark:tw-text-white tw-text-2xl">
+            Selecciona el rango de fechas
+          </h1>
+          <div className="tw-flex tw-flex-wrap tw-gap-2">
+            {tipoPrecios.map((tipo) => (
+              <div
+                className="tw-flex tw-gap-1 tw-items-center tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm"
+                key={tipo.id}
               >
-                Hoy
-              </button>
-              <button
-                onClick={resetSelection}
-                className="bg-red-500 text-white py-1 px-3 rounded-lg"
-              >
-                Borrar
-              </button>
+                <div
+                  className={`tw-w-[7px] tw-h-[7px] tw-rounded-full tw-bg-${
+                    colores[tipo.id]
+                  }-500`}
+                ></div>
+                <span> {tipo.texto}</span>
+              </div>
+            ))}
+          </div>
+          <div className="tw-p-4 tw-bg-gray-100 dark:tw-bg-slate-700 tw-rounded-lg tw-shadow">
+            <div className="tw-flex tw-justify-end tw-items-center tw-mb-4">
+              <div className="tw-flex tw-space-x-4">
+                <button
+                  onClick={scrollToToday}
+                  className="tw-bg-blue-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
+                >
+                  Hoy
+                </button>
+                <button
+                  onClick={resetSelection}
+                  className="tw-bg-red-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"
+                >
+                  Borrar
+                </button>
+              </div>
+            </div>
+            <div
+              className="custom-scrollbar tw-overflow-y-auto tw-h-[400px]"
+              onScroll={(e) => {
+                const { scrollTop, scrollHeight, clientHeight } = e.target;
+                if (scrollHeight - scrollTop <= clientHeight + 100) {
+                  loadMoreMonths();
+                }
+              }}
+            >
+              {months.map((month) => renderMonth(month))}
             </div>
           </div>
-          <div
-            className="custom-scrollbar overflow-y-auto h-[360px]"
-            onScroll={(e) => {
-              const { scrollTop, scrollHeight, clientHeight } = e.target;
-              if (scrollHeight - scrollTop <= clientHeight + 100) {
-                loadMoreMonths();
-              }
-            }}
-          >
-            {months.map((month) => renderMonth(month))}
-          </div>
-        </div>
+        </>
       )}
     </div>
   );

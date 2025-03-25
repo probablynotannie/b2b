@@ -32,7 +32,7 @@ const MapWithJourney = ({ tren }) => {
   }, []);
 
   return (
-    <div className="w-full h-[30vh] z-0 mb-0">
+    <div className="tw-w-full tw-h-[30vh] tw-z-0 tw-mb-0">
       <MapContainer
         center={positions[0]}
         zoom={6}
@@ -47,8 +47,6 @@ const MapWithJourney = ({ tren }) => {
           attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
           url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
         />
-
-        {/* Markers for each departure and arrival position */}
         {tren.segments.map((segment) => (
           <>
             {segment.departurePosition &&
@@ -84,8 +82,6 @@ const MapWithJourney = ({ tren }) => {
               )}
           </>
         ))}
-
-        {/* Polyline for the journey path */}
         {positions.length > 1 && (
           <Polyline positions={positions} color="green" weight={3} />
         )}

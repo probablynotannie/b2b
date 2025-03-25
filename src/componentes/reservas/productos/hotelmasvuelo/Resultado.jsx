@@ -75,62 +75,64 @@ function Productos() {
       setVuelta(vuelta);
     }
   }, []);
+  const [values, setValues] = useState([0, 5000]);
+  const [minMax, setMinMax] = useState([0, 5000]);
   return (
-    <main className=" flex justify-center flex-col items-center  mb-10">
-      <div className="w-full">
+    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10">
+      <div className="tw-w-full">
         <div
-          className="w-full bg-cover bg-center p-8 relative shadow-md"
+          className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
           style={{
             backgroundImage: "url('/banner_avion.jpg')",
           }}
         >
-          <div className="bg-indigo-300 dark:bg-black text-pink-600 bg-opacity-55 dark:bg-opacity-45 absolute top-0 left-0 w-full h-full pointer-events-none"></div>
-          <div className="flex">
-            <div className="container relative">
+          <div className="tw-bg-indigo-300 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-55 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
+          <div className="tw-flex">
+            <div className="tw-container tw-relative">
               <Buscador />
             </div>
-            <aside className="lg:hidden col-span-9 lg:col-span-3 h-fit lg:sticky top-16 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
-              <Aside />
+            <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-10 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
+              <Aside values={values} setValues={setValues} minMax={minMax} />
             </aside>
           </div>
         </div>
-        <div className="flex space-x-4 mb-6 col-span-9 container mt-10">
+        <div className="tw-flex tw-space-x-4 tw-mb-6 tw-col-span-9 tw-container tw-mt-10">
           <button
-            className={`px-4 py-2 border-b-2 flex items-center ${
+            className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
               activeTab === "Resultados"
-                ? "border-secondary text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
+                ? "border-secondary tw-text-secondary font-bold "
+                : " text-slate-700 dark:tw-text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Resultados")}
           >
-            <FaHotel className="mr-1" /> Resultados
+            <FaHotel className="tw-mr-1" /> Resultados
           </button>
           <button
-            className={`px-4 py-2 border-b-2 flex items-center ${
+            className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
               activeTab === "Vuelos"
-                ? "border-secondary text-secondary font-bold "
-                : " text-slate-700 dark:text-slate-200 border-none"
+                ? "border-secondary tw-text-secondary font-bold "
+                : " text-slate-700 dark:tw-text-slate-200 border-none"
             }`}
             onClick={() => setActiveTab("Vuelos")}
           >
-            <FaPlane className="mr-1" /> Cambiar Vuelos
+            <FaPlane className="tw-mr-1" /> Cambiar Vuelos
           </button>
         </div>
-        <article className="grid grid-cols-9 lg:gap-8 xs:gap-28 container">
+        <article className="tw-grid tw-grid-cols-9 lg:tw-gap-8 xs:gap-28 tw-container">
           {activeTab === "Resultados" && (
             <>
-              <aside className="hidden lg:block col-span-9 lg:col-span-3 h-fit lg:sticky top-16 lg:bg-slate-100 lg:dark:bg-slate-800 lg:border-2 border-slate-200  dark:border-slate-800 rounded-lg lg:shadow-xl hover:lg:shadow-2xl transition px-3 lg:p-3 lg:pb-10">
-                <Aside />
+              <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-16 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
+                <Aside values={values} setValues={setValues} minMax={minMax} />
               </aside>
-              <section className="col-span-9 lg:col-span-6 p-3">
-                <div className="flex justify-end ">
+              <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
+                <div className="tw-flex tw-justify-end">
                   {selectedHotel && (
                     <Link
-                      className="w-full sm:w-fit"
+                      className="tw-w-full sm:tw-w-fit"
                       to={"/hotelMasVuelo"}
                       state={{ ida, vuelta, selectedHotel, habitacion }}
                     >
-                      <button className="bg-slate-600 dark:bg-slate-800 text-white font-semibold p-3 rounded-lg shadow-md hover:shadow-xl transition duration-300 w-full">
+                      <button className="tw-bg-slate-600 dark:tw-bg-slate-800 tw-text-white tw-font-semibold tw-p-3 tw-rounded-lg tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-w-full">
                         Reservar
                       </button>
                     </Link>
