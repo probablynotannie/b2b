@@ -46,16 +46,22 @@ function Productos() {
       <article
         className={`lg:tw-px-28 tw-px-5 tw-grid tw-w-full tw-grid-cols-9 tw-mt-10 lg:tw-gap-10 xs:gap-28`}
       >
-        <aside
-          className={`
-            ${viewMode === "list" ? "lg:tw-col-span-3" : "lg:tw-col-span-2"}
-            tw-hidden lg:tw-block tw-col-span-9  tw-h-fit lg:tw-sticky tw-top-10 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10`}
-        >
-          <Aside values={values} setValues={setValues} minMax={minMax} />
-        </aside>
+        {viewMode === "list" && (
+          <aside
+            className={`
+      lg:tw-col-span-3 tw-hidden lg:tw-block tw-col-span-9 tw-h-fit 
+      lg:tw-sticky tw-top-10 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 
+      lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 
+      tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl 
+      tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10
+    `}
+          >
+            <Aside values={values} setValues={setValues} minMax={minMax} />
+          </aside>
+        )}
         <section
           className={`
-            ${viewMode === "list" ? "lg:tw-col-span-6" : "lg:tw-col-span-7"}
+            ${viewMode === "list" ? "lg:tw-col-span-6" : "lg:tw-col-span-9"}
 
           tw-col-span-9 tw-p-3 
           `}
