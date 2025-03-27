@@ -12,6 +12,7 @@ function Listado({ coches }) {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
+  
   const borderColors = {
     premium_minivan: "tw-border-blue-500",
     taxi: "tw-border-red-500",
@@ -21,6 +22,7 @@ function Listado({ coches }) {
     minicoach: "tw-border-orange-500",
     minibus: "tw-border-pink-500",
   };
+
   const boxColor = {
     premium_minivan: "tw-bg-blue-500",
     taxi: "tw-bg-red-500",

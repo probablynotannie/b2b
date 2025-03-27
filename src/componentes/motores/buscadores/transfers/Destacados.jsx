@@ -59,6 +59,7 @@ function Destacados() {
       salida: getAdjustedTime(),
     },
   ];
+
   return (
     <div className="tw-p-5 tw-mt-5">
       <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">

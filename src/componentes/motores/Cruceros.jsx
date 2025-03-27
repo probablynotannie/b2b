@@ -1,16 +1,11 @@
 import Sidebar from "./sidebar/Sidebar";
-
 import { useState } from "react";
 import Destacados from "./buscadores/cruceros/Cruceros";
 import Zonas from "./buscadores/cruceros/Zonas";
 import Puertos from "./buscadores/cruceros/Puertos";
 import Buscador_Cruceros from "./buscadores/cruceros/Buscador_Cruceros";
 function Cruceros() {
-  const [destino, setDestino] = useState("");
-  const [mes, setMes] = useState("");
   const [duracion, setDuracion] = useState(2);
-  const [puerto, setPuerto] = useState("");
-  const [naviera, setNaviera] = useState("");
   const [requestData, setRequestData] = useState({
     idZona: 0,
     fechSal: 0,
@@ -19,9 +14,9 @@ function Cruceros() {
     idNav: 0,
   });
   return (
-    <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10">
+    <article className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10">
       <Sidebar />
-      <div className="tw-col-span-10 lg:tw-col-span-7  xl:tw-col-span-8 tw-flex-col">
+      <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
         <div
           className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{

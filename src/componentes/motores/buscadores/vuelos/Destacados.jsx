@@ -1,14 +1,4 @@
-import { FaPerson, FaClock } from "react-icons/fa6";
 function Destacados() {
-  const getAdjustedTime = () => {
-    const now = new Date();
-    now.setMinutes(now.getMinutes() + 30);
-    return now.toLocaleTimeString("es-ES", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-  };
   const destacados = [
     {
       id: 0,
@@ -43,7 +33,9 @@ function Destacados() {
   ];
   return (
     <div className="tw-p-5 tw-mt-5">
-      <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">Búsqueda rápida</h2>
+      <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">
+        Búsqueda rápida
+      </h2>
       <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 tw-mt-4">
         {destacados.map((destacado) => (
           <div

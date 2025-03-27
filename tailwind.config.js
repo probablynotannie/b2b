@@ -1,6 +1,5 @@
 import flowbite from "flowbite-react/tailwind";
 
-/** @type {import('tailwindcss').Config} */
 module.exports = {
   darkMode: 'class',
   prefix: 'tw-',

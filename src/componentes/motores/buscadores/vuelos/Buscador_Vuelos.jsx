@@ -28,11 +28,9 @@ function Buscador_Cruceros() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
-
-    /*  navigate("/listadotransfers", {
-       state: { data },
-     }); */
+    navigate("/listadovuelos", {
+      state: { data },
+    });
   };
   return (
     <>

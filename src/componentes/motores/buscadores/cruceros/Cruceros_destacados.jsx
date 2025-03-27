@@ -2,7 +2,7 @@ import { FaLongArrowAltRight } from "react-icons/fa";
 
 function Cruceros_destacados({ cruceros }) {
   return (
-    <div className="tw-mb-6">
+    <div className="tw-mb-6"> 
       <div className="tw-grid tw-gap-3 md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-3">
         {cruceros.map((crucero, index) => (
           <div
