@@ -2,12 +2,9 @@ import { IoAirplaneSharp } from "react-icons/io5";
 import { FaTicket } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
-import { FaChevronDown } from "react-icons/fa";
 
 function Vuelos({ vuelos }) {
-  const formatFullMonth = (date) => {
-    return date.toLocaleDateString("es-ES", { month: "long" });
-  };
+
   const formatShortDate = (date) => {
     return date.toLocaleDateString("es-ES", {
       weekday: "short",
@@ -24,7 +21,7 @@ function Vuelos({ vuelos }) {
     const [llegadaHours, llegadaMinutes] = horaLlegada.split(":").map(Number);
     const salidaDate = new Date(
       referenceDate.setHours(salidaHours, salidaMinutes, 0, 0)
-    ); // Set hours and minutes
+    ); 
     const llegadaDate = new Date(
       referenceDate.setHours(llegadaHours, llegadaMinutes, 0, 0)
     );

@@ -52,7 +52,7 @@ function SelectorPaisCiudad() {
       shortName: continent.shortName,
       flag: continent.flag,
     });
-    setSelectedRegion(""); // Reset region when continent changes
+    setSelectedRegion(""); 
     setIsContinentDropdownOpen(false);
   };
 

@@ -37,15 +37,13 @@ function Datos() {
     },
   });
 
-  // Handle form submit
   const onSubmit = (data) => {
-    console.log("Form data", data); // Here you can see the pasajeros array data
+    console.log("Form data", data); 
     navigate("/reservahotelmasvuelo", {
       state: { data, selectedHotel, ida, vuelta, habitacion },
     });
   };
 
-  // Render passenger fields dynamically
   const renderPassengerFields = () => {
     return pasajeros.map((passenger, index) => (
       <div
@@ -54,14 +52,14 @@ function Datos() {
       >
         <Controller
           control={control}
-          name={`pasajeros[${index}].nombre`} // Dynamically binding to the passenger array
+          name={`pasajeros[${index}].nombre`} 
           render={({ field }) => (
             <Input_Texto
               required={true}
               register={register}
               errors={errors}
               tipo="nombre"
-              {...field} // Spread field data to bind it
+              {...field}
             />
           )}
         />

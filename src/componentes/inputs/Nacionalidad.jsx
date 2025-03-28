@@ -68,7 +68,7 @@ const InputNacionalidad = ({
           {sugerencias.map((sugerencia, index) => (
             <li
               key={index}
-              onMouseDown={(e) => e.preventDefault()} // Prevents input losing focus
+              onMouseDown={(e) => e.preventDefault()} 
               onClick={() => manejarClickSugerencia(sugerencia)}
               className="tw-px-3 tw-py-2 tw-cursor-pointer hover:tw-bg-blue-100 tw-border-b last:tw-border-none tw-border-gray-200"
             >

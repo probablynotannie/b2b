@@ -30,7 +30,6 @@ function Localidades({ selected, onChange }) {
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     onChange((prev) => {
-      // Toggle the selected locality
       if (prev.includes(value)) {
         return prev.filter((option) => option !== value);
       } else {
@@ -47,9 +46,9 @@ function Localidades({ selected, onChange }) {
             type="checkbox"
             id={`localidad_${option.id}`}
             value={option.label}
-            checked={selected.includes(option.label)} // Check if the option is selected
+            checked={selected.includes(option.label)}
             onChange={handleCheckboxChange}
-            className="tw-w-4 tw-h-4 tw-bg-gray-100 tw-text-secondary tw-border-gray-300 tw-rounded tw-text-secondary dark:tw-bg-slate-700 dark:tw-border-slate-600 focus:tw-ring-secondary focus:tw-ring-2"
+            className="tw-w-4 tw-h-4 tw-bg-gray-100 tw-text-secondary tw-border-gray-300 tw-rounded dark:tw-bg-slate-700 dark:tw-border-slate-600 focus:tw-ring-secondary focus:tw-ring-2"
           />
           <label
             htmlFor={`localidad_${option.id}`}

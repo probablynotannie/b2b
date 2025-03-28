@@ -240,7 +240,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
       {isModalOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div
-            ref={modalRef} // Attach the ref to the modal container
+            ref={modalRef} 
             className="tw-bg-white dark:tw-bg-slate-700 tw-w-full md:tw-w-[90vw] md:tw-h-[90vh] lg:tw-w-[60vw] lg:tw-h-[90vh] xl:tw-w-[60vw] xl:tw-h-[90vh] tw-h-full tw-mx-auto tw-relative"
           >
             <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 tw-p-5">
@@ -252,7 +252,6 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
               </button>
             </div>
 
-            {/* Reset Button */}
             <button
               onClick={resetSelection}
               className="tw-absolute tw-top-5 tw-right-10 tw-bg-red-500 tw-text-white tw-py-1 tw-px-3 tw-rounded-lg"

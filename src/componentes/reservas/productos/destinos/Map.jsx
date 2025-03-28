@@ -1,4 +1,3 @@
-// Map.js
 function Map({ location }) {
   return (
     <iframe

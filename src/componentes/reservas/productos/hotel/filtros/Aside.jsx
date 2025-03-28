@@ -4,7 +4,6 @@ import Estrellas from "./Filtro_Estrellas";
 import Regimenes from "./Filtro_Regimenes";
 import Localidades from "./Filtro_Localidades";
 import { IoMdOptions } from "react-icons/io";
-import { MdCancel } from "react-icons/md";
 
 function Aside({ values, setValues, minMax, setMinMax }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -101,7 +100,6 @@ function SidebarContent({
   setSelectedStars,
   selectedRegimenes,
   setRegimenes,
-  setIsModalOpen,
 }) {
   return (
     <div>

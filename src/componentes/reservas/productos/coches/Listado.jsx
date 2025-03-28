@@ -377,7 +377,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                 <Modal.Footer className="tw-flex tw-flex-col md:tw-flex-row tw-gap-5">
                   <button
                     className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
-                    onClick={() => setActiveModalCar(null)} // Close modal
+                    onClick={() => setActiveModalCar(null)} 
                   >
                     Cerrar
                   </button>

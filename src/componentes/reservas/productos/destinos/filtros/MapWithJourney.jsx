@@ -8,13 +8,6 @@ import {
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
 
-// 15 dias es un monton no? No entiendo que es esto jajaj En fin... 
-// Espero poder hacer todo a mi ritmo.
-// Yo creo que voy a sufrir demasiado.
-// Ya no me entero de nada que es esta mierda
-// Tio eso de mirar los pies me da un poco de mal rollete eh.. No se como lo voy a llevar
-// Cuantas calorias seran esas.
-
 const MapWithJourney = ({ destino }) => {
   const positions = destino.noches.map(({ lat, lng }) => [lat, lng]);
   return (

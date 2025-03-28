@@ -9,9 +9,9 @@ function Regimenes({ selected, onChange }) {
     const value = event.target.value;
     onChange((prev) => {
       if (prev.includes(value)) {
-        return prev.filter((option) => option !== value); // Remove if selected
+        return prev.filter((option) => option !== value); 
       } else {
-        return [...prev, value]; // Add if not selected
+        return [...prev, value];
       }
     });
   };
@@ -24,7 +24,7 @@ function Regimenes({ selected, onChange }) {
             type="checkbox"
             id={`regimen_${option.id}`}
             value={option.label}
-            checked={selected.includes(option.label)} // Check if selected
+            checked={selected.includes(option.label)}
             onChange={handleCheckboxChange}
             className="tw-w-4 tw-h-4 tw-text-secondary tw-bg-gray-100 dark:tw-bg-slate-700 dark:tw-border-slate-600 tw-border-gray-300 tw-rounded focus:tw-ring-secondary focus:tw-ring-2"
           />

@@ -7,7 +7,7 @@ function ProductoHeader({ nombre, descripcion, boton }) {
           {descripcion}
         </div>
       </div>
-      {boton && ( // Si boton existe, entonces renderiza el boton
+      {boton && ( 
         <button className="tw-hidden md:tw-block tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-p-3 tw-bg-secondary tw-text-white tw-font-bold">
           {boton}
         </button>

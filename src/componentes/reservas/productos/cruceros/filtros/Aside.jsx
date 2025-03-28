@@ -24,7 +24,7 @@ function Aside() {
         >
           <div
             className="tw-relative tw-bg-white tw-w-full dark:tw-bg-slate-800 tw-h-full lg:tw-h-auto lg:tw-max-w-md tw-rounded-lg tw-shadow-lg tw-overflow-y-auto"
-            onClick={(e) => e.stopPropagation()} // Prevent close on modal content click
+            onClick={(e) => e.stopPropagation()}
           >
             <button
               onClick={() => setIsModalOpen(false)}

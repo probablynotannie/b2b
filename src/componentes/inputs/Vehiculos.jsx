@@ -32,8 +32,8 @@ function Vehiculos({
   }
 
   function handleSecondSelectChange(e) {
-    const val = Number(e.target.value); // Value as number
-    setTipoVehiculo(val); // Store as number
+    const val = Number(e.target.value); 
+    setTipoVehiculo(val); 
     setValue(nameTipoVehiculo, val);
   }
 
@@ -67,9 +67,8 @@ function Vehiculos({
     setValue(nameRemolque, val);
   }
 
-  // Check if selected vehicle type is a "Motos" type
   const isMotoSelectedInSecond =
-    tipoVehiculo === 3 || tipoVehiculo === 4 || tipoVehiculo === 5; // Motos options are 3, 4, and 5
+    tipoVehiculo === 3 || tipoVehiculo === 4 || tipoVehiculo === 5; 
 
   const isNoSelectedInLast = remolque === "0";
 

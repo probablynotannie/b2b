@@ -1,12 +1,9 @@
-// StarRating.js
 import { IoMdStar, IoMdStarOutline } from "react-icons/io";
 
 const Estrellas = ({ onChange }) => {
   const handleChange = (event) => {
     const { value, checked } = event.target;
     const starValue = parseInt(value);
-
-    // If the star is checked, add it to the selected list
     onChange((prevSelectedStars) => {
       if (checked) {
         return [...prevSelectedStars, starValue];
@@ -27,7 +24,7 @@ const Estrellas = ({ onChange }) => {
               type="checkbox"
               value={starValue}
               onChange={handleChange}
-              className="tw-w-4 tw-h-4 tw-text-secondary tw-bg-gray-100 tw-text-secondary dark:tw-bg-slate-700 dark:tw-border-slate-600 tw-border-gray-300 tw-rounded focus:tw-ring-secondary focus:tw-ring-2 focus:tw-ring-offset-0"
+              className="tw-w-4 tw-h-4 tw-text-secondary tw-bg-gray-100 dark:tw-bg-slate-700 dark:tw-border-slate-600 tw-border-gray-300 tw-rounded focus:tw-ring-secondary focus:tw-ring-2 focus:tw-ring-offset-0"
             />
             <label
               htmlFor={`hotel_estrellas${starValue}`}

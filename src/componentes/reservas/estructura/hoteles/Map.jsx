@@ -1,4 +1,3 @@
-// Map.js
 function Map() {
   return (
     <>

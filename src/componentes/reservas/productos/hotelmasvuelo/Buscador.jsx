@@ -57,17 +57,14 @@ function Buscador() {
           <FaSearch />
         </span>
       </button>
-
-      {/* Modal for md screens and above */}
       <div
         className={`tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50 tw-transition-opacity tw-duration-300 ${
           isModalOpen ? "z-50 opacity-100" : "opacity-0 pointer-events-none"
         }`}
-        // Close modal when clicking outside
       >
         <div
           className="tw-bg-white tw-w-full tw-h-full md:tw-w-full md:tw-h-full tw-rounded-none md:tw-rounded-xl tw-shadow-lg dark:tw-bg-slate-800"
-          onClick={(e) => e.stopPropagation()} // Prevent closing when clicking inside the modal content
+          onClick={(e) => e.stopPropagation()} 
         >
           <div>
             <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
