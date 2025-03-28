@@ -2,7 +2,6 @@ import { FaPerson, FaChild } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
-
 function Actividad({ actividad }) {
   return (
     <>
@@ -14,7 +13,8 @@ function Actividad({ actividad }) {
             {actividad.paxReserva.adultos > 1 && "s"}
           </span>
           <span className="tw-flex tw-items-center">
-            <FaChild className="tw-text-lg" /> {actividad.paxReserva.ninios} niño
+            <FaChild className="tw-text-lg" /> {actividad.paxReserva.ninios}{" "}
+            niño
             {actividad.paxReserva.ninios > 1 && "s"}
           </span>
         </div>
@@ -28,7 +28,7 @@ function Actividad({ actividad }) {
       </div>
       <span
         className={`tw-absolute tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg ${
- actividad.tipoPrecio ==="Neto"
+          actividad.tipoPrecio === "Neto"
             ? "bg-green-300 text-green-800"
             : "bg-red-500 text-red-200"
         }`}
@@ -47,7 +47,6 @@ function Actividad({ actividad }) {
         <h1 className="tw-font-semibold tw-text-slate-600 dark:tw-text-slate-300">
           {actividad.titulo}
         </h1>
-
         <div>
           <p className="tw-flex tw-items-center tw-gap-2 dark:tw-text-slate-400">
             <FaCalendarAlt className="tw-text-secondary" />

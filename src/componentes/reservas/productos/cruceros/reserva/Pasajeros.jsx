@@ -1,7 +1,5 @@
-import { FaMars, FaVenus, FaGlobe, FaBirthdayCake } from "react-icons/fa";
-
+import { FaMars, FaVenus, FaGlobe } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
 
 function Pasajeros({ pasajeros }) {
   return (
@@ -28,17 +26,11 @@ function Pasajeros({ pasajeros }) {
             </div>
             <div className="tw-p-3 tw-pr-8 tw-w-full ">
               <ul className="tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm">
-                <li className="tw-flex tw-justify-between">
-                  <span className="tw-font-semibold tw-text-black dark:tw-text-white">
-                    {pasajero.nombre} {pasajero.apellido}
-                  </span>
-                  <span className="tw-text-black dark:tw-text-white">
-                    Edad: {pasajero.age}
-                  </span>
+                <li className="tw-flex tw-justify-between tw-font-semibold tw-text-black dark:tw-text-white">
+                  {pasajero.nombre} {pasajero.apellido}
                 </li>
                 <li className="tw-flex tw-gap-1 ">
-                  <FaBirthdayCake className="tw-text-slate-500" />
-                  {formatearFecha(pasajero.fechaNacimiento)}
+                  {FormatearFecha(pasajero.fechaNacimiento)} ({pasajero.age})
                 </li>
                 <li className="tw-flex tw-gap-1">
                   <FaGlobe className="tw-text-slate-500" />

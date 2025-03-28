@@ -100,7 +100,7 @@ function Landing() {
           style={{ backgroundImage: `url(${img.url})` }}
           onClick={() => navigate(img.route)}
         >
-          <div className="tw-absolute tw-inset-0 tw-bg-black tw-dark:tw-bg-opacity-25 tw-dark:tw-bg-black tw-bg-opacity-20 hover:tw-bg-opacity-50 tw-transition tw-duration-300"></div>
+          <div className="tw-absolute tw-inset-0 tw-bg-black tw-dark:tw-bg-opacity-25 tw-dark:tw-bg-black tw-bg-opacity-20 hover:tw-bg-opacity-50 tw-smooth"></div>
           <span className="tw-relative tw-z-10 tw-text-xl">{img.inner}</span>
         </div>
       ))}

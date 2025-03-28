@@ -58,7 +58,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="tw-mb-5 tw-border dark:tw-border-slate-700 tw-bg-slate-50 dark:tw-bg-slate-800 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300 tw-rounded-lg"
+            className="tw-mb-5 tw-border dark:tw-border-slate-700 tw-bg-slate-50 dark:tw-bg-slate-800 tw-shadow hover:tw-shadow-md tw-smooth tw-rounded-lg"
           >
             <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-700 dark:tw-bg-slate-900 tw-p-2">
               <h2 className="tw-font-semibold tw-text-white">
@@ -66,7 +66,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
               </h2>
               {cesta !== true && (
                 <button
-                  className="tw-bg-red-500 tw-text-white tw-p-2 tw-rounded tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300"
+                  className="tw-bg-red-500 tw-text-white tw-p-2 tw-rounded tw-shadow hover:tw-shadow-lg tw-smooth"
                   onClick={() => removeTicket(index)}
                 >
                   <FaRegTrashAlt />
@@ -159,7 +159,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
       </div>
       {cesta !== true && (
         <button
-          className="tw-bg-secondary tw-text-white tw-p-3 tw-font-bold tw-rounded"
+          className="tw-btn"
           onClick={addTicket}
         >
           Añadir entrada

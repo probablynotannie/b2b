@@ -1,4 +1,3 @@
-import { FaMapPin } from "react-icons/fa";
 function ProductoHeader({ nombre, descripcion, boton }) {
   return (
     <div className="tw-mt-5 dark:tw-bg-slate-800 dark:tw-rounded-xl tw-flex tw-justify-between tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-800 tw-pb-5 md:tw-mt-10 tw-p-5">
@@ -8,9 +7,11 @@ function ProductoHeader({ nombre, descripcion, boton }) {
           {descripcion}
         </div>
       </div>
-      <button className="tw-hidden md:tw-block tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-p-3 tw-bg-secondary tw-text-white tw-font-bold">
-        {boton}
-      </button>
+      {boton && ( // Si boton existe, entonces renderiza el boton
+        <button className="tw-hidden md:tw-block tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-p-3 tw-bg-secondary tw-text-white tw-font-bold">
+          {boton}
+        </button>
+      )}
     </div>
   );
 }

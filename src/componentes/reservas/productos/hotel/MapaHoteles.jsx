@@ -66,7 +66,7 @@ const MapaHoteles = ({ hoteles }) => {
                   </div>
                 </div>
                 <Link to={"/hotel"} state={hotel} className="tw-block tw-mt-4">
-                  <button className="tw-w-full tw-bg-indigo-500 dark:tw-bg-indigo-800 hover:tw-bg-indigo-600 dark:hover:tw-bg-indigo-700 tw-transition tw-duration-300 tw-text-white tw-font-semibold tw-py-2 tw-rounded-lg tw-text-center tw-shadow-md">
+                  <button className="tw-w-full tw-bg-indigo-500 dark:tw-bg-indigo-800 hover:tw-bg-indigo-600 dark:hover:tw-bg-indigo-700 tw-smooth tw-text-white tw-font-semibold tw-py-2 tw-rounded-lg tw-text-center tw-shadow-md">
                     Precio: €{hotel.precio}
                     <span className="tw-block tw-text-sm tw-font-normal">
                       {hotel.regimen}

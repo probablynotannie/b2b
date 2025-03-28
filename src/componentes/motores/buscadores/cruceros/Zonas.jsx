@@ -37,12 +37,12 @@ function Zonas({ setRequestData }) {
                 className="tw-opacity-90 tw-rounded tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
                 alt="Imagen reserva"
               />
-              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-indigo-800 dark:tw-bg-indigo-900 dark:tw-bg-opacity-70 tw-bg-opacity-30 hover:tw-bg-opacity-65 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-indigo-800 dark:tw-bg-indigo-900 dark:tw-bg-opacity-70 tw-bg-opacity-30 hover:tw-bg-opacity-65 tw-smooth tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
                 <div className="tw-text-white lg:tw-text-xl xl:tw-text-3xl tw-font-semibold tw-text-center">
                   {zona.texto}
                 </div>
               </div>
-              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-75 tw-text-white tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded tw-opacity-0 hover:tw-opacity-100 tw-transition tw-duration-300">
+              <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-black tw-bg-opacity-75 tw-text-white tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded tw-opacity-0 hover:tw-opacity-100 tw-smooth">
                 <p className="hidden lg:flex tw-text-md tw-text-center">
                   {zona.descripcion}
                 </p>

@@ -61,7 +61,7 @@ function Aside({ seguro }) {
           Cambiar Margen
         </button>
         <Link to={"/datosSeguro"} state={seguro}>
-          <button className="tw-p-3 tw-bg-secondary dark:tw-tw-bg-secondary tw-rounded-lg tw-w-full tw-text-white tw-font-bold tw-mt-3">
+          <button className="tw-btn tw-w-full tw-mt-3">
             {seguro.precio.toFixed(2)}€
           </button>
         </Link>

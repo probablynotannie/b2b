@@ -161,7 +161,7 @@ function Aside({
           <Desglose precio={producto.precio} />
           <div className="tw-grid tw-grid-cols-3 tw-justify-around tw-w-full tw-text-center"></div>
           <Link to="/datosDestino" state={reserva}>
-            <button className="tw-bg-secondary tw-mt-5 tw-w-full tw-text-white tw-text-lg tw-font-semibold tw-rounded-lg tw-shadow-md tw-p-2">
+            <button className="tw-btn tw-w-full tw-mt-3">
               TOTAL: {producto.precio}€
             </button>
           </Link>

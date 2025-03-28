@@ -7,7 +7,7 @@ function Cruceros_destacados({ cruceros }) {
         {cruceros.map((crucero, index) => (
           <div
             key={index}
-            className="tw-w-full tw-p-6 tw-bg-white tw-border tw-border-slate-200 tw-rounded-lg tw-shadow-sm hover:tw-shadow-lg tw-transition tw-duration-300 dark:tw-bg-slate-800 dark:tw-border-slate-700"
+            className="tw-w-full tw-p-6 tw-bg-white tw-border tw-border-slate-200 tw-rounded-lg tw-shadow-sm hover:tw-shadow-lg tw-smooth dark:tw-bg-slate-800 dark:tw-border-slate-700"
           >
             <a href="#">
               <h5 className="tw-mb-2 tw-text-2xl tw-font-bold tw-tracking-tight tw-text-slate-900 dark:tw-text-white">

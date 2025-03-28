@@ -150,7 +150,7 @@ function FlightSelection({
 
   return (
     <div>
-      <div className="tw-p-4 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-mx-auto tw-border tw-rounded-xl tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
+      <div className="tw-p-4 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-mx-auto tw-border tw-rounded-xl tw-shadow-lg hover:tw-shadow-xl tw-smooth">
         <div>
           <h4 className="tw-text-2xl tw-text-end tw-font-bold tw-text-orange-400 dark:tw-text-green-400 tw-rounded-lg tw-shadow-l tw-w-fit tw-p-2">
             Total: {totalPrice}€

@@ -35,7 +35,7 @@ function Meses({ setRequestData }) {
         ].map(({ month, number, color }, index) => (
           <div
             key={index}
-            className={`tw-border tw-min-h-[8vh] tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-rounded-lg tw-shadow-md tw-transition tw-duration-300 tw-cursor-pointer tw-transform hover:tw-scale-105
+            className={`tw-border tw-min-h-[8vh] tw-flex tw-items-center tw-justify-center tw-text-lg tw-font-semibold tw-rounded-lg tw-shadow-md tw-smooth tw-cursor-pointer tw-transform hover:tw-scale-105
     ${
       color === "blue"
         ? "tw-bg-blue-100 tw-border-blue-300 hover:tw-bg-blue-200 dark:tw-bg-blue-900 dark:tw-border-blue-600"

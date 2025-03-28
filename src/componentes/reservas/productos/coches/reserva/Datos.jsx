@@ -93,7 +93,7 @@ function Vuelo() {
             extras={extras}
           />
           <div className="tw-flex tw-justify-end">
-            <button className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300">
+            <button className="tw-btn">
               Reservar
             </button>
           </div>

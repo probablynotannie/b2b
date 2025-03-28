@@ -122,7 +122,7 @@ function Resultado({ destinos }) {
                     </p>
                   </div>
                   <img
-                    className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow hover:tw-shadow-md tw-transition tw-duration-300 hover:tw-scale-105"
+                    className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow hover:tw-shadow-md tw-smooth hover:tw-scale-105"
                     src={
                       "//pic-2.vpackage.net/cruceros_img/" +
                       destino.naviera.img_naviera
@@ -130,16 +130,38 @@ function Resultado({ destinos }) {
                     alt="logoNaviera"
                   />
                 </div>
+
+                <div className="tw-flex tw-gap-3">
+                  {destino.pax2ADRestrin === 1 && (
+                    <div className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
+                      Restringida a dos personas
+                    </div>
+                  )}
+                  <div>
+                    {destino.tarifas.length > 0 && (
+                      <h5 className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
+                        Fechas disponibles de{" "}
+                        {FormatearFecha(
+                          new Date(
+                            destino.tarifas[0].fecha
+                          ).toLocaleDateString()
+                        )}{" "}
+                        a{" "}
+                        {FormatearFecha(
+                          new Date(
+                            destino.tarifas[destino.tarifas.length - 1].fecha
+                          ).toLocaleDateString()
+                        )}
+                      </h5>
+                    )}
+                  </div>
+                </div>
                 <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
               </div>
-              {destino.pax2ADRestrin === 1 && (
-                <div className="tw-mx-3 tw-p-1 tw-text-white tw-rounded-lg tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
-                  Restringida a dos personas
-                </div>
-              )}
-              <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10  tw-shadow-inner tw-items-center">
+
+              {/* <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10  tw-shadow-inner tw-items-center">
                 {destino.tarifas.slice(0, 8).map((tarifa) => {
                   const proximaSalida = new Date(
                     tarifa.fecha
@@ -161,7 +183,7 @@ function Resultado({ destinos }) {
                     </div>
                   );
                 })}
-              </div>
+              </div> */}
             </Link>
             <div className="tw-flex tw-justify-end tw-mt-5">
               <Link to="/crucero" state={destino}>

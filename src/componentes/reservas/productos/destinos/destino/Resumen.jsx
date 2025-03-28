@@ -63,14 +63,14 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
         </p>
       </div>
       <div className="tw-mt-2 tw-flex tw-justify-center dark:tw-text-slate-400 tw-text-slate-500">
-        <button className="tw-flex tw-flex-row tw-items-center tw-justify-center tw-font-semibold tw-transition tw-text-sm">
+        <button className="tw-flex tw-flex-row tw-items-center tw-justify-center tw-font-semibold tw-transition tw-text-xs">
           Descargar carteleria AAVV
           <FaFilePdf className="tw-ml-1" />
         </button>
       </div>
       <div className="tw-mt-4">
         <Link to="/fecha" state={producto}>
-          <button className="tw-bg-secondary tw-w-full tw-p-3 tw-rounded-lg tw-font-bold tw-text-white tw-text-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-flex tw-flex-row tw-justify-center tw-items-center">
+          <button className="tw-btn tw-text-lg tw-w-full  tw-flex tw-flex-row tw-justify-center tw-items-center">
             <FaCalendarAlt className="dark:tw-text-white tw-text-xl tw-mr-2" />
             Ver fechas y precios
           </button>

@@ -62,7 +62,7 @@ function Puertos({ setRequestData }) {
                 className="tw-absolute tw-text-slate-100 tw-text-xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full 
                  tw-bg-blue-700 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-opacity-30
                  dark:hover:tw-orange-900 dark:hover:tw-bg-opacity-75 hover:tw-bg-opacity-20
-                 tw-transition tw-duration-300 tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded"
+                 tw-smooth tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded"
               >
                 {zona.name}
               </div>

@@ -10,14 +10,12 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
+    { id: 0, type: 2, name: "Aeródromo Balmaceda", destino: "Balmaceda" },
+    { id: 1, type: 2, name: "El Prat", destino: "Barcelona" },
+    { id: 2, type: 2, name: "BARCELONA", destino: "Madrid" },
+    { id: 3, type: 2, name: "SEVILLA", destino: "Sevilla" },
+    { id: 6, type: 2, name: "Hotel Madrid", destino: "Madrid" },
+    { id: 7, type: 2, name: "Hotel Sevilla", destino: "Sevilla" },
   ];
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
@@ -97,21 +95,20 @@ function Buscador() {
                 destinos={destinos}
               />
             </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_DateRange
-                startDate={startDate}
-                endDate={endDate}
-                setStartDate={setStartDate}
-                setEndDate={setEndDate}
-              />
-            </div>
-      
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
               <Input_Hab_Adulto_Ninio
                 habitacion={habitacion}
                 setHabitacion={setHabitacion}
                 roomData={roomData}
                 setRoomData={setRoomData}
+              />
+            </div>
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_DateRange
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
               />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
@@ -149,20 +146,21 @@ function Buscador() {
               destinos={destinos}
             />
           </div>
-          <div className="tw-col-span-4">
-            <Input_DateRange
-              startDate={startDate}
-              endDate={endDate}
-              setStartDate={setStartDate}
-              setEndDate={setEndDate}
-            />
-          </div>
+
           <div className="tw-col-span-3">
             <Input_Hab_Adulto_Ninio
               habitacion={habitacion}
               setHabitacion={setHabitacion}
               roomData={roomData}
               setRoomData={setRoomData}
+            />
+          </div>
+          <div className="tw-col-span-4">
+            <Input_DateRange
+              control={control}
+              placeholder={"Fechas"}
+              nameStartDate={"salida"}
+              nameEndDate={"llegada"}
             />
           </div>
           <button className="tw-col-span-1 tw-h-fit tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-p-3 tw-rounded-lg tw-shadow">

@@ -1,26 +1,21 @@
 import { useState } from "react";
-import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
-import { FaSearch } from "react-icons/fa";
-import Input_Hab_Adulto_Ninio from "../../../inputs/Hab_Adulto_Ninio";
+import Input_Vehiculos from "../../../inputs/Vehiculos";
+import Input_Bonificaciones from "../../../inputs/Bonificacion";
+import Input_Destinos from "../../../inputs/Pais_Ciudad";
+
+import {
+  FaGlobeAfrica,
+  FaGlobeAmericas,
+  FaGlobeAsia,
+  FaGlobeEurope,
+  FaSearch,
+} from "react-icons/fa";
 import { useForm } from "react-hook-form";
 function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
-  const destinos = [
-    { type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    { type: "Destino", name: "MADRID - CAPE GIRARDEAU", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
-  const [habitacion, setHabitacion] = useState(1);
-  const [roomData, setRoomData] = useState([
-    { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
-  ]);
+
   const {
     register,
     setValue,
@@ -38,6 +33,49 @@ function Buscador() {
       endDate: 0,
     },
   });
+  const continents = [
+    { id: "AF", name: "Africa", flag: <FaGlobeAfrica /> },
+    { id: "AM", name: "América", flag: <FaGlobeAmericas /> },
+    { id: "AS", name: "Asia", flag: <FaGlobeAsia /> },
+    { id: "EU", name: "Europa", flag: <FaGlobeEurope /> },
+    { id: "OC", name: "Oceanía", flag: <FaGlobeEurope /> },
+    {
+      id: "HK",
+      name: "Haiku",
+      flag: <img src="../../logo.png" alt="logo" className="tw-w-5 tw-h-4" />,
+    },
+  ];
+  const regions = {
+    AF: [
+      { id: 1, name: "Nigeria" },
+      { id: 2, name: "Africa" },
+      { id: 3, name: "Egipto" },
+    ],
+    AM: [
+      { id: 4, name: "USA" },
+      { id: 5, name: "Canada" },
+      { id: 6, name: "Mexico" },
+    ],
+    AS: [
+      { id: 7, name: "China" },
+      { id: 8, name: "Japón" },
+      { id: 9, name: "India" },
+    ],
+    EU: [
+      { id: 10, name: "Alemania" },
+      { id: 11, name: "Francia" },
+      { id: 12, name: "Italia" },
+    ],
+    OC: [
+      { id: 13, name: "Australia" },
+      { id: 14, name: "Fiji" },
+    ],
+    HK: [
+      { id: 15, name: "Hola" },
+      { id: 16, name: "Haiku" },
+      { id: 17, name: "Vuela" },
+    ],
+  };
 
   const onSubmit = (data) => {
     console.log(data);
@@ -87,15 +125,6 @@ function Buscador() {
             className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
           >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Buscador
-                control={control}
-                name={"origen"}
-                setValue={setValue}
-                placeholder={"Origen"}
-                destinos={destinos}
-              />
-            </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRange
                 control={control}
                 placeholder={"Fechas"}
@@ -104,21 +133,32 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Buscador
-                control={control}
-                name={"origen"}
+              <Input_Bonificaciones
                 setValue={setValue}
-                placeholder={"Origen"}
-                destinos={destinos}
-                vuelo={true}
+                namePasajeros="pasajeros"
+                control={control}
+                errors={errors}
+              />
+            </div>
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+              <Input_Vehiculos
+                setValue={setValue}
+                nameVehiculos="vehiculos"
+                nameTipoVehiculo="tipoVehiculo"
+                nameRemolque="remolque"
+                nameLongitud="longitud"
+                nameAltura={"altura"}
+                nameLongRemolque={"longitudRemolque"}
+                nameAltRemolque={"alturaRemolque"}
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3">
-              <Input_Hab_Adulto_Ninio
-                habitacion={habitacion}
-                setHabitacion={setHabitacion}
-                roomData={roomData}
-                setRoomData={setRoomData}
+              <Input_Destinos
+                control={control}
+                nameContinent="continent"
+                nameRegion="region"
+                continents={continents}
+                regions={regions}
               />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
@@ -146,16 +186,7 @@ function Buscador() {
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
-            <Input_Buscador
-              control={control}
-              name={"origen"}
-              setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-            />
-          </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div className="tw-col-span-3">
             <Input_DateRange
               control={control}
               placeholder={"Fechas"}
@@ -163,26 +194,37 @@ function Buscador() {
               nameEndDate={"llegada"}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
-            <Input_Buscador
-              control={control}
-              name={"origen"}
+          <div className="tw-col-span-3">
+            <Input_Bonificaciones
               setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-              vuelo={true}
+              namePasajeros="pasajeros"
+              control={control}
+              errors={errors}
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
-            <Input_Hab_Adulto_Ninio
-              habitacion={habitacion}
-              setHabitacion={setHabitacion}
-              roomData={roomData}
-              setRoomData={setRoomData}
+          <div className="tw-col-span-3">
+            <Input_Vehiculos
+              setValue={setValue}
+              nameVehiculos="vehiculos"
+              nameTipoVehiculo="tipoVehiculo"
+              nameRemolque="remolque"
+              nameLongitud="longitud"
+              nameAltura={"altura"}
+              nameLongRemolque={"longitudRemolque"}
+              nameAltRemolque={"alturaRemolque"}
             />
           </div>
-          -
-          <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
+          <div className="tw-col-span-2">
+            <Input_Destinos
+              control={control}
+              nameContinent="continent"
+              nameRegion="region"
+              continents={continents}
+              regions={regions}
+            />
+          </div>
+
+          <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
         </form>

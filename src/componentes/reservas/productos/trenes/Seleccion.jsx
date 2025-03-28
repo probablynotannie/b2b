@@ -50,7 +50,7 @@ function Seleccion({ tren, reservar, setTren }) {
             </button>
             {reservar === true && (
               <button
-                className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow hover:tw-bg-secondary-dark tw-transition tw-duration-200"
+                className="tw-w-full lg:tw-w-fit tw-btn hover:tw-bg-secondary-dark tw-transition tw-duration-200"
                 onClick={() => setTren(tren)}
               >
                 Reservar

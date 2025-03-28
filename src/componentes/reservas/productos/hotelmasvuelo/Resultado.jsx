@@ -33,7 +33,7 @@ function Productos() {
             const totalPrice = outboundFlight.precio + returnFlight.precio;
             if (
               !cheapestCombination ||
-              totalPrice < cheapestCombination.totalPrice
+              totalPrice < cheapestCombination.totalPric
             ) {
               cheapestCombination = {
                 flightSetId: flightSet.id,
@@ -100,8 +100,8 @@ function Productos() {
           <button
             className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
               activeTab === "Resultados"
-                ? "border-secondary tw-text-secondary font-bold "
-                : " text-slate-700 dark:tw-text-slate-200 border-none"
+                ? "tw-border-secondary tw-text-secondary tw-font-bold "
+                : "tw-text-slate-700 dark:tw-text-slate-200 tw-border-none"
             }`}
             onClick={() => setActiveTab("Resultados")}
           >
@@ -110,8 +110,8 @@ function Productos() {
           <button
             className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
               activeTab === "Vuelos"
-                ? "border-secondary tw-text-secondary font-bold "
-                : " text-slate-700 dark:tw-text-slate-200 border-none"
+                ? "tw-border-secondary tw-text-secondary tw-font-bold "
+                : "tw-text-slate-700 dark:tw-text-slate-200 tw-border-none"
             }`}
             onClick={() => setActiveTab("Vuelos")}
           >
@@ -132,7 +132,7 @@ function Productos() {
                       to={"/hotelMasVuelo"}
                       state={{ ida, vuelta, selectedHotel, habitacion }}
                     >
-                      <button className="tw-bg-slate-600 dark:tw-bg-slate-800 tw-text-white tw-font-semibold tw-p-3 tw-rounded-lg tw-shadow-md hover:tw-shadow-xl tw-transition tw-duration-300 tw-w-full">
+                      <button className="tw-bg-slate-600 dark:tw-bg-slate-800 tw-text-white tw-font-semibold tw-p-3 tw-rounded-lg tw-shadow-md hover:tw-shadow-xl tw-smooth tw-w-full">
                         Reservar
                       </button>
                     </Link>

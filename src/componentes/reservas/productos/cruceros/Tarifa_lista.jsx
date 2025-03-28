@@ -173,10 +173,6 @@ const Tarifa_lista = ({
     <div className="tw-container tw-mx-auto tw-p-4">
       <div className="tw-flex tw-flex-wrap tw-justify-between dark:tw-text-slate-200">
         <div className="tw-flex tw-gap-3">
-         {/*  <p className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
-            <span className="tw-block tw-bg-green-600 tw-w-[7px] tw-h-[7px] tw-rounded-full"></span>
-            precio más bajo
-          </p> */}
           <p className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
             <span className="tw-block tw-bg-red-600 tw-w-[7px] tw-h-[7px] tw-rounded-full"></span>
             precio más alto

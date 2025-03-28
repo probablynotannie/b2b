@@ -147,7 +147,7 @@ function Resultado({ hoteles }) {
                 </div>
               )}
               <Link to="/hotel" state={hotel}>
-                <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow">
+                <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn">
                   Reservar
                 </button>
               </Link>

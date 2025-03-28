@@ -38,7 +38,28 @@ module.exports = {
     },
   },
   plugins: [
-    // ...
+    function ({ addComponents }) {
+      addComponents({
+        '.smooth': {
+          transition: 'all 0.3s ease',
+        },
+        '.btn': {
+          backgroundColor: '#ff8c4c',
+          padding: '0.75rem 1.5rem',
+          fontWeight: '700',
+          borderRadius: '0.5rem',
+          color: 'white',
+          textAlign: 'center',
+          cursor: 'pointer',
+          display: 'inline-block',
+          transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        },
+        '.btn:hover': {
+          backgroundColor: '#f16b23',
+        },
+      })
+    },
     require('flowbite/plugin'),
     flowbite.plugin(),
     require('tailwindcss-animated')

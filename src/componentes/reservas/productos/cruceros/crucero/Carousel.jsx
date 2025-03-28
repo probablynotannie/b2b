@@ -38,11 +38,8 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
                 <h4 className="tw-text-center tw-text-secondary tw-font-semibold dark:tw-text-secondaryDarkDarks">
                   {cabin.title}
                 </h4>
-
                 <div className="tw-flex tw-items-center tw-mt-2">
-                  {/* Left Scroll Button */}
 
-                  {/* Scrollable Date List */}
                   <ul
                     ref={(el) => (scrollRefs.current[cabin.id] = el)}
                     className="tw-flex tw-overflow-x-auto tw-scroll-smooth tw-space-x-2 tw-rounded-lg tw-max-w-full tw-px-10"

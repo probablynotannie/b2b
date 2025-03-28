@@ -77,7 +77,7 @@ function Productos() {
                     </div>
                     <Seleccion tren={ida} />
                     <Link to={"/tren"}>
-                      <button className="tw-mt-10 tw-w-full tw-bg-secondary tw-p-3 tw-rounded-lg tw-shadow-xl tw-text-white tw-font-bold">
+                      <button className="tw-mt-10 tw-w-full tw-bg-secondary tw-btn">
                         Total: {ida.price}€
                       </button>
                     </Link>
@@ -90,7 +90,7 @@ function Productos() {
                       Confirmar ida y vuelta
                     </h3>
                     <Link to={"/tren"} state={seleccion}>
-                      <button className="tw-bg-secondary tw-p-3 tw-rounded-lg tw-text-white tw-font-bold">
+                      <button className="tw-btn">
                         Total:{" "}
                         {parseFloat(
                           ida.price + (vuelta ? vuelta.price : 0)

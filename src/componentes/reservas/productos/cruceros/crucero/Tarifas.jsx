@@ -174,7 +174,7 @@ function Tarifas({
           </div>
         </div>
         <div className="tw-overflow-x-auto ">
-          <table className="tw-w-full tw-border tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-border-slate-300 dark:tw-border-slate-600 tw-table-fixed tw-rounded-lg">
+          <table className="tw-w-full tw-border tw-shadow-md hover:tw-shadow-lg tw-smooth tw-border-slate-300 dark:tw-border-slate-600 tw-table-fixed tw-rounded-lg">
             <thead className="tw-border-b tw-bg-slate-100 dark:tw-bg-slate-900 dark:tw-text-slate-100 tw-font-semibold tw-text-md">
               <tr className="tw-border-b tw-border-slate-300 dark:tw-border-slate-600">
                 <th className="tw-py-2 tw-px-4 tw-text-left tw-font-semibold tw-flex tw-items-center tw-gap-2 tw-border-r tw-border-slate-300 dark:tw-border-slate-600">
@@ -476,7 +476,7 @@ function Tarifas({
                   }
                 }}
                 disabled={!temporal}
-                className="tw-bg-secondary tw-font-semibold tw-text-white tw-px-4 tw-py-2 tw-rounded-md tw-mt-4"
+                className="tw-btn tw-mt-4"
               >
                 Confirmar selección
               </button>

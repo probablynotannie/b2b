@@ -98,7 +98,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
               </p>
               <div className="tw-flex tw-justify-end tw-mt-3">
                 <button
-                  className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
+                  className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn"
                   onClick={() => setOpenModal(index)}
                 >
                   Detalles
@@ -121,8 +121,14 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
               }`}
             >
               <div className=" tw-w-[80vw] tw-max-h-[80vh] lg:tw-w-7/12 tw-bg-white dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-xl tw-overflow-y-auto">
-                <div className="tw-text-2xl tw-font-bold tw-p-5 tw-bg-slate-800 tw-text-white">
-                  {hotel.nombre}
+                <div className="tw-text-2xl tw-font-bold tw-p-5 tw-bg-slate-800 tw-text-white tw-flex tw-justify-between tw-items-center">
+                  <h3> {hotel.nombre}</h3>
+                  <button
+                    className="tw-text-slate-300 hover:tw-text-slate-100 tw-smooth"
+                    onClick={() => setOpenModal(null)}
+                  >
+                    X
+                  </button>
                 </div>
                 <div className="tw-container">
                   <article className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-3 lg:tw-gap-10 tw-my-5 tw-mt-10">
@@ -226,7 +232,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                 </div>
                 <div className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end tw-p-4">
                   <button
-                    className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
+                    className="tw-w-full lg:tw-w-fit tw-btn"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar

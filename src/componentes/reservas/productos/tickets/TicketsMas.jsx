@@ -157,7 +157,9 @@ function Resultado({ tickets, actividades, setActividades }) {
         );
       })}
       {activeActividad && (
-        <Modal dismissible show={true} onClose={() => setActiveActividad(null)}>
+        <Modal 
+        className="tw-bg-black/70"
+        dismissible show={true} onClose={() => setActiveActividad(null)}>
           <Modal.Header className="dark:tw-bg-slate-800">
             {activeActividad.titulo}
           </Modal.Header>
@@ -322,7 +324,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               Cerrar
             </button>
             <button
-              className="tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
+              className="tw-btn"
               onClick={() => handleSelectActividad(activeActividad)}
             >
               {isSelected

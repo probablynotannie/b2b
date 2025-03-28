@@ -7,7 +7,7 @@ import { IoMdFunnel } from "react-icons/io";
 
 function Circuito({ actividad, fechaIda, adultos, ninios, habitacion }) {
   return (
-    <section className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
+    <section className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
       <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
         <div>
           <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
@@ -25,19 +25,19 @@ function Circuito({ actividad, fechaIda, adultos, ninios, habitacion }) {
         </div>
       </section>
       <div className="tw-flex tw-justify-around tw-flex-wrap tw-gap-5">
-        <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-border-2 tw-border-orange-400 tw-bg-orange-100 dark:tw-bg-orange-400 dark:tw-text-white tw-text-orange-400 tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
+        <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-smooth tw-border-2 tw-border-orange-400 tw-bg-orange-100 dark:tw-bg-orange-400 dark:tw-text-white tw-text-orange-400 tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
           <div className="tw-flex tw-items-center tw-flex-col">
             <MdMeetingRoom className="tw-text-4xl tw-text-orange-400 dark:tw-text-white" />
             {habitacion} Habitaciones
           </div>
         </div>
-        <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-border-2 tw-border-pink-400 tw-bg-pink-100 tw-text-pink-400 dark:tw-bg-pink-700 dark:tw-border-pink-700 dark:tw-text-white tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
+        <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-smooth tw-border-2 tw-border-pink-400 tw-bg-pink-100 tw-text-pink-400 dark:tw-bg-pink-700 dark:tw-border-pink-700 dark:tw-text-white tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
           <div className="tw-flex tw-items-center tw-flex-col">
             <FaPerson className="tw-text-4xl tw-text-pink-400 dark:tw-text-white" />{" "}
             {adultos} Adultos
           </div>
         </div>
-        <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-border-2 tw-border-indigo-500 tw-bg-indigo-100 tw-text-indigo-500 dark:tw-bg-indigo-700 dark:tw-border-indigo-700 dark:tw-text-white tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
+        <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-smooth tw-border-2 tw-border-indigo-500 tw-bg-indigo-100 tw-text-indigo-500 dark:tw-bg-indigo-700 dark:tw-border-indigo-700 dark:tw-text-white tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
           <div className="tw-flex tw-items-center tw-flex-col">
             <FaChild className="tw-text-4xl tw-text-indigo-500 dark:tw-text-white" />
             {ninios} Niños

@@ -25,7 +25,7 @@ function Datos() {
 
   return (
     <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
-      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-bg-white dark:tw-bg-slate-800">
+      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-smooth tw-bg-white dark:tw-bg-slate-800">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
@@ -69,7 +69,7 @@ function Datos() {
           <div className="tw-flex tw-justify-end">
             <button
               type="submit"
-              className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-mt-3"
+              className="tw-btn"
             > 
               Reservar
             </button>

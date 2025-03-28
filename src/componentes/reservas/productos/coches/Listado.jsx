@@ -301,7 +301,7 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                   <Link
                     to="/coche"
                     state={coche}
-                    className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-secondary tw-text-white tw-font-semibold tw-rounded-xl tw-shadow tw-text-center"
+                    className="tw-w-full lg:tw-w-fit tw-btn tw-text-center"
                   >
                     <button>Desde {coche.dias * coche.precio}€</button>
                   </Link>

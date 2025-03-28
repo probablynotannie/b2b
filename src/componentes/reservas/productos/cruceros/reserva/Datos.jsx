@@ -7,7 +7,6 @@ import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
 import Fecha from "../../../../inputs/Fecha";
 
 const Vuelo = () => {
@@ -23,6 +22,7 @@ const Vuelo = () => {
     setValue,
     getValues,
     setError,
+    control,
     clearErrors,
   } = useForm({
     defaultValues: {
@@ -109,7 +109,7 @@ const Vuelo = () => {
 
   return (
     <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
-      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-bg-white dark:tw-bg-slate-800">
+      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-smooth tw-bg-white dark:tw-bg-slate-800">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
             Datos Contacto
@@ -159,7 +159,7 @@ const Vuelo = () => {
             {pasajeros.map((pasajero, index) => (
               <div
                 key={index}
-                className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-transition tw-duration-300"
+                className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-smooth"
               >
                 <div>
                   <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
@@ -189,16 +189,13 @@ const Vuelo = () => {
                     />
                   </div>
                   <Fecha
+                    control={control}
                     edadSelector={true}
                     fecha={pasajero.fechaNacimiento}
                     name={`pasajeros[${index}].fechaNacimiento`}
                     setValue={(name, value) => handleDateChange(value, index)}
                   />
-                  {errors.pasajeros?.[index]?.fechaNacimiento && (
-                    <p className="tw-text-red-500 tw-text-sm">
-                      {errors.pasajeros[index].fechaNacimiento.message}
-                    </p>
-                  )}
+
                   <div className="tw-relative">
                     <select
                       className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
@@ -248,7 +245,7 @@ const Vuelo = () => {
           <div className="tw-flex tw-justify-end">
             <button
               type="submit"
-              className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-mt-3"
+              className="tw-btn"
             >
               Reservar
             </button>

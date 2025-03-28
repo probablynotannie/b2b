@@ -139,7 +139,7 @@ function Vuelo() {
           <div className="tw-flex tw-justify-end">
             <button
               type="submit"
-              className="tw-bg-secondary tw-p-3 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-transition tw-duration-300"
+              className="tw-btn"
             >
               Reservar
             </button>

@@ -40,7 +40,7 @@ function Listado({ coches }) {
           className={`tw-bg-slate-50  tw-border-b-4 xl:tw-border-b-0 xl:tw-border-r-4 ${
             borderColors[coche.type] || "tw-border-gray-500"
           }
-          tw-rounded-xl dark:tw-bg-slate-800 tw-shadow-md hover:tw-shadow-lg tw-transition tw-duration-300 tw-my-6`}
+          tw-rounded-xl dark:tw-bg-slate-800 tw-shadow-md hover:tw-shadow-lg tw-smooth tw-my-6`}
           key={index}
         >
           <article className="tw-flex tw-flex-col md:tw-flex-row tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl">

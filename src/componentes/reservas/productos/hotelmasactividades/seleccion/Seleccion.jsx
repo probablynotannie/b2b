@@ -17,17 +17,16 @@ function Seleccion() {
   return (
     <article className="tw-container tw-my-10 lg:tw-mb-10 lg:tw-mt-auto">
       <article className="tw-my-5 tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
-        <section className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[55vh] dark:tw-bg-slate-800">
+        <section className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[55vh] dark:tw-bg-slate-800">
           <Detalles hotel={hotel} actividades={actividades} />
         </section>
-        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-10 dark:tw-bg-slate-800">
+        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-10 dark:tw-bg-slate-800">
           <Aside hotel={hotel} actividades={actividades} />
-
           <Link
             to={"/datosHotelMasActividades"}
             state={{ hotel, actividades, habitacion }}
           >
-            <button className="tw-p-3 tw-text-white tw-font-bold tw-bg-secondary dark:tw-bg-green-600 tw-w-full tw-rounded-lg tw-mt-3">
+            <button className="tw-btn tw-w-full tw-mt-3">
               {calculateTotalPrice().toFixed(2)}€
             </button>
           </Link>
