@@ -159,7 +159,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
       </div>
       {cesta !== true && (
         <button
-          className="tw-btn"
+          className="tw-btn_primario tw-btn_accesorios"
           onClick={addTicket}
         >
           Añadir entrada

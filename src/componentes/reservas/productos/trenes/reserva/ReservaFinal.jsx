@@ -50,7 +50,7 @@ console.log(data)
         <DatosTren tren={ida} tipo="ida" />
         {vuelta && <DatosTren tren={vuelta} tipo="vuelta" />}
         <Link to={"/resumenTren"} state={{ tren, data }}>
-          <button className="tw-btn tw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
             {(
               ida.price +
               ida.claseElegida.precioExtra +

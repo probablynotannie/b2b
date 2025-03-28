@@ -34,7 +34,7 @@ function ResumenFinal() {
         />
         <div className="tw-mt-10 tw-flex tw-justify-end">
           <Link to={"/"}>
-            <button className="tw-bg-slate-400 dark:tw-bg-slate-700 tw-p-3 tw-font-bold tw-text-white tw-rounded-lg">
+            <button className="tw-btn_muted tw-btn_accesorios dark:tw-btn_muted_dark">
               Volver a la página principal
             </button>
           </Link>

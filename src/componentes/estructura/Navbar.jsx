@@ -9,7 +9,7 @@ import { HiChevronDoubleUp } from "react-icons/hi";
 
 const Navbar = () => {
   return (
-    <header className=" tw-bg-primary tw-shadow-md tw-w-full lg:tw-px-20">
+    <header className=" tw-bg-header tw-shadow-md tw-w-full lg:tw-px-20">
       <Scroll />
       <div className="tw-flex">
         <ScrollToTop

@@ -50,7 +50,7 @@ function Producto() {
                 </div>
               ))}
               <Link to={"/datosEntrada"} state={{ producto, tickets }}>
-                <button className="tw-btn tw-w-full tw-mt-5">
+                <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full tw-mt-5">
                   Total: €{calculateTotalPrice().toFixed(2)}
                 </button>
               </Link>

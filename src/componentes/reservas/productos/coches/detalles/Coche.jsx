@@ -67,7 +67,7 @@ function Producto() {
             ...(contratar && { reembolso }),
           }}
         >
-          <button className="tw-btn tw-w-full">Reservar {precio}€</button>
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">Reservar {precio}€</button>
         </Link>
       </aside>
     </div>

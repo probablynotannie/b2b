@@ -31,7 +31,7 @@ function Sidebar() {
       <div className="tw-border-2 tw-border-slate-100 tw-px-5 tw-rounded-xl tw-shadow-lg tw-pb-5">
       {otros.map((otro, index) => (
         <div className="tw-flex tw-gap-3 tw-items-center tw-mt-5" key={index}>
-          <div className="tw-border-2 tw-bg-primary tw-p-3 tw-rounded-full">
+          <div className="tw-border-2 tw-bg-slate-800 tw-p-3 tw-rounded-full">
             {otro.icono}
           </div>
           <Link to={otro.to}>

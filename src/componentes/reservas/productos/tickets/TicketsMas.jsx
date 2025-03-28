@@ -324,7 +324,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               Cerrar
             </button>
             <button
-              className="tw-btn"
+              className="tw-btn_primario tw-btn_accesorios"
               onClick={() => handleSelectActividad(activeActividad)}
             >
               {isSelected

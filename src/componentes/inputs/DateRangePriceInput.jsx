@@ -243,7 +243,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
             ref={modalRef} // Attach the ref to the modal container
             className="tw-bg-white dark:tw-bg-slate-700 tw-w-full md:tw-w-[90vw] md:tw-h-[90vh] lg:tw-w-[60vw] lg:tw-h-[90vh] xl:tw-w-[60vw] xl:tw-h-[90vh] tw-h-full tw-mx-auto tw-relative"
           >
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary tw-p-5">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Selecciona fechas
               </h2>

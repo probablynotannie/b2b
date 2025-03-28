@@ -67,7 +67,7 @@ const Transfer = () => {
           <div className="tw-flex tw-justify-end">
             <button
               type="submit"
-              className="tw-btn"
+              className="tw-btn_primario tw-btn_accesorios"
             >
               Reservar
             </button>

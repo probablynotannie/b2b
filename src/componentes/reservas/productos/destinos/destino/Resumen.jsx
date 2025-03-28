@@ -70,7 +70,7 @@ function Resumen({ producto, selectedHotel, handleHotelChange }) {
       </div>
       <div className="tw-mt-4">
         <Link to="/fecha" state={producto}>
-          <button className="tw-btn tw-text-lg tw-w-full  tw-flex tw-flex-row tw-justify-center tw-items-center">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-text-lg tw-w-full  tw-flex tw-flex-row tw-justify-center tw-items-center">
             <FaCalendarAlt className="dark:tw-text-white tw-text-xl tw-mr-2" />
             Ver fechas y precios
           </button>

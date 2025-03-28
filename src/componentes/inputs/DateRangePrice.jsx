@@ -255,7 +255,7 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                 ref={modalRef}
                 className="tw-bg-white dark:tw-bg-slate-700 tw-w-full tw-h-full tw-mx-auto tw-relative"
               >
-                <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary tw-p-5">
+                <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 tw-p-5">
                   <h2 className="tw-text-xl tw-font-bold tw-text-white">
                     Selecciona fechas
                   </h2>

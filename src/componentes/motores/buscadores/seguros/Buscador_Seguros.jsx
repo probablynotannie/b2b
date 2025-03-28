@@ -228,7 +228,7 @@ function Buscador_Destinos() {
               icono={<FaPerson />}
             />
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn">
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
             Buscar
           </button>
         </form>

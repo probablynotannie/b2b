@@ -58,7 +58,7 @@ function ReservaFinal() {
             ninios,
           }}
         >
-          <button className="tw-btn tw-w-full tw-mt-3">
+          <button className="tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-3">
             {actividad?.precio?.toFixed(2)}€
           </button>
         </Link>

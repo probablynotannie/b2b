@@ -45,7 +45,7 @@ function Reserva() {
           {seguro.importante}
         </p>
         <Link to={"/resumenSeguro"} state={{ seguro, data }}>
-          <button className="tw-btn tw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
             {seguro.precio.toFixed(2)}€
           </button>
         </Link>

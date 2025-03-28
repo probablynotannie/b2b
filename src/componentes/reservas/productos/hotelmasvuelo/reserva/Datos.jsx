@@ -157,7 +157,7 @@ function Datos() {
             fechaVuelta={fechaVuelta}
           />
           <div className="tw-flex tw-justify-end">
-            <button className="tw-btn">
+            <button className="tw-btn_primario tw-btn_accesorios">
               Reservar
             </button>
           </div>

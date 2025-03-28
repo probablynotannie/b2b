@@ -48,7 +48,7 @@ function Buscador_Cruceros() {
       {isModalOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white tw-rounded-lg tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Buscador
               </h2>
@@ -83,7 +83,7 @@ function Buscador_Cruceros() {
                     nameEndDate={"llegada"}
                   />
                 </div>
-                <button className="tw-bg-primary tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+                <button className="tw-bg-slate-800 tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                   <FaSearch className="tw-text-white tw-text-xl" />
                 </button>
               </form>
@@ -129,7 +129,7 @@ function Buscador_Cruceros() {
               nameEndDate={"llegada"}
             />
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn">
+          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
             Buscar
           </button>
         </form>

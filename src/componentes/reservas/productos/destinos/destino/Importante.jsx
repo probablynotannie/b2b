@@ -37,7 +37,7 @@ function Importante({ destino }) {
                 </div>
                 <div className="tw-flex tw-justify-end tw-mt-6 tw-px-6 tw-pb-6">
                   <button
-                    className="tw-bg-primary tw-p-3 tw-font-semibold tw-text-white tw-rounded-lg tw-px-10 hover:tw-bg-primary-dark transition-all duration-300 ease-in-out"
+                    className="tw-bg-slate-800 tw-p-3 tw-font-semibold tw-text-white tw-rounded-lg tw-px-10 hover:tw-bg-slate-800-dark transition-all duration-300 ease-in-out"
                     onClick={() => setOpenModal(false)}
                   >
                     Cerrar

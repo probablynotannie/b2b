@@ -93,7 +93,7 @@ function Resultado({ hoteles }) {
             </p>
             <div className="tw-flex tw-justify-end tw-mt-3">
               <button
-                className="tw-px-3 tw-w-full lg:tw-w-fit tw-mr-2 tw-bg-slate-700 dark:tw-bg-slate-600 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
+                className=" tw-w-full lg:tw-w-fit tw-btn_oscuro tw-btn_accesorios tw-mr-3"
                 onClick={() => setOpenModal(index)}
               >
                 Detalles
@@ -147,7 +147,7 @@ function Resultado({ hoteles }) {
                 </div>
               )}
               <Link to="/hotel" state={hotel}>
-                <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn">
+                <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn_primario tw-btn_accesorios">
                   Reservar
                 </button>
               </Link>

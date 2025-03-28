@@ -57,7 +57,7 @@ function Sidebar() {
   return (
     <div className="tw-hidden lg:tw-flex tw-col-span-7 lg:tw-col-span-2 xl:tw-col-span-1 xl:tw-flex tw-flex-row tw-flex-wrap md:tw-flex-col tw-justify-around tw-border-2 tw-border-slate-100 tw-px-5 tw-rounded-xl tw-shadow-lg tw-mb-2">
       <div className="tw-flex tw-gap-3 tw-items-center ">
-        <div className="tw-border-2 tw-bg-primary tw-p-3 tw-rounded-full">
+        <div className="tw-border-2 tw-bg-slate-800 tw-p-3 tw-rounded-full">
           <FaHotel className="tw-text-2xl tw-text-white" />
         </div>
         <Link to="/">
@@ -66,7 +66,7 @@ function Sidebar() {
       </div>
       {otros.map((otro, index) => (
         <div className="tw-flex tw-gap-3 tw-items-center" key={index}>
-          <div className="tw-border-2 tw-bg-primary tw-p-3 tw-rounded-full">
+          <div className="tw-border-2 tw-bg-slate-800 tw-p-3 tw-rounded-full">
             {otro.icono}
           </div>
           <Link to={otro.to}>

@@ -56,7 +56,7 @@ function ReservaFinal() {
           to={"/resumenHotelmasFerry"}
           state={{ hotel, ferry, data, habitacion }}
         >
-          <button className="tw-btn tw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
             {parseFloat(hotel.precio) +
               parseFloat(ferry.ida.precio.toFixed(2)) +
               parseFloat((ferry.vuelta?.precio || 0).toFixed(2))}

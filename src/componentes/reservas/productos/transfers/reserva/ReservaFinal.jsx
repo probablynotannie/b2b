@@ -34,7 +34,7 @@ function ReservaFinal() {
           Por favor, confirma todos los datos antes de hacer el pago.
         </p>
         <Link to={"/resumenTransfer"} state={{ coche, data }}>
-          <button className="tw-btn tw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
             {coche.price.toFixed(2)}€
           </button>
         </Link>

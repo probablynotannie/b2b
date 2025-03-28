@@ -105,7 +105,7 @@ function ReservaFinal() {
             precioSeleccionado,
           }}
         >
-          <button className="tw-btn tw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
             TOTAL: {precioTotal.toFixed(2)} €
           </button>
         </Link>

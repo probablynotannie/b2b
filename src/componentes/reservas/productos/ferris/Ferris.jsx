@@ -228,7 +228,7 @@ function Ferris({
                 <div className="tw-flex tw-justify-end tw-mt-2 tw-p-3">
                   {ida?.ferryId === ferrySet.id && (
                     <Link to={"/datosferry"} state={ferry}>
-                      <button className="tw-btn">
+                      <button className="tw-btn_primario tw-btn_accesorios">
                         Reservar por {calculateTotalPrice()}€
                       </button>
                     </Link>

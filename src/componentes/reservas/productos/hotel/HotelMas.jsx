@@ -98,7 +98,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
               </p>
               <div className="tw-flex tw-justify-end tw-mt-3">
                 <button
-                  className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn"
+                  className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn_primario tw-btn_accesorios"
                   onClick={() => setOpenModal(index)}
                 >
                   Detalles
@@ -232,7 +232,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                 </div>
                 <div className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end tw-p-4">
                   <button
-                    className="tw-w-full lg:tw-w-fit tw-btn"
+                    className="tw-w-full lg:tw-w-fit tw-btn_primario tw-btn_accesorios"
                     onClick={() => setOpenModal(null)}
                   >
                     Cerrar

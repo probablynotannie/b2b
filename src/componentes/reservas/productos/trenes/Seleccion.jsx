@@ -43,14 +43,14 @@ function Seleccion({ tren, reservar, setTren }) {
         <div className="tw-flex tw-justify-between tw-items-center">
           <div className="tw-flex tw-justify-start tw-mt-3">
             <button
-              className="tw-p-3 tw-w-full lg:tw-w-fit tw-mr-2 tw-bg-slate-700 dark:tw-bg-slate-600 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
+              className="tw-p-3 tw-w-full lg:tw-w-fit tw-btn_oscuro tw-btn_accesorios tw-mr-3"
               onClick={() => setOpenModal(tren.id)}
             >
               Detalles
             </button>
             {reservar === true && (
               <button
-                className="tw-w-full lg:tw-w-fit tw-btn hover:tw-bg-secondary-dark tw-transition tw-duration-200"
+                className="tw-w-full lg:tw-w-fit  tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesorioshover:tw-bg-secondary-dark tw-transition tw-duration-200"
                 onClick={() => setTren(tren)}
               >
                 Reservar

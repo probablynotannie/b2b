@@ -56,7 +56,7 @@ function ReservaFinal() {
           </div>
         ))}
         <Link to={"/resumenTickets"} state={{ producto, tickets, data }}>
-          <button className="tw-btn tw-w-full tw-mt-5">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full tw-mt-5">
             Total: €{calculateTotalPrice().toFixed(2)}
           </button>
         </Link>

@@ -9,13 +9,13 @@ function Clientes() {
         <h2 className="tw-text-2xl tw-font-semibold">Listado de clientes</h2>
         <span>Cartera clientes de agencia</span>
         <div className="tw-space-x-3 tw-border-t-2 tw-border-secondary tw-pt-5 tw-mt-3">
-          <button className="tw-p-3 tw-px-5 tw-bg-primary tw-text-white tw-rounded-lg tw-shadow-xl">
+          <button className="tw-p-3 tw-px-5 tw-bg-slate-800 tw-text-white tw-rounded-lg tw-shadow-xl">
             Excel
           </button>
-          <button className="tw-p-3 tw-px-5 tw-bg-primary tw-text-white tw-rounded-lg tw-shadow-xl">
+          <button className="tw-p-3 tw-px-5 tw-bg-slate-800 tw-text-white tw-rounded-lg tw-shadow-xl">
             Nuevo
           </button>
-          <button className="tw-p-3 tw-px-5 tw-bg-primary tw-text-white tw-rounded-lg tw-shadow-xl">
+          <button className="tw-p-3 tw-px-5 tw-bg-slate-800 tw-text-white tw-rounded-lg tw-shadow-xl">
             Editar
           </button>
         </div>
@@ -40,7 +40,7 @@ function Clientes() {
               />
               <button
                 type="submit"
-                className="tw-text-white tw-absolute tw-end-0 tw-bottom-0 tw-bg-primary tw-font-medium tw-rounded-lg tw-text-sm tw-px-4 tw-h-full"
+                className="tw-text-white tw-absolute tw-end-0 tw-bottom-0 tw-bg-slate-800 tw-font-medium tw-rounded-lg tw-text-sm tw-px-4 tw-h-full"
               >
                 Buscar
               </button>

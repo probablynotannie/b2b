@@ -57,7 +57,7 @@ function ReservaFinal() {
           </ul>
         </section>
         <Link to={"/resumenHotel"} state={{ producto, habitacion, data }}>
-          <button className="tw-btn tw-w-full tw-mt-3">
+          <button className="tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-3">
             {Number(habitacion.precio).toFixed(2)}€
           </button>
         </Link>

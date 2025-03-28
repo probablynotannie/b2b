@@ -13,7 +13,7 @@ module.exports = {
       colors: {
         inputIcon: '#ff8c4c', // Naranja
         CajaForms: '#1e293b', // Gris oscuro
-        primary: '#1e293b', // Gris oscuro de navbar 
+        header: '#1e293b', // Gris oscuro de navbar 
         elegido: '#ffecdc', // Gris oscuro de navbar 
         secondary: "#ff8c4c", // Naranja
         secondaryDark: "#ff8c4c", // Naranja
@@ -43,8 +43,7 @@ module.exports = {
         '.smooth': {
           transition: 'all 0.3s ease',
         },
-        '.btn': {
-          backgroundColor: '#ff8c4c',
+        '.btn_accesorios': {
           padding: '0.75rem 1.5rem',
           fontWeight: '700',
           borderRadius: '0.5rem',
@@ -55,8 +54,51 @@ module.exports = {
           transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         },
-        '.btn:hover': {
+        '.btn_primario': {
+          backgroundColor: '#ff8c4c',
+        },
+        '.btn_primario:hover': {
           backgroundColor: '#f16b23',
+        },
+        '.btn_oscuro': {
+          backgroundColor: '#384454',
+        },
+        '.btn_oscuro:hover': {
+          backgroundColor: '#404d5f',
+        },
+        '.btn_muted': {
+          backgroundColor: '#98a4bc',
+        },
+        '.btn_muted:hover': {
+          backgroundColor: '#8792aa',
+        },
+        '.btn_muted_dark': {
+          backgroundColor: '#435163',
+        },
+        '.btn_muted_dark:hover': {
+          backgroundColor: '#384454',
+        },
+        '.btn_buscador_con_icono_accesorios': {
+          display: 'flex',
+          justifyContent: 'center',
+          alignItems: 'center',
+          padding: '0.75rem 1.5rem',
+          fontWeight: '700',
+          borderRadius: '0.5rem',
+          color: 'white',
+          textAlign: 'center',
+          cursor: 'pointer',
+          transition: 'all 0.3s ease',
+          boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
+        },
+        '.btn_buscador_con_icono': {
+          backgroundColor: '#1e293b',
+        },
+        '.btn_buscador_con_icono_dark': {
+          backgroundColor: '#10142c',
+        },
+        '.btn_buscador_con_icono:hover': {
+          backgroundColor: '#10142c',
         },
       })
     },

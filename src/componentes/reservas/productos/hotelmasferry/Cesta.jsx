@@ -93,7 +93,7 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
       </div>
       {hotel && (
         <Link state={reservaFinal} to={"/hotelmasferry"}>
-          <button className="tw-btn tw-mt-10">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesorios tw-mt-10">
             Total: {totalPrice}€
           </button>
         </Link>

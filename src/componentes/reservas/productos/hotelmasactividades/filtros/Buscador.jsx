@@ -61,7 +61,7 @@ function Buscador() {
         >
           <div>
             <div className="tw-w-full tw-h-full tw-mx-auto tw-relative">
-              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-primary dark:tw-bg-slate-900 tw-p-5">
+              <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
                 <h2 className="tw-text-xl tw-font-bold tw-text-white">
                   Buscador
                 </h2>
@@ -106,7 +106,7 @@ function Buscador() {
               />
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
-              <button className="bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
+              <button className="bg-slate-800 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
                 <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             </div>
@@ -157,7 +157,7 @@ function Buscador() {
               setRoomData={setRoomData}
             />
           </div>
-          <button className="tw-col-span-1 tw-bg-primary dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-[40px] tw-p-3 tw-rounded-lg tw-shadow">
+          <button className="tw-col-span-1 tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
         </form>
