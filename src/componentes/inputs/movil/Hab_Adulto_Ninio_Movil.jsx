@@ -130,7 +130,7 @@ function SelectorPersonas({
                       </div>
                     )}
                     {roomIndex !== 0 && (
-                      <div className="tw-absolute -tw-top-5 tw-cursor-pointer tw-right-5 tw-bg-white dark:tw-bg-slate-900 tw-rounded tw-border-2 tw-border-red-500 dark:tw-border-red-700 tw-p-2 tw-text-red-500 dark:tw-text-red-700 dark:hover:tw-bg-red-800 hover:tw-bg-danger hover:tw-text-white tw-transition tw-flex tw-items-center tw-justify-end tw-pb-2 tw-flex-col">
+                      <div className="tw-absolute -tw-top-5 tw-cursor-pointer tw-right-5 tw-bg-white dark:tw-bg-slate-900 tw-rounded tw-border-2 tw-border-red-500 dark:tw-border-red-700 tw-p-2 tw-text-danger dark:tw-text-red-700 dark:hover:tw-bg-red-800 hover:tw-bg-danger hover:tw-text-white tw-transition tw-flex tw-items-center tw-justify-end tw-pb-2 tw-flex-col">
                         <button
                           onClick={() => deleteRoom(room.id)}
                           className="tw-text-xl"

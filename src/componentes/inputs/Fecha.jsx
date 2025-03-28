@@ -59,7 +59,7 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
                   </div>
                 </div>
                 {error && (
-                  <p className="tw-text-red-500 tw-text-sm">{error.message}</p>
+                  <p className="tw-text-danger tw-text-sm">{error.message}</p>
                 )}
               </>
             )}

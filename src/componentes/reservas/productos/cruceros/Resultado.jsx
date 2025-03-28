@@ -68,12 +68,12 @@ function Productos() {
               <PlaceHolder />
             </>
           ) : isError ? (
-            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-red-500">
+            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-danger">
               <p>Error: {error.message}</p>
             </div>
           ) : data === null ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
-              <MdCancel className="tw-text-4xl tw-text-red-500 tw-animate-bounce" />
+              <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
               <p>No hay cruceros con estos datos :(</p>
             </div>
           ) : (

@@ -39,7 +39,7 @@ function Pdfs() {
       icono: "",
       boton: "Resumen coberturas",
       color:
-        "tw-bg-red-300 tw-text-red-500 dark:tw-bg-cyan-800 dark:tw-text-cyan-300",
+        "tw-bg-red-300 tw-text-danger dark:tw-bg-cyan-800 dark:tw-text-cyan-300",
       link: "",
     },
   ];

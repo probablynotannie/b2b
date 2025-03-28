@@ -28,7 +28,7 @@ function Incluidos({ destino }) {
               className="tw-flex tw-items-center tw-gap-2 tw-pl-5 dark:tw-text-slate-400"
               key={index}
             >
-              <ImCross className="tw-text-red-500" />
+              <ImCross className="tw-text-danger" />
               {incluido}
             </p>
           ))}

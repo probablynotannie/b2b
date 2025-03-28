@@ -87,7 +87,7 @@ function Aside({
                             </label>
                             <button
                               onClick={() => deleteRoom(habitacion.id)}
-                              className="tw-rounded-full tw-text-red-500 tw-text-lg tw-p-1"
+                              className="tw-rounded-full tw-text-danger tw-text-lg tw-p-1"
                             >
                               <FaRegTrashAlt />
                             </button>

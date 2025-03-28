@@ -141,9 +141,9 @@ function Producto() {
             </div>
           ) : (
             <div className="tw-w-full tw-h-full tw-mt-10 tw-flex tw-flex-col tw-items-center tw-justify-center">
-              <FaInfoCircle className="tw-text-red-500 tw-text-4xl" />
+              <FaInfoCircle className="tw-text-danger tw-text-4xl" />
 
-              <p className="tw-text-center tw-text-red-500 dark:tw-text-red-400 tw-animate-pulse tw-font-semibold">
+              <p className="tw-text-center tw-text-danger dark:tw-text-red-400 tw-animate-pulse tw-font-semibold">
                 Selecciona la cabina y pasajeros a bordo
               </p>
             </div>

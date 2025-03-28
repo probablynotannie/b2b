@@ -83,6 +83,7 @@ module.exports = {
           justifyContent: 'center',
           alignItems: 'center',
           padding: '0.75rem 1.5rem',
+          height: '40px',
           fontWeight: '700',
           borderRadius: '0.5rem',
           color: 'white',

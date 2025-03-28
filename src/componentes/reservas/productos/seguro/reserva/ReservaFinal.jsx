@@ -41,7 +41,7 @@ function Reserva() {
             {FormatearFecha(seguro.fin)}
           </li>
         </ul>
-        <p className="tw-text-red-500 dark:tw-text-red-400 tw-my-3 tw-text-sm tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-4">
+        <p className="tw-text-danger dark:tw-text-red-400 tw-my-3 tw-text-sm tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-4">
           {seguro.importante}
         </p>
         <Link to={"/resumenSeguro"} state={{ seguro, data }}>

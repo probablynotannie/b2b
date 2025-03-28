@@ -61,7 +61,7 @@ function Usuario() {
             </li>
           </ul>
           <div className="tw-mt-4 tw-flex tw-justify-end">
-            <button className="tw-text-sm tw-text-red-500 hover:tw-text-red-600 tw-transition">
+            <button className="tw-text-sm tw-text-danger hover:tw-text-red-600 tw-transition">
               Cerrar sesión
             </button>
           </div>

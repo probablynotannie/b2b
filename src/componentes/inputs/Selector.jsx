@@ -29,7 +29,7 @@ function Selector({
         {icono}
       </div>
       {errors?.[name] && (
-        <span className="tw-text-red-500 tw-text-xs">
+        <span className="tw-text-danger tw-text-xs">
           {errors[name]?.message}
         </span>
       )}

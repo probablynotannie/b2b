@@ -116,7 +116,7 @@ function Reembolso({ contratar, setContratar, reembolso }) {
                 "Cuando el daño sea causado por actos vandálicos y/o agentes atmosféricos.",
               ].map((text, index) => (
                 <li className="tw-flex tw-items-center" key={index}>
-                  <FaMinusCircle className="tw-w-5 tw-h-5 tw-text-red-500 tw-flex-shrink-0" />
+                  <FaMinusCircle className="tw-w-5 tw-h-5 tw-text-danger tw-flex-shrink-0" />
                   <span className="tw-ml-2 tw-text-sm tw-text-slate-700 dark:tw-text-slate-400">
                     {text}
                   </span>

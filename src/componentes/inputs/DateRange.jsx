@@ -106,10 +106,10 @@ const DateRange = ({
           </div>
         )}
         {errorStart && (
-          <p className="tw-text-red-500 tw-text-sm">{errorStart.message}</p>
+          <p className="tw-text-danger tw-text-sm">{errorStart.message}</p>
         )}
         {errorEnd && (
-          <p className="tw-text-red-500 tw-text-sm">{errorEnd.message}</p>
+          <p className="tw-text-danger tw-text-sm">{errorEnd.message}</p>
         )}
       </div>
     </div>

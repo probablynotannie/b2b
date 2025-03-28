@@ -34,7 +34,7 @@ function Ferry({ producto, tipo }) {
               {producto.cambios === true ? (
                 <FaCheck className="tw-text-green-500 tw-text-sm" />
               ) : (
-                <span className="text-red tw-font-bold tw-text-red-500">
+                <span className="text-red tw-font-bold tw-text-danger">
                   {" "}
                   X{" "}
                 </span>
@@ -47,7 +47,7 @@ function Ferry({ producto, tipo }) {
               {producto.cancelaciones === true ? (
                 <FaCheck className="tw-text-green-500 tw-text-sm" />
               ) : (
-                <span className="text-red tw-font-bold tw-text-red-500">
+                <span className="text-red tw-font-bold tw-text-danger">
                   {" "}
                   X{" "}
                 </span>

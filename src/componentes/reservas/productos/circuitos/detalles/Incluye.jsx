@@ -20,7 +20,7 @@ function Incluye({ incluido, no_incluido, final }) {
       </div>
       <div className="tw-mt-2">
         <h3 className="tw-text-lg tw-font-bold tw-text-red-600 dark:tw-text-red-400 tw-mb-2 tw-flex tw-items-center tw-gap-2">
-          <span className="tw-text-red-500">X</span>
+          <span className="tw-text-danger">X</span>
           No incluidos en el precio
         </h3>
         <ul>

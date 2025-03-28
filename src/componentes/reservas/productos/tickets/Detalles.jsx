@@ -45,7 +45,7 @@ function Detalles({ producto, tickets, setTickets, cesta, data }) {
                   key={index}
                   className="tw-flex tw-items-center tw-text-slate-400"
                 >
-                  <span className="tw-text-sm tw-mr-1 tw-text-red-500">X</span>
+                  <span className="tw-text-sm tw-mr-1 tw-text-danger">X</span>
                   {excluidas}
                 </li>
               ))}
@@ -54,7 +54,7 @@ function Detalles({ producto, tickets, setTickets, cesta, data }) {
         </section>
         {producto.importante && (
           <div className="tw-bg-red-50 tw-p-2 dark:tw-bg-red-500 tw-rounded tw-mt-5">
-            <h2 className="tw-uppercase tw-font-bold tw-text-red-500 dark:tw-text-white">
+            <h2 className="tw-uppercase tw-font-bold tw-text-danger dark:tw-text-white">
               Importante
             </h2>
             <p>{producto.importante}</p>

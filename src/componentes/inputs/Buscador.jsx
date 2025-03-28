@@ -84,7 +84,7 @@ function Buscador({
               className="tw-h-[40px] tw-pl-10 dark:tw-placeholder-slate-400 tw-text-sm tw-border dark:tw-border-2 dark:tw-bg-slate-700 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-text-gray-700 tw-border-gray-300 tw-rounded-lg tw-w-full focus:tw-outline-none focus:tw-border-gray-400 tw-overflow-hidden tw-text-ellipsis tw-whitespace-nowrap"
             />
             {error && (
-              <p className="tw-text-red-500 tw-text-xs tw-mt-1">
+              <p className="tw-text-danger tw-text-xs tw-mt-1">
                 {error.message}
               </p>
             )}
@@ -126,7 +126,7 @@ function Buscador({
           ) : (
             <div className="tw-p-4 tw-flex tw-justify-center tw-text-slate-500">
               No hay resultados para{" "}
-              <span className="tw-text-red-500">{inputText}</span>
+              <span className="tw-text-danger">{inputText}</span>
             </div>
           )}
         </div>

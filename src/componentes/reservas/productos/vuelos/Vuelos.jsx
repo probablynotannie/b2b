@@ -76,7 +76,7 @@ function FlightSelection({
           {flight.duration}
         </span>
         {flight.plazasDisponibles <= 5 ? (
-          <p className="tw-text-red-500 tw-text-xs"> ¡Últimas plazas! </p>
+          <p className="tw-text-danger tw-text-xs"> ¡Últimas plazas! </p>
         ) : (
           flight.plazasDisponibles > 5 &&
           flight.plazasDisponibles <= 8 && (

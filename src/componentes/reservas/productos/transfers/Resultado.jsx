@@ -85,7 +85,7 @@ function Productos() {
             </>
           ) : error ? (
             <div className="tw-flex tw-justify-center tw-items-center tw-h-96 tw-flex-col">
-              <MdCancel className="tw-text-3xl tw-text-red-500" />
+              <MdCancel className="tw-text-3xl tw-text-danger" />
               <p className="tw-text-slate-400 dark:tw-text-slate-300 tw-text-lg">
                 Error: {error.message}
               </p>
@@ -104,7 +104,7 @@ function Productos() {
             </section>
           ) : (
             <div className="tw-flex tw-justify-center tw-items-center tw-h-96 tw-flex-col">
-              <MdCancel className="tw-text-3xl tw-text-red-500 tw-animate-bounce" />
+              <MdCancel className="tw-text-3xl tw-text-danger tw-animate-bounce" />
               <p className="tw-text-slate-400 dark:tw-text-slate-300 tw-text-lg">
                 No hay coches disponibles con estos datos.
               </p>

@@ -81,7 +81,7 @@ const InputNacionalidad = ({
         <FaGlobe />
       </div>
 
-      {error && <p className="tw-text-red-500 tw-text-xs">{error.message}</p>}
+      {error && <p className="tw-text-danger tw-text-xs">{error.message}</p>}
     </div>
   );
 };

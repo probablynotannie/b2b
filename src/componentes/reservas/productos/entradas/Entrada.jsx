@@ -57,8 +57,8 @@ function Producto() {
             </div>
           ) : (
             <div className="tw-flex tw-justify-center tw-items-center tw-flex-col">
-              <FaInfoCircle className="tw-text-3xl tw-text-red-500 tw-animate-pulse" />
-              <p className="tw-text-red-500 tw-font-semibold tw-text-center">
+              <FaInfoCircle className="tw-text-3xl tw-text-danger tw-animate-pulse" />
+              <p className="tw-text-danger tw-font-semibold tw-text-center">
                 Por favor, elige las entradas para mostrar resumen corto de la
                 elección.
               </p>

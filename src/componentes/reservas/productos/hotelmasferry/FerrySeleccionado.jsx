@@ -64,7 +64,7 @@ function ferris({ ferry }) {
                 {ferry.ida.cambios === true ? (
                   <FaCheck className="tw-text-green-500" />
                 ) : (
-                  <FaBan className="tw-text-red-500" />
+                  <FaBan className="tw-text-danger" />
                 )}
                 Cambios
               </span>
@@ -72,7 +72,7 @@ function ferris({ ferry }) {
                 {ferry.ida.cancelaciones === true ? (
                   <FaCheck className="tw-text-green-500" />
                 ) : (
-                  <FaBan className="tw-text-red-500" />
+                  <FaBan className="tw-text-danger" />
                 )}{" "}
                 Cancelaciones
               </span>

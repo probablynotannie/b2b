@@ -18,7 +18,7 @@ function Input_Texto({ tipo, name, register, errors, required }) {
         </div>
       </div>
       {errors && errors[name] && (
-        <p className="tw-text-red-500 tw-text-xs">{errors[name]?.message}</p>
+        <p className="tw-text-danger tw-text-xs">{errors[name]?.message}</p>
       )}
     </div>
   );

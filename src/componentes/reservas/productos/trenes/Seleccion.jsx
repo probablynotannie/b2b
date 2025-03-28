@@ -86,7 +86,7 @@ function Seleccion({ tren, reservar, setTren }) {
                     },
                     {
                       label: "Salida",
-                      icono: <FaSignOutAlt className="tw-text-red-500" />,
+                      icono: <FaSignOutAlt className="tw-text-danger" />,
                       value: tren.departureTime,
                     },
                     {

@@ -83,7 +83,7 @@ function ReservaFinal() {
             {conductor.nombre} {conductor.apellido}
           </span>
         </div>
-        <p className="tw-text-sm tw-text-red-400 dark:tw-text-red-500 tw-mt-2">
+        <p className="tw-text-sm tw-text-red-400 dark:tw-text-danger tw-mt-2">
           Comprueba los datos de contacto para poder comunicar cualquier cambio
           con la resera.
         </p>

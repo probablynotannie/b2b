@@ -5,7 +5,7 @@ function Resultado({ tickets }) {
     <>
       {tickets.length === 0 && (
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-w-col-span-3 dark:tw-text-slate-300 tw-min-h-[20vh] tw-text-slate-500">
-          <MdCancel className="tw-text-2xl tw-animate-bounce dark:tw-text-red-500 tw-text-red-500" />
+          <MdCancel className="tw-text-2xl tw-animate-bounce dark:tw-text-danger tw-text-danger" />
           No hay ningun ticket con estos datos
         </div>
       )}
