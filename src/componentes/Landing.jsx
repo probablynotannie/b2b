@@ -85,13 +85,13 @@ function Landing() {
       {imagenes.map((img, index) => (
         <div
           key={index}
-          className={`tw-relative tw-transition tw-bg-cover tw-border-1 tw-border-slate-100 tw-bg-center tw-cursor-pointer tw-flex tw-items-center tw-justify-center tw-text-white tw-font-semibold tw-text-lg ${
+          className={`tw-relative tw-smooth tw-bg-cover tw-border-1 tw-border-slate-100 tw-bg-center tw-cursor-pointer tw-flex tw-items-center tw-justify-center tw-text-white tw-font-semibold tw-text-lg ${
             index + 1 === imagenes.length && " tw-col-span-2 md:tw-col-span-1"
           }`}
           style={{ backgroundImage: `url(${img.url})` }}
           onClick={() => navigate(img.route)}
         >
-          <div className="tw-absolute tw-inset-0 tw-bg-black tw-dark:tw-bg-opacity-25 tw-dark:tw-bg-black tw-bg-opacity-20 hover:tw-bg-opacity-50 tw-transition tw-duration-300"></div>
+          <div className="tw-absolute tw-inset-0 tw-bg-black tw-dark:tw-bg-opacity-25 tw-dark:tw-bg-black tw-bg-opacity-20 hover:tw-bg-opacity-50 tw-smooth"></div>
           <span className="tw-relative tw-z-10 tw-text-xl">{img.texto}</span>
         </div>
       ))}

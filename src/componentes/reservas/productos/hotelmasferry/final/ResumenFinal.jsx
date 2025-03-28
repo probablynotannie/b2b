@@ -25,7 +25,7 @@ function ResumenFinal() {
       </section>
       <Hotel hotel={hotel} habitacion={habitacion} />
       <Ferry ida={ferry.ida} vuelta={ferry.vuelta || null} />
-      <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300">
+      <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth">
         <DatosContacto
           nombre={data.nombre}
           apellidos={data.apellido}
