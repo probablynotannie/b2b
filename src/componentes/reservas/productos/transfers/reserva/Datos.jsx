@@ -9,7 +9,7 @@ import Input_Email from "../../../../inputs/Email";
 const Transfer = () => {
   const location = useLocation();
   const coche = location.state || {};
-  const img = "/banner_coches.jpg";
+  const img = "/banners/banner_coches.webp";
   const navigate = useNavigate();
   const {
     register,

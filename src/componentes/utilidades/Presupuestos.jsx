@@ -7,7 +7,7 @@ function Clientes() {
       <div
         className="tw-relative tw-flex tw-items-center tw-justify-center tw-col-span-7 lg:tw-col-span-5 xl:tw-col-span-6 tw-min-h-[68vh] md:tw-rounded-lg md:tw-shadow-lg"
         style={{
-          backgroundImage: `url(/banner_coches.jpg)`,
+          backgroundImage: `url(/banners/banner_coches.webp)`,
           backgroundSize: "cover",
         }}
       >

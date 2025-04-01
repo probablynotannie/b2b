@@ -10,7 +10,7 @@ import FormatearFecha from "../../../../../helpers/FormatearFecha";
 function Datos() {
   const location = useLocation();
   const { ida, vuelta } = location.state || {};
-  const img = "/banner_trenes.jpeg";
+  const img = "/banners/banner_ferris.webp";
   const itinerario = "";
   const fechaIda = FormatearFecha(ida.searchSummary.depDate);
   const fechaVuelta = ida.searchSummary.retDate

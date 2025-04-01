@@ -10,7 +10,7 @@ function Datos() {
   const navigate = useNavigate();
 
   const reserva = location.state || {};
-  const img = "/banner_ferris.jpg";
+  const img = "/banners/banner_ferris.webp";
   const {
     register,
     handleSubmit,

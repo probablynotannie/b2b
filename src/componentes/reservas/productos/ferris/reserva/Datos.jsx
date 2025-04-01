@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 function Datos() {
   const location = useLocation();
   const { ida, vuelta } = location.state || {};
-  const img = "/banner_ferris.jpg";
+  const img = "/banners/banner_ferris.webp";
   const navigate = useNavigate();
 
   const {

@@ -23,7 +23,7 @@ function Vuelo() {
     }))
   );
 
-  const img = "/banner_avion.jpg";
+  const img = "/banners/banner_avion.webp";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
   const fechaIda = FormatearFecha(ida.flight.outboundDate);
   const fechaVuelta = vuelta?.flight?.returnDate

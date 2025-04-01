@@ -78,7 +78,7 @@ function Vuelos() {
       <div
         className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
         style={{
-          backgroundImage: "url('/banner_avion.jpg')",
+          backgroundImage: "url('/banners/banner_avion.webp')",
         }}
       >
         <div className="tw-bg-blue-300 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-45 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>

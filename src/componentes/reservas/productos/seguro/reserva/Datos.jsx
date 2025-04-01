@@ -11,7 +11,7 @@ import { useForm } from "react-hook-form";
 function Datos() {
   const location = useLocation();
   const seguro = location.state || {};
-  const img = "/banner_seguros.jpg";
+  const img = "/banners/banner_seguros.webp";
   const navigate = useNavigate();
 
   const {

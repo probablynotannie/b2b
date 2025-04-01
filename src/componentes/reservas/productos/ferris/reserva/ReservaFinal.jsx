@@ -35,7 +35,7 @@ function Reserva() {
           </li>
         </ul>
         <Link to={"/resumenFerry"} state={{ ida, vuelta, data }}>
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
+          <button className="tw-w-full tw-mt-3 tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
             {Number(ida.precio + (vuelta ? vuelta.precio : 0)).toFixed(2)}€
           </button>
         </Link>

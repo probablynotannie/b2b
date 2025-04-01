@@ -42,7 +42,7 @@ const Dropdown = () => {
         { id: 3, texto: "Transfers", to: "/transfers", icon: [FaTaxi] },
         {
           id: 4,
-          texto: "Vuelo + hotel",
+          texto: "Hotel + Vuelo",
           to: "/vueloHotel",
           icon: [FaHotel, FaPlane],
         },
@@ -88,7 +88,7 @@ const Dropdown = () => {
       texto: "Reservas",
       subItems: [
         { id: 11, texto: "Hoteles", to: "/", icon: [FaHotel] },
-        { id: 12, texto: "Vuelo + hotel", to: "/", icon: [FaHotel, FaPlane] },
+        { id: 12, texto: "Hotel + Vuelo", to: "/", icon: [FaHotel, FaPlane] },
         { id: 13, texto: "Coches", to: "/", icon: [FaCar] },
         { id: 14, texto: "Trenes", to: "/", icon: [FaTrain] },
         { id: 15, texto: "Tickets", to: "/", icon: [FaTicket] },

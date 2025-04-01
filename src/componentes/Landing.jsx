@@ -1,20 +1,19 @@
 import { useNavigate } from "react-router-dom";
-
 function Landing() {
   const navigate = useNavigate();
   const imagenes = [
     {
-      url: "/banner_hoteles.jpg",
+      url: "/banners/banner_hoteles.webp",
       texto: "Hoteles",
       route: "/hoteles",
     },
     {
-      url: "/banner_avion.jpg",
+      url: "/banners/banner_avion.webp",
       texto: "Hotel + vuelo",
       route: "/vuelohotel",
     },
     {
-      url: "/banners/banner_loros.jpg",
+      url: "/banners/banner_loros.webp",
       texto: "Hotel + actividades",
       route: "/hotelmasactividades",
     },
@@ -24,57 +23,57 @@ function Landing() {
       route: "/hotelmasferris",
     },
     {
-      url: "/banner_coches.jpg",
+      url: "/banners/banner_coches.webp",
       texto: "Coches",
       route: "/coches",
     },
     {
-      url: "/banner_coches.jpg",
+      url: "transfers/transfer.webp",
       texto: "Transfers",
       route: "/transfers",
     },
     {
-      url: "/banner_ferris.jpg",
+      url: "/banners/banner_ferris.webp",
       texto: "Ferris",
       route: "/ferris",
     },
     {
-      url: "/banner_trenes.jpeg",
+      url: "/banners/banner_trenes.webp",
       texto: "Trenes",
       route: "/trenes",
     },
     {
-      url: "/banner_avion.jpg",
+      url: "/banners/banner_avion.webp",
       texto: "Vuelos",
       route: "/vuelos",
     },
     {
-      url: "/banner_entradas.jpg",
+      url: "/banners/banner_entradas.webp",
       texto: "Entradas",
       route: "/entradas",
     },
     {
-      url: "/banners/banner_loros.jpg",
+      url: "/banners/banner_loros.webp",
       texto: "Tickets",
       route: "/tickets",
     },
     {
-      url: "/banner_destinos.jpg",
+      url: "/banners/banner_destinos.webp",
       texto: "Destinos",
       route: "/destinos",
     },
     {
-      url: "/banner_circuitos.jpg",
+      url: "/banners/banner_circuitos.webp",
       texto: "Circuitos",
       route: "/circuitos",
     },
     {
-      url: "/banner_seguros.jpg",
+      url: "/banners/banner_seguros.webp",
       texto: "Seguros",
       route: "/seguros",
     },
     {
-      url: "/banner_cruise.jfif",
+      url: "/banners/banner_cruise.webp",
       texto: "Cruceros",
       route: "/cruceros",
     },

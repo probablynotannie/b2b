@@ -11,7 +11,7 @@ function ResumenFinal() {
     <main className="container min-h-[55vh] my-10 p-5">
       <section>
         <Resumen
-          img={"/completado.jpg"}
+          img={"/banners/completado.webp"}
           txt={
             <div className="flex flex-col items-center justify-center">
               <h1 className="text-7xl">Reserva Finalizada</h1>

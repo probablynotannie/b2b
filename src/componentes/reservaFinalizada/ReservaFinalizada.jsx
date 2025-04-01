@@ -10,7 +10,7 @@ function ReservaFinalizada() {
     nombre: "Sol y mar",
     fecha: "21 de octubre",
     fechaSalida: "28 de octubre",
-    img: "/banner_hoteles.jpg",
+    img: "/banners/banner_hoteles.webp",
   };
   const hotel = {
     nombre: "Sol y mar",
@@ -69,7 +69,7 @@ function ReservaFinalizada() {
     <main className="tw-container tw-my-10">
       <header className="tw-relative tw-h-[40vh]">
         <img
-          src="/completado.jpg"
+          src="/banners/completado.webp"
           className="tw-w-full tw-h-full tw-object-cover tw-rounded-lg tw-shadow-lg"
           alt="Imagen de reserva completada"
         />

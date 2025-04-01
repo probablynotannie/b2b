@@ -51,7 +51,6 @@ function Cruceros({ setRequestData }) {
       precio: "799€",
     },
   ];
-
   const ofertasUltimoMinuto = [
     {
       id: 0,
@@ -82,7 +81,7 @@ function Cruceros({ setRequestData }) {
     {
       id: 0,
       txt: "alma",
-      img: "/cruceros/alma.jpg",
+      img: "/cruceros/alma.webp",
     },
     {
       id: 1,
@@ -92,7 +91,7 @@ function Cruceros({ setRequestData }) {
     {
       id: 2,
       txt: "costa",
-      img: "/cruceros/costa.jpg",
+      img: "/cruceros/costa.webp",
     },
   ];
 

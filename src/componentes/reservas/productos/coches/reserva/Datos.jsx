@@ -12,7 +12,7 @@ function Vuelo() {
   const { producto, selectedExtras, conductor, reembolso, precio } =
     location.state || {};
 
-  const img = "/banner_coches.jpg";
+  const img = "/banners/banner_coches.webp";
   const itinerario =
     producto.recogida.lugar + " - " + producto.devolucion.lugar;
   const fechaIda = FormatearFecha(producto.recogida.fecha);

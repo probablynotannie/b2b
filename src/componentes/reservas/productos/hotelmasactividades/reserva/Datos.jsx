@@ -3,14 +3,12 @@ import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
-import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { Link } from "react-router-dom";
 function Datos() {
   const location = useLocation();
   const { hotel, actividades, habitacion } = location.state || {};
-  const img = "/banner_hoteles.jpg";
+  const img = "/banners/banner_hoteles.webp";
   const itinerario =
     hotel.nombre +
     " + " +

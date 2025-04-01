@@ -9,7 +9,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
-  const img = "/banner_hoteles.jpg";
+  const img = "/banners/banner_hoteles.webp";
   const navigate = useNavigate();
   const extras = (
     <div>

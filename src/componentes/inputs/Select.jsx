@@ -25,12 +25,13 @@ function Select({ placeholder }) {
       setIsDropdownOpen(false);
     }
   };
-
+  
   const handleSuggestionClick = (suggestion) => {
     setInputValue(suggestion);
     setSuggestions([]);
     setIsDropdownOpen(false);
   };
+
   return (
     <div className="tw-relative">
       <input

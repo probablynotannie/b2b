@@ -5,7 +5,7 @@
     "descripcion_corta": "Descubre la historia y la belleza del Palacio Real con un guía experto.",
     "tipoPrecio": "Neto",
     "precio": 25.0,
-    "img": "/banner_circuitos.jpg",
+    "img": "/banners/banner_circuitos.webp",
     "incluido": ["Guía profesional", "Entrada rápida", "Auriculares"],
     "excluidas": ["Transporte", "Propinas"],
     "fechasDisponibles": {
@@ -23,7 +23,7 @@
     "descripcion_corta": "Disfruta de un auténtico espectáculo de Flamenco mientras saboreas tapas españolas.",
     "tipoPrecio": "PVP",
     "precio": 45.0,
-    "img": "/banner_entradas.jpg",
+    "img": "/banners/banner_entradas.webp",
     "incluido": ["Espectáculo en vivo", "Cena de tapas"],
     "excluidas": ["Bebidas alcohólicas", "Transporte"],
     "fechasDisponibles": {
@@ -41,7 +41,7 @@
     "descripcion_corta": "Explora la ciudad medieval de Toledo con visitas a monumentos históricos.",
     "tipoPrecio": "Neto",
     "precio": 60.0,
-    "img": "/banner_actividades2.jpg",
+    "img": "/banners/banner_actividades2.webp",
     "incluido": ["Transporte ida y vuelta", "Guía oficial", "Entradas"],
     "excluidas": ["Comida", "Propinas"],
     "fechasDisponibles": {
@@ -59,7 +59,7 @@
     "descripcion_corta": "Descubre obras maestras de artistas famosos con un guía experto.",
     "tipoPrecio": "PVP",
     "precio": 35.0,
-    "img": "/banner_destinos.jpg",
+    "img": "/banners/banner_destinos.webp",
     "incluido": ["Entrada sin colas", "Guía experto", "Auriculares"],
     "excluidas": ["Transporte", "Propinas"],
     "fechasDisponibles": {
@@ -77,7 +77,7 @@
     "descripcion_corta": "Experimenta los sabores de España con un tour guiado por tapas y vinos.",
     "tipoPrecio": "Neto",
     "precio": 50.0,
-    "img": "/banner2.jpg",
+    "img": "/banners/banner2.webp",
     "incluido": ["Cata de vinos", "Variedad de tapas", "Guía local"],
     "excluidas": ["Extras personales", "Propinas"],
     "fechasDisponibles": {

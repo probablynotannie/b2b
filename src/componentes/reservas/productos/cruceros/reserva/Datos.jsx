@@ -13,7 +13,7 @@ const Vuelo = () => {
   const location = useLocation();
   const { producto, pasajeros, precioSeleccionado } = location.state || {};
   const navigate = useNavigate();
-  const img = "/banner_cruise.jfif";
+  const img = "/banners/banner_cruise.webp";
   console.log(pasajeros);
   const {
     register,

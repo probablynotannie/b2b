@@ -18,7 +18,7 @@ function ReservaFinal() {
         <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Datos de pasajero
         </h2>
-        <Reserva img={"/banner_ferry.jpg"} txt={"Hotel + Ferry"} />
+        <Reserva img={"/banners/ferry.webp"} txt={"Hotel + Ferry"} />
         <ul className="tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm tw-my-3">
           <li className="tw-flex tw-justify-between tw-items-center">
             <span className="tw-flex tw-items-center tw-gap-1">

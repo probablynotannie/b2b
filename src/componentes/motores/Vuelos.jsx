@@ -9,7 +9,7 @@ function Vuelos() {
         <div
           className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
-            backgroundImage: `url(/banner_avion.jpg)`,
+            backgroundImage: `url(/banners/banner_avion.webp)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

@@ -3,10 +3,10 @@
     "id": 1,
     "titulo": "Combinado Cantabria Y Asturias",
     "imagenes": [
-      "/circuitos/asturia.jpg",
-      "/circuitos/cantabria.jpg",
-      "/circuitos/santander.jpg",
-      "/circuitos/covadonga.jpg"
+      "/circuitos/asturia.webp",
+      "/circuitos/cantabria.webp",
+      "/circuitos/santander.webp",
+      "/circuitos/covadonga.webp"
     ],
     "itinerario": [
       {
@@ -75,16 +75,16 @@
       "Crucero en barco por la bahía de Santoña."
     ],
     "precio": 25.0,
-    "img": "/circuitos/cantabria.jpg"
+    "img": "/circuitos/cantabria.webp"
   },
   {
     "id": 2,
     "titulo": "Asturias Paraíso Natural Con Mariña Lucense",
     "imagenes": [
-      "/circuitos/asturia.jpg",
-      "/circuitos/cantabria.jpg",
-      "/circuitos/santander.jpg",
-      "/circuitos/covadonga.jpg"
+      "/circuitos/asturia.webp",
+      "/circuitos/cantabria.webp",
+      "/circuitos/santander.webp",
+      "/circuitos/covadonga.webp"
     ],
     "itinerario": [
       {
@@ -140,6 +140,6 @@
       "Crucero en barco por la bahía de Santoña."
     ],
     "precio": 45.0,
-    "img": "/circuitos/asturia.jpg"
+    "img": "/circuitos/asturia.webp"
   }
 ]

@@ -27,7 +27,7 @@ function Reserva() {
         <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Resumen
         </h2>
-        <Resumen img={"/banner_seguros.jpg"} txt={seguro.titulo} />
+        <Resumen img={"/banners/banner_seguros.webp"} txt={seguro.titulo} />
         <ul className="tw-text-slate-500 dark:tw-text-slate-400 tw-mt-3">
           <li className="tw-flex tw-items-center tw-gap-1">
             Destino: {seguro.destino}

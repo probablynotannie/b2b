@@ -25,7 +25,7 @@ function Productos() {
     <main className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mb-10">
       <div
         className="tw-relative tw-w-full tw-p-8 tw-bg-center tw-bg-cover tw-shadow-md"
-        style={{ backgroundImage: "url('/banner_hoteles.jpg')" }}
+        style={{ backgroundImage: "url('/banners/banner_hoteles.webp')" }}
       >
         <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-text-pink-600 tw-bg-orange-200 tw-pointer-events-none dark:tw-bg-black tw-bg-opacity-35 dark:tw-bg-opacity-45"></div>
         <div className="tw-flex">

@@ -43,7 +43,7 @@ console.log(data)
           Resumen
         </h2>
         <Reserva
-          img={"/banner_trenes.jpeg"}
+          img={"/banners/banner_ferris.webp"}
           txt={"tren de ida " + (vuelta && " y vuelta")}
         />
 

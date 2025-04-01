@@ -9,7 +9,7 @@ function Circuitos() {
         <div
           className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
-            backgroundImage: `url(/banner_circuitos.jpg)`,
+            backgroundImage: `url(/banners/banner_circuitos.webp)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

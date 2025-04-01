@@ -9,7 +9,7 @@ function Seguros() {
         <div
           className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
-            backgroundImage: `url(/banner_seguros.jpg)`,
+            backgroundImage: `url(/banners/banner_seguros.webp)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}

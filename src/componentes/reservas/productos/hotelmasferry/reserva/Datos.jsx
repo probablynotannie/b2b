@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 function Datos() {
   const location = useLocation();
   const { hotel, ferry, habitacion } = location.state || {};
-  const img = "/banner_ferry.jpg";
+  const img = "/banners/ferry.webp";
   const navigate = useNavigate();
 
   const itinerario = (

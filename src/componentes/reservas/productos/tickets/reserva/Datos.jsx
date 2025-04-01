@@ -74,7 +74,7 @@ function Datos() {
             />
           </div>
           <Reserva
-            img={"/banner_actividades2.jpg"}
+            img={"/banners/banner_actividades2.webp"}
             position={"center"}
             tipo={"Entrada"}
             itinerario={producto.titulo}

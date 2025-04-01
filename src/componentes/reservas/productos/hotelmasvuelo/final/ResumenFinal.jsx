@@ -14,7 +14,7 @@ function ResumenFinal() {
     <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
       <section>
         <Resumen
-          img={"/completado.jpg"}
+          img={"/banners/completado.webp"}
           txt={
             <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
               <h1 className="tw-text-7xl">Reserva Finalizada</h1>
