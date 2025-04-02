@@ -29,7 +29,7 @@ function ReservaFinal() {
         />
         <Info reserva={reserva} />
         <Link to={"/resumenDestino"} state={{ reserva, data }}>
-          <button className="tw-w-full  tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-mt-2">
+          <button className="tw-w-full  tw-btn_accesorios tw-btn_primario tw-mt-2">
             {reserva.precio} €
           </button>
         </Link>

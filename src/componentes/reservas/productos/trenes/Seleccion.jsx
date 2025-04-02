@@ -12,7 +12,6 @@ import {
 } from "react-icons/fa";
 function Seleccion({ tren, reservar, setTren }) {
   const [openModal, setOpenModal] = useState(null);
-
   return (
     <article className="lg:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]">
       <div className="tw-p-5 tw-w-full">
@@ -50,23 +49,24 @@ function Seleccion({ tren, reservar, setTren }) {
             </button>
             {reservar === true && (
               <button
-                className="tw-w-full lg:tw-w-fit  tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesorioshover:tw-bg-secondary-dark tw-transition tw-duration-200"
+                className="tw-w-full lg:tw-w-fit  tw-btn_accesorios tw-btn_primario hover:tw-bg-secondary-dark tw-transition tw-duration-200"
                 onClick={() => setTren(tren)}
               >
                 Reservar
               </button>
             )}
             <Modal
+              className="tw-bg-black/20"
               dismissible
               show={openModal === tren.id}
               onClose={() => setOpenModal(null)}
             >
-              <Modal.Header className="tw-bg-white dark:tw-bg-slate-900">
-                <h2 className="text-md tw-lowercase">
+              <Modal.Header className="tw-bg-white dark:tw-bg-slate-900 tw-border-b dark:tw-border-slate-800">
+                <h2 className="text-md tw-lowercase tw-font-bold tw-text-slate-900 dark:tw-text-white">
                   {tren.departureStationName} - {tren.arrivalStationName}
                 </h2>
               </Modal.Header>
-              <Modal.Body className="tw-bg-white dark:tw-bg-slate-900 tw-p-4">
+              <Modal.Body className="tw-bg-white  dark:tw-bg-slate-900 tw-p-4">
                 <div className="tw-grid sm:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-3 tw-mt-2 tw-text-start dark:tw-text-white tw-mb-4">
                   {[
                     {
@@ -102,7 +102,7 @@ function Seleccion({ tren, reservar, setTren }) {
                   ].map((item, index) => (
                     <div
                       key={index}
-                      className="tw-justify-center tw-flex tw-items-center tw-gap-2 tw-p-3 tw-bg-white dark:tw-bg-slate-800"
+                      className="tw-justify-center tw-flex tw-items-center tw-gap-2 tw-p-3 tw-bg-slate-50 tw-rounded dark:tw-bg-slate-800"
                     >
                       <div className="tw-text-lg">{item.icono}</div>
                       <p className="tw-text-xs tw-font-bold tw-uppercase tw-text-gray-600 dark:tw-text-gray-300">
@@ -113,7 +113,7 @@ function Seleccion({ tren, reservar, setTren }) {
                 </div>
                 <Mapa tren={tren} />
               </Modal.Body>
-              <Modal.Footer className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end">
+              <Modal.Footer className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end tw-border-t dark:tw-border-slate-800">
                 <button
                   className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-tw-bg-secondary tw-font-bold tw-rounded-xl tw-text-white"
                   onClick={() => setOpenModal(null)}

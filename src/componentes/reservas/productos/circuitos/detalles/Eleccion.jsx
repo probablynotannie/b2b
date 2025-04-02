@@ -53,7 +53,7 @@ const Eleccion = ({
         setRoomData={setRoomData}
       />
 
-      <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
+      <button className="tw-btn_accesorios tw-btn_primario tw-w-full">
         {actividad.precio.toFixed(2)}€
       </button>
     </form>

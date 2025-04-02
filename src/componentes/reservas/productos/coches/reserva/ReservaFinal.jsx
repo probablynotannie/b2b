@@ -91,7 +91,7 @@ function ReservaFinal() {
           to={"/resumenCoche"}
           state={{ producto, selectedExtras, precio, data, conductor }}
         >
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
             {precio.toFixed(2)}€
           </button>
         </Link>

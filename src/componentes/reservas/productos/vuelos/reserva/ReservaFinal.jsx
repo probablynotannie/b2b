@@ -50,7 +50,7 @@ function ReservaFinal() {
           <span>{data.numero}</span>
         </div>
         <Link to={"/resumenVuelo"} state={{ ida, vuelta, data }}>
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
             {(ida.flight.precio + (vuelta?.flight.precio || 0)).toFixed(2)}€
           </button>
         </Link>

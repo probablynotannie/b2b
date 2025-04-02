@@ -177,7 +177,7 @@ function Cesta({
           to="/hotel+actividades"
           state={{ hotel, actividades, habitacion }}
         >
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesorios tw-mt-10">
+          <button className=" tw-btn_accesorios tw-btn_primario  tw-mt-10">
             Total: {totalPrice.toFixed(2)}€
           </button>
         </Link>

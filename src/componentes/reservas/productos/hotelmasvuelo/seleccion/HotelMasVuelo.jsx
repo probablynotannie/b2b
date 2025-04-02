@@ -20,7 +20,7 @@ function HotelMasVuelo() {
         </h2>
         <Aside hotel={selectedHotel} ida={ida} vuelta={vuelta} />
         <Link to={"/datoshotelmasvuelo"} state={{ ida, vuelta, selectedHotel,habitacion }}>
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
             {(
               Number(selectedHotel.precio) +
               Number(ida.flight.precio) +

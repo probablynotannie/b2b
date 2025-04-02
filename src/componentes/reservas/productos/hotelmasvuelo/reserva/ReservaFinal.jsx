@@ -41,7 +41,7 @@ function ReservaFinal() {
             habitacion,
           }}
         >
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full tw-mt-2">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-2">
             {(
               Number(selectedHotel.precio) +
               Number(ida.flight.precio) +

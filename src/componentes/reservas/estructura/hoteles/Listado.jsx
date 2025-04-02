@@ -119,12 +119,12 @@ function Listado({
                 )}
               </td>
               <td className="tw-p-3 tw-flex tw-justify-end tw-space-x-2">
-                <button className="tw-btn_muted dark:tw-btn_muted_dark tw-btn_accesorios tw-btn_accesorios-accesoriostw-shadow-md hover:tw-shadow-lg">
+                <button className="tw-btn_muted dark:tw-btn_muted_dark tw-btn_accesorios tw-shadow-md hover:tw-shadow-lg">
                   <FaFilePdf />
                 </button>
                 {seleccion === "seleccionar" ? (
                   <button
-                    className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-shadow-md hover:tw-shadow-lg"
+                    className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg"
                     onClick={() => {
                       setHotel({ ...hotel, precio: habitacion.precio });
                       setHabitacion(habitacion);
@@ -135,7 +135,7 @@ function Listado({
                   </button>
                 ) : (
                   <Link to={"/datoshotel"} state={{ producto, habitacion }}>
-                    <button className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-shadow-md hover:tw-shadow-lg">
+                    <button className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg">
                       {habitacion.precio}€
                     </button>
                   </Link>

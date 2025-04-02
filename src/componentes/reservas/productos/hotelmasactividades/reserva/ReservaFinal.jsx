@@ -52,7 +52,7 @@ function ReservaFinal() {
           to={"/resumenHotelMasActividades"}
           state={{ data, hotel, actividades, habitacion }}
         >
-          <button className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
             {calculateTotalPrice()}€
           </button>
         </Link>

@@ -11,13 +11,11 @@ import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 function Productos() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("list");
-
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, []);
-
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
 
@@ -42,7 +40,6 @@ function Productos() {
           </aside>
         </div>
       </div>
-
       <article
         className={`lg:tw-px-28 tw-px-5 tw-grid tw-w-full tw-grid-cols-9 tw-mt-10 lg:tw-gap-10 xs:gap-28`}
       >

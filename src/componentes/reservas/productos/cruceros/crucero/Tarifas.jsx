@@ -476,7 +476,7 @@ function Tarifas({
                   }
                 }}
                 disabled={!temporal}
-                className=" tw-btn_accesorios tw-btn_primario tw-btn_accesorios-accesoriostw-mt-4"
+                className=" tw-btn_accesorios tw-btn_primario tw-mt-4"
               >
                 Confirmar selección
               </button>
