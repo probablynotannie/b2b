@@ -80,7 +80,6 @@ function SidebarContent({
   setCategoriasSeleccionadas,
   tipos,
   setTipos,
-  setIsModalOpen,
 }) {
   return (
     <div>

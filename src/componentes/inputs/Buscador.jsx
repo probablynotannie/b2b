@@ -71,7 +71,7 @@ function Buscador({
         name={name}
         control={control}
         rules={
-          required === true ? { required: "El destino es obligatorio" } : {}
+          required === true ? { required: "Este campo es obligatorio" } : {}
         }
         render={({ field, fieldState: { error } }) => (
           <>

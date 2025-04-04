@@ -107,7 +107,6 @@ function Cruceros({ setRequestData }) {
     navigate("/listadoCruceros", { state: { newRequestData } });
   };
   const navigate = useNavigate();
-
   return (
     <div className="tw-px-5">
       <div className="tw-text-4xl tw-text-center tw-font-bold tw-p-3 tw-border-b-2 dark:tw-text-white tw-border-slate-100 dark:tw-border-slate-700 tw-mb-5 tw-flex tw-items-center tw-justify-between">

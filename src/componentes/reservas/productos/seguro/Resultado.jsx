@@ -8,6 +8,7 @@ import { MdCancel } from "react-icons/md";
 import { FaMoneyBillTransfer } from "react-icons/fa6";
 import { FaHands } from "react-icons/fa";
 import seguro from "./Seguro.json";
+  
 function Resultado() {
   return (
     <div className="tw-grid lg:tw-grid-cols-3 tw-gap-y-10 lg:tw-gap-16 tw-container tw-my-10 tw-min-h-[70vh] tw-overflow-visible tw-mt-10">

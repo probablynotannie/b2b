@@ -15,7 +15,6 @@ function Clientes() {
           className={`tw-bg-indigo-800 tw-w-full tw-h-full tw-bg-opacity-55 tw-rounded-lg tw-shadow-lg tw-px-10`}
         ></div>
         <div className="tw-absolute md:tw-top-32 md:tw-left-20 tw-bg-CajaForms tw-bg-opacity-80 dark:bg-opacity-90 tw-text-white tw-px-4 md:tw-px-10 tw-w-11/12 md:tw-w-2/3 xl:tw-w-1/3 tw-h-fit tw-py-5 tw-pb-16 tw-rounded-lg tw-shadow-xl">
-          <form></form>
         </div>
       </div>
     </div>
