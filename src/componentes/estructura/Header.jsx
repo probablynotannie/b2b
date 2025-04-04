@@ -110,6 +110,17 @@ import ResumenTickets from "../reservas/productos/tickets/final/ResumenFinal";
 import ResumenTren from "../reservas/productos/trenes/final/ResumenFinal";
 import ResumenVuelo from "../reservas/productos/vuelos/final/ResumenFinal";
 
+/* Consultar las reservas */
+
+import Listado_reservas_hoteles from "../consultaReservas/hoteles/Listado";
+import Listado_reservas_coches from "../consultaReservas/coches/Listado";
+import Listado_reservas_destinos from "../consultaReservas/destinos/Listado";
+import Listado_reservas_ferris from "../consultaReservas/ferris/Listado";
+import Listado_reservas_seguros from "../consultaReservas/seguros/Listado";
+import Listado_reservas_tickets from "../consultaReservas/tickets/Listado";
+import Listado_reservas_trenes from "../consultaReservas/trenes/Listado";
+import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Listado";
+
 /* MANTINE */
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -142,6 +153,31 @@ function Header() {
         <Route path="/trenes" element={<Busqueda_Trenes />} />
         <Route path="/tickets" element={<Busqueda_Tickets />} />
         <Route path="/vueloHotel" element={<Busqueda_Vuelomashotel />} />
+        {/* CONSULTAR RESERVAS */}
+        <Route
+          path="/hoteles/reservas"
+          element={<Listado_reservas_hoteles />}
+        />
+        <Route path="/coches/reservas" element={<Listado_reservas_coches />} />
+        <Route
+          path="/destinos/reservas"
+          element={<Listado_reservas_destinos />}
+        />
+        <Route path="/ferris/reservas" element={<Listado_reservas_ferris />} />
+        <Route
+          path="/seguros/reservas"
+          element={<Listado_reservas_seguros />}
+        />
+        <Route
+          path="/tickets/reservas"
+          element={<Listado_reservas_tickets />}
+        />
+        <Route path="/trenes/reservas" element={<Listado_reservas_trenes />} />
+        <Route
+          path="/vuelomashotel/reservas"
+          element={<Listado_reservas_vuelomashotel />}
+        />
+
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />
         <Route path="/listadoTrenes" element={<ListadoTrenes />} />

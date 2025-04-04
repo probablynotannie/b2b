@@ -24,7 +24,7 @@ const Navbar = () => {
       <nav className="tw-mx-auto md:tw-px-4 tw-py-4 tw-flex md:tw-justify-between tw-flex-wrap tw-items-center tw-px-5 tw-justify-center">
         <div className="tw-flex md:tw-space-x-3 tw-items-center">
           <Link className="tw-hidden md:tw-block" to="/">
-            <img src="./logo.png" className="tw-w-full" alt="Logo" />
+            <img src="/logo.png" className="tw-w-full" alt="Logo" />
           </Link>
           <Menu />
         </div>
