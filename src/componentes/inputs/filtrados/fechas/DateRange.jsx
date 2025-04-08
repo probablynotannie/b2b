@@ -5,7 +5,6 @@ import { format } from "date-fns";
 import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import InfiniteScrollCalendar from "./fechasMovil";
-
 const DateRange = ({
   placeholder,
   startDate,
@@ -56,7 +55,15 @@ const DateRange = ({
         <div className="tw-absolute tw-h-[40px] tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
           <FaCalendarAlt />
         </div>
-
+        <div
+          onClick={() => {
+            setStartDate(null);
+            setEndDate(null);
+          }}
+          className="tw-absolute tw-h-[40px] tw-top-0 tw-right-0 tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-sm tw-text-slate-400 hover:tw-text-slate-800 tw-cursor-pointer tw-smooth"
+        >
+          X
+        </div>
         {isOpen && (
           <div className="tw-absolute tw-z-50">
             <DatePicker
@@ -77,14 +84,13 @@ const DateRange = ({
         )}
       </div>
 
-      {/* Mobile */}
       <div className="lg:tw-hidden">
-        {/*   <InfiniteScrollCalendar
+        <InfiniteScrollCalendar
           startDate={startDate}
           endDate={endDate}
           setStartDate={setStartDate}
           setEndDate={setEndDate}
-        /> */}
+        />
       </div>
     </div>
   );

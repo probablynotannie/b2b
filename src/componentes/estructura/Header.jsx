@@ -111,7 +111,6 @@ import ResumenTren from "../reservas/productos/trenes/final/ResumenFinal";
 import ResumenVuelo from "../reservas/productos/vuelos/final/ResumenFinal";
 
 /* Consultar las reservas */
-
 import Listado_reservas_hoteles from "../consultaReservas/hoteles/Listado";
 import Listado_reservas_coches from "../consultaReservas/coches/Listado";
 import Listado_reservas_destinos from "../consultaReservas/destinos/Listado";
@@ -120,6 +119,9 @@ import Listado_reservas_seguros from "../consultaReservas/seguros/Listado";
 import Listado_reservas_tickets from "../consultaReservas/tickets/Listado";
 import Listado_reservas_trenes from "../consultaReservas/trenes/Listado";
 import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Listado";
+
+/* Detalles reserva */
+import Detalles_Reserva_Coche from "../consultaReservas/coches/Detalles";
 
 /* MANTINE */
 import "@mantine/core/styles.css";
@@ -177,6 +179,8 @@ function Header() {
           path="/vuelomashotel/reservas"
           element={<Listado_reservas_vuelomashotel />}
         />
+        {/* Detalles de la reserva */}
+        <Route path="coche/detalles" element={<Detalles_Reserva_Coche />} />
 
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />

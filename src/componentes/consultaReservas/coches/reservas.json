@@ -1,0 +1,160 @@
+{
+  "reservas": [
+    {
+      "id": 1,
+      "fechaGestion": "05/05/2025",
+      "fechaEntrada": "05/05/2025",
+      "orden": "382707/52",
+      "localizador": "HOAG96173",
+      "estado": "pendiente",
+      "estadoPago": "Si",
+      "confirmacion": "2025-09-01",
+      "proveedores": "Cicar",
+      "modelo": "Peugeot 208",
+      "titularReserva": "Juan Pérez",
+      "datosAgencia": {
+        "agencia": "Vpk Desarrollo",
+        "telefono": "123456789",
+        "email": "pipupipu@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Murcia-Alicante",
+        "recogida": "05/05/2025",
+        "devolucion": "05/20/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 35.67,
+        "importePVP": 45.3
+      }
+    },
+    {
+      "id": 2,
+      "fechaGestion": "06/05/2025",
+      "fechaEntrada": "06/05/2025",
+      "orden": "392707/53",
+      "localizador": "HOAG96174",
+      "estado": "cancelada",
+      "estadoPago": "No",
+      "confirmacion": "2025-09-02",
+      "proveedores": "Avis",
+      "modelo": "Volkswagen Golf",
+      "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Auto Rent",
+        "telefono": "987654321",
+        "email": "carlos.sanchez@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Madrid-Valencia",
+        "recogida": "06/05/2025",
+        "devolucion": "06/20/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 50.23,
+        "importePVP": 60.75
+      }
+    },
+    {
+      "id": 3,
+      "fechaGestion": "07/10/2025",
+      "fechaEntrada": "07/10/2025",
+      "orden": "402707/54",
+      "localizador": "HOAG96175",
+      "estado": "completada",
+      "estadoPago": "Si",
+      "confirmacion": "2025-09-03",
+      "proveedores": "Europcar",
+      "modelo": "Ford Fiesta",
+      "titularReserva": "María Gómez",
+      "datosAgencia": {
+        "agencia": "Rent A Car",
+        "telefono": "654321987",
+        "email": "maria.gomez@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Sevilla-Granada",
+        "recogida": "07/10/2025",
+        "devolucion": "07/15/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 40.0,
+        "importePVP": 52.5
+      }
+    },
+    {
+      "id": 4,
+      "fechaGestion": "08/15/2025",
+      "fechaEntrada": "08/15/2025",
+      "orden": "412707/55",
+      "localizador": "HOAG96176",
+      "estado": "completada",
+      "estadoPago": "Si",
+      "confirmacion": "2025-09-04",
+      "proveedores": "Sixt",
+      "modelo": "BMW 320i",
+      "titularReserva": "Pedro Rodríguez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Barcelona-Madrid",
+        "recogida": "08/15/2025",
+        "devolucion": "08/20/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 100.45,
+        "importePVP": 120.99
+      }
+    },
+    {
+      "id": 5,
+      "fechaGestion": "09/01/2025",
+      "fechaEntrada": "09/01/2025",
+      "orden": "422707/56",
+      "localizador": "HOAG96177",
+      "estado": "completada",
+      "estadoPago": "No",
+      "confirmacion": "2025-09-05",
+      "proveedores": "Hertz",
+      "modelo": "Audi A3",
+      "titularReserva": "Ana López",
+      "datosAgencia": {
+        "agencia": "Aero Car Rentals",
+        "telefono": "987123654",
+        "email": "ana.lopez@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Valencia-Castellón",
+        "recogida": "09/01/2025",
+        "devolucion": "09/10/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 85.99,
+        "importePVP": 99.99
+      }
+    },
+    {
+      "id": 6,
+      "fechaGestion": "10/05/2025",
+      "fechaEntrada": "10/05/2025",
+      "orden": "432707/57",
+      "localizador": "HOAG96178",
+      "estado": "pendiente",
+      "estadoPago": "Si",
+      "confirmacion": "2025-09-06",
+      "proveedores": "Cicar",
+      "modelo": "Seat Ibiza",
+      "titularReserva": "Luis Martínez",
+      "datosAgencia": {
+        "agencia": "Auto Rent",
+        "telefono": "111223344",
+        "email": "luis.martinez@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Alicante-Valencia",
+        "recogida": "10/05/2025",
+        "devolucion": "10/15/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 48.99,
+        "importePVP": 59.99
+      }
+    }
+  ]
+}

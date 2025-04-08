@@ -1,6 +1,49 @@
 import Sidebar from "../_sidebar/Sidebar";
-import Buscador_Coches from "./filtrado/Filtrado";
+import Filtrado_Coches from "./filtrado/Filtrado";
+import { FaTable } from "react-icons/fa";
+import { FaBox } from "react-icons/fa";
+import { useState, useEffect } from "react";
+import Tabla from "./reservas/Tabla";
+import Cajas from "./reservas/Cajas";
+import datos from "./reservas.json";
+import { useNavigate } from "react-router-dom";
+
 function Coches() {
+  const [fechaEntradaDesde, setFechaEntradaDesde] = useState(null);
+  const [fechaEntradaHasta, setFechaEntradaHasta] = useState(null);
+  const [fechaGestionDesde, setFechaGestionDesde] = useState(null);
+  const [fechaGestionHasta, setFechaGestionHasta] = useState(null);
+  const [pagadas, setPagadas] = useState("Todas");
+  const [activas, setActivas] = useState("Todas");
+  const [tipo, setTipo] = useState("tabla");
+  const [localizador, setLocalizador] = useState("");
+  const navigate = useNavigate();
+  const detalles = (coche) => {
+    console.log(coche);
+    navigate("/coche/detalles", {
+      state: { coche },
+    });
+  };
+  useEffect(() => {
+    const filtered = datos.reservas.filter((reserva) => {
+      const matchLocalizador =
+        localizador === "" ||
+        reserva.localizador.toLowerCase().includes(localizador.toLowerCase());
+
+      return matchLocalizador;
+    });
+    setDatosFiltrados(filtered);
+  }, [
+    fechaEntradaDesde,
+    fechaEntradaHasta,
+    fechaGestionDesde,
+    fechaGestionHasta,
+    pagadas,
+    activas,
+    localizador,
+  ]);
+
+  const [datosFiltrados, setDatosFiltrados] = useState(datos.reservas);
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
@@ -13,11 +56,61 @@ function Coches() {
             backgroundPosition: "center",
           }}
         >
-          <div className="tw-w-full tw-h-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
-            <Buscador_Coches />
+          <div className="tw-w-full tw-h-full tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
+            <Filtrado_Coches
+              fechaEntradaDesde={fechaEntradaDesde}
+              localizador={localizador}
+              setLocalizador={setLocalizador}
+              setFechaEntradaDesde={setFechaEntradaDesde}
+              fechaEntradaHasta={fechaEntradaHasta}
+              setFechaEntradaHasta={setFechaEntradaHasta}
+              fechaGestionDesde={fechaGestionDesde}
+              setFechaGestionDesde={setFechaGestionDesde}
+              fechaGestionHasta={fechaGestionHasta}
+              setFechaGestionHasta={setFechaGestionHasta}
+              pagadas={pagadas}
+              setPagadas={setPagadas}
+              activas={activas}
+              setActivas={setActivas}
+            />
           </div>
         </div>
-        e
+        <div className="tw-flex tw-items-center tw-mt-2 tw-px-10 tw-py-10 lg:tw-py-0 lg:tw-px-0">
+          <section className="tw-w-full">
+            <div className="tw-flex tw-items-center tw-justify-between tw-mt-2 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-">
+              <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
+                Reservas
+              </h2>
+              <div className="tw-flex tw-gap-2 tw-items-center">
+                <button
+                  onClick={() => setTipo("tabla")}
+                  className={`hover:tw-scale-105 tw-smooth ${
+                    tipo === "tabla" ? "tw-text-secondary" : "tw-text-slate-300"
+                  }`}
+                >
+                  <FaTable />
+                </button>
+                <button
+                  onClick={() => setTipo("cajas")}
+                  className={`hover:tw-scale-105 tw-smooth ${
+                    tipo === "cajas" ? "tw-text-secondary" : "tw-text-slate-300"
+                  }`}
+                >
+                  <FaBox />
+                </button>
+              </div>
+            </div>
+            {tipo === "tabla" ? (
+              <>
+                <Tabla datos={datosFiltrados} detalles={detalles} />
+              </>
+            ) : (
+              <>
+                <Cajas datos={datosFiltrados} detalles={detalles} />
+              </>
+            )}
+          </section>
+        </div>
       </div>
     </article>
   );
