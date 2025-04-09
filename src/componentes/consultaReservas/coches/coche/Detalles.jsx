@@ -4,14 +4,39 @@ import {
   FaCheckCircle,
   FaTruck,
   FaUser,
-  FaRoute,
-  FaCarSide,
-  FaCalendarAlt,
+  FaPhone,
+  FaHotel,
 } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
 
 function Detalles({ coche }) {
   return (
     <>
+      <div className="tw-border-b dark:tw-border-slate-700 tw-mt-4 tw-py-4 tw-space-y-2 tw-text-sm tw-text-slate-700">
+        <h4 className="tw-font-bold tw-text-2xl tw-text-center tw-text-secondary dark:tw-text-secondaryDark tw-mb-3">
+          Datos Agencia
+        </h4>
+        <div className="tw-grid tw-grid-cols-3 tw-gap-4">
+          <DatosAgencia
+            icon={
+              <FaHotel className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
+            }
+            value={coche.datosAgencia.agencia}
+          />
+          <DatosAgencia
+            icon={
+              <FaPhone className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
+            }
+            value={coche.datosAgencia.telefono}
+          />
+          <DatosAgencia
+            icon={
+              <MdEmail className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
+            }
+            value={coche.datosAgencia.email}
+          />
+        </div>
+      </div>
       <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-6">
         <InfoBlock
           icon={<FaClipboardList className="tw-text-indigo-600" />}
@@ -40,30 +65,6 @@ function Detalles({ coche }) {
           className="tw-col-span-2"
         />
       </div>
-
-      {/* Details */}
-      <div className="tw-border-t tw-mt-4 tw-pt-4 tw-space-y-2 tw-text-sm tw-text-slate-700">
-        <DetailLine
-          icon={<FaRoute className="tw-text-slate-500 tw-mr-2" />}
-          label="Recorrido"
-          value={coche.reserva.recorrido}
-        />
-        <DetailLine
-          icon={<FaCarSide className="tw-text-slate-500 tw-mr-2" />}
-          label="Modelo"
-          value={coche.modelo}
-        />
-        <DetailLine
-          icon={<FaCalendarAlt className="tw-text-slate-500 tw-mr-2" />}
-          label="Recogida"
-          value={coche.reserva.recogida}
-        />
-        <DetailLine
-          icon={<FaCalendarAlt className="tw-text-slate-500 tw-mr-2" />}
-          label="Devolución"
-          value={coche.reserva.devolucion}
-        />
-      </div>
     </>
   );
 }
@@ -73,23 +74,24 @@ function InfoBlock({ icon, title, value, className = "" }) {
     <div className={`tw-flex tw-items-start tw-gap-3 ${className}`}>
       <div className="tw-mt-1 tw-text-lg">{icon}</div>
       <div>
-        <h4 className="tw-text-sm tw-font-semibold tw-text-slate-600">
+        <h4 className="tw-text-sm tw-font-semibold tw-text-slate-600 dark:tw-text-slate-100">
           {title}
         </h4>
-        <p className="tw-text-base tw-font-medium tw-text-slate-900">{value}</p>
+        <p className="tw-text-base tw-font-medium tw-text-slate-900 dark:tw-text-slate-400">
+          {value}
+        </p>
       </div>
     </div>
   );
 }
 
-function DetailLine({ icon, label, value }) {
+function DatosAgencia({ icon, value }) {
   return (
-    <div className="tw-flex tw-items-center">
+    <div className="tw-flex tw-flex-col tw-items-center">
       {icon}
-      <p>
-        <span className="tw-font-medium tw-text-slate-800">{label}:</span>{" "}
-        <span className="tw-text-slate-600">{value}</span>
-      </p>
+      <span className="tw-text-slate-600 dark:tw-text-slate-100 tw-font-bold tw-mt-1">
+        {value}
+      </span>
     </div>
   );
 }

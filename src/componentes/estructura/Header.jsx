@@ -111,14 +111,14 @@ import ResumenTren from "../reservas/productos/trenes/final/ResumenFinal";
 import ResumenVuelo from "../reservas/productos/vuelos/final/ResumenFinal";
 
 /* Consultar las reservas */
-import Listado_reservas_hoteles from "../consultaReservas/hoteles/Listado";
-import Listado_reservas_coches from "../consultaReservas/coches/Listado";
-import Listado_reservas_destinos from "../consultaReservas/destinos/Listado";
-import Listado_reservas_ferris from "../consultaReservas/ferris/Listado";
-import Listado_reservas_seguros from "../consultaReservas/seguros/Listado";
-import Listado_reservas_tickets from "../consultaReservas/tickets/Listado";
-import Listado_reservas_trenes from "../consultaReservas/trenes/Listado";
-import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Listado";
+import Listado_reservas_hoteles from "../consultaReservas/hoteles/Resultado";
+import Listado_reservas_coches from "../consultaReservas/coches/Resultado";
+import Listado_reservas_destinos from "../consultaReservas/destinos/Resultado";
+import Listado_reservas_ferris from "../consultaReservas/ferris/Resultado";
+import Listado_reservas_seguros from "../consultaReservas/seguros/Resultado";
+import Listado_reservas_tickets from "../consultaReservas/tickets/Resultado";
+import Listado_reservas_trenes from "../consultaReservas/trenes/Resultado";
+import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Resultado";
 
 /* Detalles reserva */
 import Detalles_Reserva_Coche from "../consultaReservas/coches/Detalles";
