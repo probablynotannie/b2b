@@ -7,7 +7,7 @@ import Tabla from "./reservas/Tabla";
 import Cajas from "./reservas/Cajas";
 import datos from "./reservas.json";
 import { useNavigate } from "react-router-dom";
-
+import Skeleton_Cajas from "../_skeleton_placeholders/Cajas";
 function Coches() {
   const [fechaEntradaDesde, setFechaEntradaDesde] = useState(null);
   const [fechaEntradaHasta, setFechaEntradaHasta] = useState(null);
@@ -17,6 +17,12 @@ function Coches() {
   const [activas, setActivas] = useState("Todas");
   const [tipo, setTipo] = useState("tabla");
   const [localizador, setLocalizador] = useState("");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
   const navigate = useNavigate();
   const detalles = (coche) => {
     console.log(coche);
@@ -102,11 +108,23 @@ function Coches() {
             </div>
             {tipo === "tabla" ? (
               <>
-                <Tabla datos={datosFiltrados} detalles={detalles} />
+                <Tabla
+                  datos={datosFiltrados}
+                  detalles={detalles}
+                  loading={loading}
+                />
               </>
             ) : (
               <>
-                <Cajas datos={datosFiltrados} detalles={detalles} />
+                {loading ? (
+                  <Skeleton_Cajas />
+                ) : (
+                  <Cajas
+                    datos={datosFiltrados}
+                    detalles={detalles}
+                    loading={loading}
+                  />
+                )}
               </>
             )}
           </section>

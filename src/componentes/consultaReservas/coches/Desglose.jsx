@@ -1,5 +1,4 @@
 import { FaCalendarAlt, FaCarSide, FaRoute } from "react-icons/fa";
-
 function Desglose({ coche }) {
   const formattedNeto = coche.reserva.importeNeto.toFixed(2) + " €";
   const formattedPvp = coche.reserva.importePVP.toFixed(2) + " €";
@@ -11,29 +10,28 @@ function Desglose({ coche }) {
 
   return (
     <div className="tw-my-6 tw-space-y-4">
-      <div className="tw-grid tw-gap-3">
-        <DetalleLinea
+      <div className="tw-grid tw-grid-cols-2 tw-gap-3">
+        <LineaDetalles
           icon={<FaRoute className="tw-text-slate-400 tw-text-lg" />}
           label="Recorrido"
           value={coche.reserva.recorrido}
         />
-        <DetalleLinea
+        <LineaDetalles
           icon={<FaCarSide className="tw-text-slate-400 tw-text-lg" />}
           label="Modelo"
           value={coche.modelo}
         />
-        <DetalleLinea
+        <LineaDetalles
           icon={<FaCalendarAlt className="tw-text-slate-400 tw-text-lg" />}
           label="Recogida"
           value={coche.reserva.recogida}
         />
-        <DetalleLinea
+        <LineaDetalles
           icon={<FaCalendarAlt className="tw-text-slate-400 tw-text-lg" />}
           label="Devolución"
           value={coche.reserva.devolucion}
         />
       </div>
-
       <div className="tw-grid tw-grid-cols-3 tw-bg-white dark:tw-bg-slate-900 tw-rounded-2xl tw-shadow-sm tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-p-4">
         {items.map(({ label, value }, index) => (
           <div
@@ -57,7 +55,7 @@ function Desglose({ coche }) {
   );
 }
 
-function DetalleLinea({ icon, label, value }) {
+function LineaDetalles({ icon, label, value }) {
   return (
     <div className="tw-flex tw-items-center tw-gap-3">
       {icon}

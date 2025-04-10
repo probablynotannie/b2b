@@ -6,8 +6,27 @@ import Tabla from "./reservas/Tabla";
 import Cajas from "./reservas/Cajas";
 import datos from "./reservas.json";
 import { useNavigate } from "react-router-dom";
+import Skeleton_Cajas from "../_skeleton_placeholders/Cajas";
+import { useEffect } from "react";
 function Resultado() {
   const [tipo, setTipo] = useState("tabla");
+  const [filtrados, setFiltrados] = useState(datos);
+  const [search, setSearch] = useState("");
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+  useEffect(() => {
+    const lowerSearch = search.toLowerCase();
+    const filtrados = datos.reservas.filter((reserva) => {
+      const allValues = JSON.stringify(reserva).toLowerCase();
+      return allValues.includes(lowerSearch);
+    });
+
+    setFiltrados(filtrados);
+  }, [search]);
   const navigate = useNavigate();
   const detalles = (coche) => {
     navigate("/coche/detalles", {
@@ -70,6 +89,8 @@ function Resultado() {
               <input
                 type="search"
                 id="default-search"
+                value={search}
+                onChange={(e) => setSearch(e.target.value)}
                 className="tw-block tw-w-full tw-p-4 tw-ps-10 tw-text-sm tw-text-slate-900 tw-border tw-border-slate-300 tw-rounded-lg tw-bg-slate-50 focus:tw-ring-blue-500 focus:tw-border-blue-500 dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondary dark:focus:tw-border-secondaryDark"
                 placeholder="Buscar por localizador, orden, servicio.."
                 required
@@ -83,11 +104,23 @@ function Resultado() {
             </div>
             {tipo === "tabla" ? (
               <>
-                <Tabla datos={datos.reservas} detalles={detalles} />
+                <Tabla
+                  datos={filtrados}
+                  detalles={detalles}
+                  loading={loading}
+                />
               </>
             ) : (
               <>
-                <Cajas datos={datos.reservas} detalles={detalles} />
+                {loading ? (
+                  <Skeleton_Cajas />
+                ) : (
+                  <Cajas
+                    datos={filtrados}
+                    detalles={detalles}
+                    loading={loading}
+                  />
+                )}
               </>
             )}
           </section>

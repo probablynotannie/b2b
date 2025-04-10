@@ -12,11 +12,7 @@
       "proveedores": "Cicar",
       "modelo": "Peugeot 208",
       "titularReserva": "Juan Pérez",
-      "datosAgencia": {
-        "agencia": "Vpk Desarrollo",
-        "telefono": "123456789",
-        "email": "pipupipu@gmail.com"
-      },
+
       "reserva": {
         "recorrido": "Murcia-Alicante",
         "recogida": "05/05/2025",
@@ -38,11 +34,7 @@
       "proveedores": "Avis",
       "modelo": "Volkswagen Golf",
       "titularReserva": "Carlos Sánchez",
-      "datosAgencia": {
-        "agencia": "Auto Rent",
-        "telefono": "987654321",
-        "email": "carlos.sanchez@gmail.com"
-      },
+
       "reserva": {
         "recorrido": "Madrid-Valencia",
         "recogida": "06/05/2025",
@@ -64,11 +56,7 @@
       "proveedores": "Europcar",
       "modelo": "Ford Fiesta",
       "titularReserva": "María Gómez",
-      "datosAgencia": {
-        "agencia": "Rent A Car",
-        "telefono": "654321987",
-        "email": "maria.gomez@gmail.com"
-      },
+
       "reserva": {
         "recorrido": "Sevilla-Granada",
         "recogida": "07/10/2025",
@@ -90,11 +78,7 @@
       "proveedores": "Sixt",
       "modelo": "BMW 320i",
       "titularReserva": "Pedro Rodríguez",
-      "datosAgencia": {
-        "agencia": "Global Rent",
-        "telefono": "321654987",
-        "email": "pedro.rodriguez@gmail.com"
-      },
+
       "reserva": {
         "recorrido": "Barcelona-Madrid",
         "recogida": "08/08/2025",
@@ -116,11 +100,7 @@
       "proveedores": "Hertz",
       "modelo": "Audi A3",
       "titularReserva": "Ana López",
-      "datosAgencia": {
-        "agencia": "Aero Car Rentals",
-        "telefono": "987123654",
-        "email": "ana.lopez@gmail.com"
-      },
+
       "reserva": {
         "recorrido": "Valencia-Castellón",
         "recogida": "09/10/2025",
@@ -142,11 +122,7 @@
       "proveedores": "Cicar",
       "modelo": "Seat Ibiza",
       "titularReserva": "Luis Martínez",
-      "datosAgencia": {
-        "agencia": "Auto Rent",
-        "telefono": "111223344",
-        "email": "luis.martinez@gmail.com"
-      },
+
       "reserva": {
         "recorrido": "Alicante-Valencia",
         "recogida": "05/10/2025",

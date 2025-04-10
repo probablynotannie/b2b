@@ -1,6 +1,5 @@
 import { FaCalendar, FaCar, FaMapPin } from "react-icons/fa";
 function Cajas({ datos, detalles }) {
-  console.log(datos)
   return (
     <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-6 tw-mt-5">
       {datos.map((coche) => {

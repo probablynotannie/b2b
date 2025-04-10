@@ -1,5 +1,4 @@
 import { FaCalendar, FaCar, FaMapPin } from "react-icons/fa";
-import { Link } from "react-router-dom";
 function Cajas({ datos, detalles }) {
   return (
     <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-6 tw-mt-5">
@@ -12,7 +11,6 @@ function Cajas({ datos, detalles }) {
             : coche.estado === "completada"
             ? "tw-bg-green-400 tw-text-green-800"
             : "tw-bg-slate-400 tw-text-slate-700";
-
         const background =
           coche.estado === "cancelada"
             ? "tw-bg-red-100 dark:tw-bg-red-800"
