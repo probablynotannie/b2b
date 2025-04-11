@@ -17,7 +17,7 @@ function Tabla({ datos, detalles, loading }) {
         </thead>
         <tbody>
           {loading ? (
-            <Placeholder columnas={8} />
+            <Placeholder columnas={7} />
           ) : datos.length === 0 ? (
             <tr>
               <td colSpan="8">

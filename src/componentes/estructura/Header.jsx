@@ -122,6 +122,7 @@ import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Re
 
 /* Detalles reserva */
 import Detalles_Reserva_Coche from "../consultaReservas/coches/Detalles";
+import Detalles_Reserva_Destino from "../consultaReservas/destinos/detalles/Destino";
 
 /* MANTINE */
 import "@mantine/core/styles.css";
@@ -181,6 +182,7 @@ function Header() {
         />
         {/* Detalles de la reserva */}
         <Route path="coche/detalles" element={<Detalles_Reserva_Coche />} />
+        <Route path="destino/detalles" element={<Detalles_Reserva_Destino />} />
 
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />

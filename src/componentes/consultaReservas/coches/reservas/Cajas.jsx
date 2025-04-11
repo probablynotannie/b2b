@@ -50,10 +50,10 @@ function Cajas({ datos, detalles }) {
                 >
                   {coche.estado === 0
                     ? "Cancelada"
-                    : coche.estado === 2
-                    ? "Pendiente"
                     : coche.estado === 1
                     ? "completada"
+                    : coche.estado === 2
+                    ? "Pendiente"
                     : "Sin estado"}
                 </span>
                 <span

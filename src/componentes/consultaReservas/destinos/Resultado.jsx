@@ -28,9 +28,9 @@ function Resultado() {
     setFiltrados(filtrados);
   }, [search]);
   const navigate = useNavigate();
-  const detalles = (coche) => {
-    navigate("/coche/detalles", {
-      state: { coche },
+  const detalles = (destino) => {
+    navigate("/destino/detalles", {
+      state: { destino },
     });
   };
   return (
