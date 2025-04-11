@@ -30,11 +30,13 @@ function Tabla({ datos, detalles, loading }) {
           ) : (
             datos.map((dato) => {
               const estadoColor =
-                dato.estado === "cancelada"
-                  ? "tw-bg-red-500 dark:tw-bg-red-800"
-                  : dato.estado === "pendiente"
-                  ? "tw-bg-orange-400 dark:tw-bg-yellow-600"
-                  : "tw-bg-green-500 dark:tw-bg-green-800";
+                dato.estado === 0
+                  ? "tw-border-r-2 tw-border-red-500 tw-text-red-500"
+                  : dato.estado === 1
+                  ? "tw-border-r-2 tw-border-green-500 tw-text-green-500 dark:tw-text-green-400"
+                  : dato.estado === 2
+                  ? "tw-border-r-2 tw-border-orange-400 tw-text-orange-400"
+                  : "";
 
               return (
                 <tr
@@ -60,16 +62,24 @@ function Tabla({ datos, detalles, loading }) {
                     —
                   </td>
                   <td className="tw-py-4 tw-px-1">
-                    {dato.estadoPago === "Si" ? (
+                    {dato.estadoPago === 1 ? (
                       <FaCheck className="tw-text-green-600 tw-text-lg" />
-                    ) : (
+                    ) : dato.estadoPago === 0 ? (
                       <FaTimes className="tw-text-red-500 tw-text-lg" />
+                    ) : (
+                      "Sin datos"
                     )}
                   </td>
                   <td
-                    className={`tw-text-white tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 ${estadoColor}`}
+                    className={`tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 tw-px-2 ${estadoColor}`}
                   >
-                    {dato.estado}
+                    {dato.estado === 0
+                      ? "Cancelada"
+                      : dato.estado === 2
+                      ? "Pendiente"
+                      : dato.estado === 1
+                      ? "Completada"
+                      : "Sin datos"}
                   </td>
                 </tr>
               );

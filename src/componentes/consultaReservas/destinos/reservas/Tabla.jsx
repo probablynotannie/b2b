@@ -10,8 +10,7 @@ function Tabla({ datos, detalles, loading }) {
             <th className="tw-px-6 tw-py-3">Localizador</th>
             <th className="tw-px-6 tw-py-3">Confirmación</th>
             <th className="tw-px-6 tw-py-3">Servicio</th>
-            <th className="tw-px-6 tw-py-3">Bono</th>
-            <th className="tw-px-6 tw-py-3">Profor.</th>
+            <th className="tw-px-6 tw-py-3">Proveedor</th>
             <th className="tw-py-3">Pago</th>
             <th className="tw-py-3 tw-text-center">Estado</th>
           </tr>
@@ -29,20 +28,27 @@ function Tabla({ datos, detalles, loading }) {
             </tr>
           ) : (
             datos.map((dato) => {
-              const estadoColor =
-                dato.estado === "cancelada"
-                  ? "tw-bg-red-500 dark:tw-bg-red-800"
-                  : dato.estado === "pendiente"
-                  ? "tw-bg-orange-400 dark:tw-bg-yellow-600"
-                  : "tw-bg-green-500 dark:tw-bg-green-800";
-
+              const colorBorde =
+                dato.estado === 1
+                  ? "tw-border-green-500"
+                  : dato.estado === 2
+                  ? "tw-border-orange-400"
+                  : "tw-border-slate-500";
+              const colorTexto =
+                dato.estado === 1
+                  ? "tw-text-green-500 dark:tw-text-green-400"
+                  : dato.estado === 2
+                  ? "tw-text-orange-400"
+                  : "";
               return (
                 <tr
                   onClick={() => detalles(dato)}
                   key={dato.id}
-                  className="tw-cursor-pointer odd:tw-bg-white odd:dark:tw-bg-slate-900 even:tw-bg-slate-50 even:dark:tw-bg-slate-800 tw-border-b dark:tw-border-slate-700 tw-border-slate-200 tw-transition hover:tw-bg-slate-100 dark:hover:tw-bg-slate-700"
+                  className="tw-cursor-pointer odd:tw-bg-white odd:dark:tw-bg-slate-900 even:tw-bg-slate-50 even:dark:tw-bg-slate-800 tw-border-b dark:tw-border-slate-700 tw-border-slate-200 tw-transition hover:tw-bg-slate-100 dark:hover:tw-bg-slate-950"
                 >
-                  <td className="tw-px-6 tw-py-4">{dato.orden}</td>
+                  <td className={`tw-px-6 tw-py-4 tw-font-bold`}>
+                    {dato.orden}
+                  </td>
                   <td className="tw-px-6 tw-py-4">{dato.localizador}</td>
                   <td className="tw-px-6 tw-py-4">{dato.confirmacion}</td>
                   <td className="tw-px-6 tw-py-4">
@@ -50,26 +56,32 @@ function Tabla({ datos, detalles, loading }) {
                       {dato.reserva.recorrido}
                     </div>
                     <div className="tw-text-xs tw-text-slate-400 tw-flex tw-gap-1">
-                      {dato.reserva.recogida} → {dato.reserva.devolucion}
+                      {dato.reserva.opcion}
+                    </div>
+                    <div className="tw-text-xs tw-text-slate-400 tw-flex tw-gap-1">
+                      {dato.reserva.ida} → {dato.reserva.vuelta}
                     </div>
                   </td>
-                  <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                    —
-                  </td>
-                  <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                    —
+                  <td className="tw-px-6 tw-py-4  tw-text-slate-400">
+                    {dato.proveedores}
                   </td>
                   <td className="tw-py-4 tw-px-1">
-                    {dato.estadoPago === "Si" ? (
+                    {dato.estadoPago === 1 ? (
                       <FaCheck className="tw-text-green-600 tw-text-lg" />
-                    ) : (
+                    ) : dato.estadoPago === 0 ? (
                       <FaTimes className="tw-text-red-500 tw-text-lg" />
+                    ) : (
+                      "Sin datos"
                     )}
                   </td>
                   <td
-                    className={`tw-text-white tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 ${estadoColor}`}
+                    className={`tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 tw-px-2 tw-border-r-2 ${colorBorde} ${colorTexto}`}
                   >
-                    {dato.estado}
+                    {dato.estado === 1
+                      ? "Disponible"
+                      : dato.estado === 2
+                      ? "Bajo petición"
+                      : "Sin datos"}
                   </td>
                 </tr>
               );

@@ -13,9 +13,7 @@ function Detalles() {
             className={`tw-bg-white dark:tw-bg-slate-800
             } tw-space-y-3 tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-5`}
           >
-            <h2 className="tw-font-bold  tw-text-xl  tw-border-b tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-pb-2">
-              {coche.localizador}
-            </h2>
+          
             <DetallesCoche coche={coche} />
           </section>
           <aside

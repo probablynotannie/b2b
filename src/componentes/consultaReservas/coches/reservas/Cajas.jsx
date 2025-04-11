@@ -4,33 +4,33 @@ function Cajas({ datos, detalles }) {
     <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-6 tw-mt-5">
       {datos.map((coche) => {
         const estadoBadgeColor =
-          coche.estado === "cancelada"
+          coche.estado === 0
             ? "tw-bg-red-400 tw-text-red-800"
-            : coche.estado === "pendiente"
+            : coche.estado === 2
             ? "tw-bg-orange-300 tw-text-orange-800"
-            : coche.estado === "completada"
+            : coche.estado === 1
             ? "tw-bg-green-400 tw-text-green-800"
             : "tw-bg-slate-400 tw-text-slate-700";
         const background =
-          coche.estado === "cancelada"
+          coche.estado === 0
             ? "tw-bg-red-100 dark:tw-bg-red-800"
-            : coche.estado === "pendiente"
+            : coche.estado === 2
             ? "tw-bg-orange-100 dark:tw-bg-yellow-800"
-            : coche.estado === "completada"
+            : coche.estado === 1
             ? "tw-bg-green-100 dark:tw-bg-green-900"
             : "tw-bg-slate-100 tw-text-slate-700";
 
         const border =
-          coche.estado === "cancelada"
+          coche.estado === 0
             ? "tw-border-red-200 dark:tw-border-red-800"
-            : coche.estado === "pendiente"
+            : coche.estado === 2
             ? "tw-border-orange-200 dark:tw-border-yellow-800"
-            : coche.estado === "completada"
+            : coche.estado === 1
             ? "tw-border-green-200 dark:tw-border-green-900"
             : "tw-border-slate-100";
 
         const estadoPagoColor =
-          coche.estadoPago === "Si"
+          coche.estadoPago === 1
             ? "tw-bg-green-400 tw-text-green-800"
             : "tw-bg-red-400 tw-text-red-800";
 
@@ -48,12 +48,22 @@ function Cajas({ datos, detalles }) {
                 <span
                   className={`tw-text-xs tw-font-semibold tw-rounded-xl tw-px-3 tw-py-1 tw-h-fit tw-text-center ${estadoBadgeColor}`}
                 >
-                  {coche.estado || "Sin estado"}
+                  {coche.estado === 0
+                    ? "Cancelada"
+                    : coche.estado === 2
+                    ? "Pendiente"
+                    : coche.estado === 1
+                    ? "completada"
+                    : "Sin estado"}
                 </span>
                 <span
                   className={`tw-text-xs tw-font-semibold tw-rounded-xl tw-px-3 tw-py-1 tw-h-fit tw-text-center ${estadoPagoColor}`}
                 >
-                  {coche.estadoPago === "Si" ? "Pagado" : "Pendiente de pago"}
+                  {coche.estadoPago === 1
+                    ? "Pagado"
+                    : coche.estadoPago === 0
+                    ? "Pendiente de pago"
+                    : "Sin datos"}
                 </span>
               </div>
             </div>
