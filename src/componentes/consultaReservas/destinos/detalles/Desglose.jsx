@@ -1,9 +1,9 @@
-import { FaCalendarAlt, FaCarSide, FaRoute } from "react-icons/fa";
-function Desglose({ coche }) {
-  const formattedNeto = coche.reserva.importeNeto.toFixed(2) + " €";
-  const formattedPvp = coche.reserva.importePVP.toFixed(2) + " €";
+import { FaCalendarAlt, FaHotel, FaRoute } from "react-icons/fa";
+function Desglose({ destino }) {
+  const formattedNeto = destino.reserva.importeNeto.toFixed(2) + " €";
+  const formattedPvp = destino.reserva.importePVP.toFixed(2) + " €";
   const items = [
-    { label: "Tipo", value: coche.reserva.tipoReserva },
+    { label: "Tipo", value: destino.reserva.tipoReserva },
     { label: "Neto", value: formattedNeto },
     { label: "PVP", value: formattedPvp },
   ];
@@ -14,26 +14,26 @@ function Desglose({ coche }) {
         <LineaDetalles
           icon={<FaRoute className="tw-text-slate-400 tw-text-lg tw-w-8" />}
           label="Recorrido"
-          value={coche.reserva.recorrido}
+          value={destino.reserva.recorrido}
         />
         <LineaDetalles
-          icon={<FaCarSide className="tw-text-slate-400 tw-text-lg tw-w-8" />}
-          label="Modelo"
-          value={coche.modelo}
+          icon={<FaHotel className="tw-text-slate-400 tw-text-lg tw-w-8" />}
+          label="Opcion"
+          value={destino.reserva.opcion}
         />
         <LineaDetalles
           icon={
             <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
           }
           label="Recogida"
-          value={coche.reserva.recogida}
+          value={destino.reserva.ida}
         />
         <LineaDetalles
           icon={
             <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
           }
           label="Devolución"
-          value={coche.reserva.devolucion}
+          value={destino.reserva.vuelta}
         />
       </div>
       <div className="tw-grid tw-grid-cols-3 tw-bg-white dark:tw-bg-slate-900 tw-rounded-2xl tw-shadow-sm tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-p-4">

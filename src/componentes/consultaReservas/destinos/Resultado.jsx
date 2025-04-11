@@ -33,6 +33,7 @@ function Resultado() {
       state: { destino },
     });
   };
+
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
@@ -95,7 +96,7 @@ function Resultado() {
                 id="filtrar"
                 className="tw-bg-slate-50 tw-border tw-min-w-[150px] tw-border-slate-300 tw-text-slate-900 tw-text-sm tw-rounded-lg focus:tw-ring-secondary focus:tw-border-secondary tw-block  tw-h-[40px] dark:tw-bg-slate-800 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondaryDark dark:focus:tw-border-secondaryDark"
               >
-                <option selected>Ordenar por</option>
+                <option defaultValue>Ordenar por</option>
                 <option value="estado">Estado</option>
                 <option value="pagado">Pago</option>
                 <option value="confirmacion">Confirmación</option>

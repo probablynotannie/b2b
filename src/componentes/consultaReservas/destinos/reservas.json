@@ -11,8 +11,13 @@
       "confirmacion": "2025-09-01",
       "proveedores": "Dit Gestion",
       "titularReserva": "Juan Pérez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
       "reserva": {
-        "recorrido": "Murcia-Alicante",
+        "recorrido": "Kenya Samburu",
         "opcion": "Hotel Royal Bangkok @ Chinatown 4",
         "ida": "05/05/2025",
         "vuelta": "05/12/2025",
@@ -32,8 +37,13 @@
       "confirmacion": "2025-09-02",
       "proveedores": "Dit gestion V1.2",
       "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
       "reserva": {
-        "recorrido": "Madrid-Valencia",
+        "recorrido": "Bangkok Express",
         "opcion": "Categoría Estándar",
         "ida": "06/05/2025",
         "vuelta": "08/05/2025",
@@ -53,8 +63,13 @@
       "confirmacion": "2025-09-02",
       "proveedores": "Dit gestion V1.5",
       "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
       "reserva": {
-        "recorrido": "Madrid-Valencia",
+        "recorrido": "Descubre Ecuador a tu manera 7 días",
         "opcion": "Opción A",
         "ida": "06/05/2025",
         "vuelta": "08/05/2025",

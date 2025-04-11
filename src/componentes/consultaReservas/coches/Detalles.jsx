@@ -13,7 +13,6 @@ function Detalles() {
             className={`tw-bg-white dark:tw-bg-slate-800
             } tw-space-y-3 tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-5`}
           >
-          
             <DetallesCoche coche={coche} />
           </section>
           <aside
@@ -26,21 +25,26 @@ function Detalles() {
                 {coche.orden}
               </h2>
               <div className="tw-flex tw-items-center tw-flex-wrap tw-text-xs tw-gap-2">
-                {coche.estado === "cancelada" ? (
-                  <div className="tw-bg-red-500  tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                {coche.estado === 0 ? (
+                  <div className="tw-bg-red-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
                     cancelada
+                    
                   </div>
-                ) : coche.estado === "pendiente" ? (
-                  <div className="tw-bg-orange-400  tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                ) : coche.estado === 1 ? (
+                  <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                    completada
+                  </div>
+                ) : coche.estado === 2 ? (
+                  <div className="tw-bg-orange-400 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
                     pendiente
                   </div>
                 ) : (
-                  <div className="tw-bg-green-500  tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
-                    completada
+                  <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                    Sin Datos
                   </div>
                 )}
                 <td className=" tw-px-1">
-                  {coche.estadoPago === "Si" ? (
+                  {coche.estadoPago === 1 ? (
                     <div className="tw-bg-green-500  tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
                       pagado
                     </div>
