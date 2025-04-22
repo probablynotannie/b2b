@@ -7,31 +7,28 @@ function Desglose({ destino }) {
     { label: "Neto", value: formattedNeto },
     { label: "PVP", value: formattedPvp },
   ];
-
   return (
     <div className="tw-my-6 tw-space-y-4">
       <div className="tw-grid tw-grid-cols-2 tw-gap-3">
         <LineaDetalles
-          icon={<FaRoute className="tw-text-slate-400 tw-text-lg tw-w-8" />}
+          icon={<FaRoute className="tw-text-pink-400 tw-text-[1.2rem]" />}
           label="Recorrido"
           value={destino.reserva.recorrido}
         />
         <LineaDetalles
-          icon={<FaHotel className="tw-text-slate-400 tw-text-lg tw-w-8" />}
+          icon={<FaHotel className="tw-text-blue-400 tw-text-[1.2rem]" />}
           label="Opcion"
           value={destino.reserva.opcion}
         />
         <LineaDetalles
           icon={
-            <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
+            <FaCalendarAlt className="tw-text-orange-400 tw-text-[1.2rem]" />
           }
           label="Recogida"
           value={destino.reserva.ida}
         />
         <LineaDetalles
-          icon={
-            <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
-          }
+          icon={<FaCalendarAlt className="tw-text-cyan-500 tw-text-[1.2rem]" />}
           label="Devolución"
           value={destino.reserva.vuelta}
         />
@@ -67,7 +64,7 @@ function LineaDetalles({ icon, label, value }) {
         <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
           {label}
         </p>
-        <p className="tw-font-medium tw-text-slate-800 dark:tw-text-white">
+        <p className="tw-font-medium tw-text-sm tw-text-slate-800 dark:tw-text-white">
           {value}
         </p>
       </div>

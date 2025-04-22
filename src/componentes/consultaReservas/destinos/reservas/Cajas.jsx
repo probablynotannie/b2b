@@ -1,7 +1,7 @@
 import { FaCalendar, FaHotel, FaMapPin } from "react-icons/fa";
 function Cajas({ datos, detalles }) {
   return (
-    <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-6 tw-mt-5">
+    <div className="tw-columns-1 sm:tw-columns-2 xl:tw-columns-3 tw-mt-5 tw-space-y-3">
       {datos.map((destino) => {
         const estadoBadgeColor =
           destino.estado === 0
@@ -39,7 +39,8 @@ function Cajas({ datos, detalles }) {
           <div
             onClick={() => detalles(destino)}
             key={destino.id}
-            className={`tw-cursor-pointer tw-h-fit hover:tw-scale-105 tw-smooth tw-shadow hover:tw-shadow-lg tw-rounded-2xl tw-overflow-hidden tw-transition-all ${background} `}
+            className={`tw-break-inside-avoid
+ tw-cursor-pointer tw-h-fit hover:tw-scale-[102%] tw-smooth tw-shadow hover:tw-shadow-lg tw-rounded-2xl tw-overflow-hidden tw-transition-all ${background} `}
           >
             <div className="tw-flex tw-flex-wrap tw-justify-between tw-items-center tw-px-5 tw-pt-5">
               <h2 className="tw-text-xl tw-font-semibold tw-text-slate-700 dark:tw-text-white">
@@ -73,18 +74,20 @@ function Cajas({ datos, detalles }) {
               className={`tw-px-5 tw-pb-4 tw-space-y-2 tw-grid tw-grid-cols-2 tw-gap-2 tw-bg-slate-100/10 tw-border-y ${border} tw-pt-2`}
             >
               <div className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-200 tw-flex tw-items-center tw-gap-1">
-                <FaMapPin /> {destino.reserva.recorrido}
+                <FaMapPin className="tw-shrink-0 tw-text-[1rem]" />{" "}
+                {destino.reserva.recorrido}
               </div>
               <div className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-200 tw-flex tw-items-center tw-gap-1">
-                <FaHotel /> {destino.reserva.opcion}
+                <FaHotel className="tw-shrink-0 tw-text-[1rem]" />{" "}
+                {destino.reserva.opcion}
               </div>
               <div className="tw-flex tw-gap-1 tw-text-xs dark:tw-text-slate-200">
-                <FaCalendar className="tw-text-green-700" />
+                <FaCalendar className="tw-text-green-700 tw-text-[1rem] tw-shrink-0" />
                 <span className="tw-font-medium">Recogida:</span>{" "}
                 {destino.reserva.ida}
               </div>
               <div className="tw-flex tw-gap-1 tw-text-xs dark:tw-text-slate-200">
-                <FaCalendar className="tw-text-red-700" />
+                <FaCalendar className="tw-text-red-700 tw-text-[1rem] tw-shrink-0" />
                 <span className="tw-font-medium">Devolución:</span>{" "}
                 {destino.reserva.vuelta}
               </div>

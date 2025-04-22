@@ -42,7 +42,7 @@ function Resultado() {
           <section className="tw-w-full">
             <div className="tw-flex tw-items-center tw-justify-between tw-mt-2 tw-border-b tw-border-slate-100 dark:tw-border-slate-700  tw-pb-5">
               <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-                Reservas
+                Reservas - destinos
               </h2>
               <div className="tw-flex tw-gap-2 tw-items-center">
                 <button
@@ -87,14 +87,14 @@ function Resultado() {
                   id="default-search"
                   value={search}
                   onChange={(e) => setSearch(e.target.value)}
-                  className="tw-block tw-h-[40px] tw-min-w-[300px] tw-ps-10 tw-text-sm tw-text-slate-900 tw-border tw-border-slate-300 tw-rounded-lg tw-bg-slate-50 focus:tw-ring-secondary focus:tw-border-secondary dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondaryDark dark:focus:tw-border-secondaryDark"
+                  className="tw-block tw-h-[40px] tw-min-w-[300px] tw-ps-10 tw-text-sm tw-text-slate-900 dark:tw-rounded-lg tw-border dark:tw-border-0 tw-border-white dark:tw-border-slate-800 tw-border-b-2 tw-border-b-slate-100 focus:tw-border-secondary tw-bg-white focus:tw-ring-0 focus:tw-border-b-2 focus:tw-border-0 dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white"
                   placeholder="Buscar por localizador, orden, servicio.."
                   required
                 />
               </div>
               <select
                 id="filtrar"
-                className="tw-bg-slate-50 tw-border tw-min-w-[150px] tw-border-slate-300 tw-text-slate-900 tw-text-sm tw-rounded-lg focus:tw-ring-secondary focus:tw-border-secondary tw-block  tw-h-[40px] dark:tw-bg-slate-800 dark:tw-border-slate-700 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-secondaryDark dark:focus:tw-border-secondaryDark"
+                className="tw-block tw-h-[40px] tw-min-w-[150px] tw-ps-10 tw-text-sm tw-text-slate-900 dark:tw-rounded-lg tw-border dark:tw-border-0 tw-border-white dark:tw-border-slate-800 tw-border-b-2 tw-border-b-slate-100 focus:tw-border-secondary tw-bg-white focus:tw-ring-0 focus:tw-border-b-2 focus:tw-border-0 dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white"
               >
                 <option defaultValue>Ordenar por</option>
                 <option value="estado">Estado</option>

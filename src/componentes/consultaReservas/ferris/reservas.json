@@ -10,9 +10,11 @@
       "orden": "382707/52",
       "localizador": "HOAG96173",
       "estado": 2,
-      "estadoPago": 1,
       "confirmacion": "2025-09-01",
-      "proveedores": "Dit Gestion",
+      "proveedor": {
+        "nombre": "Dit gestion V1.5",
+        "logo": "/ferris/logos/trasmed.png"
+      },
       "titularReserva": "Juan Pérez",
       "datosAgencia": {
         "agencia": "Global Rent",
@@ -39,9 +41,11 @@
       "orden": "392707/53",
       "localizador": "HOAG96174",
       "estado": 2,
-      "estadoPago": 0,
       "confirmacion": "2025-09-02",
-      "proveedores": "Dit gestion V1.2",
+      "proveedor": {
+        "nombre": "Dit gestion V1.5",
+        "logo": "/ferris/logos/gnv.png"
+      },
       "titularReserva": "Carlos Sánchez",
       "datosAgencia": {
         "agencia": "Global Rent",
@@ -65,9 +69,11 @@
       "orden": "392707/54",
       "localizador": "HOAG96175",
       "estado": 1,
-      "estadoPago": 1,
       "confirmacion": "2025-09-02",
-      "proveedores": "Dit gestion V1.5",
+      "proveedor": {
+        "nombre": "Dit gestion V1.5",
+        "logo": "/ferris/logos/trasmed.png"
+      },
       "titularReserva": "Carlos Sánchez",
       "datosAgencia": {
         "agencia": "Global Rent",
@@ -91,9 +97,11 @@
       "orden": "392707/54",
       "localizador": "HOAG96175",
       "estado": 1,
-      "estadoPago": 1,
       "confirmacion": "2025-09-02",
-      "proveedores": "Dit gestion V1.5",
+      "proveedor": {
+        "nombre": "Dit gestion V1.5",
+        "logo": "/ferris/logos/gnv.png"
+      },
       "titularReserva": "Carlos Sánchez",
       "datosAgencia": {
         "agencia": "Global Rent",
@@ -117,9 +125,11 @@
       "orden": "392707/54",
       "localizador": "HOAG96175",
       "estado": 1,
-      "estadoPago": 1,
       "confirmacion": "2025-09-02",
-      "proveedores": "Dit gestion V1.5",
+      "proveedor": {
+        "nombre": "Dit gestion V1.5",
+        "logo": "/ferris/logos/trasmed.png"
+      },
       "titularReserva": "Carlos Sánchez",
       "datosAgencia": {
         "agencia": "Global Rent",

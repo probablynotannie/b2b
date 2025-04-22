@@ -83,9 +83,9 @@ function Coches() {
         </div>
         <div className="tw-flex tw-items-center tw-mt-2 tw-px-10 tw-py-10 lg:tw-py-0 lg:tw-px-0">
           <section className="tw-w-full">
-            <div className="tw-flex tw-items-center tw-justify-between tw-mt-2 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-">
+            <div className="tw-flex tw-items-center tw-justify-between tw-mt-2 tw-border-b-2 tw-pb-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-">
               <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-                Reservas
+                Listado
               </h2>
               <div className="tw-flex tw-gap-2 tw-items-center">
                 <button
