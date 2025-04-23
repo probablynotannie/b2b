@@ -5,7 +5,7 @@ function Tabla({ datos, detalles, loading }) {
   return (
     <>
       <div className="tw-block md:tw-hidden">
-        <Cajas datos={datos} detalles={detalles} />
+        <Cajas datos={datos} detalles={detalles} loading={loading} />
       </div>
       <div className="tw-hidden md:tw-flex tw-relative tw-overflow-x-auto tw-shadow-md sm:tw-rounded-lg tw-mt-5">
         <table className="tw-w-full tw-text-sm tw-text-left rtl:tw-text-right tw-text-slate-600 dark:tw-text-slate-300">

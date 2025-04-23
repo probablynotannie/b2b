@@ -15,6 +15,60 @@
         "nombre": "Dit gestion V1.5",
         "logo": "/ferris/logos/trasmed.png"
       },
+      "pasajeros": [
+        {
+          "nombre": "Anano",
+          "apellidos": "Vachadze",
+          "sexo": "Mujer",
+          "edad": 26,
+          "nacionalidad": "Italia",
+          "nacimiento": "04/03/1999",
+          "tipoDocumento": "Pasaporte",
+          "documento": "A314879F",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Lucas",
+          "apellidos": "Martínez",
+          "sexo": "Hombre",
+          "edad": 32,
+          "nacionalidad": "Argentina",
+          "nacimiento": "11/08/1992",
+          "tipoDocumento": "DNI",
+          "documento": "A5728394Z",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Mina",
+          "apellidos": "Okabe",
+          "sexo": "Mujer",
+          "edad": 29,
+          "nacionalidad": "Japan",
+          "nacimiento": "07/21/1995",
+          "tipoDocumento": "NIE",
+          "documento": "J9238475Y",
+          "caducidad": "2025-09-01",
+          "familiaNum": 1,
+          "residente": 0
+        },
+        {
+          "nombre": "Noah",
+          "apellidos": "Smith",
+          "sexo": "Hombre",
+          "edad": 41,
+          "nacionalidad": "USA",
+          "nacimiento": "01/16/1984",
+          "tipoDocumento": "Pasaporte",
+          "documento": "U2837465X",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 1
+        }
+      ],
       "titularReserva": "Juan Pérez",
       "datosAgencia": {
         "agencia": "Global Rent",
@@ -51,6 +105,60 @@
         "telefono": "321654987",
         "email": "pedro.rodriguez@gmail.com"
       },
+      "pasajeros": [
+        {
+          "nombre": "Anano",
+          "apellidos": "Vachadze",
+          "sexo": "Mujer",
+          "edad": 26,
+          "nacionalidad": "Italia",
+          "nacimiento": "04/03/1999",
+          "tipoDocumento": "Pasaporte",
+          "documento": "A314879F",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Lucas",
+          "apellidos": "Martínez",
+          "sexo": "Hombre",
+          "edad": 32,
+          "nacionalidad": "Argentina",
+          "nacimiento": "11/08/1992",
+          "tipoDocumento": "DNI",
+          "documento": "A5728394Z",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Mina",
+          "apellidos": "Okabe",
+          "sexo": "Mujer",
+          "edad": 29,
+          "nacionalidad": "Japan",
+          "nacimiento": "07/21/1995",
+          "tipoDocumento": "NIE",
+          "documento": "J9238475Y",
+          "caducidad": "2025-09-01",
+          "familiaNum": 1,
+          "residente": 0
+        },
+        {
+          "nombre": "Noah",
+          "apellidos": "Smith",
+          "sexo": "Hombre",
+          "edad": 41,
+          "nacionalidad": "USA",
+          "nacimiento": "01/16/1984",
+          "tipoDocumento": "Pasaporte",
+          "documento": "U2837465X",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 1
+        }
+      ],
       "reserva": {
         "recorrido": "Madrid - Sevilla",
         "ida": "06/05/2025",
@@ -78,6 +186,60 @@
         "telefono": "321654987",
         "email": "pedro.rodriguez@gmail.com"
       },
+      "pasajeros": [
+        {
+          "nombre": "Anano",
+          "apellidos": "Vachadze",
+          "sexo": "Mujer",
+          "edad": 26,
+          "nacionalidad": "Italia",
+          "nacimiento": "04/03/1999",
+          "tipoDocumento": "Pasaporte",
+          "documento": "A314879F",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Lucas",
+          "apellidos": "Martínez",
+          "sexo": "Hombre",
+          "edad": 32,
+          "nacionalidad": "Argentina",
+          "nacimiento": "11/08/1992",
+          "tipoDocumento": "DNI",
+          "documento": "A5728394Z",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Mina",
+          "apellidos": "Okabe",
+          "sexo": "Mujer",
+          "edad": 29,
+          "nacionalidad": "Japan",
+          "nacimiento": "07/21/1995",
+          "tipoDocumento": "NIE",
+          "documento": "J9238475Y",
+          "caducidad": "2025-09-01",
+          "familiaNum": 1,
+          "residente": 0
+        },
+        {
+          "nombre": "Noah",
+          "apellidos": "Smith",
+          "sexo": "Hombre",
+          "edad": 41,
+          "nacionalidad": "USA",
+          "nacimiento": "01/16/1984",
+          "tipoDocumento": "Pasaporte",
+          "documento": "U2837465X",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 1
+        }
+      ],
       "reserva": {
         "recorrido": "Madrid - Barcelona",
         "ida": "06/05/2025",
@@ -105,6 +267,60 @@
         "telefono": "321654987",
         "email": "pedro.rodriguez@gmail.com"
       },
+      "pasajeros": [
+        {
+          "nombre": "Anano",
+          "apellidos": "Vachadze",
+          "sexo": "Mujer",
+          "edad": 26,
+          "nacionalidad": "Italia",
+          "nacimiento": "04/03/1999",
+          "tipoDocumento": "Pasaporte",
+          "documento": "A314879F",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Lucas",
+          "apellidos": "Martínez",
+          "sexo": "Hombre",
+          "edad": 32,
+          "nacionalidad": "Argentina",
+          "nacimiento": "11/08/1992",
+          "tipoDocumento": "DNI",
+          "documento": "A5728394Z",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Mina",
+          "apellidos": "Okabe",
+          "sexo": "Mujer",
+          "edad": 29,
+          "nacionalidad": "Japan",
+          "nacimiento": "07/21/1995",
+          "tipoDocumento": "NIE",
+          "documento": "J9238475Y",
+          "caducidad": "2025-09-01",
+          "familiaNum": 1,
+          "residente": 0
+        },
+        {
+          "nombre": "Noah",
+          "apellidos": "Smith",
+          "sexo": "Hombre",
+          "edad": 41,
+          "nacionalidad": "USA",
+          "nacimiento": "01/16/1984",
+          "tipoDocumento": "Pasaporte",
+          "documento": "U2837465X",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 1
+        }
+      ],
       "reserva": {
         "recorrido": "Donostia - Bilbao",
         "ida": "06/05/2025",
@@ -132,6 +348,60 @@
         "telefono": "321654987",
         "email": "pedro.rodriguez@gmail.com"
       },
+      "pasajeros": [
+        {
+          "nombre": "Anano",
+          "apellidos": "Vachadze",
+          "sexo": "Mujer",
+          "edad": 26,
+          "nacionalidad": "Italia",
+          "nacimiento": "04/03/1999",
+          "tipoDocumento": "Pasaporte",
+          "documento": "A314879F",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Lucas",
+          "apellidos": "Martínez",
+          "sexo": "Hombre",
+          "edad": 32,
+          "nacionalidad": "Argentina",
+          "nacimiento": "11/08/1992",
+          "tipoDocumento": "DNI",
+          "documento": "A5728394Z",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 0
+        },
+        {
+          "nombre": "Mina",
+          "apellidos": "Okabe",
+          "sexo": "Mujer",
+          "edad": 29,
+          "nacionalidad": "Japan",
+          "nacimiento": "07/21/1995",
+          "tipoDocumento": "NIE",
+          "documento": "J9238475Y",
+          "caducidad": "2025-09-01",
+          "familiaNum": 1,
+          "residente": 0
+        },
+        {
+          "nombre": "Noah",
+          "apellidos": "Smith",
+          "sexo": "Hombre",
+          "edad": 41,
+          "nacionalidad": "USA",
+          "nacimiento": "01/16/1984",
+          "tipoDocumento": "Pasaporte",
+          "documento": "U2837465X",
+          "caducidad": "2025-09-01",
+          "familiaNum": 0,
+          "residente": 1
+        }
+      ],
       "reserva": {
         "recorrido": "Asturias - Cantabrias",
         "ida": "06/05/2025",

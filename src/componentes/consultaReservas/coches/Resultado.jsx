@@ -3,12 +3,13 @@ import Filtrado_Coches from "./filtrado/Filtrado";
 import { FaTable } from "react-icons/fa";
 import { FaBox } from "react-icons/fa";
 import { useState, useEffect } from "react";
+import { RiMenuFold4Line } from "react-icons/ri";
 import Tabla from "./reservas/Tabla";
 import Cajas from "./reservas/Cajas";
 import datos from "./reservas.json";
 import { useNavigate } from "react-router-dom";
-import Skeleton_Cajas from "../_skeleton_placeholders/Cajas";
 function Coches() {
+  const [open, setOpen] = useState(true);
   const [fechaEntradaDesde, setFechaEntradaDesde] = useState(null);
   const [fechaEntradaHasta, setFechaEntradaHasta] = useState(null);
   const [fechaGestionDesde, setFechaGestionDesde] = useState(null);
@@ -52,8 +53,14 @@ function Coches() {
   const [datosFiltrados, setDatosFiltrados] = useState(datos.reservas);
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
-      <Sidebar />
-      <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
+      <Sidebar open={open} setOpen={setOpen} />
+      <div
+        className={`${
+          open
+            ? "tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8"
+            : "tw-col-span-10"
+        } tw-flex-col-10`}
+      >
         <div
           className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
@@ -62,7 +69,15 @@ function Coches() {
             backgroundPosition: "center",
           }}
         >
-          <div className="tw-w-full tw-h-full tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
+          <div className="tw-relative tw-w-full tw-h-full tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
+            {open !== true && (
+              <button
+                onClick={() => setOpen(!open)}
+                className="tw-absolute tw-left-0 -tw-top-10 tw-flex tw-items-center tw-text-xl tw-p-3 tw-bg-green-600/80 tw-text-white tw-rounded-lg hover:tw-text-secondary dark:tw-text-slate-300 hover:dark:tw-text-secondaryDark tw-smooth tw-gap-1 tw-m-5"
+              >
+                <RiMenuFold4Line />
+              </button>
+            )}
             <Filtrado_Coches
               fechaEntradaDesde={fechaEntradaDesde}
               localizador={localizador}
@@ -115,17 +130,11 @@ function Coches() {
                 />
               </>
             ) : (
-              <>
-                {loading ? (
-                  <Skeleton_Cajas />
-                ) : (
-                  <Cajas
-                    datos={datosFiltrados}
-                    detalles={detalles}
-                    loading={loading}
-                  />
-                )}
-              </>
+              <Cajas
+                datos={datosFiltrados}
+                detalles={detalles}
+                loading={loading}
+              />
             )}
           </section>
         </div>

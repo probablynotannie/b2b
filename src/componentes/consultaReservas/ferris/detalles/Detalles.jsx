@@ -8,43 +8,43 @@ import {
   FaHotel,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
-
-function Detalles({ coche }) {
+import Pasajeros from "./Pasajeros";
+function Detalles({ destino }) {
   return (
     <>
-      <h2 className="tw-font-bold  tw-text-xl  tw-border-b tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-pb-2">
-        Reserva: {coche.localizador}
+      <h2 className="tw-font-bold tw-text-xl tw-border-b tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-pb-2">
+        {destino.reserva.recorrido}
       </h2>
-      <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-6 tw-p-4">
+      <div className="sm:tw-grid tw-grid-cols-2 tw-space-y-2 sm:tw-space-y-0 tw-gap-6 tw-p-4">
         <InfoBlock
           icon={<FaClipboardList className="tw-text-indigo-600" />}
           title="Orden"
-          value={coche.orden}
+          value={destino.orden}
         />
         <InfoBlock
           icon={<FaBarcode className="tw-text-pink-600" />}
           title="Localizador"
-          value={coche.localizador}
+          value={destino.localizador}
         />
         <InfoBlock
           icon={<FaCheckCircle className="tw-text-cyan-600" />}
           title="Confirmación"
-          value={coche.confirmacion}
+          value={destino.confirmacion}
         />
         <InfoBlock
           icon={<FaTruck className="tw-text-orange-600" />}
           title="Proveedores"
-          value={coche.proveedores}
+          value={destino.proveedor.nombre}
         />
         <InfoBlock
           icon={<FaUser className="tw-text-blue-600" />}
           title="Titular"
-          value={coche.titularReserva}
+          value={destino.titularReserva}
           className="tw-col-span-2"
         />
       </div>
       <div className="tw-border-t tw-border-slate-100 tw-py-4 dark:tw-border-slate-700 tw-mt-4 tw-pb-4 tw-space-y-2 tw-text-sm tw-text-slate-700">
-        <h4 className="tw-font-bold tw-text-2xl tw-text-center tw-text-secondary dark:tw-text-secondaryDark tw-mb-3">
+        <h4 className="tw-font-bold tw-text-2xl tw-text-center tw-text-secondary dark:tw-text-secondaryDark tw-mb-5">
           Datos Agencia
         </h4>
         <div className="tw-grid tw-grid-cols-3 tw-gap-4">
@@ -52,21 +52,24 @@ function Detalles({ coche }) {
             icon={
               <FaHotel className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
             }
-            value={coche.datosAgencia.agencia}
+            value={destino.datosAgencia.agencia}
           />
           <DatosAgencia
             icon={
               <FaPhone className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
             }
-            value={coche.datosAgencia.telefono}
+            value={destino.datosAgencia.telefono}
           />
           <DatosAgencia
             icon={
               <MdEmail className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
             }
-            value={coche.datosAgencia.email}
+            value={destino.datosAgencia.email}
           />
         </div>
+      </div>
+      <div>
+        <Pasajeros destino={destino} />
       </div>
     </>
   );

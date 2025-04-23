@@ -6,9 +6,10 @@ import Tabla from "./reservas/Tabla";
 import Cajas from "./reservas/Cajas";
 import datos from "./reservas.json";
 import { useNavigate } from "react-router-dom";
-import Skeleton_Cajas from "../_skeleton_placeholders/Cajas";
+import { RiMenuFold4Line } from "react-icons/ri";
 import { useEffect } from "react";
 function Resultado() {
+  const [open, setOpen] = useState(true);
   const [tipo, setTipo] = useState("tabla");
   const [filtrados, setFiltrados] = useState(datos);
   const [search, setSearch] = useState("");
@@ -29,20 +30,47 @@ function Resultado() {
   }, [search]);
   const navigate = useNavigate();
   const detalles = (destino) => {
-    navigate("/destino/detalles", {
+    navigate("/ferris/detalles", {
       state: { destino },
     });
   };
-
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
-      <Sidebar />
-      <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
+      <Sidebar open={open} setOpen={setOpen} />
+      <div
+        className={`${
+          open
+            ? "tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8"
+            : "tw-col-span-10"
+        } tw-flex-col-10`}
+      >
         <div className="tw-flex tw-items-center tw-mt-2 tw-px-10 tw-py-10 lg:tw-py-0 lg:tw-px-0">
           <section className="tw-w-full">
+            <div
+              className="tw-relative tw-h-fit md:tw-h-[13vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+              style={{
+                backgroundImage: `url(/banners/banner_hoteles.webp)`,
+                backgroundSize: "cover",
+                backgroundPosition: "center",
+              }}
+            >
+              <div className="tw-w-full tw-h-full tw-relative tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
+                {open !== true && (
+                  <button
+                    onClick={() => setOpen(!open)}
+                    className="tw-absolute tw-left-0 tw-flex tw-items-center tw-text-xl tw-p-3 tw-bg-white/80 tw-rounded-lg hover:tw-text-secondary dark:tw-text-slate-300 hover:dark:tw-text-secondaryDark tw-smooth tw-gap-1 tw-m-5"
+                  >
+                    <RiMenuFold4Line />
+                  </button>
+                )}
+                <h1 className="tw-text-7xl tw-text-white tw-font-bold tw-font-sans">
+                  Reserva de Ferris
+                </h1>
+              </div>
+            </div>
             <div className="tw-flex tw-items-center tw-justify-between tw-mt-2 tw-border-b tw-border-slate-100 dark:tw-border-slate-700  tw-pb-5">
               <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-                Reservas - ferris
+                Listado
               </h2>
               <div className="tw-hidden md:tw-flex tw-gap-2 tw-items-center">
                 <button
@@ -111,17 +139,7 @@ function Resultado() {
                 />
               </>
             ) : (
-              <>
-                {loading ? (
-                  <Skeleton_Cajas />
-                ) : (
-                  <Cajas
-                    datos={filtrados}
-                    detalles={detalles}
-                    loading={loading}
-                  />
-                )}
-              </>
+              <Cajas datos={filtrados} detalles={detalles} loading={loading} />
             )}
           </section>
         </div>

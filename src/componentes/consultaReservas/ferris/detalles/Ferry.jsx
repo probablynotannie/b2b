@@ -2,7 +2,7 @@ import DetallesCoche from "./Detalles";
 import Error from "../../Error";
 import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
-function Detalles() {
+function Ferry() {
   const location = useLocation();
   const { destino = {} } = location.state || {};
   return (
@@ -13,7 +13,7 @@ function Detalles() {
             className={`tw-bg-white dark:tw-bg-slate-800
             } tw-space-y-3 tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-5`}
           >
-            <DetallesCoche coche={destino} />
+            <DetallesCoche destino={destino} />
           </section>
           <aside
             className={`
@@ -25,17 +25,13 @@ function Detalles() {
                 {destino.orden}
               </h2>
               <div className="tw-flex tw-items-center tw-flex-wrap tw-text-xs tw-gap-2">
-                {destino.estado === 0 ? (
-                  <div className="tw-bg-red-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
-                    cancelada
-                  </div>
-                ) : destino.estado === 1 ? (
+                {destino.estado === 1 ? (
                   <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
-                    completada
+                    Disponible
                   </div>
                 ) : destino.estado === 2 ? (
                   <div className="tw-bg-orange-400 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
-                    pendiente
+                    bajo petición
                   </div>
                 ) : (
                   <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
@@ -55,7 +51,7 @@ function Detalles() {
                 </td>
               </div>
             </div>
-            <Desglose coche={destino} />
+            <Desglose destino={destino} />
           </aside>
         </main>
       ) : (
@@ -67,4 +63,4 @@ function Detalles() {
   );
 }
 
-export default Detalles;
+export default Ferry;
