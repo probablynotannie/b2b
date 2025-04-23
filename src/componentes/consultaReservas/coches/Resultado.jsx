@@ -87,7 +87,7 @@ function Coches() {
               <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
                 Listado
               </h2>
-              <div className="tw-flex tw-gap-2 tw-items-center">
+              <div className="tw-hidden md:tw-flex tw-gap-2 tw-items-center">
                 <button
                   onClick={() => setTipo("tabla")}
                   className={`hover:tw-scale-105 tw-smooth ${
