@@ -2,6 +2,7 @@ import { FaFilePdf } from "react-icons/fa";
 import Placeholder from "../../_skeleton_placeholders/Tabla";
 import Cajas from "./Cajas";
 function Tabla({ datos, detalles, loading }) {
+  console.log(datos);
   return (
     <>
       <div className="tw-block md:tw-hidden">

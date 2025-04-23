@@ -2,6 +2,7 @@ import { FaCalendar, FaHotel, FaMapPin } from "react-icons/fa";
 function Cajas({ datos, detalles }) {
   return (
     <div className="tw-columns-1 sm:tw-columns-2 xl:tw-columns-3 tw-mt-5 tw-space-y-3">
+
       {datos.map((destino) => {
         const estadoBadgeColor =
           destino.estado === 0
