@@ -11,7 +11,7 @@ function Cajas({ datos, detalles, loading }) {
           </div>
         </>
       ) : datos.length === 0 ? (
-        <div className="tw-bg-red-200 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center">
+        <div className="tw-bg-red-200 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center tw-my-5">
           No se encontraron resultados.
         </div>
       ) : (

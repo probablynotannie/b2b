@@ -1,0 +1,80 @@
+import DetallesCoche from "./Detalles";
+import Error from "../../Error";
+import { useLocation } from "react-router-dom";
+import Desglose from "./Desglose";
+import Acciones from "./Acciones";
+function Detalles() {
+  const location = useLocation();
+  const { coche = {} } = location.state || {};
+  return (
+    <>
+      {Object.keys(coche).length > 0 ? (
+        <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
+          <section
+            className={`tw-bg-white dark:tw-bg-slate-800
+            } tw-space-y-3 tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-5`}
+          >
+            <DetallesCoche coche={coche} />
+          </section>
+          <aside className="tw-sticky tw-top-10">
+            <section
+              className="
+             tw-bg-white dark:tw-bg-slate-800
+               tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-p-5"
+            >
+              <div className="tw-flex tw-justify-between tw-pb-2 tw-border-b tw-border-slate-100 dark:tw-border-slate-700">
+                <h2 className="tw-font-bold dark:tw-text-white tw-text-lg">
+                  {coche.orden}
+                </h2>
+                <div className="tw-flex tw-items-center tw-flex-wrap tw-text-xs tw-gap-2">
+                  {coche.estado === 0 ? (
+                    <div className="tw-bg-red-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                      cancelada
+                    </div>
+                  ) : coche.estado === 1 ? (
+                    <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                      completada
+                    </div>
+                  ) : coche.estado === 2 ? (
+                    <div className="tw-bg-orange-400 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                      pendiente
+                    </div>
+                  ) : (
+                    <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                      Sin Datos
+                    </div>
+                  )}
+                  <td className=" tw-px-1">
+                    {coche.estadoPago === 1 ? (
+                      <div className="tw-bg-green-500  tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                        pagado
+                      </div>
+                    ) : (
+                      <div className="tw-bg-red-500  tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                        sin pagar
+                      </div>
+                    )}
+                  </td>
+                </div>
+              </div>
+              <Desglose coche={coche} />
+            </section>
+            <section
+              className="
+             tw-mt-10 
+            tw-col-span-2 lg:tw-col-span-1   "
+            >
+              <Acciones />
+            </section>
+          </aside>
+        </main>
+      ) : (
+        <>
+          <Error />
+        </>
+      )}
+    </>
+  );
+}
+
+export default Detalles;

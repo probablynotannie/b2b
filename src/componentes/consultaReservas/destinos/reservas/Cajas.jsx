@@ -10,13 +10,9 @@ function Cajas({ datos, detalles, loading }) {
           </div>
         </>
       ) : datos.length === 0 ? (
-        <tr>
-          <td colSpan="8">
-            <div className="tw-bg-red-200 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center">
-              No se encontraron resultados.
-            </div>
-          </td>
-        </tr>
+        <div className="tw-bg-red-200 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center tw-my-5">
+          No se encontraron resultados.
+        </div>
       ) : (
         <div className="tw-columns-1 sm:tw-columns-2 xl:tw-columns-3 tw-mt-5 tw-space-y-3">
           {datos.map((destino) => {

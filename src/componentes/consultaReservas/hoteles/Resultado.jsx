@@ -14,7 +14,8 @@ function Coches() {
   const [fechaEntradaHasta, setFechaEntradaHasta] = useState(null);
   const [fechaCancelacionDesde, setFechaCancelacionDesde] = useState(null);
   const [fechaCancelacionHasta, setFechaCancelacionHasta] = useState(null);
-
+  const [filtrados, setFiltrados] = useState(datos);
+  const [search, setSearch] = useState("");
   const [fechaGestionDesde, setFechaGestionDesde] = useState(null);
   const [fechaGestionHasta, setFechaGestionHasta] = useState(null);
   const [pagadas, setPagadas] = useState("Todas");
@@ -27,33 +28,24 @@ function Coches() {
       setLoading(false);
     }, 3000);
   }, []);
+  useEffect(() => {
+    const lowerSearch = search.toLowerCase();
+    const filtrados = datos.reservas.filter((reserva) => {
+      const allValues = JSON.stringify(reserva).toLowerCase();
+      return allValues.includes(lowerSearch);
+    });
+
+    setFiltrados(filtrados);
+  }, [search]);
   const navigate = useNavigate();
   const detalles = (coche) => {
     console.log(coche);
-    navigate("/coche/detalles", {
+    navigate("/hotel/detalles", {
       state: { coche },
     });
   };
-  useEffect(() => {
-    const filtered = datos.reservas.filter((reserva) => {
-      const matchLocalizador =
-        localizador === "" ||
-        reserva.localizador.toLowerCase().includes(localizador.toLowerCase());
 
-      return matchLocalizador;
-    });
-    setDatosFiltrados(filtered);
-  }, [
-    fechaEntradaDesde,
-    fechaEntradaHasta,
-    fechaGestionDesde,
-    fechaGestionHasta,
-    pagadas,
-    activas,
-    localizador,
-  ]);
 
-  const [datosFiltrados, setDatosFiltrados] = useState(datos.reservas);
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar open={open} setOpen={setOpen} />
@@ -128,7 +120,7 @@ function Coches() {
                 </button>
               </div>
             </div>
-            <div className="tw-flex tw-justify-end tw-mt-3">
+            <div className="tw-w-full tw-mt-3">
               <div className="tw-relative">
                 <div className="tw-absolute tw-inset-y-0 tw-start-0 tw-flex tw-items-center tw-ps-3 tw-pointer-events-none">
                   <svg
@@ -150,8 +142,10 @@ function Coches() {
                 <input
                   type="search"
                   id="default-search"
-                  className="tw-block tw-h-[40px] tw-min-w-[300px] tw-ps-10 tw-text-sm tw-text-slate-900 dark:tw-rounded-lg tw-border dark:tw-border-0 tw-border-white dark:tw-border-slate-800 tw-border-b-2 tw-border-b-white focus:tw-border-secondary tw-bg-white focus:tw-ring-0 focus:tw-border-b-2 focus:tw-border-0 dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white"
-                  placeholder="Buscar por localizador, orden, servicio.."
+                  value={search}
+                  onChange={(e) => setSearch(e.target.value)}
+                  className="tw-block tw-h-[40px] tw-min-w-[300px] tw-w-full tw-ps-10 tw-text-sm tw-text-slate-900 dark:tw-rounded-lg tw-border dark:tw-border-0 tw-border-white dark:tw-border-slate-800 tw-border-b tw-border-b-slate-200 focus:tw-border-secondary tw-bg-slate-white focus:tw-ring-0 focus:tw-border-b focus:tw-border-0 dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white"
+                  placeholder="Buscar en los campos"
                   required
                 />
               </div>
@@ -159,17 +153,13 @@ function Coches() {
             {tipo === "tabla" ? (
               <>
                 <Tabla
-                  datos={datosFiltrados}
+                  datos={filtrados}
                   detalles={detalles}
                   loading={loading}
                 />
               </>
             ) : (
-              <Cajas
-                datos={datosFiltrados}
-                detalles={detalles}
-                loading={loading}
-              />
+              <Cajas datos={filtrados} detalles={detalles} loading={loading} />
             )}
           </section>
         </div>

@@ -1,7 +1,6 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 import Input_DateRange from "../../../inputs/filtrados/fechas/DateRange";
-import Input_Texto from "../../../inputs/filtrados/Texto";
 
 function Filtrado({
   fechaCancelacionDesde,

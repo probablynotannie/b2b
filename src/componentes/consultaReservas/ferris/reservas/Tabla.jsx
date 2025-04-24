@@ -72,14 +72,18 @@ function Tabla({ datos, detalles, loading }) {
                         className="tw-h-[60px] tw-w-[70px] tw-object-contain"
                       />
                     </td>
-                    <td
-                      onClick={(e) => (
-                        e.stopPropagation(), alert("El buen pdf =D")
-                      )}
-                      className="tw-flex tw-justify-center tw-px-6 tw-py-8 tw-h-full tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
-                    >
-                      <FaFilePdf />
+                    <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
+                      <div
+                        className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          alert("El buen pdf =D");
+                        }}
+                      >
+                        <FaFilePdf />
+                      </div>
                     </td>
+
                     <td
                       className={`tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 tw-px-2 tw-border-r-2 ${colorBorde} ${colorTexto}`}
                     >

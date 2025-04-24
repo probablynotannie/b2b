@@ -59,7 +59,7 @@ function Resultado() {
                 {open !== true && (
                   <button
                     onClick={() => setOpen(!open)}
-                    className="tw-absolute tw-left-0 tw-hidden -tw-top-10 lg:tw-flex tw-items-center tw-text-xl tw-p-3 tw-bg-green-600/80 tw-text-white tw-rounded-lg hover:tw-text-secondary dark:tw-text-slate-300 hover:dark:tw-text-secondaryDark tw-smooth tw-gap-1 tw-m-5"
+                    className="tw-absolute tw-left-0 tw-hidden lg:tw-flex tw-items-center tw-text-xl tw-p-3 tw-bg-green-600/80 tw-text-white tw-rounded-lg hover:tw-text-secondary dark:tw-text-slate-300 hover:dark:tw-text-secondaryDark tw-smooth tw-gap-1 tw-m-5"
                   >
                     <RiMenuFold4Line />
                   </button>

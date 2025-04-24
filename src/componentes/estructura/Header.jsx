@@ -121,9 +121,10 @@ import Listado_reservas_trenes from "../consultaReservas/trenes/Resultado";
 import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Resultado";
 
 /* Detalles reserva */
-import Detalles_Reserva_Coche from "../consultaReservas/coches/Detalles";
+import Detalles_Reserva_Coche from "../consultaReservas/coches/detalles/Coche";
 import Detalles_Reserva_Destino from "../consultaReservas/destinos/detalles/Destino";
-import Detalles_Reserva_Ferris from "../consultaReservas/ferris/detalles/Ferry";
+import Detalles_Reserva_Ferry from "../consultaReservas/ferris/detalles/Ferry";
+import Detalles_Reserva_Hotel from "../consultaReservas/hoteles/detalles/Hotel";
 
 /* MANTINE */
 import "@mantine/core/styles.css";
@@ -184,7 +185,8 @@ function Header() {
         {/* Detalles de la reserva */}
         <Route path="coche/detalles" element={<Detalles_Reserva_Coche />} />
         <Route path="destino/detalles" element={<Detalles_Reserva_Destino />} />
-        <Route path="ferris/detalles" element={<Detalles_Reserva_Ferris />} />
+        <Route path="ferris/detalles" element={<Detalles_Reserva_Ferry />} />
+        <Route path="hotel/detalles" element={<Detalles_Reserva_Hotel />} />
 
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />

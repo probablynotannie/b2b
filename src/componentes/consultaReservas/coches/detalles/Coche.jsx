@@ -1,5 +1,5 @@
-import DetallesCoche from "./coche/Detalles";
-import Error from "../Error";
+import DetallesCoche from "./Detalles";
+import Error from "../../Error";
 import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
 function Detalles() {
@@ -28,7 +28,6 @@ function Detalles() {
                 {coche.estado === 0 ? (
                   <div className="tw-bg-red-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
                     cancelada
-                    
                   </div>
                 ) : coche.estado === 1 ? (
                   <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
