@@ -20,7 +20,7 @@ function Productos() {
   const [minMax, setMinMax] = useState([0, 5000]);
 
   return (
-    <main className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mb-10">
+    <main className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mb-20">
       <div
         className="tw-relative tw-w-full tw-p-8 tw-bg-center tw-bg-cover tw-shadow-md"
         style={{ backgroundImage: "url('/banners/banner_hoteles.webp')" }}

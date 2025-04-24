@@ -1,7 +1,8 @@
 import { MdCancel } from "react-icons/md";
+
 function Error() {
   return (
-    <section className="tw-flex tw-h-[60vh] tw-items-center tw-justify-center tw-bg-red-50 dark:tw-bg-slate-900 tw-p-6 tw-mt-16">
+    <section className="tw-w-screen tw-mx-auto tw-flex tw-min-h-[calc(100vh-8rem)] tw-items-center tw-justify-center tw-bg-red-50 dark:tw-bg-slate-900 tw-p-6">
       <div className="tw-text-center tw-max-w-md">
         <MdCancel className="tw-text-red-500 dark:tw-text-red-400 tw-text-[6rem] tw-mx-auto tw-animate-pulse" />
         <h1 className="tw-text-4xl sm:tw-text-5xl tw-font-bold tw-text-red-600 dark:tw-text-red-400 tw-mt-4">
