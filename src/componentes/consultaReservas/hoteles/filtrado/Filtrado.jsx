@@ -4,7 +4,10 @@ import Input_DateRange from "../../../inputs/filtrados/fechas/DateRange";
 import Input_Texto from "../../../inputs/filtrados/Texto";
 
 function Filtrado({
-
+  fechaCancelacionDesde,
+  setFechaCancelacionDesde,
+  fechaCancelacionHasta,
+  setFechaCancelacionHasta,
   fechaEntradaDesde,
   setFechaEntradaDesde,
   fechaEntradaHasta,
@@ -15,7 +18,6 @@ function Filtrado({
   setFechaGestionHasta,
   pagadas,
   setPagadas,
-  localizador,
   setLocalizador,
   activas,
   setActivas,
@@ -47,7 +49,7 @@ function Filtrado({
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
-          Filtros de reservas de coches
+          Filtros de reservas de hoteles
           <span className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
@@ -77,6 +79,7 @@ function Filtrado({
                   setEndDate={setFechaEntradaHasta}
                   placeholder="Fechas Entrada"
                 />
+
                 <Input_DateRange
                   startDate={fechaGestionDesde}
                   setStartDate={setFechaGestionDesde}
@@ -84,13 +87,14 @@ function Filtrado({
                   setEndDate={setFechaGestionHasta}
                   placeholder="Fechas Gestión"
                 />
-                <Input_Texto
-                  texto={localizador}
-                  setTexto={setLocalizador}
-                  placeholder="Localizador"
-                  icon={<FaSearch />}
+                <Input_DateRange
+                  startDate={fechaCancelacionDesde}
+                  setStartDate={setFechaCancelacionDesde}
+                  endDate={fechaCancelacionHasta}
+                  setEndDate={setFechaCancelacionHasta}
+                  placeholder="Fechas cancelación"
                 />
-                <div className="tw-grid tw-grid-cols-2 tw-col-span-3 2xl:tw-col-span-2 tw-gap-5">
+                <div className="tw-grid tw-grid-cols-2 tw-col-span-3 2xl:tw-col-span-2 tw-gap-5 tw-mt-5">
                   <div className="tw-flex tw-gap-2">
                     {["Pagadas", "impagadas", "Todas"].map((label) => {
                       return (
@@ -146,7 +150,7 @@ function Filtrado({
         <div className="tw-w-full">
           <div className="tw-flex tw-items-center tw-justify-between">
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-              Reservas de coches
+              Reservas de hoteles
             </h2>
             <button
               className="tw-text-slate-500 hover:tw-text-slate-800 tw-smooth tw-text-sm"
@@ -178,11 +182,12 @@ function Filtrado({
               setEndDate={setFechaGestionHasta}
               placeholder="Fechas Gestión"
             />
-            <Input_Texto
-              texto={localizador}
-              setTexto={setLocalizador}
-              placeholder="Localizador"
-              icon={<FaSearch />}
+            <Input_DateRange
+              startDate={fechaCancelacionDesde}
+              setStartDate={setFechaCancelacionDesde}
+              endDate={fechaCancelacionHasta}
+              setEndDate={setFechaCancelacionHasta}
+              placeholder="Fechas cancelación"
             />
             <div className="tw-grid tw-grid-cols-2 tw-col-span-3 2xl:tw-col-span-2 tw-gap-5">
               <div className="tw-flex tw-gap-2">
