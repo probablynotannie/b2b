@@ -38,13 +38,11 @@ function Coches() {
     setFiltrados(filtrados);
   }, [search]);
   const navigate = useNavigate();
-  const detalles = (coche) => {
-    console.log(coche);
+  const detalles = (hotel) => {
     navigate("/hotel/detalles", {
-      state: { coche },
+      state: { hotel },
     });
   };
-
 
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">

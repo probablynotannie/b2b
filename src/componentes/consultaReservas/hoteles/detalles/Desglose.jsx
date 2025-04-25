@@ -1,9 +1,9 @@
 import { FaCalendarAlt, FaHotel, FaRoute } from "react-icons/fa";
-function Desglose({ coche }) {
-  const formattedNeto = coche.reserva.importeNeto.toFixed(2) + " €";
-  const formattedPvp = coche.reserva.importePVP.toFixed(2) + " €";
+function Desglose({ hotel }) {
+  const formattedNeto = hotel.reserva.importeNeto.toFixed(2) + " €";
+  const formattedPvp = hotel.reserva.importePVP.toFixed(2) + " €";
   const items = [
-    { label: "Tipo", value: coche.reserva.tipoReserva },
+    { label: "Tipo", value: hotel.reserva.tipoReserva },
     { label: "Neto", value: formattedNeto },
     { label: "PVP", value: formattedPvp },
   ];
@@ -14,26 +14,26 @@ function Desglose({ coche }) {
         <LineaDetalles
           icon={<FaRoute className="tw-text-slate-400 tw-text-lg tw-w-8" />}
           label="Ubicación"
-          value={coche.reserva.ubicacion}
+          value={hotel.reserva.ubicacion}
         />
         <LineaDetalles
           icon={<FaHotel className="tw-text-slate-400 tw-text-lg tw-w-8" />}
           label="Modelo"
-          value={coche.reserva.nombreHotel}
+          value={hotel.reserva.nombreHotel}
         />
         <LineaDetalles
           icon={
             <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
           }
           label="Entrada"
-          value={coche.reserva.entrada}
+          value={hotel.reserva.entrada}
         />
         <LineaDetalles
           icon={
             <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
           }
           label="Salida"
-          value={coche.reserva.salida}
+          value={hotel.reserva.salida}
         />
       </div>
       <div className="tw-grid tw-grid-cols-3 tw-bg-white dark:tw-bg-slate-900 tw-rounded-2xl tw-shadow-sm tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-p-4">

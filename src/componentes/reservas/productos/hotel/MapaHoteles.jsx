@@ -5,7 +5,7 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
 import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
-import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
+import Estrellas from "../../../../helpers/visuales/Estrellas";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
 
 const customIconUrl = "/logos/hotel.png";
@@ -68,18 +68,7 @@ const MapaHoteles = ({ hoteles }) => {
                   <h3 className="tw-text-lg tw-font-bold tw-text-gray-800 dark:tw-text-white">
                     {hotel.nombre}
                   </h3>
-                  <div className="tw-flex tw-text-orange-400">
-                    {[...Array(5)].map((_, i) =>
-                      i < Math.floor(hotel.estrellas) ? (
-                        <IoMdStar key={i} className="tw-text-lg" />
-                      ) : i === Math.floor(hotel.estrellas) &&
-                        hotel.estrellas % 1 !== 0 ? (
-                        <IoMdStarHalf key={i} className="tw-text-lg" />
-                      ) : (
-                        <IoMdStarOutline key={i} className="tw-text-lg" />
-                      )
-                    )}
-                  </div>
+                  <Estrellas estrellas={hotel.estrellas} />
                 </div>
                 <Link to={"/hotel"} state={hotel} className="tw-block tw-mt-4">
                   <button className="tw-w-full tw-bg-indigo-500 dark:tw-bg-indigo-800 hover:tw-bg-indigo-600 dark:hover:tw-bg-indigo-700 tw-smooth tw-text-white tw-font-semibold tw-py-2 tw-rounded-lg tw-text-center tw-shadow-md">

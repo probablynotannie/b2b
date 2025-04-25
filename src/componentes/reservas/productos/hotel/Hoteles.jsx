@@ -1,4 +1,3 @@
-import { IoMdStar, IoMdStarOutline, IoMdStarHalf } from "react-icons/io";
 import { FaDoorOpen, FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
@@ -7,6 +6,7 @@ import { Carousel } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Imagenes from "../../estructura/hoteles/Imgs";
+import Estrellas from "../../../../helpers/visuales/Estrellas";
 function Resultado({ hoteles }) {
   const reserva = {
     pax: 2,
@@ -53,18 +53,7 @@ function Resultado({ hoteles }) {
                     - {hotel.regimen}
                   </span>
                 </h4>
-                <div className="tw-flex tw-text-secondary">
-                  {[...Array(5)].map((_, i) =>
-                    i < Math.floor(hotel.estrellas) ? (
-                      <IoMdStar key={i} className="tw-text-lg" />
-                    ) : i === Math.floor(hotel.estrellas) &&
-                      hotel.estrellas % 1 !== 0 ? (
-                      <IoMdStarHalf key={i} className="tw-text-lg" />
-                    ) : (
-                      <IoMdStarOutline key={i} className="tw-text-lg" />
-                    )
-                  )}
-                </div>
+                <Estrellas estrellas={hotel.estrellas} />
               </div>
               <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
                 <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />

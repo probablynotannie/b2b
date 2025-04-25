@@ -9,37 +9,37 @@ import {
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
 
-function Detalles({ coche }) {
+function Detalles({ hotel }) {
   return (
     <>
       <h2 className="tw-font-bold  tw-text-xl  tw-border-b tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-pb-2">
-        Reserva: {coche.localizador}
+        Reserva: {hotel.localizador}
       </h2>
       <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-6 tw-p-4">
         <InfoBlock
           icon={<FaClipboardList className="tw-text-indigo-600" />}
           title="Orden"
-          value={coche.orden}
+          value={hotel.orden}
         />
         <InfoBlock
           icon={<FaBarcode className="tw-text-pink-600" />}
           title="Localizador"
-          value={coche.localizador}
+          value={hotel.localizador}
         />
         <InfoBlock
           icon={<FaCheckCircle className="tw-text-cyan-600" />}
           title="Confirmación"
-          value={coche.confirmacion}
+          value={hotel.confirmacion}
         />
         <InfoBlock
           icon={<FaTruck className="tw-text-orange-600" />}
           title="Proveedores"
-          value={coche.proveedores}
+          value={hotel.proveedores}
         />
         <InfoBlock
           icon={<FaUser className="tw-text-blue-600" />}
           title="Titular"
-          value={coche.titularReserva}
+          value={hotel.titularReserva}
           className="tw-col-span-2"
         />
       </div>
@@ -52,19 +52,19 @@ function Detalles({ coche }) {
             icon={
               <FaHotel className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
             }
-            value={coche.datosAgencia.agencia}
+            value={hotel.datosAgencia.agencia}
           />
           <DatosAgencia
             icon={
               <FaPhone className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
             }
-            value={coche.datosAgencia.telefono}
+            value={hotel.datosAgencia.telefono}
           />
           <DatosAgencia
             icon={
               <MdEmail className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
             }
-            value={coche.datosAgencia.email}
+            value={hotel.datosAgencia.email}
           />
         </div>
       </div>
