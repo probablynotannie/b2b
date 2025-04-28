@@ -1,12 +1,9 @@
-import { FaFilter, FaHotel } from "react-icons/fa";
-import { FaMapMarkedAlt } from "react-icons/fa";
-import { IoAirplane } from "react-icons/io5";
+import { FaHotel, FaMapMarkedAlt } from "react-icons/fa";
+import { IoAirplane, IoTicket } from "react-icons/io5";
 import { FaCarOn, FaKitMedical } from "react-icons/fa6";
-import { IoTicket } from "react-icons/io5";
 import { Link } from "react-router-dom";
 import { FaFerry } from "react-icons/fa6";
-import { useState } from "react";
-import { MdCancel } from "react-icons/md";
+
 function Sidebar({ open, setOpen }) {
   const otros = [
     {
@@ -38,7 +35,7 @@ function Sidebar({ open, setOpen }) {
       icono: (
         <FaHotel className="tw-text-2xl tw-text-white dark:tw-text-secondaryDark" />
       ),
-      texto: "Hotel",
+      texto: "Hoteles",
       to: "/hoteles/reservas",
     },
     {

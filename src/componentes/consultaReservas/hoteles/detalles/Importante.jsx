@@ -1,20 +1,20 @@
 import { useState } from "react";
-function Importante({ destino }) {
+function Importante({ hotel }) {
   const [activeTab, setActiveTab] = useState("Cancelación");
   const tabContent = {
     Cancelación: (
       <div className="tw-p-6 tw-text-sm tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
-        {destino.cancelaciones}
+        {hotel.cancelaciones}
       </div>
     ),
     Observaciones: (
       <div className="tw-p-6 tw-text-sm tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
-        {destino.observaciones}
+        {hotel.observaciones}
       </div>
     ),
     Pagos: (
       <div className="tw-p-6 tw-text-sm tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">
-        {destino.pagos}
+        {hotel.pagos}
       </div>
     ),
   };

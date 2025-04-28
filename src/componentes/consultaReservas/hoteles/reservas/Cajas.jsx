@@ -1,4 +1,4 @@
-import { FaCalendar, FaCar, FaHotel, FaMapPin } from "react-icons/fa";
+import { FaCalendar, FaHotel, FaMapPin } from "react-icons/fa";
 import PlaceholderCajas from "../../_skeleton_placeholders/Cajas";
 function Cajas({ datos, detalles, loading }) {
   return (
@@ -57,7 +57,7 @@ function Cajas({ datos, detalles, loading }) {
                   <h2 className="tw-text-xl tw-font-semibold tw-text-slate-700 dark:tw-text-white">
                     {hotel.localizador}
                   </h2>
-                  <div className="tw-flex tw-gap-2 tw-items-center">
+                  <div className="tw-flex tw-flex-wrap tw-gap-2 tw-items-center">
                     <span
                       className={`tw-text-xs tw-font-semibold tw-rounded-xl tw-px-3 tw-py-1 tw-h-fit tw-text-center ${estadoBadgeColor}`}
                     >
@@ -82,7 +82,7 @@ function Cajas({ datos, detalles, loading }) {
                 </div>
                 <div className="tw-my-3"></div>
                 <div
-                  className={`tw-px-5 tw-pb-4 tw-grid tw-grid-cols-2 tw-gap-2 tw-bg-slate-100/10 tw-border-y ${border} tw-pt-2`}
+                  className={`tw-px-5 tw-pb-4 tw-flex tw-flex-wrap sm:tw-grid tw-grid-cols-2 tw-gap-2 tw-bg-slate-100/10 tw-border-y ${border} tw-pt-2`}
                 >
                   <div className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-200 tw-flex tw-items-center tw-gap-1">
                     <FaHotel className="tw-text-blue-700 tw-shrink-0 tw-text-[1rem]" />

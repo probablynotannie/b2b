@@ -1,7 +1,12 @@
 import { FaCalendar, FaMoon, FaPhone, FaUser } from "react-icons/fa";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
-import { MdEmail, MdMeetingRoom } from "react-icons/md";
+import {
+  MdEmail,
+  MdMeetingRoom,
+  MdOutlineEmojiFoodBeverage,
+} from "react-icons/md";
 import DatosHotel from "../../../../helpers/visuales/DatoTituloIcono";
+import Importante from "./Importante";
 function Servicio({ hotel }) {
   return (
     <div>
@@ -39,7 +44,9 @@ function Servicio({ hotel }) {
           value={hotel.reserva.habitacion}
         />
         <DatosHotel
-          icon={<FaMoon className="tw-text-slate-400 dark:tw-text-slate-500" />}
+          icon={
+            <MdOutlineEmojiFoodBeverage className="tw-text-slate-400 dark:tw-text-slate-500" />
+          }
           title={"Regimen"}
           value={hotel.reserva.regimen}
         />
@@ -66,6 +73,12 @@ function Servicio({ hotel }) {
           title={"Email titular"}
           value={hotel.reserva.titularReserva.email}
         />
+      </div>
+      <div className="tw-py-4 tw-mt-4 tw-pb-4 tw-space-y-2 tw-text-sm tw-text-slate-700">
+        <h2 className="dark:tw-text-slate-300 tw-font-bold tw-text-lg">
+          Importante
+        </h2>
+        <Importante hotel={hotel} />
       </div>
     </div>
   );
