@@ -8,6 +8,7 @@ import {
   FaHotel,
 } from "react-icons/fa";
 import { MdEmail } from "react-icons/md";
+import DatosHotel from "../../../../helpers/visuales/DatoTituloIcono";
 
 function Detalles({ hotel }) {
   return (
@@ -16,27 +17,27 @@ function Detalles({ hotel }) {
         Reserva: {hotel.localizador}
       </h2>
       <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-6 tw-p-4">
-        <InfoBlock
+        <DatosHotel
           icon={<FaClipboardList className="tw-text-indigo-600" />}
           title="Orden"
           value={hotel.orden}
         />
-        <InfoBlock
+        <DatosHotel
           icon={<FaBarcode className="tw-text-pink-600" />}
           title="Localizador"
           value={hotel.localizador}
         />
-        <InfoBlock
+        <DatosHotel
           icon={<FaCheckCircle className="tw-text-cyan-600" />}
           title="Confirmación"
           value={hotel.confirmacion}
         />
-        <InfoBlock
+        <DatosHotel
           icon={<FaTruck className="tw-text-orange-600" />}
           title="Proveedores"
           value={hotel.proveedores}
         />
-        <InfoBlock
+        <DatosHotel
           icon={<FaUser className="tw-text-blue-600" />}
           title="Titular"
           value={hotel.titularReserva}
@@ -69,22 +70,6 @@ function Detalles({ hotel }) {
         </div>
       </div>
     </>
-  );
-}
-
-function InfoBlock({ icon, title, value, className = "" }) {
-  return (
-    <div className={`tw-flex tw-items-start tw-gap-3 ${className}`}>
-      <div className="tw-mt-1 tw-text-lg">{icon}</div>
-      <div>
-        <h4 className="tw-text-sm tw-font-semibold tw-text-slate-600 dark:tw-text-slate-100">
-          {title}
-        </h4>
-        <p className="tw-text-base tw-font-medium tw-text-slate-900 dark:tw-text-slate-400">
-          {value}
-        </p>
-      </div>
-    </div>
   );
 }
 

@@ -121,7 +121,7 @@ function Resultado({ hoteles }) {
                           <span className="tw-font-semibold">Extras:</span>{" "}
                           {hotel.extras.join(", ")}
                         </p>
-                        <Imagenes imagenes={hotel.habitacionImgs} />
+                        <Imagenes imagenes={hotel.habitacionImgs}/>
                       </div>
                     </div>
                     <div className="tw-border-t tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-end">

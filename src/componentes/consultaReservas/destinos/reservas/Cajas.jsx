@@ -5,7 +5,7 @@ function Cajas({ datos, detalles, loading }) {
     <>
       {loading ? (
         <>
-          <div className="tw-block md:tw-hidden">
+          <div className="tw-block">
             <PlaceholderCajas />
           </div>
         </>

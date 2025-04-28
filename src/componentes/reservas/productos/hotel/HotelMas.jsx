@@ -19,9 +19,11 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
     habitaciones: 2,
     noches: 7,
   };
+
   const [openModal, setOpenModal] = useState(null);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+
   return (
     <section className="tw-pb-12">
       <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-p-3 tw-rounded-xl lg:tw-mt-0">
@@ -109,7 +111,7 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
           <div
             className={`${
               openModal === index
-                ? "tw-fixed tw-inset-0 tw-z-50 tw-bg-black  tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center"
+                ? "tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center"
                 : "tw-hidden"
             }`}
           >
