@@ -5,7 +5,6 @@ import {
   FaTruck,
   FaUser,
 } from "react-icons/fa";
-import Pasajeros from "./Pasajeros";
 import Importante from "./Importante";
 import DatosDestino from "../../../../helpers/visuales/DatoTituloIcono";
 import DatosAgencia from "../../../../helpers/visuales/agencia/DatosAgencia";
@@ -44,15 +43,14 @@ function Detalles({ destino }) {
           className="tw-col-span-2"
         />
       </div>
-      <div>
-        <Pasajeros destino={destino} />
-        <Importante destino={destino} />
-      </div>
       <DatosAgencia
         nombreAgencia={destino.datosAgencia.agencia}
         telefonoAgencia={destino.datosAgencia.tel}
         emailAgencia={destino.datosAgencia.email}
       />
+      <div>
+        <Importante destino={destino} />
+      </div>
     </>
   );
 }

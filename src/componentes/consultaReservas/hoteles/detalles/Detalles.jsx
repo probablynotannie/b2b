@@ -4,11 +4,10 @@ import {
   FaCheckCircle,
   FaTruck,
   FaUser,
-  FaPhone,
-  FaHotel,
 } from "react-icons/fa";
-import { MdEmail } from "react-icons/md";
+import { MdCancel } from "react-icons/md";
 import DatosHotel from "../../../../helpers/visuales/DatoTituloIcono";
+import DatosAgencia from "../../../../helpers/visuales/agencia/DatosAgencia";
 
 function Detalles({ hotel }) {
   return (
@@ -43,44 +42,27 @@ function Detalles({ hotel }) {
           value={hotel.titularReserva}
           className="tw-col-span-2"
         />
+        {hotel.reserva.penalizacionCancelacion && (
+          <DatosHotel
+            icon={<MdCancel className="tw-text-red-600" />}
+            title="Penalización"
+            value={
+              "A partir de " +
+              hotel.reserva.cancelacion +
+              "  " +
+              hotel.reserva.penalizacionCancelacion +
+              "€"
+            }
+            className="tw-col-span-2"
+          />
+        )}
       </div>
-      <div className="tw-border-t tw-border-slate-100 tw-py-4 dark:tw-border-slate-700 tw-mt-4 tw-pb-4 tw-space-y-2 tw-text-sm tw-text-slate-700">
-        <h4 className="tw-font-bold tw-text-2xl tw-text-center tw-text-secondary dark:tw-text-secondaryDark tw-mb-3">
-          Datos Agencia
-        </h4>
-        <div className="tw-grid tw-grid-cols-3 tw-gap-4">
-          <DatosAgencia
-            icon={
-              <FaHotel className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
-            }
-            value={hotel.datosAgencia.agencia}
-          />
-          <DatosAgencia
-            icon={
-              <FaPhone className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
-            }
-            value={hotel.datosAgencia.telefono}
-          />
-          <DatosAgencia
-            icon={
-              <MdEmail className="tw-text-secondary dark:tw-text-secondaryDark tw-text-3xl tw-mr-2" />
-            }
-            value={hotel.datosAgencia.email}
-          />
-        </div>
-      </div>
+      <DatosAgencia
+        nombreAgencia={hotel.datosAgencia.agencia}
+        telefonoAgencia={hotel.datosAgencia.tel}
+        emailAgencia={hotel.datosAgencia.email}
+      />
     </>
-  );
-}
-
-function DatosAgencia({ icon, value }) {
-  return (
-    <div className="tw-flex tw-flex-col tw-items-center">
-      {icon}
-      <span className="tw-text-slate-600 dark:tw-text-slate-100 tw-font-bold tw-mt-1">
-        {value}
-      </span>
-    </div>
   );
 }
 

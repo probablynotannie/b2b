@@ -1,0 +1,102 @@
+{
+  "traslados": [
+    {
+      "id": "f4261ac2-190c-11e9-be88-0639f1097e65",
+      "name": "Private Minibus",
+      "description": "Door-to-door Private Minibus service for 12 x passengers and 12 x medium suitcases. Small items that can be carried in the passenger footwell, such as a camera case, handbag or small shoulder bag do not need to be declared.",
+      "type": "minibus",
+      "price": 3470.61,
+      "currency": "EUR",
+      "cancelations": ["2025-08-14-1|100"],
+      "route": {
+        "origin": { "id": 173, "name": "Madrid airport" },
+        "destination": { "id": 32, "name": "Barcelona airport" },
+        "duration": 405,
+        "distance": 612
+      },
+      "maxPaxes": 12,
+      "maxLuggage": 12,
+      "isShared": false,
+      "img": "https://worldwide-cdn.suntransfers.com/st-assets/ride/mb_thumb.png",
+      "extraData": {
+        "idHash": "api_c9567f8864b6fac21a8d603f2d23c1759de252d5b8d3075284683ac8f36b9a8d"
+      }
+    },
+    {
+      "id": "f4261b52-190c-11e9-be88-0639f1097e65",
+      "name": "Private Minicoach",
+      "description": "Door-to-door Private Minicoach service for 16 x passengers and 16 x medium suitcases. Small items that can be carried in the passenger footwell, such as a camera case, handbag or small shoulder bag do not need to be declared.",
+      "type": "minicoach",
+      "price": 3538.37,
+      "currency": "EUR",
+      "cancelations": ["2025-08-14-1|100"],
+      "route": {
+        "origin": { "id": 173, "name": "Madrid airport" },
+        "destination": { "id": 32, "name": "Barcelona airport" },
+        "duration": 405,
+        "distance": 612
+      },
+      "maxPaxes": 16,
+      "maxLuggage": 16,
+      "isShared": false,
+      "img": "https://worldwide-cdn.suntransfers.com/st-assets/ride/mch_thumb.png",
+      "extraData": {
+        "idHash": "api_c9567f8864b6fac21a8d603f2d23c1759de252d5b8d3075284683ac8f36b9a8d"
+      }
+    },
+    {
+      "id": "f4261c78-190c-11e9-be88-0639f1097e65",
+      "name": "Private Minicoach",
+      "description": "Door-to-door Private Minicoach service for 24 x passengers and 24 x medium suitcases. Small items that can be carried in the passenger footwell, such as a camera case, handbag or small shoulder bag do not need to be declared.",
+      "type": "minicoach",
+      "price": 4170.6,
+      "currency": "EUR",
+      "cancelations": ["2025-08-14-1|100"],
+      "route": {
+        "origin": { "id": 173, "name": "Madrid airport" },
+        "destination": { "id": 32, "name": "Barcelona airport" },
+        "duration": 405,
+        "distance": 612
+      },
+      "maxPaxes": 24,
+      "maxLuggage": 24,
+      "isShared": false,
+      "img": "https://worldwide-cdn.suntransfers.com/st-assets/ride/mch_thumb.png",
+      "extraData": {
+        "idHash": "api_c9567f8864b6fac21a8d603f2d23c1759de252d5b8d3075284683ac8f36b9a8d"
+      }
+    },
+    {
+      "id": "f4262381-190c-11e9-be88-0639f1097e65",
+      "name": "Private Coach",
+      "description": "Door-to-door Private Coach service for 52 x passengers and 52 x medium suitcases. Small items that can be carried in the passenger footwell, such as a camera case, handbag or small shoulder bag do not need to be declared.",
+      "type": "coach",
+      "price": 4540.14,
+      "currency": "EUR",
+      "cancelations": ["2025-08-14-1|100"],
+      "route": {
+        "origin": { "id": 173, "name": "Madrid airport" },
+        "destination": { "id": 32, "name": "Barcelona airport" },
+        "duration": 405,
+        "distance": 612
+      },
+      "maxPaxes": 52,
+      "maxLuggage": 52,
+      "isShared": false,
+      "img": "https://worldwide-cdn.suntransfers.com/st-assets/ride/ch_thumb.png",
+      "extraData": {
+        "idHash": "api_c9567f8864b6fac21a8d603f2d23c1759de252d5b8d3075284683ac8f36b9a8d"
+      }
+    }
+  ],
+  "searchData": {
+    "clientSession": "CLI_SESS_6811c3eece4f7",
+    "origin": 8,
+    "destination": 3,
+    "departureDate": "2025-08-16 10:00",
+    "returnDate": "2025-08-18 10:00",
+    "adults": [25],
+    "children": [],
+    "infants": []
+  }
+}

@@ -1,9 +1,11 @@
 import DetallesCoche from "./Detalles";
-import Error from "../../Error";
+import Error from "../../../../helpers/visuales/error/Error";
+
 import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
 import Acciones from "./Acciones";
 import Servicio from "./Servicio";
+import DatosAccionRealizada from "./DatosAccionRealizada";
 function Detalles() {
   const location = useLocation();
   const { hotel = {} } = location.state || {};
@@ -26,6 +28,9 @@ function Detalles() {
             </section>
           </div>
           <aside className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 ">
+            {hotel.estado === 0 && (
+              <DatosAccionRealizada user={hotel.accionRealizadoPor} />
+            )}
             <section
               className="
              tw-bg-white dark:tw-bg-slate-800
@@ -53,27 +58,26 @@ function Detalles() {
                       Sin Datos
                     </div>
                   )}
-                  <td className=" tw-px-1">
-                    {hotel.estadoPago === 1 ? (
-                      <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
-                        pagado
-                      </div>
-                    ) : (
-                      <div className="tw-bg-red-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
-                        sin pagar
-                      </div>
-                    )}
-                  </td>
+                  {hotel.estadoPago === 1 ? (
+                    <div className="tw-bg-green-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                      pagado
+                    </div>
+                  ) : (
+                    <div className="tw-bg-red-500 tw-p-1 tw-rounded-lg tw-text-white tw-font-bold">
+                      sin pagar
+                    </div>
+                  )}
                 </div>
               </div>
               <Desglose hotel={hotel} />
             </section>
+
             <section
               className="
              tw-mt-8
             tw-col-span-2 lg:tw-col-span-1"
             >
-              <Acciones />
+              <Acciones estado={hotel.estado} estadoPago={hotel.estadoPago} />
             </section>
           </aside>
         </main>

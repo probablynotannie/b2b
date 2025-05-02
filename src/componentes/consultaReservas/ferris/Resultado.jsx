@@ -30,7 +30,7 @@ function Resultado() {
   }, [search]);
   const navigate = useNavigate();
   const detalles = (destino) => {
-    navigate("/ferris/detalles", {
+    navigate("/ferry/detalles", {
       state: { destino },
     });
   };

@@ -75,7 +75,7 @@ function Sidebar({ open, setOpen }) {
   return (
     <>
       {open === true && (
-        <div className="tw-bg-white dark:tw-text-slate-300 tw-py-3 dark:tw-bg-slate-800 tw-hidden tw-h-[70vh] lg:tw-flex lg:tw-col-span-3 xl:tw-col-span-2 xl:tw-flex tw-flex-row tw-flex-wrap md:tw-flex-col tw-justify-around tw-border-2 tw-border-slate-100 dark:tw-border-slate-600 tw-px-5 tw-rounded-xl tw-shadow-lg tw-mb-2">
+        <div className="tw-bg-white dark:tw-text-slate-300 tw-py-3 dark:tw-bg-slate-800 tw-hidden tw-h-[70vh] tw-overflow-y-auto lg:tw-flex lg:tw-col-span-3 xl:tw-col-span-2 md:tw-flex-col tw-justify-around tw-border-2 tw-border-slate-100 dark:tw-border-slate-600 tw-px-5 tw-rounded-xl tw-shadow-lg tw-mb-2">
           {otros.map((otro, index) => (
             <div
               className="tw-flex tw-gap-3 tw-items-center tw-mt-3"

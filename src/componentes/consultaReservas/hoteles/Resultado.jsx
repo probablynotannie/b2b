@@ -55,14 +55,14 @@ function Coches() {
         } tw-flex-col-10`}
       >
         <div
-          className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+          className="tw-relative tw-h-fit md:tw-min-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
             backgroundImage: `url(/banners/banner_hoteles.webp)`,
             backgroundSize: "cover",
             backgroundPosition: "center",
           }}
         >
-          <div className="tw-relative tw-w-full tw-h-full tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
+          <div className="tw-relative tw-w-full tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
             {open !== true && (
               <button
                 onClick={() => setOpen(!open)}

@@ -1,0 +1,228 @@
+{
+  "reservas": [
+    {
+      "id": 1,
+      "bono": 1,
+      "fechaGestion": "05/05/2025",
+      "fechaEntrada": "05/05/2025",
+      "cancelaciones": "45 a 32 días antes de la llegada, 15% sobre el total del viaje 31 a 17 días antes de la llegada, 50% sobre el total del viaje 16 días antes de la llegada, 100% sobre el total del viaje En caso de existir tarifas aéreas incluidas, estarán sujetas a posibles cambios en el momento de la emisión. Si sufrieran algún cambio informaremos del suplemento. Una vez emitidos los billetes no tienen reembolso.En caso de incluir tarifas aéreas, estarán sujetas a posibles cambios en el momento de la emisión. Informaremos si existe suplemento. Una vez emitidos billetes de avión, tren, bus, entradas o similar no tienen reembolso. Su coste se sumará a los gastos de cancelación pertinentes. Si la cancelación se produce en dias no laborables (en origen o destino) que no permita informar al receptivo, la cuenta de dias computa desde el siguiente día laborable. IMPORTANTE: La emisión con antelación de estos servicios puede implicar que el importe del depósito inicial de la reserva sea más alto para evitar que el precio varíe por demora. Se corregirá en el momento en el que recibamos la reserva.",
+      "observaciones": "Sin observaciones. Recuerda que la reserva no es válida hasta que se haya confirmado el pago.",
+      "pagos": "El pago de la reserva se realizará en el momento de la confirmación de la misma. El pago se puede realizar mediante tarjeta de crédito, transferencia bancaria o PayPal. En caso de que el pago no se realice en el plazo establecido, la reserva será cancelada automáticamente.",
+      "orden": "382707/52",
+      "localizador": "HOAG96173",
+      "estado": 0,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-01",
+      "proveedores": "LoroPark",
+      "titularReserva": "Juan Pérez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+      "LP": [
+        {
+          "tipo": "Adulto",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        },
+        {
+          "tipo": "Niño (6-11 años)",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        }
+      ],
+
+      "reserva": {
+        "recorrido": "Entrada a Loro Parque (tickets generales)",
+        "entrada": "05/05/2025",
+        "cancelacionGratis": "20/20/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 35.67,
+        "importePVP": 45.3
+      }
+    },
+    {
+      "id": 2,
+      "bono": 0,
+      "fechaGestion": "06/05/2025",
+      "fechaEntrada": "06/05/2025",
+      "cancelaciones": "45 a 32 días antes de la llegada, 15% sobre el total del viaje 31 a 17 días antes de la llegada, 50% sobre el total del viaje 16 días antes de la llegada, 100% sobre el total del viaje En caso de existir tarifas aéreas incluidas, estarán sujetas a posibles cambios en el momento de la emisión. Si sufrieran algún cambio informaremos del suplemento. Una vez emitidos los billetes no tienen reembolso.En caso de incluir tarifas aéreas, estarán sujetas a posibles cambios en el momento de la emisión. Informaremos si existe suplemento. Una vez emitidos billetes de avión, tren, bus, entradas o similar no tienen reembolso. Su coste se sumará a los gastos de cancelación pertinentes. Si la cancelación se produce en dias no laborables (en origen o destino) que no permita informar al receptivo, la cuenta de dias computa desde el siguiente día laborable. IMPORTANTE: La emisión con antelación de estos servicios puede implicar que el importe del depósito inicial de la reserva sea más alto para evitar que el precio varíe por demora. Se corregirá en el momento en el que recibamos la reserva.",
+      "observaciones": "Sin observaciones. Recuerda que la reserva no es válida hasta que se haya confirmado el pago.",
+      "pagos": "El pago de la reserva se realizará en el momento de la confirmación de la misma. El pago se puede realizar mediante tarjeta de crédito, transferencia bancaria o PayPal. En caso de que el pago no se realice en el plazo establecido, la reserva será cancelada automáticamente.",
+      "orden": "392707/53",
+      "localizador": "HOAG96174",
+      "estado": 0,
+      "estadoPago": 0,
+      "confirmacion": "2025-09-02",
+      "proveedores": "HOTELBEDS S.L.U B57218372",
+      "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+
+      "LP": [
+        {
+          "tipo": "Adulto",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        },
+        {
+          "tipo": "Niño (6-11 años)",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        }
+      ],
+
+      "reserva": {
+        "recorrido": "Entrada a Loro Parque (tickets generales)",
+        "entrada": "06/05/2025",
+        "cancelacionGratis": "20/20/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 50.23,
+        "importePVP": 60.75
+      }
+    },
+    {
+      "id": 3,
+      "bono": 0,
+      "fechaGestion": "06/05/2025",
+      "fechaEntrada": "06/05/2025",
+      "cancelaciones": "45 a 32 días antes de la llegada, 15% sobre el total del viaje 31 a 17 días antes de la llegada, 50% sobre el total del viaje 16 días antes de la llegada, 100% sobre el total del viaje En caso de existir tarifas aéreas incluidas, estarán sujetas a posibles cambios en el momento de la emisión. Si sufrieran algún cambio informaremos del suplemento. Una vez emitidos los billetes no tienen reembolso.En caso de incluir tarifas aéreas, estarán sujetas a posibles cambios en el momento de la emisión. Informaremos si existe suplemento. Una vez emitidos billetes de avión, tren, bus, entradas o similar no tienen reembolso. Su coste se sumará a los gastos de cancelación pertinentes. Si la cancelación se produce en dias no laborables (en origen o destino) que no permita informar al receptivo, la cuenta de dias computa desde el siguiente día laborable. IMPORTANTE: La emisión con antelación de estos servicios puede implicar que el importe del depósito inicial de la reserva sea más alto para evitar que el precio varíe por demora. Se corregirá en el momento en el que recibamos la reserva.",
+      "observaciones": "Sin observaciones. Recuerda que la reserva no es válida hasta que se haya confirmado el pago.",
+      "pagos": "El pago de la reserva se realizará en el momento de la confirmación de la misma. El pago se puede realizar mediante tarjeta de crédito, transferencia bancaria o PayPal. En caso de que el pago no se realice en el plazo establecido, la reserva será cancelada automáticamente.",
+      "orden": "392707/54",
+      "localizador": "HOAG96175",
+      "estado": 1,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-02",
+      "proveedores": "LoroPark",
+      "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+
+      "LP": [
+        {
+          "tipo": "Adulto",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        },
+        {
+          "tipo": "Niño (6-11 años)",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        }
+      ],
+
+      "reserva": {
+        "recorrido": "La Pedrera esencial - Entrada Entrada",
+        "entrada": "06/05/2025",
+        "cancelacionGratis": "20/20/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 50.23,
+        "importePVP": 60.75
+      }
+    },
+    {
+      "id": 4,
+      "bono": 1,
+      "fechaGestion": "06/05/2025",
+      "fechaEntrada": "06/05/2025",
+      "cancelaciones": "45 a 32 días antes de la llegada, 15% sobre el total del viaje 31 a 17 días antes de la llegada, 50% sobre el total del viaje 16 días antes de la llegada, 100% sobre el total del viaje En caso de existir tarifas aéreas incluidas, estarán sujetas a posibles cambios en el momento de la emisión. Si sufrieran algún cambio informaremos del suplemento. Una vez emitidos los billetes no tienen reembolso.En caso de incluir tarifas aéreas, estarán sujetas a posibles cambios en el momento de la emisión. Informaremos si existe suplemento. Una vez emitidos billetes de avión, tren, bus, entradas o similar no tienen reembolso. Su coste se sumará a los gastos de cancelación pertinentes. Si la cancelación se produce en dias no laborables (en origen o destino) que no permita informar al receptivo, la cuenta de dias computa desde el siguiente día laborable. IMPORTANTE: La emisión con antelación de estos servicios puede implicar que el importe del depósito inicial de la reserva sea más alto para evitar que el precio varíe por demora. Se corregirá en el momento en el que recibamos la reserva.",
+      "observaciones": "Sin observaciones. Recuerda que la reserva no es válida hasta que se haya confirmado el pago.",
+      "pagos": "El pago de la reserva se realizará en el momento de la confirmación de la misma. El pago se puede realizar mediante tarjeta de crédito, transferencia bancaria o PayPal. En caso de que el pago no se realice en el plazo establecido, la reserva será cancelada automáticamente.",
+      "orden": "392707/54",
+      "localizador": "HOAG96175",
+      "estado": 1,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-02",
+      "proveedores": "LoroPark",
+      "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+
+      "LP": [
+        {
+          "tipo": "Adulto",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        },
+        {
+          "tipo": "Niño (6-11 años)",
+          "entrada": "05/05/2025",
+          "salida": "05/05/2025",
+          "titular": "Juan Pérez",
+          "cancelacion": "A partir de 02/05/2025 penalización del 100.00%",
+          "pago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación."
+        }
+      ],
+
+      "reserva": {
+        "recorrido": "Hard Rock Cafe Valencia Almuerzo - Menú Punk a las 13:30",
+        "entrada": "06/05/2025",
+        "cancelacionGratis": "20/20/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 50.23,
+        "importePVP": 60.75
+      }
+    },
+    {
+      "id": 5,
+      "bono": 1,
+      "fechaGestion": "06/05/2025",
+      "fechaEntrada": "06/05/2025",
+      "cancelaciones": "45 a 32 días antes de la llegada, 15% sobre el total del viaje 31 a 17 días antes de la llegada, 50% sobre el total del viaje 16 días antes de la llegada, 100% sobre el total del viaje En caso de existir tarifas aéreas incluidas, estarán sujetas a posibles cambios en el momento de la emisión. Si sufrieran algún cambio informaremos del suplemento. Una vez emitidos los billetes no tienen reembolso.En caso de incluir tarifas aéreas, estarán sujetas a posibles cambios en el momento de la emisión. Informaremos si existe suplemento. Una vez emitidos billetes de avión, tren, bus, entradas o similar no tienen reembolso. Su coste se sumará a los gastos de cancelación pertinentes. Si la cancelación se produce en dias no laborables (en origen o destino) que no permita informar al receptivo, la cuenta de dias computa desde el siguiente día laborable. IMPORTANTE: La emisión con antelación de estos servicios puede implicar que el importe del depósito inicial de la reserva sea más alto para evitar que el precio varíe por demora. Se corregirá en el momento en el que recibamos la reserva.",
+      "observaciones": "Sin observaciones. Recuerda que la reserva no es válida hasta que se haya confirmado el pago.",
+      "pagos": "El pago de la reserva se realizará en el momento de la confirmación de la misma. El pago se puede realizar mediante tarjeta de crédito, transferencia bancaria o PayPal. En caso de que el pago no se realice en el plazo establecido, la reserva será cancelada automáticamente.",
+      "orden": "392707/54",
+      "localizador": "HOAG96175",
+      "estado": 1,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-02",
+      "proveedores": "HOTELBEDS S.L.U B57218372",
+      "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+      "reserva": {
+        "recorrido": "Go City - Barcelona Explorer Pass - Access to up to 7 Attractions 2 Attractions",
+        "entrada": "06/05/2025",
+        "cancelacionGratis": "20/20/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 50.23,
+        "importePVP": 60.75
+      }
+    }
+  ]
+}

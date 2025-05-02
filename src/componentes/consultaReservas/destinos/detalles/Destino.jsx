@@ -1,5 +1,5 @@
 import DetallesCoche from "./Detalles";
-import Error from "../../Error";
+import Error from "../../../../helpers/visuales/error/Error";
 import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
 function Detalles() {
