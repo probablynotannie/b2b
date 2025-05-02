@@ -50,7 +50,7 @@ function Detalles({ destino }) {
       </div>
       <DatosAgencia
         nombreAgencia={destino.datosAgencia.agencia}
-        telefonoAgencia={destino.datosAgencia.tel}
+        telefonoAgencia={destino.datosAgencia.telefono}
         emailAgencia={destino.datosAgencia.email}
       />
     </>
