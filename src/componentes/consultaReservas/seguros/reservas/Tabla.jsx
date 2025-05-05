@@ -16,17 +16,17 @@ function Tabla({ datos, detalles, loading }) {
               <th className="tw-px-6 tw-py-3">Confirmación</th>
               <th className="tw-px-6 tw-py-3">Servicio</th>
               <th className="tw-px-6 tw-py-3">Proveedor</th>
-              <th className="tw-px-6 tw-py-3">Cancelación sin coste hasta</th>
+              <th className="tw-px-6 tw-py-3 tw-text-center">
+                Cancelación sin coste hasta
+              </th>
               <th className="tw-px-6 tw-py-3">Bono</th>
-              <th className="tw-px-6 tw-py-3">Plataforma</th>
-              <th className="tw-px-6 tw-py-3">Tipo</th>
               <th className="tw-py-3">Pago</th>
               <th className="tw-py-3 tw-text-center">Estado</th>
             </tr>
           </thead>
           <tbody>
             {loading ? (
-              <Placeholder columnas={11} />
+              <Placeholder columnas={9} />
             ) : datos.length === 0 ? (
               <tr>
                 <td colSpan="8">
@@ -54,7 +54,7 @@ function Tabla({ datos, detalles, loading }) {
                     <td className="tw-px-6 tw-py-4">{dato.confirmacion}</td>
                     <td className="tw-px-6 tw-py-4">
                       <div className="tw-font-medium dark:tw-text-slate-100">
-                        {dato.reserva.nombreHotel}
+                        {dato.reserva.tipoSeguro}
                       </div>
                       <div className="tw-text-xs tw-text-slate-400 tw-flex tw-gap-1">
                         {dato.reserva.entrada} → {dato.reserva.salida}
@@ -66,38 +66,19 @@ function Tabla({ datos, detalles, loading }) {
                     <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
                       {dato.reserva.cancelacionHasta}
                     </td>
+
                     <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                      <div
-                        className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          alert("El buen pdf de bono =D");
-                        }}
-                      >
-                        <FaFilePdf />
-                      </div>
-                    </td>
-                    <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                      <div
-                        className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          alert("El buen pdf de plataforma =D");
-                        }}
-                      >
-                        <FaFilePdf />
-                      </div>
-                    </td>
-                    <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                      <span
-                        className={`tw-p-[3px] tw-text-xs tw-font-bold tw-rounded tw-text-white ${
-                          dato.reserva.tipoReserva === "B2B"
-                            ? "tw-bg-green-400"
-                            : "tw-bg-orange-400"
-                        }`}
-                      >
-                        {dato.reserva.tipoReserva}
-                      </span>
+                      {dato.bono === 1 && (
+                        <div
+                          className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            alert("El buen pdf de bono =D");
+                          }}
+                        >
+                          <FaFilePdf />
+                        </div>
+                      )}
                     </td>
                     <td className="tw-py-4 tw-px-1">
                       {dato.estadoPago === 1 ? (

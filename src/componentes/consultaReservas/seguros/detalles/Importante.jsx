@@ -1,6 +1,6 @@
 import { useState } from "react";
 function Importante({ seguro }) {
-  const [activeTab, setActiveTab] = useState("Cancelación");
+  const [activeTab, setActiveTab] = useState("Pagos");
   const tabContent = {
     Cancelación: (
       <div className="tw-p-6 tw-text-sm tw-bg-slate-50 text-medium tw-text-slate-500 dark:tw-text-slate-400 dark:tw-bg-slate-800 tw-rounded-lg tw-w-full">

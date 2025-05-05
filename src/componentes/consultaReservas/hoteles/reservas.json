@@ -2,6 +2,7 @@
   "reservas": [
     {
       "id": 1,
+      "bono": 1,
       "fechaGestion": "05/05/2025",
       "fechaEntrada": "05/05/2025",
       "politicaPago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación.",
@@ -190,6 +191,8 @@
     },
     {
       "id": 5,
+      "bono": 1,
+
       "fechaGestion": "09/01/2025",
       "fechaEntrada": "09/01/2025",
       "politicaPago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación.",
@@ -233,6 +236,7 @@
     },
     {
       "id": 6,
+      "bono": 1,
       "fechaGestion": "10/05/2025",
       "fechaEntrada": "10/05/2025",
       "politicaPago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación.",

@@ -11,6 +11,14 @@
       "orden": "382707/52",
       "localizador": "HOAG96173",
       "estado": 0,
+      "accionRealizadoPor": {
+        "fecha": "2025-09-01",
+        "coste": 0,
+        "nombre": "Carlos",
+        "apellidos": "Sánchez",
+        "telefono": "987654321",
+        "email": "carlos.sanchez@gmail.com"
+      },
       "estadoPago": 1,
       "confirmacion": "2025-09-01",
       "proveedor": "Cicar",
@@ -21,11 +29,10 @@
         "email": "pipupipu@gmail.com"
       },
       "reserva": {
+        "tipoSeguro": "Anulación Estancias",
         "ubicacion": "Barcelona",
         "cancelacionHasta": "2025-09-01",
-        "nombreHotel": "Hotel Estrella",
         "regimen": "AD",
-        "estrellasHotel": 4,
         "entrada": "05/05/2025",
         "salida": "05/12/2025",
         "cancelacion": "09/10/2025",
@@ -72,11 +79,10 @@
         "email": "carlos.sanchez@gmail.com"
       },
       "reserva": {
+        "tipoSeguro": "Anulación Estancias",
         "ubicacion": "Barcelona",
         "cancelacionHasta": "2025-09-01",
-        "nombreHotel": "Hotel Sol",
         "regimen": "TI",
-        "estrellasHotel": 4,
         "entrada": "06/05/2025",
         "salida": "08/05/2025",
         "cancelacion": "09/10/2025",
@@ -115,11 +121,10 @@
         "email": "maria.gomez@gmail.com"
       },
       "reserva": {
+        "tipoSeguro": "Anulación Estancias",
         "ubicacion": "Barcelona",
         "cancelacionHasta": "2025-09-01",
-        "nombreHotel": "Hotel Playa",
         "regimen": "TI",
-        "estrellasHotel": 4,
         "entrada": "07/10/2025",
         "salida": "07/11/2025",
         "cancelacion": "09/10/2025",
@@ -139,6 +144,7 @@
     },
     {
       "id": 4,
+      "bono": 1,
       "fechaGestion": "08/15/2025",
       "fechaEntrada": "08/15/2025",
       "politicaPago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación.",
@@ -166,11 +172,10 @@
         "email": "pedro.rodriguez@gmail.com"
       },
       "reserva": {
+        "tipoSeguro": "Anulación Estancias",
         "ubicacion": "Barcelona",
         "cancelacionHasta": "2025-09-01",
-        "nombreHotel": "Torres de Serranos",
         "regimen": "TI",
-        "estrellasHotel": 4,
         "entrada": "08/08/2025",
         "salida": "09/08/2025",
         "cancelacion": "09/10/2025",
@@ -190,6 +195,7 @@
     },
     {
       "id": 5,
+      "bono": 1,
       "fechaGestion": "09/01/2025",
       "fechaEntrada": "09/01/2025",
       "politicaPago": "La TOTALIDAD de la reserva debe abonarse antes de las 17.00h del último día laborable a su entrada en gastos. Las reservas entran en gastos a las 00.00h del día indicado por el proveedor, con lo que han de estar abonadas antes de las 17.00h del día anterior a la fecha de entrada en gastos (hora peninsular), en caso contrario la agencia será responsable del pago de dicha reserva o los gastos que conlleve. En caso de que el último día, antes de la entrada en gastos, sea en día festivo (incluído sábados y domingos), el pago se hará el último día laboral. En caso de cancelación se devolverá la parte proporcional según la política de cancelación, tal y como se indica en el apartado política de cancelación.",
@@ -209,11 +215,10 @@
         "email": "ana.lopez@gmail.com"
       },
       "reserva": {
+        "tipoSeguro": "Anulación Estancias",
         "ubicacion": "Barcelona",
         "cancelacionHasta": "2025-09-01",
-        "nombreHotel": "Mediterraneo Palace",
         "regimen": "AD",
-        "estrellasHotel": 4,
         "entrada": "09/10/2025",
         "salida": "10/10/2025",
         "cancelacion": "09/10/2025",
@@ -252,13 +257,12 @@
         "email": "luis.martinez@gmail.com"
       },
       "reserva": {
+        "tipoSeguro": "Anulación Estancias",
         "ubicacion": "Barcelona",
         "cancelacionHasta": "2025-09-01",
-        "nombreHotel": "Hotel Gran Sol",
         "regimen": "TI",
-        "estrellasHotel": 4,
         "entrada": "05/10/2025",
-        "devolducion": "10/10/2025",
+        "salida": "10/10/2025",
         "cancelacion": "09/10/2025",
         "penalizacionCancelacion": 53,
         "dias": 7,

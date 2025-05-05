@@ -16,7 +16,7 @@ function DatosAccionRealizada({ user }) {
         <Datos
           icon={<FaUser className="tw-text-red-400 tw-text-lg tw-w-6 tw-h-6" />}
           title="Nombre completo"
-          value={user?.nombre + " " + user.apellidos}
+          value={user?.nombre + " " + user.apellido}
           cancelada={true}
         />
         <Datos

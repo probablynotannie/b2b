@@ -16,7 +16,9 @@ function Tabla({ datos, detalles, loading }) {
               <th className="tw-px-6 tw-py-3">Confirmación</th>
               <th className="tw-px-6 tw-py-3">Servicio</th>
               <th className="tw-px-6 tw-py-3">Proveedor</th>
-              <th className="tw-px-6 tw-py-3">Cancelación sin coste hasta</th>
+              <th className="tw-px-6 tw-py-3 tw-text-center">
+                Cancelación sin coste hasta
+              </th>
               <th className="tw-px-6 tw-py-3">Bono</th>
               <th className="tw-px-6 tw-py-3">Plataforma</th>
               <th className="tw-px-6 tw-py-3">Tipo</th>
@@ -69,15 +71,17 @@ function Tabla({ datos, detalles, loading }) {
                       {dato.reserva.cancelacionHasta}
                     </td>
                     <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                      <div
-                        className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          alert("El buen pdf de bono =D");
-                        }}
-                      >
-                        <FaFilePdf />
-                      </div>
+                      {dato.bono === 1 && (
+                        <div
+                          className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            alert("El buen pdf de bono =D");
+                          }}
+                        >
+                          <FaFilePdf />
+                        </div>
+                      )}
                     </td>
                     <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
                       <div

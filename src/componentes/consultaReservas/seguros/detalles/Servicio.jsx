@@ -1,56 +1,43 @@
-import { FaCalendar, FaMoon, FaPhone, FaUser } from "react-icons/fa";
-import Estrellas from "../../../../helpers/visuales/Estrellas";
-import {
-  MdEmail,
-  MdMeetingRoom,
-  MdOutlineEmojiFoodBeverage,
-} from "react-icons/md";
-import DatosHotel from "../../../../helpers/visuales/DatoTituloIcono";
+import { FaCalendar, FaFilePdf, FaMoon, FaPhone, FaUser } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+import DatosSeguro from "../../../../helpers/visuales/DatoTituloIcono";
 import Importante from "./Importante";
 function Servicio({ seguro }) {
   return (
     <div>
       <div className="tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-flex tw-justify-between tw-items-center">
         <h2 className="tw-font-bold  tw-text-xl dark:tw-text-slate-100 tw-pb-2">
-          {seguro.reserva.nombreHotel}
+          Servicio ticket
         </h2>
-        <Estrellas estrellas={seguro.reserva.estrellasHotel} />
       </div>
       <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-6 tw-p-4">
-        <DatosHotel
+        <DatosSeguro
+          icon={
+            <FaFilePdf className="tw-text-slate-400 dark:tw-text-slate-500" />
+          }
+          title={"Tipo Seguro"}
+          value={seguro.reserva.tipoSeguro}
+        />
+        <DatosSeguro
           icon={
             <FaCalendar className="tw-text-slate-400 dark:tw-text-slate-500" />
           }
           title={"Entrada"}
           value={seguro.reserva.entrada}
         />
-        <DatosHotel
+        <DatosSeguro
           icon={
             <FaCalendar className="tw-text-slate-400 dark:tw-text-slate-500" />
           }
           title={"Salida"}
           value={seguro.reserva.entrada}
         />
-        <DatosHotel
+        <DatosSeguro
           icon={<FaMoon className="tw-text-slate-400 dark:tw-text-slate-500" />}
           title={"Noches"}
           value={seguro.reserva.dias}
         />
-        <DatosHotel
-          icon={
-            <MdMeetingRoom className="tw-text-slate-400 dark:tw-text-slate-500" />
-          }
-          title={"Habitación"}
-          value={seguro.reserva.habitacion}
-        />
-        <DatosHotel
-          icon={
-            <MdOutlineEmojiFoodBeverage className="tw-text-slate-400 dark:tw-text-slate-500" />
-          }
-          title={"Regimen"}
-          value={seguro.reserva.regimen}
-        />
-        <DatosHotel
+        <DatosSeguro
           icon={<FaUser className="tw-text-slate-400 dark:tw-text-slate-500" />}
           title={"Titular reserva"}
           value={
@@ -59,14 +46,14 @@ function Servicio({ seguro }) {
             seguro.reserva.titularReserva.apellidos
           }
         />
-        <DatosHotel
+        <DatosSeguro
           icon={
             <FaPhone className="tw-text-slate-400 dark:tw-text-slate-500" />
           }
           title={"Téf. titular"}
           value={seguro.reserva.titularReserva.telefono}
         />
-        <DatosHotel
+        <DatosSeguro
           icon={
             <MdEmail className="tw-text-slate-400 dark:tw-text-slate-500" />
           }
