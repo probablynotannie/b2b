@@ -1,9 +1,9 @@
-import { FaCalendarAlt, FaCarSide, FaRoute } from "react-icons/fa";
-function Desglose({ coche }) {
-  const formattedNeto = coche.reserva.importeNeto.toFixed(2) + " €";
-  const formattedPvp = coche.reserva.importePVP.toFixed(2) + " €";
+import { FaCalendarAlt, FaCarSide, FaRoute, FaTrain } from "react-icons/fa";
+function Desglose({ tren }) {
+  const formattedNeto = tren.reserva.importeNeto.toFixed(2) + " €";
+  const formattedPvp = tren.reserva.importePVP.toFixed(2) + " €";
   const items = [
-    { label: "Tipo", value: coche.reserva.tipoReserva },
+    { label: "Tipo", value: tren.reserva.tipoReserva },
     { label: "Neto", value: formattedNeto },
     { label: "PVP", value: formattedPvp },
   ];
@@ -14,27 +14,29 @@ function Desglose({ coche }) {
         <LineaDetalles
           icon={<FaRoute className="tw-text-slate-400 tw-text-lg tw-w-8" />}
           label="Recorrido"
-          value={coche.reserva.recorrido}
+          value={tren.reserva.recorrido}
         />
         <LineaDetalles
-          icon={<FaCarSide className="tw-text-slate-400 tw-text-lg tw-w-8" />}
-          label="Modelo"
-          value={coche.modelo}
-        />
-        <LineaDetalles
-          icon={
-            <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
-          }
-          label="Recogida"
-          value={coche.reserva.recogida}
+          icon={<FaTrain className="tw-text-slate-400 tw-text-lg tw-w-8" />}
+          label={"Tipo"}
+          value={tren.reserva.vuelta ? "Ida y vuelta" : "Solo ida"}
         />
         <LineaDetalles
           icon={
             <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
           }
-          label="Devolución"
-          value={coche.reserva.devolucion}
+          label="Ida"
+          value={tren.reserva.recogida}
         />
+        {tren.reserva.devolucion && (
+          <LineaDetalles
+            icon={
+              <FaCalendarAlt className="tw-text-slate-400 tw-text-lg tw-w-8" />
+            }
+            label="Vuelta"
+            value={tren.reserva.devolucion}
+          />
+        )}
       </div>
       <div className="tw-grid tw-grid-cols-3 tw-bg-white dark:tw-bg-slate-900 tw-rounded-2xl tw-shadow-sm tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-p-4">
         {items.map(({ label, value }, index) => (

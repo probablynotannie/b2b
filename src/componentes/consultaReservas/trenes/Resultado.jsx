@@ -25,10 +25,10 @@ function Trenes() {
     }, 3000);
   }, []);
   const navigate = useNavigate();
-  const detalles = (coche) => {
-    console.log(coche);
-    navigate("/coche/detalles", {
-      state: { coche },
+  const detalles = (tren) => {
+    console.log(tren);
+    navigate("/tren/detalles", {
+      state: { tren },
     });
   };
   useEffect(() => {

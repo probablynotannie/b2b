@@ -5,47 +5,62 @@ import {
   FaTruck,
   FaUser,
 } from "react-icons/fa";
-import DatosCoche from "../../../../helpers/visuales/DatoTituloIcono";
+import { MdCancel } from "react-icons/md";
+import DatosHotel from "../../../../helpers/visuales/DatoTituloIcono";
 import DatosAgencia from "../../../../helpers/visuales/agencia/DatosAgencia";
 
-function Detalles({ coche }) {
+function Detalles({ seguro }) {
   return (
     <>
       <h2 className="tw-font-bold  tw-text-xl  tw-border-b tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-pb-2">
-        Reserva: {coche.localizador}
+        Reserva: {seguro.localizador}
       </h2>
       <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-6 tw-p-4">
-        <DatosCoche
+        <DatosHotel
           icon={<FaClipboardList className="tw-text-indigo-600" />}
           title="Orden"
-          value={coche.orden}
+          value={seguro.orden}
         />
-        <DatosCoche
+        <DatosHotel
           icon={<FaBarcode className="tw-text-pink-600" />}
           title="Localizador"
-          value={coche.localizador}
+          value={seguro.localizador}
         />
-        <DatosCoche
+        <DatosHotel
           icon={<FaCheckCircle className="tw-text-cyan-600" />}
           title="Confirmación"
-          value={coche.confirmacion}
+          value={seguro.confirmacion}
         />
-        <DatosCoche
+        <DatosHotel
           icon={<FaTruck className="tw-text-orange-600" />}
           title="Proveedores"
-          value={coche.proveedores}
+          value={seguro.proveedores}
         />
-        <DatosCoche
+        <DatosHotel
           icon={<FaUser className="tw-text-blue-600" />}
           title="Titular"
-          value={coche.titularReserva}
+          value={seguro.titularReserva}
           className="tw-col-span-2"
         />
+        {seguro.reserva.penalizacionCancelacion && (
+          <DatosHotel
+            icon={<MdCancel className="tw-text-red-600" />}
+            title="Penalización"
+            value={
+              "A partir de " +
+              seguro.reserva.cancelacion +
+              "  " +
+              seguro.reserva.penalizacionCancelacion +
+              "€"
+            }
+            className="tw-col-span-2"
+          />
+        )}
       </div>
       <DatosAgencia
-        nombreAgencia={coche.datosAgencia.agencia}
-        telefonoAgencia={coche.datosAgencia.telefono}
-        emailAgencia={coche.datosAgencia.email}
+        nombreAgencia={seguro.datosAgencia.agencia}
+        telefonoAgencia={seguro.datosAgencia.tel}
+        emailAgencia={seguro.datosAgencia.email}
       />
     </>
   );

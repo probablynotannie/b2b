@@ -10,8 +10,7 @@
       "estado": 2,
       "estadoPago": 1,
       "confirmacion": "2025-09-01",
-      "proveedores": "Cicar",
-      "modelo": "Peugeot 208",
+      "proveedores": "Renfe",
       "titularReserva": "Juan Pérez",
       "datosAgencia": {
         "agencia": "Vpk Desarrollo",
@@ -19,7 +18,51 @@
         "email": "pipupipu@gmail.com"
       },
       "reserva": {
-        "recorrido": "Murcia-Alicante",
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "recorrido": "Murcia - Alicante",
         "recogida": "05/05/2025",
         "devolucion": "05/12/2025",
         "tipoReserva": "B2C",
@@ -37,8 +80,7 @@
       "estado": 0,
       "estadoPago": 0,
       "confirmacion": "2025-09-02",
-      "proveedores": "Avis",
-      "modelo": "Volkswagen Golf",
+      "proveedores": "Renfe",
       "titularReserva": "Carlos Sánchez",
       "datosAgencia": {
         "agencia": "Auto Rent",
@@ -46,6 +88,29 @@
         "email": "carlos.sanchez@gmail.com"
       },
       "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+
         "recorrido": "Madrid-Valencia",
         "recogida": "06/05/2025",
         "devolucion": "08/05/2025",
@@ -64,8 +129,7 @@
       "estado": 1,
       "estadoPago": 1,
       "confirmacion": "2025-09-03",
-      "proveedores": "Europcar",
-      "modelo": "Ford Fiesta",
+      "proveedores": "Renfe",
       "titularReserva": "María Gómez",
       "datosAgencia": {
         "agencia": "Rent A Car",
@@ -73,6 +137,50 @@
         "email": "maria.gomez@gmail.com"
       },
       "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
         "recorrido": "Sevilla-Granada",
         "recogida": "07/10/2025",
         "devolucion": "07/11/2025",
@@ -91,8 +199,7 @@
       "estado": 1,
       "estadoPago": 1,
       "confirmacion": "2025-09-04",
-      "proveedores": "Sixt",
-      "modelo": "BMW 320i",
+      "proveedores": "Renfe",
       "titularReserva": "Pedro Rodríguez",
       "datosAgencia": {
         "agencia": "Global Rent",
@@ -100,9 +207,53 @@
         "email": "pedro.rodriguez@gmail.com"
       },
       "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
         "recorrido": "Barcelona-Madrid",
-        "recogida": "08/08/2025",
-        "devolucion": "09/08/2025",
+        "recogida": "06/06/2025",
+        "devolucion": "06/06/2025",
         "tipoReserva": "B2B",
         "importeNeto": 100.45,
         "importePVP": 120.99
@@ -118,8 +269,7 @@
       "estado": 1,
       "estadoPago": 0,
       "confirmacion": "2025-09-05",
-      "proveedores": "Hertz",
-      "modelo": "Audi A3",
+      "proveedores": "Renfe",
       "titularReserva": "Ana López",
       "datosAgencia": {
         "agencia": "Aero Car Rentals",
@@ -127,6 +277,50 @@
         "email": "ana.lopez@gmail.com"
       },
       "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
         "recorrido": "Valencia-Castellón",
         "recogida": "09/10/2025",
         "devolucion": "10/10/2025",
@@ -145,8 +339,7 @@
       "estado": 2,
       "estadoPago": 1,
       "confirmacion": "2025-09-06",
-      "proveedores": "Cicar",
-      "modelo": "Seat Ibiza",
+      "proveedores": "Renfe",
       "titularReserva": "Luis Martínez",
       "datosAgencia": {
         "agencia": "Auto Rent",
@@ -154,6 +347,29 @@
         "email": "luis.martinez@gmail.com"
       },
       "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+
         "recorrido": "Alicante-Valencia",
         "recogida": "05/10/2025",
         "devolucion": "10/10/2025",
