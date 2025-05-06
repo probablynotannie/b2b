@@ -1,4 +1,4 @@
-import { FaFilePdf } from "react-icons/fa";
+import { FaCheck, FaFilePdf, FaTimes } from "react-icons/fa";
 import Placeholder from "../../_skeleton_placeholders/Tabla";
 import Cajas from "./Cajas";
 function Tabla({ datos, detalles, loading }) {
@@ -13,10 +13,10 @@ function Tabla({ datos, detalles, loading }) {
             <tr>
               <th className="tw-px-6 tw-py-3">Orden</th>
               <th className="tw-px-6 tw-py-3">Localizador</th>
-              <th className="tw-px-6 tw-py-3">Fecha gestión</th>
-              <th className="tw-px-6 tw-py-3">Servicio</th>
+              <th className="tw-px-6 tw-py-3">Fecha servicio</th>
+              <th className="tw-px-6 tw-py-3">Nombre hotel</th>
               <th className="tw-px-6 tw-py-3">Proveedor</th>
-              <th className="tw-py-3 tw-text-center">Bono</th>
+              <th className="tw-px-6 tw-py-3">Fecha gestión</th>
               <th className="tw-py-3 tw-text-center">Estado</th>
             </tr>
           </thead>
@@ -26,23 +26,24 @@ function Tabla({ datos, detalles, loading }) {
             ) : datos.length === 0 ? (
               <tr>
                 <td colSpan="8">
-                 <div className="tw-bg-red-200 dark:tw-bg-red-950 dark:tw-text-red-300 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center">
+                  <div className="tw-bg-red-200 dark:tw-bg-red-950 dark:tw-text-red-300 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center">
                     No se encontraron resultados.
-                  </div>                </td>
+                  </div>{" "}
+                </td>
               </tr>
             ) : (
               datos.map((dato) => {
                 const colorBorde =
                   dato.estado === 1
                     ? "tw-border-green-500"
-                    : dato.estado === 2
-                    ? "tw-border-orange-400"
+                    : dato.estado === 0
+                    ? "tw-border-red-500"
                     : "tw-border-slate-500";
                 const colorTexto =
                   dato.estado === 1
                     ? "tw-text-green-500 dark:tw-text-green-400"
-                    : dato.estado === 2
-                    ? "tw-text-orange-400"
+                    : dato.estado === 0
+                    ? "tw-text-red-400"
                     : "";
                 return (
                   <tr
@@ -59,36 +60,31 @@ function Tabla({ datos, detalles, loading }) {
                       <div className="tw-font-medium dark:tw-text-slate-100">
                         {dato.reserva.recorrido}
                       </div>
-
                       <div className="tw-text-xs tw-text-slate-400 tw-flex tw-gap-1">
-                        {dato.reserva.ida} → {dato.reserva.vuelta}
+                        {dato.reserva.entrada}
                       </div>
                     </td>
-                    <td className="tw-px-6 tw-py-4  tw-text-slate-400">
-                      <img
-                        src={dato.proveedor.logo}
-                        alt="Logo"
-                        className="tw-h-[60px] tw-w-[70px] tw-object-contain"
-                      />
+                    <td className="tw-px-6 tw-py-4 tw-text-slate-400">
+                      {dato.proveedores}
                     </td>
-                    <td className="tw-px-6 tw-py-4 tw-text-center tw-text-slate-400">
-                      <div
-                        className="tw-flex tw-justify-center tw-items-center tw-text-[1.4rem] dark:tw-text-slate-500 hover:dark:tw-text-secondaryDark tw-text-slate-400 hover:tw-text-secondary tw-smooth"
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          alert("El buen pdf =D");
-                        }}
-                      >
-                        <FaFilePdf />
-                      </div>
+                    <td className="tw-px-6 tw-py-4 tw-text-slate-400 hover:tw-text-secondary tw-smooth">
+                      {dato.bono === 1 && <FaFilePdf className="tw-text-xl" />}
                     </td>
-
+                    <td className="tw-py-4 tw-px-1">
+                      {dato.estadoPago === 1 ? (
+                        <FaCheck className="tw-text-green-600 tw-text-lg" />
+                      ) : dato.estadoPago === 0 ? (
+                        <FaTimes className="tw-text-red-500 tw-text-lg" />
+                      ) : (
+                        "Sin datos"
+                      )}
+                    </td>
                     <td
                       className={`tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 tw-px-2 tw-border-r-2 ${colorBorde} ${colorTexto}`}
                     >
                       {dato.estado === 1
-                        ? "Confirmada"
-                        : dato.estado === 2
+                        ? "Disponible"
+                        : dato.estado === 0
                         ? "Cancelada"
                         : "Sin datos"}
                     </td>

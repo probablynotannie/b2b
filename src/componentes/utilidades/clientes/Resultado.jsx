@@ -1,10 +1,9 @@
-import Sidebar from "../_sidebar/Sidebar";
+import Sidebar from "../sidebar/Sidebar";
 import { useState } from "react";
 import { FaTable } from "react-icons/fa";
 import { RiMenuFold4Line } from "react-icons/ri";
 import { FaBox } from "react-icons/fa";
-import Tabla from "./reservas/Tabla";
-import Cajas from "./reservas/Cajas";
+import Tabla from "./Tabla";
 import datos from "./reservas.json";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
@@ -55,40 +54,33 @@ function Resultado() {
                 backgroundPosition: "center",
               }}
             >
-              <div className="tw-w-full tw-h-full tw-relative tw-bg-green-500/40 dark:tw-bg-green-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
+              <div className="tw-w-full tw-h-full tw-relative tw-bg-pink-500/40 dark:tw-bg-pink-900/60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-5 tw-flex tw-items-center tw-justify-center">
                 {open !== true && (
                   <button
                     onClick={() => setOpen(!open)}
-                    className="tw-absolute tw-left-0 tw-hidden lg:tw-flex tw-items-center tw-text-xl tw-p-3 tw-bg-green-600/80 tw-text-white tw-rounded-lg hover:tw-text-secondary dark:tw-text-slate-300 hover:dark:tw-text-secondaryDark tw-smooth tw-gap-1 tw-m-5"
+                    className="tw-absolute tw-left-0 tw-hidden lg:tw-flex tw-items-center tw-text-xl tw-p-3 tw-bg-pink-600/80 tw-text-white tw-rounded-lg hover:tw-text-pink-200 dark:tw-text-slate-300 hover:dark:tw-text-pink-200 tw-smooth tw-gap-1 tw-m-5"
                   >
                     <RiMenuFold4Line />
                   </button>
                 )}
-                <h1 className="tw-text-7xl tw-text-white tw-font-bold tw-font-sans">
-                  Reserva de los hotel + vuelo
+                <h1 className="tw-text-4xl xl:tw-text-7xl tw-text-white tw-font-bold tw-font-sans">
+                  Clientes de agencia
                 </h1>
               </div>
             </div>
-            <div className="tw-flex tw-items-center tw-justify-between tw-mt-2 tw-border-b tw-border-slate-100 dark:tw-border-slate-700  tw-pb-5">
+            <div className="tw-flex tw-items-center tw-justify-between tw-mt-5 tw-border-b tw-border-slate-100 dark:tw-border-slate-700  tw-pb-5">
               <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
                 Listado
               </h2>
               <div className="tw-hidden md:tw-flex tw-gap-2 tw-items-center">
-                <button
-                  onClick={() => setTipo("tabla")}
-                  className={`hover:tw-scale-105 tw-smooth ${
-                    tipo === "tabla" ? "tw-text-secondary" : "tw-text-slate-300"
-                  }`}
-                >
-                  <FaTable />
+                <button className="tw-bg-slate-500/80 dark:tw-bg-slate-800 hover:tw-bg-pink-600 dark:hover:tw-bg-pink-600 tw-smooth tw-p-2 tw-rounded-lg tw-text-white tw-font-bold">
+                  Excel
                 </button>
-                <button
-                  onClick={() => setTipo("cajas")}
-                  className={`hover:tw-scale-105 tw-smooth ${
-                    tipo === "cajas" ? "tw-text-secondary" : "tw-text-slate-300"
-                  }`}
-                >
-                  <FaBox />
+                <button className="tw-bg-slate-500/80 dark:tw-bg-slate-800 hover:tw-bg-pink-600 dark:hover:tw-bg-pink-600 tw-smooth tw-p-2 tw-rounded-lg tw-text-white tw-font-bold">
+                  Nuevo
+                </button>
+                <button className="tw-bg-slate-500/80 dark:tw-bg-slate-800 hover:tw-bg-pink-600 dark:hover:tw-bg-pink-600 tw-smooth tw-p-2 tw-rounded-lg tw-text-white tw-font-bold">
+                  Editar
                 </button>
               </div>
             </div>
@@ -131,17 +123,8 @@ function Resultado() {
                 <option value="confirmacion">Confirmación</option>
               </select>
             </div>
-            {tipo === "tabla" ? (
-              <>
-                <Tabla
-                  datos={filtrados}
-                  detalles={detalles}
-                  loading={loading}
-                />
-              </>
-            ) : (
-              <Cajas datos={filtrados} detalles={detalles} loading={loading} />
-            )}
+
+            <Tabla datos={filtrados} detalles={detalles} loading={loading} />
           </section>
         </div>
       </div>

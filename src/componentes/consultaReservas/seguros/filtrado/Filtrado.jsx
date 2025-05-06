@@ -48,7 +48,7 @@ function Filtrado({
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
-          Filtros de reservas de hoteles
+          Filtros de reservas de seguros
           <span className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
@@ -149,7 +149,7 @@ function Filtrado({
         <div className="tw-w-full">
           <div className="tw-flex tw-items-center tw-justify-between">
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-              Reservas de hoteles
+              Reservas de seguros
             </h2>
             <button
               className="tw-text-slate-500 hover:tw-text-slate-800 tw-smooth tw-text-sm"

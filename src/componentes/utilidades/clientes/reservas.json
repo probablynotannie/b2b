@@ -1,0 +1,34 @@
+{
+  "reservas": [
+    {
+      "nombre": "Juan",
+      "apellidos": "Perez",
+      "email": "juanperez123@gmail.com",
+      "telefono": "123456789"
+    },
+    {
+      "nombre": "Maria",
+      "apellidos": "Lopez",
+      "email": "marialopez456@gmail.com",
+      "telefono": "987654321"
+    },
+    {
+      "nombre": "Carlos",
+      "apellidos": "Ramirez",
+      "email": "carlosramirez789@gmail.com",
+      "telefono": "456123789"
+    },
+    {
+      "nombre": "Ana",
+      "apellidos": "Gomez",
+      "email": "anagomez321@gmail.com",
+      "telefono": "321654987"
+    },
+    {
+      "nombre": "Luis",
+      "apellidos": "Martinez",
+      "email": "luismartinez234@gmail.com",
+      "telefono": "741852963"
+    }
+  ]
+}

@@ -3,9 +3,9 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "../estructura/Navbar";
 import Landing from "../Landing";
 /* MENU */
-import Clientes from "../utilidades/Clientes";
-import Presupuestos from "../utilidades/Presupuestos";
-import EnvioPresupuestos from "../utilidades/EnvioPresupuestos";
+import Clientes from "../utilidades/clientes/Resultado";
+import Presupuestos from "../utilidades/presupuestos/Resultado";
+import EnvioPresupuestos from "../utilidades/envioPresupuestos/Resultado";
 /* MOTORES */
 import Busqueda_Hoteles from "../motores/Hoteles";
 import Busqueda_Destinos from "../motores/Destinos";
