@@ -1,4 +1,3 @@
-import { FaCheck, FaTimes } from "react-icons/fa";
 import Placeholder from "../placeholder/Tabla";
 function Tabla({ datos, detalles, loading }) {
   return (
@@ -31,11 +30,11 @@ function Tabla({ datos, detalles, loading }) {
                     className="tw-cursor-pointer odd:tw-bg-white odd:dark:tw-bg-slate-900 even:tw-bg-slate-50 even:dark:tw-bg-slate-800 tw-border-b dark:tw-border-slate-700 tw-border-slate-200 tw-transition hover:tw-bg-slate-100 dark:hover:tw-bg-slate-950"
                   >
                     <td className={`tw-px-6 tw-py-4 tw-font-bold`}>
-                      {dato.nombre}
+                      
                     </td>
-                    <td className="tw-px-6 tw-py-4">{dato.apellidos}</td>
-                    <td className="tw-px-6 tw-py-4">{dato.email}</td>
-                    <td className="tw-px-6 tw-py-4">{dato.telefono}</td>
+                    <td className="tw-px-6 tw-py-4"></td>
+                    <td className="tw-px-6 tw-py-4"></td>
+                    <td className="tw-px-6 tw-py-4"></td>
                   </tr>
                 );
               })

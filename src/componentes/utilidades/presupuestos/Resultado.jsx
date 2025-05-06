@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 function Resultado() {
   const [open, setOpen] = useState(true);
-  const [tipo, setTipo] = useState("tabla");
   const [filtrados, setFiltrados] = useState(datos);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);

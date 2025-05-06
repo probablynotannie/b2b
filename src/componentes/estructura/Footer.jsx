@@ -1,3 +1,6 @@
+import { FaPhone } from "react-icons/fa";
+import { MdEmail } from "react-icons/md";
+
 function FooterComponent() {
   return (
     <footer className="tw-bg-slate-100 dark:tw-bg-slate-800 tw-px-10">
@@ -22,8 +25,16 @@ function FooterComponent() {
           </div>
         </div>
         <div className="tw-my-4 tw-border-t tw-border-slate-300 dark:tw-border-slate-600"></div>
-        <div className="tw-text-slate-600 dark:tw-text-slate-300">
-          <span>© 2024 DitGestion</span>
+        <div className="tw-text-slate-400 dark:tw-text-slate-300">
+          <span>Copyright © 2025 HAIKU TRAVEL. All Rights Reserved</span>
+        </div>
+        <div className="tw-flex tw-justify-center tw-gap-2 tw-text-sm">
+          <div className="tw-flex tw-items-center tw-justify-center tw-gap-1 tw-text-slate-800 dark:tw-text-slate-300">
+            <MdEmail /> info@haikutravel.es
+          </div>
+          <div className="tw-flex tw-items-center tw-justify-center tw-gap-1 tw-text-slate-800 dark:tw-text-slate-300">
+            <FaPhone /> 943000995
+          </div>
         </div>
       </div>
     </footer>

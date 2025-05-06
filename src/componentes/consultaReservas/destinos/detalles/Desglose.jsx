@@ -1,4 +1,5 @@
 import { FaCalendarAlt, FaHotel, FaRoute } from "react-icons/fa";
+import InfoBox from "../../../../helpers/visuales/DatoTituloIcono";
 function Desglose({ destino }) {
   const formattedNeto = destino.reserva.importeNeto.toFixed(2) + " €";
   const formattedPvp = destino.reserva.importePVP.toFixed(2) + " €";
@@ -10,26 +11,26 @@ function Desglose({ destino }) {
   return (
     <div className="tw-my-6 tw-space-y-4">
       <div className="tw-grid tw-grid-cols-2 tw-gap-3">
-        <LineaDetalles
+        <InfoBox
           icon={<FaRoute className="tw-text-pink-400 tw-text-[1.2rem]" />}
-          label="Recorrido"
+          title="Recorrido"
           value={destino.reserva.recorrido}
         />
-        <LineaDetalles
+        <InfoBox
           icon={<FaHotel className="tw-text-blue-400 tw-text-[1.2rem]" />}
-          label="Opcion"
+          title="Opcion"
           value={destino.reserva.opcion}
         />
-        <LineaDetalles
+        <InfoBox
           icon={
             <FaCalendarAlt className="tw-text-orange-400 tw-text-[1.2rem]" />
           }
-          label="Recogida"
+          title="Recogida"
           value={destino.reserva.ida}
         />
-        <LineaDetalles
+        <InfoBox
           icon={<FaCalendarAlt className="tw-text-cyan-500 tw-text-[1.2rem]" />}
-          label="Devolución"
+          title="Devolución"
           value={destino.reserva.vuelta}
         />
       </div>
@@ -56,20 +57,5 @@ function Desglose({ destino }) {
   );
 }
 
-function LineaDetalles({ icon, label, value }) {
-  return (
-    <div className="tw-flex tw-items-center tw-gap-3">
-      {icon}
-      <div>
-        <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-          {label}
-        </p>
-        <p className="tw-font-medium tw-text-sm tw-text-slate-800 dark:tw-text-white">
-          {value}
-        </p>
-      </div>
-    </div>
-  );
-}
 
 export default Desglose;

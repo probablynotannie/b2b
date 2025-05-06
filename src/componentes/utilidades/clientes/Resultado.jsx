@@ -1,15 +1,12 @@
 import Sidebar from "../sidebar/Sidebar";
 import { useState } from "react";
-import { FaTable } from "react-icons/fa";
 import { RiMenuFold4Line } from "react-icons/ri";
-import { FaBox } from "react-icons/fa";
 import Tabla from "./Tabla";
 import datos from "./reservas.json";
 import { useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 function Resultado() {
   const [open, setOpen] = useState(true);
-  const [tipo, setTipo] = useState("tabla");
   const [filtrados, setFiltrados] = useState(datos);
   const [search, setSearch] = useState("");
   const [loading, setLoading] = useState(true);
