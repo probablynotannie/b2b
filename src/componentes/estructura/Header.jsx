@@ -128,6 +128,7 @@ import Detalles_Reserva_Hotel from "../consultaReservas/hoteles/detalles/Hotel";
 import Detalles_Reserva_Ticket from "../consultaReservas/tickets/detalles/Ticket";
 import Detalles_Reserva_Tren from "../consultaReservas/trenes/detalles/Tren";
 import Detalles_Reserva_Seguro from "../consultaReservas/seguros/detalles/Seguro";
+import Detalles_Reserva_VueloMasHotel from "../consultaReservas/vuelomashotel/detalles/VueloMasHotel";
 
 /* MANTINE */
 import "@mantine/core/styles.css";
@@ -193,6 +194,10 @@ function Header() {
         <Route path="ticket/detalles" element={<Detalles_Reserva_Ticket />} />
         <Route path="tren/detalles" element={<Detalles_Reserva_Tren />} />
         <Route path="seguro/detalles" element={<Detalles_Reserva_Seguro />} />
+        <Route
+          path="vuelo+hotel/detalles"
+          element={<Detalles_Reserva_VueloMasHotel />}
+        />
 
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />

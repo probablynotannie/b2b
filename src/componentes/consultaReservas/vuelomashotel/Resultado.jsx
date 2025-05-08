@@ -30,13 +30,13 @@ function Resultado() {
   }, [search]);
   const navigate = useNavigate();
   const detalles = (destino) => {
-    navigate("/ticket/detalles", {
+    navigate("/vuelo+hotel/detalles", {
       state: { destino },
     });
   };
 
   return (
-    <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
+    <article className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar open={open} setOpen={setOpen} />
       <div
         className={`${

@@ -1,4 +1,4 @@
-import { FaCheck, FaFilePdf, FaTimes } from "react-icons/fa";
+import { FaCheck, FaFilePdf, FaHotel, FaTimes } from "react-icons/fa";
 import Placeholder from "../../_skeleton_placeholders/Tabla";
 import Cajas from "./Cajas";
 function Tabla({ datos, detalles, loading }) {
@@ -57,8 +57,12 @@ function Tabla({ datos, detalles, loading }) {
                     <td className="tw-px-6 tw-py-4">{dato.localizador}</td>
                     <td className="tw-px-6 tw-py-4">{dato.confirmacion}</td>
                     <td className="tw-px-6 tw-py-4">
-                      <div className="tw-font-medium dark:tw-text-slate-100">
-                        {dato.reserva.recorrido}
+                      <div className="tw-font-medium dark:tw-text-slate-100 tw-flex tw-flex-col">
+                        <span>{dato.reserva.recorrido}</span>
+                        <span className="dark:tw-text-slate-400 tw-flex tw-items-center tw-gap-1">
+                          <FaHotel className="tw-text-secondary dark:tw-text-secondary" />
+                          {dato.reserva.hotel}
+                        </span>
                       </div>
                       <div className="tw-text-xs tw-text-slate-400 tw-flex tw-gap-1">
                         {dato.reserva.entrada}
@@ -68,22 +72,14 @@ function Tabla({ datos, detalles, loading }) {
                       {dato.proveedores}
                     </td>
                     <td className="tw-px-6 tw-py-4 tw-text-slate-400 hover:tw-text-secondary tw-smooth">
-                      {dato.bono === 1 && <FaFilePdf className="tw-text-xl" />}
+                      {dato.fechaGestion}
                     </td>
-                    <td className="tw-py-4 tw-px-1">
-                      {dato.estadoPago === 1 ? (
-                        <FaCheck className="tw-text-green-600 tw-text-lg" />
-                      ) : dato.estadoPago === 0 ? (
-                        <FaTimes className="tw-text-red-500 tw-text-lg" />
-                      ) : (
-                        "Sin datos"
-                      )}
-                    </td>
+
                     <td
                       className={`tw-font-bold tw-text-center tw-text-xs md:tw-text-sm tw-py-2 tw-px-2 tw-border-r-2 ${colorBorde} ${colorTexto}`}
                     >
                       {dato.estado === 1
-                        ? "Disponible"
+                        ? "Confirmada"
                         : dato.estado === 0
                         ? "Cancelada"
                         : "Sin datos"}

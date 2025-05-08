@@ -30,7 +30,6 @@ function DatosAgencia({ nombreAgencia, telefonoAgencia, emailAgencia }) {
     </div>
   );
 }
-
 function Info({ icon, value }) {
   return (
     <div className="tw-flex tw-flex-col tw-items-center">
