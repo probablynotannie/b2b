@@ -2,6 +2,7 @@ import { Route, Routes } from "react-router-dom";
 /* ESTRUCTURA */
 import Navbar from "../estructura/Navbar";
 import Landing from "../Landing";
+import Notificaciones from "../Notificaciones";
 /* MENU */
 import Clientes from "../utilidades/clientes/Resultado";
 import Presupuestos from "../utilidades/presupuestos/Resultado";
@@ -139,10 +140,12 @@ function Header() {
     <>
       <Navbar />
       <Routes>
-        {/* Cruceros */}
-        <Route path="/cruceros" element={<Cruceros />} />
-        {/* MOTORES */}
+        {/* Otros componentes */}
         <Route path="/" element={<Landing />} />
+        <Route path="/notificaciones" element={<Notificaciones />} />
+
+        {/* MOTORES */}
+        <Route path="/cruceros" element={<Cruceros />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/coches" element={<Busqueda_Coches />} />
         <Route path="/transfers" element={<Busqueda_Transfers />} />

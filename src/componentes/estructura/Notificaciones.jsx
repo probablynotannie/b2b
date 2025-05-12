@@ -1,7 +1,8 @@
 import { useState } from "react";
 import { Popover } from "flowbite-react";
 import { CiBellOn } from "react-icons/ci";
-
+import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 function Notificaciones() {
   const [notificaciones, setNotificaciones] = useState([
     {
@@ -31,7 +32,13 @@ function Notificaciones() {
       fecha: "Hace 2 días",
     },
   ]);
+  const navigate = useNavigate();
 
+  const MostrarNotificaciones = () => {
+    navigate("/notificaciones", {
+      state: {},
+    });
+  };
   return (
     <Popover
       aria-labelledby="notificaciones-popover"
@@ -73,6 +80,11 @@ function Notificaciones() {
                 No tienes notificaciones nuevas.
               </p>
             )}
+            <button
+            onClick={MostrarNotificaciones}
+            className="tw-btn_accesorios tw-btn_primario tw-w-full">
+              Mostrar todos
+            </button>
           </div>
         </div>
       }
