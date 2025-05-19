@@ -7,7 +7,6 @@ import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
-
 const customIconUrl = "/logos/hotel.png";
 const MapaHoteles = ({ hoteles }) => {
   const markersRef = useRef({});
@@ -21,14 +20,13 @@ const MapaHoteles = ({ hoteles }) => {
       }, 300);
     }
   }, [showMapOnly]);
-
   const handleHotelHover = (hotel) => {
     const marker = markersRef.current[hotel.id];
     if (marker) {
       marker.openPopup();
     }
   };
-
+  
   const handleHotelLeave = (hotel) => {
     const marker = markersRef.current[hotel.id];
     if (marker) {

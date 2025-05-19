@@ -91,7 +91,7 @@ function Detalles() {
               </>
             )}
           </main>
-          )}
+          )
         </>
       ) : (
         <>

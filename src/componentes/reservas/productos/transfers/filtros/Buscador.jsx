@@ -9,7 +9,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 function Buscador() {
   const navigate = useNavigate();
-
+  const [lugarEntrega, setLugarEntrega] = useState(false);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -90,25 +90,40 @@ function Buscador() {
             className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
           >
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Buscador
-                required={true}
-                control={control}
-                name={"origin"}
-                setValue={setValue}
-                placeholder={"Origen"}
-                destinos={destinos}
-              />
+              <div className="tw-flex tw-flex-col">
+                <Input_Buscador
+                  required={true}
+                  control={control}
+                  name={"origen"}
+                  setValue={setValue}
+                  placeholder={"Origen"}
+                  destinos={destinos}
+                />
+                <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+                  <input
+                    onChange={(e) => setLugarEntrega(e.target.checked)}
+                    type="checkbox"
+                    className="tw-text-secondary dark:tw-text-secondaryDark"
+                  />
+                  <span className="tw-text-slate-500">
+                    Devolver en el mismo lugar
+                  </span>
+                </div>
+              </div>
             </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Buscador
-                required={true}
-                control={control}
-                name={"destination"}
-                setValue={setValue}
-                placeholder={"Destino"}
-                destinos={destinos}
-              />
-            </div>
+            {lugarEntrega === false && (
+              <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
+                <Input_Buscador
+                  required={true}
+                  control={control}
+                  name={"destination"}
+                  setValue={setValue}
+                  placeholder={"Destino"}
+                  destinos={destinos}
+                />
+              </div>
+            )}
+
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_DateRangeMobile
                 control={control}
@@ -166,26 +181,46 @@ function Buscador() {
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
-            <Input_Buscador
-              required={true}
-              control={control}
-              name={"origin"}
-              setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-            />
+          <div
+            className={`${
+              lugarEntrega === false
+                ? "tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2"
+                : "lg:tw-col-span-6 xl:tw-col-span-4"
+            }`}
+          >
+            <div className={`${lugarEntrega === false ? "" : "tw-col-span-2"}`}>
+              <Input_Buscador
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
+                destinos={destinos}
+              />
+              <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+                <input
+                  onChange={(e) => setLugarEntrega(e.target.checked)}
+                  type="checkbox"
+                  className="tw-text-secondary dark:tw-text-secondaryDark"
+                />
+                <span className="tw-text-slate-500">
+                  Devolver en el mismo lugar
+                </span>
+              </div>
+            </div>
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2 2xl:tw-col-span-2">
-            <Input_Buscador
-              required={true}
-              control={control}
-              name={"destination"}
-              setValue={setValue}
-              placeholder={"Destino"}
-              destinos={destinos}
-            />
-          </div>
+          {lugarEntrega === false && (
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2">
+              <Input_Buscador
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
+              />
+            </div>
+          )}
           <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-2">
             <Input_DateRange
               control={control}

@@ -18,7 +18,8 @@ function Coches() {
             <Buscador_Coches />
           </div>
         </div>
-        <Destacados />
+               <Destacados columnas={4} filas={2} />
+
       </div>
     </article>
   );

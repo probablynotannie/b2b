@@ -1,43 +1,58 @@
-function Destacados() {
+function Destacados({ columnas, filas, max }) {
   const destacados = [
     {
       id: 0,
-      destino: "Barcelona centro",
+      destino: "Barcelona - Madrid",
+      miniDescripcion: "",
       img: "/transfers/barcelona.jpg",
     },
     {
       id: 1,
-      destino: "Madrid centro",
+      destino: "San Sebastian - Madrid",
+      miniDescripcion: "15/06/2025 - 25/06/2025",
       img: "/transfers/madrid.jpg",
     },
     {
       id: 2,
-      destino: "Sevilla centro",
+      destino: "Bilbao - Amsterdam",
+      miniDescripcion: "10/07/2025 - 25/07/2025",
+
       img: "/transfers/sevilla.jpg",
     },
     {
       id: 3,
-      destino: "Valencia centro",
+      destino: "Bilbao - Madrid",
+      miniDescripcion: "08/06/2025 - 15/06/2025",
+
       img: "/transfers/valencia.jpg",
     },
     {
       id: 4,
-      destino: "Barcelona Aeropuerto",
+      destino: "Barcelona - Islas canarias",
+      miniDescripcion: "18/06/2025 - 22/06/2025",
+
       img: "/transfers/barcelona.jpg",
     },
     {
       id: 5,
-      destino: "Madrid Aeropuerto",
+      destino: "Madrid - Islas canarias",
+      miniDescripcion: "19/06/2025 - 25/06/2025",
+
       img: "/transfers/madrid.jpg",
     },
   ];
+
+  const maxItems = columnas * filas;
   return (
     <div className="tw-p-5 tw-mt-5">
       <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">
         Búsqueda rápida
       </h2>
-      <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 tw-mt-4">
-        {destacados.map((destacado) => (
+      <div
+        className="tw-grid tw-gap-5 tw-mt-4 tw-grid-cols-1 md:tw-grid-cols-[var(--columnas)] tw-flex-nowrap"
+        style={{ "--columnas": `repeat(${columnas}, minmax(0, 1fr))` }}
+      >
+        {destacados.slice(0, max ? max : maxItems).map((destacado) => (
           <div
             key={destacado.id}
             className="tw-relative tw-group tw-rounded-lg tw-overflow-hidden tw-shadow-md tw-smooth tw-cursor-pointer"
@@ -50,9 +65,12 @@ function Destacados() {
             />
             <div className="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-bg-opacity-60 group-hover:tw-bg-opacity-70 tw-smooth tw-flex tw-items-center tw-justify-center">
               <div className="tw-text-white tw-text-center tw-px-3">
-                <h3 className="tw-text-2xl tw-font-semibold">
+                <h3 className="tw-text-3xl tw-font-semibold">
                   {destacado.destino}
                 </h3>
+                <span className="tw-font-semibold">
+                  {destacado.miniDescripcion}
+                </span>
               </div>
             </div>
           </div>

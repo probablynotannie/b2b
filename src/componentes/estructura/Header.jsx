@@ -21,7 +21,6 @@ import Busqueda_Entradas from "../motores/Entradas";
 import Busqueda_Ferris from "../motores/Ferris";
 import Busqueda_Trenes from "../motores/Trenes";
 import Busqueda_Seguros from "../motores/Seguros";
-
 import Busqueda_Vuelos from "../motores/Vuelos";
 import Busqueda_Circuitos from "../motores/Circuitos";
 /* LISTADOS */
@@ -110,7 +109,6 @@ import ResumenSeguro from "../reservas/productos/seguro/final/ResumenFinal";
 import ResumenTickets from "../reservas/productos/tickets/final/ResumenFinal";
 import ResumenTren from "../reservas/productos/trenes/final/ResumenFinal";
 import ResumenVuelo from "../reservas/productos/vuelos/final/ResumenFinal";
-
 /* Consultar las reservas */
 import Listado_reservas_hoteles from "../consultaReservas/hoteles/Resultado";
 import Listado_reservas_coches from "../consultaReservas/coches/Resultado";
@@ -120,7 +118,6 @@ import Listado_reservas_seguros from "../consultaReservas/seguros/Resultado";
 import Listado_reservas_tickets from "../consultaReservas/tickets/Resultado";
 import Listado_reservas_trenes from "../consultaReservas/trenes/Resultado";
 import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Resultado";
-
 /* Detalles reserva */
 import Detalles_Reserva_Coche from "../consultaReservas/coches/detalles/Coche";
 import Detalles_Reserva_Destino from "../consultaReservas/destinos/detalles/Destino";
@@ -130,7 +127,6 @@ import Detalles_Reserva_Ticket from "../consultaReservas/tickets/detalles/Ticket
 import Detalles_Reserva_Tren from "../consultaReservas/trenes/detalles/Tren";
 import Detalles_Reserva_Seguro from "../consultaReservas/seguros/detalles/Seguro";
 import Detalles_Reserva_VueloMasHotel from "../consultaReservas/vuelomashotel/detalles/VueloMasHotel";
-
 /* MANTINE */
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -143,7 +139,6 @@ function Header() {
         {/* Otros componentes */}
         <Route path="/" element={<Landing />} />
         <Route path="/notificaciones" element={<Notificaciones />} />
-
         {/* MOTORES */}
         <Route path="/cruceros" element={<Cruceros />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />

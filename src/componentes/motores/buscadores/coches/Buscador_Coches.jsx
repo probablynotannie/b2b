@@ -11,7 +11,8 @@ import { useNavigate } from "react-router-dom";
 function Buscador_Coches() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [lugarEntrega, setLugarEntrega] = useState(false);
+  console.log(lugarEntrega);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -76,22 +77,35 @@ function Buscador_Coches() {
             <div className="tw-p-3">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
-                  <Input_Destinos
-                    required={true}
-                    control={control}
-                    name={"origen"}
-                    setValue={setValue}
-                    placeholder={"Origen"}
-                    destinos={destinos}
-                  />
-                  <Input_Destinos
-                    required={true}
-                    control={control}
-                    name={"destino"}
-                    setValue={setValue}
-                    placeholder={"Destino"}
-                    destinos={destinos}
-                  />
+                  <div className="tw-flex tw-flex-col">
+                    <Input_Destinos
+                      required={true}
+                      control={control}
+                      name={"origen"}
+                      setValue={setValue}
+                      placeholder={"Origen"}
+                      destinos={destinos}
+                    />
+                    <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+                      <input
+                        type="checkbox"
+                        className="tw-text-secondary dark:tw-text-secondaryDark"
+                      />
+                      <span className="tw-text-slate-500">
+                        Devolver en el mismo lugar
+                      </span>
+                    </div>
+                  </div>
+                  {lugarEntrega === false && (
+                    <Input_Destinos
+                      required={true}
+                      control={control}
+                      name={"destino"}
+                      setValue={setValue}
+                      placeholder={"Destino"}
+                      destinos={destinos}
+                    />
+                  )}
                   <Input_DateRangeMobile
                     control={control}
                     nameStartDate="startDate"
@@ -139,23 +153,38 @@ function Buscador_Coches() {
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Coches
           </h2>
-          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Destinos
-              required={true}
-              control={control}
-              name={"origen"}
-              setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-            />
-            <Input_Destinos
-              required={true}
-              control={control}
-              name={"destino"}
-              setValue={setValue}
-              placeholder={"Destino"}
-              destinos={destinos}
-            />
+          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4 tw-items-start">
+            <div className={`${lugarEntrega === false ? "" : "tw-col-span-2"}`}>
+              <Input_Destinos
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
+                destinos={destinos}
+              />
+              <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+                <input
+                  onChange={(e) => setLugarEntrega(e.target.checked)}
+                  type="checkbox"
+                  className="tw-text-secondary dark:tw-text-secondaryDark"
+                />
+                <span className="tw-text-slate-500">
+                  Devolver en el mismo lugar
+                </span>
+              </div>
+            </div>
+            {lugarEntrega === false && (
+              <Input_Destinos
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
+              />
+            )}
+
             <Input_DateRange
               control={control}
               nameFecha="startDate"

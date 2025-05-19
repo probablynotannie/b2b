@@ -42,7 +42,7 @@ function Cruceros() {
         </div>
       </div>
       <section className="tw-col-span-10 tw-mt-5">
-        <Destacados setRequestData={setRequestData} />
+        <Destacados setRequestData={setRequestData} columnas={4} filas={2} />
       </section>
     </article>
   );

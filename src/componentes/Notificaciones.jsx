@@ -69,8 +69,7 @@ const notificacionesData = [
 
 function Notificaciones() {
   const [seleccionada, setSeleccionada] = useState(null);
-
-  const handleSelect = (n) => setSeleccionada(n);
+  const handleSelect = (n) => setSeleccionada();
   const handleBack = () => setSeleccionada(null);
 
   return (

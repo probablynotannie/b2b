@@ -18,7 +18,7 @@ function Destinos() {
             <Buscador_Destinos />
           </div>
         </div>
-        <Destacados />
+        <Destacados columnas={3} filas={1} />
       </div>
     </article>
   );

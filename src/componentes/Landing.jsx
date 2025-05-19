@@ -80,7 +80,7 @@ function Landing() {
   ];
 
   return (
-    <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-w-full tw-gap-0.5 tw-flex-grow lg:-tw-mb-16">
+    <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 tw-w-full tw-gap-0.5 tw-flex-grow">
       {imagenes.map((img, index) => (
         <div
           key={index}

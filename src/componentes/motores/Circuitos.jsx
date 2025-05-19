@@ -18,7 +18,8 @@ function Circuitos() {
             <Buscador_Circuitos />
           </div>
         </div>
-        <Destacados />
+            <Destacados columnas={4} filas={2} />
+
       </div>
     </article>
   );

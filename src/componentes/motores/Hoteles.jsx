@@ -18,7 +18,8 @@ function Hoteles() {
             <Buscador_Hoteles />
           </div>
         </div>
-        <Destacados />
+              <Destacados columnas={4} filas={2} />
+
       </div>
     </article>
   );

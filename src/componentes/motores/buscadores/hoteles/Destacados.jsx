@@ -1,51 +1,55 @@
-import { FaPerson, FaClock } from "react-icons/fa6";
-function Destacados() {
-  const getAdjustedTime = () => {
-    const now = new Date();
-    now.setMinutes(now.getMinutes() + 30);
-    return now.toLocaleTimeString("es-ES", {
-      hour: "2-digit",
-      minute: "2-digit",
-      hour12: false,
-    });
-  };
+function Destacados({ columnas, filas }) {
   const destacados = [
     {
       id: 0,
-      destino: "Barcelona centro",
+      destino: "Barcelona",
+      mes: "Mayo",
       img: "/transfers/barcelona.jpg",
     },
     {
       id: 1,
-      destino: "Madrid centro",
+      destino: "Madrid",
+      mes: "Junio",
       img: "/transfers/madrid.jpg",
     },
     {
       id: 2,
-      destino: "Sevilla centro",
+      destino: "Sevilla",
+      mes: "Junio",
       img: "/transfers/sevilla.jpg",
     },
     {
       id: 3,
-      destino: "Valencia centro",
+      destino: "Egipto",
+      mes: "Agosto",
       img: "/transfers/valencia.jpg",
     },
     {
       id: 4,
-      destino: "Barcelona Aeropuerto",
+      destino: "África",
+      mes: "Diciembre",
       img: "/transfers/barcelona.jpg",
     },
     {
       id: 5,
-      destino: "Madrid Aeropuerto",
+      destino: "Islas Canarias",
+      mes: "Septiembre",
       img: "/transfers/madrid.jpg",
     },
   ];
+
+  const maxItems = columnas * filas;
+
   return (
     <div className="tw-p-5 tw-mt-5">
-      <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">Búsqueda rápida</h2>
-      <div className="tw-grid tw-grid-cols-1 sm:tw-grid-cols-2 md:tw-grid-cols-3 tw-gap-5 tw-mt-4">
-        {destacados.map((destacado) => (
+      <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">
+        Búsqueda rápida
+      </h2>
+      <div
+        className="tw-grid tw-gap-5 tw-mt-4"
+        style={{ gridTemplateColumns: `repeat(${columnas}, minmax(0, 1fr))` }}
+      >
+        {destacados.slice(0, maxItems).map((destacado) => (
           <div
             key={destacado.id}
             className="tw-relative tw-group tw-rounded-lg tw-overflow-hidden tw-shadow-md tw-smooth tw-cursor-pointer"
@@ -58,9 +62,10 @@ function Destacados() {
             />
             <div className="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-bg-opacity-60 group-hover:tw-bg-opacity-70 tw-smooth tw-flex tw-items-center tw-justify-center">
               <div className="tw-text-white tw-text-center tw-px-3">
-                <h3 className="tw-text-2xl tw-font-semibold">
+                <h3 className="tw-text-3xl tw-font-semibold">
                   {destacado.destino}
                 </h3>
+                <span className="tw-font-semibold">{destacado.mes}</span>
               </div>
             </div>
           </div>

@@ -10,7 +10,7 @@ import { useForm } from "react-hook-form";
 function Buscador_Transfers() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [lugarEntrega, setLugarEntrega] = useState(false);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -79,20 +79,36 @@ function Buscador_Transfers() {
                   Buscador de Transfers
                 </h2>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
-                  <Input_Destinos
-                    control={control}
-                    name={"origin"}
-                    setValue={setValue}
-                    placeholder={"Origen"}
-                    destinos={destinos}
-                  />
-                  <Input_Destinos
-                    control={control}
-                    name={"destination"}
-                    setValue={setValue}
-                    placeholder={"Destino"}
-                    destinos={destinos}
-                  />
+                  <div className="tw-flex tw-flex-col">
+                    <Input_Destinos
+                      required={true}
+                      control={control}
+                      name={"origen"}
+                      setValue={setValue}
+                      placeholder={"Origen"}
+                      destinos={destinos}
+                    />
+                    <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+                      <input
+                        onChange={(e) => setLugarEntrega(e.target.checked)}
+                        type="checkbox"
+                        className="tw-text-secondary dark:tw-text-secondaryDark"
+                      />
+                      <span className="tw-text-slate-500">
+                        Devolver en el mismo lugar
+                      </span>
+                    </div>
+                  </div>
+                  {lugarEntrega === false && (
+                    <Input_Destinos
+                      required={true}
+                      control={control}
+                      name={"destino"}
+                      setValue={setValue}
+                      placeholder={"Destino"}
+                      destinos={destinos}
+                    />
+                  )}
                   <Input_DateRangeMobile
                     control={control}
                     nameStartDate="startDate"
@@ -139,20 +155,36 @@ function Buscador_Transfers() {
             Buscador de Transfers
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Destinos
-              control={control}
-              name={"origin"}
-              setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-            />
-            <Input_Destinos
-              control={control}
-              name={"destination"}
-              setValue={setValue}
-              placeholder={"Destino"}
-              destinos={destinos}
-            />
+            <div className={`${lugarEntrega === false ? "" : "tw-col-span-2"}`}>
+              <Input_Destinos
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
+                destinos={destinos}
+              />
+              <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+                <input
+                  onChange={(e) => setLugarEntrega(e.target.checked)}
+                  type="checkbox"
+                  className="tw-text-secondary dark:tw-text-secondaryDark"
+                />
+                <span className="tw-text-slate-500">
+                  Devolver en el mismo lugar
+                </span>
+              </div>
+            </div>
+            {lugarEntrega === false && (
+              <Input_Destinos
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
+              />
+            )}
             <Input_DateRange
               control={control}
               nameFecha="startDate"

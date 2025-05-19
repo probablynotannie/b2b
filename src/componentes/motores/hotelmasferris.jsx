@@ -18,7 +18,8 @@ function HotelMasFerris() {
             <Buscador_HotelMasFerry />
           </div>
         </div>
-        <Destacados />
+                <Destacados columnas={4} filas={2} />
+
       </div>
     </article>
   );

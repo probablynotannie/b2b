@@ -18,7 +18,8 @@ function HotelMasVuelo() {
             <Buscador_HotVuelo />
           </div>
         </div>
-        <Destacados />
+                <Destacados columnas={4} filas={2} />
+
       </div>
     </article>
   );

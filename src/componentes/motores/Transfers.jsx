@@ -18,7 +18,8 @@ function Transfers() {
             <Buscador_Transfers />
           </div>
         </div>
-        <Destacados />
+              <Destacados columnas={4} filas={2} />
+
       </div>
     </article>
   );

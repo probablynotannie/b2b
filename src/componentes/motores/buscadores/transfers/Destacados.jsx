@@ -1,5 +1,5 @@
 import { FaPerson, FaClock } from "react-icons/fa6";
-function Destacados() {
+function Destacados({ columnas, filas }) {
   const getAdjustedTime = () => {
     const now = new Date();
     now.setMinutes(now.getMinutes() + 30);
