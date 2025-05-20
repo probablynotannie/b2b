@@ -147,16 +147,16 @@ function SeleccionHoteles() {
   }, [modalHotel]);
 
   return (
-    <div className="tw-overflow-x-auto tw-my-4 tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-p-2 tw-pb-5">
-      <div className="tw-font-bold tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-secondary dark:tw-border-secondaryDark tw-border-b-2">
-        Seleccion de hotel
+    <div className="tw-my-4 tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-p-2 tw-pb-5">
+      <div className="tw-font-bold tw-mb-5 tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-secondary dark:tw-border-secondaryDark tw-border-b-2">
+        Selección de hotel
       </div>
-      <table className="tw-w-full tw-text-sm tw-text-left tw-text-white">
+      <table className="tw-w-full tw-text-sm tw-text-left tw-text-white tw-hidden md:tw-table">
         <tbody>
           {hotelesPagina.map((hotel) => (
             <tr
               key={hotel.id}
-              className={`tw-border-b  ${
+              className={`tw-border-b ${
                 seleccion?.hotelId === hotel.id
                   ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary dark:tw-border-green-500"
                   : "tw-border-slate-200 dark:tw-border-slate-600"
@@ -175,7 +175,7 @@ function SeleccionHoteles() {
                     </h3>
                     <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
                       {hotel.regimenes.length}{" "}
-                      {hotel.regimenes.length === 1 ? "Regimen" : "Regimenes"}{" "}
+                      {hotel.regimenes.length === 1 ? "Régimen" : "Régimenes"}{" "}
                       disponible →
                     </p>
                   </div>
@@ -216,6 +216,96 @@ function SeleccionHoteles() {
           ))}
         </tbody>
       </table>
+
+      <div className="tw-flex tw-flex-col tw-gap-4 md:tw-hidden">
+        {hotelesPagina.map((hotel) => {
+          const isHotelSelected = seleccion?.hotelId === hotel.id;
+          return (
+            <div
+              key={hotel.id}
+              className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 ${
+                isHotelSelected
+                  ? "tw-border-2 "
+                  : "tw-border tw-border-slate-300 dark:tw-border-slate-700"
+              }`}
+            >
+              <div className="md:tw-hidden tw-flex tw-flex-col tw-gap-4 tw-p-2">
+                {hotelesPagina.map((hotel) => {
+                  const isSelectedHotel = seleccion?.hotelId === hotel.id;
+                  return (
+                    <div
+                      key={hotel.id}
+                      className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 tw-flex tw-flex-col tw-gap-3 ${
+                        isSelectedHotel ? "tw-border-2 tw-border-secondary" : ""
+                      }`}
+                    >
+                      <div className="tw-flex tw-gap-4">
+                        <img
+                          src={hotel.imagenMiniatura}
+                          alt={hotel.nombre}
+                          className="tw-w-32 tw-h-20 tw-object-cover tw-rounded-lg"
+                        />
+                        <div className="tw-flex-1">
+                          <div className="tw-flex tw-justify-between tw-items-center tw-mb-1">
+                            <h3 className="tw-text-base tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
+                              {hotel.nombre}
+                            </h3>
+                            <button
+                              onClick={() => setModalHotel(hotel)}
+                              className="tw-text-secondary hover:tw-scale-110 tw-text-lg tw-smooth"
+                            >
+                              <FaInfoCircle />
+                            </button>
+                          </div>
+                          <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mb-1">
+                            {hotel.descripcion}
+                          </p>
+                          <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
+                            {hotel.regimenes.length}{" "}
+                            {hotel.regimenes.length === 1
+                              ? "Régimen"
+                              : "Régimenes"}{" "}
+                            disponible
+                          </p>
+                        </div>
+                      </div>
+
+                      <div>
+                        <span className="tw-text-slate-700 dark:tw-text-slate-100 tw-block tw-mb-1">
+                          Elegir régimen
+                        </span>
+                        <div className="tw-flex tw-flex-wrap tw-gap-2">
+                          {hotel.regimenes.map((regimen) => {
+                            const isSelected =
+                              seleccion?.hotelId === hotel.id &&
+                              seleccion?.regimen === regimen.nombre;
+                            return (
+                              <button
+                                key={regimen.nombre}
+                                onClick={() =>
+                                  handleSelect(hotel.id, regimen.nombre)
+                                }
+                                className={`tw-p-3 tw-rounded tw-text-xs tw-whitespace-nowrap ${
+                                  isSelected
+                                    ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white tw-font-bold"
+                                    : "tw-bg-slate-200 hover:tw-bg-slate-300 dark:tw-bg-slate-700 dark:tw-text-slate-300"
+                                }`}
+                                title={`Costo extra: +${regimen.extra}€`}
+                              >
+                                {regimen.nombre} +{regimen.extra}€
+                              </button>
+                            );
+                          })}
+                        </div>
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            </div>
+          );
+        })}
+      </div>
       <div className="tw-flex tw-justify-center tw-gap-2 tw-mt-4">
         {Array.from({
           length: Math.ceil(hoteles.length / hotelesPorPagina),
@@ -233,9 +323,10 @@ function SeleccionHoteles() {
           </button>
         ))}
       </div>
+
       {modalHotel && (
         <div className="tw-fixed tw-inset-0 tw-bg-black/70 tw-flex tw-pt-16 tw-items-start tw-justify-center tw-z-50">
-          <div className="tw-bg-white tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-6 tw-relative">
+          <div className="tw-bg-white tw-w-[90vw] md:tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-6 tw-relative">
             <button
               onClick={() => setModalHotel(null)}
               className="tw-absolute tw-top-3 tw-right-3 tw-text-slate-500 hover:tw-text-red-500 tw-text-lg"
