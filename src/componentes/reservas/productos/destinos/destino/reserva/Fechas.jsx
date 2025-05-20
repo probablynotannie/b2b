@@ -8,14 +8,11 @@ import SeleccionHoteles2 from "./SeleccionHoteles2";
 function Fechas() {
   const location = useLocation();
   const producto = location.state;
-
   const productoConHabitaciones = {
     ...producto,
     habitaciones: producto.habitaciones || [],
   };
-
   const [localProducto, setLocalProducto] = useState(productoConHabitaciones);
-
   const [dates, setDates] = useState({
     startDate: null,
     endDate: null,
