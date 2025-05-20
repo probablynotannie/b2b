@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Vuelos from "./buscadores/vuelos/Buscador_Vuelos";
-import Destacados from "./buscadores/vuelos/Destacados";
+import Destacados from "./buscadores/destacados/Destacados";
+import destacados from "./buscadores/vuelos/destacados.json";
 function Vuelos() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Vuelos() {
             <Buscador_Vuelos />
           </div>
         </div>
-        <Destacados columnas={3} filas={2} />
+        <Destacados destacados={destacados} columnas={3} filas={2} />
       </div>
     </article>
   );

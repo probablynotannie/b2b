@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "titulo": "Barcelona - Madrid",
+    "descripcion": "",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 1,
+    "titulo": "San Sebastian - Madrid",
+    "descripcion": "15/06/2025 - 25/06/2025",
+    "img": "/transfers/madrid.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Bilbao - Amsterdam",
+    "descripcion": "10/07/2025 - 25/07/2025",
+    "img": "/transfers/sevilla.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Bilbao - Madrid",
+    "descripcion": "08/06/2025 - 15/06/2025",
+    "img": "/transfers/valencia.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "Barcelona - Islas canarias",
+    "descripcion": "18/06/2025 - 22/06/2025",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Madrid - Islas canarias",
+    "descripcion": "19/06/2025 - 25/06/2025",
+    "img": "/transfers/madrid.jpg"
+  }
+]

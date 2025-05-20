@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_HotelMasFerry from "./buscadores/hotelmasferri/Buscador_hotelferry";
-import Destacados from "./buscadores/tickets/Destacados";
+import Destacados from "./buscadores/destacados/Destacados";
+import destacados from "./buscadores/hotelmasferri/destacados.json";
 function HotelMasFerris() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,8 +19,7 @@ function HotelMasFerris() {
             <Buscador_HotelMasFerry />
           </div>
         </div>
-                <Destacados columnas={4} filas={2} />
-
+        <Destacados destacados={destacados} columnas={4} filas={2} />
       </div>
     </article>
   );

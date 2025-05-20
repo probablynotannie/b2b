@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Trenes from "./buscadores/trenes/Buscador_Trenes";
-import Destacados from "./buscadores/trenes/Destacados";
+import destacados from "./buscadores/trenes/destacados.json";
+import Destacados from "./buscadores/destacados/Destacados";
 function Trenes() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Trenes() {
             <Buscador_Trenes />
           </div>
         </div>
-        <Destacados columnas={4} filas={2} />
+        <Destacados destacados={destacados} columnas={4} filas={2} />
       </div>
     </article>
   );

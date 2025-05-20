@@ -1,0 +1,32 @@
+[
+  {
+    "id": 0,
+    "titulo": "Barcelona",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 1,
+    "titulo": "Madrid",
+    "img": "/transfers/madrid.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Sevilla",
+    "img": "/transfers/sevilla.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Egipto",
+    "img": "/transfers/valencia.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "África",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Islas Canarias",
+    "img": "/transfers/madrid.jpg"
+  }
+]

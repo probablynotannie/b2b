@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "titulo": "Barcelona",
+    "descripcion": "Mayo",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 1,
+    "titulo": "Madrid",
+    "descripcion": "Junio",
+    "img": "/transfers/madrid.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Sevilla",
+    "descripcion": "Junio",
+    "img": "/transfers/sevilla.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Egipto",
+    "descripcion": "Agosto",
+    "img": "/transfers/valencia.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "África",
+    "descripcion": "Diciembre",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Islas Canarias",
+    "descripcion": "Septiembre",
+    "img": "/transfers/madrid.jpg"
+  }
+]

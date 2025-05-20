@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Destinos from "./buscadores/destinos/Buscador_Destinos";
-import Destacados from "./buscadores/destinos/Destacados";
+import destacados from "./buscadores/destinos/destacados.json";
+import Destacados from "./buscadores/destacados/Destacados";
 function Destinos() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Destinos() {
             <Buscador_Destinos />
           </div>
         </div>
-        <Destacados columnas={3} filas={1} />
+        <Destacados destacados={destacados} columnas={5} filas={1} />
       </div>
     </article>
   );
