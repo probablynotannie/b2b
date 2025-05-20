@@ -147,23 +147,23 @@ function Buscador_Destinos() {
               Buscador de Trenes
             </h2>
             <div>
-              <ul className="tw-flex tw-items-center tw-gap-2">
+              <ul className="tw-inline-flex tw-overflow-hidden tw-rounded-md tw-shadow-md">
                 <li
-                  className={`tw-bg-pink-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-pink-900 tw-cursor-pointer hover:tw-scale-105 tw-smooth hover:tw-shadow-md ${
+                  className={`tw-bg-pink-300 tw-text-pink-900 tw-text-sm tw-px-3 tw-py-1 tw-cursor-pointer tw-transition-all hover:tw-brightness-110 ${
                     viaje === "ida"
-                      ? "tw-ring-2 tw-ring-pink-500 tw-font-bold"
+                      ? "tw-font-bold tw-ring-2 tw-ring-pink-500 tw-z-10"
                       : ""
-                  }`}
+                  } tw-rounded-l-md`}
                   onClick={() => handleviajeChange("ida")}
                 >
                   Solo ida
                 </li>
                 <li
-                  className={`tw-bg-blue-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-blue-900 tw-cursor-pointer hover:tw-scale-105 tw-smooth hover:tw-shadow-md ${
+                  className={`tw-bg-blue-300 tw-text-blue-900 tw-text-sm tw-px-3 tw-py-1 tw-cursor-pointer tw-transition-all hover:tw-brightness-110 ${
                     viaje === "ida_vuelta"
-                      ? "tw-ring-2 tw-ring-blue-500 tw-font-bold"
+                      ? "tw-font-bold tw-ring-2 tw-ring-blue-500 tw-z-10"
                       : ""
-                  }`}
+                  } tw-rounded-r-md`}
                   onClick={() => handleviajeChange("ida_vuelta")}
                 >
                   Ida y vuelta

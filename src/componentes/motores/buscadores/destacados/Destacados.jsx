@@ -6,7 +6,7 @@ function Destacados({ destacados, columnas, filas, max }) {
         Búsqueda rápida
       </h2>
       <div
-        className="tw-grid tw-gap-5 tw-mt-4 tw-grid-cols-1 md:tw-grid-cols-[var(--columnas)] tw-flex-nowrap"
+        className="tw-grid tw-gap-5 tw-mt-4 tw-grid-cols-1 sm:tw-grid-cols-[var(--columnas)]"
         style={{ "--columnas": `repeat(${columnas}, minmax(0, 1fr))` }}
       >
         {destacados.slice(0, max ? max : maxItems).map((destacado) => (
@@ -22,12 +22,12 @@ function Destacados({ destacados, columnas, filas, max }) {
             />
             <div className="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-bg-opacity-60 group-hover:tw-bg-opacity-70 tw-smooth tw-flex tw-items-center tw-justify-center">
               <div className="tw-text-white tw-text-center tw-px-3">
-                <h3 className="tw-text-3xl tw-font-semibold">
+                <h3 className="tw-text-lg md:tw-text-xl xl:tw-text-3xl tw-font-semibold">
                   {destacado.titulo}
                 </h3>
-                <span className="tw-font-semibold">
+                <h4 className="tw-mt-1">
                   {destacado.descripcion}
-                </span>
+                </h4>
               </div>
             </div>
           </div>

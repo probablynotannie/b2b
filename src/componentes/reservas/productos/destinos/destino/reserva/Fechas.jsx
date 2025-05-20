@@ -3,6 +3,7 @@ import Input_Fecha from "../../../../../inputs/DateRangePrice";
 import Aside from "./Aside";
 import Info from "./Info";
 import { useLocation } from "react-router-dom";
+import SeleccionHoteles from "./SeleccionHoteles";
 function Fechas() {
   const location = useLocation();
   const producto = location.state;
@@ -92,7 +93,7 @@ function Fechas() {
     });
   };
   return (
-    <article className="tw-container tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
+    <article className="tw-container tw-my-10 tw-grid tw-grid-cols-3 tw-gap-10">
       <main className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[70vh] dark:tw-bg-slate-800">
         <Input_Fecha
           dates={dates}
@@ -124,6 +125,7 @@ function Fechas() {
         </p>
         {dates.startDate && (
           <section>
+            <SeleccionHoteles />
             <Info />
           </section>
         )}

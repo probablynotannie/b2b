@@ -106,7 +106,7 @@ function Buscador() {
                     className="tw-text-secondary dark:tw-text-secondaryDark"
                   />
                   <span className="tw-text-slate-500">
-                    Devolver en el mismo lugar
+                    Devolver aqui
                   </span>
                 </div>
               </div>
@@ -204,7 +204,7 @@ function Buscador() {
                   className="tw-text-secondary dark:tw-text-secondaryDark"
                 />
                 <span className="tw-text-slate-500">
-                  Devolver en el mismo lugar
+                  Devolver aqui
                 </span>
               </div>
             </div>
