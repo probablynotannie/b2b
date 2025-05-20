@@ -125,16 +125,13 @@ function SeleccionHoteles() {
       ],
     },
   ];
-
   const hotelesPagina = hoteles.slice(
     (paginaActual - 1) * hotelesPorPagina,
     paginaActual * hotelesPorPagina
   );
-
   const handleSelect = (hotelId, regimen) => {
     setSeleccion({ hotelId, regimen });
   };
-
   useEffect(() => {
     if (modalHotel) {
       document.body.style.overflow = "hidden";

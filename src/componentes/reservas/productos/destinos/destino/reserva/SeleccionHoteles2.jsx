@@ -174,7 +174,7 @@ function SeleccionHoteles() {
                   <img
                     src={hotel.imagenMiniatura}
                     alt={hotel.nombre}
-                    className="tw-w-44 tw-h-28 tw-object-cover tw-rounded-lg tw-shadow hover:tw-scale-110 tw-smooth"
+                    className="tw-w-32 tw-h-24 tw-object-cover tw-rounded-lg tw-shadow hover:tw-scale-110 tw-smooth"
                   />
                   <div className="tw-flex flex-col tw-justify-start">
                     <div className="tw-flex tw-gap-1 tw-items-center">
