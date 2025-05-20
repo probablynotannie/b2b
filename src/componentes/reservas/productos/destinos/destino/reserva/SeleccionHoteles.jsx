@@ -216,18 +216,12 @@ function SeleccionHoteles() {
           ))}
         </tbody>
       </table>
-
       <div className="tw-flex tw-flex-col tw-gap-4 md:tw-hidden">
         {hotelesPagina.map((hotel) => {
-          const isHotelSelected = seleccion?.hotelId === hotel.id;
           return (
             <div
               key={hotel.id}
-              className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 ${
-                isHotelSelected
-                  ? "tw-border-2 "
-                  : "tw-border tw-border-slate-300 dark:tw-border-slate-700"
-              }`}
+              className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 tw-border tw-border-slate-300 dark:tw-border-slate-700 `}
             >
               <div className="md:tw-hidden tw-flex tw-flex-col tw-gap-4 tw-p-2">
                 {hotelesPagina.map((hotel) => {
@@ -235,8 +229,10 @@ function SeleccionHoteles() {
                   return (
                     <div
                       key={hotel.id}
-                      className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 tw-flex tw-flex-col tw-gap-3 ${
-                        isSelectedHotel ? "tw-border-2 tw-border-secondary" : ""
+                      className={` tw-rounded-lg tw-shadow tw-p-4 tw-flex tw-flex-col tw-gap-3 ${
+                        isSelectedHotel
+                          ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary dark:tw-border-2 dark:tw-border-green-500"
+                          : "tw-bg-white dark:tw-bg-slate-800"
                       }`}
                     >
                       <div className="tw-flex tw-gap-4">
