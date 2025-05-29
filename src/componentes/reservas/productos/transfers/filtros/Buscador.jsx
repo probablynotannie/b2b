@@ -197,15 +197,13 @@ function Buscador() {
                 placeholder={"Origen"}
                 destinos={destinos}
               />
-              <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
+             <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
                 <input
                   onChange={(e) => setLugarEntrega(e.target.checked)}
                   type="checkbox"
-                  className="tw-text-secondary dark:tw-text-secondaryDark"
+                  className="tw-w-4 tw-h-4 tw-bg-slate-50 tw-text-secondary tw-border-slate-300 tw-rounded dark:tw-bg-slate-700 dark:tw-border-slate-600 focus:tw-ring-secondary focus:tw-ring-2"
                 />
-                <span className="tw-text-slate-500">
-                  Devolver aqui
-                </span>
+                <span className="tw-text-slate-500">devolver aqui</span>
               </div>
             </div>
           </div>

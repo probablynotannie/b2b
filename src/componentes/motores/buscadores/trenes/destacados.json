@@ -1,38 +1,38 @@
 [
   {
     "id": 0,
-    "titulo": "Barcelona",
-    "descripcion": "Mayo",
+    "titulo": "Barcelona - Madrid",
+    "descripcion": "2x - solo ida",
     "img": "/transfers/barcelona.jpg"
   },
   {
     "id": 1,
-    "titulo": "Madrid",
-    "descripcion": "Junio",
+    "titulo": "Madrid - Barcelona",
+    "descripcion": "2x adultos",
     "img": "/transfers/madrid.jpg"
   },
   {
     "id": 2,
-    "titulo": "Sevilla",
-    "descripcion": "Junio",
+    "titulo": "San Sebastián - Sevilla",
+    "descripcion": "2x adultos",
     "img": "/transfers/sevilla.jpg"
   },
   {
     "id": 3,
-    "titulo": "Egipto",
-    "descripcion": "Agosto",
+    "titulo": "San Sebastian - Madrid",
+    "descripcion": "2x adultos",
     "img": "/transfers/valencia.jpg"
   },
   {
     "id": 4,
-    "titulo": "África",
-    "descripcion": "Diciembre",
+    "titulo": "Barcelona - Valencia",
+    "descripcion": "2x adultos",
     "img": "/transfers/barcelona.jpg"
   },
   {
     "id": 5,
-    "titulo": "Islas Canarias",
-    "descripcion": "Septiembre",
+    "titulo": "Madrid - Sevilla",
+    "descripcion": "2x adultos",
     "img": "/transfers/madrid.jpg"
   }
 ]

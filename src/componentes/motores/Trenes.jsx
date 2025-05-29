@@ -19,7 +19,7 @@ function Trenes() {
             <Buscador_Trenes />
           </div>
         </div>
-        <Destacados destacados={destacados} columnas={4} filas={2} />
+        <Destacados destacados={destacados} columnas={3} filas={2} max={""} />
       </div>
     </article>
   );
