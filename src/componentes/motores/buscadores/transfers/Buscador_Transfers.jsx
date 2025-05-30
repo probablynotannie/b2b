@@ -79,36 +79,22 @@ function Buscador_Transfers() {
                   Buscador de Transfers
                 </h2>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
-                  <div className="tw-flex tw-flex-col">
-                    <Input_Destinos
-                      required={true}
-                      control={control}
-                      name={"origen"}
-                      setValue={setValue}
-                      placeholder={"Origen"}
-                      destinos={destinos}
-                    />
-                    <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
-                      <input
-                        onChange={(e) => setLugarEntrega(e.target.checked)}
-                        type="checkbox"
-                        className="tw-text-secondary dark:tw-text-secondaryDark"
-                      />
-                      <span className="tw-text-slate-500">
-                        Devolver aqui
-                      </span>
-                    </div>
-                  </div>
-                  {lugarEntrega === false && (
-                    <Input_Destinos
-                      required={true}
-                      control={control}
-                      name={"destino"}
-                      setValue={setValue}
-                      placeholder={"Destino"}
-                      destinos={destinos}
-                    />
-                  )}
+                  <Input_Destinos
+                    required={true}
+                    control={control}
+                    name={"origen"}
+                    setValue={setValue}
+                    placeholder={"Origen"}
+                    destinos={destinos}
+                  />
+                  <Input_Destinos
+                    required={true}
+                    control={control}
+                    name={"destino"}
+                    setValue={setValue}
+                    placeholder={"Destino"}
+                    destinos={destinos}
+                  />
                   <Input_DateRangeMobile
                     control={control}
                     nameStartDate="startDate"
@@ -155,34 +141,22 @@ function Buscador_Transfers() {
             Buscador de Transfers
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <div className={`${lugarEntrega === false ? "" : "tw-col-span-2"}`}>
-              <Input_Destinos
-                required={true}
-                control={control}
-                name={"origen"}
-                setValue={setValue}
-                placeholder={"Origen"}
-                destinos={destinos}
-              />
-             <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
-                <input
-                  onChange={(e) => setLugarEntrega(e.target.checked)}
-                  type="checkbox"
-                  className="tw-w-4 tw-h-4 tw-bg-slate-50 tw-text-secondary tw-border-slate-300 tw-rounded dark:tw-bg-slate-700 dark:tw-border-slate-600 focus:tw-ring-secondary focus:tw-ring-2"
-                />
-                <span className="tw-text-slate-500">devolver aqui</span>
-              </div>
-            </div>
-            {lugarEntrega === false && (
-              <Input_Destinos
-                required={true}
-                control={control}
-                name={"destino"}
-                setValue={setValue}
-                placeholder={"Destino"}
-                destinos={destinos}
-              />
-            )}
+            <Input_Destinos
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
+              destinos={destinos}
+            />
+            <Input_Destinos
+              required={true}
+              control={control}
+              name={"destino"}
+              setValue={setValue}
+              placeholder={"Destino"}
+              destinos={destinos}
+            />
             <Input_DateRange
               control={control}
               nameFecha="startDate"

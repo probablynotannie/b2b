@@ -1,6 +1,5 @@
 import { useState, useEffect } from "react";
-import { FaInfoCircle } from "react-icons/fa";
-
+import { FaArrowRight, FaInfoCircle } from "react-icons/fa";
 function SeleccionHoteles() {
   const [seleccion, setSeleccion] = useState(null);
   const [modalHotel, setModalHotel] = useState(null);
@@ -24,9 +23,16 @@ function SeleccionHoteles() {
       imagenes: ["/hotel2.jpg", "/hotel2b.jpg"],
       imagenMiniatura: "/hotel2.jpg",
       regimenes: [
-        { nombre: "Todo incluido", extra: 50 },
-        { nombre: "Media pensión", extra: 35 },
         { nombre: "Desayuno", extra: 18 },
+        { nombre: "Media pensión", extra: 35 },
+        { nombre: "Todo incluido", extra: 50 },
+        { nombre: "Regimen Especial", extra: 102 },
+        { nombre: "Segun programa", extra: 86 },
+        { nombre: "Pension completa", extra: 70 },
+        { nombre: "HM", extra: 20 },
+        { nombre: "Regimen raro", extra: 60 },
+        { nombre: "Especial verano", extra: 85 },
+        { nombre: "Especial Invierno", extra: 75 },
       ],
     },
     {
@@ -125,13 +131,16 @@ function SeleccionHoteles() {
       ],
     },
   ];
+
   const hotelesPagina = hoteles.slice(
     (paginaActual - 1) * hotelesPorPagina,
     paginaActual * hotelesPorPagina
   );
+
   const handleSelect = (hotelId, regimen) => {
     setSeleccion({ hotelId, regimen });
   };
+
   useEffect(() => {
     if (modalHotel) {
       document.body.style.overflow = "hidden";
@@ -144,8 +153,8 @@ function SeleccionHoteles() {
   }, [modalHotel]);
 
   return (
-    <div className="tw-my-4 tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-p-2 tw-pb-5">
-      <div className="tw-font-bold tw-mb-5 tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-secondary dark:tw-border-secondaryDark tw-border-b-2">
+    <div className="tw-overflow-x-auto tw-my-4 tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-p-2 tw-pb-5">
+      <div className="tw-font-bold tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-secondary dark:tw-border-secondaryDark tw-border-b-2">
         Selección de hotel
       </div>
       <table className="tw-w-full tw-text-sm tw-text-left tw-text-white tw-hidden md:tw-table">
@@ -153,34 +162,122 @@ function SeleccionHoteles() {
           {hotelesPagina.map((hotel) => (
             <tr
               key={hotel.id}
-              className={`tw-border-b ${
+              className={`tw-border-b  ${
                 seleccion?.hotelId === hotel.id
                   ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary dark:tw-border-green-500"
                   : "tw-border-slate-200 dark:tw-border-slate-600"
               }`}
             >
-              <td className="tw-px-4 tw-py-4">
-                <div className="tw-flex tw-items-center tw-gap-4">
+              <td className="tw-px-4 tw-py-4 tw-align-top tw-min-w-[300px]">
+                <div className="tw-flex tw-gap-4">
                   <img
                     src={hotel.imagenMiniatura}
                     alt={hotel.nombre}
-                    className="tw-w-28 tw-h-20 tw-object-cover tw-rounded-lg tw-shadow"
+                    className="tw-w-32 tw-h-24 tw-object-cover tw-rounded-lg tw-shadow hover:tw-scale-110 tw-smooth"
                   />
-                  <div className="tw-flex-1">
-                    <h3 className="tw-text-base tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
-                      {hotel.nombre}
-                    </h3>
+                  <div className="tw-flex flex-col tw-justify-start">
+                    <div className="tw-flex tw-gap-1 tw-items-center">
+                      <button
+                        onClick={() => setModalHotel(hotel)}
+                        className="tw-text-secondary hover:tw-scale-110 tw-text-lg tw-smooth"
+                      >
+                        <FaInfoCircle />
+                      </button>
+                      <h3 className="tw-text-base tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
+                        {hotel.nombre}
+                      </h3>
+                    </div>
                     <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
                       {hotel.regimenes.length}{" "}
                       {hotel.regimenes.length === 1 ? "Régimen" : "Régimenes"}{" "}
-                      disponible →
+                      disponible{" "}
+                      <FaArrowRight className="tw-inline tw-text-slate-500 dark:tw-text-slate-400" />
                     </p>
                   </div>
                 </div>
               </td>
+              <td className="tw-px-4 tw-py-4 tw-align-top">
+                <span className="tw-text-slate-700 dark:tw-text-slate-100 tw-block tw-mb-2">
+                  Elegir régimen
+                </span>
+                <div className="tw-grid xl:tw-grid-cols-2 tw-gap-3 ">
+                  {hotel.regimenes.map((regimen) => {
+                    const isSelected =
+                      seleccion?.hotelId === hotel.id &&
+                      seleccion?.regimen === regimen.nombre;
+                    return (
+                      <label
+                        key={regimen.nombre}
+                        className={`tw-cursor-pointer tw-p-3 tw-rounded-lg tw-border tw-flex tw-justify-between tw-items-center tw-text-xs tw-select-none ${
+                          isSelected
+                            ? "tw-border-secondary tw-bg-secondary dark:tw-bg-secondaryDark/30 tw-font-semibold"
+                            : "tw-bg-slate-200 hover:tw-bg-slate-300 dark:tw-bg-slate-700 dark:tw-text-slate-300 tw-text-black  tw-border-slate-300 dark:tw-border-slate-600 dark:hover:tw-bg-slate-900 tw-smooth"
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name={`regimen-${hotel.id}`}
+                          className="tw-hidden"
+                          checked={isSelected}
+                          onChange={() =>
+                            handleSelect(hotel.id, regimen.nombre)
+                          }
+                        />
+                        <span>{regimen.nombre}</span>
+                        <span className="tw-font-bold">+{regimen.extra}€</span>
+                      </label>
+                    );
+                  })}
+                </div>
+              </td>
+            </tr>
+          ))}
+        </tbody>
+      </table>
+      <div className="md:tw-hidden tw-flex tw-flex-col tw-gap-4 tw-p-2">
+        {hotelesPagina.map((hotel) => {
+          const isSelectedHotel = seleccion?.hotelId === hotel.id;
+          return (
+            <div
+              key={hotel.id}
+              className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 tw-flex tw-flex-col tw-gap-3 ${
+                isSelectedHotel ? "tw-border-2 tw-border-secondary" : ""
+              }`}
+            >
+              <div className="tw-flex tw-gap-4">
+                <img
+                  src={hotel.imagenMiniatura}
+                  alt={hotel.nombre}
+                  className="tw-w-32 tw-h-20 tw-object-cover tw-rounded-lg"
+                />
+                <div className="tw-flex-1">
+                  <div className="tw-flex tw-justify-between tw-items-center tw-mb-1">
+                    <h3 className="tw-text-base tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
+                      {hotel.nombre}
+                    </h3>
+                    <button
+                      onClick={() => setModalHotel(hotel)}
+                      className="tw-text-secondary hover:tw-scale-110 tw-text-lg tw-smooth"
+                    >
+                      <FaInfoCircle />
+                    </button>
+                  </div>
+                  <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mb-1">
+                    {hotel.descripcion}
+                  </p>
+                  <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
+                    {hotel.regimenes.length}{" "}
+                    {hotel.regimenes.length === 1 ? "Régimen" : "Régimenes"}{" "}
+                    disponible
+                  </p>
+                </div>
+              </div>
 
-              <td className="tw-px-4 tw-py-2">
-                <div className="tw-flex tw-gap-2 tw-flex-wrap">
+              <div>
+                <span className="tw-text-slate-700 dark:tw-text-slate-100 tw-block tw-mb-1">
+                  Elegir régimen
+                </span>
+                <div className="tw-flex tw-flex-wrap tw-gap-2">
                   {hotel.regimenes.map((regimen) => {
                     const isSelected =
                       seleccion?.hotelId === hotel.id &&
@@ -189,116 +286,24 @@ function SeleccionHoteles() {
                       <button
                         key={regimen.nombre}
                         onClick={() => handleSelect(hotel.id, regimen.nombre)}
-                        className={`tw-px-2 tw-py-1 tw-rounded tw-text-xs ${
+                        className={`tw-p-3 tw-rounded tw-text-xs tw-whitespace-nowrap ${
                           isSelected
                             ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white tw-font-bold"
-                            : "tw-bg-slate-400 dark:tw-bg-slate-600 dark:hover:tw-bg-slate-500"
+                            : "tw-bg-slate-200 hover:tw-bg-slate-300 dark:tw-bg-slate-700 dark:tw-text-slate-300"
                         }`}
+                        title={`Costo extra: +${regimen.extra}€`}
                       >
                         {regimen.nombre} +{regimen.extra}€
                       </button>
                     );
                   })}
                 </div>
-              </td>
-              <td className="tw-px-4 tw-py-2">
-                <button
-                  onClick={() => setModalHotel(hotel)}
-                  className="tw-text-secondary hover:tw-scale-105 tw-text-2xl tw-smooth"
-                >
-                  <FaInfoCircle />
-                </button>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </table>
-      <div className="tw-flex tw-flex-col tw-gap-4 md:tw-hidden">
-        {hotelesPagina.map((hotel) => {
-          return (
-            <div
-              key={hotel.id}
-              className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 tw-border tw-border-slate-300 dark:tw-border-slate-700 `}
-            >
-              <div className="md:tw-hidden tw-flex tw-flex-col tw-gap-4 tw-p-2">
-                {hotelesPagina.map((hotel) => {
-                  const isSelectedHotel = seleccion?.hotelId === hotel.id;
-                  return (
-                    <div
-                      key={hotel.id}
-                      className={` tw-rounded-lg tw-shadow tw-p-4 tw-flex tw-flex-col tw-gap-3 ${
-                        isSelectedHotel
-                          ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary dark:tw-border-2 dark:tw-border-green-500"
-                          : "tw-bg-white dark:tw-bg-slate-800"
-                      }`}
-                    >
-                      <div className="tw-flex tw-gap-4">
-                        <img
-                          src={hotel.imagenMiniatura}
-                          alt={hotel.nombre}
-                          className="tw-w-32 tw-h-20 tw-object-cover tw-rounded-lg"
-                        />
-                        <div className="tw-flex-1">
-                          <div className="tw-flex tw-justify-between tw-items-center tw-mb-1">
-                            <h3 className="tw-text-base tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
-                              {hotel.nombre}
-                            </h3>
-                            <button
-                              onClick={() => setModalHotel(hotel)}
-                              className="tw-text-secondary hover:tw-scale-110 tw-text-lg tw-smooth"
-                            >
-                              <FaInfoCircle />
-                            </button>
-                          </div>
-                          <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mb-1">
-                            {hotel.descripcion}
-                          </p>
-                          <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
-                            {hotel.regimenes.length}{" "}
-                            {hotel.regimenes.length === 1
-                              ? "Régimen"
-                              : "Régimenes"}{" "}
-                            disponible
-                          </p>
-                        </div>
-                      </div>
-
-                      <div>
-                        <span className="tw-text-slate-700 dark:tw-text-slate-100 tw-block tw-mb-1">
-                          Elegir régimen
-                        </span>
-                        <div className="tw-flex tw-flex-wrap tw-gap-2">
-                          {hotel.regimenes.map((regimen) => {
-                            const isSelected =
-                              seleccion?.hotelId === hotel.id &&
-                              seleccion?.regimen === regimen.nombre;
-                            return (
-                              <button
-                                key={regimen.nombre}
-                                onClick={() =>
-                                  handleSelect(hotel.id, regimen.nombre)
-                                }
-                                className={`tw-p-3 tw-rounded tw-text-xs tw-whitespace-nowrap ${
-                                  isSelected
-                                    ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white tw-font-bold"
-                                    : "tw-bg-slate-200 hover:tw-bg-slate-300 dark:tw-bg-slate-700 dark:tw-text-slate-300"
-                                }`}
-                                title={`Costo extra: +${regimen.extra}€`}
-                              >
-                                {regimen.nombre} +{regimen.extra}€
-                              </button>
-                            );
-                          })}
-                        </div>
-                      </div>
-                    </div>
-                  );
-                })}
               </div>
             </div>
           );
         })}
       </div>
+
       <div className="tw-flex tw-justify-center tw-gap-2 tw-mt-4">
         {Array.from({
           length: Math.ceil(hoteles.length / hotelesPorPagina),
@@ -316,10 +321,9 @@ function SeleccionHoteles() {
           </button>
         ))}
       </div>
-
       {modalHotel && (
         <div className="tw-fixed tw-inset-0 tw-bg-black/70 tw-flex tw-pt-16 tw-items-start tw-justify-center tw-z-50">
-          <div className="tw-bg-white tw-w-[90vw] md:tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-6 tw-relative">
+          <div className="tw-bg-white tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-6 tw-relative">
             <button
               onClick={() => setModalHotel(null)}
               className="tw-absolute tw-top-3 tw-right-3 tw-text-slate-500 hover:tw-text-red-500 tw-text-lg"

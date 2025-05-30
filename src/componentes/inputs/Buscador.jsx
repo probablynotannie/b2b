@@ -125,7 +125,7 @@ function Buscador({
             </ul>
           ) : (
             <div className="tw-p-4 tw-flex tw-justify-center tw-text-slate-500">
-              No hay resultados para{" "}
+              No hay resultados para
               <span className="tw-text-danger">{inputText}</span>
             </div>
           )}

@@ -4,7 +4,6 @@ import Aside from "./Aside";
 import Info from "./Info";
 import { useLocation } from "react-router-dom";
 import SeleccionHoteles from "./SeleccionHoteles";
-import SeleccionHoteles2 from "./SeleccionHoteles2";
 function Fechas() {
   const location = useLocation();
   const producto = location.state;
@@ -124,7 +123,6 @@ function Fechas() {
         {dates.startDate && (
           <section>
             <SeleccionHoteles />
-            <SeleccionHoteles2 />
             <Info />
           </section>
         )}

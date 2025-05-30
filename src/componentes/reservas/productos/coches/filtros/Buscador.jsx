@@ -4,7 +4,7 @@ import Input_DateRange from "../../../../inputs/DateRangeWithTime";
 import Input_DateRangeMobile from "../../../../inputs/DateRange";
 import Input_Hora from "../../../../inputs/Hora";
 import Input_Edad from "../../../../inputs/Edad";
-import { FaSearch } from "react-icons/fa";
+import { FaCity, FaSearch } from "react-icons/fa";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 function Buscador() {
@@ -84,73 +84,69 @@ function Buscador() {
               </div>
             </div>
           </div>
-          <form className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5">
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <div className="tw-flex tw-flex-col">
-                <Input_Buscador
-                  required={true}
-                  control={control}
-                  name={"origen"}
-                  setValue={setValue}
-                  placeholder={"Origen"}
-                  destinos={destinos}
-                />
-                <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
-                  <input
-                    onChange={(e) => setLugarEntrega(e.target.checked)}
-                    type="checkbox"
-                    className="tw-text-secondary dark:tw-text-secondaryDark"
-                  />
-                  <span className="tw-text-slate-500">
-                    Devolver aqui
-                  </span>
-                </div>
-              </div>
+          <form className="tw-flex tw-flex-col tw-gap-3 tw-p-5">
+            <div className="tw-flex tw-items-center tw-gap-2">
+              <input
+                id="mismaCiudad"
+                type="checkbox"
+                checked={lugarEntrega}
+                onChange={(e) => setLugarEntrega(e.target.checked)}
+                className="tw-hidden peer"
+              />
+              <label
+                htmlFor="mismaCiudad"
+                className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all tw-w-full ${
+                  lugarEntrega === true
+                    ? "tw-bg-pink-100 dark:tw-border-blue-500 tw-text-pink-700 dark:tw-bg-blue-900 dark:tw-text-blue-300"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                }`}
+              >
+                <FaCity />
+                Entrega en la misma ciudad
+              </label>
             </div>
+            <Input_Buscador
+              required={true}
+              control={control}
+              name={"origen"}
+              setValue={setValue}
+              placeholder={"Origen"}
+              destinos={destinos}
+            />
             {lugarEntrega === false && (
-              <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-                <Input_Buscador
-                  required={true}
-                  control={control}
-                  name={"destination"}
-                  setValue={setValue}
-                  placeholder={"Destino"}
-                  destinos={destinos}
-                />
-              </div>
+              <Input_Buscador
+                required={true}
+                control={control}
+                name={"destination"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
+              />
             )}
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_DateRangeMobile
-                control={control}
-                nameStartDate="startDate"
-                nameEndDate="endDate"
-                placeholder="Selecciona un rango de fechas"
-              />
-            </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Hora
-                control={control}
-                setValue={setValue}
-                name={"horaRecogida"}
-                defaultValue="12:00"
-              />
-            </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Hora
-                control={control}
-                setValue={setValue}
-                name={"horaDevolucion"}
-                defaultValue="12:00"
-              />
-            </div>
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_Edad
-                control={control}
-                name="edadConductor"
-                edadMinima={18}
-                edadMaxima={100}
-              />
-            </div>
+            <Input_DateRangeMobile
+              control={control}
+              nameStartDate="startDate"
+              nameEndDate="endDate"
+              placeholder="Selecciona un rango de fechas"
+            />
+            <Input_Hora
+              control={control}
+              setValue={setValue}
+              name={"horaRecogida"}
+              defaultValue="12:00"
+            />
+            <Input_Hora
+              control={control}
+              setValue={setValue}
+              name={"horaDevolucion"}
+              defaultValue="12:00"
+            />
+            <Input_Edad
+              control={control}
+              name="edadConductor"
+              edadMinima={18}
+              edadMaxima={100}
+            />
 
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
               <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -171,18 +167,40 @@ function Buscador() {
       </div>
 
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
-        <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondaryDark">
-          Buscador
-        </h2>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
+          <div className="tw-col-span-12 tw-flex tw-justify-between tw-items-center">
+            <div className="tw-flex tw-items-center tw-gap-2">
+              <input
+                id="mismaCiudad"
+                type="checkbox"
+                checked={lugarEntrega}
+                onChange={(e) => setLugarEntrega(e.target.checked)}
+                className="tw-hidden peer"
+              />
+              <label
+                htmlFor="mismaCiudad"
+                className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
+                  lugarEntrega === true
+                    ? "tw-bg-pink-100 dark:tw-border-blue-500 tw-text-pink-700 dark:tw-bg-blue-900 dark:tw-text-blue-300"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                }`}
+              >
+                <FaCity />
+                Entrega en la misma ciudad
+              </label>
+            </div>
+            <h2 className="tw-mb-4 tw-font-bold tw-text-2xl dark:tw-text-secondaryDark">
+              Buscador
+            </h2>
+          </div>
           <div
             className={`${
               lugarEntrega === false
-                ? "tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2"
-                : "lg:tw-col-span-6 xl:tw-col-span-4"
+                ? "tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-3"
+                : "lg:tw-col-span-3 xl:tw-col-span-4"
             }`}
           >
             <div className={`${lugarEntrega === false ? "" : "tw-col-span-2"}`}>
@@ -194,18 +212,10 @@ function Buscador() {
                 placeholder={"Origen"}
                 destinos={destinos}
               />
-             <div className="tw-flex tw-flex-row tw-items-center tw-gap-1 tw-mt-1">
-                <input
-                  onChange={(e) => setLugarEntrega(e.target.checked)}
-                  type="checkbox"
-                  className="tw-w-4 tw-h-4 tw-bg-slate-50 tw-text-secondary tw-border-slate-300 tw-rounded dark:tw-bg-slate-700 dark:tw-border-slate-600 focus:tw-ring-secondary focus:tw-ring-2"
-                />
-                <span className="tw-text-slate-500">devolver aqui</span>
-              </div>
             </div>
           </div>
           {lugarEntrega === false && (
-            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-2">
+            <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-3">
               <Input_Buscador
                 required={true}
                 control={control}
@@ -216,8 +226,13 @@ function Buscador() {
               />
             </div>
           )}
-
-          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2">
+          <div
+            className={`tw-col-span-12 ${
+              lugarEntrega === false
+                ? "md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-2"
+                : "md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3"
+            }`}
+          >
             <Input_DateRange
               control={control}
               nameFecha="startDate"
@@ -225,7 +240,13 @@ function Buscador() {
               placeholder="Selecciona una fecha y hora"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 xl:tw-col-span-2">
+          <div
+            className={`tw-col-span-12 ${
+              lugarEntrega === false
+                ? "md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-2"
+                : "md:tw-col-span-6 lg:tw-col-span-3 xl:tw-col-span-3"
+            }`}
+          >
             <Input_DateRange
               control={control}
               nameFecha="endDate"
@@ -233,7 +254,7 @@ function Buscador() {
               placeholder="Selecciona una fecha y hora"
             />
           </div>
-          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-3 2xl:tw-col-span-3">
+          <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-2 xl:tw-col-span-1">
             <Input_Edad
               control={control}
               name="edadConductor"
@@ -241,7 +262,13 @@ function Buscador() {
               edadMaxima={100}
             />
           </div>
-          <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
+          <button
+            className={`tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios ${
+              lugarEntrega === false
+                ? "lg:tw-col-span-2 xl:tw-col-span-1"
+                : "tw-col-span-1"
+            }`}
+          >
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
         </form>

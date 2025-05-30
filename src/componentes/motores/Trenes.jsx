@@ -3,8 +3,9 @@ import Buscador_Trenes from "./buscadores/trenes/Buscador_Trenes";
 import destacados from "./buscadores/trenes/destacados.json";
 import Destacados from "./buscadores/destacados/Destacados";
 function Trenes() {
+  
   return (
-    <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
+    <article className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
       <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
         <div
@@ -19,9 +20,10 @@ function Trenes() {
             <Buscador_Trenes />
           </div>
         </div>
-        <Destacados destacados={destacados} columnas={3} filas={2} max={""} />
+        <Destacados destacados={destacados} columnas={3} filas={1} max={""} />
       </div>
     </article>
   );
 }
+
 export default Trenes;

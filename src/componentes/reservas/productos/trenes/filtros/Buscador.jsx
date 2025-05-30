@@ -89,11 +89,11 @@ function Buscador() {
                 className={` tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
                                               ${
                                                 viaje === "ida"
-                                                  ? "tw-bg-pink-100 tw-border-pink-500 tw-text-pink-700"
-                                                  : "tw-bg-slate-100 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+                                                  ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                                                  : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
                                               }`}
               >
-                <FaArrowRight className="tw-text-pink-700" />
+                <FaArrowRight className="tw-text-pink-700 dark:tw-text-pink-500" />
                 Solo ida
               </div>
               <div
@@ -101,11 +101,11 @@ function Buscador() {
                 className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
                                               ${
                                                 viaje === "ida_vuelta"
-                                                  ? "tw-bg-blue-100 tw-border-blue-500 tw-text-blue-700"
-                                                  : "tw-bg-slate-100 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+                                                  ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
+                                                  : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
                                               }`}
               >
-                <GoArrowSwitch className="tw-text-blue-700" />
+                <GoArrowSwitch className="tw-text-blue-700 dark:tw-text-blue-500" />
                 Ida y vuelta
               </div>
             </div>
@@ -180,11 +180,11 @@ function Buscador() {
             className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
                                 ${
                                   viaje === "ida"
-                                    ? "tw-bg-pink-100 tw-border-pink-500 tw-text-pink-700"
-                                    : "tw-bg-slate-100 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+                                    ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
                                 }`}
           >
-            <FaArrowRight className="tw-text-pink-700" />
+            <FaArrowRight className="tw-text-pink-700 dark:tw-text-pink-500" />
             Solo ida
           </div>
           <div
@@ -192,11 +192,11 @@ function Buscador() {
             className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
                                 ${
                                   viaje === "ida_vuelta"
-                                    ? "tw-bg-blue-100 tw-border-blue-500 tw-text-blue-700"
-                                    : "tw-bg-slate-100 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+                                    ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
+                                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
                                 }`}
           >
-            <GoArrowSwitch className="tw-text-blue-700" />
+            <GoArrowSwitch className="tw-text-blue-700 dark:tw-text-blue-500" />
             Ida y vuelta
           </div>
         </div>
