@@ -16,7 +16,6 @@ function Buscador_Destinos() {
   const [viaje, setViaje] = useState("ida");
   const [fecha, setFecha] = useState();
   const handleviajeChange = (type) => {
-    console.log(type);
     if (type === "ida") {
       setValue("tipo", 0);
     } else {
@@ -26,7 +25,6 @@ function Buscador_Destinos() {
     setViaje(type);
   };
   const onSubmit = (data) => {
-    console.log(data);
     navigate("/listadoFerris", {
       state: { datosForm: data },
     });

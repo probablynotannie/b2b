@@ -3,15 +3,12 @@ import { FaSearch } from "react-icons/fa";
 import Input_Buscador from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRange";
 import Input_Nacionalidad from "../../../inputs/Nacionalidad";
-import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_Hab_Ad_Nin from "../../../inputs/Hab_Adulto_Ninio";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [startDate, setStartDate] = useState();
-  const [endDate, setEndDate] = useState();
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -34,7 +31,6 @@ function Buscador_Cruceros() {
   ]);
 
   const onSubmit = (data) => {
-    console.log(data);
     navigate("/listadoHoteles", {
       state: { datosContacto: data },
     });

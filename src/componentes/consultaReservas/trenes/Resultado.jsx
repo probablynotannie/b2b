@@ -26,7 +26,6 @@ function Trenes() {
   }, []);
   const navigate = useNavigate();
   const detalles = (tren) => {
-    console.log(tren);
     navigate("/tren/detalles", {
       state: { tren },
     });

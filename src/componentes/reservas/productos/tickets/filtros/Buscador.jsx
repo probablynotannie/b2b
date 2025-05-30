@@ -16,7 +16,7 @@ function Buscador() {
   const [ninios, setNinios] = useState(0);
   const [ninioAges, setNinioAges] = useState([]);
   const onSubmit = (data) => {
-    console.log(data);
+    
     /*     navigate("/listadoFerris", {
       state: { datosForm: data },
     }); */

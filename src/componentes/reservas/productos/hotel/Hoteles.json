@@ -8,7 +8,11 @@
     "lng": -0.481,
     "regimen": "solo alojamiento",
     "estrellas": 4,
-    "fotos": ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg"],
+    "fotos": [
+      "/hoteles/prueba9.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
     "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
     "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
     "id": 0,
@@ -19,10 +23,9 @@
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
-      { "id": 0, "src": "/hotel1.jpg" },
-      { "id": 1, "src": "/hotel2.jpg" },
-      { "id": 2, "src": "/hotel3.jpg" },
-      { "id": 3, "src": "/hotel4.jpg" }
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
     ],
     "img": "/hotel2.jpg",
     "habitacionImgs": [
@@ -131,7 +134,11 @@
     "lng": -3.7074,
     "regimen": "alojamiento y desayuno",
     "estrellas": 5,
-    "fotos": ["/hotel2.jpg", "/hotel2.jpg", "/hotel1.jpg"],
+    "fotos": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
     "descripcion": "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital, ofreciendo vistas espectaculares hacia la ciudad y un nivel de confort inigualable.",
     "extras": [
       "Wi-Fi",
@@ -199,7 +206,11 @@
     "lng": 2.1925,
     "regimen": "pensión completa",
     "estrellas": 3,
-    "fotos": ["/hotel3.jpg", "/hotel2.jpg", "/hotel1.jpg"],
+    "fotos": [
+      "/hoteles/prueba4.jpg",
+      "/hoteles/prueba5.jpg",
+      "/hoteles/prueba6.jpg"
+    ],
     "descripcion": "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona, con fácil acceso a las mejores playas y actividades de la ciudad.",
     "extras": [
       "Wi-Fi",
@@ -253,6 +264,140 @@
         "nombre": "Superior Double",
         "regimen": "Pensión completa",
         "precio": 120
+      }
+    ]
+  },
+  {
+    "nombre": "Marina Breeze Hotel",
+    "habitacion": 6,
+    "noches": 4,
+    "direccion": "Paseo del Sol, 19, Valencia, España",
+    "lat": 39.4702,
+    "lng": -0.3768,
+    "regimen": "media pensión",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba9.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "El Marina Breeze Hotel combina el encanto mediterráneo con modernas instalaciones junto a la playa de Valencia.",
+    "extras": ["Wi-Fi", "Piscina", "Spa", "Bar", "Zona infantil"],
+    "id": 468,
+    "ubicacion": "en Paseo del Sol, Valencia",
+    "precio": 340,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hotel2.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Habitación doble estándar",
+        "regimen": "Media pensión",
+        "precio": "78.00"
+      },
+      {
+        "id": 1,
+        "nombre": "Suite con balcón",
+        "regimen": "Media pensión",
+        "precio": "130.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Habitación familiar vista mar",
+        "regimen": "Media pensión",
+        "precio": "110.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Brisa Mediterránea",
+    "habitacion": 5,
+    "noches": 4,
+    "direccion": "Carrer del Port, 5, Tarragona, España",
+    "lat": 41.1189,
+    "lng": 1.2445,
+    "regimen": "todo incluido",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba9.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "Brisa Mediterránea ofrece un ambiente familiar con todo incluido, justo al lado del puerto deportivo de Tarragona.",
+    "extras": [
+      "Wi-Fi",
+      "Restaurante buffet",
+      "Club infantil",
+      "Piscina",
+      "Actividades"
+    ],
+    "id": 157,
+    "ubicacion": "en el Puerto de Tarragona",
+    "precio": 310,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hotel2.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Estándar con terraza",
+        "regimen": "Todo incluido",
+        "precio": "88.00"
+      },
+      {
+        "id": 1,
+        "nombre": "Junior Suite",
+        "regimen": "Todo incluido",
+        "precio": "140.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Habitación familiar",
+        "regimen": "Todo incluido",
+        "precio": "125.00"
       }
     ]
   }

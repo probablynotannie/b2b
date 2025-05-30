@@ -1,13 +1,19 @@
 import { useRef, useState, useEffect } from "react";
-import { MapContainer, TileLayer, Marker, Popup, Tooltip } from "react-leaflet";
+import { MapContainer, TileLayer } from "react-leaflet";
+import "leaflet.markercluster/dist/MarkerCluster.css";
+import "leaflet.markercluster/dist/MarkerCluster.Default.css";
 import L from "leaflet";
 import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
+import CustomMarkerCluster from "./CustomMarkerCluster"; // this should render markers with clustering
+
 import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
 import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+
 const customIconUrl = "/logos/hotel.png";
+
 const MapaHoteles = ({ hoteles }) => {
   const markersRef = useRef({});
   const [showMapOnly, setShowMapOnly] = useState(false);
@@ -20,19 +26,23 @@ const MapaHoteles = ({ hoteles }) => {
       }, 300);
     }
   }, [showMapOnly]);
+
   const handleHotelHover = (hotel) => {
     const marker = markersRef.current[hotel.id];
-    if (marker) {
-      marker.openPopup();
-    }
+    if (marker) marker.openPopup();
   };
-  
+
   const handleHotelLeave = (hotel) => {
     const marker = markersRef.current[hotel.id];
-    if (marker) {
-      marker.closePopup();
-    }
+    if (marker) marker.closePopup();
   };
+
+  const markerIcon = new L.Icon({
+    iconUrl: customIconUrl,
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    popupAnchor: [0, -40],
+  });
 
   return (
     <div
@@ -82,7 +92,7 @@ const MapaHoteles = ({ hoteles }) => {
         </div>
       )}
       <div
-        className={`tw-w-full tw-h-[85vh] tw-z-0 tw-mb-0  ${
+        className={`tw-w-full tw-h-[85vh] tw-z-0 tw-mb-0 ${
           showMapOnly
             ? "tw-col-span-1"
             : "tw-col-span-3 lg:tw-col-span-2 xl:tw-col-span-2"
@@ -105,58 +115,11 @@ const MapaHoteles = ({ hoteles }) => {
             attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
             url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
           />
-          {hoteles.map((hotel) => (
-            <Marker
-              key={hotel.id}
-              position={[hotel.lat, hotel.lng]}
-              icon={
-                new L.Icon({
-                  iconUrl: customIconUrl,
-                  iconSize: [40, 40],
-                  iconAnchor: [20, 40],
-                  popupAnchor: [0, -40],
-                })
-              }
-              ref={(el) => (markersRef.current[hotel.id] = el)}
-            >
-              <Popup className="custom-popup">
-                <div className="tw-h-[200px] tw-w-[300px] tw-cursor-pointer">
-                  <Carousel slide={false} indicators={true}>
-                    {hotel.fotos.map((foto, idx) => (
-                      <img
-                        key={idx}
-                        src={foto}
-                        alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
-                        className="tw-h-full tw-w-full tw-object-cover"
-                      />
-                    ))}
-                  </Carousel>
-                </div>
-                <Link
-                  to={"/hotel"}
-                  state={hotel}
-                  className="tw-block tw-mt-4 tw-cursor-pointer"
-                >
-                  <h3 className="tw-text-lg tw-font-bold tw-text-slate-700 dark:tw-text-secondary">
-                    {hotel.nombre}
-                  </h3>
-                  <p className="tw-font-medium tw-text-slate-400">
-                    Precio: €{hotel.precio}
-                  </p>
-                </Link>
-              </Popup>
-              <Tooltip
-                className="custom-tooltip"
-                direction="top"
-                offset={[0, -30]}
-                permanent
-              >
-                <div className="tw-text-black">
-                  <span>€{hotel.precio}</span>
-                </div>
-              </Tooltip>
-            </Marker>
-          ))}
+          <CustomMarkerCluster
+            hoteles={hoteles}
+            markerIcon={markerIcon}
+            onMarkerRef={(id, marker) => (markersRef.current[id] = marker)}
+          />
         </MapContainer>
       </div>
     </div>

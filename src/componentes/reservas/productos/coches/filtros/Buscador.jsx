@@ -40,7 +40,7 @@ function Buscador() {
     },
   });
   const onSubmit = (data) => {
-    console.log(data);
+    
 
     navigate("/listadoCoches", {
       state: { data },

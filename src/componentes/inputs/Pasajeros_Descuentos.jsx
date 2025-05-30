@@ -29,7 +29,6 @@ function SelectorPersonas({ register, setValue, watch }) {
   function handleNiniosChange(e) {
     const value = Number(e.target.value);
     setNinios(value);
-    console.log(value);
     setValue("ninios", value);
   }
 

@@ -229,3 +229,7 @@ body {
   border-radius: 5px;
   white-space: nowrap;
 }
+.marker-cluster-small div{
+  color: white;
+  background-color: rgba(0, 0, 255, 0.555);
+}

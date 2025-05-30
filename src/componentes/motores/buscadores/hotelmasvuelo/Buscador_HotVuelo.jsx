@@ -22,7 +22,7 @@ function Buscador_Cruceros() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    
 
     navigate("/listadohotelmasvuelo", {
       state: { data },

@@ -19,7 +19,7 @@ function Buscador() {
     setViaje(type);
   };
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/listadoFerris", {
       state: { datosForm: data },
     });

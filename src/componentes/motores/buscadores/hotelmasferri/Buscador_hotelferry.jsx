@@ -60,7 +60,7 @@ function Buscador_Destinos() {
   };
 
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/listadoHotelMasFerry", {
       state: { datosForm: data },
     });

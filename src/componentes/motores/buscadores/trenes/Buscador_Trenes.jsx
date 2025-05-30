@@ -17,7 +17,7 @@ function Buscador_Destinos() {
     setViaje(type);
   };
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/listadoTrenes", {
       state: { datosForm: data },
     });

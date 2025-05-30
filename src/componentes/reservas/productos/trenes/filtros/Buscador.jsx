@@ -20,7 +20,7 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/listadoFerris", {
       state: { datosForm: data },
     });

@@ -26,7 +26,6 @@ function Coches() {
   }, []);
   const navigate = useNavigate();
   const detalles = (coche) => {
-    console.log(coche);
     navigate("/coche/detalles", {
       state: { coche },
     });

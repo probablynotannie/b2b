@@ -89,7 +89,7 @@ function Buscador_Destinos() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/seguro", {
       state: { data },
     });

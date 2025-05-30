@@ -44,7 +44,7 @@ function Buscador() {
   });
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/listadotransfers", {
       state: { data },
     });

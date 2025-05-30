@@ -31,7 +31,7 @@ function Buscador() {
   ];
 
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/listadohotelmasactividades", {
       state: { datosForm: data },
     });
