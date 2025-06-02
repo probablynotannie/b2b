@@ -55,9 +55,12 @@ function Filtrado({ onFilterChange }) {
 
   return (
     <section className="tw-w-full tw-my-5 tw-mb-10 tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-800 tw-rounded-lg tw-p-6 tw-shadow-md">
+      <h2 className="tw-text-xl tw-font-semibold tw-text-gray-800 dark:tw-text-white tw-mb-4">
+        Filtrado
+      </h2>
       <div className="tw-flex tw-flex-col lg:tw-flex-row tw-flex-wrap tw-gap-5">
         <div className="tw-flex-1 min-w-[200px]">
-          <label className="tw-block tw-mb-1 tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-300">
+          <label className="tw-block tw-mb-1 tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
             Nombre del hotel
           </label>
           <input
@@ -74,7 +77,7 @@ function Filtrado({ onFilterChange }) {
         </div>
 
         <div className="tw-flex-1 min-w-[200px]">
-          <label className="tw-block tw-mb-1 tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-300">
+          <label className="tw-block tw-mb-1 tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
             Régimen
           </label>
           <select
@@ -96,7 +99,7 @@ function Filtrado({ onFilterChange }) {
         </div>
 
         <div className="tw-flex-1 min-w-[200px]">
-          <label className="tw-block tw-mb-1 tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-300">
+          <label className="tw-block tw-mb-1 tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
             Ciudad
           </label>
           <select
@@ -116,54 +119,56 @@ function Filtrado({ onFilterChange }) {
             ))}
           </select>
         </div>
-
-        <div className="tw-flex tw-flex-col tw-gap-2 tw-mt-1">
-          <label className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-300">
-            Estrellas
-          </label>
-          <div className="tw-flex tw-items-center tw-gap-1">
-            {[1, 2, 3, 4, 5].map((star) => (
-              <FaStar
-                key={star}
-                size={20}
-                onClick={() => {
-                  const newStars = star === selectedStars ? 0 : star;
-                  setSelectedStars(newStars);
-                  updateFilters({ stars: newStars });
-                }}
-                className={`tw-cursor-pointer ${
-                  star <= selectedStars
-                    ? "tw-text-orange-400"
-                    : "tw-text-gray-300 dark:tw-text-gray-600"
-                }`}
-                title={`${star} estrella${star > 1 ? "s" : ""} o más`}
-              />
-            ))}
+        <div className="tw-flex tw-justify-between">
+          <div className="tw-flex tw-flex-col tw-gap-2 tw-mt-1">
+            <label className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
+              Estrellas
+            </label>
+            <div className="tw-flex tw-items-center tw-gap-1">
+              {[1, 2, 3, 4, 5].map((star) => (
+                <FaStar
+                  key={star}
+                  size={20}
+                  onClick={() => {
+                    const newStars = star === selectedStars ? 0 : star;
+                    setSelectedStars(newStars);
+                    updateFilters({ stars: newStars });
+                  }}
+                  className={`tw-cursor-pointer ${
+                    star <= selectedStars
+                      ? "tw-text-orange-400"
+                      : "tw-text-gray-300 dark:tw-text-gray-600"
+                  }`}
+                  title={`${star} estrella${star > 1 ? "s" : ""} o más`}
+                />
+              ))}
+            </div>
           </div>
-        </div>
 
-        <div className="tw-flex tw-flex-col tw-gap-3 tw-mt-1">
-          <span className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-300">
-            Reembolsable
-          </span>
-          <button
-            onClick={() => {
-              const newValue = !reembolsable;
-              setReembolsable(newValue);
-              updateFilters({ reembolsable: newValue });
-            }}
-            className={`tw-relative tw-w-full tw-inline-flex tw-items-center tw-h-6 tw-rounded-full  tw-transition-colors ${
-              reembolsable
-                ? "tw-bg-green-500"
-                : "tw-bg-gray-300 dark:tw-bg-gray-600"
-            }`}
-          >
-            <span
-              className={`tw-inline-block tw-w-4 tw-h-4 tw-transform tw-bg-white tw-rounded-full tw-transition-transform ${
-                reembolsable ? "tw-translate-x-14" : "tw-translate-x-1"
+          <div className="tw-flex tw-flex-col tw-items-end tw-gap-3 ">
+            <span className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
+              Reembolsable
+            </span>
+            <button
+              aria-label="Reembolsable"
+              onClick={() => {
+                const newValue = !reembolsable;
+                setReembolsable(newValue);
+                updateFilters({ reembolsable: newValue });
+              }}
+              className={`tw-relative tw-ml-2 tw-inline-flex tw-items-center tw-h-6 tw-rounded-full tw-w-11 tw-transition-colors ${
+                reembolsable
+                  ? "tw-bg-secondary dark:tw-bg-secondaryDark"
+                  : "tw-bg-gray-300 dark:tw-bg-gray-600"
               }`}
-            />
-          </button>
+            >
+              <span
+                className={`tw-inline-block tw-w-4 tw-h-4 tw-transform tw-bg-white tw-rounded-full tw-transition-transform ${
+                  reembolsable ? "tw-translate-x-6" : "tw-translate-x-1"
+                }`}
+              />
+            </button>
+          </div>
         </div>
       </div>
     </section>
