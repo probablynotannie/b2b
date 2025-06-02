@@ -36,18 +36,18 @@ const cityOptions = [
 ];
 
 function Filtrado({ onFilterChange }) {
-  const [selectedStars, setSelectedStars] = useState(0);
-  const [hotelName, setHotelName] = useState("");
+  const [estrellas, setEstrellas] = useState(0);
+  const [nombreHotel, setNombreHotel] = useState("");
   const [selectedRegimen, setSelectedRegimen] = useState("");
-  const [selectedCity, setSelectedCity] = useState("");
+  const [ciudad, setCiudad] = useState("");
   const [reembolsable, setReembolsable] = useState(false);
 
   const updateFilters = (newFields = {}) => {
     onFilterChange?.({
-      stars: selectedStars,
-      name: hotelName,
+      stars: estrellas,
+      name: nombreHotel,
       regimen: selectedRegimen,
-      city: selectedCity,
+      city: ciudad,
       reembolsable,
       ...newFields,
     });
@@ -66,10 +66,10 @@ function Filtrado({ onFilterChange }) {
           <input
             type="text"
             placeholder="Buscar por nombre..."
-            value={hotelName}
+            value={nombreHotel}
             onChange={(e) => {
               const name = e.target.value;
-              setHotelName(name);
+              setNombreHotel(name);
               updateFilters({ name });
             }}
             className="tw-w-full tw-border dark:tw-bg-slate-700 dark:tw-placeholder-slate-400 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-md tw-px-3 tw-py-2 tw-text-gray-900 dark:tw-text-gray-100"
@@ -103,10 +103,10 @@ function Filtrado({ onFilterChange }) {
             Ciudad
           </label>
           <select
-            value={selectedCity}
+            value={ciudad}
             onChange={(e) => {
               const city = e.target.value;
-              setSelectedCity(city);
+              setCiudad(city);
               updateFilters({ city });
             }}
             className="tw-w-full tw-border dark:tw-bg-slate-700 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-md tw-px-3 tw-py-2 tw-text-gray-900 dark:tw-text-gray-100"
@@ -130,12 +130,12 @@ function Filtrado({ onFilterChange }) {
                   key={star}
                   size={20}
                   onClick={() => {
-                    const newStars = star === selectedStars ? 0 : star;
-                    setSelectedStars(newStars);
+                    const newStars = star === estrellas ? 0 : star;
+                    setEstrellas(newStars);
                     updateFilters({ stars: newStars });
                   }}
                   className={`tw-cursor-pointer ${
-                    star <= selectedStars
+                    star <= estrellas
                       ? "tw-text-orange-400"
                       : "tw-text-gray-300 dark:tw-text-gray-600"
                   }`}
@@ -144,7 +144,6 @@ function Filtrado({ onFilterChange }) {
               ))}
             </div>
           </div>
-
           <div className="tw-flex tw-flex-col tw-items-end tw-gap-3 ">
             <span className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
               Reembolsable

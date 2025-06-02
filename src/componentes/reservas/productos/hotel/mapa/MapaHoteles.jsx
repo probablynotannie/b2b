@@ -42,13 +42,17 @@ const MapaHoteles = ({ hoteles }) => {
         }, 300);
       });
     } else {
-      map.setView(marker.getLatLng(), Math.max(map.getZoom(), 13), {
-        animate: true,
-      });
-
-      setTimeout(() => {
+      const onMoveEnd = () => {
         marker.openPopup();
-      }, 300);
+        map.off("moveend", onMoveEnd);
+      };
+
+      map.on("moveend", onMoveEnd);
+
+      map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 13), {
+        animate: true,
+        duration: 1,
+      });
     }
   };
 
