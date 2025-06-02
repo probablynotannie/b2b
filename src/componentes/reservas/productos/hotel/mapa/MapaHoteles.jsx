@@ -117,11 +117,11 @@ const MapaHoteles = ({ hoteles }) => {
           </div>
         )}
         <div
-          className={`tw-w-full tw-h-[85vh] tw-z-0 tw-mb-0 ${
+          className={`tw-w-full tw-border-2 tw-border-slate-100 tw-shadow hover:tw-shadow-xl tw-smooth tw-h-[85vh] tw-z-0 tw-mb-0 ${
             showMapOnly
               ? "tw-col-span-1"
               : "tw-col-span-3 lg:tw-col-span-2 xl:tw-col-span-2"
-          } tw-sticky tw-top-10 tw-rounded-2xl tw-overflow-hidden tw-relative`}
+          } tw-sticky tw-top-10 tw-rounded-2xl tw-overflow-hidden`}
         >
           <div
             className="tw-hidden lg:tw-flex tw-absolute tw-top-5 tw-left-5 tw-z-50 hover:tw-scale-105 tw-smooth tw-cursor-pointer tw-p-2 tw-bg-indigo-500 tw-px-3 tw-text-white tw-rounded-lg tw-shadow-lg tw-text-2xl"
@@ -140,7 +140,7 @@ const MapaHoteles = ({ hoteles }) => {
               url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
             />
-          {/*   <TileLayer
+            {/*   <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
             /> */}
