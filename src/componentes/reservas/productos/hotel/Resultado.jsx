@@ -5,7 +5,7 @@ import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import MapaHoteles from "./MapaHoteles";
+import MapaHoteles from "./mapa/MapaHoteles";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 
 function Productos() {

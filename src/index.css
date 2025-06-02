@@ -216,20 +216,56 @@ body {
 }
 
 
-
 /* Hoteles en el mapa */
 .custom-popup {
+
   height: auto;
 }
 .custom-tooltip {
-  font-size: 0.7rem;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: white;
-  padding: 7px;
-  border-radius: 5px;
-  white-space: nowrap;
+  width: 250px;
+  background-color: rgba(255, 255, 255, 0.863);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.15);
+  font-family: Arial, sans-serif;
 }
 .marker-cluster-small div{
   color: white;
   background-color: rgba(0, 0, 255, 0.555);
+}
+.boton_popup_hotel {
+  background-color: #4f46e5;
+  color: white;
+  padding: 10px 15px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1em;
+  transition: background-color 0.2s ease;
+}
+.boton_popup_hotel:hover {
+  background-color: #3730a3;
+}
+.imagen_popup_hotel {
+  width: 100%;
+  height: 140px;
+  object-fit: cover;
+  border-radius: 6px;
+  display: block;
+  margin-bottom: 8px;
+}
+.leaflet-popup-content-wrapper {
+  box-shadow: none ;
+  border: none ;
+  background: transparent ;
+}
+
+.leaflet-popup-tip {
+  background-color: #3730a3;
+  /* display: none; */
+}
+
+.leaflet-popup-close-button {
+  display: none;
 }
