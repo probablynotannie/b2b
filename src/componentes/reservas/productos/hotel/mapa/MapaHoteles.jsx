@@ -118,9 +118,7 @@ const MapaHoteles = ({ hoteles }) => {
         )}
         <div
           className={`tw-w-full tw-border-2 tw-border-slate-100 tw-shadow hover:tw-shadow-xl tw-smooth tw-h-[85vh] tw-z-0 tw-mb-0 ${
-            showMapOnly
-              ? "tw-col-span-1"
-              : "tw-col-span-3 lg:tw-col-span-2 xl:tw-col-span-2"
+            showMapOnly ? "tw-col-span-1" : "tw-col-span-3 lg:tw-col-span-2"
           } tw-sticky tw-top-10 tw-rounded-2xl tw-overflow-hidden`}
         >
           <div
