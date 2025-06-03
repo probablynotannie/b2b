@@ -6,7 +6,6 @@ import DatosTren from "./detalles/DatosTren";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
-  console.log(producto[0]);
   const [ida, setIda] = useState({
     ...producto[0],
     claseElegida: producto[0].claseElegida || producto[0].clasesDeAsiento[0],

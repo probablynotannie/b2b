@@ -36,6 +36,7 @@ const cityOptions = [
 ];
 
 function Filtrado({ onFilterChange }) {
+  const [hoveredStar, setHoveredStar] = useState(0);
   const [estrellas, setEstrellas] = useState(0);
   const [nombreHotel, setNombreHotel] = useState("");
   const [selectedRegimen, setSelectedRegimen] = useState("");
@@ -129,13 +130,17 @@ function Filtrado({ onFilterChange }) {
                 <FaStar
                   key={star}
                   size={20}
+                  onMouseEnter={() => setHoveredStar(star)}
+                  onMouseLeave={() => setHoveredStar(0)}
                   onClick={() => {
                     const newStars = star === estrellas ? 0 : star;
                     setEstrellas(newStars);
                     updateFilters({ stars: newStars });
                   }}
                   className={`tw-cursor-pointer ${
-                    star <= estrellas
+                    hoveredStar >= star
+                      ? "tw-text-secondary"
+                      : estrellas >= star
                       ? "tw-text-orange-400"
                       : "tw-text-gray-300 dark:tw-text-gray-600"
                   }`}

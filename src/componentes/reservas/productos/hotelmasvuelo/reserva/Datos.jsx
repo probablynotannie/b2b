@@ -38,7 +38,6 @@ function Datos() {
   });
 
   const onSubmit = (data) => {
-    console.log("Form data", data); 
     navigate("/reservahotelmasvuelo", {
       state: { data, selectedHotel, ida, vuelta, habitacion },
     });

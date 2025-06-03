@@ -14,7 +14,6 @@ const Vuelo = () => {
   const { producto, pasajeros, precioSeleccionado } = location.state || {};
   const navigate = useNavigate();
   const img = "/banners/banner_cruise.webp";
-  console.log(pasajeros);
   const {
     register,
     handleSubmit,
