@@ -49,6 +49,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "42.67"
       },
       {
@@ -56,6 +58,8 @@
         "nombre": "Habitación privada",
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "60.00"
       },
       {
@@ -63,6 +67,7 @@
         "nombre": "Suite con vistas al mar",
         "reembolso": "SI",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "120.50"
       },
       {
@@ -76,6 +81,7 @@
           "A partir de 08/11/2024 penalización de 54.00€"
         ],
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "80.00"
       },
       {
@@ -83,6 +89,7 @@
         "nombre": "Habitación individual económica",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "35.00"
       },
       {
@@ -91,6 +98,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "95.00"
       },
       {
@@ -98,6 +107,7 @@
         "nombre": "Apartamento con cocina",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "105.00"
       },
       {
@@ -106,6 +116,7 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "150.00"
       },
       {
@@ -113,6 +124,7 @@
         "nombre": "Cabaña en la montaña",
         "reembolso": "SI",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       },
       {
@@ -121,6 +133,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "30.00"
       }
     ]
@@ -181,18 +195,23 @@
         "id": 0,
         "nombre": "Luxury Suite",
         "regimen": "Alojamiento y desayuno",
+
+        "regimenEnCorto": "AD",
         "precio": 200
       },
       {
         "id": 1,
         "nombre": "Deluxe Room",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
         "precio": 150
       },
       {
         "id": 2,
         "nombre": "Standard Room",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": 120
       }
     ]
@@ -315,18 +334,21 @@
         "id": 0,
         "nombre": "Habitación doble estándar",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "78.00"
       },
       {
         "id": 1,
         "nombre": "Suite con balcón",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "130.00"
       },
       {
         "id": 2,
         "nombre": "Habitación familiar vista mar",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       }
     ]
@@ -385,18 +407,21 @@
         "id": 0,
         "nombre": "Estándar con terraza",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "88.00"
       },
       {
         "id": 1,
         "nombre": "Junior Suite",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "140.00"
       },
       {
         "id": 2,
         "nombre": "Habitación familiar",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "125.00"
       }
     ]
@@ -451,6 +476,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "42.67"
       },
       {
@@ -458,6 +485,8 @@
         "nombre": "Habitación privada",
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "60.00"
       },
       {
@@ -465,6 +494,7 @@
         "nombre": "Suite con vistas al mar",
         "reembolso": "SI",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "120.50"
       },
       {
@@ -478,6 +508,7 @@
           "A partir de 08/11/2024 penalización de 54.00€"
         ],
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "80.00"
       },
       {
@@ -485,6 +516,7 @@
         "nombre": "Habitación individual económica",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "35.00"
       },
       {
@@ -493,6 +525,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "95.00"
       },
       {
@@ -500,6 +534,7 @@
         "nombre": "Apartamento con cocina",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "105.00"
       },
       {
@@ -508,6 +543,7 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "150.00"
       },
       {
@@ -515,6 +551,7 @@
         "nombre": "Cabaña en la montaña",
         "reembolso": "SI",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       },
       {
@@ -523,6 +560,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "30.00"
       }
     ]
@@ -577,6 +616,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "42.67"
       },
       {
@@ -584,6 +625,8 @@
         "nombre": "Habitación privada",
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "60.00"
       },
       {
@@ -591,6 +634,7 @@
         "nombre": "Suite con vistas al mar",
         "reembolso": "SI",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "120.50"
       },
       {
@@ -604,6 +648,7 @@
           "A partir de 08/11/2024 penalización de 54.00€"
         ],
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "80.00"
       },
       {
@@ -611,6 +656,7 @@
         "nombre": "Habitación individual económica",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "35.00"
       },
       {
@@ -619,6 +665,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "95.00"
       },
       {
@@ -626,6 +674,7 @@
         "nombre": "Apartamento con cocina",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "105.00"
       },
       {
@@ -634,6 +683,7 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "150.00"
       },
       {
@@ -641,6 +691,7 @@
         "nombre": "Cabaña en la montaña",
         "reembolso": "SI",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       },
       {
@@ -649,6 +700,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "30.00"
       }
     ]
@@ -703,6 +756,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "42.67"
       },
       {
@@ -710,6 +765,8 @@
         "nombre": "Habitación privada",
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "60.00"
       },
       {
@@ -717,6 +774,7 @@
         "nombre": "Suite con vistas al mar",
         "reembolso": "SI",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "120.50"
       },
       {
@@ -730,6 +788,7 @@
           "A partir de 08/11/2024 penalización de 54.00€"
         ],
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "80.00"
       },
       {
@@ -737,6 +796,7 @@
         "nombre": "Habitación individual económica",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "35.00"
       },
       {
@@ -745,6 +805,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "95.00"
       },
       {
@@ -752,6 +814,7 @@
         "nombre": "Apartamento con cocina",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "105.00"
       },
       {
@@ -760,6 +823,7 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "150.00"
       },
       {
@@ -767,6 +831,7 @@
         "nombre": "Cabaña en la montaña",
         "reembolso": "SI",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       },
       {
@@ -775,6 +840,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "30.00"
       }
     ]
@@ -829,6 +896,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "42.67"
       },
       {
@@ -836,6 +905,8 @@
         "nombre": "Habitación privada",
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "60.00"
       },
       {
@@ -843,6 +914,7 @@
         "nombre": "Suite con vistas al mar",
         "reembolso": "SI",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "120.50"
       },
       {
@@ -856,6 +928,7 @@
           "A partir de 08/11/2024 penalización de 54.00€"
         ],
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "80.00"
       },
       {
@@ -863,6 +936,7 @@
         "nombre": "Habitación individual económica",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "35.00"
       },
       {
@@ -871,6 +945,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "95.00"
       },
       {
@@ -878,6 +954,7 @@
         "nombre": "Apartamento con cocina",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "105.00"
       },
       {
@@ -886,6 +963,7 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "150.00"
       },
       {
@@ -893,6 +971,7 @@
         "nombre": "Cabaña en la montaña",
         "reembolso": "SI",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       },
       {
@@ -901,6 +980,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "30.00"
       }
     ]
