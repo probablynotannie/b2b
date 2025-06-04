@@ -76,7 +76,7 @@ const MapaHoteles = ({ hoteles }) => {
         }`}
       >
         {!showMapOnly && (
-          <div className="tw-hidden lg:tw-grid xl:tw-grid-cols-2 xl:tw-col-span-2 tw-gap-10">
+          <div className="tw-hidden lg:tw-grid xl:tw-grid-cols-1 xl:tw-col-span-1 tw-gap-10 tw-p-5 tw-shadow tw-border tw-rounded-lg dark:tw-bg-slate-700 tw-bg-slate-100 tw-border-slate-100 dark:tw-border-slate-700">
             {hoteles.map((hotel) => (
               <div
                 key={hotel.id}
@@ -122,7 +122,7 @@ const MapaHoteles = ({ hoteles }) => {
         )}
         <div
           className={`tw-w-full tw-border-2 tw-border-slate-100 tw-shadow hover:tw-shadow-xl tw-smooth tw-h-[85vh] tw-z-0 tw-mb-0 ${
-            showMapOnly ? "tw-col-span-1" : "tw-col-span-3 lg:tw-col-span-2"
+            showMapOnly ? "tw-col-span-1" : "tw-col-span-3 lg:tw-col-span-3"
           } tw-sticky tw-top-10 tw-rounded-2xl tw-overflow-hidden`}
         >
           <div
@@ -139,9 +139,10 @@ const MapaHoteles = ({ hoteles }) => {
             ref={mapRef}
           >
             <TileLayer
-              url="https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png"
+              url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
             />
+
             {/*   <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"

@@ -42,6 +42,7 @@ function Filtrado({ onFilterChange }) {
   const [selectedRegimen, setSelectedRegimen] = useState("");
   const [ciudad, setCiudad] = useState("");
   const [reembolsable, setReembolsable] = useState(false);
+
   const updateFilters = (newFields = {}) => {
     onFilterChange?.({
       stars: estrellas,
@@ -54,7 +55,7 @@ function Filtrado({ onFilterChange }) {
   };
 
   return (
-    <section className="tw-w-full tw-my-5 tw-mb-10 tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-800 tw-rounded-lg tw-p-6 tw-shadow-md">
+    <section className="tw-w-full tw-my-5 tw-mb-10 tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-rounded-lg tw-p-6 tw-shadow-md">
       <h2 className="tw-text-xl tw-font-semibold tw-text-gray-800 dark:tw-text-white tw-mb-4">
         Filtrado
       </h2>
@@ -124,11 +125,11 @@ function Filtrado({ onFilterChange }) {
             <label className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
               Estrellas
             </label>
-            <div className="tw-flex tw-items-center tw-gap-1">
+            <div className="tw-flex tw-items-center">
               {[1, 2, 3, 4, 5].map((star) => (
                 <FaStar
-                  key={star}
                   size={20}
+                  key={star}
                   onMouseEnter={() => setHoveredStar(star)}
                   onMouseLeave={() => setHoveredStar(0)}
                   onClick={() => {
