@@ -1,146 +1,17 @@
 import { useState, useEffect } from "react";
 import { FaArrowRight, FaInfoCircle } from "react-icons/fa";
-function SeleccionHoteles() {
-  const [seleccion, setSeleccion] = useState(null);
+function SeleccionHoteles({ hoteles, seleccion, setSeleccion, titulo }) {
   const [modalHotel, setModalHotel] = useState(null);
   const [paginaActual, setPaginaActual] = useState(1);
   const hotelesPorPagina = 5;
-  const hoteles = [
-    {
-      id: 1,
-      nombre: "Hotel Barceló Raval",
-      descripcion:
-        "Un hotel moderno en el corazón de Barcelona con vistas panorámicas.",
-      imagenes: ["/hotel1.jpg", "/hotel1b.jpg"],
-      imagenMiniatura: "/hotel1.jpg",
-      regimenes: [{ nombre: "Desayuno", extra: 15 }],
-    },
-    {
-      id: 2,
-      nombre: "Meliá Madrid Princesa",
-      descripcion:
-        "Hotel de lujo con habitaciones amplias y servicios exclusivos.",
-      imagenes: ["/hotel2.jpg", "/hotel2b.jpg"],
-      imagenMiniatura: "/hotel2.jpg",
-      regimenes: [
-        { nombre: "Desayuno", extra: 18 },
-        { nombre: "Media pensión", extra: 35 },
-        { nombre: "Todo incluido", extra: 50 },
-        { nombre: "Regimen Especial", extra: 102 },
-        { nombre: "Segun programa", extra: 86 },
-        { nombre: "Pension completa", extra: 70 },
-        { nombre: "HM", extra: 20 },
-        { nombre: "Regimen raro", extra: 60 },
-        { nombre: "Especial verano", extra: 85 },
-        { nombre: "Especial Invierno", extra: 75 },
-      ],
-    },
-    {
-      id: 3,
-      nombre: "NH Collection Sevilla",
-      descripcion: "Perfecto para negocios o escapadas urbanas en Sevilla.",
-      imagenes: ["/hotel3.jpg", "/hotel3b.jpg"],
-      imagenMiniatura: "/hotel3.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 40 },
-        { nombre: "Media pensión", extra: 25 },
-        { nombre: "Desayuno", extra: 12 },
-      ],
-    },
-    {
-      id: 4,
-      nombre: "Hotel Eurostars Málaga",
-      descripcion: "Ubicación estratégica y diseño vanguardista.",
-      imagenes: ["/hotel4.jpg", "/hotel4b.jpg"],
-      imagenMiniatura: "/hotel4.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 38 },
-        { nombre: "Desayuno", extra: 10 },
-      ],
-    },
-    {
-      id: 5,
-      nombre: "Hotel Ilunion Valencia",
-      descripcion: "Cercano a la Ciudad de las Artes y las Ciencias.",
-      imagenes: ["/hote3.jpg", "/hotel3.jpg"],
-      imagenMiniatura: "/hotel1.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 35 },
-        { nombre: "Media pensión", extra: 20 },
-        { nombre: "Desayuno", extra: 8 },
-      ],
-    },
-    {
-      id: 6,
-      nombre: "Hotel Hesperia Bilbao",
-      descripcion: "Colores vibrantes frente al museo Guggenheim.",
-      imagenes: ["/hotel1.jpg", "/hotel1.jpg"],
-      imagenMiniatura: "/hotel3.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 48 },
-        { nombre: "Media pensión", extra: 28 },
-        { nombre: "Desayuno", extra: 14 },
-      ],
-    },
-    {
-      id: 7,
-      nombre: "Silken Puerta América",
-      descripcion: "Hotel de diseño único en Madrid.",
-      imagenes: ["/hotel2.jpg", "/hotel2.jpg"],
-      imagenMiniatura: "/hotel2.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 55 },
-        { nombre: "Media pensión", extra: 36 },
-        { nombre: "Desayuno", extra: 20 },
-      ],
-    },
-    {
-      id: 8,
-      nombre: "Catalonia Santa Justa",
-      descripcion: "Con piscina en la azotea y fácil acceso al AVE.",
-      imagenes: ["/hotel1.jpg", "/hotel2.jpg"],
-      imagenMiniatura: "/hotel4.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 42 },
-        { nombre: "Media pensión", extra: 26 },
-        { nombre: "Desayuno", extra: 13 },
-      ],
-    },
-    {
-      id: 9,
-      nombre: "Hotel Las Arenas Valencia",
-      descripcion: "Lujo frente a la playa de la Malvarrosa.",
-      imagenes: ["/hotel2.jpg", "/hotel3.jpg"],
-      imagenMiniatura: "/hotel1.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 60 },
-        { nombre: "Media pensión", extra: 40 },
-        { nombre: "Desayuno", extra: 25 },
-      ],
-    },
-    {
-      id: 10,
-      nombre: "Hotel Donostia San Sebastián",
-      descripcion: "Elegancia en la costa norte.",
-      imagenes: ["/hotel1.jpg", "/hotel2.jpg"],
-      imagenMiniatura: "/hotel2.jpg",
-      regimenes: [
-        { nombre: "Todo incluido", extra: 52 },
-        { nombre: "Media pensión", extra: 32 },
-        { nombre: "Desayuno", extra: 18 },
-      ],
-    },
-  ];
-
   const hotelesPagina = hoteles.slice(
     (paginaActual - 1) * hotelesPorPagina,
     paginaActual * hotelesPorPagina
   );
 
-  const handleSelect = (hotelId, regimen) => {
-    setSeleccion({ hotelId, regimen });
+  const handleSelect = (hotelId, regimen, hotelNombre) => {
+    setSeleccion({ hotelId, regimen, hotelNombre });
   };
-
   useEffect(() => {
     if (modalHotel) {
       document.body.style.overflow = "hidden";
@@ -155,7 +26,7 @@ function SeleccionHoteles() {
   return (
     <div className="tw-overflow-x-auto tw-my-4 tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-p-2 tw-pb-5">
       <div className="tw-font-bold tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-secondary dark:tw-border-secondaryDark tw-border-b-2">
-        Selección de hotel
+        Selección de hotel de {titulo} 
       </div>
       <table className="tw-w-full tw-text-sm tw-text-left tw-text-white tw-hidden md:tw-table">
         <tbody>
@@ -220,7 +91,7 @@ function SeleccionHoteles() {
                           className="tw-hidden"
                           checked={isSelected}
                           onChange={() =>
-                            handleSelect(hotel.id, regimen.nombre)
+                            handleSelect(hotel.id, regimen.nombre, hotel.nombre)
                           }
                         />
                         <span>{regimen.nombre}</span>
@@ -285,7 +156,9 @@ function SeleccionHoteles() {
                     return (
                       <button
                         key={regimen.nombre}
-                        onClick={() => handleSelect(hotel.id, regimen.nombre)}
+                        onClick={() =>
+                          handleSelect(hotel.id, regimen.nombre, hotel.nombre)
+                        }
                         className={`tw-p-3 tw-rounded tw-text-xs tw-whitespace-nowrap ${
                           isSelected
                             ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white tw-font-bold"

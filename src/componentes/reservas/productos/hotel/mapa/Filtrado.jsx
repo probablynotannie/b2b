@@ -42,7 +42,6 @@ function Filtrado({ onFilterChange }) {
   const [selectedRegimen, setSelectedRegimen] = useState("");
   const [ciudad, setCiudad] = useState("");
   const [reembolsable, setReembolsable] = useState(false);
-
   const updateFilters = (newFields = {}) => {
     onFilterChange?.({
       stars: estrellas,

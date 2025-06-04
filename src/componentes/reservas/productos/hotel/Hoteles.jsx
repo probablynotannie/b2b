@@ -1,4 +1,4 @@
-import { FaDoorOpen, FaMapPin } from "react-icons/fa";
+import { FaArrowRight, FaDoorOpen, FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
@@ -158,26 +158,32 @@ function Resultado({ hoteles }) {
             </div>
           </article>
           {expandedHotel === index && (
-            <div className="tw-relative tw-mt-4 tw-p-5 tw-mb-6 tw-grid md:tw-grid-cols-3 tw-gap-3 tw-border-2 tw-border-slate-200 tw-bg-slate-100 tw-shadow-lg tw-rounded-xl">
+            <div className="tw-relative tw-bg-slate-100 tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
               {hotel.habitaciones
                 .sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio))
-                .slice(0, 10)
+                .slice(0, 12)
                 .map((habitacion, index) => (
                   <div
                     key={index}
-                    className="tw-flex tw-justify-between tw-items-center tw-bg-white hover:tw-bg-indigo-200 tw-smooth dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-py-2 tw-px-3"
+                    className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
                   >
                     <div>
-                      <p className="tw-font-medium tw-text-sm">
+                      <p className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-truncate tw-flex tw-gap-1">
+                        <FaArrowRight className="tw-text-md tw-mr-1" />{" "}
                         {habitacion.nombre}
                       </p>
-                      <p className="tw-text-xs tw-text-slate-500">
+                      <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
                         {habitacion.regimen}
                       </p>
                     </div>
-                    <span className="tw-font-semibold tw-text-sm">
-                      {parseFloat(habitacion.precio).toFixed(2)}€
-                    </span>
+                    <div className="tw-flex tw-items-center tw-justify-between tw-mt-2">
+                      <span className="tw-font-semibold tw-text-slate-700 dark:tw-text-white">
+                        {parseFloat(habitacion.precio).toFixed(2)} €
+                      </span>
+                      <button className="tw-text-xs tw-font-medium tw-text-secondary hover:tw-underline">
+                        Seleccionar
+                      </button>
+                    </div>
                   </div>
                 ))}
             </div>
