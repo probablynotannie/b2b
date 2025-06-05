@@ -6,8 +6,6 @@ import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 function Buscador() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const [habitacion, setHabitacion] = useState(1);
@@ -44,7 +42,6 @@ function Buscador() {
   });
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    
     navigate("/listadotransfers", {
       state: { data },
     });

@@ -56,7 +56,7 @@ function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
   };
 
   return (
-    <section className="tw-w-full tw-my-5 tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-rounded-2xl tw-p-6 tw-shadow-md tw-space-y-6">
+    <section className="tw-w-full tw-my-5 tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-rounded-2xl tw-p-6 tw-shadow hover:tw-shadow-md tw-smooth tw-space-y-6">
       <div className="tw-flex tw-justify-between">
         <h2 className="tw-text-2xl tw-font-semibold tw-text-gray-800 dark:tw-text-white">
           Filtrar hoteles
@@ -173,7 +173,7 @@ function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
         </div>
       </div>
       <div className="tw-mt-4 tw-flex tw-items-end">
-        <div className="tw-flex-1 tw-min-w-[250px] tw-max-w-[400px]">
+        <div className="tw-flex-1 tw-min-w-[250px] ">
           <PrecioRange
             minMax={minMax}
             setMinMax={setMinMax}

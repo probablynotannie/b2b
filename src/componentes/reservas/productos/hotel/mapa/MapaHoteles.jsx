@@ -84,7 +84,7 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
                 state={hotel}
                 key={hotel.id}
                 onMouseEnter={() => handleHotelHover(hotel)}
-                className="tw-group tw-flex tw-flex-row tw-bg-white dark:tw-bg-slate-900 tw-border tw-border-slate-200 dark:tw-border-slate-700 hover:tw-scale-[1.02] tw-transition-transform tw-duration-300 tw-ease-in-out hover:tw-shadow-lg tw-rounded-xl tw-overflow-hidden"
+                className="tw-group tw-flex tw-flex-row tw-bg-slate-50 dark:tw-bg-slate-900 tw-border tw-border-slate-200 dark:tw-border-slate-700 hover:tw-border-secondary tw-smooth tw-transition-transform tw-duration-300 tw-ease-in-out hover:tw-shadow-lg tw-rounded-xl tw-overflow-hidden"
               >
                 <img
                   alt="imagen"
