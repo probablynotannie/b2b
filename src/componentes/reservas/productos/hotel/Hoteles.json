@@ -27,7 +27,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba1.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -175,7 +175,7 @@
       { "id": 2, "src": "/hotel3.jpg" },
       { "id": 3, "src": "/hotel4.jpg" }
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba2.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -250,7 +250,7 @@
       { "id": 1, "src": "/hotel2.jpg" },
       { "id": 3, "src": "/hotel4.jpg" }
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba3.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -314,7 +314,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba4.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -387,7 +387,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba5.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -454,7 +454,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba6.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -594,7 +594,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba8.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -734,7 +734,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba1.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -874,7 +874,7 @@
       "/hoteles/prueba2.jpg",
       "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba2.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",

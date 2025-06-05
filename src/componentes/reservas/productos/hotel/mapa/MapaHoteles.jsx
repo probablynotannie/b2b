@@ -7,14 +7,13 @@ import "leaflet-defaulticon-compatibility";
 import "leaflet/dist/leaflet.css";
 import Cluster from "./Cluster";
 import { useNavigate } from "react-router-dom";
-import { Carousel } from "flowbite-react";
 import { Link } from "react-router-dom";
 import Estrellas from "../../../../../helpers/visuales/Estrellas";
-import { FaArrowLeft, FaArrowRight } from "react-icons/fa";
+import { FaArrowLeft, FaArrowRight, FaMapPin } from "react-icons/fa";
 import Filtrado from "./Filtrado";
 const customIconUrl = "/logos/hotel.png";
 
-const MapaHoteles = ({ hoteles }) => {
+const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
   const markersRef = useRef({});
   const [showMapOnly, setShowMapOnly] = useState(false);
   const mapRef = useRef(null);
@@ -46,16 +45,13 @@ const MapaHoteles = ({ hoteles }) => {
         marker.openPopup();
         map.off("moveend", onMoveEnd);
       };
-
       map.on("moveend", onMoveEnd);
-
       map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 13), {
         animate: true,
         duration: 1,
       });
     }
   };
-
   /*   const handleHotelLeave = (hotel) => {
     const marker = markersRef.current[hotel.id];
   };
@@ -69,61 +65,70 @@ const MapaHoteles = ({ hoteles }) => {
 
   return (
     <main>
-      <Filtrado />
+      <Filtrado
+        values={values}
+        setValues={setValues}
+        minMax={minMax}
+        setMinMax={setMinMax}
+      />
       <section
-        className={`tw-grid tw-gap-10 tw-mt-5 ${
+        className={`tw-grid  tw-mt-16 ${
           showMapOnly ? "tw-grid-cols-1" : "tw-grid-cols-3 xl:tw-grid-cols-4"
         }`}
       >
         {!showMapOnly && (
-          <div className="tw-hidden lg:tw-grid xl:tw-grid-cols-1 xl:tw-col-span-1 tw-gap-10 tw-p-5 tw-shadow tw-border tw-rounded-lg dark:tw-bg-slate-700 tw-bg-slate-100 tw-border-slate-100 dark:tw-border-slate-700">
+          <div className=" tw-hidden lg:tw-grid xl:tw-grid-cols-1 xl:tw-col-span-1">
             {hoteles.map((hotel) => (
-              <div
+              <Link
+                to={"/hotel"}
+                state={hotel}
                 key={hotel.id}
-                className="tw-h-fit tw-relative tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-overflow-hidden tw-transition-transform tw-duration-300 hover:tw-scale-105 hover:tw-shadow-xl"
                 onMouseEnter={() => handleHotelHover(hotel)}
-                /*        onMouseLeave={() => handleHotelLeave(hotel)} */
+                className="tw-group tw-flex tw-flex-row tw-bg-white dark:tw-bg-slate-900 tw-border tw-border-slate-200 dark:tw-border-slate-700 hover:tw-scale-[1.02] tw-transition-transform tw-duration-300 tw-ease-in-out hover:tw-shadow-lg tw-rounded-xl tw-overflow-hidden"
               >
-                <div className="tw-h-[200px] tw-overflow-hidden">
-                  <Carousel slide={false} indicators={true}>
-                    {hotel.fotos.map((foto, idx) => (
-                      <img
-                        key={idx}
-                        src={foto}
-                        alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
-                        className="tw-h-full tw-w-full tw-object-cover"
-                      />
-                    ))}
-                  </Carousel>
-                </div>
-                <div className="tw-p-4">
-                  <div className="tw-flex tw-justify-between tw-items-center tw-flex-wrap">
-                    <h3 className="tw-text-lg tw-font-bold tw-text-gray-800 dark:tw-text-white">
-                      {hotel.nombre}
-                    </h3>
-                    <Estrellas estrellas={hotel.estrellas} />
+                <img
+                  alt="imagen"
+                  src={hotel.img}
+                  className="tw-h-full tw-w-2/5 tw-object-cover tw-rounded-lg"
+                />
+                <div className="tw-flex-1 tw-p-4 tw-flex tw-flex-col tw-justify-between">
+                  <div className="tw-flex tw-flex-col tw-gap-2 tw-border-b tw-pb-4 tw-border-slate-100 dark:tw-border-slate-700">
+                    <div className="tw-flex tw-flex-col">
+                      <h3 className="tw-text-lg tw-font-semibold tw-text-gray-900 dark:tw-text-white">
+                        {hotel.nombre}
+                      </h3>
+                      <Estrellas estrellas={hotel.estrellas} />
+                    </div>
+
+                    <p className="tw-text-xs tw-text-gray-500 dark:tw-text-gray-400 tw-flex tw-items-start tw-gap-2">
+                      <FaMapPin className="tw-text-red-500 tw-text-[1rem]" />{" "}
+                      {hotel.ubicacion}
+                    </p>
+
+                    <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
+                      {hotel.habitaciones.length} habitaciones disponibles
+                    </p>
                   </div>
-                  <Link
-                    to={"/hotel"}
-                    state={hotel}
-                    className="tw-block tw-mt-4"
-                  >
-                    <button className="tw-w-full tw-bg-indigo-500 dark:tw-bg-indigo-800 hover:tw-bg-indigo-600 dark:hover:tw-bg-indigo-700 tw-smooth tw-text-white tw-font-semibold tw-py-2 tw-rounded-lg tw-text-center tw-shadow-md">
-                      Precio: €{hotel.precio}
-                      <span className="tw-block tw-text-sm tw-font-normal">
+
+                  <div className="tw-mt-4">
+                    <button className="tw-w-full tw-font-medium tw-rounded-lg">
+                      <span className="tw-smooth group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-text-xl tw-font-mono dark:tw-text-slate-100">
+                        €{hotel.precio}
+                      </span>
+                      <span className="tw-block tw-text-sm tw-font-light dark:tw-text-slate-400">
                         {hotel.regimen}
                       </span>
                     </button>
-                  </Link>
+                  </div>
                 </div>
-              </div>
+              </Link>
             ))}
           </div>
         )}
         <div
-          className={`tw-w-full tw-border-2 tw-border-slate-100 tw-shadow hover:tw-shadow-xl tw-smooth tw-h-[85vh] tw-z-0 tw-mb-0 ${
+          className={`tw-w-full tw-border-2 tw-border-slate-100 tw-shadow hover:tw-shadow-xl tw-smooth tw-h-[100vh] tw-z-0 tw-mb-0 ${
             showMapOnly ? "tw-col-span-1" : "tw-col-span-3 lg:tw-col-span-3"
-          } tw-sticky tw-top-10 tw-rounded-2xl tw-overflow-hidden`}
+          } tw-sticky tw-top-0 tw-rounded-2xl tw-overflow-hidden`}
         >
           <div
             className="tw-hidden lg:tw-flex tw-absolute tw-top-5 tw-left-5 tw-z-50 hover:tw-scale-105 tw-smooth tw-cursor-pointer tw-p-2 tw-bg-indigo-500 tw-px-3 tw-text-white tw-rounded-lg tw-shadow-lg tw-text-2xl"

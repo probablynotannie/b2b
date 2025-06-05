@@ -100,7 +100,13 @@ function Productos() {
               {viewMode === "list" ? (
                 <Hoteles hoteles={hoteles} />
               ) : (
-                <MapaHoteles hoteles={hoteles} />
+                <MapaHoteles
+                  hoteles={hoteles}
+                  values={values}
+                  setValues={setValues}
+                  minMax={minMax}
+                  setMinMax={setMinMax}
+                />
               )}
             </>
           )}
