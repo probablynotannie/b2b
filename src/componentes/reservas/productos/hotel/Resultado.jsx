@@ -7,7 +7,6 @@ import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 import MapaHoteles from "./mapa/MapaHoteles";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
-
 function Productos() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("list");
@@ -16,6 +15,7 @@ function Productos() {
       setLoading(false);
     }, 3000);
   }, []);
+  
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
 

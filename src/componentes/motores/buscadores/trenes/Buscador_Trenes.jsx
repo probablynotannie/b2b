@@ -17,7 +17,6 @@ function Buscador_Destinos() {
     setViaje(type);
   };
   const onSubmit = (data) => {
-    
     navigate("/listadoTrenes", {
       state: { datosForm: data },
     });
@@ -72,7 +71,7 @@ function Buscador_Destinos() {
                 <div className="tw-grid tw-grid-cols-2 tw-gap-2 tw-mb-2">
                   <div
                     onClick={() => handleviajeChange("ida")}
-                    className={` tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                    className={`tw-select-none  tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
       ${
         viaje === "ida"
           ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
@@ -84,7 +83,7 @@ function Buscador_Destinos() {
                   </div>
                   <div
                     onClick={() => handleviajeChange("ida_vuelta")}
-                    className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                    className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
       ${
         viaje === "ida_vuelta"
           ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
@@ -149,7 +148,7 @@ function Buscador_Destinos() {
             <div className="tw-flex tw-gap-2">
               <div
                 onClick={() => handleviajeChange("ida")}
-                className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
       ${
         viaje === "ida"
           ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
@@ -161,7 +160,7 @@ function Buscador_Destinos() {
               </div>
               <div
                 onClick={() => handleviajeChange("ida_vuelta")}
-                className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
       ${
         viaje === "ida_vuelta"
           ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"

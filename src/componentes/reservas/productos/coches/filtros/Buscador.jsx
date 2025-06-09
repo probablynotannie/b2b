@@ -40,8 +40,6 @@ function Buscador() {
     },
   });
   const onSubmit = (data) => {
-    
-
     navigate("/listadoCoches", {
       state: { data },
     });
@@ -94,11 +92,11 @@ function Buscador() {
                 className="tw-hidden peer"
               />
               <label
-                htmlFor="mismaCiudad"
-                className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all tw-w-full ${
+                htmlFor="ciudadEntrega"
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
                   lugarEntrega === true
-                    ? "tw-bg-pink-100 dark:tw-border-blue-500 tw-text-pink-700 dark:tw-bg-blue-900 dark:tw-text-blue-300"
-                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                    ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                    : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
                 }`}
               >
                 <FaCity />
@@ -181,11 +179,11 @@ function Buscador() {
                 className="tw-hidden peer"
               />
               <label
-                htmlFor="mismaCiudad"
-                className={`tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
+                htmlFor="ciudadEntrega"
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
                   lugarEntrega === true
-                    ? "tw-bg-pink-100 dark:tw-border-blue-500 tw-text-pink-700 dark:tw-bg-blue-900 dark:tw-text-blue-300"
-                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                    ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                    : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
                 }`}
               >
                 <FaCity />

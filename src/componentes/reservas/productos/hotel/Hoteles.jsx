@@ -1,4 +1,4 @@
-import { FaArrowRight, FaDoorOpen, FaMapPin } from "react-icons/fa";
+import { FaArrowRight, FaDoorOpen, FaHotel, FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
@@ -62,6 +62,9 @@ function Resultado({ hoteles }) {
                   {hotel.direccion}
                 </span>
                 <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
+                  <span className="tw-flex tw-items-center tw-gap-1">
+                    <FaHotel className="tw-text-lg" /> {hotel.regimen}
+                  </span>
                   <span className="tw-flex tw-items-center">
                     <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
                     {reserva.pax !== 1 && "s"}
@@ -158,7 +161,7 @@ function Resultado({ hoteles }) {
             </div>
           </article>
           {expandedHotel === index && (
-            <div className="tw-relative tw-bg-slate-100 tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
+            <div className="tw-relative tw-bg-slate-100 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
               {hotel.habitaciones
                 .sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio))
                 .slice(0, 12)

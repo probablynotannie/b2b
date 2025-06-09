@@ -99,23 +99,20 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
                       </h3>
                       <Estrellas estrellas={hotel.estrellas} />
                     </div>
-
                     <p className="tw-text-xs tw-text-gray-500 dark:tw-text-gray-400 tw-flex tw-items-start tw-gap-2">
                       <FaMapPin className="tw-text-red-500 tw-text-[1rem]" />{" "}
                       {hotel.ubicacion}
                     </p>
-
                     <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
                       {hotel.habitaciones.length} habitaciones disponibles
                     </p>
                   </div>
-
                   <div className="tw-mt-4">
                     <button className="tw-w-full tw-font-medium tw-rounded-lg">
                       <span className="tw-smooth group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-text-xl tw-font-mono dark:tw-text-slate-100">
                         €{hotel.precio}
                       </span>
-                      <span className="tw-block tw-text-sm tw-font-light dark:tw-text-slate-400">
+                      <span className="tw-block tw-text-sm tw-font-light tw-text-slate-500 tw-smooth dark:tw-text-slate-400">
                         {hotel.regimen}
                       </span>
                     </button>
@@ -147,7 +144,6 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
               url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
             />
-
             {/*   <TileLayer
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
               url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
