@@ -9,7 +9,6 @@ import Input_Bonificacion from "../../../inputs/Bonificacion";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { GoArrowSwitch } from "react-icons/go";
-
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -21,7 +20,6 @@ function Buscador_Destinos() {
     } else {
       setValue("tipo", 1);
     }
-
     setViaje(type);
   };
   const onSubmit = (data) => {
