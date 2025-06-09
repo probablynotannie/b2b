@@ -56,7 +56,7 @@ function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
   };
 
   return (
-    <section className="tw-w-full tw-my-5 tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-rounded-2xl tw-p-6 tw-shadow hover:tw-shadow-md tw-smooth tw-space-y-6">
+    <section className="tw-w-full tw-my-5 tw-bg-slate-100 tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-rounded-2xl tw-p-6 tw-shadow hover:tw-shadow-md tw-smooth tw-space-y-6">
       <div className="tw-flex tw-justify-between">
         <h2 className="tw-text-2xl tw-font-semibold tw-text-gray-800 dark:tw-text-white">
           Filtrar hoteles

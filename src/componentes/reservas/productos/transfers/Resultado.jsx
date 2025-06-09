@@ -9,7 +9,7 @@ import { MdCancel } from "react-icons/md";
 
 const fetchData = async (newRequestData) => {
   const response = await fetch(
-    "https://devxml.vpackage.net/Motores/public/api/Traslados/search/1/123"
+    "https://devxml.vpackage.net/Motores/public/api/Traslados/search/123/1"
   );
   if (!response.ok) {
     throw new Error("Error cargando datos");

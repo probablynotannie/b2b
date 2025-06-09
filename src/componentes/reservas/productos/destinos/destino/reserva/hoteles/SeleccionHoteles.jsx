@@ -176,7 +176,6 @@ function SeleccionHoteles({ hoteles, seleccion, setSeleccion, titulo }) {
           );
         })}
       </div>
-
       <div className="tw-flex tw-justify-center tw-gap-2 tw-mt-4">
         {Array.from({
           length: Math.ceil(hoteles.length / hotelesPorPagina),
