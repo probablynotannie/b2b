@@ -10,7 +10,7 @@ import { useNavigate } from "react-router-dom";
 function Buscador() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [lugarEntrega, setLugarEntrega] = useState(false);
+  const [lugarEntrega, setLugarEntrega] = useState(true);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },

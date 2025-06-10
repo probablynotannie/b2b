@@ -5,7 +5,7 @@
     "descripcion": "Un hotel moderno en el corazón de Barcelona con vistas panorámicas.",
     "imagenes": ["/hotel1.jpg", "/hotel1b.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
-    "regimenes": [{ "nombre": "Desayuno", "extra": 15 }]
+    "tipo": [{ "nombre": "Habitacion doble", "extra": 15 }]
   },
   {
     "id": 2,
@@ -13,17 +13,17 @@
     "descripcion": "Hotel de lujo con habitaciones amplias y servicios exclusivos.",
     "imagenes": ["/hotel2.jpg", "/hotel2b.jpg"],
     "imagenMiniatura": "/hotel2.jpg",
-    "regimenes": [
-      { "nombre": "Desayuno", "extra": 18 },
-      { "nombre": "Media pensión", "extra": 35 },
-      { "nombre": "Todo incluido", "extra": 50 },
-      { "nombre": "Regimen Especial", "extra": 102 },
-      { "nombre": "Segun programa", "extra": 86 },
-      { "nombre": "Pension completa", "extra": 70 },
-      { "nombre": "HM", "extra": 20 },
-      { "nombre": "Regimen raro", "extra": 60 },
-      { "nombre": "Especial verano", "extra": 85 },
-      { "nombre": "Especial Invierno", "extra": 75 }
+    "tipo": [
+      { "nombre": "Doble", "extra": 18 },
+      { "nombre": "Deluxe", "extra": 35 },
+      { "nombre": "Superior", "extra": 50 },
+      { "nombre": "Suite", "extra": 102 },
+      { "nombre": "Presidencial", "extra": 86 },
+      { "nombre": "Villa Suite", "extra": 70 },
+      { "nombre": "Aparthotel", "extra": 20 },
+      { "nombre": "Suite con balcon", "extra": 60 },
+      { "nombre": "Presidencial con piscina", "extra": 85 },
+      { "nombre": "Villa suite con acceso al club", "extra": 75 }
     ]
   },
   {
@@ -32,10 +32,10 @@
     "descripcion": "Perfecto para negocios o escapadas urbanas en Sevilla.",
     "imagenes": ["/hotel3.jpg", "/hotel3b.jpg"],
     "imagenMiniatura": "/hotel3.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 40 },
-      { "nombre": "Media pensión", "extra": 25 },
-      { "nombre": "Desayuno", "extra": 12 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 40 },
+      { "nombre": "Deluxe", "extra": 25 },
+      { "nombre": "Doble", "extra": 12 }
     ]
   },
   {
@@ -44,9 +44,9 @@
     "descripcion": "Ubicación estratégica y diseño vanguardista.",
     "imagenes": ["/hotel4.jpg", "/hotel4b.jpg"],
     "imagenMiniatura": "/hotel4.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 38 },
-      { "nombre": "Desayuno", "extra": 10 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 38 },
+      { "nombre": "Doble", "extra": 10 }
     ]
   },
   {
@@ -55,10 +55,10 @@
     "descripcion": "Cercano a la Ciudad de las Artes y las Ciencias.",
     "imagenes": ["/hote3.jpg", "/hotel3.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 35 },
-      { "nombre": "Media pensión", "extra": 20 },
-      { "nombre": "Desayuno", "extra": 8 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 35 },
+      { "nombre": "Deluxe", "extra": 20 },
+      { "nombre": "Doble", "extra": 8 }
     ]
   },
   {
@@ -67,10 +67,10 @@
     "descripcion": "Colores vibrantes frente al museo Guggenheim.",
     "imagenes": ["/hotel1.jpg", "/hotel1.jpg"],
     "imagenMiniatura": "/hotel3.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 48 },
-      { "nombre": "Media pensión", "extra": 28 },
-      { "nombre": "Desayuno", "extra": 14 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 48 },
+      { "nombre": "Deluxe", "extra": 28 },
+      { "nombre": "Doble", "extra": 14 }
     ]
   },
   {
@@ -79,10 +79,10 @@
     "descripcion": "Hotel de diseño único en Madrid.",
     "imagenes": ["/hotel2.jpg", "/hotel2.jpg"],
     "imagenMiniatura": "/hotel2.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 55 },
-      { "nombre": "Media pensión", "extra": 36 },
-      { "nombre": "Desayuno", "extra": 20 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 55 },
+      { "nombre": "Deluxe", "extra": 36 },
+      { "nombre": "Doble", "extra": 20 }
     ]
   },
   {
@@ -91,10 +91,10 @@
     "descripcion": "Con piscina en la azotea y fácil acceso al AVE.",
     "imagenes": ["/hotel1.jpg", "/hotel2.jpg"],
     "imagenMiniatura": "/hotel4.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 42 },
-      { "nombre": "Media pensión", "extra": 26 },
-      { "nombre": "Desayuno", "extra": 13 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 42 },
+      { "nombre": "Deluxe", "extra": 26 },
+      { "nombre": "Doble", "extra": 13 }
     ]
   },
   {
@@ -103,10 +103,10 @@
     "descripcion": "Lujo frente a la playa de la Malvarrosa.",
     "imagenes": ["/hotel2.jpg", "/hotel3.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 60 },
-      { "nombre": "Media pensión", "extra": 40 },
-      { "nombre": "Desayuno", "extra": 25 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 60 },
+      { "nombre": "Deluxe", "extra": 40 },
+      { "nombre": "Doble", "extra": 25 }
     ]
   },
   {
@@ -115,10 +115,10 @@
     "descripcion": "Elegancia en la costa norte.",
     "imagenes": ["/hotel1.jpg", "/hotel2.jpg"],
     "imagenMiniatura": "/hotel2.jpg",
-    "regimenes": [
-      { "nombre": "Todo incluido", "extra": 52 },
-      { "nombre": "Media pensión", "extra": 32 },
-      { "nombre": "Desayuno", "extra": 18 }
+    "tipo": [
+      { "nombre": "Superior", "extra": 52 },
+      { "nombre": "Deluxe", "extra": 32 },
+      { "nombre": "Doble", "extra": 18 }
     ]
   }
 ]

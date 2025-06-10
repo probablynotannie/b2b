@@ -309,80 +309,93 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
               </div>
             </article>
             {activeModalCar === index && (
-              <Modal show={true} onClose={() => setActiveModalCar(null)}>
-                <Modal.Header>{coche.nombre}</Modal.Header>
-                <Modal.Body>
-                  <div className="tw-space-y-6">
-                    <img
-                      src={coche.img}
-                      alt={coche.nombre}
-                      className="tw-h-[35vh] tw-object-center tw-w-full tw-object-cover tw-shadow-md tw-rounded-md"
-                    />
-                    <div className="tw-grid tw-grid-cols-5 tw-gap-2 tw-justify-between tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
-                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition tw-mr-1">
-                        <FaPerson className="tw-text-lg" />
-                        {coche.capacidad}
-                      </span>
-                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition tw-mr-1">
-                        <MdLuggage className="tw-text-lg" />
-                        {coche.maletero}
-                      </span>
-                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
-                        <GiCarDoor className="tw-text-lg tw-mr-1" />
-                        {coche.puertas}
-                      </span>
-                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
-                        <MdSevereCold className="tw-text-lg tw-mr-1" />
-                        {coche.AC === true ? "SÍ" : "NO"}
-                      </span>
-                      <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
-                        <FaCar className="tw-text-lg tw-mr-1" /> {coche.cambio}
-                      </span>
+              <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65 z-50 flex items-center justify-center">
+                <div className="tw-bg-white dark:tw-bg-slate-900 tw-border-2 tw-border-secondary tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-4xl tw-max-h-[90vh] tw-overflow-hidden">
+                  <div className="tw-max-h-[90vh] tw-overflow-y-auto">
+                    <div className="tw-p-4 tw-border-b tw-font-semibold tw-text-slate-800 dark:tw-text-white tw-flex tw-justify-between tw-items-center">
+                      <h3 className="tw-text-xl">{coche.nombre}</h3>
+                      <button
+                        className="tw-text-slate-400"
+                        onClick={() => setActiveModalCar(null)}
+                      >
+                        X
+                      </button>
                     </div>
-                    <section className="tw-pb-12 tw-mt-5">
-                      <div className="md:tw-flex">
-                        <ul className="tw-flex-column tw-space-y-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-gray-400 md:tw-me-4 tw-mb-4 md:tw-mb-0">
-                          {tabs.map((tab) => (
-                            <li key={tab.id}>
-                              <button
-                                className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
-                                  activeTab === tab.id
-                                    ? "text-white tw-bg-secondary dark:bg-slate-900"
-                                    : "bg-gray-50 dark:bg-gray-800 dark:tw-text-gray-400"
-                                }`}
-                                onClick={() => setActiveTab(tab.id)}
-                              >
-                                {tab.label}
-                              </button>
-                            </li>
-                          ))}
-                        </ul>
-
-                        <div className="tw-p-6 tw-bg-gray-50 text-medium tw-text-gray-500 dark:tw-text-gray-400 dark:tw-bg-gray-800 tw-rounded-lg tw-w-full">
-                          {tabs.map((tab) =>
-                            activeTab === tab.id ? (
-                              <div key={tab.id}>
-                                <h3 className="tw-text-lg tw-font-bold tw-text-secondary dark:tw-text-white tw-mb-2">
-                                  {tab.label}
-                                </h3>
-                                <p>{tab.content}</p>
-                              </div>
-                            ) : null
-                          )}
-                        </div>
+                    <div className="tw-p-4 tw-space-y-6">
+                      <img
+                        src={coche.img}
+                        alt={coche.nombre}
+                        className="tw-h-[35vh] tw-object-center tw-w-full tw-object-cover tw-shadow-md tw-rounded-md"
+                      />
+                      <div className="tw-grid tw-grid-cols-5 tw-gap-2 tw-justify-between tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
+                        <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition tw-mr-1">
+                          <FaPerson className="tw-text-lg" />
+                          {coche.capacidad}
+                        </span>
+                        <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition tw-mr-1">
+                          <MdLuggage className="tw-text-lg" />
+                          {coche.maletero}
+                        </span>
+                        <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
+                          <GiCarDoor className="tw-text-lg tw-mr-1" />
+                          {coche.puertas}
+                        </span>
+                        <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
+                          <MdSevereCold className="tw-text-lg tw-mr-1" />
+                          {coche.AC === true ? "SÍ" : "NO"}
+                        </span>
+                        <span className="tw-flex tw-items-center tw-p-2 tw-justify-center tw-bg-slate-100 hover:tw-bg-slate-200 dark:tw-bg-slate-800 hover:dark:tw-bg-slate-900 tw-rounded tw-transition">
+                          <FaCar className="tw-text-lg tw-mr-1" />
+                          {coche.cambio}
+                        </span>
                       </div>
-                    </section>
+
+                      <section className="tw-pb-12 tw-mt-5">
+                        <div className="md:tw-flex">
+                          <ul className="tw-flex-column tw-space-y-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-gray-400 md:tw-me-4 tw-mb-4 md:tw-mb-0">
+                            {tabs.map((tab) => (
+                              <li key={tab.id}>
+                                <button
+                                  className={`tw-inline-flex tw-items-center tw-px-4 tw-py-3 tw-rounded-lg tw-w-full ${
+                                    activeTab === tab.id
+                                      ? "text-white tw-bg-secondary dark:bg-slate-900"
+                                      : "bg-gray-50 dark:bg-gray-800 dark:tw-text-gray-400"
+                                  }`}
+                                  onClick={() => setActiveTab(tab.id)}
+                                >
+                                  {tab.label}
+                                </button>
+                              </li>
+                            ))}
+                          </ul>
+
+                          <div className="tw-p-6 tw-bg-gray-50 text-medium tw-text-gray-500 dark:tw-text-gray-400 dark:tw-bg-gray-800 tw-rounded-lg tw-w-full">
+                            {tabs.map((tab) =>
+                              activeTab === tab.id ? (
+                                <div key={tab.id}>
+                                  <h3 className="tw-text-lg tw-font-bold tw-text-secondary dark:tw-text-white tw-mb-2">
+                                    {tab.label}
+                                  </h3>
+                                  <p>{tab.content}</p>
+                                </div>
+                              ) : null
+                            )}
+                          </div>
+                        </div>
+                      </section>
+                    </div>
+
+                    <div className=" tw-p-4 tw-border-t tw-flex tw-flex-col md:tw-flex-row tw-gap-5">
+                      <button
+                        className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
+                        onClick={() => setActiveModalCar(null)}
+                      >
+                        Cerrar
+                      </button>
+                    </div>
                   </div>
-                </Modal.Body>
-                <Modal.Footer className="tw-flex tw-flex-col md:tw-flex-row tw-gap-5">
-                  <button
-                    className="tw-w-full lg:tw-w-fit tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-xl tw-shadow"
-                    onClick={() => setActiveModalCar(null)} 
-                  >
-                    Cerrar
-                  </button>
-                </Modal.Footer>
-              </Modal>
+                </div>
+              </div>
             )}
           </main>
         );

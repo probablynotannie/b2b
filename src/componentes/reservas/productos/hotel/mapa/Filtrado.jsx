@@ -1,7 +1,6 @@
 import { useState } from "react";
-import { FaStar } from "react-icons/fa";
 import PrecioRange from "../../../../inputs/PrecioRange";
-
+import FiltradoEstrellas from "../../../../inputs/FiltroEstrellas";
 const regimenOptions = [
   "Solo alojamiento",
   "Alojamiento y desayuno",
@@ -37,7 +36,6 @@ const cityOptions = [
 ];
 
 function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
-  const [hoveredStar, setHoveredStar] = useState(0);
   const [estrellas, setEstrellas] = useState(0);
   const [nombreHotel, setNombreHotel] = useState("");
   const [selectedRegimen, setSelectedRegimen] = useState("");
@@ -62,31 +60,16 @@ function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
           Filtrar hoteles
         </h2>
         <div className="tw-flex">
-          {[1, 2, 3, 4, 5].map((star) => (
-            <FaStar
-              key={star}
-              size={20}
-              onMouseEnter={() => setHoveredStar(star)}
-              onMouseLeave={() => setHoveredStar(0)}
-              onClick={() => {
-                const newStars = star === estrellas ? 0 : star;
-                setEstrellas(newStars);
-                updateFilters({ stars: newStars });
-              }}
-              className={`tw-cursor-pointer tw-transition-colors ${
-                hoveredStar >= star
-                  ? "tw-text-orange-400"
-                  : estrellas >= star
-                  ? "tw-text-orange-400"
-                  : "tw-text-gray-300 dark:tw-text-gray-600"
-              }`}
-            />
-          ))}
+          <FiltradoEstrellas
+            estrellas={estrellas}
+            setEstrellas={(newStars) => {
+              setEstrellas(newStars);
+              updateFilters({ stars: newStars });
+            }}
+          />
         </div>
       </div>
-      {/* Text & Select Inputs */}
       <div className="tw-grid md:tw-grid-cols-4 tw-gap-5">
-        {/* Nombre */}
         <div className="tw-flex tw-flex-col tw-gap-1">
           <label className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
             Nombre del hotel
@@ -103,8 +86,6 @@ function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
             className="tw-w-full tw-border dark:tw-bg-slate-700 dark:tw-placeholder-slate-400 tw-border-slate-300 dark:tw-border-slate-600 tw-rounded-md tw-px-3 tw-py-2 tw-text-gray-900 dark:tw-text-gray-100"
           />
         </div>
-
-        {/* Régimen */}
         <div className="tw-flex tw-flex-col tw-gap-1">
           <label className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
             Régimen
@@ -126,8 +107,6 @@ function Filtrado({ onFilterChange, values, setValues, minMax, setMinMax }) {
             ))}
           </select>
         </div>
-
-        {/* Ciudad */}
         <div className="tw-flex tw-flex-col tw-gap-1">
           <label className="tw-text-sm tw-font-medium tw-text-gray-700 dark:tw-text-gray-200">
             Ciudad

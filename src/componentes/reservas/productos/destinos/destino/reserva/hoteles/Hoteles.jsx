@@ -5,6 +5,8 @@ import { FaCheck } from "react-icons/fa";
 import { MdCancel } from "react-icons/md";
 function Hoteles() {
   const [activeTab, setActiveTab] = useState(0);
+  const [paginaActual, setPaginaActual] = useState(1);
+
   const opciones = [
     {
       id: 1,
@@ -25,14 +27,37 @@ function Hoteles() {
       hoteles: hoteles.slice(6),
     },
   ];
-  const [selecciones, setSelecciones] = useState(
-    Array(opciones.length).fill(null)
+  const [selecciones, setSelecciones] = useState(() =>
+    opciones.map((opcion) => {
+      let seleccionMasBarata = null;
+
+      opcion.hoteles.forEach((hotel) => {
+        hotel.tipo.forEach((regimen) => {
+          const costo = regimen.extra;
+          if (!seleccionMasBarata || costo < seleccionMasBarata.extra) {
+            seleccionMasBarata = {
+              hotelId: hotel.id,
+              regimen: regimen.nombre,
+              hotelNombre: hotel.nombre,
+              extra: costo,
+            };
+          }
+        });
+      });
+
+      return seleccionMasBarata
+        ? {
+            hotelId: seleccionMasBarata.hotelId,
+            regimen: seleccionMasBarata.regimen,
+            hotelNombre: seleccionMasBarata.hotelNombre,
+          }
+        : null;
+    })
   );
-  const allSelected = selecciones.every(
-    (sel) => sel && sel.hotelId && sel.regimen
-  );
+
   const handleTabClick = (index) => {
     setActiveTab(index);
+    setPaginaActual(1);
   };
 
   const handleSeleccionChange = (tabIndex, seleccion) => {
@@ -66,7 +91,8 @@ function Hoteles() {
                   ) : (
                     <MdCancel className="tw-text-red-400 tw-absolute -tw-top-1 tw-right-1/2" />
                   )}
-                  <span className="tw-block">{opcion.ubicacion}</span> (días {opcion.dias} )
+                  <span className="tw-block">{opcion.ubicacion}</span> (días{" "}
+                  {opcion.dias} )
                 </button>
               </li>
             );
@@ -74,6 +100,8 @@ function Hoteles() {
         </ul>
       </div>
       <SeleccionHoteles
+        paginaActual={paginaActual}
+        setPaginaActual={setPaginaActual}
         hoteles={opciones[activeTab].hoteles}
         titulo={
           opciones[activeTab].ubicacion +

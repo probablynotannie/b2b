@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 function Buscador_Transfers() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const [lugarEntrega, setLugarEntrega] = useState(false);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },

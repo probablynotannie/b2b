@@ -34,14 +34,14 @@ function Resultado({ hoteles }) {
             key={index}
             className="md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
           >
-            <div className="tw-w-full tw-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
+            <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
               <Carousel slide={false} indicators={true}>
                 {hotel.fotos.map((foto, idx) => (
                   <img
                     key={idx}
                     src={foto}
                     alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
-                    className="h-full w-full object-cover"
+                    className="h-full tw-bg-t w-full object-cover"
                   />
                 ))}
               </Carousel>
@@ -102,48 +102,53 @@ function Resultado({ hoteles }) {
                 </button>
                 {openModal === index && (
                   <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65 z-50 flex items-center justify-center">
-                    <div className="tw-bg-white tw-border-2 tw-border-secondary dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-4xl tw-max-h-[90vh] tw-overflow-y-auto">
-                      <div className="tw-border-b tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-between tw-items-center">
-                        <div>
-                          <h4 className="tw-text-secondary tw-font-semibold tw-text-xl">
-                            {hotel.nombre}
-                          </h4>
-                          <p className="tw-text-sm tw-text-slate-400">
-                            {hotel.fecha} - {hotel.fechaSalida}
-                          </p>
+                    <div className="tw-bg-white dark:tw-bg-slate-900 tw-border-2 tw-border-secondary tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-4xl tw-max-h-[90vh] tw-overflow-hidden">
+                      {/* Inner scrollable content */}
+                      <div className="tw-overflow-y-auto tw-max-h-[90vh]">
+                        <div className="tw-border-b tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-between tw-items-center">
+                          <div>
+                            <h4 className="tw-text-secondary tw-font-semibold tw-text-xl">
+                              {hotel.nombre}
+                            </h4>
+                            <p className="tw-text-sm tw-text-slate-400">
+                              {hotel.fecha} - {hotel.fechaSalida}
+                            </p>
+                          </div>
+                          <button
+                            onClick={() => setOpenModal(false)}
+                            className="tw-text-xl tw-text-slate-700 dark:tw-text-white"
+                          >
+                            &times;
+                          </button>
                         </div>
-                        <button
-                          onClick={() => setOpenModal(false)}
-                          className="tw-text-xl tw-text-slate-700 dark:tw-text-white"
-                        >
-                          &times;
-                        </button>
-                      </div>
-                      <div className="tw-p-5">
-                        <div className="tw-space-y-6">
-                          <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
-                            {hotel.descripcion}
-                          </p>
-                          <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-                            <span className="tw-font-semibold">
-                              Precio por noche:
-                            </span>{" "}
-                            ${hotel.precio}
-                          </p>
-                          <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-                            <span className="tw-font-semibold">Extras:</span>{" "}
-                            {hotel.extras.join(", ")}
-                          </p>
-                          <Imagenes imagenes={hotel.habitacionImgs} />
+
+                        <div className="tw-p-5">
+                          <div className="tw-space-y-6">
+                            <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
+                              {hotel.descripcion}
+                            </p>
+                            <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                              <span className="tw-font-semibold">
+                                Precio por noche:
+                              </span>{" "}
+                              ${hotel.precio}
+                            </p>
+                            <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
+                              <span className="tw-font-semibold">Extras:</span>{" "}
+                              {hotel.extras.join(", ")}
+                            </p>
+                            <Imagenes imagenes={hotel.habitacionImgs} />
+                          </div>
                         </div>
-                      </div>
-                      <div className="tw-border-t tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-end">
-                        <button
-                          className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-bg-secondaryDark tw-font-bold tw-rounded-xl tw-text-white"
-                          onClick={() => setOpenModal(null)}
-                        >
-                          Cerrar
-                        </button>
+
+                        <div className="tw-border-t tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-end">
+                          <button
+                            className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-bg-secondaryDark tw-font-bold tw-rounded-xl tw-text-white"
+                            onClick={() => setOpenModal(null)}
+                          >
+                            Cerrar
+                          </button>
+                        </div>
                       </div>
                     </div>
                   </div>

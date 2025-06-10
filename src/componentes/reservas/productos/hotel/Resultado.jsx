@@ -15,7 +15,7 @@ function Productos() {
       setLoading(false);
     }, 3000);
   }, []);
-  
+
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
 
@@ -32,6 +32,7 @@ function Productos() {
           </div>
           <aside className="tw-col-span-9 tw-px-3 lg:tw-hidden lg:tw-col-span-3">
             <Aside
+              hoteles={hoteles}
               values={values}
               setValues={setValues}
               minMax={minMax}

@@ -28,7 +28,6 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
       }, 300);
     }
   }, [showMapOnly]);
-
   const handleHotelHover = (hotel) => {
     const marker = markersRef.current[hotel.id];
     if (!marker || !mapRef.current) return;
@@ -46,16 +45,13 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
         map.off("moveend", onMoveEnd);
       };
       map.on("moveend", onMoveEnd);
-      map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 13), {
+      map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 15), {
         animate: true,
         duration: 1,
       });
     }
   };
-  /*   const handleHotelLeave = (hotel) => {
-    const marker = markersRef.current[hotel.id];
-  };
- */
+
   const markerIcon = new L.Icon({
     iconUrl: customIconUrl,
     iconSize: [40, 40],
@@ -135,7 +131,7 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
           </div>
           <MapContainer
             center={[hoteles[0].lat, hoteles[0].lng]}
-            zoom={6}
+            zoom={12}
             style={{ height: "100%", width: "100%" }}
             zoomControl={false}
             ref={mapRef}
@@ -144,10 +140,6 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
               url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
               attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
             />
-            {/*   <TileLayer
-              attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
-              url="https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png"
-            /> */}
             <Cluster
               hoteles={hoteles}
               markerIcon={markerIcon}

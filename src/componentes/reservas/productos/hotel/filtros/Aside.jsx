@@ -1,21 +1,47 @@
 import { useState } from "react";
 import PrecioRange from "../../../../inputs/PrecioRange";
-import Estrellas from "./Filtro_Estrellas";
+import FiltradoEstrellas from "../../../../inputs/FiltroEstrellas";
 import Regimenes from "./Filtro_Regimenes";
 import Localidades from "./Filtro_Localidades";
 import { IoMdOptions } from "react-icons/io";
+import { FaEuroSign } from "react-icons/fa";
 
-function Aside({ values, setValues, minMax, setMinMax }) {
+function Aside({ values, setValues, minMax, setMinMax, hoteles }) {
+  const regimenesSet = new Set();
+  hoteles
+    ? hoteles.forEach((hotel) => {
+        if (hotel.regimen) {
+          regimenesSet.add(hotel.regimen.toLowerCase());
+        }
+
+        if (hotel.habitaciones && Array.isArray(hotel.habitaciones)) {
+          hotel.habitaciones.forEach((habitacion) => {
+            if (habitacion.regimen) {
+              regimenesSet.add(habitacion.regimen.toLowerCase());
+            }
+          });
+        }
+      })
+    : null;
+
+  const regimenesUnicos = Array.from(regimenesSet).map(
+    (regimen) => regimen.charAt(0).toUpperCase() + regimen.slice(1)
+  );
+  const regimenes = [
+    "Solo alojamiento",
+    "Alojamiento y desayuno",
+    "Pensión completa",
+  ];
+  const [estrellas, setEstrellas] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reembolsable, setReembolsable] = useState(false);
   const [localidades, setLocalidades] = useState([]);
-  const [selectedStars, setSelectedStars] = useState([]);
   const [selectedRegimenes, setRegimenes] = useState([]);
   const getActiveFiltersCount = () => {
     let count = 0;
     if (reembolsable) count += 1;
     if (localidades.length > 0) count += 1;
-    if (selectedStars.length > 0) count += 1;
+    if (estrellas.length > 0) count += 1;
     if (selectedRegimenes.length > 0) count += 1;
     return count;
   };
@@ -43,11 +69,13 @@ function Aside({ values, setValues, minMax, setMinMax }) {
           minMax={minMax}
           setMinMax={setMinMax}
           setLocalidades={setLocalidades}
-          selectedStars={selectedStars}
-          setSelectedStars={setSelectedStars}
+          estrellas={estrellas}
+          setEstrellas={setEstrellas}
           selectedRegimenes={selectedRegimenes}
           setRegimenes={setRegimenes}
           setIsModalOpen={setIsModalOpen}
+          regimenes={regimenes}
+          regimenesUnicos={regimenesUnicos}
         />
       </div>
 
@@ -75,11 +103,13 @@ function Aside({ values, setValues, minMax, setMinMax }) {
               minMax={minMax}
               setMinMax={setMinMax}
               setLocalidades={setLocalidades}
-              selectedStars={selectedStars}
-              setSelectedStars={setSelectedStars}
+              estrellas={estrellas}
+              setEstrellas={setEstrellas}
               selectedRegimenes={selectedRegimenes}
               setRegimenes={setRegimenes}
               setIsModalOpen={setIsModalOpen}
+              regimenes={regimenes}
+              regimenesUnicos={regimenesUnicos}
             />
           </div>
         </div>
@@ -97,9 +127,12 @@ function SidebarContent({
   setValues,
   minMax,
   setMinMax,
-  setSelectedStars,
+  setEstrellas,
+  estrellas,
   selectedRegimenes,
   setRegimenes,
+  regimenes,
+  regimenesUnicos,
 }) {
   return (
     <div>
@@ -123,20 +156,7 @@ function SidebarContent({
             required
           />
         </div>
-        <div className="tw-flex tw-mt-3">
-          <label className="tw-inline-flex tw-items-center tw-justify-between tw-w-full">
-            <span className="tw-text-sm tw-font-medium tw-text-gray-900 dark:tw-text-secondaryDark">
-              Reembolsable
-            </span>
-            <input
-              type="checkbox"
-              checked={reembolsable}
-              onChange={() => setReembolsable(!reembolsable)}
-              className="tw-sr-only tw-peer"
-            />
-            <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-700 tw-peer-focus:tw-outline-none tw-peer-focus:tw-ring-4 tw-peer-focus:tw-ring-blue-300 tw-rounded-full tw-peer tw-peer-checked:after:tw-translate-x-full rtl:tw-peer-checked:after:-tw-translate-x-full tw-peer-checked:after:tw-border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all dark:tw-border-gray-600 tw-peer-checked:bg-secondary"></div>
-          </label>
-        </div>
+
         <div className="tw-mx-3 tw-mt-5">
           <PrecioRange
             minMax={minMax}
@@ -145,22 +165,38 @@ function SidebarContent({
             setValues={setValues}
           />
         </div>
-        <div className="tw-mt-5">
-          <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
-            Categoría de Hotel
-          </span>
-          <div className="tw-mt-2">
-            <Estrellas
-              onChange={(selectedStars) => setSelectedStars(selectedStars)}
-            />
-          </div>
+        <div className="tw-mt-8 tw-border-y-2 tw-border-slate-200/50 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-around">
+          <FiltradoEstrellas
+            estrellas={estrellas}
+            setEstrellas={(newStars) => {
+              setEstrellas(newStars);
+            }}
+          />
+        </div>
+        <div className="tw-mt-5 tw-flex tw-items-center tw-col-span-1 tw-gap-2">
+          <label
+            onClick={() => setReembolsable(!reembolsable)}
+            className={`tw-select-none tw-flex tw-items-center tw-justify-between tw-gap-2 tw-px-4 tw-py-2 tw-w-full tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
+              reembolsable
+                ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+            }`}
+          >
+            Reembolsable
+            <FaEuroSign />
+          </label>
         </div>
         <div className="tw-mt-5">
           <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
             Régimen
           </span>
           <div className="tw-mt-2">
-            <Regimenes selected={selectedRegimenes} onChange={setRegimenes} />
+            <Regimenes
+              selected={selectedRegimenes}
+              onChange={setRegimenes}
+              regimenes={regimenes}
+              regimenesUnicos={regimenesUnicos}
+            />
           </div>
         </div>
         <div className="tw-mt-5">
