@@ -69,11 +69,11 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
       />
       <section
         className={`tw-grid  tw-mt-16 ${
-          showMapOnly ? "tw-grid-cols-1" : "tw-grid-cols-3 xl:tw-grid-cols-4"
+          showMapOnly ? "tw-grid-cols-1" : "tw-grid-cols-5 2xl:tw-grid-cols-4"
         }`}
       >
         {!showMapOnly && (
-          <div className=" tw-hidden lg:tw-grid xl:tw-grid-cols-1 xl:tw-col-span-1">
+          <div className=" tw-hidden lg:tw-grid xl:tw-grid-cols-1 lg:tw-col-span-2 2xl:tw-col-span-1">
             {hoteles.map((hotel) => (
               <Link
                 to={"/hotel"}
@@ -120,7 +120,7 @@ const MapaHoteles = ({ hoteles, values, setValues, minMax, setMinMax }) => {
         )}
         <div
           className={`tw-w-full tw-border-2 tw-border-slate-100 tw-shadow hover:tw-shadow-xl tw-smooth tw-h-[100vh] tw-z-0 tw-mb-0 ${
-            showMapOnly ? "tw-col-span-1" : "tw-col-span-3 lg:tw-col-span-3"
+            showMapOnly ? "tw-col-span-1" : "tw-col-span-5 lg:tw-col-span-3"
           } tw-sticky tw-top-0 tw-rounded-2xl tw-overflow-hidden`}
         >
           <div

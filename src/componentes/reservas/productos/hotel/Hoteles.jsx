@@ -35,13 +35,17 @@ function Resultado({ hoteles }) {
             className="md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
           >
             <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
-              <Carousel slide={false} indicators={true}>
+              <Carousel
+                className="tw-h-[25vh] md:tw-h-full"
+                slide={false}
+                indicators={true}
+              >
                 {hotel.fotos.map((foto, idx) => (
                   <img
                     key={idx}
                     src={foto}
                     alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
-                    className="h-full tw-bg-t w-full object-cover"
+                    className="tw-h-[25vh] md:tw-h-full w-full object-cover"
                   />
                 ))}
               </Carousel>

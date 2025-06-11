@@ -1,16 +1,4 @@
-import { useEffect, useState } from "react";
-
-function Regimenes({ selected, onChange, regimenes, regimenesUnicos }) {
-  const [regimenesVisibles, setRegimenesVisibles] = useState(regimenes);
-
-  useEffect(() => {
-    if (Array.isArray(regimenesUnicos) && regimenesUnicos.length > 0) {
-      setRegimenesVisibles(regimenesUnicos);
-    } else {
-      setRegimenesVisibles(regimenes);
-    }
-  }, [regimenesUnicos, regimenes]);
-  console.log(regimenesUnicos);
+function Regimenes({ selected, onChange, regimenes }) {
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     onChange((prev) =>
@@ -19,10 +7,9 @@ function Regimenes({ selected, onChange, regimenes, regimenesUnicos }) {
         : [...prev, value]
     );
   };
-
   return (
     <div>
-      {regimenesVisibles.map((option, index) => (
+      {regimenes.map((option, index) => (
         <div key={index} className="tw-flex tw-items-center tw-mb-2">
           <input
             type="checkbox"

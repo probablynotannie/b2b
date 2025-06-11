@@ -1,47 +1,56 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import PrecioRange from "../../../../inputs/PrecioRange";
 import FiltradoEstrellas from "../../../../inputs/FiltroEstrellas";
 import Regimenes from "./Filtro_Regimenes";
 import Localidades from "./Filtro_Localidades";
 import { IoMdOptions } from "react-icons/io";
 import { FaEuroSign } from "react-icons/fa";
-
-function Aside({ values, setValues, minMax, setMinMax, hoteles }) {
-  const regimenesSet = new Set();
-  hoteles
-    ? hoteles.forEach((hotel) => {
-        if (hotel.regimen) {
-          regimenesSet.add(hotel.regimen.toLowerCase());
-        }
-
-        if (hotel.habitaciones && Array.isArray(hotel.habitaciones)) {
-          hotel.habitaciones.forEach((habitacion) => {
-            if (habitacion.regimen) {
-              regimenesSet.add(habitacion.regimen.toLowerCase());
-            }
-          });
-        }
-      })
-    : null;
-
-  const regimenesUnicos = Array.from(regimenesSet).map(
-    (regimen) => regimen.charAt(0).toUpperCase() + regimen.slice(1)
-  );
-  const regimenes = [
-    "Solo alojamiento",
-    "Alojamiento y desayuno",
-    "Pensión completa",
-  ];
+import hoteles from "../Hoteles.json";
+function Aside({ values, setValues, minMax, setMinMax }) {
+  const [regimenesUnicos, setRegimenesUnicos] = useState([]);
   const [estrellas, setEstrellas] = useState(0);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [reembolsable, setReembolsable] = useState(false);
   const [localidades, setLocalidades] = useState([]);
   const [selectedRegimenes, setRegimenes] = useState([]);
+
+  useEffect(() => {
+    const regimenesSet = new Set();
+    hoteles.forEach((hotel) => {
+      if (hotel?.regimen) {
+        console.log("Regimen del hotel:", hotel.regimen);
+        regimenesSet.add(hotel.regimen.toLowerCase());
+      }
+
+      if (Array.isArray(hotel.habitaciones)) {
+        hotel.habitaciones.forEach((habitacion) => {
+          if (habitacion?.regimen) {
+            console.log("Regimen de la habitación:", habitacion.regimen);
+            regimenesSet.add(habitacion.regimen.toLowerCase());
+          }
+        });
+      }
+    });
+
+    const uniqueList = Array.from(regimenesSet).map(
+      (regimen) => regimen.charAt(0).toUpperCase() + regimen.slice(1)
+    );
+
+    console.log("Régimenes únicos generados:", uniqueList);
+    setRegimenesUnicos(uniqueList);
+  }, [hoteles]);
+
+  useEffect(() => {
+    setRegimenes((prev) =>
+      prev.filter((regimen) => regimenesUnicos.includes(regimen))
+    );
+  }, [regimenesUnicos]);
+
   const getActiveFiltersCount = () => {
     let count = 0;
     if (reembolsable) count += 1;
     if (localidades.length > 0) count += 1;
-    if (estrellas.length > 0) count += 1;
+    if (estrellas > 0) count += 1;
     if (selectedRegimenes.length > 0) count += 1;
     return count;
   };
@@ -55,10 +64,11 @@ function Aside({ values, setValues, minMax, setMinMax, hoteles }) {
         <IoMdOptions className="tw-text-xl" />
         {getActiveFiltersCount() > 0 && (
           <span className="tw-absolute tw-p-2 tw-text-xs tw-font-bold tw-text-white tw-border tw-rounded-full tw-bg-secondary -tw-top-7">
-            {`(${getActiveFiltersCount()})`}
+            ({getActiveFiltersCount()})
           </span>
         )}
       </button>
+
       <div className="tw-hidden lg:tw-block">
         <SidebarContent
           reembolsable={reembolsable}
@@ -74,7 +84,6 @@ function Aside({ values, setValues, minMax, setMinMax, hoteles }) {
           selectedRegimenes={selectedRegimenes}
           setRegimenes={setRegimenes}
           setIsModalOpen={setIsModalOpen}
-          regimenes={regimenes}
           regimenesUnicos={regimenesUnicos}
         />
       </div>
@@ -108,7 +117,6 @@ function Aside({ values, setValues, minMax, setMinMax, hoteles }) {
               selectedRegimenes={selectedRegimenes}
               setRegimenes={setRegimenes}
               setIsModalOpen={setIsModalOpen}
-              regimenes={regimenes}
               regimenesUnicos={regimenesUnicos}
             />
           </div>
@@ -131,7 +139,6 @@ function SidebarContent({
   estrellas,
   selectedRegimenes,
   setRegimenes,
-  regimenes,
   regimenesUnicos,
 }) {
   return (
@@ -141,6 +148,7 @@ function SidebarContent({
           Filtrado
         </h3>
       </div>
+
       <div className="tw-p-6 lg:tw-p-3 lg:tw-pt-1">
         <div>
           <label
@@ -165,14 +173,14 @@ function SidebarContent({
             setValues={setValues}
           />
         </div>
+
         <div className="tw-mt-8 tw-border-y-2 tw-border-slate-200/50 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-around">
           <FiltradoEstrellas
             estrellas={estrellas}
-            setEstrellas={(newStars) => {
-              setEstrellas(newStars);
-            }}
+            setEstrellas={setEstrellas}
           />
         </div>
+
         <div className="tw-mt-5 tw-flex tw-items-center tw-col-span-1 tw-gap-2">
           <label
             onClick={() => setReembolsable(!reembolsable)}
@@ -186,19 +194,24 @@ function SidebarContent({
             <FaEuroSign />
           </label>
         </div>
+
         <div className="tw-mt-5">
           <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
             Régimen
           </span>
-          <div className="tw-mt-2">
+          {regimenesUnicos.length > 0 ? (
             <Regimenes
               selected={selectedRegimenes}
               onChange={setRegimenes}
-              regimenes={regimenes}
-              regimenesUnicos={regimenesUnicos}
+              regimenes={regimenesUnicos}
             />
-          </div>
+          ) : (
+            <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
+              No hay regímenes disponibles.
+            </p>
+          )}
         </div>
+
         <div className="tw-mt-5">
           <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
             Localidades
