@@ -5,7 +5,7 @@
     "descripcion": "Un hotel moderno en el corazón de Barcelona con vistas panorámicas.",
     "imagenes": ["/hotel1.jpg", "/hotel1b.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
-    "tipo": [{ "nombre": "Habitacion doble", "extra": 15 }]
+    "tipo": [{ "nombre": "Habitacion doble", "extra": 15, "capacidad": 2, "disponible":4 }]
   },
   {
     "id": 2,
@@ -14,16 +14,51 @@
     "imagenes": ["/hotel2.jpg", "/hotel2b.jpg"],
     "imagenMiniatura": "/hotel2.jpg",
     "tipo": [
-      { "nombre": "Doble", "extra": 18 },
-      { "nombre": "Deluxe", "extra": 35 },
-      { "nombre": "Superior", "extra": 50 },
-      { "nombre": "Suite", "extra": 102 },
-      { "nombre": "Presidencial", "extra": 86 },
-      { "nombre": "Villa Suite", "extra": 70 },
-      { "nombre": "Aparthotel", "extra": 20 },
-      { "nombre": "Suite con balcon", "extra": 60 },
-      { "nombre": "Presidencial con piscina", "extra": 85 },
-      { "nombre": "Villa suite con acceso al club", "extra": 75 }
+      { "nombre": "Doble", "extra": 18, "capacidad": 2, "disponible": 3 },
+      { "nombre": "Deluxe", "extra": 35, "capacidad": 4, "disponible": 3 },
+      {
+        "nombre": "Superior",
+        "extra": 50,
+        "capacidad": 5,
+        "disponible": 22
+      },
+      { "nombre": "Suite", "extra": 102, "capacidad": 8, "disponible": 3 },
+      {
+        "nombre": "Presidencial",
+        "extra": 86,
+        "capacidad": 10,
+        "disponible": 1
+      },
+      {
+        "nombre": "Villa Suite",
+        "extra": 70,
+        "capacidad": 10,
+        "disponible": 1
+      },
+      {
+        "nombre": "Aparthotel",
+        "extra": 20,
+        "capacidad": 5,
+        "disponible": 3
+      },
+      {
+        "nombre": "Suite con balcon",
+        "extra": 6,
+        "capacidad": 4,
+        "disponible": 4
+      },
+      {
+        "nombre": "Presidencial con piscina",
+        "extra": 85,
+        "capacidad": 12,
+        "disponible": 1
+      },
+      {
+        "nombre": "Villa suite con acceso al club",
+        "extra": 75,
+        "capacidad": 12,
+        "disponible": 1
+      }
     ]
   },
   {
@@ -33,9 +68,20 @@
     "imagenes": ["/hotel3.jpg", "/hotel3b.jpg"],
     "imagenMiniatura": "/hotel3.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 40 },
-      { "nombre": "Deluxe", "extra": 25 },
-      { "nombre": "Doble", "extra": 12 }
+      {
+        "nombre": "Superior",
+        "extra": 40,
+        "capacidad": 3,
+        "disponible": 2
+      },
+      {
+        "nombre": "Individual1",
+        "extra": 30,
+        "capacidad": 1,
+        "disponible": 1
+      },
+      { "nombre": "Doble", "extra": 15, "capacidad": 2, "disponible": 5 },
+      { "nombre": "Suite", "extra": 70, "capacidad": 5, "disponible": 3 }
     ]
   },
   {
@@ -45,8 +91,13 @@
     "imagenes": ["/hotel4.jpg", "/hotel4b.jpg"],
     "imagenMiniatura": "/hotel4.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 38 },
-      { "nombre": "Doble", "extra": 10 }
+      {
+        "nombre": "Superior",
+        "extra": 38,
+        "capacidad": 4,
+        "disponible": 2
+      },
+      { "nombre": "Doble", "extra": 10, "capacidad": 2, "disponible": 2 }
     ]
   },
   {
@@ -56,9 +107,15 @@
     "imagenes": ["/hote3.jpg", "/hotel3.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 35 },
-      { "nombre": "Deluxe", "extra": 20 },
-      { "nombre": "Doble", "extra": 8 }
+      {
+        "nombre": "Superior",
+        "extra": 35,
+        "capacidad": 2,
+        "disponible": 2
+      },
+      { "nombre": "Deluxe", "extra": 25, "capacidad": 4, "disponible": 4 },
+      { "nombre": "Doble", "extra": 12, "capacidad": 2, "disponible": 2 },
+      { "nombre": "Suite", "extra": 80, "capacidad": 6, "disponible": 1 }
     ]
   },
   {
@@ -68,9 +125,14 @@
     "imagenes": ["/hotel1.jpg", "/hotel1.jpg"],
     "imagenMiniatura": "/hotel3.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 48 },
-      { "nombre": "Deluxe", "extra": 28 },
-      { "nombre": "Doble", "extra": 14 }
+      {
+        "nombre": "Superior",
+        "extra": 48,
+        "capacidad": 3,
+        "disponible": 2
+      },
+      { "nombre": "Deluxe", "extra": 30, "capacidad": 4, "disponible": 2 },
+      { "nombre": "Doble", "extra": 16, "capacidad": 2, "disponible": 2 }
     ]
   },
   {
@@ -80,9 +142,20 @@
     "imagenes": ["/hotel2.jpg", "/hotel2.jpg"],
     "imagenMiniatura": "/hotel2.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 55 },
-      { "nombre": "Deluxe", "extra": 36 },
-      { "nombre": "Doble", "extra": 20 }
+      {
+        "nombre": "Superior",
+        "extra": 55,
+        "capacidad": 3,
+        "disponible": 2
+      },
+      {
+        "nombre": "Individual",
+        "extra": 45,
+        "capacidad": 4,
+        "disponible": 2
+      },
+      { "nombre": "Doble", "extra": 20, "capacidad": 2, "disponible": 2 },
+      { "nombre": "Triple", "extra": 90, "capacidad": 3, "disponible": 4 }
     ]
   },
   {
@@ -92,9 +165,7 @@
     "imagenes": ["/hotel1.jpg", "/hotel2.jpg"],
     "imagenMiniatura": "/hotel4.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 42 },
-      { "nombre": "Deluxe", "extra": 26 },
-      { "nombre": "Doble", "extra": 13 }
+      { "nombre": "Doble", "extra": 42, "capacidad": 2, "disponible": 4 }
     ]
   },
   {
@@ -104,9 +175,14 @@
     "imagenes": ["/hotel2.jpg", "/hotel3.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 60 },
-      { "nombre": "Deluxe", "extra": 40 },
-      { "nombre": "Doble", "extra": 25 }
+      {
+        "nombre": "Individual",
+        "extra": 60,
+        "capacidad": 1,
+        "disponible": 2
+      },
+      { "nombre": "Deluxe", "extra": 40, "capacidad": 3, "disponible": 2 },
+      { "nombre": "Doble", "extra": 25, "capacidad": 2, "disponible": 2 }
     ]
   },
   {
@@ -116,9 +192,21 @@
     "imagenes": ["/hotel1.jpg", "/hotel2.jpg"],
     "imagenMiniatura": "/hotel2.jpg",
     "tipo": [
-      { "nombre": "Superior", "extra": 52 },
-      { "nombre": "Deluxe", "extra": 32 },
-      { "nombre": "Doble", "extra": 18 }
+      {
+        "nombre": "Superior",
+        "extra": 52,
+        "capacidad": 3,
+        "disponible": 2
+      },
+      {
+        "nombre": "Individual",
+        "extra": 38,
+        "capacidad": 4,
+        "disponible": 2
+      },
+      { "nombre": "Doble", "extra": 22, "capacidad": 2, "disponible": 3 },
+      { "nombre": "Suite", "extra": 95, "capacidad": 5, "disponible": 2 },
+      { "nombre": "Deluxe", "extra": 75, "capacidad": 4, "disponible": 4 }
     ]
   }
 ]

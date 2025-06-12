@@ -210,7 +210,7 @@ function SeleccionHoteles({
       </div>
       {modalHotel && (
         <div className="tw-fixed tw-inset-0 tw-bg-black/70 tw-flex tw-pt-16 tw-items-start tw-justify-center tw-z-50">
-          <div className="tw-bg-white tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-3 tw-relative">
+          <div className="tw-bg-white dark:tw-bg-slate-700 tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-3 tw-relative">
             <img
               alt={"imagen del hotel " + modalHotel.nombre}
               src={modalHotel.imagenMiniatura}
@@ -224,13 +224,18 @@ function SeleccionHoteles({
               ✕
             </button>
             <div className="tw-my-3">
-              <h2 className="tw-text-xl tw-font-bold">{modalHotel.nombre}</h2>
-              <p className="tw-text-slate-700 tw-mb-4">
+              <h2 className="dark:tw-text-white tw-text-xl tw-font-bold">
+                {modalHotel.nombre}
+              </h2>
+              <p className="tw-text-slate-700 dark:tw-text-slate-00 tw-mb-4">
                 {modalHotel.descripcion}
               </p>
             </div>
             <div className="tw-flex tw-justify-end tw-border-t tw-border-slate-100 dark:tw-border-slate-700tw-pt-3 tw-pt-3">
-              <button className="tw-btn_accesorios tw-btn_oscuro">
+              <button
+                onClick={() => setModalHotel(null)}
+                className="tw-btn_accesorios tw-btn_oscuro"
+              >
                 Cerrar
               </button>
             </div>
