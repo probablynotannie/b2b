@@ -1,7 +1,14 @@
 import { useState, useEffect } from "react";
 import { FaArrowRight, FaInfoCircle } from "react-icons/fa";
 
-function SeleccionHoteles({ hoteles, seleccion, setSeleccion, titulo, paginaActual, setPaginaActual }) {
+function SeleccionHoteles({
+  hoteles,
+  seleccion,
+  setSeleccion,
+  titulo,
+  paginaActual,
+  setPaginaActual,
+}) {
   const [modalHotel, setModalHotel] = useState(null);
   const hotelesPorPagina = 5;
 
@@ -203,20 +210,30 @@ function SeleccionHoteles({ hoteles, seleccion, setSeleccion, titulo, paginaActu
       </div>
       {modalHotel && (
         <div className="tw-fixed tw-inset-0 tw-bg-black/70 tw-flex tw-pt-16 tw-items-start tw-justify-center tw-z-50">
-          <div className="tw-bg-white tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-6 tw-relative">
+          <div className="tw-bg-white tw-w-[60vw] tw-rounded-xl tw-max-w-lg tw-p-3 tw-relative">
+            <img
+              alt={"imagen del hotel " + modalHotel.nombre}
+              src={modalHotel.imagenMiniatura}
+              className="tw-w-full tw-h-32 tw-object-cover tw-rounded-lg"
+            />
+
             <button
               onClick={() => setModalHotel(null)}
-              className="tw-absolute tw-top-3 tw-right-3 tw-text-slate-500 hover:tw-text-red-500 tw-text-lg"
+              className="tw-absolute tw-top-5 tw-right-5 tw-bg-white/20 tw-p-1 tw-px-4 tw-rounded-3xl tw-text-white hover:tw-bg-white/30 tw-text-lg tw-smooth"
             >
               ✕
             </button>
-            <h2 className="tw-text-xl tw-font-bold tw-mb-2">
-              {modalHotel.nombre}
-            </h2>
-            <p className="tw-text-slate-700 tw-mb-4">
-              {modalHotel.descripcion}
-            </p>
-            <div className="tw-grid tw-grid-cols-2 tw-gap-2">Weeeeeeee</div>
+            <div className="tw-my-3">
+              <h2 className="tw-text-xl tw-font-bold">{modalHotel.nombre}</h2>
+              <p className="tw-text-slate-700 tw-mb-4">
+                {modalHotel.descripcion}
+              </p>
+            </div>
+            <div className="tw-flex tw-justify-end tw-border-t tw-border-slate-100 dark:tw-border-slate-700tw-pt-3 tw-pt-3">
+              <button className="tw-btn_accesorios tw-btn_oscuro">
+                Cerrar
+              </button>
+            </div>
           </div>
         </div>
       )}

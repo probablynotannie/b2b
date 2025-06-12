@@ -38,7 +38,7 @@ function Aside({ values, setValues, minMax, setMinMax }) {
 
     console.log("Régimenes únicos generados:", uniqueList);
     setRegimenesUnicos(uniqueList);
-  }, [hoteles]);
+  }, []);
 
   useEffect(() => {
     setRegimenes((prev) =>
@@ -87,7 +87,6 @@ function Aside({ values, setValues, minMax, setMinMax }) {
           regimenesUnicos={regimenesUnicos}
         />
       </div>
-
       {isModalOpen && (
         <div
           className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black tw-bg-opacity-50"

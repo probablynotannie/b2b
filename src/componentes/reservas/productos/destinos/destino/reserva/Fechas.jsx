@@ -9,7 +9,6 @@ function Fechas() {
   const producto = location.state;
   const productoConHabitaciones = {
     ...producto,
-    habitaciones: producto.habitaciones || [],
   };
   const [localProducto, setLocalProducto] = useState(productoConHabitaciones);
   const [dates, setDates] = useState({
@@ -33,61 +32,6 @@ function Fechas() {
       precio: localProducto.pax * dates.startDatePrice,
     }));
   }, [dates, localProducto.pax]);
-  const addRoom = (tipo = "Habitación Doble") => {
-    setLocalProducto((prevState) => {
-      const updatedHabitaciones = [
-        ...prevState.habitaciones,
-        { id: Date.now(), pax: 2, tipo },
-      ];
-
-      const totalPax = updatedHabitaciones.reduce(
-        (sum, hab) => sum + hab.pax,
-        2
-      );
-      const totalPrice = totalPax * 100;
-      return {
-        ...prevState,
-        habitaciones: updatedHabitaciones,
-        pax: totalPax,
-        precio: totalPrice,
-      };
-    });
-  };
-
-  const deleteRoom = (id) => {
-    setLocalProducto((prevState) => {
-      const updatedHabitaciones = prevState.habitaciones.filter(
-        (habitacion) => habitacion.id !== id
-      );
-      const totalPax = updatedHabitaciones.reduce(
-        (sum, hab) => sum + hab.pax,
-        2
-      );
-      return {
-        ...prevState,
-        habitaciones: updatedHabitaciones,
-        pax: totalPax,
-      };
-    });
-  };
-
-  const handleRoomTypeChange = (id, pax) => {
-    setLocalProducto((prevState) => {
-      const updatedHabitaciones = prevState.habitaciones.map((habitacion) =>
-        habitacion.id === id ? { ...habitacion, pax } : habitacion
-      );
-      const totalPax = updatedHabitaciones.reduce(
-        (sum, hab) => sum + hab.pax,
-        2
-      );
-      return {
-        ...prevState,
-        habitaciones: updatedHabitaciones,
-        pax: totalPax,
-      };
-    });
-  };
-
   return (
     <article className="tw-container tw-my-10 tw-grid tw-grid-cols-3 tw-gap-10">
       <main className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[70vh] dark:tw-bg-slate-800">
@@ -127,14 +71,7 @@ function Fechas() {
         )}
       </main>
       <aside className="tw-col-span-3 lg:tw-col-span-1 tw-sticky tw-top-5 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit dark:tw-bg-slate-800">
-        <Aside
-          dates={dates}
-          handleRoomTypeChange={handleRoomTypeChange}
-          addRoom={addRoom}
-          producto={localProducto}
-          deleteRoom={deleteRoom}
-          reserva={localProducto}
-        />
+        <Aside dates={dates} producto={localProducto} reserva={localProducto} />
       </aside>
     </article>
   );
