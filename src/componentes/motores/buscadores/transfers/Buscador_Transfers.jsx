@@ -10,7 +10,6 @@ import { useForm } from "react-hook-form";
 function Buscador_Transfers() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -80,15 +79,17 @@ function Buscador_Transfers() {
                 </h2>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
+                    required={true}
                     control={control}
-                    name={"origin"}
+                    name={"origen"}
                     setValue={setValue}
                     placeholder={"Origen"}
                     destinos={destinos}
                   />
                   <Input_Destinos
+                    required={true}
                     control={control}
-                    name={"destination"}
+                    name={"destino"}
                     setValue={setValue}
                     placeholder={"Destino"}
                     destinos={destinos}
@@ -140,15 +141,17 @@ function Buscador_Transfers() {
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
+              required={true}
               control={control}
-              name={"origin"}
+              name={"origen"}
               setValue={setValue}
               placeholder={"Origen"}
               destinos={destinos}
             />
             <Input_Destinos
+              required={true}
               control={control}
-              name={"destination"}
+              name={"destino"}
               setValue={setValue}
               placeholder={"Destino"}
               destinos={destinos}

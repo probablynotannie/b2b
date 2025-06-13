@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Circuitos from "./buscadores/circuitos/Buscador_Circuitos";
-import Destacados from "./buscadores/transfers/Destacados";
+import Destacados from "./buscadores/destacados/Destacados";
+import destacados from "./buscadores/circuitos/destacados.json";
 function Circuitos() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Circuitos() {
             <Buscador_Circuitos />
           </div>
         </div>
-        <Destacados />
+        <Destacados destacados={destacados} max={2} columnas={2} filas={2} />
       </div>
     </article>
   );

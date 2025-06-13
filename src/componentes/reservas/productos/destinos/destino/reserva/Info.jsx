@@ -37,7 +37,7 @@ function Info() {
         {condiciones.map((condicion, index) => (
           <Card
             key={index}
-            className={`tw-max-w-sm hover:tw-shadow-xl tw-transition dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 ${
+            className={`tw-max-w-sm hover:tw-shadow-xl tw-transition dark:tw-bg-slate-900 dark:hover:tw-bg-pink-900 dark:tw-border-slate-800 tw-smooth  ${
               index === 0 ? "tw-bg-green-100" : "tw-bg-orange-100"
             } `}
           >
@@ -50,7 +50,7 @@ function Info() {
           </Card>
         ))}
       </div>
-      <Card className="tw-my-10 md:tw-mx-0 hover:tw-shadow-xl tw-transition tw-bg-red-100 dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 tw-p-6">
+      <Card className="tw-my-10 md:tw-mx-0 hover:tw-shadow-xl tw-transition tw-bg-red-100 dark:tw-bg-slate-900 dark:hover:tw-bg-pink-900 dark:tw-border-slate-800 tw-smooth tw-p-6">
         <h5 className="tw-text-2xl tw-font-bold tw-tracking-tight tw-text-slate-900 dark:tw-text-white tw-mb-4">
           {cancelacion.titulo}
         </h5>

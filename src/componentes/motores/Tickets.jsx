@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Tickets from "./buscadores/tickets/Buscador_Tickets";
-import Destacados from "./buscadores/tickets/Destacados";
+import Destacados from "./buscadores/destacados/Destacados";
+import destacados from "./buscadores/tickets/destacados.json";
 function Tickets() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Tickets() {
             <Buscador_Tickets />
           </div>
         </div>
-        <Destacados />
+        <Destacados destacados={destacados} columnas={2} filas={2} />
       </div>
     </article>
   );

@@ -4,40 +4,29 @@ import { Link } from "react-router-dom";
 import { FaMapPin, FaClock } from "react-icons/fa";
 import { FaBed } from "react-icons/fa6";
 import { MdRestaurant } from "react-icons/md";
-function Resumen({ producto, selectedHotel, handleHotelChange }) {
+function Resumen({ producto }) {
   return (
     <>
       <h2 className="tw-text-xl tw-font-bold dark:tw-text-slate-300">
         {producto.nombre}
       </h2>
-      <p className="tw-flex tw-items-center tw-flex-wrap tw-font-semibold tw-mb-5">
-        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-600 dark:tw-text-slate-400 tw-text-sm">
+      <p className="tw-flex tw-items-center tw-flex-wrap tw-font-semibold tw-mb-5 tw-text-sm">
+        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-400 dark:tw-text-slate-400">
           <FaMapPin className="tw-text-secondary tw-text-lg" />
           {producto.ubicacion}
         </span>
-        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-600 dark:tw-text-slate-400 tw-text-sm">
+        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-400 dark:tw-text-slate-400">
           <FaClock className="tw-mr-2 tw-text-secondary tw-text-lg" />
           {producto.dias} días
         </span>
 
-        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-600 dark:tw-text-slate-400 tw-text-sm">
+        <span className="tw-mr-2 tw-flex tw-items-center tw-text-slate-400 dark:tw-text-slate-400">
           <MdRestaurant className="tw-mr-2 tw-text-secondary tw-text-lg" />
           {producto.desayunos} desayunos
         </span>
       </p>
       <div className="tw-mt-4">
         <div className="tw-relative">
-          <select
-            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
-            value={selectedHotel}
-            onChange={handleHotelChange}
-          >
-            {producto.hotelPrecio.map((option) => (
-              <option key={option.hotel} value={option.hotel}>
-                {option.hotel} - {option.precio}€
-              </option>
-            ))}
-          </select>
           <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaBed />
           </div>

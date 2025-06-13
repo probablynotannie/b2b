@@ -1,0 +1,382 @@
+{
+  "reservas": [
+    {
+      "id": 1,
+      "bono": 0,
+      "fechaGestion": "05/05/2025",
+      "fechaEntrada": "05/05/2025",
+      "orden": "382707/52",
+      "localizador": "HOAG96173",
+      "estado": 2,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-01",
+      "proveedores": "Renfe",
+      "titularReserva": "Juan Pérez",
+      "datosAgencia": {
+        "agencia": "Vpk Desarrollo",
+        "telefono": "123456789",
+        "email": "pipupipu@gmail.com"
+      },
+      "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "recorrido": "Murcia - Alicante",
+        "recogida": "05/05/2025",
+        "devolucion": "05/12/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 35.67,
+        "importePVP": 45.3
+      }
+    },
+    {
+      "id": 2,
+      "bono": 0,
+      "fechaGestion": "06/05/2025",
+      "fechaEntrada": "06/05/2025",
+      "orden": "392707/53",
+      "localizador": "HOAG96174",
+      "estado": 0,
+      "estadoPago": 0,
+      "confirmacion": "2025-09-02",
+      "proveedores": "Renfe",
+      "titularReserva": "Carlos Sánchez",
+      "datosAgencia": {
+        "agencia": "Auto Rent",
+        "telefono": "987654321",
+        "email": "carlos.sanchez@gmail.com"
+      },
+      "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+
+        "recorrido": "Madrid-Valencia",
+        "recogida": "06/05/2025",
+        "devolucion": "08/05/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 50.23,
+        "importePVP": 60.75
+      }
+    },
+    {
+      "id": 3,
+      "bono": 1,
+      "fechaGestion": "07/10/2025",
+      "fechaEntrada": "07/10/2025",
+      "orden": "402707/54",
+      "localizador": "HOAG96175",
+      "estado": 1,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-03",
+      "proveedores": "Renfe",
+      "titularReserva": "María Gómez",
+      "datosAgencia": {
+        "agencia": "Rent A Car",
+        "telefono": "654321987",
+        "email": "maria.gomez@gmail.com"
+      },
+      "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "recorrido": "Sevilla-Granada",
+        "recogida": "07/10/2025",
+        "devolucion": "07/11/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 40.0,
+        "importePVP": 52.5
+      }
+    },
+    {
+      "id": 4,
+      "bono": 1,
+      "fechaGestion": "08/15/2025",
+      "fechaEntrada": "08/15/2025",
+      "orden": "412707/55",
+      "localizador": "HOAG96176",
+      "estado": 1,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-04",
+      "proveedores": "Renfe",
+      "titularReserva": "Pedro Rodríguez",
+      "datosAgencia": {
+        "agencia": "Global Rent",
+        "telefono": "321654987",
+        "email": "pedro.rodriguez@gmail.com"
+      },
+      "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "recorrido": "Barcelona-Madrid",
+        "recogida": "06/06/2025",
+        "devolucion": "06/06/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 100.45,
+        "importePVP": 120.99
+      }
+    },
+    {
+      "id": 5,
+      "bono": 1,
+      "fechaGestion": "09/01/2025",
+      "fechaEntrada": "09/01/2025",
+      "orden": "422707/56",
+      "localizador": "HOAG96177",
+      "estado": 1,
+      "estadoPago": 0,
+      "confirmacion": "2025-09-05",
+      "proveedores": "Renfe",
+      "titularReserva": "Ana López",
+      "datosAgencia": {
+        "agencia": "Aero Car Rentals",
+        "telefono": "987123654",
+        "email": "ana.lopez@gmail.com"
+      },
+      "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "vuelta": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0025",
+              "butaca": "04A"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0025",
+              "butaca": "03A"
+            }
+          ],
+          "recorrido": "Alicante-Murcia",
+          "salida": "06/06/2025",
+          "llegada": "06/06/2025",
+          "horaSalida": "15:00",
+          "horaLlegada": "17:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+        "recorrido": "Valencia-Castellón",
+        "recogida": "09/10/2025",
+        "devolucion": "10/10/2025",
+        "tipoReserva": "B2C",
+        "importeNeto": 85.99,
+        "importePVP": 99.99
+      }
+    },
+    {
+      "id": 6,
+      "bono": 0,
+      "fechaGestion": "10/05/2025",
+      "fechaEntrada": "10/05/2025",
+      "orden": "432707/57",
+      "localizador": "HOAG96178",
+      "estado": 2,
+      "estadoPago": 1,
+      "confirmacion": "2025-09-06",
+      "proveedores": "Renfe",
+      "titularReserva": "Luis Martínez",
+      "datosAgencia": {
+        "agencia": "Auto Rent",
+        "telefono": "111223344",
+        "email": "luis.martinez@gmail.com"
+      },
+      "reserva": {
+        "ida": {
+          "pasajeros": [
+            {
+              "nombre": "Juan",
+              "apellido": "Pérez",
+              "vagon": "0016",
+              "butaca": "01C"
+            },
+            {
+              "nombre": "Ana",
+              "apellido": "Gómez",
+              "vagon": "0016",
+              "butaca": "02C"
+            }
+          ],
+          "recorrido": "Murcia - Alicante",
+          "salida": "05/05/2025",
+          "llegada": "05/05/2025",
+          "horaSalida": "10:00",
+          "horaLlegada": "12:00",
+          "cancelacion": "A partir de 05/05/2024 penalización del 100%"
+        },
+
+        "recorrido": "Alicante-Valencia",
+        "recogida": "05/10/2025",
+        "devolucion": "10/10/2025",
+        "tipoReserva": "B2B",
+        "importeNeto": 48.99,
+        "importePVP": 59.99
+      }
+    }
+  ]
+}

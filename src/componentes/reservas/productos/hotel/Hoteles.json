@@ -4,11 +4,15 @@
     "habitacion": 7,
     "noches": 4,
     "direccion": "Avenida del Mar, 45, Alicante, España",
-    "lat": 39.192884,
-    "lng": -0.481,
+    "lat": 40.467659,
+    "lng": -3.616905,
     "regimen": "solo alojamiento",
     "estrellas": 4,
-    "fotos": ["/hotel1.jpg", "/hotel2.jpg", "/hotel3.jpg"],
+    "fotos": [
+      "/hoteles/prueba7.jpeg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba9.jpg"
+    ],
     "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
     "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
     "id": 0,
@@ -19,12 +23,11 @@
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
-      { "id": 0, "src": "/hotel1.jpg" },
-      { "id": 1, "src": "/hotel2.jpg" },
-      { "id": 2, "src": "/hotel3.jpg" },
-      { "id": 3, "src": "/hotel4.jpg" }
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba1.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -46,6 +49,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "42.67"
       },
       {
@@ -53,6 +58,8 @@
         "nombre": "Habitación privada",
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "60.00"
       },
       {
@@ -60,6 +67,7 @@
         "nombre": "Suite con vistas al mar",
         "reembolso": "SI",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "120.50"
       },
       {
@@ -73,6 +81,7 @@
           "A partir de 08/11/2024 penalización de 54.00€"
         ],
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "80.00"
       },
       {
@@ -80,6 +89,7 @@
         "nombre": "Habitación individual económica",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "35.00"
       },
       {
@@ -88,6 +98,8 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "95.00"
       },
       {
@@ -95,6 +107,7 @@
         "nombre": "Apartamento con cocina",
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
         "precio": "105.00"
       },
       {
@@ -103,6 +116,7 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
         "precio": "150.00"
       },
       {
@@ -110,6 +124,7 @@
         "nombre": "Cabaña en la montaña",
         "reembolso": "SI",
         "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
         "precio": "110.00"
       },
       {
@@ -118,6 +133,694 @@
         "reembolso": "NO",
         "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Hotel puerto de Sol",
+    "habitacion": 3,
+    "noches": 4,
+    "direccion": "Calle Mayor, 12, Madrid, España",
+    "lat": 40.437869,
+    "lng": -3.676941,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg",
+      "/hoteles/prueba9.jpg"
+    ],
+    "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 864,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba6.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Marina Breeze Hotel",
+    "habitacion": 5,
+    "noches": 4,
+    "direccion": "Calle Madrid, 16, Madrid, España",
+    "lat": 40.405872,
+    "lng": -3.688682,
+    "regimen": "todo incluido",
+    "estrellas": 4,
+    "fotos": ["/hotel1.jpg", "/hoteles/prueba8.jpg", "/hoteles/prueba7.jpeg"],
+    "descripcion": "Brisa Mediterránea ofrece un ambiente familiar con todo incluido, justo al lado del puerto deportivo de Madrid.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 159,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba6.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Hotel Madrid",
+    "habitacion": 4,
+    "noches": 4,
+    "direccion": "Calle Madrid, 16, Madrid, España",
+    "lat": 40.458822,
+    "lng": 3.620784,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": ["/hotel2.jpg", "/hoteles/prueba7.jpeg"],
+    "descripcion": "Brisa Mediterránea ofrece un ambiente familiar con todo incluido, justo al lado del puerto deportivo de Madrid.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 359,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": ["/hotel4.jpg", "/hoteles/prueba2.jpg", "/hoteles/prueba3.jpg"],
+    "img": "/hoteles/prueba4.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "50.00"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+
+  {
+    "nombre": "Gran Hotel Riri",
+    "habitacion": 4,
+    "noches": 4,
+    "direccion": "Paseo Marítimo, 22, Madrid, España",
+    "lat": 40.381901,
+    "lng": -3.622133,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": ["/hotel4.jpg", "/hoteles/prueba8.jpg", "/hoteles/prueba7.jpeg"],
+    "descripcion": "Brisa Mediterránea ofrece un ambiente familiar con todo incluido, justo al lado del puerto deportivo de Madrid.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 111,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba3.jpg",
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg"
+    ],
+    "img": "/hoteles/prueba5.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "50.00"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+
+  {
+    "nombre": "Hotel Ananova",
+    "habitacion": 7,
+    "noches": 4,
+    "direccion": "Avenida del Mar, 45, Alicante, España",
+    "lat": 40.421529,
+    "lng": -3.69158,
+    "regimen": "todo incluido",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba9.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 186,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba3.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": "30.00"
       }
     ]
@@ -127,11 +830,15 @@
     "habitacion": 7,
     "noches": 4,
     "direccion": "Calle Mayor, 12, Madrid, España",
-    "lat": 40.4154,
-    "lng": -3.7074,
+    "lat": 40.41526,
+    "lng": -3.684417,
     "regimen": "alojamiento y desayuno",
     "estrellas": 5,
-    "fotos": ["/hotel2.jpg", "/hotel2.jpg", "/hotel1.jpg"],
+    "fotos": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
     "descripcion": "El Gran Hotel Madrid es una joya de lujo en el corazón de la capital, ofreciendo vistas espectaculares hacia la ciudad y un nivel de confort inigualable.",
     "extras": [
       "Wi-Fi",
@@ -154,7 +861,7 @@
       { "id": 2, "src": "/hotel3.jpg" },
       { "id": 3, "src": "/hotel4.jpg" }
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba2.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -174,18 +881,23 @@
         "id": 0,
         "nombre": "Luxury Suite",
         "regimen": "Alojamiento y desayuno",
+
+        "regimenEnCorto": "AD",
         "precio": 200
       },
       {
         "id": 1,
         "nombre": "Deluxe Room",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
         "precio": 150
       },
       {
         "id": 2,
         "nombre": "Standard Room",
         "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
         "precio": 120
       }
     ]
@@ -195,11 +907,15 @@
     "habitacion": 7,
     "noches": 4,
     "direccion": "Paseo Marítimo, 22, Barcelona, España",
-    "lat": 41.3785,
-    "lng": 2.1925,
+    "lat": 40.416775,
+    "lng": -3.70379,
     "regimen": "pensión completa",
     "estrellas": 3,
-    "fotos": ["/hotel3.jpg", "/hotel2.jpg", "/hotel1.jpg"],
+    "fotos": [
+      "/hoteles/prueba4.jpg",
+      "/hoteles/prueba5.jpg",
+      "/hoteles/prueba6.jpg"
+    ],
     "descripcion": "Costa Bella es un acogedor hotel situado en el Paseo Marítimo de Barcelona, con fácil acceso a las mejores playas y actividades de la ciudad.",
     "extras": [
       "Wi-Fi",
@@ -220,7 +936,7 @@
       { "id": 1, "src": "/hotel2.jpg" },
       { "id": 3, "src": "/hotel4.jpg" }
     ],
-    "img": "/hotel2.jpg",
+    "img": "/hoteles/prueba3.jpg",
     "habitacionImgs": [
       "/hotel1.jpg",
       "/hotel2.jpg",
@@ -253,6 +969,706 @@
         "nombre": "Superior Double",
         "regimen": "Pensión completa",
         "precio": 120
+      }
+    ]
+  },
+  {
+    "nombre": "Marina Breeze Hotel",
+    "habitacion": 6,
+    "noches": 4,
+    "direccion": "Paseo del Sol, 19, Valencia, España",
+    "lat": 40.453055,
+    "lng": -3.688344,
+    "regimen": "media pensión",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba9.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "El Marina Breeze Hotel combina el encanto mediterráneo con modernas instalaciones junto a la playa de Valencia.",
+    "extras": ["Wi-Fi", "Piscina", "Spa", "Bar", "Zona infantil"],
+    "id": 468,
+    "ubicacion": "en Paseo del Sol, Valencia",
+    "precio": 340,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba9.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpg"
+    ],
+    "img": "/hoteles/prueba4.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Habitación doble estándar",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "78.00"
+      },
+      {
+        "id": 1,
+        "nombre": "Suite con balcón",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "130.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Habitación familiar vista mar",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Brisa Mediterránea",
+    "habitacion": 5,
+    "noches": 4,
+    "direccion": "Carrer del Port, 5, Tarragona, España",
+    "lat": 40.41378,
+    "lng": -3.692127,
+    "regimen": "todo incluido",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "Brisa Mediterránea ofrece un ambiente familiar con todo incluido, justo al lado del puerto deportivo de Tarragona.",
+    "extras": [
+      "Wi-Fi",
+      "Restaurante buffet",
+      "Club infantil",
+      "Piscina",
+      "Actividades"
+    ],
+    "id": 157,
+    "ubicacion": "en el Puerto de Tarragona",
+    "precio": 310,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba5.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Estándar con terraza",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "88.00"
+      },
+      {
+        "id": 1,
+        "nombre": "Junior Suite",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "140.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Habitación familiar",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "125.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Hotel Sol y Mar",
+    "habitacion": 7,
+    "noches": 4,
+    "direccion": "Avenida del Mar, 45, Alicante, España",
+    "lat": 40.415363,
+    "lng": -3.707398,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba5.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 153,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba6.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Hotel Sol y Mar",
+    "habitacion": 7,
+    "noches": 4,
+    "direccion": "Avenida del Mar, 45, Alicante, España",
+    "lat": 40.424,
+    "lng": -3.7179,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba6.jpg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 576,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba8.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Hotel Sol y Mar",
+    "habitacion": 7,
+    "noches": 4,
+    "direccion": "Avenida del Mar, 45, Alicante, España",
+    "lat": 40.39193,
+    "lng": -3.69775,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba7.jpeg",
+      "/hoteles/prueba8.jpg",
+      "/hoteles/prueba9.jpg"
+    ],
+    "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 4646,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba1.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
+      }
+    ]
+  },
+  {
+    "nombre": "Hotel Sol y Mar",
+    "habitacion": 7,
+    "noches": 4,
+    "direccion": "Avenida del Mar, 45, Alicante, España",
+    "lat": 40.446947,
+    "lng": -3.729245,
+    "regimen": "solo alojamiento",
+    "estrellas": 4,
+    "fotos": [
+      "/hoteles/prueba6.jpg",
+      "/hoteles/prueba4.jpg",
+      "/hoteles/prueba7.jpeg"
+    ],
+    "descripcion": "Ubicado frente a la playa, el Hotel Sol y Mar ofrece vistas espectaculares al mar Mediterráneo y una estancia relajante en un entorno moderno.",
+    "extras": ["Wi-Fi", "Piscina", "Gimnasio", "Restaurante", "Spa"],
+    "id": 465,
+    "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
+    "precio": 364,
+    "fecha": "21 de octubre",
+    "fechaSalida": "28 de octubre",
+    "pax": 2,
+    "pax_ninios": 1,
+    "imagenes": [
+      "/hoteles/prueba1.jpg",
+      "/hoteles/prueba2.jpg",
+      "/hoteles/prueba3.jpg"
+    ],
+    "img": "/hoteles/prueba2.jpg",
+    "habitacionImgs": [
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel3.jpg",
+      "/hotel1.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg",
+      "/hotel2.jpg",
+      "/hotel3.jpg",
+      "/hotel4.jpg",
+      "/hotel1.jpg"
+    ],
+    "habitaciones": [
+      {
+        "id": 0,
+        "nombre": "Cama en dormitorio compartido",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 37.36€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "42.67"
+      },
+      {
+        "id": 1,
+        "nombre": "Habitación privada",
+        "reembolso": "SI",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "60.00"
+      },
+      {
+        "id": 2,
+        "nombre": "Suite con vistas al mar",
+        "reembolso": "SI",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "120.50"
+      },
+      {
+        "id": 3,
+        "nombre": "Habitación doble estándar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": [
+          "A partir de 05/11/2024 penalización de 50.00€",
+          "A partir de 06/11/2024 penalización de 52.00€",
+          "A partir de 07/11/2024 penalización de 53.00€",
+          "A partir de 08/11/2024 penalización de 54.00€"
+        ],
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "80.00"
+      },
+      {
+        "id": 4,
+        "nombre": "Habitación individual económica",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "35.00"
+      },
+      {
+        "id": 5,
+        "nombre": "Habitación familiar",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 06/11/2024 penalización de 70.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "95.00"
+      },
+      {
+        "id": 6,
+        "nombre": "Apartamento con cocina",
+        "reembolso": "SI",
+        "regimen": "Solo alojamiento",
+        "regimenEnCorto": "SA",
+        "precio": "105.00"
+      },
+      {
+        "id": 7,
+        "nombre": "Habitación deluxe con balcón",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
+        "regimen": "Todo incluido",
+        "regimenEnCorto": "TI",
+        "precio": "150.00"
+      },
+      {
+        "id": 8,
+        "nombre": "Cabaña en la montaña",
+        "reembolso": "SI",
+        "regimen": "Media pensión",
+        "regimenEnCorto": "MP",
+        "precio": "110.00"
+      },
+      {
+        "id": 9,
+        "nombre": "Cama en dormitorio mixto",
+        "reembolso": "NO",
+        "reembolso_penalizacion": "A partir de 04/11/2024 penalización de 20.00€",
+        "regimen": "Alojamiento y desayuno",
+        "regimenEnCorto": "AD",
+
+        "precio": "30.00"
       }
     ]
   }

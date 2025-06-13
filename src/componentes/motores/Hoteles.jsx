@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Hoteles from "./buscadores/hoteles/Buscador_Hoteles";
-import Destacados from "./buscadores/hoteles/Destacados";
+import destacados from "./buscadores/hoteles/destacados.json";
+import Destacados from "./buscadores/destacados/Destacados";
 function Hoteles() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Hoteles() {
             <Buscador_Hoteles />
           </div>
         </div>
-        <Destacados />
+        <Destacados destacados={destacados} columnas={3} filas={2} />
       </div>
     </article>
   );

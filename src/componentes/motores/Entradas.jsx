@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Entradas from "./buscadores/entradas/Buscador_Entradas";
-import Destacados from "./buscadores/entradas/Destacados";
+import destacados from "./buscadores/entradas/destacados.json";
+import Destacados from "./buscadores/destacados/Destacados";
 function Entradas() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Entradas() {
             <Buscador_Entradas />
           </div>
         </div>
-        <Destacados />
+        <Destacados destacados={destacados} max={3} columnas={3} filas={2} />
       </div>
     </article>
   );

@@ -71,7 +71,7 @@ function Buscador({
         name={name}
         control={control}
         rules={
-          required === true ? { required: "El destino es obligatorio" } : {}
+          required === true ? { required: "Este campo es obligatorio" } : {}
         }
         render={({ field, fieldState: { error } }) => (
           <>
@@ -125,7 +125,7 @@ function Buscador({
             </ul>
           ) : (
             <div className="tw-p-4 tw-flex tw-justify-center tw-text-slate-500">
-              No hay resultados para{" "}
+              No hay resultados para
               <span className="tw-text-danger">{inputText}</span>
             </div>
           )}

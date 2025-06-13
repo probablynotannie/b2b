@@ -22,7 +22,13 @@ function DarkMode() {
       onClick={handleToggle}
       className="tw-text-white hover:tw-text-secondary tw-transition tw-cursor-pointer dark:tw-bg-slate-700 tw-bg-slate-700 tw-flex tw-items-center tw-justify-center tw-w-[35px] tw-h-[35px] tw-rounded-full tw-text-2xl"
     >
-      {darkMode ? <FaCloudSun /> : <FaCloudMoon />}
+      {darkMode ? (
+        <span className="tw--scale-x-100">
+          <FaCloudSun />
+        </span>
+      ) : (
+        <FaCloudMoon />
+      )}
     </button>
   );
 }

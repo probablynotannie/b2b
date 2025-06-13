@@ -29,7 +29,6 @@ function SelectorPersonas({ register, setValue, watch }) {
   function handleNiniosChange(e) {
     const value = Number(e.target.value);
     setNinios(value);
-    console.log(value);
     setValue("ninios", value);
   }
 
@@ -51,149 +50,154 @@ function SelectorPersonas({ register, setValue, watch }) {
         open={open}
         onOpenChange={setOpen}
         content={
-          <div className="tw-bg-slate-800 tw-rounded-lg tw-text-white tw-p-4 tw-w-[350px]">
-            <span className="tw-text-sm">Adultos</span>
-            <div className="tw-relative">
-              <select
-                {...register("adultos")}
-                onChange={handleAdultosChange}
-                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
-              >
-                {[...Array(6)].map((_, i) => (
-                  <option key={i} value={i + 1}>
-                    {i + 1}
-                  </option>
-                ))}
-              </select>
-              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-                <FaPerson />
+          <div className="tw-rounded-lg tw-overflow-hidden">
+            <div className="tw-bg-slate-800 tw-p-4">
+              <h3 className="tw-text-white tw-font-bold">Bonificaciones</h3>
+            </div>
+            <div className="tw-bg-white dark:tw-bg-slate-800 tw-rounded-lg tw-p-4 tw-w-[350px]">
+              <span className="tw-text-sm ">Adultos</span>
+              <div className="tw-relative">
+                <select
+                  {...register("adultos")}
+                  onChange={handleAdultosChange}
+                  className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+                >
+                  {[...Array(6)].map((_, i) => (
+                    <option key={i} value={i + 1}>
+                      {i + 1}
+                    </option>
+                  ))}
+                </select>
+                <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                  <FaPerson />
+                </div>
               </div>
-            </div>
-            <span className="tw-text-sm tw-mt-3">Niños</span>
-            <div className="tw-relative">
-              <select
-                {...register("ninios")}
-                onChange={handleNiniosChange}
-                className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
-              >
-                {[...Array(4)].map((_, i) => (
-                  <option key={i} value={i}>
-                    {i}
-                  </option>
-                ))}
-              </select>
-              <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-                <FaChild />
+              <span className="tw-text-sm tw-mt-3">Niños</span>
+              <div className="tw-relative">
+                <select
+                  {...register("ninios")}
+                  onChange={handleNiniosChange}
+                  className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+                >
+                  {[...Array(4)].map((_, i) => (
+                    <option key={i} value={i}>
+                      {i}
+                    </option>
+                  ))}
+                </select>
+                <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                  <FaChild />
+                </div>
               </div>
-            </div>
-            <div className="tw-flex tw-justify-between tw-mt-3">
-              <label className="tw-inline-flex tw-items-center">
-                <input
-                  className="tw-text-secondary"
-                  type="checkbox"
-                  {...register("descuentos")}
-                  onChange={() => setDescuentos(!descuentos)}
-                />
-                <span className="tw-ms-1 tw-text-sm tw-text-secon">
-                  Descuentos
-                </span>
-              </label>
-              <label className="tw-inline-flex tw-items-center">
-                <input
-                  className="tw-text-secondary"
-                  type="checkbox"
-                  {...register("discapacidad")}
-                  onChange={() => setDiscapacidad(!discapacidad)}
-                />
-                <span className="tw-ms-1 tw-text-sm">Discapacidad</span>
-              </label>
-            </div>
-            {(descuentos || discapacidad) && (
-              <div className="tw-flex tw-flex-col tw-space-y-2 tw-mt-4">
-                {[...Array(adultos)].map((_, index) => (
-                  <div
-                    key={`adulto-${index}`}
-                    className="tw-flex tw-items-center tw-space-x-2"
-                  >
-                    <span className="tw-w-[60px]">Adulto {index + 1}:</span>
-                    {descuentos && (
-                      <select
-                        value={selectedDescuentos.adultos[index] || ""}
-                        onChange={(e) =>
-                          handleDescuentosSelection(
-                            "adultos",
-                            index,
-                            e.target.value
-                          )
-                        }
-                        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-cursor-pointer"
-                      >
-                        <option value={0}>Ninguno</option>
-                        <option value={1}>Familia numerosa general</option>
-                        <option value={2}>Familia numerosa especial</option>
-                        <option value={3}>Interrail español</option>
-                      </select>
-                    )}
-                    {discapacidad && (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleDiscapacidadSelection("adultos", index)
-                        }
-                        className={`tw-p-2 tw-rounded-lg ${
-                          selectedDiscapacidad.adultos[index] === 1
-                            ? "tw-bg-blue-500 text-white"
-                            : "tw-bg-gray-200 tw-text-gray-400"
-                        }`}
-                      >
-                        <FaWheelchair />
-                      </button>
-                    )}
-                  </div>
-                ))}
+              <div className="tw-flex tw-justify-between tw-mt-3">
+                <label className="tw-inline-flex tw-items-center">
+                  <input
+                    className="tw-text-secondary"
+                    type="checkbox"
+                    {...register("descuentos")}
+                    onChange={() => setDescuentos(!descuentos)}
+                  />
+                  <span className="tw-ms-1 tw-text-sm tw-text-secon">
+                    Descuentos
+                  </span>
+                </label>
+                <label className="tw-inline-flex tw-items-center">
+                  <input
+                    className="tw-text-secondary"
+                    type="checkbox"
+                    {...register("discapacidad")}
+                    onChange={() => setDiscapacidad(!discapacidad)}
+                  />
+                  <span className="tw-ms-1 tw-text-sm">Discapacidad</span>
+                </label>
+              </div>
+              {(descuentos || discapacidad) && (
+                <div className="tw-flex tw-flex-col tw-space-y-2 tw-mt-4">
+                  {[...Array(adultos)].map((_, index) => (
+                    <div
+                      key={`adulto-${index}`}
+                      className="tw-flex tw-items-center tw-space-x-2"
+                    >
+                      <span className="tw-w-[60px]">Adulto {index + 1}:</span>
+                      {descuentos && (
+                        <select
+                          value={selectedDescuentos.adultos[index] || ""}
+                          onChange={(e) =>
+                            handleDescuentosSelection(
+                              "adultos",
+                              index,
+                              e.target.value
+                            )
+                          }
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-cursor-pointer"
+                        >
+                          <option value={0}>Ninguno</option>
+                          <option value={1}>Familia numerosa general</option>
+                          <option value={2}>Familia numerosa especial</option>
+                          <option value={3}>Interrail español</option>
+                        </select>
+                      )}
+                      {discapacidad && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleDiscapacidadSelection("adultos", index)
+                          }
+                          className={`tw-p-2 tw-rounded-lg ${
+                            selectedDiscapacidad.adultos[index] === 1
+                              ? "tw-bg-blue-500 text-white"
+                              : "tw-bg-gray-200 tw-text-gray-400"
+                          }`}
+                        >
+                          <FaWheelchair />
+                        </button>
+                      )}
+                    </div>
+                  ))}
 
-                {[...Array(ninios)].map((_, index) => (
-                  <div
-                    key={`nino-${index}`}
-                    className="tw-flex tw-items-center tw-space-x-2"
-                  >
-                    <span className="tw-w-[60px]">Niño {index + 1}:</span>
-                    {descuentos && (
-                      <select
-                        value={selectedDescuentos.ninios[index] || ""}
-                        onChange={(e) =>
-                          handleDescuentosSelection(
-                            "ninios",
-                            index,
-                            e.target.value
-                          )
-                        }
-                        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-cursor-pointer"
-                      >
-                        <option value={0}>Ninguno</option>
-                        <option value={1}>Familia numerosa general</option>
-                        <option value={2}>Familia numerosa especial</option>
-                      </select>
-                    )}
-                    {discapacidad && (
-                      <button
-                        type="button"
-                        onClick={() =>
-                          handleDiscapacidadSelection("ninios", index)
-                        }
-                        className={`tw-p-2 tw-rounded-lg ${
-                          selectedDiscapacidad.ninios[index] === 1
-                            ? "tw-bg-blue-500 text-white"
-                            : "tw-bg-gray-200 tw-text-gray-400"
-                        }`}
-                      >
-                        <FaWheelchair />
-                      </button>
-                    )}
-                  </div>
-                ))}
-              </div>
-            )}
+                  {[...Array(ninios)].map((_, index) => (
+                    <div
+                      key={`nino-${index}`}
+                      className="tw-flex tw-items-center tw-space-x-2"
+                    >
+                      <span className="tw-w-[60px]">Niño {index + 1}:</span>
+                      {descuentos && (
+                        <select
+                          value={selectedDescuentos.ninios[index] || ""}
+                          onChange={(e) =>
+                            handleDescuentosSelection(
+                              "ninios",
+                              index,
+                              e.target.value
+                            )
+                          }
+                          className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-cursor-pointer"
+                        >
+                          <option value={0}>Ninguno</option>
+                          <option value={1}>Familia numerosa general</option>
+                          <option value={2}>Familia numerosa especial</option>
+                        </select>
+                      )}
+                      {discapacidad && (
+                        <button
+                          type="button"
+                          onClick={() =>
+                            handleDiscapacidadSelection("ninios", index)
+                          }
+                          className={`tw-p-2 tw-rounded-lg ${
+                            selectedDiscapacidad.ninios[index] === 1
+                              ? "tw-bg-blue-500 text-white"
+                              : "tw-bg-gray-200 tw-text-gray-400"
+                          }`}
+                        >
+                          <FaWheelchair />
+                        </button>
+                      )}
+                    </div>
+                  ))}
+                </div>
+              )}
+            </div>
           </div>
         }
       >

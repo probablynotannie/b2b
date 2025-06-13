@@ -16,7 +16,7 @@ module.exports = {
         header: '#1e293b', // Gris oscuro de navbar 
         elegido: '#ffecdc', // Es color primario pero muted para enseñar que está seleccionado. Solo se usa en los hooteles + tickets.
         secondary: "#ff8c4c", // Naranja
-        secondaryDark: "#ff8c4c", // Naranja
+        secondaryDark: "#ff8c4c", // Naranja 
         danger: "#f84048", // texto rojo fondo
         danger_text: "#ea756f", //texto rojo
         muted: "#e8ecf4", // Gris apagado
@@ -45,6 +45,7 @@ module.exports = {
           transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         },
+
         // Accesorios para el boton con icono de buscador
         '.btn_buscador_con_icono_accesorios': {
           display: 'flex',

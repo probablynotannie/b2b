@@ -14,7 +14,7 @@ function Productos() {
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   return (
-    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-10">
+    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
       <div
         className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
         style={{

@@ -1,0 +1,38 @@
+[
+  {
+    "id": 0,
+    "titulo": "Barcelona",
+    "descripcion": "Mayo - 2x Adultos",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 1,
+    "titulo": "Madrid",
+    "descripcion": "Junio - 2x Adultos",
+    "img": "/transfers/madrid.jpg"
+  },
+  {
+    "id": 2,
+    "titulo": "Sevilla",
+    "descripcion": "Junio - 2x Adultos",
+    "img": "/transfers/sevilla.jpg"
+  },
+  {
+    "id": 3,
+    "titulo": "Egipto",
+    "descripcion": "Agosto - 2x Adultos",
+    "img": "/transfers/valencia.jpg"
+  },
+  {
+    "id": 4,
+    "titulo": "África",
+    "descripcion": "Diciembre - 2x Adultos",
+    "img": "/transfers/barcelona.jpg"
+  },
+  {
+    "id": 5,
+    "titulo": "Islas Canarias",
+    "descripcion": "Septiembre - 2x Adultos",
+    "img": "/transfers/madrid.jpg"
+  }
+]

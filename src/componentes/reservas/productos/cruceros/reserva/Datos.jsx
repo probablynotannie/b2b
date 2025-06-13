@@ -14,7 +14,6 @@ const Vuelo = () => {
   const { producto, pasajeros, precioSeleccionado } = location.state || {};
   const navigate = useNavigate();
   const img = "/banners/banner_cruise.webp";
-  console.log(pasajeros);
   const {
     register,
     handleSubmit,
@@ -108,7 +107,7 @@ const Vuelo = () => {
   };
 
   return (
-    <main className="tw-my-10 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
+    <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
       <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-smooth tw-bg-white dark:tw-bg-slate-800">
         <form onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">

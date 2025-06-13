@@ -40,7 +40,7 @@ function Buscador() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    
 
     /*  navigate("/listadotransfers", {
        state: { data },
@@ -129,7 +129,7 @@ function Buscador() {
         </div>
       </div>
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
-        <h2 className="tw-mb-4 tw-font-bold tw-text-xl dark:tw-text-secondaryDark">
+        <h2 className="tw-mb-4 tw-font-bold tw-text-2xl dark:tw-text-secondaryDark">
           Buscador
         </h2>
         <form

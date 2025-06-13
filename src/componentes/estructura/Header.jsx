@@ -2,10 +2,11 @@ import { Route, Routes } from "react-router-dom";
 /* ESTRUCTURA */
 import Navbar from "../estructura/Navbar";
 import Landing from "../Landing";
+import Notificaciones from "../Notificaciones";
 /* MENU */
-import Clientes from "../utilidades/Clientes";
-import Presupuestos from "../utilidades/Presupuestos";
-import EnvioPresupuestos from "../utilidades/EnvioPresupuestos";
+import Clientes from "../utilidades/clientes/Resultado";
+import Presupuestos from "../utilidades/presupuestos/Resultado";
+import EnvioPresupuestos from "../utilidades/envioPresupuestos/Resultado";
 /* MOTORES */
 import Busqueda_Hoteles from "../motores/Hoteles";
 import Busqueda_Destinos from "../motores/Destinos";
@@ -20,7 +21,6 @@ import Busqueda_Entradas from "../motores/Entradas";
 import Busqueda_Ferris from "../motores/Ferris";
 import Busqueda_Trenes from "../motores/Trenes";
 import Busqueda_Seguros from "../motores/Seguros";
-
 import Busqueda_Vuelos from "../motores/Vuelos";
 import Busqueda_Circuitos from "../motores/Circuitos";
 /* LISTADOS */
@@ -109,7 +109,24 @@ import ResumenSeguro from "../reservas/productos/seguro/final/ResumenFinal";
 import ResumenTickets from "../reservas/productos/tickets/final/ResumenFinal";
 import ResumenTren from "../reservas/productos/trenes/final/ResumenFinal";
 import ResumenVuelo from "../reservas/productos/vuelos/final/ResumenFinal";
-
+/* Consultar las reservas */
+import Listado_reservas_hoteles from "../consultaReservas/hoteles/Resultado";
+import Listado_reservas_coches from "../consultaReservas/coches/Resultado";
+import Listado_reservas_destinos from "../consultaReservas/destinos/Resultado";
+import Listado_reservas_ferris from "../consultaReservas/ferris/Resultado";
+import Listado_reservas_seguros from "../consultaReservas/seguros/Resultado";
+import Listado_reservas_tickets from "../consultaReservas/tickets/Resultado";
+import Listado_reservas_trenes from "../consultaReservas/trenes/Resultado";
+import Listado_reservas_vuelomashotel from "../consultaReservas/vuelomashotel/Resultado";
+/* Detalles reserva */
+import Detalles_Reserva_Coche from "../consultaReservas/coches/detalles/Coche";
+import Detalles_Reserva_Destino from "../consultaReservas/destinos/detalles/Destino";
+import Detalles_Reserva_Ferry from "../consultaReservas/ferris/detalles/Ferry";
+import Detalles_Reserva_Hotel from "../consultaReservas/hoteles/detalles/Hotel";
+import Detalles_Reserva_Ticket from "../consultaReservas/tickets/detalles/Ticket";
+import Detalles_Reserva_Tren from "../consultaReservas/trenes/detalles/Tren";
+import Detalles_Reserva_Seguro from "../consultaReservas/seguros/detalles/Seguro";
+import Detalles_Reserva_VueloMasHotel from "../consultaReservas/vuelomashotel/detalles/VueloMasHotel";
 /* MANTINE */
 import "@mantine/core/styles.css";
 import "@mantine/dates/styles.css";
@@ -119,10 +136,11 @@ function Header() {
     <>
       <Navbar />
       <Routes>
-        {/* Cruceros */}
-        <Route path="/cruceros" element={<Cruceros />} />
-        {/* MOTORES */}
+        {/* Otros componentes */}
         <Route path="/" element={<Landing />} />
+        <Route path="/notificaciones" element={<Notificaciones />} />
+        {/* MOTORES */}
+        <Route path="/cruceros" element={<Cruceros />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/coches" element={<Busqueda_Coches />} />
         <Route path="/transfers" element={<Busqueda_Transfers />} />
@@ -142,6 +160,43 @@ function Header() {
         <Route path="/trenes" element={<Busqueda_Trenes />} />
         <Route path="/tickets" element={<Busqueda_Tickets />} />
         <Route path="/vueloHotel" element={<Busqueda_Vuelomashotel />} />
+        {/* CONSULTAR RESERVAS */}
+        <Route
+          path="/hoteles/reservas"
+          element={<Listado_reservas_hoteles />}
+        />
+        <Route path="/coches/reservas" element={<Listado_reservas_coches />} />
+        <Route
+          path="/destinos/reservas"
+          element={<Listado_reservas_destinos />}
+        />
+        <Route path="/ferris/reservas" element={<Listado_reservas_ferris />} />
+        <Route
+          path="/seguros/reservas"
+          element={<Listado_reservas_seguros />}
+        />
+        <Route
+          path="/tickets/reservas"
+          element={<Listado_reservas_tickets />}
+        />
+        <Route path="/trenes/reservas" element={<Listado_reservas_trenes />} />
+        <Route
+          path="/vuelomashotel/reservas"
+          element={<Listado_reservas_vuelomashotel />}
+        />
+        {/* Detalles de la reserva */}
+        <Route path="coche/detalles" element={<Detalles_Reserva_Coche />} />
+        <Route path="destino/detalles" element={<Detalles_Reserva_Destino />} />
+        <Route path="ferry/detalles" element={<Detalles_Reserva_Ferry />} />
+        <Route path="hotel/detalles" element={<Detalles_Reserva_Hotel />} />
+        <Route path="ticket/detalles" element={<Detalles_Reserva_Ticket />} />
+        <Route path="tren/detalles" element={<Detalles_Reserva_Tren />} />
+        <Route path="seguro/detalles" element={<Detalles_Reserva_Seguro />} />
+        <Route
+          path="vuelo+hotel/detalles"
+          element={<Detalles_Reserva_VueloMasHotel />}
+        />
+
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />
         <Route path="/listadoTrenes" element={<ListadoTrenes />} />

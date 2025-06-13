@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaArrowRight, FaSearch } from "react-icons/fa";
 import Input_Destinos from "../../../inputs/Destinos";
 import datos_destinos from "./destinos.json";
 import Input_Fecha from "../../../inputs/Fecha";
@@ -8,24 +8,22 @@ import Input_Vehiculos from "../../../inputs/Vehiculos";
 import Input_Bonificacion from "../../../inputs/Bonificacion";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { GoArrowSwitch } from "react-icons/go";
 function Buscador_Destinos() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viaje, setViaje] = useState("ida");
   const [fecha, setFecha] = useState();
   const handleviajeChange = (type) => {
-    console.log(type);
     if (type === "ida") {
       setValue("tipo", 0);
     } else {
       setValue("tipo", 1);
     }
-
     setViaje(type);
   };
   const onSubmit = (data) => {
-    console.log(data);
-     navigate("/listadoFerris", {
+    navigate("/listadoFerris", {
       state: { datosForm: data },
     });
   };
@@ -77,29 +75,31 @@ function Buscador_Destinos() {
             </div>
             <div className="tw-p-3">
               <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="grid grid-cols-2 gap-3 mt-2 text-sm tw-mb-5">
-                  <button
-                    type="button"
-                    className={`p-2.5 rounded-lg font-bold tw-text-white ${
-                      viaje === "ida"
-                        ? "tw-bg-secondary"
-                        : "bg-gray-400 dark:bg-slate-600"
-                    }`}
+                <div className="tw-grid tw-grid-cols-2 tw-gap-2 tw-mb-2">
+                  <div
                     onClick={() => handleviajeChange("ida")}
+                    className={`tw-select-none  tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                      ${
+                        viaje === "ida"
+                          ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                          : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                      }`}
                   >
+                    <FaArrowRight className="tw-text-pink-700 dark:tw-text-pink-500" />
                     Solo ida
-                  </button>
-                  <button
-                    type="button"
-                    className={`p-2 rounded-lg font-bold tw-text-white ${
-                      viaje === "ida_vuelta"
-                        ? "tw-bg-secondary"
-                        : "bg-gray-400 dark:bg-slate-600"
-                    }`}
+                  </div>
+                  <div
                     onClick={() => handleviajeChange("ida_vuelta")}
+                    className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                      ${
+                        viaje === "ida_vuelta"
+                          ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
+                          : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                      }`}
                   >
+                    <GoArrowSwitch className="tw-text-blue-700 dark:tw-text-blue-500" />
                     Ida y vuelta
-                  </button>
+                  </div>
                 </div>
                 <div className="tw-space-y-2">
                   <Input_Destinos
@@ -172,33 +172,36 @@ function Buscador_Destinos() {
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <div className="tw-flex tw-justify-between">
+            <div className="tw-flex tw-gap-2">
+              <div
+                onClick={() => handleviajeChange("ida")}
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                ${
+                  viaje === "ida"
+                    ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                }`}
+              >
+                <FaArrowRight className="tw-text-pink-700 dark:tw-text-pink-500" />
+                Solo ida
+              </div>
+              <div
+                onClick={() => handleviajeChange("ida_vuelta")}
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                ${
+                  viaje === "ida_vuelta"
+                    ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                }`}
+              >
+                <GoArrowSwitch className="tw-text-blue-700 dark:tw-text-blue-500" />
+                Ida y vuelta
+              </div>
+            </div>
+
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
               Buscador de Ferris
             </h2>
-            <div>
-              <ul className="tw-flex tw-items-center tw-gap-2">
-                <li
-                  className={`tw-bg-pink-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-pink-900 tw-cursor-pointer hover:tw-scale-105 tw-smooth hover:tw-shadow-md ${
-                    viaje === "ida"
-                      ? "tw-ring-2 tw-ring-pink-500 tw-font-bold"
-                      : ""
-                  }`}
-                  onClick={() => handleviajeChange("ida")}
-                >
-                  Solo ida
-                </li>
-                <li
-                  className={`tw-bg-blue-300 tw-rounded tw-p-0.5 tw-px-1 tw-text-sm tw-lowercase tw-text-blue-900 tw-cursor-pointer hover:tw-scale-105 tw-smooth hover:tw-shadow-md ${
-                    viaje === "ida_vuelta"
-                      ? "tw-ring-2 tw-ring-blue-500 tw-font-bold"
-                      : ""
-                  }`}
-                  onClick={() => handleviajeChange("ida_vuelta")}
-                >
-                  Ida y vuelta
-                </li>
-              </ul>
-            </div>
           </div>
 
           <div className="tw-grid tw-grid-cols-3  2xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">

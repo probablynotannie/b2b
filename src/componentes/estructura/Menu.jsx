@@ -15,7 +15,7 @@ import {
 } from "react-icons/fa";
 import { MdModeOfTravel } from "react-icons/md";
 
-import { FaFerry, FaTicket } from "react-icons/fa6";
+import { FaFerry, FaKitMedical, FaTicket } from "react-icons/fa6";
 import { IoTicket } from "react-icons/io5";
 import { Link } from "react-router-dom";
 
@@ -87,26 +87,46 @@ const Dropdown = () => {
       key: "reservas",
       texto: "Reservas",
       subItems: [
-        { id: 11, texto: "Hoteles", to: "/", icon: [FaHotel] },
-        { id: 12, texto: "Hotel + Vuelo", to: "/", icon: [FaHotel, FaPlane] },
-        { id: 13, texto: "Coches", to: "/", icon: [FaCar] },
-        { id: 14, texto: "Trenes", to: "/", icon: [FaTrain] },
-        { id: 15, texto: "Tickets", to: "/", icon: [FaTicket] },
+        { id: 15, texto: "Coches", to: "/coches/reservas", icon: [FaCar] },
+        {
+          id: 16,
+          texto: "Destinos",
+          to: "/destinos/reservas",
+          icon: [FaTicket],
+        },
+        { id: 17, texto: "Ferris", to: "/ferris/reservas", icon: [FaTicket] },
+
+        { id: 18, texto: "Hoteles", to: "/hoteles/reservas", icon: [FaHotel] },
+        {
+          id: 19,
+          texto: "Seguros",
+          to: "/seguros/reservas",
+          icon: [FaKitMedical],
+        },
+        { id: 20, texto: "Tickets", to: "/tickets/reservas", icon: [FaTicket] },
+        { id: 21, texto: "Trenes", to: "/trenes/reservas", icon: [FaTrain] },
+
+        {
+          id: 22,
+          texto: "Hotel + Vuelo",
+          to: "/vuelomashotel/reservas",
+          icon: [FaHotel, FaPlane],
+        },
       ],
     },
     {
       key: "utilidades",
       texto: "Utilidades",
       subItems: [
-        { id: 16, texto: "Clientes", to: "/clientes", icon: [FaUser] },
+        { id: 23, texto: "Clientes", to: "/clientes", icon: [FaUser] },
         {
-          id: 17,
+          id: 24,
           texto: "Presupuestos",
           to: "/presupuestos",
           icon: [FaEuroSign],
         },
         {
-          id: 18,
+          id: 25,
           texto: "Envio presupuesto",
           to: "/envioPresupuestos",
           icon: [FaVoicemail],

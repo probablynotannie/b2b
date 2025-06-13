@@ -1,6 +1,7 @@
 import Sidebar from "./sidebar/Sidebar";
 import Buscador_Ferris from "./buscadores/ferris/Buscador_Ferris";
-import Destacados from "./buscadores/transfers/Destacados";
+import Destacados from "./buscadores/destacados/Destacados";
+import destacados from "./buscadores/ferris/destacados.json";
 function Ferris() {
   return (
     <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
@@ -18,7 +19,7 @@ function Ferris() {
             <Buscador_Ferris />
           </div>
         </div>
-        <Destacados />
+        <Destacados destacados={destacados} columnas={4} filas={2} max={2} />
       </div>
     </article>
   );

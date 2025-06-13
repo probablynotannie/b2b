@@ -21,7 +21,7 @@ const Eleccion = ({
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log(data);
+    
     navigate("/datosCircuito", {
       state: { datosForm: data, actividad, habitacion, roomData },
     });

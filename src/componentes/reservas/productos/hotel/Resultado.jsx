@@ -5,9 +5,8 @@ import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import MapaHoteles from "./MapaHoteles";
+import MapaHoteles from "./mapa/MapaHoteles";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
-
 function Productos() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("list");
@@ -16,11 +15,12 @@ function Productos() {
       setLoading(false);
     }, 3000);
   }, []);
+
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
 
   return (
-    <main className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mb-10">
+    <main className="tw-flex tw-flex-col tw-items-center tw-justify-center tw-mb-20">
       <div
         className="tw-relative tw-w-full tw-p-8 tw-bg-center tw-bg-cover tw-shadow-md"
         style={{ backgroundImage: "url('/banners/banner_hoteles.webp')" }}
@@ -32,6 +32,7 @@ function Productos() {
           </div>
           <aside className="tw-col-span-9 tw-px-3 lg:tw-hidden lg:tw-col-span-3">
             <Aside
+              hoteles={hoteles}
               values={values}
               setValues={setValues}
               minMax={minMax}
@@ -100,7 +101,13 @@ function Productos() {
               {viewMode === "list" ? (
                 <Hoteles hoteles={hoteles} />
               ) : (
-                <MapaHoteles hoteles={hoteles} />
+                <MapaHoteles
+                  hoteles={hoteles}
+                  values={values}
+                  setValues={setValues}
+                  minMax={minMax}
+                  setMinMax={setMinMax}
+                />
               )}
             </>
           )}

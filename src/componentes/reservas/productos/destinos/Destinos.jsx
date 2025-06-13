@@ -13,11 +13,9 @@ function Resultado() {
 
   return (
     <section className="tw-pb-12">
-      <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-xl lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
-        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-          Resultados ({destinos.length})
-        </h3>
-      </div>
+      <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
+        Resultados ({destinos.length})
+      </h3>
       {destinos.map((destino, index) => (
         <article
           key={index}

@@ -20,7 +20,6 @@ function Detalles({ producto, cesta }) {
             </div>
           </div>
         )}
-
         <h3 className="dark:tw-text-white tw-text-secondary tw-font-bold tw-mt-3 tw-text-xl">
           Detalles
         </h3>

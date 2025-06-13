@@ -178,7 +178,11 @@ const InfiniteScrollCalendar = ({ dates, dias, prices, setDates }) => {
                           : "tw-bg-orange-100 dark:tw-bg-slate-600"
                       }  tw-text-white`
                     : "dark:tw-text-slate-100"
-                } ${isDateDisabled ? "text-slate-400 cursor-no-drop" : ""}`}
+                } ${
+                  isDateDisabled
+                    ? "tw-text-slate-400  tw-cursor-no-drop"
+                    : "tw-smooth hover:tw-bg-slate-700 hover:tw-text-white"
+                }`}
                 onClick={() =>
                   !isDateDisabled && handleDateClick(day, priceData.type)
                 }

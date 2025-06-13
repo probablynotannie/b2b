@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
+import { FaCity, FaSearch } from "react-icons/fa";
 import Input_Destinos from "../../../inputs/Buscador";
 import Input_DateRange from "../../../inputs/DateRangeWithTime";
 import Input_Edad from "../../../inputs/Edad";
@@ -11,7 +11,7 @@ import { useNavigate } from "react-router-dom";
 function Buscador_Coches() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const [lugarEntrega, setLugarEntrega] = useState(true);
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
     { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
@@ -27,7 +27,6 @@ function Buscador_Coches() {
     { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
     { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
   ];
-
   const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
       edadConductor: 2,
@@ -40,8 +39,6 @@ function Buscador_Coches() {
     },
   });
   const onSubmit = (data) => {
-    console.log(data);
-
     navigate("/listadoCoches", {
       state: { data },
     });
@@ -76,6 +73,26 @@ function Buscador_Coches() {
             <div className="tw-p-3">
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
+                  <div className="tw-flex tw-items-center tw-col-span-1 tw-gap-2">
+                    <input
+                      id="ciudadEntrega"
+                      type="checkbox"
+                      checked={lugarEntrega}
+                      onChange={(e) => setLugarEntrega(e.target.checked)}
+                      className="tw-hidden peer"
+                    />
+                    <label
+                      htmlFor="ciudadEntrega"
+                      className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
+                        lugarEntrega === true
+                          ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                          : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+                      }`}
+                    >
+                      <FaCity />
+                      Entrega en la misma ciudad
+                    </label>
+                  </div>
                   <Input_Destinos
                     required={true}
                     control={control}
@@ -84,14 +101,17 @@ function Buscador_Coches() {
                     placeholder={"Origen"}
                     destinos={destinos}
                   />
-                  <Input_Destinos
-                    required={true}
-                    control={control}
-                    name={"destino"}
-                    setValue={setValue}
-                    placeholder={"Destino"}
-                    destinos={destinos}
-                  />
+
+                  {lugarEntrega === false && (
+                    <Input_Destinos
+                      required={true}
+                      control={control}
+                      name={"destino"}
+                      setValue={setValue}
+                      placeholder={"Destino"}
+                      destinos={destinos}
+                    />
+                  )}
                   <Input_DateRangeMobile
                     control={control}
                     nameStartDate="startDate"
@@ -136,26 +156,55 @@ function Buscador_Coches() {
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
-          <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Coches
-          </h2>
-          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3  xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Destinos
-              required={true}
-              control={control}
-              name={"origen"}
-              setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-            />
-            <Input_Destinos
-              required={true}
-              control={control}
-              name={"destino"}
-              setValue={setValue}
-              placeholder={"Destino"}
-              destinos={destinos}
-            />
+          <div className="tw-flex tw-justify-between tw-items-center">
+            <div className="tw-flex tw-items-center tw-gap-2 tw-mt-3">
+              <input
+                id="ciudadEntrega"
+                type="checkbox"
+                checked={lugarEntrega}
+                onChange={(e) => setLugarEntrega(e.target.checked)}
+                className="tw-hidden peer"
+              />
+              <label
+                htmlFor="ciudadEntrega"
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all ${
+                  lugarEntrega === true
+                    ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-400"
+                    : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500"
+                }`}
+              >
+                <FaCity />
+                Entrega en la misma ciudad
+              </label>
+            </div>
+            <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
+              Buscador de Coches
+            </h2>
+          </div>
+          <div className="tw-grid tw-grid-cols-4 md:tw-grid-cols-4 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4 tw-items-start">
+            <div
+              className={`${lugarEntrega === false ? "" : "xl:tw-col-span-2"}`}
+            >
+              <Input_Destinos
+                required={true}
+                control={control}
+                name={"origen"}
+                setValue={setValue}
+                placeholder={"Origen"}
+                destinos={destinos}
+              />
+            </div>
+            {lugarEntrega === false && (
+              <Input_Destinos
+                required={true}
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
+              />
+            )}
+
             <Input_DateRange
               control={control}
               nameFecha="startDate"

@@ -38,7 +38,7 @@ function Buscador_Tickets() {
   });
 
   const onSubmit = (data) => {
-    console.log(data);
+    
 
     navigate("/listadoTickets", {
       state: { data },

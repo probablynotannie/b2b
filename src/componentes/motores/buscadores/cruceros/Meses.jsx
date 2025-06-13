@@ -1,5 +1,6 @@
 import { useNavigate } from "react-router-dom";
 function Meses({ setRequestData }) {
+  
   const navigate = useNavigate();
   const handleMonthSelect = (monthNumber) => {
     const newRequestData = {
@@ -9,10 +10,10 @@ function Meses({ setRequestData }) {
       duracion: "",
       naviera: "",
     };
-
     setRequestData(newRequestData);
     navigate("/listadoCruceros", { state: { newRequestData } });
   };
+
   return (
     <section className="tw-flex tw-items-center dark:tw-text-white tw-flex-col tw-py-5">
       <h2 className="tw-font-bold tw-text-xl tw-mb-5 tw-text-center tw-text-gray-800 dark:tw-text-slate-100">
@@ -58,7 +59,7 @@ function Meses({ setRequestData }) {
     }
     ${
       color === "gray"
-        ? "tw-bg-gray-100 tw-border-gray-300 hover:tw-bg-gray-200 dark:tw-bg-gray-900 dark:tw-border-gray-600"
+        ? "tw-bg-gray-100 tw-border-gray-300 hover:tw-bg-gray-200 dark:tw-bg-indigo-800 dark:tw-border-indigo-5   00"
         : ""
     }
     ${
