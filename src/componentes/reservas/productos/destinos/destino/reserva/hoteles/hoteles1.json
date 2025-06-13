@@ -5,7 +5,14 @@
     "descripcion": "Un hotel moderno en el corazón de Barcelona con vistas panorámicas.",
     "imagenes": ["/hotel1.jpg", "/hotel1b.jpg"],
     "imagenMiniatura": "/hotel1.jpg",
-    "tipo": [{ "nombre": "Habitacion doble", "extra": 15, "capacidad": 2, "disponible":4 }]
+    "tipo": [
+      {
+        "nombre": "Habitacion doble",
+        "extra": 15,
+        "capacidad": 2,
+        "disponible": 4
+      }
+    ]
   },
   {
     "id": 2,
@@ -43,7 +50,7 @@
       },
       {
         "nombre": "Suite con balcon",
-        "extra": 6,
+        "extra": 60,
         "capacidad": 4,
         "disponible": 4
       },

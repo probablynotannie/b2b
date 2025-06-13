@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import SeleccionHoteles2 from "./SeleccionHoteles2";
-import SeleccionHoteles3 from "./SeleccionHoteles2"; // typo? Probably should be SeleccionHoteles3?
+import SeleccionHoteles3 from "./SeleccionHoteles3";
 import hoteles from "./hoteles1.json";
 
 function Hoteles() {
@@ -37,7 +37,6 @@ function Hoteles() {
       let mejorOpcion = null;
 
       opcion.hoteles.forEach((hotel) => {
-        // Get all room types sorted by cost efficiency (cheapest per pax)
         const tiposOrdenados = [...hotel.tipo]
           .filter((tipo) => tipo.disponible > 0)
           .sort((a, b) => a.extra / a.capacidad - b.extra / b.capacidad);
@@ -92,7 +91,7 @@ function Hoteles() {
     });
 
     setSelecciones(preselecciones);
-  }, []); // Only run once on mount
+  }, []); 
 
   const handleTabClick = (index) => {
     setActiveTab(index);
@@ -137,7 +136,7 @@ function Hoteles() {
           setSeleccion={(sel) => handleSeleccionChange(activeTab, sel)}
           pax={pax}
         />
-   {/*      <SeleccionHoteles3
+        <SeleccionHoteles3
           paginaActual={paginaActual}
           setPaginaActual={setPaginaActual}
           hoteles={opciones[activeTab].hoteles}
@@ -145,7 +144,7 @@ function Hoteles() {
           seleccion={selecciones[activeTab]}
           setSeleccion={(sel) => handleSeleccionChange(activeTab, sel)}
           pax={pax}
-        /> */}
+        />
       </div>
     </div>
   );

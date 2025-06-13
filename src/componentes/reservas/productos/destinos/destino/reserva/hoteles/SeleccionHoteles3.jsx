@@ -47,13 +47,14 @@ function SeleccionHoteles({
   }, [modalHotel]);
 
   const calcularCapacidad = (habitaciones) =>
-    habitaciones?.reduce((total, h) => total + h.capacidad * h.cantidad, 0) || 0;
+    habitaciones?.reduce((total, h) => total + h.capacidad * h.cantidad, 0) ||
+    0;
 
   const calcularCosto = (habitaciones) =>
     habitaciones?.reduce((total, h) => total + h.extra * h.cantidad, 0) || 0;
 
   return (
-    <div className="tw-my-4 tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-p-4 tw-overflow-x-auto">
+    <div className="tw-my-4  dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-p-4 tw-overflow-x-auto">
       <div className="tw-text-lg tw-font-bold tw-text-slate-600 dark:tw-text-slate-200 tw-mb-4">
         Selección de hotel de {titulo}
       </div>
@@ -68,17 +69,17 @@ function SeleccionHoteles({
         return (
           <div
             key={hotel.id}
-            className={`tw-bg-white dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-md tw-p-4 tw-mb-6 tw-border ${
+            className={` dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-md tw-p-4 tw-mb-6 tw-border ${
               currentSelection
-                ? "tw-border-secondary dark:tw-border-secondaryDark"
-                : "tw-border-slate-200 dark:tw-border-slate-700"
+                ? " tw-border-secondary dark:tw-border-secondaryDark"
+                : "tw-bg-slate-100 tw-border-slate-200 dark:tw-border-slate-700"
             }`}
           >
             <div className="tw-flex tw-items-center tw-gap-4">
               <img
                 src={hotel.imagenMiniatura}
                 alt={hotel.nombre}
-                className="tw-w-28 tw-h-20 tw-object-cover tw-rounded-md"
+                className="tw-w-32 tw-h-20 tw-object-cover tw-rounded-md"
               />
               <div className="tw-flex-1">
                 <div className="tw-flex tw-items-center tw-gap-2">
@@ -88,7 +89,7 @@ function SeleccionHoteles({
                   >
                     <FaInfoCircle />
                   </button>
-                  <h3 className="tw-text-base tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
+                  <h3 className="tw-font-semibold tw-text-slate-800 dark:tw-text-slate-200">
                     {hotel.nombre}
                   </h3>
                 </div>
@@ -98,13 +99,27 @@ function SeleccionHoteles({
                   <FaArrowRight className="tw-inline" />
                 </p>
               </div>
+              <div className="tw-flex tw-flex-col tw-gap-2 tw-mt-4 tw-text-sm tw-text-white tw-text-center">
+                <span
+                  className={
+                    capacidadTotal < pax
+                      ? "tw-bg-red-700 tw-rounded tw-p-1 tw-font-bold"
+                      : "tw-bg-green-500 tw-rounded tw-p-1 tw-font-bold"
+                  }
+                >
+                  {capacidadTotal} / {pax} pax
+                </span>
+                <span className="tw-text-green-600 dark:tw-text-green-400 tw-rounded tw-p-1 tw-font-bold">
+                  total: <strong>{costoTotal}€</strong>
+                </span>
+              </div>
             </div>
 
             <div className="tw-mt-4">
               <p className="tw-text-sm tw-font-semibold tw-text-slate-700 dark:tw-text-slate-300 mb-2">
-                Selecciona cantidad por tipo de habitación:
+                Selecciona habitación/es:
               </p>
-              <div className="tw-flex tw-flex-col tw-gap-3">
+              <div className="tw-grid tw-grid-cols-2 tw-gap-3">
                 {[...hotel.tipo]
                   .sort((a, b) => a.extra - b.extra)
                   .map((tipo) => {
@@ -112,78 +127,77 @@ function SeleccionHoteles({
                       (h) => h.tipo === tipo.nombre
                     );
                     const cantidad = seleccionActual?.cantidad || 0;
-
                     return (
                       <div
                         key={tipo.nombre}
-                        className="tw-border tw-rounded-lg tw-p-3 dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-800"
+                        className={`
+                        tw-rounded-lg tw-p-3  ${
+                          cantidad > 0
+                            ? " tw-bg-secondary dark:tw-bg-secondaryDark/60 tw-border-secondary tw-text-white"
+                            : "tw-bg-slate-200/70 dark:tw-bg-slate-800 dark:tw-border-slate-700"
+                        }
+                          `}
                       >
-                        <div className="tw-flex tw-justify-between tw-items-center tw-mb-2">
-                          <div className="tw-text-sm tw-font-medium dark:tw-text-white">
-                            {tipo.nombre} — Capacidad: {tipo.capacidad}
+                        <div className="tw-flex tw-justify-between tw-items-center tw-mb-2 tw-text-sm dark:tw-text-slate-100">
+                          <div>
+                            <h3>
+                              {tipo.nombre} - ({tipo.extra}€)
+                            </h3>
+                            <p> Capacidad: {tipo.capacidad}</p>
                           </div>
-                          <div className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-300">
-                            +{tipo.extra}€
+                          <div className="tw-flex tw-flex-col tw-justify-end">
+                            <div className="tw-flex tw-items-center tw-gap-2">
+                              <button
+                                onClick={() =>
+                                  handleRoomChange(
+                                    hotel.id,
+                                    hotel.nombre,
+                                    tipo,
+                                    Math.max(0, cantidad - 1)
+                                  )
+                                }
+                                className={` tw-px-3 tw-py-1 tw-rounded tw-transition hover:tw-scale-105 ${
+                                  cantidad > 0
+                                    ? "tw-bg-white/20 dark:tw-bg-secondary"
+                                    : "tw-bg-slate-300 dark:tw-bg-slate-600"
+                                }`}
+                              >
+                                -
+                              </button>
+                              <span className="tw-w-6 tw-text-center dark:tw-text-white">
+                                {cantidad}
+                              </span>
+                              <button
+                                onClick={() =>
+                                  handleRoomChange(
+                                    hotel.id,
+                                    hotel.nombre,
+                                    tipo,
+                                    Math.min(cantidad + 1, tipo.disponible)
+                                  )
+                                }
+                                className={`tw-px-3 tw-py-1 tw-rounded tw-transition hover:tw-scale-105 ${
+                                  cantidad >= tipo.disponible
+                                    ? "tw-bg-red-500 dark:tw-bg-red-700 tw-text-white tw-cursor-not-allowed"
+                                    : cantidad > 0
+                                    ? "tw-bg-white/20 dark:tw-bg-secondary"
+                                    : "tw-bg-slate-300 dark:tw-bg-slate-600"
+                                }`}
+                                disabled={cantidad >= tipo.disponible}
+                              >
+                                +
+                              </button>
+                            </div>
                           </div>
-                        </div>
-                        <div className="tw-flex tw-justify-end tw-items-center tw-gap-2">
-                          <button
-                            onClick={() =>
-                              handleRoomChange(
-                                hotel.id,
-                                hotel.nombre,
-                                tipo,
-                                Math.max(0, cantidad - 1)
-                              )
-                            }
-                            className="tw-bg-slate-300 dark:tw-bg-slate-600 tw-px-3 tw-py-1 tw-rounded tw-transition hover:tw-scale-105"
-                          >
-                            -
-                          </button>
-                          <span className="tw-w-6 tw-text-center dark:tw-text-white">
-                            {cantidad}
-                          </span>
-                          <button
-                            onClick={() =>
-                              handleRoomChange(
-                                hotel.id,
-                                hotel.nombre,
-                                tipo,
-                                Math.min(cantidad + 1, tipo.disponible)
-                              )
-                            }
-                            className={`tw-px-3 tw-py-1 tw-rounded tw-transition hover:tw-scale-105 ${
-                              cantidad >= tipo.disponible
-                                ? "tw-bg-red-500 dark:tw-bg-red-700 tw-text-white tw-cursor-not-allowed"
-                                : "tw-bg-slate-300 dark:tw-bg-slate-600"
-                            }`}
-                            disabled={cantidad >= tipo.disponible}
-                          >
-                            +
-                          </button>
                         </div>
                       </div>
                     );
                   })}
               </div>
             </div>
-
-            <div className="tw-mt-4 tw-text-sm tw-font-medium">
-              Capacidad total:{" "}
-              <span
-                className={
-                  capacidadTotal < pax ? "tw-text-red-600" : "tw-text-green-600"
-                }
-              >
-                {capacidadTotal} / {pax} pax
-              </span>
-              <br />
-              Costo total: <strong>{costoTotal}€</strong>
-            </div>
           </div>
         );
       })}
-
       {/* Pagination */}
       <div className="tw-flex tw-justify-center tw-gap-2 tw-mt-6">
         {Array.from({

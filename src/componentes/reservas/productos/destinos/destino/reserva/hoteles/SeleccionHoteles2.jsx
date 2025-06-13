@@ -55,15 +55,15 @@ function SeleccionHoteles({
 
   return (
     <div className="tw-overflow-x-auto tw-my-4 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-p-2 tw-pb-5">
-      <div className="tw-font-bold tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-secondary dark:tw-border-secondaryDark tw-border-b-2">
+      <div className="tw-font-bold tw-text-slate-600 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-p-2 tw-rounded-t-lg tw-flex tw-justify-between tw-items-center tw-border-slate-100 dark:tw-border-slate-700 tw-border-b-2">
         Selección de hotel de {titulo}
       </div>
 
       {hotelesPagina.map((hotel) => {
-        const currentSelection =
+        const seleccionHotel =
           seleccion?.hotelId === hotel.id ? seleccion : null;
 
-        const habitacionesSeleccionadas = currentSelection?.habitaciones || [];
+        const habitacionesSeleccionadas = seleccionHotel?.habitaciones || [];
 
         const capacidadTotal = calcularCapacidad(habitacionesSeleccionadas);
         const costoTotal = calcularCosto(habitacionesSeleccionadas);
@@ -71,8 +71,10 @@ function SeleccionHoteles({
         return (
           <div
             key={hotel.id}
-            className={`tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-shadow tw-p-4 tw-mb-4 ${
-              currentSelection ? "tw-border-2 tw-border-secondary" : ""
+            className={`tw-rounded-lg tw-shadow tw-p-4 tw-my-4 ${
+              seleccionHotel
+                ? "tw-border-2 tw-border-secondary tw-bg-elegido dark:tw-bg-slate-900 dark:tw-border-secondaryDark"
+                : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-2 dark:tw-border-slate-700"
             }`}
           >
             <div className="tw-grid md:tw-grid-cols-5 tw-gap-4 tw-items-start">
@@ -100,25 +102,25 @@ function SeleccionHoteles({
                     disponible{" "}
                     <FaArrowRight className="tw-inline tw-text-slate-500 dark:tw-text-slate-400" />
                   </p>
-                  <div className="tw-mt-3 tw-text-sm">
-                    Capacidad total:{" "}
+                  <div className="tw-my-1 tw-text-sm dark:tw-text-slate-400">
                     <span
                       className={
                         capacidadTotal < pax
-                          ? "tw-text-red-600"
-                          : "tw-text-green-600"
+                          ? "tw-text-red-600 dark:tw-text-red-700"
+                          : "tw-text-green-600 dark:tw-text-green-500"
                       }
                     >
                       {capacidadTotal} / {pax} pax
                     </span>
-                    <br />
-                    Costo total: <strong>{costoTotal}€</strong>
+                    <p>
+                      Total: <strong>{costoTotal}€</strong>
+                    </p>
                   </div>
                 </div>
               </div>
               <div className="tw-col-span-5 md:tw-col-span-2 lg:tw-col-span-3 2xl:tw-col-span-3">
                 <span className="tw-block tw-text-sm tw-font-semibold tw-mb-2 dark:tw-text-slate-300">
-                  Elegir habitaciones:
+                  Elegir habitación/es:
                 </span>
                 <div className="tw-grid md:tw-grid-cols-1 lg:tw-grid-cols-2 tw-gap-4">
                   {[...hotel.tipo]
@@ -134,14 +136,22 @@ function SeleccionHoteles({
                           key={tipo.nombre}
                           className="tw-flex tw-justify-between tw-items-center tw-gap-2"
                         >
-                          <div className="tw-w-full tw-text-sm tw-text-slate-700 dark:tw-text-slate-200 tw-bg-slate-200 tw-p-2 tw-rounded-lg tw-border-slate-100 dark:tw-border-slate-600">
-                            <div className="tw-flex tw-justify-between tw-mb-1">
+                          <div
+                            className={`tw-w-full tw-text-sm  dark:tw-text-slate-200  tw-border-2 tw-p-2 tw-rounded-lg
+                              ${
+                                cantidad > 0
+                                  ? "tw-bg-secondary dark:tw-bg-secondaryDark/30 tw-border-secondary tw-text-white"
+                                  : "tw-bg-slate-200 dark:tw-bg-slate-700 tw-border-slate-200 dark:tw-border-slate-600 tw-text-slate-700"
+                              }
+                              `}
+                          >
+                            <div className="tw-flex tw-justify-between tw-mb-1 ">
                               <h3>{tipo.nombre}</h3>
-                              <span className="tw-font-bold tw-text-black">
+                              <span className="tw-font-bold">
                                 +{tipo.extra}€
                               </span>
                             </div>
-                            <div className="tw-flex tw-justify-between tw-items-center">
+                            <div className="tw-flex tw-justify-between tw-items-center dark:tw-text-slate-300">
                               Capcidad {tipo.capacidad}
                               <div className="tw-flex tw-items-center tw-gap-2">
                                 <button
@@ -153,7 +163,14 @@ function SeleccionHoteles({
                                       Math.max(0, cantidad - 1)
                                     )
                                   }
-                                  className="tw-py-1 tw-bg-slate-300 dark:tw-bg-slate-600 tw-rounded-full tw-px-3 tw-smooth hover:tw-bg-opacity-65 hover:tw-scale-105"
+                                  className={`tw-py-1 tw-rounded-full tw-px-3 tw-smooth hover:tw-bg-opacity-65 hover:tw-scale-105
+                                    
+                                   ${
+                                     cantidad > 0
+                                       ? "tw-bg-white/20 dark:tw-bg-slate-600 tw-text-white"
+                                       : "tw-bg-slate-300 dark:tw-bg-slate-600 "
+                                   }
+                              `}
                                 >
                                   -
                                 </button>
@@ -172,6 +189,8 @@ function SeleccionHoteles({
                                   className={`tw-py-1 tw-rounded-full tw-px-3 tw-smooth hover:tw-bg-opacity-65 hover:tw-scale-105 ${
                                     cantidad >= tipo.disponible
                                       ? "tw-bg-red-500 dark:tw-bg-red-800 tw-text-white tw-cursor-not-allowed"
+                                      : cantidad > 0
+                                      ? "tw-bg-white/20  dark:tw-bg-slate-600 tw-text-white"
                                       : "tw-bg-slate-300 dark:tw-bg-slate-600 "
                                   }`}
                                   disabled={cantidad >= tipo.disponible}
