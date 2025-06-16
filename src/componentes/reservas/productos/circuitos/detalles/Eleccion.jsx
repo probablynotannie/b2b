@@ -4,7 +4,7 @@ import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Datos_Destino from "../../../../../helpers/destinos.json";
-import cesta from "../../../../estructura/zustand/Zustand";
+import cesta from "../../../../estructura/cesta/Zustand";
 import formatearFecha from "../../../../../helpers/FormatearFecha";
 const Eleccion = ({
   fecha,
@@ -24,8 +24,6 @@ const Eleccion = ({
   const anadirProducto = cesta((state) => state.anadirProducto);
   const productos = cesta((state) => state.productos);
   const onSubmit = (data) => {
-    console.log();
-
     anadirProducto({
       ...actividad,
       fecha: formatearFecha(data.fecha),
@@ -35,6 +33,7 @@ const Eleccion = ({
       type: 12,
       habitacion,
       roomData,
+      data,
     });
     console.log(productos);
     navigate("/datosCircuito", {

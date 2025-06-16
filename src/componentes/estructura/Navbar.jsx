@@ -6,7 +6,7 @@ import DarkMode from "./DarkMode";
 import ScrollToTop from "react-scroll-to-top";
 import Scroll from "./ScrollToTop";
 import { HiChevronDoubleUp } from "react-icons/hi";
-import Cesta from "./Cesta";
+import Cesta from "./cesta/CestaPopOver";
 
 const Navbar = () => {
   return (
