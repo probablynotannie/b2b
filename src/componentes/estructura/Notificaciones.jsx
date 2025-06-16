@@ -44,9 +44,9 @@ function Notificaciones() {
       content={
         <div className="tw-w-80 tw-p-4 tw-bg-white dark:tw-bg-slate-800 tw-border tw-border-slate-300 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg">
           <div className="tw-flex tw-items-center tw-justify-between tw-border-b tw-pb-2 dark:tw-border-slate-700">
-            <span className="tw-font-semibold tw-text-slate-700 dark:tw-text-white">
+            <h3 className="tw-font-semibold tw-text-slate-700 dark:tw-text-white">
               Notificaciones
-            </span>
+            </h3>
             <button
               className="tw-text-xs tw-text-primary dark:tw-text-slate-300 hover:tw-underline"
               onClick={() => setNotificaciones([])}
