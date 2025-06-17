@@ -17,7 +17,7 @@ function CestaCompleta() {
           )}
         </div>
         {productos.length > 0 ? (
-          <div className="tw-flex tw-flex-col tw-divide-y tw-mt-5">
+          <div className="tw-flex tw-flex-col tw-divide-y tw-divide-slate-100 dark:tw-divide-slate-700 tw-mt-5">
             {productos.map((producto, index) => (
               <Producto
                 key={index}
@@ -39,6 +39,9 @@ function CestaCompleta() {
         </h2>
         {productos.length > 0 ? (
           <div>
+            {productos.map((producto, index) => (
+              <div key={index}>{producto.type}</div>
+            ))}
             <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
               123123123€
             </button>

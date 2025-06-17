@@ -4,8 +4,11 @@ import { useRef } from "react";
 import cesta from "./Zustand";
 import { useNavigate } from "react-router-dom";
 import Iconos from "./Iconos";
-
+import { useState } from "react";
+import ModalEliminar from "./ModalEliminar";
 const ProductoItem = ({ producto, index, onRemove }) => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
   return (
     <div
       className={`dark:tw-bg-slate-900 tw-px-2 ${
@@ -41,18 +44,25 @@ const ProductoItem = ({ producto, index, onRemove }) => {
               {producto.precio ? producto.precio.toFixed(2) : "145"}€
             </span>
             <button
-              onClick={() => onRemove(index)}
-              className="tw-text-slate-400 hover:tw-text-red-600 tw-transition tw-duration-200"
-              aria-label={`Eliminar ${
-                producto.nombre || `producto ${index + 1}`
-              }`}
+              onClick={() => setIsModalOpen(true)}
+              className="tw-text-slate-400 hover:tw-text-red-600 tw-smooth tw-flex tw-items-center tw-gap-2"
+              aria-label={`Eliminar ${producto.nombre}`}
               title="Eliminar producto"
             >
               <FaTrash />
+              Eliminar
             </button>
           </div>
         </div>
       </div>
+      <ModalEliminar
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        onConfirm={() => {
+          onRemove(index);
+          setIsModalOpen(false);
+        }}
+      />
     </div>
   );
 };
@@ -73,7 +83,7 @@ function Cesta() {
     <Popover
       aria-labelledby="notificaciones-popover"
       content={
-        <div className="tw-flex tw-flex-col tw-gap-4 tw-w-80 tw-max-h-[90vh] tw-overflow-y-scroll scrollbar-hidden tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-transition-shadow tw-duration-300">
+        <div className="tw-border-0 tw-flex tw-flex-col tw-divide tw-divide-slate-100 dark:tw-divide-slate-700 tw-w-80 tw-max-h-[90vh] tw-overflow-y-scroll scrollbar-hidden tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-transition-shadow tw-duration-300">
           <div className="tw-flex tw-justify-between tw-items-center tw-text-black dark:tw-text-white tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2">
             <h3 className="tw-text-xl tw-font-extrabold">Cesta</h3>
             {productos.length > 0 && (
@@ -102,7 +112,7 @@ function Cesta() {
 
           <button
             onClick={handleFinalizarReserva}
-            className="tw-btn_accesorios tw-btn_primario"
+            className="tw-btn_accesorios tw-btn_primario tw-mt-5"
           >
             Finalizar la reserva
           </button>

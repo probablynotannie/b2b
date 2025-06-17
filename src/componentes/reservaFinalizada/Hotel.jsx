@@ -12,10 +12,10 @@ function Hotel({ hotel }) {
     const emptyStars = 5 - fullStars - halfStar;
 
     return [
-      ...Array(fullStars).fill(<IoIosStar className="text-orange-400" />),
-      ...Array(halfStar).fill(<IoIosStarHalf className="text-orange-400" />),
+      ...Array(fullStars).fill(<IoIosStar className="tw-text-orange-400" />),
+      ...Array(halfStar).fill(<IoIosStarHalf className="tw-text-orange-400" />),
       ...Array(emptyStars).fill(
-        <IoIosStarOutline className="text-slate-400" />
+        <IoIosStarOutline className="tw-text-slate-400" />
       ),
     ];
   };
@@ -37,34 +37,34 @@ function Hotel({ hotel }) {
   };
 
   return (
-    <div className="mt-10">
-      <h3 className="text-lg font-bold dark:tw-text-slate-300">Hotel</h3>
-      <article className="grid md:grid-cols-7 grid-cols-5 gap-5 mt-2">
-        <section className="p-3 md:order-first order-last col-span-5 border-y-2 border-slate-100 shadow-lg border-2 rounded-xl dark:tw-border-slate-700 dark:bg-slate-800">
-          <div className="grid grid-cols-3 gap-10">
+    <div className="tw-mt-10">
+      <h3 className="tw-text-lg tw-font-bold dark:tw-text-slate-300">Hotel</h3>
+      <article className="tw-grid md:tw-grid-cols-7 tw-grid-cols-5 tw-gap-5 tw-mt-2">
+        <section className="tw-p-3 md:tw-order-first tw-order-last tw-col-span-5 tw-border-y-2 tw-border-slate-100 tw-shadow-lg tw-border-2 tw-rounded-xl dark:tw-border-slate-700 dark:tw-bg-slate-800">
+          <div className="tw-grid tw-grid-cols-3 tw-gap-10">
             <img
               src={hotel.src}
               alt="Imagen hotel"
-              className="col-span-3 md:col-span-1 rounded-lg shadow"
+              className="tw-col-span-3 md:tw-col-span-1 tw-rounded-lg tw-shadow"
             />
-            <div className="col-span-3 md:col-span-2">
-              <div className="flex justify-between">
-                <h4 className="font-semibold flex items-center gap-2 dark:tw-text-slate-200">
+            <div className="tw-col-span-3 md:tw-col-span-2">
+              <div className="tw-flex tw-justify-between">
+                <h4 className="tw-font-semibold tw-flex tw-items-center tw-gap-2 dark:tw-text-slate-200">
                   {hotel.nombre}
                 </h4>
-                <div className="flex gap-1 mt-2">
+                <div className="tw-flex tw-gap-1 tw-mt-2">
                   {renderStars(hotel.estrellas)}
                 </div>
               </div>
-              <p className="flex mt-1 text-sm items-center dark:tw-text-slate-400">
-                <FaMapPin className="text-slate-700 dark:tw-text-secondaryDark text-lg" />
+              <p className="tw-flex tw-mt-1 tw-text-sm tw-items-center dark:tw-text-slate-400">
+                <FaMapPin className="tw-text-slate-700 dark:tw-text-secondaryDark tw-text-lg" />
                 {hotel.direccion}
               </p>
-              <div className="grid grid-cols-3 mt-5">
+              <div className="tw-grid tw-grid-cols-3 tw-mt-5">
                 {hotel.habitacion !== 0 && (
-                  <div className="flex flex-col items-center justify-center">
-                    <MdMeetingRoom className="text-4xl tw-text-secondary" />
-                    <span className="text-slate-600 dark:tw-text-slate-300 text-sm">
+                  <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
+                    <MdMeetingRoom className="tw-text-4xl tw-text-secondary" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm">
                       {" "}
                       {hotel.habitacion}
                       {hotel.habitacion === 1 ? " habitación" : " habitaciones"}
@@ -73,9 +73,9 @@ function Hotel({ hotel }) {
                 )}
 
                 {hotel.adultos !== 0 && (
-                  <div className="flex flex-col items-center justify-center">
-                    <FaPerson className="text-4xl tw-text-secondary" />
-                    <span className="text-slate-600 dark:tw-text-slate-300 text-sm">
+                  <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
+                    <FaPerson className="tw-text-4xl tw-text-secondary" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm">
                       {" "}
                       {hotel.adultos}
                       {hotel.adultos === 1 ? " adulto" : " adultos"}
@@ -84,9 +84,9 @@ function Hotel({ hotel }) {
                 )}
 
                 {hotel.ninios !== 0 && (
-                  <div className="flex flex-col items-center justify-center">
-                    <FaChild className="text-4xl tw-text-secondary" />
-                    <span className="text-slate-600 dark:tw-text-slate-300 text-sm">
+                  <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
+                    <FaChild className="tw-text-4xl tw-text-secondary" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm">
                       {" "}
                       {hotel.ninios}
                       {hotel.ninios === 1 ? " niño" : " niños"}
@@ -96,34 +96,34 @@ function Hotel({ hotel }) {
               </div>
             </div>
           </div>
-          <p className="col-span-2 text-sm text-slate-400 mt-3">
+          <p className="tw-col-span-2 tw-text-sm tw-text-slate-400 tw-mt-3">
             {formatDescription(hotel.descripcion)}
           </p>
         </section>
-        <aside className="col-span-5 md:col-span-2 ">
-          <div className="border-2 border-slate-100 dark:tw-border-slate-700 dark:bg-slate-800 shadow-lg rounded-lg flex flex-col justify-around p-3">
-            <div className="flex justify-between ">
-              <h4 className="font-semibold flex items-center gap-2 dark:tw-text-slate-200">
-                <span className="tw-bg-secondary text-white rounded-full w-fit p-1">
+        <aside className="tw-col-span-5 md:tw-col-span-2">
+          <div className="tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-shadow-lg tw-rounded-lg tw-flex tw-flex-col tw-justify-around tw-p-3">
+            <div className="tw-flex tw-justify-between">
+              <h4 className="tw-font-semibold tw-flex tw-items-center tw-gap-2 dark:tw-text-slate-200">
+                <span className="tw-bg-secondary tw-text-white tw-rounded-full tw-w-fit tw-p-1">
                   <FaHotel />
                 </span>
                 {hotel.nombre}
               </h4>
-              <div className="flex gap-1 items-center">
+              <div className="tw-flex tw-gap-1 tw-items-center">
                 {renderStars(hotel.estrellas)}
               </div>
             </div>
-            <p className="text-sm text-slate-500 mt-1">{hotel.direccion}</p>
-            <div className="border-t mt-2 pt-2">
-              <span className="text-sm dark:tw-text-white">
+            <p className="tw-text-sm tw-text-slate-500 tw-mt-1">{hotel.direccion}</p>
+            <div className="tw-border-t tw-mt-2 tw-pt-2">
+              <span className="tw-text-sm dark:tw-text-white">
                 {formatShortDate(hotel.entrada)} -{" "}
                 {formatShortDate(hotel.salida)}
               </span>
-              <p className="flex gap-1 text-xs tw-text-secondary font-bold">
+              <p className="tw-flex tw-gap-1 tw-text-xs tw-text-secondary tw-font-bold">
                 {hotel.habitacion !== 0 && (
                   <>
-                    <MdMeetingRoom className="text-lg" />
-                    <span className="text-slate-600 dark:tw-text-slate-300">
+                    <MdMeetingRoom className="tw-text-lg" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300">
                       {" "}
                       {hotel.habitacion}
                       {hotel.habitacion === 1 ? " habitación" : " habitaciones"}
@@ -132,8 +132,8 @@ function Hotel({ hotel }) {
                 )}
                 {hotel.adultos !== 0 && (
                   <>
-                    <FaPerson className="text-lg" />
-                    <span className="text-slate-600 dark:tw-text-slate-300">
+                    <FaPerson className="tw-text-lg" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300">
                       {" "}
                       {hotel.adultos}
                       {hotel.adultos === 1 ? " adulto" : " adultos"}
@@ -142,8 +142,8 @@ function Hotel({ hotel }) {
                 )}
                 {hotel.ninios !== 0 && (
                   <>
-                    <FaChild className="text-lg" />
-                    <span className="text-slate-600 dark:tw-text-slate-300">
+                    <FaChild className="tw-text-lg" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300">
                       {" "}
                       {hotel.ninios}
                       {hotel.ninios === 1 ? " niño" : " niños"}

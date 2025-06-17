@@ -35,7 +35,6 @@ const Eleccion = ({
       roomData,
       data,
     });
-    console.log(productos);
     navigate("/datosCircuito", {
       state: { datosForm: data, actividad, habitacion, roomData },
     });

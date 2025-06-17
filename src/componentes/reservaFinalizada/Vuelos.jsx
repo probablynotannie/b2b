@@ -4,7 +4,6 @@ import { FaChild } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 
 function Vuelos({ vuelos }) {
-
   const formatShortDate = (date) => {
     return date.toLocaleDateString("es-ES", {
       weekday: "short",
@@ -21,7 +20,7 @@ function Vuelos({ vuelos }) {
     const [llegadaHours, llegadaMinutes] = horaLlegada.split(":").map(Number);
     const salidaDate = new Date(
       referenceDate.setHours(salidaHours, salidaMinutes, 0, 0)
-    ); 
+    );
     const llegadaDate = new Date(
       referenceDate.setHours(llegadaHours, llegadaMinutes, 0, 0)
     );
@@ -35,33 +34,31 @@ function Vuelos({ vuelos }) {
     return `${hours}h ${minutes}m`;
   };
   return (
-    <div className="mt-10">
-      <h3 className="text-lg font-bold dark:tw-text-slate-300">Vuelos</h3>
-      <div className="grid md:grid-cols-7 grid-cols-5 gap-5 mt-2">
-        <div className="md:order-first order-last col-span-5 border-y-2 border-slate-100 shadow-lg border-2 rounded-xl dark:tw-border-slate-700 dark:bg-slate-800">
+    <div className="tw-mt-10">
+      <h3 className="tw-text-lg tw-font-bold dark:tw-text-slate-300">Vuelos</h3>
+      <div className="tw-grid md:tw-grid-cols-7 tw-grid-cols-5 tw-gap-5 tw-mt-2">
+        <div className="md:tw-order-first tw-order-last tw-col-span-5 tw-border-y-2 tw-border-slate-100 tw-shadow-lg tw-border-2 tw-rounded-xl dark:tw-border-slate-700 dark:tw-bg-slate-800">
           {vuelos.map((vuelo, index) => (
             <div
               key={vuelo.id}
-              className={`grid grid-cols-1 md:grid-cols-4 gap-5 p-2 md:p-5 hover:bg-slate-100 dark:hover:bg-slate-800 transition ${
+              className={`tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 hover:tw-bg-slate-100 dark:hover:tw-bg-slate-800 tw-transition ${
                 index === 0 &&
-                "border-b-2 border-slate-100 dark:tw-border-slate-600"
+                "tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600"
               }`}
             >
-              {/* Airline Logo */}
-              <div className="flex flex-col items-center justify-center dark:tw-text-slate-400">
+              <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">
                 <img
                   src={vuelo.logo}
                   alt="logo de la aerolinea"
-                  className="w-12"
+                  className="tw-w-12"
                 />
                 <span>{vuelo.compania}</span>
               </div>
-              {/* Flight Times */}
-              <div className="flex items-center justify-center flex-col">
-                <p className="font-semibold dark:tw-text-slate-200">
+              <div className="tw-flex tw-items-center tw-justify-center tw-flex-col">
+                <p className="tw-font-semibold dark:tw-text-slate-200">
                   {vuelo.horaSalida} - {vuelo.horaLlegada}
                 </p>
-                <p className="text-slate-400">
+                <p className="tw-text-slate-400">
                   {vuelo.fecha.toLocaleDateString("es-ES", {
                     day: "2-digit",
                     month: "2-digit",
@@ -69,25 +66,25 @@ function Vuelos({ vuelos }) {
                   })}
                 </p>
               </div>
-              <div className="flex flex-col items-center dark:tw-text-slate-200">
-                <h4 className="font-semibold">Duración</h4>
-                <span className="text-sm">
+              <div className="tw-flex tw-flex-col tw-items-center dark:tw-text-slate-200">
+                <h4 className="tw-font-semibold">Duración</h4>
+                <span className="tw-text-sm">
                   {calculateDuration(vuelo.horaSalida, vuelo.horaLlegada)}
                 </span>
               </div>
-              <div className="text-sm flex flex-row justify-between items-center ">
-                <div className="text-center flex flex-col items-center w-full ">
+              <div className="tw-text-sm tw-flex tw-flex-row tw-justify-between tw-items-center">
+                <div className="tw-text-center tw-flex tw-flex-col tw-items-center tw-w-full">
                   {vuelo.escala > 0 ? (
                     <>
-                      <p className="tw-bg-secondary text-white w-fit px-2 font-semibold rounded-full">
+                      <p className="tw-bg-secondary tw-text-white tw-w-fit tw-px-2 tw-font-semibold tw-rounded-full">
                         {vuelo.escala} Escala
                       </p>
-                      <p className="text-slate-500 dark:tw-text-slate-400">
+                      <p className="tw-text-slate-500 dark:tw-text-slate-400">
                         {vuelo.tiempoEscala} en {vuelo.sitioEscala}
                       </p>
                     </>
                   ) : (
-                    <p className="bg-green-600 text-white w-fit px-2 font-semibold rounded-full">
+                    <p className="tw-bg-green-600 tw-text-white tw-w-fit tw-px-2 tw-font-semibold tw-rounded-full">
                       Directo
                     </p>
                   )}
@@ -99,14 +96,14 @@ function Vuelos({ vuelos }) {
         </div>
 
         {/* Flight Resumen */}
-        <aside className="col-span-5 md:col-span-2">
-          <div className=" border-2 border-slate-100 dark:tw-border-slate-700 dark:bg-slate-800 shadow-lg rounded-lg flex flex-col justify-around p-3">
+        <aside className="tw-col-span-5 md:tw-col-span-2">
+          <div className="tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-shadow-lg tw-rounded-lg tw-flex tw-flex-col tw-justify-around tw-p-3">
             <div>
-              <h4 className="font-semibold flex items-center gap-2 dark:tw-text-slate-200">
-                <IoAirplaneSharp className="text-2xl tw-bg-secondary rounded-full text-white p-1" />
+              <h4 className="tw-font-semibold tw-flex tw-items-center tw-gap-2 dark:tw-text-slate-200">
+                <IoAirplaneSharp className="tw-text-2xl tw-bg-secondary tw-rounded-full tw-text-white tw-p-1" />
                 Vuelo de ida {vuelos.length > 1 && "y vuelta"}
               </h4>
-              <div className="text-sm text-slate-500">
+              <div className="tw-text-sm tw-text-slate-500">
                 <p>
                   {vuelos[0].salida} - {vuelos[0].llegada}
                 </p>
@@ -115,22 +112,22 @@ function Vuelos({ vuelos }) {
           {formatFullMonth(vuelos[0].fecha)} {vuelos[0].fecha.getFullYear()}
         </span> */}
             </div>
-            <div className="border-t mt-2 pt-2">
-              <p className="text-sm dark:tw-text-white">
+            <div className="tw-border-t tw-mt-2 tw-pt-2">
+              <p className="tw-text-sm dark:tw-text-white">
                 {formatShortDate(vuelos[0].fecha)} -{" "}
                 {formatShortDate(vuelos[1]?.fecha)}
               </p>
-              <p className="flex gap-1 text-xs tw-text-secondary font-bold">
+              <p className="tw-flex tw-gap-1 tw-text-xs tw-text-secondary tw-font-bold">
                 <>
-                  <FaTicket className="text-lg" />
-                  <span className="text-slate-600 dark:tw-text-slate-300">
+                  <FaTicket className="tw-text-lg" />
+                  <span className="tw-text-slate-600 dark:tw-text-slate-300">
                     {getTotalPax(vuelos[0].pax)} billetes
                   </span>
                 </>
                 {vuelos[0].pax.adultos !== 0 && (
                   <>
-                    <FaPerson className="text-lg" />
-                    <span className="text-slate-600 dark:tw-text-slate-300">
+                    <FaPerson className="tw-text-lg" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300">
                       {vuelos[0].pax.adultos}{" "}
                       {vuelos[0].pax.adultos === 1 ? "adulto" : "adultos"}
                     </span>
@@ -138,8 +135,8 @@ function Vuelos({ vuelos }) {
                 )}
                 {vuelos[0].pax.ninio !== 0 && (
                   <>
-                    <FaChild className="text-lg" />
-                    <span className="text-slate-600 dark:tw-text-slate-300">
+                    <FaChild className="tw-text-lg" />
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300">
                       {vuelos[0].pax.ninio}{" "}
                       {vuelos[0].pax.ninio === 1 ? "niño" : "niños"}
                     </span>
