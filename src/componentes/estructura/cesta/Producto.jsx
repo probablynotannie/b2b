@@ -47,6 +47,7 @@ function Producto({ producto, onRemove, index }) {
               Eliminar
             </button>
             <ModalEliminar
+              producto={producto}
               isOpen={isModalOpen}
               onClose={() => setIsModalOpen(false)}
               onConfirm={() => {

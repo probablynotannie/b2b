@@ -50,12 +50,12 @@ const ProductoItem = ({ producto, index, onRemove }) => {
               title="Eliminar producto"
             >
               <FaTrash />
-              Eliminar
             </button>
           </div>
         </div>
       </div>
       <ModalEliminar
+        producto={producto}
         isOpen={isModalOpen}
         onClose={() => setIsModalOpen(false)}
         onConfirm={() => {
