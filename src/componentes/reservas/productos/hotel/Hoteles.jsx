@@ -91,7 +91,7 @@ function Resultado({ hoteles }) {
               </p>
               <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-justify-end  tw-mt-3 tw-gap-3">
                 <button
-                  className="tw-bg-slate-400 tw-btn_accesorios"
+                  className="tw-bg-slate-400 dark:tw-bg-slate-700 tw-btn_accesorios"
                   onClick={() =>
                     setExpandedHotel(expandedHotel === index ? null : index)
                   }
@@ -105,9 +105,8 @@ function Resultado({ hoteles }) {
                   Detalles
                 </button>
                 {openModal === index && (
-                  <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65 z-50 flex items-center justify-center">
+                  <div className="fixed inset-0 tw-bg-black tw-bg-opacity-65  z-50 flex items-center justify-center">
                     <div className="tw-bg-white dark:tw-bg-slate-900 tw-border-2 tw-border-secondary tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-4xl tw-max-h-[90vh] tw-overflow-hidden">
-                      {/* Inner scrollable content */}
                       <div className="tw-overflow-y-auto tw-max-h-[90vh]">
                         <div className="tw-border-b tw-border-slate-200 dark:tw-border-slate-700 tw-p-5 tw-flex tw-justify-between tw-items-center">
                           <div>
@@ -170,7 +169,7 @@ function Resultado({ hoteles }) {
             </div>
           </article>
           {expandedHotel === index && (
-            <div className="tw-relative tw-bg-slate-100 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
+            <div className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
               {hotel.habitaciones
                 .sort((a, b) => parseFloat(a.precio) - parseFloat(b.precio))
                 .slice(0, 12)
