@@ -206,7 +206,7 @@ const Dropdown = () => {
                             className={`tw-duration-300 tw-transition ${
                               index === 1
                                 ? "tw--ml-1 tw-text-xl tw-bg-blue-400 absolute tw-p-1 tw--right-3 tw--bottom-2 tw-rounded-full tw-text-white"
-                                : "tw-text-xl dark:tw-text-white group-hover:tw-text-secondary "
+                                : "tw-text-xl dark:tw-text-white group-hover:tw-text-secondary"
                             }`}
                           />
                         ))}
