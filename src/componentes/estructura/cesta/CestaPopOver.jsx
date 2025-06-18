@@ -81,11 +81,12 @@ function Cesta() {
 
   return (
     <Popover
+      aria-brailleroledescription=""
       aria-labelledby="notificaciones-popover"
       content={
-        <div className="tw-border-0 tw-flex tw-flex-col tw-divide tw-divide-slate-100 dark:tw-divide-slate-700 tw-w-80 tw-max-h-[90vh] tw-overflow-y-scroll scrollbar-hidden tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-lg tw-transition-shadow tw-duration-300">
+        <div className="tw-flex tw-flex-col tw-divide tw-divide-slate-100 dark:tw-divide-slate-700 tw-w-80 tw-max-h-[90vh] tw-overflow-y-scroll scrollbar-hidden tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-rounded-xl tw-shadow-lg tw-transition-shadow tw-duration-300">
           <div className="tw-flex tw-justify-between tw-items-center tw-text-black dark:tw-text-white tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2">
-            <h3 className="tw-text-xl tw-font-extrabold">Cesta</h3>
+            <h3 className="tw-text-xl tw-font-bold">Cesta</h3>
             {productos.length > 0 && (
               <button
                 className="tw-text-slate-400 dark:tw-text-slate-300 hover:tw-text-black hover:dark:tw-text-slate-100 tw-smooth"
@@ -96,26 +97,27 @@ function Cesta() {
             )}
           </div>
           {productos.length === 0 ? (
-            <p className="tw-text-center tw-text-slate-500 dark:tw-text-slate-400 tw-italic">
+            <p className="tw-text-center tw-text-slate-500 dark:tw-text-slate-400 tw-italic tw-m-5">
               No se han añadido productos
             </p>
           ) : (
-            productos.map((producto, index) => (
-              <ProductoItem
-                key={index}
-                producto={producto}
-                index={index}
-                onRemove={removeProducto}
-              />
-            ))
+            <div>
+              {productos.map((producto, index) => (
+                <ProductoItem
+                  key={index}
+                  producto={producto}
+                  index={index}
+                  onRemove={removeProducto}
+                />
+              ))}
+              <button
+                onClick={handleFinalizarReserva}
+                className="tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5"
+              >
+                Finalizar la reservva
+              </button>
+            </div>
           )}
-
-          <button
-            onClick={handleFinalizarReserva}
-            className="tw-btn_accesorios tw-btn_primario tw-mt-5"
-          >
-            Finalizar la reserva
-          </button>
         </div>
       }
     >

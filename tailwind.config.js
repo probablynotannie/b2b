@@ -1,25 +1,26 @@
 /* eslint-disable no-undef */
 import flowbite from "flowbite-react/tailwind";
+
 module.exports = {
   darkMode: 'class',
   prefix: 'tw-',
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    flowbite.content(),
+    flowbite.content(), // Needed for Flowbite-React
   ],
   theme: {
     extend: {
       colors: {
-        inputIcon: '#ff8c4c', // Naranja
-        CajaForms: '#1e293b', // Gris oscuro
-        header: '#1e293b', // Gris oscuro de navbar 
-        elegido: '#ffecdc', // Es color primario pero muted para enseñar que está seleccionado. Solo se usa en los hooteles + tickets.
-        secondary: "#ff8c4c", // Naranja
-        secondaryDark: "#ff8c4c", // Naranja 
-        danger: "#f84048", // texto rojo fondo
-        danger_text: "#ea756f", //texto rojo
-        muted: "#e8ecf4", // Gris apagado
+        inputIcon: '#ff8c4c',
+        CajaForms: '#1e293b',
+        header: '#1e293b',
+        elegido: '#ffecdc',
+        secondary: "#ff8c4c",
+        secondaryDark: "#ff8c4c",
+        danger: "#f84048",
+        danger_text: "#ea756f",
+        muted: "#e8ecf4",
       },
       container: {
         center: true,
@@ -28,12 +29,20 @@ module.exports = {
     },
   },
   plugins: [
+    // 🧩 Add custom utilities including global popover arrow override
     function ({ addComponents }) {
       addComponents({
         '.smooth': {
           transition: 'all 0.3s ease',
         },
-        // ACcesorios para los botones primario y muted
+
+        // 🛠️ Global override for Flowbite popover arrow in dark mode
+        '.tw-dark .tw-h-2.tw-w-2.tw-rotate-45': {
+          borderColor: 'transparent',
+          backgroundColor: 'transparent',
+        },
+
+        // Button utilities...
         '.btn_accesorios': {
           padding: '0.75rem 1.5rem',
           fontWeight: '700',
@@ -45,8 +54,6 @@ module.exports = {
           transition: 'background-color 0.3s ease, transform 0.2s ease, box-shadow 0.3s ease',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         },
-
-        // Accesorios para el boton con icono de buscador
         '.btn_buscador_con_icono_accesorios': {
           display: 'flex',
           justifyContent: 'center',
@@ -61,7 +68,6 @@ module.exports = {
           transition: 'all 0.3s ease',
           boxShadow: '0 4px 6px rgba(0, 0, 0, 0.1)',
         },
-        //Boton con color primario 
         '.btn_primario': {
           backgroundColor: '#ff8c4c',
         },
@@ -74,7 +80,6 @@ module.exports = {
         '.btn_oscuro:hover': {
           backgroundColor: '#404d5f',
         },
-        // Boton gris apagado
         '.btn_muted': {
           backgroundColor: '#98a4bc',
         },
@@ -87,7 +92,6 @@ module.exports = {
         '.btn_muted_dark:hover': {
           backgroundColor: '#384454',
         },
-        //Boton con icono de buscador
         '.btn_buscador_con_icono': {
           backgroundColor: '#1e293b',
         },
@@ -99,8 +103,11 @@ module.exports = {
         },
       })
     },
-    require('flowbite/plugin'),
+
+    // Only use one Flowbite plugin loader — keep the correct one
     flowbite.plugin(),
-    require('tailwindcss-animated')
+
+    // Other plugins
+    require('tailwindcss-animated'),
   ],
 };

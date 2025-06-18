@@ -34,7 +34,7 @@ function Producto({ producto, onRemove, index }) {
             </li>
           </ul>
           <div className="tw-flex tw-justify-between tw-items-center">
-            <span className="tw-font-bold group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark dark:tw-text-slate-400 tw-smooth">
+            <span className="tw-font-semibold group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark dark:tw-text-slate-400 tw-smooth">
               Total: {producto.precio.toFixed(2)}€
             </span>
             <button
