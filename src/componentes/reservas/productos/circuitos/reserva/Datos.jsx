@@ -6,18 +6,16 @@ import Input_Email from "../../../../inputs/Email";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 const formatearFecha = (fecha) => {
-
   const opciones = { day: "numeric", month: "long", year: "numeric" };
   return new Intl.DateTimeFormat("es-ES", opciones).format(new Date(fecha));
 };
-
 function Datos() {
   const location = useLocation();
   const { actividad, datosForm, habitacion, roomData } = location.state || {};
   const img = actividad.img;
   const fechaIda = formatearFecha(datosForm.fecha);
   const navigate = useNavigate();
-  
+
   const {
     register,
     handleSubmit,

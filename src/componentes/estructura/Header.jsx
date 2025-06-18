@@ -3,6 +3,7 @@ import { Route, Routes } from "react-router-dom";
 import Navbar from "../estructura/Navbar";
 import Landing from "../Landing";
 import Notificaciones from "../Notificaciones";
+import Cesta from "./cesta/CestaCompleta";
 /* MENU */
 import Clientes from "../utilidades/clientes/Resultado";
 import Presupuestos from "../utilidades/presupuestos/Resultado";
@@ -139,6 +140,7 @@ function Header() {
         {/* Otros componentes */}
         <Route path="/" element={<Landing />} />
         <Route path="/notificaciones" element={<Notificaciones />} />
+        <Route path="/cesta" element={<Cesta />} />
         {/* MOTORES */}
         <Route path="/cruceros" element={<Cruceros />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />

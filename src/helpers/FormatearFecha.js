@@ -1,30 +1,28 @@
 export default function formatearFecha(fecha) {
     const meses = [
-        "enero",
-        "febrero",
-        "marzo",
-        "abril",
-        "mayo",
-        "junio",
-        "julio",
-        "agosto",
-        "septiembre",
-        "octubre",
-        "noviembre",
-        "diciembre",
+        "enero", "febrero", "marzo", "abril", "mayo", "junio",
+        "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
     ];
 
-    const normalizedFecha = fecha.replace(/\//g, '-');
-    const parts = normalizedFecha.split("-");
-    let day, month, year;
-    if (parts.length === 3) {
-        if (parts[0].length === 4) {
-            [year, month, day] = parts;
-        }
-        else {
-            [day, month, year] = parts;
-        }
+    // Convert Date object to parts
+    let dateObj;
+    if (fecha instanceof Date) {
+        dateObj = fecha;
+    } else if (typeof fecha === "string") {
+        dateObj = new Date(fecha);
+    } else {
+        console.warn("formatearFecha: fecha inválida", fecha);
+        return "";
     }
-    const mes = meses[parseInt(month, 10) - 1];
-    return `${parseInt(day, 10)} de ${mes} de ${year}`;
+
+    if (isNaN(dateObj)) {
+        console.warn("formatearFecha: fecha inválida (NaN)", fecha);
+        return "";
+    }
+
+    const day = dateObj.getDate();
+    const month = dateObj.getMonth(); // 0-based
+    const year = dateObj.getFullYear();
+
+    return `${day} de ${meses[month]} de ${year}`;
 }

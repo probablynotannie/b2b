@@ -18,14 +18,12 @@ function Aside({ values, setValues, minMax, setMinMax }) {
     const regimenesSet = new Set();
     hoteles.forEach((hotel) => {
       if (hotel?.regimen) {
-        console.log("Regimen del hotel:", hotel.regimen);
         regimenesSet.add(hotel.regimen.toLowerCase());
       }
 
       if (Array.isArray(hotel.habitaciones)) {
         hotel.habitaciones.forEach((habitacion) => {
           if (habitacion?.regimen) {
-            console.log("Regimen de la habitación:", habitacion.regimen);
             regimenesSet.add(habitacion.regimen.toLowerCase());
           }
         });
@@ -36,7 +34,6 @@ function Aside({ values, setValues, minMax, setMinMax }) {
       (regimen) => regimen.charAt(0).toUpperCase() + regimen.slice(1)
     );
 
-    console.log("Régimenes únicos generados:", uniqueList);
     setRegimenesUnicos(uniqueList);
   }, []);
 

@@ -6,6 +6,7 @@ import DarkMode from "./DarkMode";
 import ScrollToTop from "react-scroll-to-top";
 import Scroll from "./ScrollToTop";
 import { HiChevronDoubleUp } from "react-icons/hi";
+import Cesta from "./cesta/CestaPopOver";
 
 const Navbar = () => {
   return (
@@ -30,6 +31,7 @@ const Navbar = () => {
         </div>
         <div className="tw-flex tw-gap-2 md:tw-gap-4 tw-w-full md:tw-w-fit tw-justify-around">
           <DarkMode />
+          <Cesta />
           <Notificaciones />
           <Usuario />
         </div>

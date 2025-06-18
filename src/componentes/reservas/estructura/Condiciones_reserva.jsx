@@ -1,16 +1,16 @@
 function Condiciones_reserva() {
   return (
-    <main className="min-h-[50vh] mt-10">
-      <article className="container shadow-xl rounded-lg border-2 border-slate-100 dark:tw-border-slate-700 dark:bg-slate-800 p-3">
-        <header className="flex justify-between items-center pb-3 border-b-2 border-slate-100 dark:tw-border-slate-700">
-          <h1 className="font-bold text-xl dark:tw-text-white">
+    <main className="tw-min-h-[50vh] tw-mt-10">
+      <article className="tw-container tw-shadow-xl tw-rounded-lg tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-p-3">
+        <header className="tw-flex tw-justify-between tw-items-center tw-pb-3 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
+          <h1 className="tw-font-bold tw-text-xl dark:tw-text-white">
             CONDICIONES GENERALES DE RESERVA
           </h1>
           <img src="/logo.png" alt="logo" />
         </header>
-        <article className="grid grid-cols-1 gap-3 text-sm">
-          <section className="bg-slate-50 hover:bg-slate-100 transition p-1 shadow dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">Introducción</h2>
+        <article className="tw-grid tw-grid-cols-1 tw-gap-3 tw-text-sm">
+          <section className="tw-bg-slate-50 hover:tw-bg-slate-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">Introducción</h2>
             <p>
               El presente documento, conjuntamente con los términos y uso de la
               web, establecen las condiciones de reserva de viajes y el resto de
@@ -28,8 +28,8 @@ function Condiciones_reserva() {
               serán las que le resulten aplicables.
             </p>
           </section>
-          <section className="bg-orange-50 hover:bg-orange-100 transition p-1 shadow dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">Como registrarse</h2>
+          <section className="tw-bg-orange-50 hover:tw-bg-orange-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">Como registrarse</h2>
             <p>
               Es necesario que se registre para acceder nuestros servicios, el
               usuario deberá registrarse rellenando el formulario de registro
@@ -50,8 +50,8 @@ function Condiciones_reserva() {
             </p>
           </section>
 
-          <section className="bg-cyan-50 hover:bg-cyan-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">USO DE NUESTRA WEB </h2>
+          <section className="tw-bg-cyan-50 hover:tw-bg-cyan-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">USO DE NUESTRA WEB </h2>
             <p>
               Al hacer uso de esta página web y/o cursar órdenes a través de la
               misma usted se compromete a:
@@ -78,16 +78,16 @@ function Condiciones_reserva() {
               </li>
             </ul>
           </section>
-          <section className="bg-indigo-50 hover:bg-indigo-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">ÁMBITO TERRITORIAL</h2>
+          <section className="tw-bg-indigo-50 hover:tw-bg-indigo-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">ÁMBITO TERRITORIAL</h2>
             <p>
               Los servicios que se ofrecen a través de nuestra web solo están
               disponibles para personas con residencia legal en territorio
               español.
             </p>
           </section>
-          <section className="bg-violet-50 hover:bg-violet-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">
+          <section className="tw-bg-violet-50 hover:tw-bg-violet-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">
               RESERVAS A TRAVÉS DE NUESTRA WEB{" "}
             </h2>
             <p>
@@ -108,8 +108,8 @@ function Condiciones_reserva() {
               posible.
             </p>
           </section>
-          <section className="bg-green-50 hover:bg-green-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">PRECIOS Y FORMAS DE PAGO</h2>
+          <section className="tw-bg-green-50 hover:tw-bg-green-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">PRECIOS Y FORMAS DE PAGO</h2>
             <p>
               Todos los precios ofertados en nuestra web están representados en
               EUROS (EUR). La compraventa de monedas virtuales no esta sujeta a
@@ -180,8 +180,8 @@ function Condiciones_reserva() {
               a HAIKULANCE serán de cuenta exclusiva del cliente.
             </p>
           </section>
-          <section className="bg-teal-50 hover:bg-teal-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">CONFIRMACIÓN DEL PEDIDO</h2>
+          <section className="tw-bg-teal-50 hover:tw-bg-teal-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">CONFIRMACIÓN DEL PEDIDO</h2>
             <p>
               Las órdenes están sujetos a su aceptación por parte de HAIKULANCE,
               a que el usuario cumpla y acepte las CONDICIONES GENERALES DE
@@ -196,8 +196,8 @@ function Condiciones_reserva() {
               para su registro.
             </p>
           </section>
-          <section className="bg-slate-50 hover:bg-slate-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">DERECHO DE DESISTIMIENTO</h2>
+          <section className="tw-bg-slate-50 hover:tw-bg-slate-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">DERECHO DE DESISTIMIENTO</h2>
             <p>
               Las transacciones realizadas en nuestra web, incluyen: viajes,
               actividades y servicios turísticos que se contratan directamente
@@ -209,8 +209,8 @@ function Condiciones_reserva() {
               conocedor antes de aceptar el pago.
             </p>
           </section>
-          <section className="bg-rose-50 hover:bg-rose-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">
+          <section className="tw-bg-rose-50 hover:tw-bg-rose-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">
               NUESTRO DERECHO A MODIFICAR ESTAS CONDICIONES
             </h2>
             <p>
@@ -227,8 +227,8 @@ function Condiciones_reserva() {
               hecho previamente.
             </p>
           </section>
-          <section className="bg-purple-50 hover:bg-purple-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">
+          <section className="tw-bg-purple-50 hover:tw-bg-purple-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">
               PROTECCIÓN DE DATOS DE CARÁCTER PERSONAL{" "}
             </h2>
             <p>
@@ -264,8 +264,8 @@ function Condiciones_reserva() {
               Española de Protección de Datos.
             </p>
           </section>
-          <section className="bg-slate-50 hover:bg-slate-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">EXONERACIÓN DE RESPONSABILIDAD</h2>
+          <section className="tw-bg-slate-50 hover:tw-bg-slate-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">EXONERACIÓN DE RESPONSABILIDAD</h2>
             <p>
               No seremos responsables por ningún incumplimiento o retraso en el
               cumplimiento de alguna de las obligaciones asumidas, cuando el
@@ -275,7 +275,7 @@ function Condiciones_reserva() {
               omisión o accidente que esté fuera de nuestro control razonable y
               entre otros, los siguientes:
             </p>
-            <ul className="my-2">
+            <ul className="tw-my-2">
               <li>
                 (i) Huelgas, cierres patronales u otras medidas reivindicativas.
               </li>
@@ -314,8 +314,8 @@ function Condiciones_reserva() {
               cumplir nuestras obligaciones a pesar de la Causa de Fuerza Mayor.
             </p>
           </section>
-          <section className="bg-teal-50 hover:bg-teal-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">INTEGRIDAD</h2>
+          <section className="tw-bg-teal-50 hover:tw-bg-teal-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">INTEGRIDAD</h2>
             <p>
               Las presentes Condiciones y todo documento a que se haga
               referencia expresa en las mismas constituyen el acuerdo íntegro
@@ -346,8 +346,8 @@ function Condiciones_reserva() {
               dicha declaración de nulidad.
             </p>
           </section>
-          <section className="bg-pink-50 hover:bg-pink-100 transition p-1 shadow  dark:bg-slate-900 text-slate-400 dark:hover:bg-slate-950 ">
-            <h2 className="font-semibold dark:tw-text-white">FUERO Y LEGISLACIÓN APLICABLE</h2>
+          <section className="tw-bg-pink-50 hover:tw-bg-pink-100 tw-transition tw-p-1 tw-shadow dark:tw-bg-slate-900 tw-text-slate-400 dark:hover:tw-bg-slate-950">
+            <h2 className="tw-font-semibold dark:tw-text-white">FUERO Y LEGISLACIÓN APLICABLE</h2>
             <p>
               La venta se entiende efectuada en territorio español, por lo que
               para cuantas cuestiones interpretativas o litigiosas pudieran
@@ -359,7 +359,7 @@ function Condiciones_reserva() {
               presentar una reclamación por alguna incidencia en la relación
               contractual pueden presentar la reclamación oportuna rellenando el
               siguiente formulario electrónico:
-              <a className="tw-text-secondary font-semibold">
+              <a className="tw-text-secondary tw-font-semibold">
                 http://ec.europa.eu/consumers/odr/.
               </a>
             </p>
