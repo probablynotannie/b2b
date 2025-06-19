@@ -1,7 +1,7 @@
 import Buscador from "./filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
-import Listado2 from "../../estructura/hoteles/Listado";
+import Listado_Tablas from "../../estructura/hoteles/Listado";
 import Imagenes from "../../estructura/hoteles/Imgs";
 import Info from "../../estructura/hoteles/Info";
 import Map from "../../estructura/hoteles/Map";
@@ -133,8 +133,8 @@ function Producto() {
               descripcion={producto.descripcion}
             />
           </section>
-          <section className="tw-col-span-5">
-            <Listado2
+          <section className="tw-col-span-5 tw-hidden md:tw-block">
+            <Listado_Tablas
               values={values}
               setValues={setValues}
               minMax={minMax}
@@ -150,7 +150,7 @@ function Producto() {
               aniadirMas={aniadirMas}
             />
           </section>
-          <section className="tw-col-span-5">
+          <section className="tw-col-span-5 tw-block md:tw-hidden">
             <Listado_cajas
               values={values}
               setValues={setValues}
