@@ -48,10 +48,8 @@ function Producto() {
     });
   };
   const anadirProducto = cesta((state) => state.anadirProducto);
-  const vaciar = cesta((state) => state.vaciarCesta);
 
   const aniadirMas = () => {
-    vaciar();
     anadirProducto({
       producto,
       selectedExtras,
