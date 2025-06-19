@@ -98,8 +98,7 @@ const ConfirmModal = ({ setModalOpen, isOpen, masProductos, onConfirm }) => {
   ];
   function continuar(producto) {
      masProductos(); 
-    console.log(producto.link);
-    /* navigate(producto.link); */
+    navigate(producto.link); 
   }
   return (
     <div className="tw-fixed tw-inset-0 tw-bg-black/50 tw-z-50 tw-flex tw-items-center tw-justify-center tw-p-4">
