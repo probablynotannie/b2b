@@ -4,19 +4,30 @@ export default function formatearFecha(fecha) {
         "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
     ];
 
-    // Convert Date object to parts
     let dateObj;
+
     if (fecha instanceof Date) {
         dateObj = fecha;
     } else if (typeof fecha === "string") {
-        dateObj = new Date(fecha);
+        // Intentar primero con el formato DD/MM/YYYY
+        const matchDMY = fecha.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
+        if (matchDMY) {
+            const [ , dia, mes, año ] = matchDMY.map(Number);
+            dateObj = new Date(año, mes - 1, dia);
+        } else {
+            // Intentar con Date.parse() si es otro formato (como YYYY-MM-DD)
+            const parsed = new Date(fecha);
+            if (!isNaN(parsed)) {
+                dateObj = parsed;
+            }
+        }
     } else {
-        console.warn("formatearFecha: fecha inválida", fecha);
+        console.warn("formatearFecha: tipo de fecha no válido", fecha);
         return "";
     }
 
-    if (isNaN(dateObj)) {
-        console.warn("formatearFecha: fecha inválida (NaN)", fecha);
+    if (!dateObj || isNaN(dateObj)) {
+        console.warn("formatearFecha: fecha inválida", fecha);
         return "";
     }
 

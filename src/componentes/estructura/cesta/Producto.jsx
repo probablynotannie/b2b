@@ -1,17 +1,16 @@
 import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import Iconos from "./Iconos";
-import { FaPerson } from "react-icons/fa6";
 import ModalEliminar from "./ModalEliminar";
 function Producto({ producto, onRemove, index }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
   return (
-    <div className="tw-flex tw-gap-3 tw-py-3 hover:tw-bg-slate-100 dark:tw-bg-slate-800 tw-smooth tw-group tw-p-2">
+    <div className="tw-flex tw-gap-3 tw-py-3 hover:tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded tw-smooth tw-group tw-p-2">
       <img
         src={producto.img}
         alt={producto.nombre || "Producto"}
-        className="tw-w-28 tw-h-full tw-object-cover tw-rounded-lg"
+        className="tw-w-28 tw-object-cover tw-rounded-lg"
       />
       <div className="tw-w-full">
         <div className="tw-flex tw-justify-between tw-items-center">
@@ -28,13 +27,15 @@ function Producto({ producto, onRemove, index }) {
               <FaCalendarAlt />
               <p className="tw-text-sm">{producto.fecha}</p>
             </li>
-            <li className="tw-flex tw-items-center tw-gap-1 tw-text-sm">
-              {producto.pax}
-            </li>
+            {producto.pax && (
+              <li className="tw-flex tw-items-center tw-gap-1 tw-text-sm">
+                {producto.pax}
+              </li>
+            )}
             {producto.ubicacion && <li>{producto.ubicacion}</li>}
           </ul>
           <div className="tw-flex tw-justify-between tw-items-center">
-            <span className="tw-font-semibold group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark dark:tw-text-slate-400 tw-smooth">
+            <span className="tw-font-semibold group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark dark:tw-text-slate-100 tw-smooth">
               Total: {producto.precio.toFixed(2)}€
             </span>
             <button

@@ -22,7 +22,6 @@ function Producto() {
     setModalMasProductos(true);
   };
   const navigate = useNavigate();
-
   const anadirProducto = cesta((state) => state.anadirProducto);
   const aniadirMas = () => {
     anadirProducto({
