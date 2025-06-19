@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import Fecha from "../../../../inputs/Fecha";
 import Origen from "../../../../inputs/Destinos";
 import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
@@ -6,6 +7,7 @@ import { useNavigate } from "react-router-dom";
 import Datos_Destino from "../../../../../helpers/destinos.json";
 import cesta from "../../../../estructura/cesta/Zustand";
 import formatearFecha from "../../../../../helpers/FormatearFecha";
+import AnadirMasProductos from "../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 const Eleccion = ({
   fecha,
   habitacion,
@@ -15,59 +17,102 @@ const Eleccion = ({
   actividad,
 }) => {
   const navigate = useNavigate();
+  const [modalOpen, setModalOpen] = useState(false);
+  const [formData, setFormData] = useState(null);
+  useEffect(() => {
+    if (modalOpen) {
+      const scrollbarWidth =
+        window.innerWidth - document.documentElement.clientWidth;
+      document.body.style.overflow = "hidden";
+      document.body.style.paddingRight = `${scrollbarWidth}px`;
+    } else {
+      document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0px";
+    }
+
+    return () => {
+      document.body.style.overflow = "auto";
+      document.body.style.paddingRight = "0px";
+    };
+  }, [modalOpen]);
+
   const {
     handleSubmit,
     setValue,
     control,
     formState: { errors },
   } = useForm();
+
   const anadirProducto = cesta((state) => state.anadirProducto);
-  const productos = cesta((state) => state.productos);
+
   const onSubmit = (data) => {
+    setFormData(data);
+    setModalOpen(true);
+  };
+
+  const aniadirMas = () => {
     anadirProducto({
       ...actividad,
-      fecha: formatearFecha(data.fecha),
+      fecha: formatearFecha(formData.fecha),
       titulo: actividad.titulo,
       img: actividad.img,
       pax: 2,
       type: 12,
       habitacion,
       roomData,
-      data,
+      data: formData,
     });
+    setModalOpen(false);
+  };
+
+  const handleAddAndNavigate = () => {
     navigate("/datosCircuito", {
-      state: { datosForm: data, actividad, habitacion, roomData },
+      state: {
+        datosForm: formData,
+        actividad,
+        habitacion,
+        roomData,
+      },
     });
   };
 
   return (
-    <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
-      <Origen
-        required={true}
-        datos={Datos_Destino}
-        name="destino"
-        control={control}
-        placeholder="Selecciona un destino"
+    <>
+      <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
+        <Origen
+          required={true}
+          datos={Datos_Destino}
+          name="destino"
+          control={control}
+          placeholder="Selecciona un destino"
+        />
+        <Fecha
+          required={true}
+          fecha={fecha}
+          name={"fecha"}
+          setValue={setValue}
+          control={control}
+        />
+        <Input_Hab_Ad_Ni
+          habitacion={habitacion}
+          setHabitacion={setHabitacion}
+          roomData={roomData}
+          setRoomData={setRoomData}
+        />
+        <button
+          type="submit"
+          className="tw-btn_accesorios tw-btn_primario tw-w-full"
+        >
+          {actividad.precio.toFixed(2)}€
+        </button>
+      </form>
+      <AnadirMasProductos
+        isOpen={modalOpen}
+        setModalOpen={setModalOpen}
+        onAltAction={aniadirMas}
+        onConfirm={handleAddAndNavigate}
       />
-      <Fecha
-        required={true}
-        fecha={fecha}
-        name={"fecha"}
-        setValue={setValue}
-        control={control}
-      />
-
-      <Input_Hab_Ad_Ni
-        habitacion={habitacion}
-        setHabitacion={setHabitacion}
-        roomData={roomData}
-        setRoomData={setRoomData}
-      />
-
-      <button className="tw-btn_accesorios tw-btn_primario tw-w-full">
-        {actividad.precio.toFixed(2)}€
-      </button>
-    </form>
+    </>
   );
 };
 
