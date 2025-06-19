@@ -3,6 +3,8 @@ import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { Modal } from "flowbite-react";
 import { Link } from "react-router-dom";
+import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
+
 function Listado({
   values,
   setValues,
@@ -14,6 +16,12 @@ function Listado({
   setHotel,
   setOpenModal,
   setHabitacion,
+  setHabitacionSeleccionada,
+  modalMasProductos,
+  setModalMasProductos,
+  confirmacion,
+  aniadirMas,
+  sinProductosAdicionales,
 }) {
   const [selectedHabitacion, setSelectedHabitacion] = useState(null);
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -92,11 +100,15 @@ function Listado({
                 {habitacion.precio}€
               </button>
             ) : (
-              <Link to={"/datosHotel"} state={{ producto, habitacion }}>
-                <button className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2  tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl">
-                  {habitacion.precio}€
-                </button>
-              </Link>
+              <button
+                onClick={() => {
+                  setHabitacionSeleccionada(habitacion);
+                  confirmacion(habitacion);
+                }}
+                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2  tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
+              >
+                {habitacion.precio}€
+              </button>
             )}
           </div>
         ))}
@@ -132,6 +144,12 @@ function Listado({
           </button>
         </Modal.Footer>
       </Modal>
+      <AnadirMasProductos
+        isOpen={modalMasProductos}
+        setModalMasProductos={setModalMasProductos}
+        masProductos={aniadirMas}
+        onConfirm={sinProductosAdicionales}
+      />
     </div>
   );
 }

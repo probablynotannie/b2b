@@ -90,7 +90,7 @@ function SelectorPersonas({
           placement="right"
           aria-labelledby="default-popover"
           content={
-            <div className="tw-w-96 tw-text-sm tw-bg-slate-100 dark:tw-border-slate-700 tw-bg-slate-700 tw-border-2 tw-rounded-lg">
+            <div className="tw-w-96 tw-text-sm tw-bg-slate-100 dark:tw-border-slate-700 dark:tw-bg-slate-700 tw-border-2 tw-rounded-lg">
               <div className="tw-bg-slate-800 tw-rounded-t-lg dark:tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
                 Adultos / Niños
               </div>

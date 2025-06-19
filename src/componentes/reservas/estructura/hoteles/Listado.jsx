@@ -4,26 +4,28 @@ import { FaBed } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaCheck } from "react-icons/fa";
-import { Link } from "react-router-dom";
+import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
 
 function Listado({
   values,
   setValues,
   minMax,
-  producto,
   habitaciones,
   seleccion,
   hotel,
   setHotel,
   setOpenModal,
   setHabitacion,
+  
+  setHabitacionSeleccionada,
+  modalMasProductos,
+  setModalMasProductos,
+  confirmacion,
+  aniadirMas,
+  sinProductosAdicionales
 }) {
+ 
   const [expandedPenaltyId, setExpandedPenaltyId] = useState(null);
-  const prices = habitaciones.map((habitacion) =>
-    parseFloat(habitacion.precio)
-  );
-  const minPrice = Math.min(...prices);
-  const maxPrice = Math.max(...prices);
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
   };
@@ -134,16 +136,28 @@ function Listado({
                     {habitacion.precio}€
                   </button>
                 ) : (
-                  <Link to={"/datoshotel"} state={{ producto, habitacion }}>
-                    <button className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg">
-                      {habitacion.precio}€
+                  <>
+                    <button
+                      onClick={() => {
+                        setHabitacionSeleccionada(habitacion);
+                        confirmacion(habitacion);
+                      }}
+                      className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg"
+                    >
+                      {habitacion.precio.toFixed(2)}€
                     </button>
-                  </Link>
+                  </>
                 )}
               </td>
             </tr>
           ))}
         </tbody>
+        <AnadirMasProductos
+          isOpen={modalMasProductos}
+          setModalMasProductos={setModalMasProductos}
+          masProductos={aniadirMas}
+          onConfirm={sinProductosAdicionales}
+        />
       </table>
     </div>
   );

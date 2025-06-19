@@ -28,10 +28,10 @@ function Producto({ producto, onRemove, index }) {
               <FaCalendarAlt />
               <p className="tw-text-sm">{producto.fecha}</p>
             </li>
-            <li className="tw-flex tw-items-center tw-gap-1">
-              <FaPerson />
-              <p className="tw-text-sm">PAX: {producto.pax}x</p>
+            <li className="tw-flex tw-items-center tw-gap-1 tw-text-sm">
+              {producto.pax}
             </li>
+            {producto.ubicacion && <li>{producto.ubicacion}</li>}
           </ul>
           <div className="tw-flex tw-justify-between tw-items-center">
             <span className="tw-font-semibold group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark dark:tw-text-slate-400 tw-smooth">

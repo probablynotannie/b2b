@@ -2,6 +2,7 @@ import { create } from "zustand";
 import { persist } from "zustand/middleware";
 
 const cesta = create(
+
   persist(
     (set) => ({
       productos: [],

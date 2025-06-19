@@ -7,7 +7,7 @@ function ModalEliminar({ isOpen, onClose, onConfirm, producto }) {
     <div className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black/50">
       <div className="tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-md tw-p-6">
         <h2 className="tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-white mb-4">
-          ¿Estás seguro de que deseas eliminar este producto?
+          ¿Deseas eliminar este producto?
         </h2>
         <Info img={producto.img} txt={producto.titulo} />
 

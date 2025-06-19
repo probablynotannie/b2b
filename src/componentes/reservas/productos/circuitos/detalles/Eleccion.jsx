@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Fecha from "../../../../inputs/Fecha";
 import Origen from "../../../../inputs/Destinos";
 import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
@@ -19,22 +19,7 @@ const Eleccion = ({
   const navigate = useNavigate();
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState(null);
-  useEffect(() => {
-    if (modalOpen) {
-      const scrollbarWidth =
-        window.innerWidth - document.documentElement.clientWidth;
-      document.body.style.overflow = "hidden";
-      document.body.style.paddingRight = `${scrollbarWidth}px`;
-    } else {
-      document.body.style.overflow = "auto";
-      document.body.style.paddingRight = "0px";
-    }
 
-    return () => {
-      document.body.style.overflow = "auto";
-      document.body.style.paddingRight = "0px";
-    };
-  }, [modalOpen]);
 
   const {
     handleSubmit,
@@ -56,7 +41,7 @@ const Eleccion = ({
       fecha: formatearFecha(formData.fecha),
       titulo: actividad.titulo,
       img: actividad.img,
-      pax: 2,
+      pax: "2x",
       type: 12,
       habitacion,
       roomData,
@@ -65,7 +50,7 @@ const Eleccion = ({
     setModalOpen(false);
   };
 
-  const handleAddAndNavigate = () => {
+  const sinProductosAdicionales = () => {
     navigate("/datosCircuito", {
       state: {
         datosForm: formData,
@@ -109,8 +94,8 @@ const Eleccion = ({
       <AnadirMasProductos
         isOpen={modalOpen}
         setModalOpen={setModalOpen}
-        onAltAction={aniadirMas}
-        onConfirm={handleAddAndNavigate}
+        masProductos={aniadirMas}
+        onConfirm={sinProductosAdicionales}
       />
     </>
   );

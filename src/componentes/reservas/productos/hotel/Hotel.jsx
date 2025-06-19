@@ -9,11 +9,56 @@ import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
 import Head from "../../estructura/ProductoHeader";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import cesta from "../../../estructura/cesta/Zustand";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const [habitacionSeleccionada, setHabitacionSeleccionada] = useState();
+  const [modalMasProductos, setModalMasProductos] = useState(false);
+  const confirmacion = () => {
+    setModalMasProductos(true);
+  };
+  const navigate = useNavigate();
+
+  const anadirProducto = cesta((state) => state.anadirProducto);
+  const aniadirMas = () => {
+    anadirProducto({
+      ...habitacionSeleccionada,
+      fecha: producto.fecha + " " + producto.fechaSalida,
+      titulo: producto.nombre,
+      ubicacion: producto.direccion,
+      precio: habitacionSeleccionada.precio,
+      img: "/banners/banner_hoteles.webp",
+      pax: (
+        <ul className="tw-text-sm tw-flex tw-items-center tw-gap-1">
+          <li className="tw-flex tw-items-center tw-gap-1">
+            <FaPerson />
+            {producto.pax}x Adultos
+          </li>
+          <FaChild />
+          {producto.pax_ninios && (
+            <li className="tw-flex tw-items-center tw-gap-1">
+              {producto.pax_ninios}x Niños{" "}
+            </li>
+          )}
+        </ul>
+      ),
+      type: 1,
+    });
+    setModalMasProductos(false);
+  };
+  const sinProductosAdicionales = () => {
+    console.log(habitacionSeleccionada.regimen);
+    navigate("/datosHotel", {
+      state: {
+        producto,
+        habitacion: habitacionSeleccionada,
+      },
+    });
+  };
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-my-10  tw-px-5 md:tw-px-0">
       <div className="tw-container">
@@ -95,6 +140,14 @@ function Producto() {
               minMax={minMax}
               producto={producto}
               habitaciones={producto.habitaciones}
+              /* cositas de zustand */
+              habitacionSeleccionada={habitacionSeleccionada}
+              setHabitacionSeleccionada={setHabitacionSeleccionada}
+              modalMasProductos={modalMasProductos}
+              setModalMasProductos={setModalMasProductos}
+              confirmacion={confirmacion}
+              sinProductosAdicionales={sinProductosAdicionales}
+              aniadirMas={aniadirMas}
             />
           </section>
           <section className="tw-col-span-5">
@@ -104,6 +157,14 @@ function Producto() {
               minMax={minMax}
               producto={producto}
               habitaciones={producto.habitaciones}
+              /* cositas de zustand */
+              habitacionSeleccionada={habitacionSeleccionada}
+              setHabitacionSeleccionada={setHabitacionSeleccionada}
+              modalMasProductos={modalMasProductos}
+              setModalMasProductos={setModalMasProductos}
+              confirmacion={confirmacion}
+              sinProductosAdicionales={sinProductosAdicionales}
+              aniadirMas={aniadirMas}
             />
           </section>
           <section className="tw-col-span-5">
