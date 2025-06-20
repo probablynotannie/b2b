@@ -14,8 +14,8 @@ function Detalles({ producto, datosContacto }) {
       <DatosContacto
         nombre={datosContacto.nombre}
         apellidos={datosContacto.apellido}
-        numero={datosContacto.email}
-        email={datosContacto.tel}
+        numero={datosContacto.numero}
+        email={datosContacto.email}
       />
 
       <section className="h-full mt-5 lg:mt-5 tw-space-y-8">

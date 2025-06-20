@@ -5,7 +5,7 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
-
+import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
@@ -39,30 +39,7 @@ function Datos() {
             Datos Contacto
           </h2>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <Input_Texto
-              tipo={"Nombre"}
-              name="nombre"
-              register={register}
-              errors={errors}
-            />
-            <Input_Texto
-              tipo={"Apellido"}
-              name="apellido"
-              register={register}
-              errors={errors}
-            />
-            <Input_Numero
-              tipo="numero"
-              register={register}
-              errors={errors}
-              name="numero"
-            />
-            <Input_Email
-              tipo="email"
-              register={register}
-              errors={errors}
-              name="email"
-            />
+            <DatosContacto register={register} errors={errors} />
           </div>
           <Reserva
             img={img}
