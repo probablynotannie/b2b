@@ -1,8 +1,7 @@
 import Reserva from "../../../datos/Reserva";
 import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
-import Input_Numero from "../../../../inputs/Numero";
-import Input_Email from "../../../../inputs/Email";
+import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import { useState } from "react";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { useNavigate } from "react-router-dom";
@@ -51,7 +50,7 @@ function Datos() {
       >
         <Controller
           control={control}
-          name={`pasajeros[${index}].nombre`} 
+          name={`pasajeros[${index}].nombre`}
           render={({ field }) => (
             <Input_Texto
               required={true}
@@ -116,30 +115,7 @@ function Datos() {
             Datos Contacto
           </h1>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <Input_Texto
-              tipo={"Nombre"}
-              name="nombre"
-              register={register}
-              errors={errors}
-            />
-            <Input_Texto
-              tipo={"Apellido"}
-              name="apellido"
-              register={register}
-              errors={errors}
-            />
-            <Input_Numero
-              tipo="numero"
-              register={register}
-              errors={errors}
-              name="numero"
-            />
-            <Input_Email
-              tipo="email"
-              register={register}
-              errors={errors}
-              name="email"
-            />
+            <DatosContacto register={register} errors={errors} />
           </div>
           <h2 className="tw-font-semibold tw-mt-5 dark:tw-text-white">
             Datos Pasajeros

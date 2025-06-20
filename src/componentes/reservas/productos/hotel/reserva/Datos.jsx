@@ -1,8 +1,5 @@
 /* HOTEL */
 import Reserva from "../../../datos/Reserva";
-import Input_Texto from "../../../../inputs/Texto";
-import Input_Numero from "../../../../inputs/Numero";
-import Input_Email from "../../../../inputs/Email";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";

@@ -7,24 +7,28 @@ function InputsContacto({ register, errors }) {
   return (
     <>
       <Input_Texto
+        required={true}
         tipo="Nombre"
         name="nombre"
         register={register}
         errors={errors}
       />
       <Input_Texto
+        required={true}
         tipo="Apellido"
         name="apellido"
         register={register}
         errors={errors}
       />
       <Input_Numero
+        required={true}
         tipo="numero"
         name="numero"
         register={register}
         errors={errors}
       />
       <Input_Email
+        required={true}
         tipo="email"
         name="email"
         register={register}

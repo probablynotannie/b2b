@@ -1,12 +1,10 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Reserva from "../../../datos/Reserva";
 import Input_Texto from "../../../../inputs/Texto";
-import Input_Numero from "../../../../inputs/Numero";
-import Input_Email from "../../../../inputs/Email";
+import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useState } from "react";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
 import { useForm } from "react-hook-form";
 
 function Vuelo() {
@@ -92,34 +90,7 @@ function Vuelo() {
             Datos Contacto
           </h1>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <Input_Texto
-              required={true}
-              tipo={"Nombre"}
-              name="nombre"
-              register={register}
-              errors={errors}
-            />
-            <Input_Texto
-              required={true}
-              tipo={"Apellido"}
-              name="apellido"
-              register={register}
-              errors={errors}
-            />
-            <Input_Numero
-              required={true}
-              tipo="numero"
-              register={register}
-              errors={errors}
-              name="numero"
-            />
-            <Input_Email
-              required={true}
-              tipo="email"
-              register={register}
-              errors={errors}
-              name="email"
-            />
+            <DatosContacto register={register} errors={errors} />
           </div>
 
           <Reserva
@@ -137,10 +108,7 @@ function Vuelo() {
             {renderPassengerFields()}
           </div>
           <div className="tw-flex tw-justify-end">
-            <button
-              type="submit"
-              className="tw-btn_primario tw-btn_accesorios"
-            >
+            <button type="submit" className="tw-btn_primario tw-btn_accesorios">
               Reservar
             </button>
           </div>

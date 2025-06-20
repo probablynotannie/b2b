@@ -5,7 +5,6 @@ import Input_Numero from "../../../../inputs/Numero";
 import Input_Email from "../../../../inputs/Email";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
-import { useForm } from "react-hook-form";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
@@ -58,19 +57,9 @@ function Datos() {
               name="email"
             />
           </div>
-          <Reserva
-            img={img}
-            position={"center"}
-            tipo={coche.name}
-            itinerario={
-              coche.route.origin.name + " - " + coche.route.destination.name
-            }
-          />
+          <Reserva img={img} position={"center"} tipo="" itinerario="Ferry" />
           <div className="tw-flex tw-justify-end">
-            <button
-              type="submit"
-              className="tw-btn_primario tw-btn_accesorios"
-            > 
+            <button type="submit" className="tw-btn_primario tw-btn_accesorios">
               Reservar
             </button>
           </div>

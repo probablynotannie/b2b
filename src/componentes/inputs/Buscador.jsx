@@ -92,7 +92,7 @@ function Buscador({
         )}
       />
       {isDropdownOpen && (
-        <div className="tw-absolute tw-z-10 tw-w-full tw-bg-slate-50 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
+        <div className="tw-absolute tw-top-9 tw-z-10 tw-w-full tw-bg-slate-50 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
           {loading ? (
             <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-text-slate-500">
               Cargando...
