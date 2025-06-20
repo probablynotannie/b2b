@@ -41,7 +41,7 @@ const Eleccion = ({
       fecha: formatearFecha(formData.fecha),
       titulo: actividad.titulo,
       img: actividad.img,
-      pax: "2x",
+      pax: 2,
       type: 12,
       habitacion,
       roomData,

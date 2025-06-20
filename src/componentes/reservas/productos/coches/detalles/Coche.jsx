@@ -55,31 +55,17 @@ function Producto() {
       selectedExtras,
       conductor,
       ...(contratar && { reembolso }),
-      fecha: (
-        <span>
-          {formatearFecha(producto.recogida.fecha)} -
-          {formatearFecha(producto.devolucion.fecha)}
-        </span>
-      ),
+      fecha:
+        formatearFecha(producto.recogida.fecha) +
+        " - " +
+        formatearFecha(producto.devolucion.fecha),
       titulo: producto.nombre,
-      ubicacion: (
-        <div className="tw-flex tw-flex-col">
-          <div className="tw-flex tw-gap-2 tw-text-sm">
-            <span className="tw-font-semibold"> Recogida:</span>
-            <p className="tw-flex tw-items-center">
-              {producto.recogida.lugar}
-            </p>
-            {producto.recogida.hora}
-          </div>
-          <div className="tw-flex tw-gap-2 tw-text-sm">
-            <span className="tw-font-semibold">Devolución: </span>
-            <p className="tw-flex tw-items-center">
-              {producto.devolucion.lugar}
-            </p>
-            {producto.devolucion.hora}
-          </div>
-        </div>
-      ),
+      ubicacion: [
+        producto.recogida?.lugar && `Recogida: ${producto.recogida.lugar}`,
+        producto.recogida?.hora && `a las ${producto.recogida.hora}`,
+        producto.devolucion?.lugar &&
+          `Devolución: ${producto.devolucion.lugar}`,
+      ],
       precio: precio,
       img: producto.img,
       type: 5,

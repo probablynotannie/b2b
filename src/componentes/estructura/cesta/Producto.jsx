@@ -29,7 +29,7 @@ function Producto({ producto, onRemove, index }) {
             </li>
             {producto.pax && (
               <li className="tw-flex tw-items-center tw-gap-1 tw-text-sm">
-                {producto.pax}
+                {producto.pax}x
               </li>
             )}
             {producto.ubicacion && <li>{producto.ubicacion}</li>}

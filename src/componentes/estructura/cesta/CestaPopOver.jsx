@@ -8,7 +8,7 @@ import { useState } from "react";
 import ModalEliminar from "./ModalEliminar";
 const ProductoItem = ({ producto, index, onRemove }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(producto);
+  console.log(producto.pax);
   return (
     <div
       className={`dark:tw-bg-slate-900 tw-px-2 ${
@@ -18,9 +18,7 @@ const ProductoItem = ({ producto, index, onRemove }) => {
     >
       <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-50 dark:tw-bg-slat tw-p-2 dark:tw-bg-slate-900">
         <Iconos tipo={producto.type} />
-        <span className="tw-text-xs tw-font-semibold tw-text-black dark:tw-text-green-500 tw-p-1 tw-rounded-lg">
-          {producto.pax}
-        </span>
+        {producto.pax && producto.pax + "x"}
       </div>
       <div
         key={index}
@@ -41,7 +39,7 @@ const ProductoItem = ({ producto, index, onRemove }) => {
           </p>
           <div className="tw-flex tw-justify-between">
             <span className="tw-text-primary tw-font-bold tw-text-lg tw-mt-1 dark:tw-text-secondaryDark">
-              {producto.precio ? producto.precio.toFixed(2) : "145"}€
+              {producto.precio ? producto.precio.toFixed(2) : ""}€
             </span>
             <button
               onClick={() => setIsModalOpen(true)}

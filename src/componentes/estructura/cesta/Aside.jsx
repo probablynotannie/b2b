@@ -10,7 +10,11 @@ function Aside({ producto }) {
         <p className="tw-pl-2">
           <Iconos tipo={producto.type} />
         </p>
-        <span className="tw-text-xs dark:tw-text-slate-200">{producto.pax}</span>
+        {producto.pax && (
+          <span className="tw-text-xs dark:tw-text-slate-200">
+            {producto.pax}x
+          </span>
+        )}
       </div>
     </div>
   );

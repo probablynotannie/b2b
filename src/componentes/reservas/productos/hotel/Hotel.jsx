@@ -16,6 +16,7 @@ function Producto() {
   const producto = location.state;
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const pax = producto.pax + producto.pax_ninios;
   const [habitacionSeleccionada, setHabitacionSeleccionada] = useState();
   const [modalMasProductos, setModalMasProductos] = useState(false);
   const confirmacion = () => {
@@ -31,20 +32,8 @@ function Producto() {
       ubicacion: producto.direccion,
       precio: habitacionSeleccionada.precio,
       img: "/banners/banner_hoteles.webp",
-      pax: (
-        <ul className="tw-text-sm tw-flex tw-items-center tw-gap-1">
-          <li className="tw-flex tw-items-center tw-gap-1">
-            <FaPerson />
-            {producto.pax}x Adultos
-          </li>
-          <FaChild />
-          {producto.pax_ninios && (
-            <li className="tw-flex tw-items-center tw-gap-1">
-              {producto.pax_ninios}x Niños{" "}
-            </li>
-          )}
-        </ul>
-      ),
+      pax: pax,
+
       type: 1,
     });
     setModalMasProductos(false);
