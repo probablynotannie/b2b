@@ -13,7 +13,6 @@ function Datos() {
   const img = actividad.img;
   const fechaIda = formatearFecha(datosForm.fecha);
   const navigate = useNavigate();
-
   const {
     register,
     handleSubmit,

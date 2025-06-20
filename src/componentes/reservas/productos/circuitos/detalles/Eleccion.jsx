@@ -27,7 +27,7 @@ const Eleccion = ({
     control,
     formState: { errors },
   } = useForm();
-
+ 
   const anadirProducto = cesta((state) => state.anadirProducto);
 
   const onSubmit = (data) => {

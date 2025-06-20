@@ -1,6 +1,7 @@
 import DatosContacto from "../../../estructura/DatosContacto";
 import HotelDetalles from "../../hotel/final/Hotel";
 import CocheDetalles from "../../coches/final/Coche";
+import CircuitoDetalles from "../../circuitos/final/Circuito";
 function Detalles({ datosContacto, productos }) {
   const typeComponentMap = {
     1: (producto) => (
@@ -12,6 +13,15 @@ function Detalles({ datosContacto, productos }) {
         conductor={producto.conductor}
         precio={producto.precio}
         extras={producto.selectedExtras}
+      />
+    ),
+    12: (producto) => (
+      <CircuitoDetalles
+        actividad={producto}
+        fechaIda={producto.fecha}
+        adultos={2}
+        ninios={4}
+        habitacion={producto.habitacion}
       />
     ),
   };
