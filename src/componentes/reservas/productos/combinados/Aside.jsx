@@ -1,4 +1,4 @@
-import Iconos from "./Iconos";
+import Iconos from "../../../estructura/cesta/Iconos";
 
 function Aside({ producto }) {
   return (

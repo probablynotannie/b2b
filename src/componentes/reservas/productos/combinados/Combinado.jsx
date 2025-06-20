@@ -1,7 +1,9 @@
 import Producto from "./Producto";
-import cesta from "./Zustand";
+import cesta from "../../../estructura/cesta/Zustand";
 import Aside from "./Aside";
+import { useNavigate } from "react-router-dom";
 function CestaCompleta() {
+  const navigate = useNavigate();
   const productos = cesta((state) => state.productos);
   const removeProducto = cesta((state) => state.removeProducto);
   const total = calcularTotalPrecios(productos);
@@ -11,6 +13,14 @@ function CestaCompleta() {
     }, 0);
     return total.toFixed(2);
   }
+  const siguienteApartado = () => {
+    navigate("/datosCombinado", {
+      state: {
+        productos: productos,
+        total: total,
+      },
+    });
+  };
 
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 lg:tw-gap-12">
@@ -51,7 +61,10 @@ function CestaCompleta() {
                 <Aside key={index} producto={producto} />
               ))}
             </div>
-            <button className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2">
+            <button
+              onClick={siguienteApartado}
+              className="tw-w-full tw-bg-secondary dark:tw-bg-green-600 tw-rounded-lg hover:tw-shadow-lg tw-transition tw-duration-300 tw-text-white tw-p-3 tw-font-semibold tw-mt-2"
+            >
               {total}€
             </button>
           </div>

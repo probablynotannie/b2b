@@ -53,7 +53,7 @@ const Iconos = ({ tipo }) => {
           }`}
         />
       ))}
-      <span className="tw-ml-3 tw-text-xs tw-font-semibold tw-text-slate-500 dark:tw-text-slate-300 group-hover:tw-text-secondary tw-smooth">
+      <span className="tw-ml-3 tw-text-xs tw-font-semibold group-hover:tw-text-secondary tw-smooth">
         {texto}
       </span>
     </div>

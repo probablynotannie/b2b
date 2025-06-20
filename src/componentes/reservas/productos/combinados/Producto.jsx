@@ -1,7 +1,7 @@
 import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import { useState } from "react";
-import Iconos from "./Iconos";
-import ModalEliminar from "./ModalEliminar";
+import Iconos from "../../../estructura/cesta/Iconos";
+import ModalEliminar from "../../../estructura/cesta/ModalEliminar";
 function Producto({ producto, onRemove, index }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -17,9 +17,9 @@ function Producto({ producto, onRemove, index }) {
           <h3 className="tw-font-bold tw-text-secondary dark:tw-text-secondaryDark">
             {producto.titulo}
           </h3>
-          <span>
+          <div className="tw-text-slate-500 dark:tw-text-slate-300">
             <Iconos tipo={producto.type} />
-          </span>
+          </div>
         </div>
         <div className="tw-pl-3">
           <ul className="tw-text-slate-500 dark:tw-text-slate-400">

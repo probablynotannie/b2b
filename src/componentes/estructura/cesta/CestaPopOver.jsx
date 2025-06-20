@@ -16,8 +16,10 @@ const ProductoItem = ({ producto, index, onRemove }) => {
         "tw-border-t tw-border-slate-200 dark:tw-border-slate-700 "
       }`}
     >
-      <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-50 dark:tw-bg-slat tw-p-2 dark:tw-bg-slate-900">
-        <Iconos tipo={producto.type} />
+      <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-50 tw-p-2 dark:tw-bg-slate-900">
+        <div className="tw-text-slate-500 dark:tw-text-slate-300">
+          <Iconos tipo={producto.type} />
+        </div>
         {producto.pax && producto.pax + "x"}
       </div>
       <div
