@@ -1,4 +1,3 @@
-import DatosContacto from "../../../estructura/DatosContacto";
 import HotelDetalles from "../../hotel/final/Hotel";
 import CocheDetalles from "../../coches/final/Coche";
 import CircuitoDetalles from "../../circuitos/final/Circuito";
@@ -31,12 +30,7 @@ function Detalles({ datosContacto, productos }) {
   };
   return (
     <div>
-      <DatosContacto
-        nombre={datosContacto.nombre}
-        apellidos={datosContacto.apellido}
-        numero={datosContacto.numero}
-        email={datosContacto.email}
-      />
+      
       <div>
         {productos.map((producto) => {
           const componenteAMostrar = typeComponentMap[producto.type];
