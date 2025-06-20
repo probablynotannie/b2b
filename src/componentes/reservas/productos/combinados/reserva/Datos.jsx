@@ -10,7 +10,7 @@ function Datos() {
   const img = "/banners/banner_hoteles.webp";
   const navigate = useNavigate();
   const extras = (
-    <div className="tw-flex tw-gap-2 tw-text-sm tw-text-slate-500 dark:tw-text-slate-300">
+    <div className="tw-flex tw-flex-wrap tw-gap-2 tw-text-sm tw-text-slate-500 dark:tw-text-slate-300">
       {productos.map((producto) => (
         <div
           key={producto.id}
@@ -28,11 +28,10 @@ function Datos() {
   } = useForm();
 
   const onSubmit = (data) => {
-    navigate("/reservaCombinado", {
+    navigate("/resumenCombinados", {
       state: { data, productos, total },
     });
   };
-  console.log("Datos de reserva:", productos, total);
 
   return (
     <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
@@ -51,7 +50,7 @@ function Datos() {
             itinerario={productos.length + " Productos"}
             extras={extras}
           />
-          <div className="tw-flex tw-justify-end tw-mt-5">
+          <div className="tw-flex tw-justify-end">
             <button className="tw-btn_primario tw-btn_accesorios">
               Reservar
             </button>

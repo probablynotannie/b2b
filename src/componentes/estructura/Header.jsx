@@ -112,6 +112,7 @@ import ResumenSeguro from "../reservas/productos/seguro/final/ResumenFinal";
 import ResumenTickets from "../reservas/productos/tickets/final/ResumenFinal";
 import ResumenTren from "../reservas/productos/trenes/final/ResumenFinal";
 import ResumenVuelo from "../reservas/productos/vuelos/final/ResumenFinal";
+import ResumenCombinado from "../reservas/productos/combinados/reserva/ReservaFinal";
 /* Consultar las reservas */
 import Listado_reservas_hoteles from "../consultaReservas/hoteles/Resultado";
 import Listado_reservas_coches from "../consultaReservas/coches/Resultado";
@@ -307,6 +308,7 @@ function Header() {
         <Route path="/resumenTickets" element={<ResumenTickets />} />
         <Route path="/resumenTren" element={<ResumenTren />} />
         <Route path="/resumenVuelo" element={<ResumenVuelo />} />
+        <Route path="/resumenCombinados" element={<ResumenCombinado />} />
 
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />

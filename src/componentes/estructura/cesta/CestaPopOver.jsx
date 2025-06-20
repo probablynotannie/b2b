@@ -11,16 +11,20 @@ const ProductoItem = ({ producto, index, onRemove }) => {
   console.log(producto.pax);
   return (
     <div
-      className={`dark:tw-bg-slate-900 tw-px-2 ${
+      className={`tw-group tw-px-2 tw-cursor-default ${
         index !== 0 &&
         "tw-border-t tw-border-slate-200 dark:tw-border-slate-700 "
       }`}
     >
-      <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-50 tw-p-2 dark:tw-bg-slate-900">
+      <div className="tw-flex tw-justify-between tw-items-center tw-p-2">
         <div className="tw-text-slate-500 dark:tw-text-slate-300">
           <Iconos tipo={producto.type} />
         </div>
-        {producto.pax && producto.pax + "x"}
+        {producto.pax && (
+          <span className="tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm">
+            pax: {producto.pax}x
+          </span>
+        )}
       </div>
       <div
         key={index}
@@ -40,7 +44,7 @@ const ProductoItem = ({ producto, index, onRemove }) => {
             {producto.fecha}
           </p>
           <div className="tw-flex tw-justify-between">
-            <span className="tw-text-primary tw-font-bold tw-text-lg tw-mt-1 dark:tw-text-secondaryDark">
+            <span className="tw-text-primary tw-font-bold tw-text-lg tw-mt-1 dark:tw-text-slate-200 group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-smooth">
               {producto.precio ? producto.precio.toFixed(2) : ""}€
             </span>
             <button

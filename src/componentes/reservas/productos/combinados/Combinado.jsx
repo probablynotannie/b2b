@@ -2,6 +2,8 @@ import Producto from "./Producto";
 import cesta from "../../../estructura/cesta/Zustand";
 import Aside from "./Aside";
 import { useNavigate } from "react-router-dom";
+import Reserva from "../../estructura/reserva/Resumen";
+
 function CestaCompleta() {
   const navigate = useNavigate();
   const productos = cesta((state) => state.productos);
@@ -13,6 +15,7 @@ function CestaCompleta() {
     }, 0);
     return total.toFixed(2);
   }
+
   const siguienteApartado = () => {
     navigate("/datosCombinado", {
       state: {
@@ -53,7 +56,11 @@ function CestaCompleta() {
       <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-transition tw-duration-300 tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
         <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Resumen
-        </h2>
+        </h2>{" "}
+        <Reserva
+          img={"/banners/banner_combinado.jpg"}
+          txt={"Combinado de " + productos.length + " productos"}
+        />
         {productos.length > 0 ? (
           <div>
             <div className="tw-divide-y tw-divide-slate-100 dark:tw-divide-slate-700 tw-space-y-4 tw-my-4">
