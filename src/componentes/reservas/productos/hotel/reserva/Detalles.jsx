@@ -3,6 +3,7 @@ import Map from "../../../estructura/hoteles/Map";
 import DatosContacto from "../../../estructura/DatosContacto";
 import Imagenes from "../../../estructura/hoteles/Imgs"
 function Detalles({ producto, datosContacto }) {
+  
   return (
     <article className="mt-3">
       <section className="col-span-5 mt-10 mb-5 lg:my-5">

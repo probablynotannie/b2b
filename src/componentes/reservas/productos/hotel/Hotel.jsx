@@ -26,7 +26,8 @@ function Producto() {
   const anadirProducto = cesta((state) => state.anadirProducto);
   const aniadirMas = () => {
     anadirProducto({
-      ...habitacionSeleccionada,
+      hotel: producto,
+      habitacion: habitacionSeleccionada,
       fecha: producto.fecha + " " + producto.fechaSalida,
       titulo: producto.nombre,
       ubicacion: producto.direccion,

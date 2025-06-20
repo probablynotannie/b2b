@@ -8,13 +8,7 @@ import AnadirMasProductos from "../../../../../helpers/visuales/masProductos/Ana
 import { useNavigate } from "react-router-dom";
 import cesta from "../../../../estructura/cesta/Zustand";
 import formatearFecha from "../../../../../helpers/FormatearFecha";
-import { FaCalendarAlt, FaClock, FaMapPin } from "react-icons/fa";
-import {
-  HiOutlineChevronDoubleDown,
-  HiOutlineChevronDoubleLeft,
-  HiOutlineChevronDoubleRight,
-  HiOutlineChevronDoubleUp,
-} from "react-icons/hi";
+
 function Producto() {
   const location = useLocation();
   const producto = location.state;
