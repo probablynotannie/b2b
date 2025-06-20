@@ -1,7 +1,42 @@
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 import { Link } from "react-router-dom";
-
+import { useState } from "react";
+import cestaZustand from "../../../estructura/cesta/Zustand";
+import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
+import formatearFecha from "../../../../helpers/FormatearFecha";
+import { useNavigate } from "react-router-dom";
 function Vuelos({ ida, vuelta, cesta }) {
+  const navigate = useNavigate();
+  const [modalMasProductos, setModalMasProductos] = useState(false);
+  const confirmacion = () => {
+    setModalMasProductos(true);
+  };
+  const sinProductosAdicionales = () => {
+    navigate("/datosVuelo", {
+      state: {
+        ida,
+        vuelta,
+        pax,
+      },
+    });
+  };
+
+  const anadirProducto = cestaZustand((state) => state.anadirProducto);
+  const pax = 2;
+  const aniadirMas = () => {
+    anadirProducto({
+      ida,
+      vuelta,
+      fecha: vueloIda + (vueloVuelta ? ` - ${vueloVuelta}` : ""),
+      titulo: "ida" + (vuelta ? " y vuelta" : ""),
+      ubicacion: ida.flight.departure + " - " + ida.flight.arrival,
+      img: "/banners/banner_avion.webp",
+      precio: ida.flight.precio + (vuelta ? vuelta.flight.precio : 0),
+      pax: pax,
+      type: 11,
+    });
+    setModalMasProductos(false);
+  };
   if (!ida) {
     return (
       <div className="flex justify-center items-center h-[10vh]">
@@ -52,11 +87,13 @@ function Vuelos({ ida, vuelta, cesta }) {
               ({ida.flight.precio + (vuelta ? vuelta.flight.precio : 0)}€)
             </span>
           </h3>
-          <Link to={"/datosVuelo"} state={{ ida, vuelta }}>
-            <button className="tw-bg-slate-500 tw-font-bold tw-text-white tw-px-2 tw-p-1 tw-rounded-lg">
-              Reservar
-            </button>
-          </Link>
+
+          <button
+            onClick={confirmacion}
+            className="tw-bg-slate-500 tw-font-bold tw-text-white tw-px-2 tw-p-1 tw-rounded-lg"
+          >
+            Reservar
+          </button>
         </div>
       )}
       <div className="tw-mt-10 sm:tw-block tw-grid tw-grid-cols-2 tw-shadow tw-rounded-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-700">
@@ -151,6 +188,12 @@ function Vuelos({ ida, vuelta, cesta }) {
           </div>
         )}
       </div>
+      <AnadirMasProductos
+        isOpen={modalMasProductos}
+        setModalMasProductos={setModalMasProductos}
+        masProductos={aniadirMas}
+        onConfirm={sinProductosAdicionales}
+      />
     </div>
   );
 }

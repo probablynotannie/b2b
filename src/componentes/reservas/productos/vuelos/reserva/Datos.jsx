@@ -2,6 +2,7 @@ import { useLocation, useNavigate } from "react-router-dom";
 import Reserva from "../../../datos/Reserva";
 import Input_Texto from "../../../../inputs/Texto";
 import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
+
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useState } from "react";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
@@ -10,16 +11,14 @@ import { useForm } from "react-hook-form";
 function Vuelo() {
   const location = useLocation();
   const navigate = useNavigate();
-  const { ida, vuelta } = location.state || {};
+  const { ida, vuelta, pax } = location.state || {};
 
-  const [pasajeros, setPasajeros] = useState(
-    Array.from({ length: 2 }, () => ({
-      nombre: "",
-      apellido: "",
-      pasaporte: "",
-      nacionalidad: "",
-    }))
-  );
+  const pasajeros = Array.from({ length: pax }, () => ({
+    nombre: "",
+    apellido: "",
+    pasaporte: "",
+    nacionalidad: "",
+  }));
 
   const img = "/banners/banner_avion.webp";
   const itinerario = ida.flight.salida + " - " + ida.flight.llegada;
@@ -92,7 +91,6 @@ function Vuelo() {
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
             <DatosContacto register={register} errors={errors} />
           </div>
-
           <Reserva
             img={img}
             position={"center"}

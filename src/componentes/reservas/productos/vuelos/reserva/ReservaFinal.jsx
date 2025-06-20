@@ -1,8 +1,7 @@
 import { useLocation } from "react-router-dom";
 import VueloSeleccionados from "../VueloSeleccionados";
 import Pasajeros from "./Pasajeros";
-import { FaUser } from "react-icons/fa";
-import { MdEmail, MdPhoneAndroid } from "react-icons/md";
+import DatosContacto from "../../../estructura/DatosContacto";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
@@ -30,25 +29,18 @@ function ReservaFinal() {
           Reservando vuelo
         </h2>
         <Reserva
-          img={"banner_avion.jpg"}
+          img={"/banners/banner_avion.webp"}
           txt={ida.flight.salida + " - " + ida.flight.llegada}
         />
         <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
           Datos de contacto
         </h2>
-        <div className="tw-flex tw-flex-nowrap tw-gap-2 tw-mt-2 tw-items-center tw-text-slate-500 dark:tw-text-slate-400">
-          <FaUser className="tw-text-slate-700 dark:tw-text-slate-200" />
-          <span>{data.nombre}</span>
-          <span>{data.apellido}</span>
-        </div>
-        <div className="tw-flex tw-flex-nowrap tw-gap-2 tw-mt-2 tw-items-center tw-text-slate-500 dark:tw-text-slate-400">
-          <MdEmail className="tw-text-slate-700 dark:tw-text-slate-200" />
-          <span>{data.email}</span>
-        </div>
-        <div className="tw-flex tw-flex-nowrap tw-gap-2 tw-mt-2 tw-items-center tw-text-slate-500 dark:tw-text-slate-400">
-          <MdPhoneAndroid className="tw-text-slate-700 dark:tw-text-slate-200" />
-          <span>{data.numero}</span>
-        </div>
+        <DatosContacto
+          nombre={data.nombre}
+          apellidos={data.apellidos}
+          email={data.email}
+          numero={data.numero}
+        />
         <Link to={"/resumenVuelo"} state={{ ida, vuelta, data }}>
           <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
             {(ida.flight.precio + (vuelta?.flight.precio || 0)).toFixed(2)}€

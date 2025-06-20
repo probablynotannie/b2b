@@ -8,7 +8,7 @@ import AnadirMasProductos from "../../../../../helpers/visuales/masProductos/Ana
 import { useNavigate } from "react-router-dom";
 import cesta from "../../../../estructura/cesta/Zustand";
 import formatearFecha from "../../../../../helpers/FormatearFecha";
-
+  
 function Producto() {
   const location = useLocation();
   const producto = location.state;
