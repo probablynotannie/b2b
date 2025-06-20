@@ -42,7 +42,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
     return (
       <div className="tw-grid tw-grid-cols-7 tw-text-center tw-font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="tw-p-1 tw-text-black">
+          <div key={day} className="tw-p-1 tw-text-black dark:tw-text-slate-300 ">
             {day}
           </div>
         ))}
@@ -69,8 +69,8 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
           {daysInMonth.map((day) => (
             <div
               key={day}
-              className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black ${
-                isSameDay(day, selectedDate) ? "bg-blue-500 text-white" : ""
+              className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black dark:tw-text-slate-400 ${
+                isSameDay(day, selectedDate) ? "tw-bg-blue-500 tw-text-white dark:tw-text-white" : ""
               }`}
               onClick={() => handleDateClick(day)}
             >
@@ -120,8 +120,8 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
       </div>
       {isModalOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black  tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
-          <div className="tw-bg-white tw-w-full tw-h-full tw-mx-auto tw-relative">
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 tw-p-5">
+          <div className="tw-bg-white dark:tw-bg-slate-800 tw-w-full tw-h-full tw-mx-auto tw-relative">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Selecciona fechas
               </h2>
@@ -130,7 +130,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
               </button>
             </div>
             <div
-              className="tw-overflow-y-auto tw-h-[calc(100%-80px)]"
+              className="tw-overflow-y-auto tw-h-[calc(100%-80px)] dark:tw-bg-slate-800"
               onScroll={handleScroll}
             >
               {months.map((month) => renderMonth(month))}

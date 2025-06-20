@@ -20,15 +20,15 @@ const Eleccion = ({
   const [modalOpen, setModalOpen] = useState(false);
   const [formData, setFormData] = useState(null);
 
-
   const {
     handleSubmit,
     setValue,
     control,
     formState: { errors },
   } = useForm();
- 
+
   const anadirProducto = cesta((state) => state.anadirProducto);
+  const vaciar = cesta((state) => state.vaciarCesta);
 
   const onSubmit = (data) => {
     setFormData(data);
@@ -36,9 +36,10 @@ const Eleccion = ({
   };
 
   const aniadirMas = () => {
+    vaciar();
     anadirProducto({
       ...actividad,
-      fecha: formatearFecha(formData.fecha),
+      fecha: formData.fecha,
       titulo: actividad.titulo,
       img: actividad.img,
       pax: 2,

@@ -28,7 +28,8 @@ function Producto() {
     anadirProducto({
       hotel: producto,
       habitacion: habitacionSeleccionada,
-      fecha: producto.fecha + " " + producto.fechaSalida,
+      fecha: producto.fecha,
+      fechaVuelta: producto.fechaSalida,
       titulo: producto.nombre,
       ubicacion: producto.direccion,
       precio: habitacionSeleccionada.precio,

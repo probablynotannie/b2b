@@ -2,6 +2,7 @@ import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import Iconos from "../../../estructura/cesta/Iconos";
 import ModalEliminar from "../../../estructura/cesta/ModalEliminar";
+import formatearFecha from "../../../../helpers/FormatearFecha";
 function Producto({ producto, onRemove, index }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -25,7 +26,12 @@ function Producto({ producto, onRemove, index }) {
           <ul className="tw-text-slate-500 dark:tw-text-slate-400">
             <li className="tw-flex tw-items-center tw-gap-1">
               <FaCalendarAlt />
-              <p className="tw-text-sm">{producto.fecha}</p>
+              <p className="tw-text-sm">
+                {formatearFecha(producto.fecha)}
+
+                {producto.fechaVuelta &&
+                  ` - ${formatearFecha(producto.fechaVuelta)}`}
+              </p>
             </li>
             {producto.pax && (
               <li className="tw-flex tw-items-center tw-gap-1 tw-text-sm">

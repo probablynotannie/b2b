@@ -7,8 +7,7 @@ import { useState, useEffect } from "react";
 import AnadirMasProductos from "../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 import { useNavigate } from "react-router-dom";
 import cesta from "../../../../estructura/cesta/Zustand";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
-  
+
 function Producto() {
   const location = useLocation();
   const producto = location.state;
@@ -49,10 +48,8 @@ function Producto() {
       selectedExtras,
       conductor,
       ...(contratar && { reembolso }),
-      fecha:
-        formatearFecha(producto.recogida.fecha) +
-        " - " +
-        formatearFecha(producto.devolucion.fecha),
+      fecha: producto.recogida.fecha,
+      fechaVuelta: producto.devolucion.fecha,
       titulo: producto.nombre,
       ubicacion: [
         producto.recogida?.lugar && `Recogida: ${producto.recogida.lugar}`,

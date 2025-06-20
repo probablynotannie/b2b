@@ -92,7 +92,7 @@ function Buscador({
         )}
       />
       {isDropdownOpen && (
-        <div className="tw-absolute tw-top-9 tw-z-10 tw-w-full tw-bg-slate-50 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
+        <div className="tw-absolute tw-top-9 tw-z-10 tw-w-full tw-bg-slate-50 dark:tw-bg-slate-800 dark:tw-border-slate-950 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
           {loading ? (
             <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-text-slate-500">
               Cargando...
@@ -103,7 +103,7 @@ function Buscador({
                 <li
                   key={suggestion.id}
                   onClick={() => handleSuggestionClick(suggestion)}
-                  className="tw-p-2 tw-border-b tw-text-gray-700 hover:tw-bg-slate-50 tw-cursor-pointer"
+                  className="tw-p-2 tw-text-gray-700 hover:tw-bg-slate-50 dark:hover:tw-bg-slate-800 tw-cursor-pointer"
                 >
                   <span className="tw-flex tw-space-x-2 tw-items-center">
                     <span className="tw-text-secondary tw-text-lg">
@@ -115,7 +115,7 @@ function Buscador({
                         <FaMap />
                       )}
                     </span>
-                    <span>{suggestion.name}</span>
+                    <span className="dark:tw-text-white">{suggestion.name}</span>
                   </span>
                   <span className="tw-block tw-text-slate-300 tw-pl-6">
                     {suggestion.destino}

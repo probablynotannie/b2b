@@ -1,5 +1,4 @@
 import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { useState } from "react";
 import cestaZustand from "../../../estructura/cesta/Zustand";
 import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
@@ -22,16 +21,27 @@ function Vuelos({ ida, vuelta, cesta }) {
   };
 
   const anadirProducto = cestaZustand((state) => state.anadirProducto);
+  const vaciar = cestaZustand((state) => state.vaciarCesta);
   const pax = 2;
+  console.log(ida.flight);
+  console.log(ida.flight);
   const aniadirMas = () => {
     anadirProducto({
       ida,
       vuelta,
-      fecha: vueloIda + (vueloVuelta ? ` - ${vueloVuelta}` : ""),
-      titulo: "ida" + (vuelta ? " y vuelta" : ""),
-      ubicacion: ida.flight.departure + " - " + ida.flight.arrival,
+      fecha: ida.flight.outboundDate,
+      fechaVuelta: vuelta ? ` - ${vuelta.flight.returnDate}` : "",
+      titulo: "Vuelo de ida" + (vuelta ? " y vuelta" : ""),
+      ubicacion:
+        ida.flight.departure +
+        " - " +
+        ida.flight.arrival +
+        (vuelta
+          ? ` - ${vuelta.flight.departure} - ${vuelta.flight.arrival}`
+          : ""),
       img: "/banners/banner_avion.webp",
       precio: ida.flight.precio + (vuelta ? vuelta.flight.precio : 0),
+
       pax: pax,
       type: 11,
     });
@@ -44,16 +54,6 @@ function Vuelos({ ida, vuelta, cesta }) {
       </div>
     );
   }
-
-  const formatDate = (dateString) => {
-    const date = new Date(dateString);
-    const options = {
-      day: "numeric",
-      month: "long",
-      year: "numeric",
-    };
-    return date.toLocaleDateString("es-ES", options);
-  };
 
   const duracion = (horaSalida, horaLlegada) => {
     const fechaReferencia = new Date("2024-11-01");
@@ -74,8 +74,8 @@ function Vuelos({ ida, vuelta, cesta }) {
     return `${hours}h ${minutes}m`;
   };
 
-  const vueloIda = formatDate(ida.flight.outboundDate);
-  const vueloVuelta = vuelta ? formatDate(vuelta.flight.returnDate) : null;
+  const vueloIda = formatearFecha(ida.flight.outboundDate);
+  const vueloVuelta = vuelta ? formatearFecha(vuelta.flight.returnDate) : null;
 
   return (
     <div className="tw-mb-5">
@@ -190,7 +190,7 @@ function Vuelos({ ida, vuelta, cesta }) {
       </div>
       <AnadirMasProductos
         isOpen={modalMasProductos}
-        setModalMasProductos={setModalMasProductos}
+        setModalOpen={setModalMasProductos}
         masProductos={aniadirMas}
         onConfirm={sinProductosAdicionales}
       />

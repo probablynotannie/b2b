@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Iconos from "./Iconos";
 import { useState } from "react";
 import ModalEliminar from "./ModalEliminar";
+import formatearFecha from "../../../helpers/FormatearFecha";
 const ProductoItem = ({ producto, index, onRemove }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   console.log(producto.pax);
@@ -41,11 +42,13 @@ const ProductoItem = ({ producto, index, onRemove }) => {
             {producto.titulo}
           </h3>
           <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-xs tw-mt-1">
-            {producto.fecha}
+            {formatearFecha(producto.fecha)}{" "}
+            {producto.fechaVuelta &&
+              `- ${formatearFecha(producto.fechaVuelta)}`}
           </p>
           <div className="tw-flex tw-justify-between">
             <span className="tw-text-primary tw-font-bold tw-text-lg tw-mt-1 dark:tw-text-slate-200 group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-smooth">
-              {producto.precio ? producto.precio.toFixed(2) : ""}€
+              {/*  {producto.precio ? producto.precio.toFixed(2) : ""}€ */}
             </span>
             <button
               onClick={() => setIsModalOpen(true)}

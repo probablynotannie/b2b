@@ -1,12 +1,17 @@
 import { useState } from "react";
 import Input_Buscador from "../../../../inputs/Buscador";
 import Input_DateRange from "../../../../inputs/DateRange";
-import { FaSearch } from "react-icons/fa";
+import Input_Fecha from "../../../../inputs/Fecha";
+import { FaArrowRight, FaSearch } from "react-icons/fa";
 import Input_Hab_Adulto_Ninio from "../../../../inputs/Hab_Adulto_Ninio";
 import { useForm } from "react-hook-form";
+import { GoArrowSwitch } from "react-icons/go";
 function Buscador() {
-  const [startDate, setStartDate] = useState(null);
-  const [endDate, setEndDate] = useState(null);
+  const [fecha, setFecha] = useState();
+  const [viaje, setViaje] = useState("ida");
+  const handleviajeChange = (type) => {
+    setViaje(type);
+  };
   const [isModalOpen, setIsModalOpen] = useState(false);
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const destinos = [
@@ -40,11 +45,7 @@ function Buscador() {
   });
 
   const onSubmit = (data) => {
-    
-
-    /*  navigate("/listadotransfers", {
-       state: { data },
-     }); */
+    console.log(data);
   };
   return (
     <>
@@ -85,6 +86,32 @@ function Buscador() {
             onSubmit={handleSubmit(onSubmit)}
             className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
           >
+            <div className="tw-col-span-12 tw-grid tw-grid-cols-2 tw-gap-2 tw-mb-2">
+              <div
+                onClick={() => handleviajeChange("ida")}
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+      ${
+        viaje === "ida"
+          ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-300"
+          : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+      }`}
+              >
+                <FaArrowRight className="tw-text-pink-700 dark:tw-text-pink-500" />
+                Solo ida
+              </div>
+              <div
+                onClick={() => handleviajeChange("ida_vuelta")}
+                className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+      ${
+        viaje === "ida_vuelta"
+          ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
+          : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+      }`}
+              >
+                <GoArrowSwitch className="tw-text-blue-700 dark:tw-text-blue-500" />
+                Ida y vuelta
+              </div>
+            </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
               <Input_Buscador
                 required={true}
@@ -104,12 +131,21 @@ function Buscador() {
               />
             </div>
             <div className="tw-col-span-12 md:tw-col-span-6 lg:tw-col-span-4">
-              <Input_DateRange
-                control={control}
-                placeholder={"Fechas"}
-                nameStartDate={"salida"}
-                nameEndDate={"llegada"}
-              />
+              {viaje === "ida" ? (
+                <Input_Fecha
+                  fecha={fecha}
+                  name={"fecha"}
+                  setValue={setValue}
+                  control={control}
+                />
+              ) : (
+                <Input_DateRange
+                  control={control}
+                  placeholder={"Fechas"}
+                  nameStartDate={"salida"}
+                  nameEndDate={"llegada"}
+                />
+              )}
             </div>
             <div className="tw-flex lg:tw-justify-center tw-justify-end lg:tw-col-span-1 tw-col-span-12 md:tw-col-span-6">
               <button className="bg-slate-800 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-w-full tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -129,9 +165,38 @@ function Buscador() {
         </div>
       </div>
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
-        <h2 className="tw-mb-4 tw-font-bold tw-text-2xl dark:tw-text-secondaryDark">
-          Buscador
-        </h2>
+        <div className="tw-flex tw-justify-between tw-items-center">
+          <div className="tw-flex tw-gap-2">
+            <div
+              onClick={() => handleviajeChange("ida")}
+              className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                       ${
+                         viaje === "ida"
+                           ? "tw-bg-pink-100 dark:tw-bg-pink-900  tw-border-pink-500 tw-text-pink-700 dark:tw-text-pink-300"
+                           : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                       }`}
+            >
+              <FaArrowRight className="tw-text-pink-700 dark:tw-text-pink-500" />
+              Solo ida
+            </div>
+            <div
+              onClick={() => handleviajeChange("ida_vuelta")}
+              className={`tw-select-none tw-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-rounded-lg tw-border tw-cursor-pointer tw-transition-all
+                       ${
+                         viaje === "ida_vuelta"
+                           ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500 tw-text-blue-700 dark:tw-text-blue-300"
+                           : "tw-bg-slate-100 dark:tw-bg-slate-900 tw-border-slate-300 dark:tw-border-slate-600 tw-text-slate-500 dark:tw-text-slate-400"
+                       }`}
+            >
+              <GoArrowSwitch className="tw-text-blue-700 dark:tw-text-blue-500" />
+              Ida y vuelta
+            </div>
+          </div>
+
+          <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
+            Buscador de Vuelos
+          </h2>
+        </div>
         <form
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
@@ -156,12 +221,21 @@ function Buscador() {
             />
           </div>
           <div className="tw-col-span-4">
-            <Input_DateRange
-              control={control}
-              placeholder={"Fechas"}
-              nameStartDate={"salida"}
-              nameEndDate={"llegada"}
-            />
+            {viaje === "ida" ? (
+              <Input_Fecha
+                fecha={fecha}
+                name={"fecha"}
+                setValue={setValue}
+                control={control}
+              />
+            ) : (
+              <Input_DateRange
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
+              />
+            )}
           </div>
           <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
             <FaSearch className="tw-text-white tw-text-xl" />

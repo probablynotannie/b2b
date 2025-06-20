@@ -14,7 +14,7 @@ function Buscador_Destinos() {
   const [viaje, setViaje] = useState("ida");
   const [fecha, setFecha] = useState();
   const handleviajeChange = (type) => {
-    setViaje(type);
+    setViaje(type); 
   };
   const onSubmit = (data) => {
     navigate("/listadoTrenes", {
