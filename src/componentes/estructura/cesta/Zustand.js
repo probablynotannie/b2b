@@ -3,7 +3,10 @@ import { persist } from "zustand/middleware";
 const cesta = create(
 
   persist(
+
     (set) => ({
+      diasAntes: 3,
+      diasDespues: 8,
       productos: [],
       anadirProducto: (nuevoProducto) =>
         set((state) => ({
@@ -14,7 +17,7 @@ const cesta = create(
         set((state) => ({
           productos: state.productos.filter((_, i) => i !== index),
         })),
-      
+
       vaciarCesta: () =>
         set({
           productos: [],

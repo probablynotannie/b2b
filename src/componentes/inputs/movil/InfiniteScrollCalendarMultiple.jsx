@@ -18,15 +18,18 @@ import parseFecha from "../../../helpers/parseFechas";
 import cesta from "../../estructura/cesta/Zustand";
 const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
   const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
+
   const today = startOfDay(new Date());
   let fechaMin = today;
   let fechaMax = null;
   if (productos[0]?.fecha) {
     const ref = startOfDay(parseFecha(productos[0].fecha));
     fechaMin = new Date(ref);
-    fechaMin.setDate(ref.getDate() - 7);
+    fechaMin.setDate(ref.getDate() - diasAntes);
     fechaMax = new Date(ref);
-    fechaMax.setDate(ref.getDate() + 7);
+    fechaMax.setDate(ref.getDate() + diasDespues);
   }
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);

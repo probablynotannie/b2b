@@ -134,7 +134,7 @@ function Listado({
                       setOpenModal(null);
                     }}
                   >
-                    {habitacion.precio}€ 
+                    {habitacion.precio}€
                   </button>
                 ) : (
                   <>

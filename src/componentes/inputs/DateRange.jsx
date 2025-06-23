@@ -59,15 +59,17 @@ const DateRange = ({
     return day === 0 || day === 6 ? "weekend-day" : "";
   };
   const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
   const today = new Date();
   let minDate = today;
   let maxDate = null;
   if (productos[0]?.fecha) {
     const refDate = parseFecha(productos[0].fecha);
     minDate = new Date(refDate);
-    minDate.setDate(refDate.getDate() - 7);
+    minDate.setDate(refDate.getDate() - diasAntes);
     maxDate = new Date(refDate);
-    maxDate.setDate(refDate.getDate() + 7);
+    maxDate.setDate(refDate.getDate() + diasDespues);
   }
 
   return (

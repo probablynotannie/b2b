@@ -23,6 +23,8 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
   };
 
   const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
 
   const disabledDates = (date) => {
     const normalize = (d) =>
@@ -32,9 +34,9 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
     if (productos[0]?.fecha) {
       const referenceDate = parseFecha(productos[0].fecha);
       const minDate = new Date(referenceDate);
-      minDate.setDate(referenceDate.getDate() - 7);
+      minDate.setDate(referenceDate.getDate() - diasAntes);
       const maxDate = new Date(referenceDate);
-      maxDate.setDate(referenceDate.getDate() + 7);
+      maxDate.setDate(referenceDate.getDate() + diasDespues);
       const normalizedDate = normalize(date);
       return (
         normalizedDate < normalize(minDate) ||

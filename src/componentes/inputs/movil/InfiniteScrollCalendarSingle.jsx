@@ -15,9 +15,10 @@ import cesta from "../../estructura/cesta/Zustand";
 import parseFecha from "../../../helpers/parseFechas";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
-import { differenceInMonths } from "date-fns";
 const InfiniteScrollCalendar = ({ name, setValue }) => {
   const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
   const referenceDate = productos?.[0]?.fecha
     ? parseFecha(productos[0].fecha)
     : null;
@@ -25,14 +26,14 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
     ? new Date(
         referenceDate.getFullYear(),
         referenceDate.getMonth(),
-        referenceDate.getDate() - 7
+        referenceDate.getDate() - diasAntes
       )
     : null;
   const maxDate = referenceDate
     ? new Date(
         referenceDate.getFullYear(),
         referenceDate.getMonth(),
-        referenceDate.getDate() + 7
+        referenceDate.getDate() + diasDespues
       )
     : null;
 
