@@ -46,8 +46,8 @@ const ProductoItem = ({ producto, index, onRemove }) => {
               `- ${formatearFecha(producto.fechaVuelta)}`}
           </p>
           <div className="tw-flex tw-justify-between">
-            <span className="tw-text-primary tw-font-bold tw-text-lg tw-mt-1 dark:tw-text-slate-200 group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-smooth">
-              {/*  {producto.precio ? producto.precio.toFixed(2) : ""}€ */}
+            <span className="tw-text-primary tw-font-bold tw-mt-1 dark:tw-text-slate-200 group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-smooth">
+              {producto.precio ? producto.precio.toFixed(2) : ""}€
             </span>
             <button
               onClick={() => setIsModalOpen(true)}
@@ -81,6 +81,13 @@ function Cesta() {
   function handleFinalizarReserva() {
     triggerRef.current?.click();
     navigate("/cesta");
+  }
+  const total = calcularTotalPrecios(productos);
+  function calcularTotalPrecios(productos) {
+    const total = productos.reduce((sum, producto) => {
+      return sum + (producto.precio || 0);
+    }, 0);
+    return total.toFixed(2);
   }
   return (
     <Popover
@@ -117,7 +124,7 @@ function Cesta() {
                 onClick={handleFinalizarReserva}
                 className="tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5"
               >
-                Finalizar la reservva
+                Total: {total}€
               </button>
             </div>
           )}

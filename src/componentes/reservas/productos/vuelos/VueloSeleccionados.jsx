@@ -21,10 +21,7 @@ function Vuelos({ ida, vuelta, cesta }) {
   };
 
   const anadirProducto = cestaZustand((state) => state.anadirProducto);
-
   const pax = 2;
-  console.log(ida.flight);
-  console.log(ida.flight);
   const aniadirMas = () => {
     anadirProducto({
       ida,
@@ -39,7 +36,6 @@ function Vuelos({ ida, vuelta, cesta }) {
           : ""),
       img: "/banners/banner_avion.webp",
       precio: ida.flight.precio + (vuelta ? vuelta.flight.precio : 0),
-
       pax: pax,
       type: 11,
     });

@@ -15,7 +15,6 @@ function CestaCompleta() {
     }, 0);
     return total.toFixed(2);
   }
-  console.log(productos);
   const siguienteApartado = () => {
     navigate("/datosCombinado", {
       state: {
