@@ -6,6 +6,8 @@ import { es } from "date-fns/locale";
 import { FaCalendarAlt } from "react-icons/fa";
 import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
 import { useController } from "react-hook-form";
+import cesta from "../estructura/cesta/Zustand";
+import parseFecha from "../../helpers/parseFechas";
 const DateRange = ({
   control,
   nameStartDate,
@@ -56,6 +58,18 @@ const DateRange = ({
     const day = date.getDay();
     return day === 0 || day === 6 ? "weekend-day" : "";
   };
+  const productos = cesta((state) => state.productos);
+  const today = new Date();
+  let minDate = today;
+  let maxDate = null;
+  if (productos[0]?.fecha) {
+    const refDate = parseFecha(productos[0].fecha);
+    minDate = new Date(refDate);
+    minDate.setDate(refDate.getDate() - 7);
+    maxDate = new Date(refDate);
+    maxDate.setDate(refDate.getDate() + 7);
+  }
+
   return (
     <div>
       <div className="tw-relative tw-hidden lg:tw-block">
@@ -97,7 +111,8 @@ const DateRange = ({
               inline
               dayClassName={highlightWeekends}
               locale={es}
-              minDate={new Date()}
+              minDate={minDate}
+              maxDate={maxDate}
               className="custom-input"
               wrapperClassName="custom-wrapper"
               calendarClassName="my-custom-datepicker"

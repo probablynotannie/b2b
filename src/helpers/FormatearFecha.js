@@ -9,13 +9,12 @@ export default function formatearFecha(fecha) {
     if (fecha instanceof Date) {
         dateObj = fecha;
     } else if (typeof fecha === "string") {
-        // Intentar primero con el formato DD/MM/YYYY
         const matchDMY = fecha.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
         if (matchDMY) {
-            const [ , dia, mes, año ] = matchDMY.map(Number);
+            const [, dia, mes, año] = matchDMY.map(Number);
             dateObj = new Date(año, mes - 1, dia);
         } else {
-            // Intentar con Date.parse() si es otro formato (como YYYY-MM-DD)
+
             const parsed = new Date(fecha);
             if (!isNaN(parsed)) {
                 dateObj = parsed;

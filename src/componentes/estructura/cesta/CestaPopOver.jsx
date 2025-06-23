@@ -9,7 +9,6 @@ import ModalEliminar from "./ModalEliminar";
 import formatearFecha from "../../../helpers/FormatearFecha";
 const ProductoItem = ({ producto, index, onRemove }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(producto.pax);
   return (
     <div
       className={`tw-group tw-px-2 tw-cursor-default ${
@@ -78,14 +77,11 @@ function Cesta() {
   const removeProducto = cesta((state) => state.removeProducto);
   const vaciarCesta = cesta((state) => state.vaciarCesta);
   const navigate = useNavigate();
-
   const triggerRef = useRef(null);
-
   function handleFinalizarReserva() {
     triggerRef.current?.click();
     navigate("/cesta");
   }
-
   return (
     <Popover
       aria-brailleroledescription=""

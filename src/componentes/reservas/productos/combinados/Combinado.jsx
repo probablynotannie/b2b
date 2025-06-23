@@ -8,7 +8,6 @@ function CestaCompleta() {
   const navigate = useNavigate();
   const productos = cesta((state) => state.productos);
   const removeProducto = cesta((state) => state.removeProducto);
-  console.log("Productos en cesta:", productos);
   const total = calcularTotalPrecios(productos);
   function calcularTotalPrecios(productos) {
     const total = productos.reduce((sum, producto) => {
@@ -16,7 +15,7 @@ function CestaCompleta() {
     }, 0);
     return total.toFixed(2);
   }
-
+  console.log(productos);
   const siguienteApartado = () => {
     navigate("/datosCombinado", {
       state: {

@@ -8,12 +8,26 @@ import {
   eachDayOfInterval,
   endOfMonth,
   isBefore,
+  isAfter,
   startOfDay,
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
 import { useController } from "react-hook-form";
+import parseFecha from "../../../helpers/parseFechas";
+import cesta from "../../estructura/cesta/Zustand";
 const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
+  const productos = cesta((state) => state.productos);
+  const today = startOfDay(new Date());
+  let fechaMin = today;
+  let fechaMax = null;
+  if (productos[0]?.fecha) {
+    const ref = startOfDay(parseFecha(productos[0].fecha));
+    fechaMin = new Date(ref);
+    fechaMin.setDate(ref.getDate() - 7);
+    fechaMax = new Date(ref);
+    fechaMax.setDate(ref.getDate() + 7);
+  }
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { field: fieldStartDate } = useController({
@@ -78,7 +92,6 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-
     return (
       <div key={month} className="tw-mb-8 ">
         <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
@@ -89,31 +102,37 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
             <div key={`empty-${i}`} className="tw-p-4"></div>
           ))}
-          {daysInMonth.map((day) => (
-            <div
-              key={day}
-              className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black dark:tw-text-slate-400 tw-text-sm ${
-                isBefore(startOfDay(day), startOfDay(new Date()))
-                  ? " tw-text-slate-400 dark:tw-text-slate-500 tw-cursor-not-allowed"
-                  : isSameDay(day, fieldStartDate.value)
-                  ? "tw-bg-secondary tw-text-white dark:tw-text-white"
-                  : isSameDay(day, fieldEndDate.value)
-                  ? "tw-bg-secondary tw-text-white dark:tw-text-white"
-                  : fieldStartDate.value &&
-                    fieldEndDate.value &&
-                    day > fieldStartDate.value &&
-                    day < fieldEndDate.value
-                  ? "tw-bg-orange-100 dark:tw-bg-slate-900 dark:tw-text-slate-300"
-                  : ""
-              }`}
-              onClick={() =>
-                !isBefore(startOfDay(day), startOfDay(new Date())) &&
-                handleDateClick(day)
-              }
-            >
-              {format(day, "d")}
-            </div>
-          ))}
+          {daysInMonth.map((day) => {
+            const isDisabled =
+              (fechaMax &&
+                ((isBefore(day, fechaMin) && !isSameDay(day, fechaMin)) ||
+                  (isAfter(day, fechaMax) && !isSameDay(day, fechaMax)))) ||
+              (isBefore(day, today) && !isSameDay(day, today));
+            return (
+              <div
+                key={day}
+                className={`tw-p-2 tw-text-center tw-rounded-lg tw-text-sm ${
+                  isDisabled
+                    ? "tw-text-slate-400 dark:tw-text-slate-500 tw-cursor-not-allowed"
+                    : isSameDay(day, fieldStartDate.value)
+                    ? "tw-bg-secondary tw-text-white dark:tw-text-white"
+                    : isSameDay(day, fieldEndDate.value)
+                    ? "tw-bg-secondary tw-text-white dark:tw-text-white"
+                    : fieldStartDate.value &&
+                      fieldEndDate.value &&
+                      day > fieldStartDate.value &&
+                      day < fieldEndDate.value
+                    ? "tw-bg-orange-100 dark:tw-bg-slate-900 dark:tw-text-slate-300"
+                    : "tw-cursor-pointer tw-text-black dark:tw-text-slate-400"
+                }`}
+                onClick={() => {
+                  if (!isDisabled) handleDateClick(day);
+                }}
+              >
+                {format(day, "d")}
+              </div>
+            );
+          })}
         </div>
       </div>
     );
