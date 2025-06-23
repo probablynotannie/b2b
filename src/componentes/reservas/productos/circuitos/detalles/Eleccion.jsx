@@ -28,7 +28,6 @@ const Eleccion = ({
   } = useForm();
 
   const anadirProducto = cesta((state) => state.anadirProducto);
-  const vaciar = cesta((state) => state.vaciarCesta);
 
   const onSubmit = (data) => {
     setFormData(data);
@@ -36,7 +35,6 @@ const Eleccion = ({
   };
 
   const aniadirMas = () => {
-    vaciar();
     anadirProducto({
       ...actividad,
       fecha: formData.fecha,

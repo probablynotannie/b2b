@@ -1,12 +1,10 @@
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
 const cesta = create(
-
   persist(
-
     (set) => ({
-      diasAntes: 3,
-      diasDespues: 8,
+      diasAntes: 5,
+      diasDespues: 5,
       productos: [],
       anadirProducto: (nuevoProducto) =>
         set((state) => ({

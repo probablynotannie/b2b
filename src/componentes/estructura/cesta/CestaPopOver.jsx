@@ -7,7 +7,6 @@ import Iconos from "./Iconos";
 import { useState } from "react";
 import ModalEliminar from "./ModalEliminar";
 import formatearFecha from "../../../helpers/FormatearFecha";
-
 const ProductoItem = ({ producto, index, onRemove }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (

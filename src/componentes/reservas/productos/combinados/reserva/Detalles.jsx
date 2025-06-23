@@ -2,7 +2,8 @@ import HotelDetalles from "../../hotel/final/Hotel";
 import CocheDetalles from "../../coches/final/Coche";
 import CircuitoDetalles from "../../circuitos/final/Circuito";
 import VuelosDetalles from "../../vuelos/final/Vuelos";
-function Detalles({ datosContacto, productos }) {
+import formatearFecha from "../../../../../helpers/FormatearFecha";
+function Detalles({ productos }) {
   const typeComponentMap = {
     1: (producto) => (
       <HotelDetalles hotel={producto.hotel} habitacion={producto.habitacion} />
@@ -21,7 +22,7 @@ function Detalles({ datosContacto, productos }) {
     12: (producto) => (
       <CircuitoDetalles
         actividad={producto}
-        fechaIda={producto.fecha}
+        fechaIda={formatearFecha(producto.fecha)}
         adultos={2}
         ninios={4}
         habitacion={producto.habitacion}
@@ -30,7 +31,6 @@ function Detalles({ datosContacto, productos }) {
   };
   return (
     <div>
-      
       <div>
         {productos.map((producto) => {
           const componenteAMostrar = typeComponentMap[producto.type];
