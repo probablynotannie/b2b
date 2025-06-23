@@ -86,7 +86,6 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
       </div>
     );
   };
-
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
@@ -113,7 +112,7 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
                 key={day}
                 className={`tw-p-2 tw-text-center tw-rounded-lg tw-text-sm ${
                   isDisabled
-                    ? "tw-text-slate-400 dark:tw-text-slate-500 tw-cursor-not-allowed"
+                    ? "tw-text-slate-400 dark:tw-text-slate-600 tw-cursor-not-allowed"
                     : isSameDay(day, fieldStartDate.value)
                     ? "tw-bg-secondary tw-text-white dark:tw-text-white"
                     : isSameDay(day, fieldEndDate.value)
@@ -123,7 +122,7 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
                       day > fieldStartDate.value &&
                       day < fieldEndDate.value
                     ? "tw-bg-orange-100 dark:tw-bg-slate-900 dark:tw-text-slate-300"
-                    : "tw-cursor-pointer tw-text-black dark:tw-text-slate-400"
+                    : "tw-cursor-pointer tw-text-black dark:tw-text-slate-200"
                 }`}
                 onClick={() => {
                   if (!isDisabled) handleDateClick(day);

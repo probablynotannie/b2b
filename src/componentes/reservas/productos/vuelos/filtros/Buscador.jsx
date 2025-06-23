@@ -165,7 +165,7 @@ function Buscador() {
         </div>
       </div>
       <div className="tw-hidden lg:tw-block tw-border-2 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-lg tw-min-h-28 tw-p-5 tw-bg-white dark:tw-bg-slate-800">
-        <div className="tw-flex tw-justify-between tw-items-center">
+        <div className="tw-flex tw-justify-between tw-items-center tw-mb-3">
           <div className="tw-flex tw-gap-2">
             <div
               onClick={() => handleviajeChange("ida")}

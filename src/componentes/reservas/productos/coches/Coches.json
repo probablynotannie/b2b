@@ -12,8 +12,8 @@
     "tipo": "Compact",
     "combustible": true,
     "cancelaciones": {
-      "17/12/2024": 50,
-      "19/12/2024": 80
+      "17/12/2025": 50,
+      "19/12/2025": 80
     },
     "detalles": [
       "Kilometraje limitado a 2000 Km por alquiler",
@@ -54,7 +54,7 @@
     ],
     "dias": 9,
     "recogida": {
-      "fecha": "20/12/2024",
+      "fecha": "20/12/2025",
       "hora": "18:00",
       "lugar": "Airport El Prat",
       "horario": [
@@ -97,7 +97,7 @@
       "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
     },
     "devolucion": {
-      "fecha": "29/12/2024",
+      "fecha": "29/12/2025",
       "hora": "18:00",
       "lugar": "Airport El Prat",
       "horario": [
@@ -153,8 +153,8 @@
     "tipo": "Compact",
     "combustible": true,
     "cancelaciones": {
-      "17/12/2024": 50,
-      "19/12/2024": 80
+      "17/12/2025": 50,
+      "19/12/2025": 80
     },
     "detalles": [
       "Kilometraje limitado a 2000 Km por alquiler",
@@ -195,7 +195,7 @@
     ],
     "dias": 9,
     "recogida": {
-      "fecha": "20/12/2024",
+      "fecha": "20/12/2025",
       "hora": "18:00",
       "lugar": "Airport El Prat",
       "horario": [
@@ -238,7 +238,7 @@
       "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
     },
     "devolucion": {
-      "fecha": "29/12/2024",
+      "fecha": "29/12/2025",
       "hora": "18:00",
       "lugar": "Airport El Prat",
       "horario": [
@@ -294,9 +294,9 @@
     "tipo": "Compact",
     "combustible": true,
     "cancelaciones": {
-      "17/12/2024": 50,
-      "19/12/2024": 80,
-      "23/12/2024": 90
+      "17/12/2025": 50,
+      "19/12/2025": 80,
+      "23/12/2025": 90
     },
     "detalles": [
       "Kilometraje limitado a 2000 Km por alquiler",
@@ -337,7 +337,7 @@
     ],
     "dias": 9,
     "recogida": {
-      "fecha": "20/12/2024",
+      "fecha": "20/12/2025",
       "hora": "18:00",
       "lugar": "Airport El Prat",
       "horario": [
@@ -380,7 +380,7 @@
       "descripcion": "Terminal 1 Zona de Llegadas (Área Rentacar) y Terminal 2 (Área Rentacar) No es posible recoger los vehículos entre 00:01 y 06:59. Los números de vuelo son esenciales (si no se proporcionan estos datos no podemos garantizar que un representante Goldcar esperará a los clientes). Existe un buzón para dejar las llaves si la oficina está cerrada. IMPORTANTE: para acceder a la T2 para devolver los vehículos se requerirá al cliente la tarjeta de embarque (Es una norma del aeropuerto, no de GOLDCAR) fuera de los horarios de apertura del aeropuerto. Para el Acceso a la T1 la tarjeta de embarque normalmente no es necesaria."
     },
     "devolucion": {
-      "fecha": "29/12/2024",
+      "fecha": "29/12/2025",
       "hora": "18:00",
       "lugar": "Airport El Prat",
       "horario": [

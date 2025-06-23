@@ -15,7 +15,7 @@ import cesta from "../../estructura/cesta/Zustand";
 import parseFecha from "../../../helpers/parseFechas";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
-
+import { differenceInMonths } from "date-fns";
 const InfiniteScrollCalendar = ({ name, setValue }) => {
   const productos = cesta((state) => state.productos);
   const referenceDate = productos?.[0]?.fecha
@@ -72,7 +72,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
   };
 
   const handleDateClick = (date) => {
-    if (isDateDisabled(date)) return; 
+    if (isDateDisabled(date)) return;
 
     setSelectedDate(date);
     setIsModalOpen(false);
@@ -86,7 +86,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
         {weekDays.map((day) => (
           <div
             key={day}
-            className="tw-p-1 tw-text-black dark:tw-text-slate-300 "
+            className="tw-p-1 tw-text-black dark:tw-text-slate-200"
           >
             {day}
           </div>
@@ -118,12 +118,12 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
             return (
               <div
                 key={day.toISOString()}
-                className={`tw-p-2 tw-text-center tw-rounded-lg ${
+                className={`tw-p-2 tw-text-center tw-rounded-lg tw-text-sm ${
                   disabled
                     ? "tw-text-slate-400 dark:tw-text-slate-600 tw-cursor-not-allowed"
                     : selected
                     ? "tw-bg-blue-500 tw-text-white dark:tw-text-white tw-cursor-pointer"
-                    : "tw-cursor-pointer tw-text-black dark:tw-text-slate-400"
+                    : "tw-cursor-pointer tw-text-black dark:tw-text-slate-200"
                 }`}
                 onClick={() => !disabled && handleDateClick(day)}
               >

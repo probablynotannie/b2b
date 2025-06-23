@@ -21,7 +21,7 @@ function Vuelos({ ida, vuelta, cesta }) {
   };
 
   const anadirProducto = cestaZustand((state) => state.anadirProducto);
-  const vaciar = cestaZustand((state) => state.vaciarCesta);
+
   const pax = 2;
   console.log(ida.flight);
   console.log(ida.flight);
@@ -33,11 +33,9 @@ function Vuelos({ ida, vuelta, cesta }) {
       fechaVuelta: vuelta ? ` - ${vuelta.flight.returnDate}` : "",
       titulo: "Vuelo de ida" + (vuelta ? " y vuelta" : ""),
       ubicacion:
-        ida.flight.departure +
-        " - " +
-        ida.flight.arrival +
+        `(${ida.flight.salida} - ${ida.flight.departure} / ${ida.flight.llegada} - ${ida.flight.arrival})` +
         (vuelta
-          ? ` - ${vuelta.flight.departure} - ${vuelta.flight.arrival}`
+          ? ` - (${vuelta.flight.salida} - ${vuelta.flight.departure} / ${vuelta.flight.llegada} - ${vuelta.flight.arrival})`
           : ""),
       img: "/banners/banner_avion.webp",
       precio: ida.flight.precio + (vuelta ? vuelta.flight.precio : 0),

@@ -154,7 +154,7 @@ function Listado({
         </tbody>
         <AnadirMasProductos
           isOpen={modalMasProductos}
-          setModalMasProductos={setModalMasProductos}
+          setModalOpen={setModalMasProductos}
           masProductos={aniadirMas}
           onConfirm={sinProductosAdicionales}
         />

@@ -55,7 +55,7 @@ function Producto() {
         producto.recogida?.lugar && `Recogida: ${producto.recogida.lugar}`,
         producto.recogida?.hora && `a las ${producto.recogida.hora}`,
         producto.devolucion?.lugar &&
-          `Devolución: ${producto.devolucion.lugar}`,
+          ` Devolución: ${producto.devolucion.lugar}`,
       ],
       precio: precio,
       img: producto.img,

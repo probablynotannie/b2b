@@ -146,7 +146,7 @@ function Listado({
       </Modal>
       <AnadirMasProductos
         isOpen={modalMasProductos}
-        setModalMasProductos={setModalMasProductos}
+        setModalOpen={setModalMasProductos}
         masProductos={aniadirMas}
         onConfirm={sinProductosAdicionales}
       />

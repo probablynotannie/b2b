@@ -1,13 +1,12 @@
 /* eslint-disable no-undef */
 import flowbite from "flowbite-react/tailwind";
-
 module.exports = {
   darkMode: 'class',
   prefix: 'tw-',
   content: [
     './index.html',
     './src/**/*.{js,ts,jsx,tsx}',
-    flowbite.content(), // Needed for Flowbite-React
+    flowbite.content(),
   ],
   theme: {
     extend: {
@@ -29,20 +28,16 @@ module.exports = {
     },
   },
   plugins: [
-    // 🧩 Add custom utilities including global popover arrow override
     function ({ addComponents }) {
       addComponents({
         '.smooth': {
           transition: 'all 0.3s ease',
         },
 
-        // 🛠️ Global override for Flowbite popover arrow in dark mode
         '.tw-dark .tw-h-2.tw-w-2.tw-rotate-45': {
           borderColor: 'transparent',
           backgroundColor: 'transparent',
         },
-
-        // Button utilities...
         '.btn_accesorios': {
           padding: '0.75rem 1.5rem',
           fontWeight: '700',
@@ -103,11 +98,7 @@ module.exports = {
         },
       })
     },
-
-    // Only use one Flowbite plugin loader — keep the correct one
     flowbite.plugin(),
-
-    // Other plugins
     require('tailwindcss-animated'),
   ],
 };

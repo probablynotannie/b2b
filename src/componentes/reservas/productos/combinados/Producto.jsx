@@ -40,6 +40,29 @@ function Producto({ producto, onRemove, index }) {
             )}
             {producto.ubicacion && <li>{producto.ubicacion}</li>}
           </ul>
+          {producto.selectedExtras && (
+            <>
+              <h4 className="tw-font-semibold dark:tw-text-slate-300">
+                Extras
+              </h4>
+              <ul className="tw-flex tw-gap-2">
+                {producto.selectedExtras.map((extra, idx) => (
+                  <li
+                    key={idx}
+                    className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400"
+                  >
+                    {extra.quantity}x
+                    <span className="tw-w-full tw-p-2 tw-font-bold tw-text-slate-600 dark:tw-text-slate-300">
+                      {extra.id === "GPS" && "GPS"}
+                      {extra.id === "sillitabebe" && "Sillita bebé"}
+                      {extra.id === "sillitaninio" && "Sillita niño"}
+                      {extra.id === "elevador" && "Elevador"}
+                    </span>
+                  </li>
+                ))}
+              </ul>
+            </>
+          )}
           <div className="tw-flex tw-justify-between tw-items-center">
             <span className="tw-font-semibold group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark dark:tw-text-slate-100 tw-smooth">
               Total: {producto.precio.toFixed(2)}€

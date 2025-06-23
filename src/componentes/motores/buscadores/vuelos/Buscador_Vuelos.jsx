@@ -180,7 +180,7 @@ function Buscador_Cruceros() {
           </div>
           <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-mt-4">
             <Input_Buscador
-              required={true}
+              /* required={true} */
               control={control}
               name={"origen"}
               setValue={setValue}
@@ -188,7 +188,7 @@ function Buscador_Cruceros() {
               destinos={destinos}
             />
             <Input_Buscador
-              required={true}
+              /* required={true} */
               control={control}
               name={"destino"}
               setValue={setValue}
