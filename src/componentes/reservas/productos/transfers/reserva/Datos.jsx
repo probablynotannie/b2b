@@ -2,10 +2,7 @@
 import Reserva from "../../../datos/Reserva";
 import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
-import Input_Texto from "../../../../inputs/Texto";
-import Input_Numero from "../../../../inputs/Numero";
-import Input_Email from "../../../../inputs/Email";
-
+import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 const Transfer = () => {
   const location = useLocation();
   const coche = location.state || {};
@@ -31,30 +28,7 @@ const Transfer = () => {
             Datos Contacto
           </h2>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <Input_Texto
-              tipo={"Nombre"}
-              name="nombre"
-              register={register}
-              errors={errors}
-            />
-            <Input_Texto
-              tipo={"Apellido"}
-              name="apellido"
-              register={register}
-              errors={errors}
-            />
-            <Input_Numero
-              tipo="numero"
-              register={register}
-              errors={errors}
-              name="numero"
-            />
-            <Input_Email
-              tipo="email"
-              register={register}
-              errors={errors}
-              name="email"
-            />
+            <DatosContacto register={register} errors={errors} />
           </div>
           <Reserva
             img={img}
@@ -65,10 +39,7 @@ const Transfer = () => {
             }
           />
           <div className="tw-flex tw-justify-end">
-            <button
-              type="submit"
-              className="tw-btn_primario tw-btn_accesorios"
-            >
+            <button type="submit" className="tw-btn_primario tw-btn_accesorios">
               Reservar
             </button>
           </div>

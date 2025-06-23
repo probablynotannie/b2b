@@ -18,8 +18,8 @@
     "id": 0,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -51,7 +51,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 22.67
       },
       {
         "id": 1,
@@ -60,7 +60,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60.0
       },
       {
         "id": 2,
@@ -68,7 +68,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -82,7 +82,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -90,7 +90,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -100,7 +100,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -108,7 +108,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -117,7 +117,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -125,7 +125,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110.0
       },
       {
         "id": 9,
@@ -135,7 +135,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -158,8 +158,8 @@
     "id": 864,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -191,7 +191,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -199,8 +199,7 @@
         "reembolso": "SI",
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
-
-        "precio": "60.00"
+        "precio": 60.0
       },
       {
         "id": 2,
@@ -208,7 +207,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -222,7 +221,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -230,7 +229,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -240,7 +239,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -248,7 +247,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -257,7 +256,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -265,7 +264,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -275,7 +274,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -294,8 +293,8 @@
     "id": 159,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -327,7 +326,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -336,7 +335,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60
       },
       {
         "id": 2,
@@ -344,7 +343,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -358,7 +357,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80.0
       },
       {
         "id": 4,
@@ -366,7 +365,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -376,7 +375,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -384,7 +383,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -393,7 +392,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -401,7 +400,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -411,7 +410,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -430,8 +429,8 @@
     "id": 359,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": ["/hotel4.jpg", "/hoteles/prueba2.jpg", "/hoteles/prueba3.jpg"],
@@ -459,7 +458,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "50.00"
+        "precio": 50
       },
       {
         "id": 1,
@@ -468,7 +467,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60
       },
       {
         "id": 2,
@@ -476,7 +475,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -490,7 +489,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -498,7 +497,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -508,7 +507,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -516,7 +515,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -525,7 +524,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -533,7 +532,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -543,7 +542,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 300
       }
     ]
   },
@@ -563,8 +562,8 @@
     "id": 111,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -596,7 +595,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "50.00"
+        "precio": 50
       },
       {
         "id": 1,
@@ -605,7 +604,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60
       },
       {
         "id": 2,
@@ -613,7 +612,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -627,7 +626,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -635,7 +634,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -645,7 +644,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -653,7 +652,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -662,7 +661,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -670,7 +669,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -680,7 +679,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -704,8 +703,8 @@
     "id": 186,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -737,7 +736,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -746,7 +745,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60.0
       },
       {
         "id": 2,
@@ -754,7 +753,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -768,7 +767,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -776,7 +775,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -786,7 +785,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -794,7 +793,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -803,7 +802,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150.0
       },
       {
         "id": 8,
@@ -811,7 +810,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -821,7 +820,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -851,8 +850,8 @@
     "id": 1,
     "ubicacion": "en Calle Mayor, 12, Madrid",
     "precio": 180,
-    "fecha": "5 de noviembre",
-    "fechaSalida": "12 de noviembre",
+    "fecha": "05/11/2025",
+    "fechaSalida": "10/11/2025",
     "pax": 2,
     "pax_ninios": 0,
     "imagenes": [
@@ -927,8 +926,8 @@
     "id": 2,
     "ubicacion": "en Paseo Marítimo, 22, Barcelona",
     "precio": 95,
-    "fecha": "15 de diciembre",
-    "fechaSalida": "22 de diciembre",
+    "fecha": "15/12/2025",
+    "fechaSalida": "22/12/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -991,8 +990,8 @@
     "id": 468,
     "ubicacion": "en Paseo del Sol, Valencia",
     "precio": 340,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -1035,7 +1034,7 @@
         "nombre": "Habitación familiar vista mar",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110.0
       }
     ]
   },
@@ -1064,8 +1063,8 @@
     "id": 157,
     "ubicacion": "en el Puerto de Tarragona",
     "precio": 310,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -1094,21 +1093,21 @@
         "nombre": "Estándar con terraza",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "88.00"
+        "precio": 88
       },
       {
         "id": 1,
         "nombre": "Junior Suite",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "140.00"
+        "precio": 140
       },
       {
         "id": 2,
         "nombre": "Habitación familiar",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "125.00"
+        "precio": 125
       }
     ]
   },
@@ -1131,8 +1130,8 @@
     "id": 153,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -1164,7 +1163,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -1173,7 +1172,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60
       },
       {
         "id": 2,
@@ -1181,7 +1180,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -1195,7 +1194,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -1203,7 +1202,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -1213,7 +1212,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -1221,7 +1220,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -1230,7 +1229,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -1238,7 +1237,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -1248,7 +1247,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 90
       }
     ]
   },
@@ -1271,8 +1270,8 @@
     "id": 576,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -1304,7 +1303,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -1313,7 +1312,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60
       },
       {
         "id": 2,
@@ -1321,7 +1320,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -1335,7 +1334,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80.0
       },
       {
         "id": 4,
@@ -1343,7 +1342,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35.0
       },
       {
         "id": 5,
@@ -1353,7 +1352,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95.0
       },
       {
         "id": 6,
@@ -1361,7 +1360,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105.0
       },
       {
         "id": 7,
@@ -1370,7 +1369,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -1378,7 +1377,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110
       },
       {
         "id": 9,
@@ -1388,7 +1387,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -1411,8 +1410,8 @@
     "id": 4646,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -1444,7 +1443,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -1453,7 +1452,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60.0
       },
       {
         "id": 2,
@@ -1461,7 +1460,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -1475,7 +1474,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -1483,7 +1482,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -1493,7 +1492,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -1501,7 +1500,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -1510,7 +1509,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -1518,7 +1517,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110.0
       },
       {
         "id": 9,
@@ -1528,7 +1527,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   },
@@ -1551,8 +1550,8 @@
     "id": 465,
     "ubicacion": "en Passeig de Llevant, 3, Malgrat De Mar (Costa Barcelona)",
     "precio": 364,
-    "fecha": "21 de octubre",
-    "fechaSalida": "28 de octubre",
+    "fecha": "21/10/2025",
+    "fechaSalida": "28/10/2025",
     "pax": 2,
     "pax_ninios": 1,
     "imagenes": [
@@ -1584,7 +1583,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "42.67"
+        "precio": 42.67
       },
       {
         "id": 1,
@@ -1593,7 +1592,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "60.00"
+        "precio": 60.0
       },
       {
         "id": 2,
@@ -1601,7 +1600,7 @@
         "reembolso": "SI",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "120.50"
+        "precio": 120.5
       },
       {
         "id": 3,
@@ -1615,7 +1614,7 @@
         ],
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "80.00"
+        "precio": 80
       },
       {
         "id": 4,
@@ -1623,7 +1622,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "35.00"
+        "precio": 35
       },
       {
         "id": 5,
@@ -1633,7 +1632,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "95.00"
+        "precio": 95
       },
       {
         "id": 6,
@@ -1641,7 +1640,7 @@
         "reembolso": "SI",
         "regimen": "Solo alojamiento",
         "regimenEnCorto": "SA",
-        "precio": "105.00"
+        "precio": 105
       },
       {
         "id": 7,
@@ -1650,7 +1649,7 @@
         "reembolso_penalizacion": "A partir de 07/11/2024 penalización de 90.00€",
         "regimen": "Todo incluido",
         "regimenEnCorto": "TI",
-        "precio": "150.00"
+        "precio": 150
       },
       {
         "id": 8,
@@ -1658,7 +1657,7 @@
         "reembolso": "SI",
         "regimen": "Media pensión",
         "regimenEnCorto": "MP",
-        "precio": "110.00"
+        "precio": 110.0
       },
       {
         "id": 9,
@@ -1668,7 +1667,7 @@
         "regimen": "Alojamiento y desayuno",
         "regimenEnCorto": "AD",
 
-        "precio": "30.00"
+        "precio": 30
       }
     ]
   }

@@ -1,8 +1,4 @@
-import { FaCar } from "react-icons/fa";
-import { MdSevereCold } from "react-icons/md";
-import { FaPerson } from "react-icons/fa6";
 import { Link } from "react-router-dom";
-import { FaWallet } from "react-icons/fa";
 
 function Cajas({ selectedCars }) {
   const prices = selectedCars.map((car) => car.precio);

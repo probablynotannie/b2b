@@ -5,10 +5,12 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import { FaHotel, FaShip } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import DatosContacto from "../../../estructura/DatosContacto";
-
 function ReservaFinal() {
   const location = useLocation();
   const { hotel, ferry, data, habitacion } = location.state || {};
+  const precioFerry = Number(
+    ferry.ida.precio + (ferry.vuelta?.precio || 0)
+  ).toFixed(2);
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
@@ -35,9 +37,7 @@ function ReservaFinal() {
               <FaShip className="tw-text-secondary" />
               {ferry.ida.ruta}
             </span>
-            <span>
-              {(ferry.ida.precio + ferry.vuelta?.precio || 0).toFixed(2)}€
-            </span>
+            <span>{precioFerry}€</span>
           </li>
           <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-400">
             {FormatearFecha(ferry.ida.fecha)} -{" "}

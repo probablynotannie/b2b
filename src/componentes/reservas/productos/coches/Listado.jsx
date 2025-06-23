@@ -9,7 +9,6 @@ import { GiCarDoor } from "react-icons/gi";
 import { FaCar } from "react-icons/fa6";
 import { MdSevereCold } from "react-icons/md";
 import { Link } from "react-router-dom";
-import { Modal } from "flowbite-react";
 import { useState } from "react";
 function Listado({ coches, handleCompareChange, selectedCars }) {
   const [activeTab, setActiveTab] = useState("tarifas");
@@ -349,7 +348,6 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                           {coche.cambio}
                         </span>
                       </div>
-
                       <section className="tw-pb-12 tw-mt-5">
                         <div className="md:tw-flex">
                           <ul className="tw-flex-column tw-space-y-4 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-gray-400 md:tw-me-4 tw-mb-4 md:tw-mb-0">
@@ -368,7 +366,6 @@ function Listado({ coches, handleCompareChange, selectedCars }) {
                               </li>
                             ))}
                           </ul>
-
                           <div className="tw-p-6 tw-bg-gray-50 text-medium tw-text-gray-500 dark:tw-text-gray-400 dark:tw-bg-gray-800 tw-rounded-lg tw-w-full">
                             {tabs.map((tab) =>
                               activeTab === tab.id ? (

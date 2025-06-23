@@ -22,7 +22,7 @@ function Vuelos({ ida, vuelta, pasajeros }) {
         </div>
       </section>
       <VueloSeleccionados ida={ida} vuelta={vuelta} cesta={true} />
-      <Pasajeros pasajeros={pasajeros} />
+      {pasajeros && <Pasajeros pasajeros={pasajeros} />}
     </article>
   );
 }

@@ -8,12 +8,29 @@ import {
   eachDayOfInterval,
   endOfMonth,
   isBefore,
+  isAfter,
   startOfDay,
 } from "date-fns";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
 import { useController } from "react-hook-form";
+import parseFecha from "../../../helpers/parseFechas";
+import cesta from "../../estructura/cesta/Zustand";
 const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
+  const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
+
+  const today = startOfDay(new Date());
+  let fechaMin = today;
+  let fechaMax = null;
+  if (productos[0]?.fecha) {
+    const ref = startOfDay(parseFecha(productos[0].fecha));
+    fechaMin = new Date(ref);
+    fechaMin.setDate(ref.getDate() - diasAntes);
+    fechaMax = new Date(ref);
+    fechaMax.setDate(ref.getDate() + diasDespues);
+  }
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);
   const { field: fieldStartDate } = useController({
@@ -62,22 +79,23 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
     return (
       <div className="tw-grid tw-grid-cols-7 tw-text-center tw-font-bold">
         {weekDays.map((day) => (
-          <div key={day} className="tw-p-1 tw-text-black tw-text-sm">
+          <div
+            key={day}
+            className="tw-p-1 tw-text-black dark:tw-text-slate-300 tw-text-sm"
+          >
             {day}
           </div>
         ))}
       </div>
     );
   };
-
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
-
     return (
-      <div key={month} className="tw-mb-8">
+      <div key={month} className="tw-mb-8 ">
         <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
           {renderWeekDays()}
@@ -86,31 +104,37 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
           {Array.from({ length: getDay(startOfMonth(month)) }, (_, i) => (
             <div key={`empty-${i}`} className="tw-p-4"></div>
           ))}
-          {daysInMonth.map((day) => (
-            <div
-              key={day}
-              className={`tw-p-2 tw-text-center tw-rounded-lg tw-cursor-pointer tw-text-black tw-text-sm ${
-                isBefore(startOfDay(day), startOfDay(new Date()))
-                  ? " tw-text-slate-400 tw-cursor-not-allowed"
-                  : isSameDay(day, fieldStartDate.value)
-                  ? "tw-bg-secondary tw-text-white"
-                  : isSameDay(day, fieldEndDate.value)
-                  ? "tw-bg-secondary tw-text-white"
-                  : fieldStartDate.value &&
-                    fieldEndDate.value &&
-                    day > fieldStartDate.value &&
-                    day < fieldEndDate.value
-                  ? "tw-bg-orange-100"
-                  : ""
-              }`}
-              onClick={() =>
-                !isBefore(startOfDay(day), startOfDay(new Date())) &&
-                handleDateClick(day)
-              }
-            >
-              {format(day, "d")}
-            </div>
-          ))}
+          {daysInMonth.map((day) => {
+            const isDisabled =
+              (fechaMax &&
+                ((isBefore(day, fechaMin) && !isSameDay(day, fechaMin)) ||
+                  (isAfter(day, fechaMax) && !isSameDay(day, fechaMax)))) ||
+              (isBefore(day, today) && !isSameDay(day, today));
+            return (
+              <div
+                key={day}
+                className={`tw-p-2 tw-text-center tw-rounded-lg tw-text-sm ${
+                  isDisabled
+                    ? "tw-text-slate-400 dark:tw-text-slate-600 tw-cursor-not-allowed"
+                    : isSameDay(day, fieldStartDate.value)
+                    ? "tw-bg-secondary tw-text-white dark:tw-text-white"
+                    : isSameDay(day, fieldEndDate.value)
+                    ? "tw-bg-secondary tw-text-white dark:tw-text-white"
+                    : fieldStartDate.value &&
+                      fieldEndDate.value &&
+                      day > fieldStartDate.value &&
+                      day < fieldEndDate.value
+                    ? "tw-bg-orange-100 dark:tw-bg-slate-900 dark:tw-text-slate-300"
+                    : "tw-cursor-pointer tw-text-black dark:tw-text-slate-200"
+                }`}
+                onClick={() => {
+                  if (!isDisabled) handleDateClick(day);
+                }}
+              >
+                {format(day, "d")}
+              </div>
+            );
+          })}
         </div>
       </div>
     );
@@ -155,9 +179,9 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
         </div>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
-          <div className="tw-bg-white tw-w-full tw-h-full tw-mx-auto tw-relative">
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 tw-p-5">
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50 ">
+          <div className="tw-bg-white dark:tw-bg-slate-800 tw-w-full tw-h-full tw-mx-auto tw-relative">
+            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
                 Selecciona el rango de fechas
               </h2>
@@ -166,7 +190,7 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
               </button>
             </div>
             <div
-              className="tw-overflow-y-auto tw-h-[calc(100%-80px)] tw-p-4"
+              className="tw-overflow-y-auto tw-h-[calc(100%-80px)] tw-p-4 dark:tw-bg-slate-800"
               onScroll={handleScroll}
             >
               {months.map((month) => renderMonth(month))}

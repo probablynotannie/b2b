@@ -1,7 +1,7 @@
 import Buscador from "./filtros/Buscador";
 import { FaPerson } from "react-icons/fa6";
 import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
-import Listado2 from "../../estructura/hoteles/Listado";
+import Listado_Tablas from "../../estructura/hoteles/Listado";
 import Imagenes from "../../estructura/hoteles/Imgs";
 import Info from "../../estructura/hoteles/Info";
 import Map from "../../estructura/hoteles/Map";
@@ -9,11 +9,46 @@ import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
 import Head from "../../estructura/ProductoHeader";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import cesta from "../../../estructura/cesta/Zustand";
 function Producto() {
   const location = useLocation();
   const producto = location.state;
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const pax = producto.pax + producto.pax_ninios;
+  const [habitacionSeleccionada, setHabitacionSeleccionada] = useState();
+  const [modalMasProductos, setModalMasProductos] = useState(false);
+  const confirmacion = () => {
+    setModalMasProductos(true);
+  };
+  const navigate = useNavigate();
+  const anadirProducto = cesta((state) => state.anadirProducto);
+  const aniadirMas = () => {
+    anadirProducto({
+      hotel: producto,
+      habitacion: habitacionSeleccionada,
+      fecha: producto.fecha,
+      fechaVuelta: producto.fechaSalida,
+      titulo: producto.nombre,
+      ubicacion: producto.direccion,
+      precio: habitacionSeleccionada.precio,
+      img: "/banners/banner_hoteles.webp",
+      pax: pax,
+
+      type: 1,
+    });
+    setModalMasProductos(false);
+  };
+  const sinProductosAdicionales = () => {
+    console.log(habitacionSeleccionada.regimen);
+    navigate("/datosHotel", {
+      state: {
+        producto,
+        habitacion: habitacionSeleccionada,
+      },
+    });
+  };
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-my-10  tw-px-5 md:tw-px-0">
       <div className="tw-container">
@@ -88,22 +123,38 @@ function Producto() {
               descripcion={producto.descripcion}
             />
           </section>
-          <section className="tw-col-span-5">
-            <Listado2
+          <section className="tw-col-span-5 tw-hidden md:tw-block">
+            <Listado_Tablas
               values={values}
               setValues={setValues}
               minMax={minMax}
               producto={producto}
               habitaciones={producto.habitaciones}
+              /* cositas de zustand */
+              habitacionSeleccionada={habitacionSeleccionada}
+              setHabitacionSeleccionada={setHabitacionSeleccionada}
+              modalMasProductos={modalMasProductos}
+              setModalMasProductos={setModalMasProductos}
+              confirmacion={confirmacion}
+              sinProductosAdicionales={sinProductosAdicionales}
+              aniadirMas={aniadirMas}
             />
           </section>
-          <section className="tw-col-span-5">
+          <section className="tw-col-span-5 tw-block md:tw-hidden">
             <Listado_cajas
               values={values}
               setValues={setValues}
               minMax={minMax}
               producto={producto}
               habitaciones={producto.habitaciones}
+              /* cositas de zustand */
+              habitacionSeleccionada={habitacionSeleccionada}
+              setHabitacionSeleccionada={setHabitacionSeleccionada}
+              modalMasProductos={modalMasProductos}
+              setModalMasProductos={setModalMasProductos}
+              confirmacion={confirmacion}
+              sinProductosAdicionales={sinProductosAdicionales}
+              aniadirMas={aniadirMas}
             />
           </section>
           <section className="tw-col-span-5">

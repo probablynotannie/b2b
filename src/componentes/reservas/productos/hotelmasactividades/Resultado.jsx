@@ -111,6 +111,8 @@ function Productos() {
                   <PlaceHolder />
                 ) : (
                   <Resultado
+                    setActiveTab={setActiveTab}
+                    tab={"actividades"}
                     hoteles={hoteles}
                     selectedHotel={selectedHotel}
                     setHotel={setHotel}

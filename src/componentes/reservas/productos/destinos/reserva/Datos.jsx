@@ -1,8 +1,6 @@
 import Reserva from "../../../datos/Reserva";
 import { useLocation } from "react-router-dom";
-import Input_Texto from "../../../../inputs/Texto";
-import Input_Numero from "../../../../inputs/Numero";
-import Input_Email from "../../../../inputs/Email";
+import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto.jsx";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 function Datos() {
@@ -31,34 +29,7 @@ function Datos() {
             Datos Contacto
           </h2>
           <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <Input_Texto
-              required={true}
-              tipo={"Nombre"}
-              name="nombre"
-              register={register}
-              errors={errors}
-            />
-            <Input_Texto
-              required={true}
-              tipo={"Apellido"}
-              name="apellido"
-              register={register}
-              errors={errors}
-            />
-            <Input_Numero
-              required={true}
-              tipo="numero"
-              register={register}
-              errors={errors}
-              name="numero"
-            />
-            <Input_Email
-              required={true}
-              tipo="email"
-              register={register}
-              errors={errors}
-              name="email"
-            />
+            <DatosContacto register={register} errors={errors} />
           </div>
           <Reserva
             img={img}

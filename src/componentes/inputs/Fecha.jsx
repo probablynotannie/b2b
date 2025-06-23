@@ -5,7 +5,8 @@ import { DatesProvider } from "@mantine/dates";
 import { Controller } from "react-hook-form";
 import "dayjs/locale/es";
 import InfiniteScrollCalendarSingle from "./movil/InfiniteScrollCalendarSingle";
-
+import parseFecha from "../../helpers/parseFechas";
+import cesta from "../estructura/cesta/Zustand";
 function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
   useEffect(() => {
     if (fecha) {
@@ -18,6 +19,31 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
       setValue(name, date, { shouldValidate: true, shouldTouch: true });
     } else {
       setValue(name, null, { shouldValidate: true, shouldTouch: true });
+    }
+  };
+
+  const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
+
+  const disabledDates = (date) => {
+    const normalize = (d) =>
+      new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const today = normalize(new Date());
+
+    if (productos[0]?.fecha) {
+      const referenceDate = parseFecha(productos[0].fecha);
+      const minDate = new Date(referenceDate);
+      minDate.setDate(referenceDate.getDate() - diasAntes);
+      const maxDate = new Date(referenceDate);
+      maxDate.setDate(referenceDate.getDate() + diasDespues);
+      const normalizedDate = normalize(date);
+      return (
+        normalizedDate < normalize(minDate) ||
+        normalizedDate > normalize(maxDate)
+      );
+    } else {
+      return normalize(date) < today;
     }
   };
 
@@ -34,10 +60,11 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
             name={name}
             control={control}
             rules={required ? { required: "La fecha es obligatoria" } : {}}
-            render={({ field, fieldState: { error } }) => (
+            render={({ fieldState: { error } }) => (
               <>
                 <div className="tw-relative">
                   <DatePickerInput
+                    excludeDate={disabledDates}
                     placeholder="Selecciona fecha"
                     value={fecha}
                     onChange={handleDateChange}

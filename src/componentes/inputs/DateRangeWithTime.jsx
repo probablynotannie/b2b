@@ -2,8 +2,33 @@ import { useState } from "react";
 import { DateTimePicker } from "@mantine/dates";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useController } from "react-hook-form";
-
+import cesta from "../estructura/cesta/Zustand";
+import parseFecha from "../../helpers/parseFechas";
 const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
+  const productos = cesta((state) => state.productos);
+  const diasAntes = cesta((state) => state.diasAntes);
+  const diasDespues = cesta((state) => state.diasDespues);
+  const disabledDates = (date) => {
+    const normalize = (d) =>
+      new Date(d.getFullYear(), d.getMonth(), d.getDate());
+    const today = normalize(new Date());
+
+    if (productos[0]?.fecha) {
+      const referenceDate = parseFecha(productos[0].fecha);
+      const minDate = new Date(referenceDate);
+      minDate.setDate(referenceDate.getDate() - diasAntes);
+      const maxDate = new Date(referenceDate);
+      maxDate.setDate(referenceDate.getDate() + diasDespues);
+      const normalizedDate = normalize(date);
+      return (
+        normalizedDate < normalize(minDate) ||
+        normalizedDate > normalize(maxDate)
+      );
+    } else {
+      return normalize(date) < today;
+    }
+  };
+
   const { field: fieldFecha } = useController({
     name: nameFecha,
     control,
@@ -32,6 +57,7 @@ const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
       <div className="tw-relative tw-w-full">
         <DateTimePicker
           {...fieldFecha}
+          excludeDate={disabledDates}
           onChange={handleDateTimeChange}
           value={arrivalDateTime}
           placeholder={placeholder}

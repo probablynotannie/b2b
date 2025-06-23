@@ -50,12 +50,12 @@ function SelectorPersonas({ register, setValue, watch }) {
         open={open}
         onOpenChange={setOpen}
         content={
-          <div className="tw-rounded-lg tw-overflow-hidden">
-            <div className="tw-bg-slate-800 tw-p-4">
+          <div className="tw-overflow-hidden tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-rounded-xl ">
+            <div className="tw-bg-slate-900 tw-p-4">
               <h3 className="tw-text-white tw-font-bold">Bonificaciones</h3>
             </div>
             <div className="tw-bg-white dark:tw-bg-slate-800 tw-rounded-lg tw-p-4 tw-w-[350px]">
-              <span className="tw-text-sm ">Adultos</span>
+              <span className="tw-text-sm dark:tw-text-slate-100">Adultos</span>
               <div className="tw-relative">
                 <select
                   {...register("adultos")}
@@ -72,7 +72,7 @@ function SelectorPersonas({ register, setValue, watch }) {
                   <FaPerson />
                 </div>
               </div>
-              <span className="tw-text-sm tw-mt-3">Niños</span>
+              <span className="tw-text-sm tw-mt-3 dark:tw-text-slate-100">Niños</span>
               <div className="tw-relative">
                 <select
                   {...register("ninios")}
@@ -89,7 +89,7 @@ function SelectorPersonas({ register, setValue, watch }) {
                   <FaChild />
                 </div>
               </div>
-              <div className="tw-flex tw-justify-between tw-mt-3">
+              <div className="tw-flex tw-justify-between tw-mt-3 dark:tw-text-slate-300">
                 <label className="tw-inline-flex tw-items-center">
                   <input
                     className="tw-text-secondary"
@@ -116,9 +116,9 @@ function SelectorPersonas({ register, setValue, watch }) {
                   {[...Array(adultos)].map((_, index) => (
                     <div
                       key={`adulto-${index}`}
-                      className="tw-flex tw-items-center tw-space-x-2"
+                      className="tw-flex tw-justify-around tw-items-center tw-space-x-2"
                     >
-                      <span className="tw-w-[60px]">Adulto {index + 1}:</span>
+                      <span className="tw-w-[60px] dark:tw-text-slate-300 tw-text-sm">Adulto {index + 1}:</span>
                       {descuentos && (
                         <select
                           value={selectedDescuentos.adultos[index] || ""}
@@ -146,7 +146,7 @@ function SelectorPersonas({ register, setValue, watch }) {
                           className={`tw-p-2 tw-rounded-lg ${
                             selectedDiscapacidad.adultos[index] === 1
                               ? "tw-bg-blue-500 text-white"
-                              : "tw-bg-gray-200 tw-text-gray-400"
+                              : "tw-bg-gray-200 tw-text-gray-400 dark:tw-bg-slate-600"
                           }`}
                         >
                           <FaWheelchair />
@@ -158,9 +158,9 @@ function SelectorPersonas({ register, setValue, watch }) {
                   {[...Array(ninios)].map((_, index) => (
                     <div
                       key={`nino-${index}`}
-                      className="tw-flex tw-items-center tw-space-x-2"
+                      className="tw-flex tw-justify-around tw-items-center tw-space-x-2"
                     >
-                      <span className="tw-w-[60px]">Niño {index + 1}:</span>
+                      <span className="tw-w-[60px] dark:tw-text-slate-300 tw-text-sm">Niño {index + 1}:</span>
                       {descuentos && (
                         <select
                           value={selectedDescuentos.ninios[index] || ""}
@@ -187,7 +187,7 @@ function SelectorPersonas({ register, setValue, watch }) {
                           className={`tw-p-2 tw-rounded-lg ${
                             selectedDiscapacidad.ninios[index] === 1
                               ? "tw-bg-blue-500 text-white"
-                              : "tw-bg-gray-200 tw-text-gray-400"
+                              : "tw-bg-gray-200 tw-text-gray-400 dark:tw-bg-slate-600"
                           }`}
                         >
                           <FaWheelchair />

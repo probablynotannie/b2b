@@ -304,3 +304,10 @@ body {
 .leaflet-popup{
   bottom: -1px !important;
 }
+/* Target the popover arrow div */
+[data-testid="flowbite-popover"] {
+  border:0px transparent;
+  background-color: transparent;
+ 
+}
+

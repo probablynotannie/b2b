@@ -15,12 +15,12 @@ import { MdModeOfTravel } from "react-icons/md";
 
 const definicionesTipo = [
   { id: 1, iconos: [FaHotel], texto: "Hotel" },
-  { id: 2, iconos: [FaGlobe], texto: "Destinos" },
-  { id: 3, iconos: [FaShip], texto: "Cruceros" },
-  { id: 4, iconos: [FaTaxi], texto: "Transfers" },
-  { id: 5, iconos: [FaCar], texto: "Coches" },
-  { id: 6, iconos: [FaTicket], texto: "Tickets" },
-  { id: 7, iconos: [IoTicket], texto: "Entradas" },
+  { id: 2, iconos: [FaGlobe], texto: "Destino" },
+  { id: 3, iconos: [FaShip], texto: "Crucero" },
+  { id: 4, iconos: [FaTaxi], texto: "Transfer" },
+  { id: 5, iconos: [FaCar], texto: "Coche" },
+  { id: 6, iconos: [FaTicket], texto: "Ticket" },
+  { id: 7, iconos: [IoTicket], texto: "Entrada" },
   { id: 8, iconos: [FaFerry], texto: "Ferry" },
   { id: 9, iconos: [FaTrain], texto: "Tren" },
   { id: 10, iconos: [FaKitMedical], texto: "Seguro" },
@@ -39,7 +39,7 @@ const obtenerTipoPorId = (id) =>
 
 const Iconos = ({ tipo }) => {
   const { iconos, texto } = obtenerTipoPorId(tipo);
-  const hasTwoIcons = iconos.length === 2;
+  const dosIconos = iconos.length === 2;
 
   return (
     <div className="tw-relative tw-flex tw-items-center">
@@ -47,13 +47,13 @@ const Iconos = ({ tipo }) => {
         <Icon
           key={index}
           className={`tw-duration-300 tw-transition ${
-            hasTwoIcons && index === 1
+            dosIconos && index === 1
               ? "tw-absolute tw-left-2 tw--bottom-[7px] tw-bg-blue-400 tw-p-1 tw-rounded-full tw-text-white tw-text-md"
               : " dark:tw-text-white group-hover:tw-text-secondary"
           }`}
         />
       ))}
-      <span className="tw-ml-6 tw-text-xs tw-font-bold tw-text-slate-500 dark:tw-text-slate-300 group-hover:tw-text-secondary tw-smooth">
+      <span className="tw-ml-3 tw-text-xs tw-font-semibold group-hover:tw-text-secondary tw-smooth">
         {texto}
       </span>
     </div>

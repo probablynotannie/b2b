@@ -4,10 +4,14 @@ import Detalles from "./Detalles";
 import Precio from "./Extras";
 import Reembolso from "./Reembolso";
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import AnadirMasProductos from "../../../../../helpers/visuales/masProductos/AnadirMasProductos";
+import { useNavigate } from "react-router-dom";
+import cesta from "../../../../estructura/cesta/Zustand";
+
 function Producto() {
   const location = useLocation();
   const producto = location.state;
+  const navigate = useNavigate();
   const [contratar, setContratar] = useState(false);
   const reembolso = 90;
   const [precio, setPrecio] = useState(producto.precio * producto.dias);
@@ -21,6 +25,44 @@ function Producto() {
     setPrecio(basePrice);
   }, [contratar, totalExtras, producto.precio, producto.dias, reembolso]);
   const [selectedExtras, setSelectedExtras] = useState([]);
+  const [modalMasProductos, setModalMasProductos] = useState(false);
+  const confirmacion = () => {
+    setModalMasProductos(true);
+  };
+  const sinProductosAdicionales = () => {
+    navigate("/datosCoche", {
+      state: {
+        producto,
+        selectedExtras,
+        precio,
+        conductor,
+        ...(contratar && { reembolso }),
+      },
+    });
+  };
+  const anadirProducto = cesta((state) => state.anadirProducto);
+
+  const aniadirMas = () => {
+    anadirProducto({
+      producto,
+      selectedExtras,
+      conductor,
+      ...(contratar && { reembolso }),
+      fecha: producto.recogida.fecha,
+      fechaVuelta: producto.devolucion.fecha,
+      titulo: producto.nombre,
+      ubicacion: [
+        producto.recogida?.lugar && `Recogida: ${producto.recogida.lugar}`,
+        producto.recogida?.hora && `a las ${producto.recogida.hora}`,
+        producto.devolucion?.lugar &&
+          ` Devolución: ${producto.devolucion.lugar}`,
+      ],
+      precio: precio,
+      img: producto.img,
+      type: 5,
+    });
+    setModalMasProductos(false);
+  };
   const [conductor, setConductor] = useState({
     titulo: "",
     nombre: "",
@@ -57,21 +99,20 @@ function Producto() {
             setExtras={setTotalExtras}
           />
         </section>
-        <Link
-          to={"/datosCoche"}
-          state={{
-            producto,
-            selectedExtras,
-            precio,
-            conductor,
-            ...(contratar && { reembolso }),
-          }}
+
+        <button
+          onClick={confirmacion}
+          className="tw-w-full tw-btn_accesorios tw-btn_primario"
         >
-          <button className="tw-w-full tw-btn_accesorios tw-btn_primario tw-w-full">
-            Reservar {precio}€
-          </button>
-        </Link>
+          Reservar {precio}€
+        </button>
       </aside>
+      <AnadirMasProductos
+        isOpen={modalMasProductos}
+        setModalMasProductos={setModalMasProductos}
+        masProductos={aniadirMas}
+        onConfirm={sinProductosAdicionales}
+      />
     </div>
   );
 }

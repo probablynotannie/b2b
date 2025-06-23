@@ -14,8 +14,8 @@ function Bonificacion({ control, errors, setValue, namePasajeros }) {
         open={open}
         onOpenChange={setOpen}
         content={
-          <div>
-            <div className=" tw-bg-slate-800 tw-rounded-t-lg tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold">
+          <div className="dark:tw-border-slate-700 dark:tw-bg-slate-700 tw-border-2 tw-rounded-lg">
+            <div className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-rounded-t-lg tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold ">
               Tipo de bonificacion
             </div>
             <div className="tw-w-96 tw-space-y-3 tw-p-4 tw-text-sm tw-text-gray-500 dark:tw-bg-slate-800">
