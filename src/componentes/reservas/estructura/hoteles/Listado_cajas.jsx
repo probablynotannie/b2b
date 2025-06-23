@@ -2,14 +2,14 @@ import { useState } from "react";
 import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { Modal } from "flowbite-react";
-import { Link } from "react-router-dom";
 import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
 
 function Listado({
   values,
   setValues,
   minMax,
-  producto,
+  setActiveTab,
+  tab,
   habitaciones,
   seleccion,
   hotel,
@@ -92,6 +92,7 @@ function Listado({
               <button
                 className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2  tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
                 onClick={() => {
+                  tab && setActiveTab("actividades");
                   setHotel({ ...hotel, precio: habitacion.precio });
                   setHabitacion(habitacion);
                   setOpenModal(null);

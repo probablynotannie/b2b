@@ -15,6 +15,7 @@ function CestaCompleta() {
     }, 0);
     return total.toFixed(2);
   }
+
   const siguienteApartado = () => {
     navigate("/datosCombinado", {
       state: {

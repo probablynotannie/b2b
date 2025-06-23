@@ -12,7 +12,14 @@ import Imagenes from "../../estructura/hoteles/Imgs";
 import Info from "../../estructura/hoteles/Info";
 import Map from "../../estructura/hoteles/Map";
 import { FaRegCalendarAlt } from "react-icons/fa";
-function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
+function Resultado({
+  hoteles,
+  selectedHotel,
+  setHotel,
+  setHabitacion,
+  setActiveTab,
+  tab,
+}) {
   const reserva = {
     pax: 2,
     pax_ninios: 1,
@@ -198,6 +205,8 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                     </section>
                     <section className="tw-col-span-5 tw-hidden md:tw-flex">
                       <Listado2
+                        setActiveTab={setActiveTab}
+                        tab={tab}
                         values={values}
                         setValues={setValues}
                         minMax={minMax}
@@ -212,6 +221,8 @@ function Resultado({ hoteles, selectedHotel, setHotel, setHabitacion }) {
                     </section>
                     <section className="tw-col-span-5 md:tw-hidden">
                       <Listado_cajas
+                        setActiveTab={setActiveTab}
+                        tab={tab}
                         values={values}
                         setValues={setValues}
                         minMax={minMax}

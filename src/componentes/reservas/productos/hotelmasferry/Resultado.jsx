@@ -64,11 +64,11 @@ function Productos() {
           </button>
           <button
             className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
-              activeTab === "Vuelos"
+              activeTab === "Ferris"
                 ? "tw-border-secondary tw-text-secondary tw-font-bold "
                 : " tw-text-slate-700 dark:tw-text-slate-200 tw-border-none"
             }`}
-            onClick={() => setActiveTab("Vuelos")}
+            onClick={() => setActiveTab("Ferris")}
           >
             <FaShip className="tw-mr-1" /> Cambiar Ferry
           </button>
@@ -97,6 +97,8 @@ function Productos() {
                   </>
                 ) : (
                   <Resultado
+                    setActiveTab={setActiveTab}
+                    tab={"Ferris"}
                     setHabitacion={setHabitacion}
                     hoteles={hoteles}
                     selectedHotel={selectedHotel}
@@ -106,7 +108,7 @@ function Productos() {
               </section>
             </>
           )}
-          {activeTab === "Vuelos" && (
+          {activeTab === "Ferris" && (
             <MasFerris
               seleccion={true}
               ferris={ferris}

@@ -7,6 +7,7 @@ import Iconos from "./Iconos";
 import { useState } from "react";
 import ModalEliminar from "./ModalEliminar";
 import formatearFecha from "../../../helpers/FormatearFecha";
+
 const ProductoItem = ({ producto, index, onRemove }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (
@@ -35,7 +36,6 @@ const ProductoItem = ({ producto, index, onRemove }) => {
           alt={producto.nombre || "Producto"}
           className="tw-w-24 tw-h-24 tw-object-cover tw-rounded-lg tw-shadow-sm"
         />
-
         <div className="tw-flex-1 tw-flex tw-flex-col tw-justify-between">
           <h3 className="tw-font-semibold tw-text-slate-900 dark:tw-text-slate-100">
             {producto.titulo}

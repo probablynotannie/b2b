@@ -16,15 +16,15 @@ function Listado({
   setHotel,
   setOpenModal,
   setHabitacion,
-  
   setHabitacionSeleccionada,
   modalMasProductos,
   setModalMasProductos,
   confirmacion,
   aniadirMas,
-  sinProductosAdicionales
+  sinProductosAdicionales,
+  setActiveTab,
+  tab,
 }) {
- 
   const [expandedPenaltyId, setExpandedPenaltyId] = useState(null);
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
@@ -128,12 +128,13 @@ function Listado({
                   <button
                     className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg"
                     onClick={() => {
+                      tab && setActiveTab(tab);
                       setHotel({ ...hotel, precio: habitacion.precio });
                       setHabitacion(habitacion);
                       setOpenModal(null);
                     }}
                   >
-                    {habitacion.precio}€
+                    {habitacion.precio}€ 
                   </button>
                 ) : (
                   <>
@@ -154,7 +155,7 @@ function Listado({
         </tbody>
         <AnadirMasProductos
           isOpen={modalMasProductos}
-          setModalOpen={setModalMasProductos}
+          setModalMasProductos={setModalMasProductos}
           masProductos={aniadirMas}
           onConfirm={sinProductosAdicionales}
         />
