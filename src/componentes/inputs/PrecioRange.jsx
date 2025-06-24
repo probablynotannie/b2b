@@ -45,14 +45,17 @@ const PriceRangeSlider = ({ values, setValues, minMax }) => {
             {children}
           </div>
         )}
-        renderThumb={({ props }) => (
-          <div
-            {...props}
-            className="tw-w-5 tw-h-5 tw-bg-slate-500 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-shadow-lg"
-          >
-            <div className="tw-w-2.5 tw-h-2.5 tw-bg-white tw-rounded-full" />
-          </div>
-        )}
+        renderThumb={({ props }) => {
+          const { key, ...restProps } = props;
+          return (
+            <div
+              {...restProps}
+              className="tw-w-5 tw-h-5 tw-bg-slate-500 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-shadow-lg"
+            >
+              <div className="tw-w-2.5 tw-h-2.5 tw-bg-white tw-rounded-full" />
+            </div>
+          );
+        }}
       />
     </div>
   );

@@ -65,11 +65,15 @@ const DateRange = ({
   let minDate = today;
   let maxDate = null;
   if (productos[0]?.fecha) {
-    const refDate = parseFecha(productos[0].fecha);
-    minDate = new Date(refDate);
-    minDate.setDate(refDate.getDate() - diasAntes);
-    maxDate = new Date(refDate);
-    maxDate.setDate(refDate.getDate() + diasDespues);
+    const fechaInicio = parseFecha(productos[0].fecha);
+    const fechaFin = productos[0].fechaVuelta
+      ? parseFecha(productos[0].fechaVuelta)
+      : parseFecha(productos[0].fecha);
+
+    minDate = new Date(fechaInicio);
+    minDate.setDate(fechaInicio.getDate() - diasAntes);
+    maxDate = new Date(fechaFin);
+    maxDate.setDate(fechaFin.getDate() + diasDespues);
   }
 
   return (

@@ -30,13 +30,16 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
     const normalize = (d) =>
       new Date(d.getFullYear(), d.getMonth(), d.getDate());
     const today = normalize(new Date());
-
     if (productos[0]?.fecha) {
-      const referenceDate = parseFecha(productos[0].fecha);
-      const minDate = new Date(referenceDate);
-      minDate.setDate(referenceDate.getDate() - diasAntes);
-      const maxDate = new Date(referenceDate);
-      maxDate.setDate(referenceDate.getDate() + diasDespues);
+      const fechaInicio = parseFecha(productos[0].fecha);
+         const fechaFin = productos[0].fechaVuelta
+      ? parseFecha(productos[0].fechaVuelta)
+      : parseFecha(productos[0].fecha);
+
+      const minDate = new Date(fechaInicio);
+      minDate.setDate(fechaInicio.getDate() - diasAntes);
+      const maxDate = new Date(fechaFin);
+      maxDate.setDate(fechaFin.getDate() + diasDespues);
       const normalizedDate = normalize(date);
       return (
         normalizedDate < normalize(minDate) ||

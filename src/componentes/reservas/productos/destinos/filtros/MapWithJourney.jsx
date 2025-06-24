@@ -28,7 +28,7 @@ const MapWithJourney = ({ destino }) => {
         {destino.noches.map((location) => (
           <Marker key={location.id} position={[location.lat, location.lng]}>
             <Tooltip permanent offset={[0, -20]}>
-              <stron>{location.name}</stron>
+              <strong>{location.name}</strong>
               <br />
               {location.country}
               <br />

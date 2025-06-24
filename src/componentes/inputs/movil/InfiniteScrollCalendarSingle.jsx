@@ -19,21 +19,26 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
   const productos = cesta((state) => state.productos);
   const diasAntes = cesta((state) => state.diasAntes);
   const diasDespues = cesta((state) => state.diasDespues);
-  const referenceDate = productos?.[0]?.fecha
+  const fechaInicio = productos?.[0]?.fecha
     ? parseFecha(productos[0].fecha)
     : null;
-  const minDate = referenceDate
+  const fechaFin = productos?.[0]?.fechaVuelta
+    ? parseFecha(productos[0].fechaVuelta)
+    : productos?.[0]?.fecha
+    ? parseFecha(productos[0].fecha)
+    : null;
+  const minDate = fechaInicio
     ? new Date(
-        referenceDate.getFullYear(),
-        referenceDate.getMonth(),
-        referenceDate.getDate() - diasAntes
+        fechaInicio.getFullYear(),
+        fechaInicio.getMonth(),
+        fechaInicio.getDate() - diasAntes
       )
     : null;
-  const maxDate = referenceDate
+  const maxDate = fechaFin
     ? new Date(
-        referenceDate.getFullYear(),
-        referenceDate.getMonth(),
-        referenceDate.getDate() + diasDespues
+        fechaFin.getFullYear(),
+        fechaFin.getMonth(),
+        fechaFin.getDate() + diasDespues
       )
     : null;
 
@@ -62,7 +67,7 @@ const InfiniteScrollCalendar = ({ name, setValue }) => {
 
   const isDateDisabled = (date) => {
     const d = startOfDay(date);
-    if (referenceDate) {
+    if (fechaInicio) {
       if (isBefore(d, minDate) || isAfter(d, maxDate)) {
         return true;
       }

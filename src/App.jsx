@@ -8,12 +8,10 @@ import "@mantine/dates/styles.css";
 function App() {
   return (
     <MantineProvider>
-      <>
-        <Router>
-          <Header />
-          <Footer />
-        </Router>
-      </>
+      <Router>
+        <Header />
+        <Footer />
+      </Router>
     </MantineProvider>
   );
 }

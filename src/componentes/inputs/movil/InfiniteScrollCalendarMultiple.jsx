@@ -25,11 +25,14 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
   let fechaMin = today;
   let fechaMax = null;
   if (productos[0]?.fecha) {
-    const ref = startOfDay(parseFecha(productos[0].fecha));
-    fechaMin = new Date(ref);
-    fechaMin.setDate(ref.getDate() - diasAntes);
-    fechaMax = new Date(ref);
-    fechaMax.setDate(ref.getDate() + diasDespues);
+    const fechaInicio = startOfDay(parseFecha(productos[0].fecha));
+    const fechaFin = productos[0].fechaVuelta
+      ? parseFecha(productos[0].fechaVuelta)
+      : parseFecha(productos[0].fecha);
+    fechaMin = new Date(fechaInicio);
+    fechaMin.setDate(fechaInicio.getDate() - diasAntes);
+    fechaMax = new Date(fechaFin);
+    fechaMax.setDate(fechaFin.getDate() + diasDespues);
   }
   const [months, setMonths] = useState([startOfMonth(new Date())]);
   const [isModalOpen, setIsModalOpen] = useState(false);

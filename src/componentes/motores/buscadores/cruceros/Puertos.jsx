@@ -43,7 +43,7 @@ function Puertos({ setRequestData }) {
         pagination={{ clickable: true }}
         autoplay={{ delay: 3000, disableOnInteraction: false }}
         onSwiper={(swiper) => (swiperRef.current = swiper)}
-        className="tw-mt-3 tw-bg-pink-700"
+        className="tw-mt-3"
       >
         {highlightedPorts.map((zona, index) => (
           <SwiperSlide key={index}>

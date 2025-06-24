@@ -17,14 +17,12 @@ function Fechas() {
     endDate: null,
     startDatePrice: null,
   });
-
   useEffect(() => {
     const formatFecha = (date) => {
       if (!date) return "";
       const options = { day: "numeric", month: "long", year: "numeric" };
       return new Intl.DateTimeFormat("es-ES", options).format(date);
     };
-
     setLocalProducto((prevReserva) => ({
       ...prevReserva,
       fechaIda: dates.startDate ? formatFecha(dates.startDate) : "",
@@ -35,7 +33,12 @@ function Fechas() {
   }, [dates, localProducto.pax]);
   return (
     <article className="tw-container tw-my-10 tw-grid tw-grid-cols-3 tw-gap-10">
-      <main className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[70vh] dark:tw-bg-slate-800">
+      <main className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-bg-slate-800">
+        <img
+          src={producto.img}
+          className="md:tw-hidden tw-object-cover tw-w-full tw-h-[20vh] tw-shadow tw-rounded-md tw-mb-4"
+          alt="imagen destino"
+        />
         <Input_Fecha
           dates={dates}
           dias={localProducto.dias}
@@ -72,7 +75,7 @@ function Fechas() {
           </section>
         )}
       </main>
-      <aside className="tw-col-span-3 lg:tw-col-span-1 tw-sticky tw-top-5 tw-shadow-xl tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit dark:tw-bg-slate-800">
+      <aside className="tw-col-span-3 lg:tw-col-span-1 tw-sticky tw-top-5 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit dark:tw-bg-slate-800">
         <Aside dates={dates} producto={localProducto} reserva={localProducto} />
       </aside>
     </article>
