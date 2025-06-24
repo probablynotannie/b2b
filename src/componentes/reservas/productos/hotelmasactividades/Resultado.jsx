@@ -36,10 +36,10 @@ function Productos() {
         <div
           className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
           style={{
-            backgroundImage: "url('/banners/banner_avion.webp')",
+            backgroundImage: "url('/banners/banner_actividades2.webp')",
           }}
         >
-          <div className="tw-bg-indigo-300 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-55 dark:bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
+          <div className="tw-bg-indigo-300/20 dark:tw-bg-black/20 tw-text-pink-600 tw-bg-opacity-55 dark:bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
           <div className="tw-flex">
             <div className="tw-container tw-relative">
               <Buscador />

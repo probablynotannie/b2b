@@ -4,7 +4,9 @@ function Itinerario({ actividad }) {
   return (
     <>
       <h3 className="tw-font-bold tw-text-lg dark:tw-text-white">Itinerario</h3>
-      <Timeline>
+      <Timeline
+      
+      className="tw-border-l tw-border-slate-200 dark:tw-border-slate-700">
         {actividad.itinerario.map((itinerario, index) => (
           <Timeline.Item key={index}>
             <Timeline.Point />

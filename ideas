@@ -1,0 +1,17 @@
+hotel + vuelo 
+hotel + actividades
+hotel + ferris
+
+- - - - - - - - - -
+
+cuando se seleccione el hotel, en vez de pestañas se podria añadir a la cesta, por ejemplo:
+
+
+  + Se añade hotel a la cesta
+  + va directamente a listado de actividades (ej).
+  + se elige actividad y se añade a la cesta.
+  
+Inconvenientes
+
+  - casi seria mejor quitar las busquedas de los motores combinados y hacer que se pueda ir añadiendo a la ceste como en los combinados creados por separado.
+  

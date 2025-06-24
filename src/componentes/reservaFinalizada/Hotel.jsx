@@ -65,7 +65,6 @@ function Hotel({ hotel }) {
                   <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
                     <MdMeetingRoom className="tw-text-4xl tw-text-secondary" />
                     <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm">
-                      {" "}
                       {hotel.habitacion}
                       {hotel.habitacion === 1 ? " habitación" : " habitaciones"}
                     </span>
@@ -76,7 +75,6 @@ function Hotel({ hotel }) {
                   <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
                     <FaPerson className="tw-text-4xl tw-text-secondary" />
                     <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm">
-                      {" "}
                       {hotel.adultos}
                       {hotel.adultos === 1 ? " adulto" : " adultos"}
                     </span>
@@ -87,7 +85,6 @@ function Hotel({ hotel }) {
                   <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
                     <FaChild className="tw-text-4xl tw-text-secondary" />
                     <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-text-sm">
-                      {" "}
                       {hotel.ninios}
                       {hotel.ninios === 1 ? " niño" : " niños"}
                     </span>
@@ -113,7 +110,9 @@ function Hotel({ hotel }) {
                 {renderStars(hotel.estrellas)}
               </div>
             </div>
-            <p className="tw-text-sm tw-text-slate-500 tw-mt-1">{hotel.direccion}</p>
+            <p className="tw-text-sm tw-text-slate-500 tw-mt-1">
+              {hotel.direccion}
+            </p>
             <div className="tw-border-t tw-mt-2 tw-pt-2">
               <span className="tw-text-sm dark:tw-text-white">
                 {formatShortDate(hotel.entrada)} -{" "}
@@ -124,7 +123,6 @@ function Hotel({ hotel }) {
                   <>
                     <MdMeetingRoom className="tw-text-lg" />
                     <span className="tw-text-slate-600 dark:tw-text-slate-300">
-                      {" "}
                       {hotel.habitacion}
                       {hotel.habitacion === 1 ? " habitación" : " habitaciones"}
                     </span>
@@ -134,7 +132,6 @@ function Hotel({ hotel }) {
                   <>
                     <FaPerson className="tw-text-lg" />
                     <span className="tw-text-slate-600 dark:tw-text-slate-300">
-                      {" "}
                       {hotel.adultos}
                       {hotel.adultos === 1 ? " adulto" : " adultos"}
                     </span>
@@ -143,8 +140,7 @@ function Hotel({ hotel }) {
                 {hotel.ninios !== 0 && (
                   <>
                     <FaChild className="tw-text-lg" />
-                    <span className="tw-text-slate-600 dark:tw-text-slate-300">
-                      {" "}
+                    <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-ml-1">
                       {hotel.ninios}
                       {hotel.ninios === 1 ? " niño" : " niños"}
                     </span>

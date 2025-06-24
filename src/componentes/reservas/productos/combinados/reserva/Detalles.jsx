@@ -32,10 +32,10 @@ function Detalles({ productos }) {
   return (
     <div>
       <div>
-        {productos.map((producto) => {
+        {productos.map((producto, index) => {
           const componenteAMostrar = typeComponentMap[producto.type];
           return (
-            <div key={producto.id} className="tw-mt-4">
+            <div key={index} className="tw-mt-4">
               {componenteAMostrar ? componenteAMostrar(producto) : null}
             </div>
           );

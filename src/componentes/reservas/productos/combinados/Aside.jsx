@@ -7,9 +7,9 @@ function Aside({ producto }) {
         {producto.titulo}
       </h3>
       <div className="tw-flex tw-justify-between tw-items-center">
-        <p className="tw-pl-2 dark:tw-text-slate-300">
+        <div className="tw-pl-2 dark:tw-text-slate-300">
           <Iconos tipo={producto.type} />
-        </p>
+        </div>
         {producto.pax && (
           <span className="tw-text-xs dark:tw-text-slate-200">
             {producto.pax}x

@@ -40,7 +40,7 @@ const ProductoItem = ({ producto, index, onRemove }) => {
             {producto.titulo}
           </h3>
           <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-xs tw-mt-1">
-            {formatearFecha(producto.fecha)}{" "}
+            {formatearFecha(producto.fecha)}
             {producto.fechaVuelta &&
               `- ${formatearFecha(producto.fechaVuelta)}`}
           </p>
@@ -90,7 +90,6 @@ function Cesta() {
   }
   return (
     <Popover
-      aria-brailleroledescription=""
       aria-labelledby="notificaciones-popover"
       content={
         <div className="tw-flex tw-flex-col tw-divide tw-divide-slate-100 dark:tw-divide-slate-700 tw-w-80 tw-max-h-[70vh] tw-overflow-y-scroll scrollbar-hidden tw-p-3 tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-rounded-xl tw-shadow-lg tw-transition-shadow tw-duration-300">

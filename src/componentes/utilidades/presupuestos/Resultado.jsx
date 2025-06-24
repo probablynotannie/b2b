@@ -72,7 +72,7 @@ function Resultado() {
               <div className="tw-hidden md:tw-flex tw-gap-2 tw-items-center">
                 <button className="tw-bg-slate-500/80 dark:tw-bg-slate-800 hover:tw-bg-pink-600 dark:hover:tw-bg-pink-600 tw-smooth tw-p-2 tw-rounded-lg tw-text-white tw-font-bold">
                   Descargar
-                </button>{" "}
+                </button>
                 <button className="tw-bg-slate-500/80 dark:tw-bg-slate-800 hover:tw-bg-pink-600 dark:hover:tw-bg-pink-600 tw-smooth tw-p-2 tw-rounded-lg tw-text-white tw-font-bold">
                   Enviar
                 </button>

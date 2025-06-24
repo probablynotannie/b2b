@@ -89,17 +89,17 @@ function Cajas({ datos, detalles, loading }) {
                     <span className="tw-font-medium">{coche.modelo}</span>
                   </div>
                   <div className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-200 tw-flex tw-items-center tw-gap-1">
-                    <FaMapPin className="tw-shrink-0 tw-text-[1rem]" />{" "}
+                    <FaMapPin className="tw-shrink-0 tw-text-[1rem]" />
                     {coche.reserva.recorrido}
                   </div>
                   <div className="tw-flex tw-gap-1 tw-text-xs dark:tw-text-slate-200">
                     <FaCalendar className="tw-text-green-700 tw-shrink-0 tw-text-[1rem]" />
-                    <span className="tw-font-medium">Recogida:</span>{" "}
+                    <span className="tw-font-medium">Recogida:</span>
                     {coche.reserva.recogida}
                   </div>
                   <div className="tw-flex tw-gap-1 tw-text-xs dark:tw-text-slate-200">
                     <FaCalendar className="tw-text-red-700 tw-shrink-0 tw-text-[1rem]" />
-                    <span className="tw-font-medium">Devolución:</span>{" "}
+                    <span className="tw-font-medium">Devolución:</span>
                     {coche.reserva.devolucion}
                   </div>
                 </div>

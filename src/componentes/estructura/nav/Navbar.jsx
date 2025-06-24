@@ -2,11 +2,11 @@ import { Link } from "react-router-dom";
 import Usuario from "./Usuario";
 import Menu from "./Menu";
 import Notificaciones from "./Notificaciones";
-import DarkMode from "./DarkMode";
+import DarkMode from "../DarkMode";
 import ScrollToTop from "react-scroll-to-top";
-import Scroll from "./ScrollToTop";
+import Scroll from "../ScrollToTop";
 import { HiChevronDoubleUp } from "react-icons/hi";
-import Cesta from "./cesta/CestaPopOver";
+import Cesta from "../cesta/CestaPopOver";
 
 const Navbar = () => {
   return (

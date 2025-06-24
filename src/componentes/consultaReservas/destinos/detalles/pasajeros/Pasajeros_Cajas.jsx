@@ -31,7 +31,6 @@ function Pasajeros_Cajas({ pasajeros }) {
               </li>
               <li className="tw-flex tw-items-center tw-font-normal tw-text-xs tw-gap-2">
                 <span className="tw-font-semibold">
-                  {" "}
                   {pasajero.tipoDocumento}:
                 </span>
                 {pasajero.documento}

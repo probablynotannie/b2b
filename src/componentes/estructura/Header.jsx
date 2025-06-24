@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 /* ESTRUCTURA */
-import Navbar from "../estructura/Navbar";
+import Navbar from "../estructura/nav/Navbar";
 import Landing from "../Landing";
 import Notificaciones from "../Notificaciones";
 

@@ -33,7 +33,7 @@ function Pasajeros_Tabla({ pasajeros }) {
                 <td className="tw-px-6 tw-py-4">{pasajero.apellidos}</td>
                 <td className="tw-px-6 tw-py-4">{pasajero.nacionalidad}</td>
                 <td className="tw-px-6 tw-py-4">
-                  {pasajero.nacimiento} ({pasajero.edad}){" "}
+                  {pasajero.nacimiento} ({pasajero.edad})
                 </td>
                 <td className="tw-px-6 tw-py-4">{pasajero.tipoDocumento}</td>
                 <td className="tw-px-6 tw-py-4">{pasajero.documento}</td>

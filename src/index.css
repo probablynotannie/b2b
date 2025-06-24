@@ -114,7 +114,6 @@ body {
 .swipe-item.slide-out {
   transform: translateX(-100%);
 }
-
 /* calendario */
 .react-calendar__tile:hover {
   background-color: lightgray !important;
@@ -201,7 +200,6 @@ body {
   background-color: var(--mantine-primary-color-filled);
   color: var(--mantine-primary-color-contrast, var(--mantine-color-white));
 }
-
 ::-webkit-scrollbar {
   width: 5px;
 }
@@ -214,14 +212,11 @@ body {
 ::-webkit-scrollbar-thumb:hover {
   background: #555;
 }
-
-
 /* Hoteles en el mapa */
 .custom-popup {
   height: auto;
 }
 .custom-tooltip {
-  
   width: 250px;
   background-color: rgba(255, 255, 255, 0.863);
   padding: 10px;
@@ -282,14 +277,12 @@ body {
 }
 .marker-cluster-small{
    background-color: #3830a360;
-
 }
 .leaflet-popup-tip div{
   background-color: #3730a3;
 }
 .marker-cluster-medium {
   background-color: rgba(255, 102, 0, 0.295);
-
 }
 .marker-cluster-medium div{
   color: white;
@@ -304,10 +297,9 @@ body {
 .leaflet-popup{
   bottom: -1px !important;
 }
-/* Target the popover arrow div */
+
+/* los borders de los popovers */
 [data-testid="flowbite-popover"] {
   border:0px transparent;
   background-color: transparent;
- 
 }
-

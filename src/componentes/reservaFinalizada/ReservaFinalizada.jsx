@@ -80,7 +80,9 @@ function ReservaFinalizada() {
             </h2>
             <span className="tw-block tw-text-center tw-text-white md:tw-text-4xl tw-text-2xl tw-mt-2">
               Núm:
-              <span className="tw-font-bold tw-ml-2 tw-text-center">{numReserva}</span>
+              <span className="tw-font-bold tw-ml-2 tw-text-center">
+                {numReserva}
+              </span>
             </span>
           </div>
         </div>
@@ -94,25 +96,28 @@ function ReservaFinalizada() {
             </h3>
             <span className="tw-block tw-mt-2">
               Reserva:
-              <span className="tw-font-bold tw-ml-2 tw-text-center">{numReserva}</span>
+              <span className="tw-font-bold tw-ml-2 tw-text-center">
+                {numReserva}
+              </span>
             </span>
           </div>
           <div className="tw-flex tw-flex-col md:tw-flex-row md:tw-gap-3">
             <div>
-              <span className="tw-font-semibold tw-text-secondary"> fecha:</span>
+              <span className="tw-font-semibold tw-text-secondary">
+                fecha:
+              </span>
               <span className="tw-lowercase"> {reserva.fecha}</span>
             </div>
             {reserva.fechaSalida && (
               <div>
                 <span className="tw-font-semibold tw-text-secondary">
-                  {" "}
                   Fecha vuelta:
                 </span>
                 <span className="tw-lowercase"> {reserva.fechaSalida}</span>
               </div>
             )}
           </div>
-          <Datos/>
+          <Datos />
         </header>
       </section>
 

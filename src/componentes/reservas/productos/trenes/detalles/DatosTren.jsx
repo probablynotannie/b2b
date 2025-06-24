@@ -38,12 +38,12 @@ function DatosTren({ tren, tipo }) {
           <li>
             <span className="tw-mr-1 tw-font-semibold tw-text-slate-800 dark:tw-text-slate-100">
               Salida:
-            </span>{" "}
+            </span>
             {FormateadFecha(tren.searchSummary.depDate)}
           </li>
           <li>
             <span className="tw-mr-1 tw-font-semibold tw-text-slate-800 dark:tw-text-slate-100">
-              Duración:{" "}
+              Duración:
             </span>
             {formatearMinutos(tren.duration)}
           </li>

@@ -112,7 +112,7 @@ function Detalles({ coche, extraInfo }) {
                 className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "franquicia"
                     ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
-                    : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 hover:tw-bg-slate-100 dark:tw-hover:bg-slate-700"
                 }`}
               >
                 Política de Franquicia
@@ -124,7 +124,7 @@ function Detalles({ coche, extraInfo }) {
                 className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "condiciones"
                     ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
-                    : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 hover:tw-bg-slate-100 dark:tw-hover:bg-slate-700"
                 }`}
               >
                 Condiciones de alquiler
@@ -137,7 +137,7 @@ function Detalles({ coche, extraInfo }) {
                 className={`tw-px-4 tw-py-3 tw-rounded-lg ${
                   activeTab === "gasolina"
                     ? "tw-bg-secondary text-white dark:tw-bg-secondaryDark"
-                    : "bg-slate-50 dark:bg-slate-900 hover:bg-slate-100 dark:hover:bg-slate-700"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-900 hover:tw-bg-slate-100 dark:tw-hover:bg-slate-700"
                 }`}
               >
                 Política sobre gasolina

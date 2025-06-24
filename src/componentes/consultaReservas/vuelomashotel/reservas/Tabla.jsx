@@ -28,7 +28,7 @@ function Tabla({ datos, detalles, loading }) {
                 <td colSpan="8">
                   <div className="tw-bg-red-200 dark:tw-bg-red-950 dark:tw-text-red-300 tw-text-red-800 tw-font-semibold tw-p-4 tw-rounded-lg tw-text-center">
                     No se encontraron resultados.
-                  </div>{" "}
+                  </div>
                 </td>
               </tr>
             ) : (

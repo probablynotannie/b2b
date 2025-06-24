@@ -157,11 +157,14 @@ function Resultado({ tickets, actividades, setActividades }) {
         );
       })}
       {activeActividad && (
-        <Modal 
-        className="tw-bg-black/70"
-        dismissible show={true} onClose={() => setActiveActividad(null)}>
+        <Modal
+          className="tw-bg-black/70"
+          dismissible
+          show={true}
+          onClose={() => setActiveActividad(null)}
+        >
           <Modal.Header className="dark:tw-bg-slate-800">
-            {activeActividad.titulo}
+            <h2 className="dark:tw-text-white"> {activeActividad.titulo}</h2>
           </Modal.Header>
           <Modal.Body className="dark:tw-bg-slate-800">
             <div className="tw-space-y-6 ">
@@ -175,7 +178,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               </p>
               <div className="tw-grid tw-grid-cols-2 tw-gap-5">
                 {isSelected ? (
-                  <div>
+                  <div className="dark:tw-text-slate-400">
                     {formatearFecha(fechaSeleccionada)} - {horaSeleccionada}
                   </div>
                 ) : (
@@ -234,13 +237,13 @@ function Resultado({ tickets, actividades, setActividades }) {
                   </label>
                   {isSelected ? (
                     <div className="tw-flex tw-gap-4">
-                      <div>
+                      <div className="tw-p-1 tw-bg-pink-100 tw-text-pink-600 tw-rounded-lg tw-shadow">
                         <p>
                           Adultos: {entradasSeleccionadas.adulto} (
                           {activeActividad.tiposEntradas.adulto.precio}€)
                         </p>
                       </div>
-                      <div>
+                      <div className="tw-p-1 tw-bg-indigo-100 tw-text-indigo-600 tw-rounded-lg tw-shadow">
                         <p>
                           Niños: {entradasSeleccionadas.niño} (
                           {activeActividad.tiposEntradas.niño.precio}€)
@@ -248,7 +251,7 @@ function Resultado({ tickets, actividades, setActividades }) {
                       </div>
                     </div>
                   ) : (
-                    <div className="tw-flex tw-gap-4">
+                    <div className="tw-grid tw-grid-cols-2 tw-gap-4">
                       <div>
                         <label
                           htmlFor="adulto"
@@ -314,9 +317,7 @@ function Resultado({ tickets, actividades, setActividades }) {
               )}
             </div>
           </Modal.Body>
-          <Modal.Footer
-          className="dark:tw-bg-slate-800"
-          >
+          <Modal.Footer className="dark:tw-bg-slate-800">
             <button
               className="tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
               onClick={() => setActiveActividad(null)}

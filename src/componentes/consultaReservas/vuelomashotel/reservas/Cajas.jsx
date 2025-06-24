@@ -86,21 +86,21 @@ function Cajas({ datos, detalles, loading }) {
                   className={`tw-px-5 tw-pb-4 tw-space-y-2 tw-flex tw-flex-wrap sm:tw-grid tw-grid-cols-2 tw-gap-2 tw-bg-slate-100/10 tw-border-y ${border} tw-pt-2`}
                 >
                   <div className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-200 tw-flex tw-items-center tw-gap-1">
-                    <FaTicket className="tw-shrink-0 tw-text-[1rem]" />{" "}
+                    <FaTicket className="tw-shrink-0 tw-text-[1rem]" />
                     {destino.reserva.recorrido}
                   </div>
                   <div className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-200 tw-flex tw-items-center tw-gap-1">
-                    <FaHotel className="tw-shrink-0 tw-text-[1rem]" />{" "}
+                    <FaHotel className="tw-shrink-0 tw-text-[1rem]" />
                     {destino.proveedores}
                   </div>
                   <div className="tw-flex tw-gap-1 tw-text-xs dark:tw-text-slate-200">
                     <FaCalendar className="tw-text-green-700 tw-text-[1rem] tw-shrink-0" />
-                    <span className="tw-font-medium">Entrada:</span>{" "}
+                    <span className="tw-font-medium">Entrada:</span>
                     {destino.reserva.entrada}
                   </div>
                   <div className="tw-flex tw-gap-1 tw-text-xs dark:tw-text-slate-200">
                     <FaCalendar className="tw-text-green-700 tw-text-[1rem] tw-shrink-0" />
-                    <span className="tw-font-medium">Cancelacion SC:</span>{" "}
+                    <span className="tw-font-medium">Cancelacion SC:</span>
                     {destino.reserva.cancelacionGratis}
                   </div>
                 </div>
