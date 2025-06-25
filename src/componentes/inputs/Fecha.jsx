@@ -7,7 +7,15 @@ import "dayjs/locale/es";
 import InfiniteScrollCalendarSingle from "./movil/InfiniteScrollCalendarSingle";
 import parseFecha from "../../helpers/parseFechas";
 import cesta from "../estructura/cesta/Zustand";
-function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
+function Fecha({
+  fecha,
+  name,
+  setValue,
+  edadSelector,
+  control,
+  required,
+  deshabilitable,
+}) {
   useEffect(() => {
     if (fecha) {
       setValue(name, fecha);
@@ -46,8 +54,7 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
         normalizedDate > normalize(maxDate)
       );
     } else {
-      return false;
-      /* return normalize(date) < today; */
+      return normalize(date) < today;
     }
   };
 
@@ -56,7 +63,11 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
       <div
         className={`${edadSelector === true ? "tw-hidden" : "md:tw-hidden"}`}
       >
-        <InfiniteScrollCalendarSingle name={name} setValue={setValue} />
+        <InfiniteScrollCalendarSingle
+          deshabilitable={deshabilitable}
+          name={name}
+          setValue={setValue}
+        />
       </div>
       <div className={` ${edadSelector !== true && "tw-hidden md:tw-block"}`}>
         <DatesProvider settings={{ locale: "es" }}>
@@ -68,7 +79,7 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
               <>
                 <div className="tw-relative">
                   <DatePickerInput
-                    excludeDate={disabledDates}
+                    excludeDate={deshabilitable === true ? disabledDates : null}
                     placeholder="Selecciona fecha"
                     value={fecha}
                     onChange={handleDateChange}

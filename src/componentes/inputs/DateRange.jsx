@@ -14,6 +14,7 @@ const DateRange = ({
   nameEndDate,
   placeholder,
   required,
+  deshabilitable,
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const isSwiping = useRef(false);
@@ -64,7 +65,7 @@ const DateRange = ({
   const today = new Date();
   let minDate = today;
   let maxDate = null;
-  if (productos[0]?.fecha) {
+  if (productos[0]?.fecha && deshabilitable === true) {
     const fechaInicio = parseFecha(productos[0].fecha);
     const fechaFin = productos[0].fechaVuelta
       ? parseFecha(productos[0].fechaVuelta)
@@ -100,6 +101,7 @@ const DateRange = ({
       </div>
       <div className="lg:tw-hidden">
         <InfiniteScrollCalendar
+          deshabilitable={deshabilitable}
           control={control}
           nameStartDate={nameStartDate}
           nameEndDate={nameEndDate}

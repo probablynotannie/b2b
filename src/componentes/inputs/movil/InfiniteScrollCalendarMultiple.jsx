@@ -16,7 +16,12 @@ import { es } from "date-fns/locale";
 import { useController } from "react-hook-form";
 import parseFecha from "../../../helpers/parseFechas";
 import cesta from "../../estructura/cesta/Zustand";
-const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
+const InfiniteScrollCalendar = ({
+  control,
+  nameStartDate,
+  nameEndDate,
+  deshabilitable,
+}) => {
   const productos = cesta((state) => state.productos);
   const diasAntes = cesta((state) => state.diasAntes);
   const diasDespues = cesta((state) => state.diasDespues);
@@ -24,7 +29,7 @@ const InfiniteScrollCalendar = ({ control, nameStartDate, nameEndDate }) => {
   const today = startOfDay(new Date());
   let fechaMin = today;
   let fechaMax = null;
-  if (productos[0]?.fecha) {
+  if (productos[0]?.fecha && deshabilitable === true) {
     const fechaInicio = startOfDay(parseFecha(productos[0].fecha));
     const fechaFin = productos[0].fechaVuelta
       ? parseFecha(productos[0].fechaVuelta)

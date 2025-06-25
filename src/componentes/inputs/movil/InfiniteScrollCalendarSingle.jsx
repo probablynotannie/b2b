@@ -15,18 +15,20 @@ import cesta from "../../estructura/cesta/Zustand";
 import parseFecha from "../../../helpers/parseFechas";
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
-const InfiniteScrollCalendar = ({ name, setValue }) => {
+const InfiniteScrollCalendar = ({ name, setValue, deshabilitable = true }) => {
   const productos = cesta((state) => state.productos);
   const diasAntes = cesta((state) => state.diasAntes);
   const diasDespues = cesta((state) => state.diasDespues);
-  const fechaInicio = productos?.[0]?.fecha
-    ? parseFecha(productos[0].fecha)
-    : null;
-  const fechaFin = productos?.[0]?.fechaVuelta
-    ? parseFecha(productos[0].fechaVuelta)
-    : productos?.[0]?.fecha
-    ? parseFecha(productos[0].fecha)
-    : null;
+  const fechaInicio =
+    deshabilitable === true && productos?.[0]?.fecha
+      ? parseFecha(productos[0].fecha)
+      : null;
+  const fechaFin =
+    deshabilitable === true && productos?.[0]?.fechaVuelta
+      ? parseFecha(productos[0].fechaVuelta)
+      : productos?.[0]?.fecha
+      ? parseFecha(productos[0].fecha)
+      : null;
   const minDate = fechaInicio
     ? new Date(
         fechaInicio.getFullYear(),
