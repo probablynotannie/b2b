@@ -27,7 +27,6 @@ function Productos() {
 
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
-
   const [selectedCars, setSelectedCars] = useState([]);
 
   useEffect(() => {
@@ -87,7 +86,8 @@ function Productos() {
             <div className="tw-flex tw-justify-center tw-items-center tw-h-96 tw-flex-col">
               <MdCancel className="tw-text-3xl tw-text-danger" />
               <p className="tw-text-slate-400 dark:tw-text-slate-300 tw-text-lg">
-                Error: {error.message}
+                Ha habido problema extrayendo los datos :(
+                {console.error(error.message)}
               </p>
             </div>
           ) : filteredCoches.length > 0 ? (

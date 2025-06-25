@@ -39,7 +39,6 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
                   {cabin.title}
                 </h4>
                 <div className="tw-flex tw-items-center tw-mt-2">
-
                   <ul
                     ref={(el) => (scrollRefs.current[cabin.id] = el)}
                     className="tw-flex tw-overflow-x-auto tw-scroll-smooth tw-space-x-2 tw-rounded-lg tw-max-w-full tw-px-10"
@@ -61,8 +60,8 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
                             tw-cursor-pointer tw-shadow-md tw-border-2 tw-border-slate-200 dark:tw-border-slate-600 
                             ${
                               isSelected
-                                ? "tw-bg-orange-400 dark:tw-text-white tw-text-white"
-                                : "tw-bg-slate-100 dark:tw-bg-slate-800 dark:tw-text-orange-400 "
+                                ? "tw-bg-secondary dark:tw-bg-secondaryDark dark:tw-text-white tw-text-white"
+                                : "tw-bg-slate-100 dark:tw-bg-slate-800 dark:tw-text-orange-400"
                             }`}
                           onClick={() => {
                             handlePriceClick(price, date, cabin);

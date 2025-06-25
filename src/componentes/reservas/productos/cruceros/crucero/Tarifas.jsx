@@ -4,10 +4,10 @@ import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
 import PriceCarousel from "./Carousel";
 import { AiFillEuroCircle } from "react-icons/ai";
 import { TbTaxEuro } from "react-icons/tb";
+import ModalPrecio from "./Modal";
 import {
   FaPlus,
   FaMinus,
@@ -405,85 +405,15 @@ function Tarifas({
           </div>
         </div>
       </div>
-      {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-10 tw-h-screen">
-          <div className="tw-bg-white tw-rounded-lg tw-p-6 tw-relative tw-w-[90%] tw-max-w-2xl dark:tw-bg-slate-700">
-            <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
-              <h6 className="tw-font-semibold tw-text-lg dark:tw-text-white">
-                {temporal.cabin}
-              </h6>
-              <button
-                className="tw-text-gray-600 dark:tw-text-gray-300 "
-                onClick={() => setIsModalOpen(false)}
-              >
-                ✕
-              </button>
-            </div>
-            <div>
-              <img
-                src={"//pic-2.vpackage.net/cruceros_img/" + cruiseImage}
-                alt="imagen crucero"
-                className="tw-h-[25vh] tw-w-full tw-rounded-xl tw-object-cover tw-my-4"
-              />
-              {temporal && (
-                <div className="tw-mt-5">
-                  <div className="tw-flex tw-justify-around tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-3 tw-mb-3 tw-mt-3">
-                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
-                      <AiFillEuroCircle className="tw-text-3xl" />
-                      {formatPrice(temporal.price)}
-                    </div>
-                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
-                      <FaCalendarAlt className="tw-text-3xl" />
-                      {FormatearFecha(temporal.date)}
-                    </div>
-                    <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
-                      <TbTaxEuro className="tw-text-3xl" />
-                      <span>+ {temporal.datos.tasas}</span>
-                    </div>
-                  </div>
-                  <ul className="dark:tw-text-slate-300 tw-grid sm:tw-grid-cols-2">
-                    <li>
-                      <b> Barco: </b>
-                      {producto.barco.nombre.texto}
-                    </li>
-                    <li>
-                      <b> Camarote:</b> {temporal.cabin}
-                      <span className="tw-text-slate-400 tw-text-sm tw-ml-1">
-                        (ID:{temporal.datos.camarote})
-                      </span>
-                    </li>
-                    <li>
-                      <b> Precio:</b> {temporal.price}€{" "}
-                      <span className="tw-text-slate-400"> (por persona)</span>
-                    </li>
-                    <li>
-                      <b> Tasas:</b> {temporal.datos.tasas}€
-                    </li>
-                    <li>
-                      <b> Vuelos:</b>{" "}
-                      {temporal.datos.vuelo_incluido === "1"
-                        ? "Incluidos"
-                        : "No"}
-                    </li>
-                  </ul>
-                </div>
-              )}
-              <button
-                onClick={() => {
-                  if (temporal) {
-                    setPrecioSeleccionado(temporal);
-                    setIsModalOpen(false);
-                  }
-                }}
-                disabled={!temporal}
-                className=" tw-btn_accesorios tw-btn_primario tw-mt-4"
-              >
-                Confirmar selección
-              </button>
-            </div>
-          </div>
-        </div>
-      )}
+      <ModalPrecio
+        isOpen={isModalOpen}
+        onClose={() => setIsModalOpen(false)}
+        temporal={temporal}
+        cruiseImage={cruiseImage}
+        producto={producto}
+        setPrecioSeleccionado={setPrecioSeleccionado}
+        setIsModalOpen={setIsModalOpen}
+      />
     </div>
   );
 }

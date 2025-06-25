@@ -24,8 +24,8 @@ function ReservaFinal() {
   const precioTotalPassajero = precioBase + tasasPorPasajero;
   const precioTotal = precioTotalPassajero * data.pasajeros.length;
   return (
-    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
-      <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+    <main className=" tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
+      <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
         <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
           <div>
             <h1 className="tw-font-bold">Reservando Crucero</h1>
@@ -53,7 +53,7 @@ function ReservaFinal() {
         <Pasajeros pasajeros={data.pasajeros} />
         <Detalles producto={producto} />
       </section>
-      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 dark:tw-bg-slate-900 tw-p-5">
+      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
         <div className="w-border-b-2  tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-mb-4">
           <h2 className="tw-font-semibold ">Resumen</h2>
         </div>

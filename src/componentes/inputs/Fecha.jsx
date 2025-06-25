@@ -32,9 +32,9 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
     const today = normalize(new Date());
     if (productos[0]?.fecha) {
       const fechaInicio = parseFecha(productos[0].fecha);
-         const fechaFin = productos[0].fechaVuelta
-      ? parseFecha(productos[0].fechaVuelta)
-      : parseFecha(productos[0].fecha);
+      const fechaFin = productos[0].fechaVuelta
+        ? parseFecha(productos[0].fechaVuelta)
+        : parseFecha(productos[0].fecha);
 
       const minDate = new Date(fechaInicio);
       minDate.setDate(fechaInicio.getDate() - diasAntes);
@@ -46,7 +46,8 @@ function Fecha({ fecha, name, setValue, edadSelector, control, required }) {
         normalizedDate > normalize(maxDate)
       );
     } else {
-      return normalize(date) < today;
+      return false;
+      /* return normalize(date) < today; */
     }
   };
 
