@@ -1,6 +1,6 @@
 import Buscador from "./filtros/Buscador";
 import Cruceros from "./Destinos2";
-import { useLocation } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 import { MdCancel } from "react-icons/md";
@@ -35,6 +35,8 @@ const fetchData = async (datosForm) => {
 
 function Productos() {
   const location = useLocation();
+  const params = useParams();
+  console.log(params)
   const { newRequestData = {}, datosForm } = location.state || {};
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["crucerosData", datosForm],

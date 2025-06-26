@@ -12,12 +12,14 @@ import datos_navieras from "./navieras.json";
 import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
-  const crearUrlFiltro = (data) => {
-    const url = [];
-    if (data.idZona && data.idZona !== 0) url.push("zona", data.idZona);
-    if (data.idPuerto && data.idPuerto !== 0) url.push("puerto", data.idPuerto);
-    if (data.idNav && data.idNav !== 0) url.push("naviera", data.idNav);
+  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const buildCruiseURLFromForm = (data) => {
+    const urlParts = [];
+
+    if (data.idZona && data.idZona !== 0) urlParts.push("zona", data.idZona);
+    if (data.idPuerto && data.idPuerto !== 0)
+      urlParts.push("puerto", data.idPuerto);
+    if (data.idNav && data.idNav !== 0) urlParts.push("naviera", data.idNav);
     if (data.fechSal && data.fechSal !== 0) {
       const monthNames = [
         "enero",
@@ -34,28 +36,28 @@ function Buscador_Cruceros() {
         "diciembre",
       ];
       const monthName = monthNames[parseInt(data.fechSal) - 1];
-      url.push("mes", monthName);
+      urlParts.push("mes", monthName);
     }
     if (data.duracion && data.duracion !== 0)
-      url.push("duracion", data.duracion);
+      urlParts.push("duracion", data.duracion);
 
-    return `/listadoCruceros/${url.join("/")}`;
+    return `/listadoCruceros/${urlParts.join("/")}`;
   };
 
-  const onSubmit = (filtros) => {
-    const url = crearUrlFiltro(filtros);
+  const onSubmit = (data) => {
+    const url = buildCruiseURLFromForm(data);
 
     navigate(url, {
-      state: { datosForm: filtros },
+      state: { datosForm: data },
     });
   };
   const { handleSubmit, control } = useForm({
     defaultValues: {
-      idZona: "",
-      idPuerto: "",
-      idNav: "",
-      fechSal: "",
-      duracion: "",
+      idZona: 0,
+      idPuerto: 0,
+      idNav: 0,
+      fechSal: 0,
+      duracion: 0,
     },
   });
   return (

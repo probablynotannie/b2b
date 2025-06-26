@@ -186,7 +186,9 @@ function Resultado({ destinos }) {
             </Link>
             <div className="tw-flex tw-justify-end tw-mt-5">
               <Link
-                to={`/crucero/${destino.id_crucero}/${destino.itinerario.name}`}
+                to={`/crucero/${
+                  destino.id_crucero
+                }/${destino.itinerario.name.replaceAll(" ", "")}`}
                 state={destino}
               >
                 <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">

@@ -1,7 +1,7 @@
 import Reserva from "../../estructura/reserva/Resumen";
 import { GiCruiser } from "react-icons/gi";
 import Tarifas from "./crucero/Tarifas";
-import { useLocation } from "react-router-dom";
+import { useParams, useLocation } from "react-router-dom";
 import { useState } from "react";
 import Pasajeros from "./crucero/Pasajeros";
 import { Link } from "react-router-dom";
@@ -12,6 +12,8 @@ import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
 import Pasajeros_Display from "./crucero/Pasajeros_Display";
 function Producto() {
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
+  const { idCrucero, itinerario } = useParams();
+  console.log(idCrucero, itinerario);
   const location = useLocation();
   const producto = location.state;
   const [selectedTab, setSelectedTab] = useState("tarifas");

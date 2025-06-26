@@ -1,7 +1,7 @@
 import { useNavigate } from "react-router-dom";
 function Meses({ setRequestData }) {
   const navigate = useNavigate();
-  const monthNames = [
+  const getNombreMes = [
     "enero",
     "febrero",
     "marzo",
@@ -17,7 +17,7 @@ function Meses({ setRequestData }) {
   ];
 
   const handleMonthSelect = (monthNumber) => {
-    const monthName = monthNames[monthNumber - 1];
+    const mes = getNombreMes[monthNumber - 1];
     const newRequestData = {
       idPuerto: "",
       idZona: "",
