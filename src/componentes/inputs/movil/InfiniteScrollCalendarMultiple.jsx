@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect } from "react";
+import { useState, useCallback, useEffect, useRef } from "react";
 import {
   format,
   addMonths,
@@ -16,6 +16,7 @@ import { es } from "date-fns/locale";
 import { useController } from "react-hook-form";
 import parseFecha from "../../../helpers/parseFechas";
 import cesta from "../../estructura/cesta/Zustand";
+
 const InfiniteScrollCalendar = ({
   control,
   nameStartDate,
@@ -39,27 +40,41 @@ const InfiniteScrollCalendar = ({
     fechaMax = new Date(fechaFin);
     fechaMax.setDate(fechaFin.getDate() + diasDespues);
   }
-  const [months, setMonths] = useState([startOfMonth(new Date())]);
+
+  const firstAvailableRef = useRef(null);
+
+  const [months, setMonths] = useState([]);
   const [isModalOpen, setIsModalOpen] = useState(false);
+
   const { field: fieldStartDate } = useController({
     name: nameStartDate,
     control,
     defaultValue: null,
   });
-
   const { field: fieldEndDate } = useController({
     name: nameEndDate,
     control,
     defaultValue: null,
   });
 
-  useEffect(() => {
-    const initialMonths = [startOfMonth(new Date())];
-    for (let i = 1; i < 3; i++) {
-      initialMonths.push(addMonths(startOfMonth(new Date()), i));
+  const getFirstAvailableDate = useCallback(() => {
+    const maxDaysToCheck = 365;
+    for (let i = 0; i < maxDaysToCheck; i++) {
+      const candidate = new Date();
+      candidate.setDate(candidate.getDate() + i);
+
+      const isBeforeMin =
+        fechaMin && isBefore(candidate, startOfDay(fechaMin));
+      const isAfterMax =
+        fechaMax && isAfter(candidate, startOfDay(fechaMax));
+      const isBeforeToday = isBefore(candidate, today);
+
+      if (!isBeforeMin && !isAfterMax && !isBeforeToday) {
+        return candidate;
+      }
     }
-    setMonths(initialMonths);
-  }, []);
+    return today;
+  }, [fechaMin, fechaMax]);
 
   const loadMoreMonths = useCallback(() => {
     const lastMonth = months[months.length - 1];
@@ -97,13 +112,15 @@ const InfiniteScrollCalendar = ({
       </div>
     );
   };
+
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({
       start: startOfMonth(month),
       end: endOfMonth(month),
     });
+
     return (
-      <div key={month} className="tw-mb-8 ">
+      <div key={month} className="tw-mb-8">
         <h3 className="tw-text-lg tw-font-bold tw-text-center tw-mb-2 tw-text-secondary">
           {format(month, "MMMM yyyy", { locale: es })}
           {renderWeekDays()}
@@ -118,9 +135,12 @@ const InfiniteScrollCalendar = ({
                 ((isBefore(day, fechaMin) && !isSameDay(day, fechaMin)) ||
                   (isAfter(day, fechaMax) && !isSameDay(day, fechaMax)))) ||
               (isBefore(day, today) && !isSameDay(day, today));
+            const isFirstAvailable = isSameDay(day, getFirstAvailableDate());
+
             return (
               <div
                 key={day}
+                ref={isFirstAvailable ? firstAvailableRef : null}
                 className={`tw-p-2 tw-text-center tw-rounded-lg tw-text-sm ${
                   isDisabled
                     ? "tw-text-slate-400 dark:tw-text-slate-600 tw-cursor-not-allowed"
@@ -149,8 +169,28 @@ const InfiniteScrollCalendar = ({
   };
 
   const openModal = () => {
+    const firstAvailable = getFirstAvailableDate();
+    const baseMonth = startOfMonth(firstAvailable);
+    const initialMonths = [baseMonth];
+    for (let i = 1; i < 3; i++) {
+      initialMonths.push(addMonths(baseMonth, i));
+    }
+    setMonths(initialMonths);
     setIsModalOpen(true);
   };
+
+  useEffect(() => {
+    if (isModalOpen) {
+      setTimeout(() => {
+        if (firstAvailableRef.current) {
+          firstAvailableRef.current.scrollIntoView({
+            behavior: "smooth",
+            block: "center",
+          });
+        }
+      }, 100);
+    }
+  }, [isModalOpen]);
 
   const closeModal = () => {
     setIsModalOpen(false);
@@ -187,7 +227,7 @@ const InfiniteScrollCalendar = ({
         </div>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50 ">
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white dark:tw-bg-slate-800 tw-w-full tw-h-full tw-mx-auto tw-relative">
             <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">

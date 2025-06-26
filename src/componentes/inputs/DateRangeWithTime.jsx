@@ -4,7 +4,13 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { useController } from "react-hook-form";
 import cesta from "../estructura/cesta/Zustand";
 import parseFecha from "../../helpers/parseFechas";
-const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
+const DateWithTime = ({
+  control,
+  nameFecha,
+  nameHora,
+  placeholder,
+  deshabilitable,
+}) => {
   const productos = cesta((state) => state.productos);
   const diasAntes = cesta((state) => state.diasAntes);
   const diasDespues = cesta((state) => state.diasDespues);
@@ -32,10 +38,24 @@ const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
     }
   };
 
+  const getFirstAvailableDate = () => {
+    let date = new Date();
+    for (let i = 0; i < 365; i++) {
+      const candidate = new Date();
+      candidate.setDate(candidate.getDate() + i);
+      if (!disabledDates(candidate)) {
+        return candidate;
+      }
+    }
+    return new Date();
+  };
+  const firstAvailableDate = getFirstAvailableDate();
+  const [arrivalDateTime, setArrivalDateTime] = useState(firstAvailableDate);
+
   const { field: fieldFecha } = useController({
     name: nameFecha,
     control,
-    defaultValue: new Date(),
+    defaultValue: firstAvailableDate,
   });
 
   const { field: fieldHora } = useController({
@@ -43,8 +63,6 @@ const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
     control,
     defaultValue: new Date().toLocaleTimeString("en-GB"),
   });
-
-  const [arrivalDateTime, setArrivalDateTime] = useState(new Date());
 
   const handleDateTimeChange = (newDateTime) => {
     setArrivalDateTime(newDateTime);
@@ -55,12 +73,13 @@ const DateWithTime = ({ control, nameFecha, nameHora, placeholder }) => {
   const getArrivalTime = (dateTime) => {
     return dateTime.toLocaleTimeString("en-GB");
   };
+
   return (
     <div className="tw-space-y-3 lg:tw-space-y-0 lg:tw-flex tw-gap-2">
       <div className="tw-relative tw-w-full">
         <DateTimePicker
           {...fieldFecha}
-          excludeDate={disabledDates}
+          excludeDate={deshabilitable === true ? disabledDates : null}
           onChange={handleDateTimeChange}
           value={arrivalDateTime}
           placeholder={placeholder}
