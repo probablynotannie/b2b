@@ -13,11 +13,11 @@ function Puertos({ setRequestData }) {
   const highlightedPorts = puertos.filter((zona) => zona.destacado === 1);
   const handlePortClick = (producto) => {
     const newRequestData = {
-      puerto: producto.id_puerto,
-      destino: 0,
-      mes: 0,
+      idPuerto: producto.id_puerto,
+      idZona: 0,
+      fechSal: 0,
       duracion: 0,
-      naviera: 0,
+      idNav: 0,
       img: producto.img_puerto_header,
       titulo: producto.name,
       desc: producto.descripcion,

@@ -6,7 +6,7 @@ import Cargando from "../../estructura/skeleton_placeholders/Cargando";
 import { MdCancel } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 
-const fetchData = async (newRequestData) => {
+const fetchData = async (datosForm) => {
   const response = await fetch(
     "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
   );
@@ -16,15 +16,29 @@ const fetchData = async (newRequestData) => {
   }
   const data = await response.json();
 
-  return data.items;
+  const matchesFilters =
+    (!datosForm.idPuerto ||
+      String(data.idPuerto) === String(datosForm.idPuerto)) &&
+    (!datosForm.idZona || String(data.idZona) === String(datosForm.idZona)) &&
+    (!datosForm.fechSal ||
+      String(data.fechSal).includes(String(datosForm.fechSal))) &&
+    (!datosForm.duracion ||
+      String(data.duracion) === String(datosForm.duracion)) &&
+    (!datosForm.idNav || String(data.idNav) === String(datosForm.idNav));
+
+  if (matchesFilters) {
+    return data.items;
+  } else {
+    return [];
+  }
 };
 
 function Productos() {
   const location = useLocation();
-  const { newRequestData = {} } = location.state || {};
+  const { newRequestData = {}, datosForm } = location.state || {};
   const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["crucerosData", newRequestData],
-    queryFn: () => fetchData(newRequestData),
+    queryKey: ["crucerosData", datosForm],
+    queryFn: () => fetchData(datosForm),
   });
 
   return (

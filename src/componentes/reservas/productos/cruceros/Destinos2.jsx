@@ -160,8 +160,7 @@ function Resultado({ destinos }) {
                   {destino.barco.descripcion}
                 </p>
               </div>
-
-              {/* <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10  tw-shadow-inner tw-items-center">
+              {/*   <div className="tw-px-5 tw-flex tw-flex-wrap tw-justify-center md:tw-justify-start tw-gap-5 md:tw-gap-10  tw-shadow-inner tw-items-center">
                 {destino.tarifas.slice(0, 8).map((tarifa) => {
                   const proximaSalida = new Date(
                     tarifa.fecha
@@ -186,9 +185,12 @@ function Resultado({ destinos }) {
               </div> */}
             </Link>
             <div className="tw-flex tw-justify-end tw-mt-5">
-              <Link to="/crucero" state={destino}>
+              <Link
+                to={`/crucero/${destino.id_crucero}/${destino.itinerario.name}`}
+                state={destino}
+              >
                 <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
-                  Desde {precioMasBajo}
+                  Desde {precioMasBajo} {destino.barco.id}
                   <span className="tw-text-xs tw-flex tw-items-center tw-gap-1">
                     + tasas <FaChevronRight />
                   </span>

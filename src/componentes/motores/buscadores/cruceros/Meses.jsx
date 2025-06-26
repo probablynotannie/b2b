@@ -1,17 +1,36 @@
 import { useNavigate } from "react-router-dom";
 function Meses({ setRequestData }) {
-  
   const navigate = useNavigate();
+  const monthNames = [
+    "enero",
+    "febrero",
+    "marzo",
+    "abril",
+    "mayo",
+    "junio",
+    "julio",
+    "agosto",
+    "septiembre",
+    "octubre",
+    "noviembre",
+    "diciembre",
+  ];
+
   const handleMonthSelect = (monthNumber) => {
+    const monthName = monthNames[monthNumber - 1];
     const newRequestData = {
-      puerto: "",
-      destino: "",
-      mes: monthNumber,
+      idPuerto: "",
+      idZona: "",
+      fechSal: monthNumber,
       duracion: "",
-      naviera: "",
+      idNav: "",
     };
+
+    const enlace = `/fechSal/${monthNumber}`;
     setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData } });
+    navigate(`/listadoCruceros${enlace}`, {
+      state: { datosForm: newRequestData },
+    });
   };
 
   return (
