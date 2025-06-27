@@ -1,6 +1,7 @@
 import { useEffect, useMemo } from "react";
-import { DatePickerInput, DatesProvider } from "@mantine/dates";
+import { DatePickerInput } from "@mantine/dates";
 import { FaCalendarAlt } from "react-icons/fa";
+import { DatesProvider } from "@mantine/dates";
 import { Controller } from "react-hook-form";
 import "dayjs/locale/es";
 import InfiniteScrollCalendarSingle from "./movil/InfiniteScrollCalendarSingle";
@@ -24,38 +25,45 @@ function Fecha({
 
   const disabledDates = (date) => {
     const today = normalize(new Date());
-
     if (productos[0]?.fecha) {
       const fechaInicio = parseFecha(productos[0].fecha);
       const fechaFin = productos[0].fechaVuelta
         ? parseFecha(productos[0].fechaVuelta)
         : parseFecha(productos[0].fecha);
-
       const minDate = new Date(fechaInicio);
       minDate.setDate(fechaInicio.getDate() - diasAntes);
       const maxDate = new Date(fechaFin);
       maxDate.setDate(fechaFin.getDate() + diasDespues);
-
-      const d = normalize(date);
-      return d < normalize(minDate) || d > normalize(maxDate);
+      const normalizedDate = normalize(date);
+      return (
+        normalizedDate < normalize(minDate) ||
+        normalizedDate > normalize(maxDate)
+      );
+    } else {
+      return normalize(date) < today;
     }
-
-    return normalize(date) < today;
   };
 
+  // ✅ Find first available date when deshabilitable is true
   const firstAvailableDate = useMemo(() => {
+    if (!deshabilitable) return null;
     for (let i = 0; i < 365; i++) {
       const candidate = new Date();
       candidate.setDate(candidate.getDate() + i);
       if (!disabledDates(candidate)) return candidate;
     }
-    return new Date(); // fallback
-  }, [productos, diasAntes, diasDespues]);
+    return null;
+  }, [productos, diasAntes, diasDespues, deshabilitable]);
 
+  // ✅ Set default value if none provided and deshabilitable is true
   useEffect(() => {
-    const dateToSet = fecha ?? firstAvailableDate;
-    setValue(name, dateToSet, { shouldValidate: true });
-  }, [fecha, firstAvailableDate, name, setValue]);
+    if (!fecha && firstAvailableDate && deshabilitable) {
+      setValue(name, firstAvailableDate, {
+        shouldValidate: true,
+        shouldTouch: true,
+      });
+    }
+  }, [fecha, name, setValue, firstAvailableDate, deshabilitable]);
 
   const handleDateChange = (date) => {
     setValue(name, date ?? null, {
@@ -66,14 +74,15 @@ function Fecha({
 
   return (
     <div>
-      <div className={`${edadSelector === true ? "tw-hidden" : "md:tw-hidden"}`}>
+      <div
+        className={`${edadSelector === true ? "tw-hidden" : "md:tw-hidden"}`}
+      >
         <InfiniteScrollCalendarSingle
           deshabilitable={deshabilitable}
           name={name}
           setValue={setValue}
         />
       </div>
-
       <div className={`${edadSelector !== true && "tw-hidden md:tw-block"}`}>
         <DatesProvider settings={{ locale: "es" }}>
           <Controller
@@ -84,11 +93,16 @@ function Fecha({
               <>
                 <div className="tw-relative">
                   <DatePickerInput
-                    excludeDate={deshabilitable ? disabledDates : null}
+                    defaultDate={
+                      deshabilitable && firstAvailableDate
+                        ? firstAvailableDate
+                        : undefined
+                    }
+                    excludeDate={deshabilitable === true ? disabledDates : null}
                     placeholder="Selecciona fecha"
-                    value={fecha ?? firstAvailableDate}
+                    value={fecha}
                     onChange={handleDateChange}
-                    required={!!required}
+                    required={required === true}
                     classNames={{
                       input:
                         "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer",

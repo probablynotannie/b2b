@@ -115,7 +115,7 @@ function Resultado({ destinos }) {
                 <div className="tw-flex tw-justify-between tw-items-center">
                   <div>
                     <h4 className="tw-font-semibold tw-text-lg dark:tw-text-slate-100">
-                      {destino.itinerario.name}
+                      {destino.itinerario.name} ({destino.num_dias} días y {destino.num_noches} noches)
                     </h4>
                     <p className="tw-text-sm tw-text-slate-400 dark:tw-text-slate-300">
                       {destino.itinerario.name}
