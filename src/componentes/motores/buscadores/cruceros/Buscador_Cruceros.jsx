@@ -25,23 +25,30 @@ function Buscador_Cruceros() {
 
     if (data.idNav && data.idNav !== 0)
       urlParts.push("naviera", slugify(data.titulo || data.idNav));
-    if (data.fechSal && data.fechSal !== 0) {
-      const monthNames = [
-        "enero",
-        "febrero",
-        "marzo",
-        "abril",
-        "mayo",
-        "junio",
-        "julio",
-        "agosto",
-        "septiembre",
-        "octubre",
-        "noviembre",
-        "diciembre",
-      ];
-      const monthName = monthNames[parseInt(data.fechSal) - 1];
-      urlParts.push("mes", slugify(monthName));
+
+    if (data.fechSal && typeof data.fechSal === "string") {
+      const [year, month] = data.fechSal.split("-");
+      const monthIndex = parseInt(month, 10) - 1;
+
+      if (!isNaN(monthIndex) && monthIndex >= 0 && monthIndex < 12) {
+        const monthNames = [
+          "enero",
+          "febrero",
+          "marzo",
+          "abril",
+          "mayo",
+          "junio",
+          "julio",
+          "agosto",
+          "septiembre",
+          "octubre",
+          "noviembre",
+          "diciembre",
+        ];
+        const monthName = monthNames[monthIndex];
+
+        urlParts.push("año", year, "mes", slugify(monthName));
+      }
     }
 
     if (data.duracion && data.duracion !== 0)

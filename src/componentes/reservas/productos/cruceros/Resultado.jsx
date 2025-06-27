@@ -7,7 +7,8 @@ import { MdCancel } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async (datosForm) => {
-  console.log(datosForm);
+  console.log(datosForm.fechSal);
+
   if (
     !datosForm ||
     (!datosForm.idZona &&
@@ -24,7 +25,7 @@ const fetchData = async (datosForm) => {
     destino: datosForm.idZona || "",
     puertos: datosForm.idPuerto || "",
     naviera: datosForm.idNav || "",
-    fechSal: datosForm.fechSal || "",
+    fechSal: datosForm.fechSal || "" /* 2025-10 */,
     duracion: datosForm.duracion || "",
     idv: "207",
     p: "1",
@@ -123,7 +124,14 @@ function Productos() {
                     <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
                       Resultados ({data.length})
                     </h3>
-                    <Cruceros destinos={data} />
+                    {data.length > 0 ? (
+                      <Cruceros destinos={data} />
+                    ) : (
+                      <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
+                        <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
+                        <p>No hay cruceros con estos datos :(</p>
+                      </div>
+                    )}
                   </div>
                 </>
               )}

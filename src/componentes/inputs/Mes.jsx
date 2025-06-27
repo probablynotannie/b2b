@@ -15,7 +15,11 @@ function InputMes({ control, name }) {
           render={({ field }) => (
             <MonthPickerInput
               {...field}
-              value={field.value ? new Date(anioSel, field.value - 1, 1) : null}
+              value={
+                field.value && /^\d{4}-\d{2}$/.test(field.value)
+                  ? new Date(field.value + "-01")
+                  : null
+              }
               placeholder="Mes"
               classNames={{
                 input:
@@ -24,11 +28,13 @@ function InputMes({ control, name }) {
               onChange={(newDate) => {
                 if (newDate) {
                   const updatedDate = new Date(newDate);
-                  let month = updatedDate.getMonth() + 1;
-                  let year = updatedDate.getFullYear();
+                  const month = String(updatedDate.getMonth() + 1).padStart(
+                    2,
+                    "0"
+                  );
+                  const year = updatedDate.getFullYear();
                   setYear(year);
-                  month = String(month).padStart(2, "0");
-                  field.onChange(Number(month));
+                  field.onChange(`${year}-${month}`);
                 } else {
                   field.onChange(null);
                 }
