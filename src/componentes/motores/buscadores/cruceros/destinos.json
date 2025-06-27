@@ -64,38 +64,13 @@
     ]
   },
   {
-    "id_zona_destino": 19,
-    "name_zona": 22369,
-    "name": "Islas Canarias",
-    "descripcion": 22370,
-    "destacado": 1,
-    "ordenZona": 1,
-    "img_zona_header": "cruceros/canarias.webp",
-    "activ": 1,
-    "id_texto": 22369,
-    "id_idioma": 1,
-    "texto": "Islas Canarias",
-    "imgs": [
-      {
-        "name_img": "teide_7.jpg",
-        "tipo": 3,
-        "id_elemento": 19,
-        "descrip": "267948",
-        "title": "267949",
-        "orden": 0,
-        "titulo": null,
-        "descripcion": null
-      }
-    ]
-  },
-  {
     "id_zona_destino": 11,
     "name_zona": 3361,
     "name": "Mediterraneo",
     "descripcion": 3362,
     "destacado": 1,
     "ordenZona": 1,
-    "img_zona_header": "cruceros/mediterraneo.jpg",
+    "img_zona_header": "headers/mediterraneo.jpg",
     "activ": 1,
     "id_texto": 3361,
     "id_idioma": 1,
@@ -120,7 +95,7 @@
     "descripcion": 3366,
     "destacado": 1,
     "ordenZona": 3,
-    "img_zona_header": "cruceros/norte_de_europa_y_fiordos.jpg",
+    "img_zona_header": "headers/norte_de_europa_y_fiordos.jpg",
     "activ": 1,
     "id_texto": 3365,
     "id_idioma": 1,
@@ -159,7 +134,7 @@
     "descripcion": 255520,
     "destacado": 1,
     "ordenZona": 0,
-    "img_zona_header": "cruceros/caribe.webp",
+    "img_zona_header": "",
     "activ": 1,
     "id_texto": 250655,
     "id_idioma": 1,

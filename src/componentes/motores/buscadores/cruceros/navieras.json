@@ -1,12 +1,23 @@
 [
   {
-    "id_naviera": 116,
-    "name_naviera": "Alma Cruceros",
+    "id_naviera": 55,
+    "name_naviera": "Costa Cruceros",
     "margen": "1.0000",
     "margenDit": "1.0000",
-    "descripcion": 270540,
-    "img_naviera": "navieras/alma.jpg",
-    "img_naviera_header": "",
+    "descripcion": 52,
+    "img_naviera": "navieras/costa.jpg",
+    "img_naviera_header": "headers/costacruceros.jpg",
+    "destacado": 1,
+    "activ": 1
+  },
+  {
+    "id_naviera": 56,
+    "name_naviera": "MSC Cruceros",
+    "margen": "1.0000",
+    "margenDit": "1.0000",
+    "descripcion": 53,
+    "img_naviera": "navieras/msc.jpg",
+    "img_naviera_header": "headers/msc_presentaccion.jpg",
     "destacado": 0,
     "activ": 1
   }

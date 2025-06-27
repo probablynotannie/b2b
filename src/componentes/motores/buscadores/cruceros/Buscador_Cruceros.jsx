@@ -12,7 +12,7 @@ import datos_navieras from "./navieras.json";
 import { useForm } from "react-hook-form";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false); 
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const buildCruiseURLFromForm = (data) => {
     const urlParts = [];
 
@@ -53,11 +53,11 @@ function Buscador_Cruceros() {
   };
   const { handleSubmit, control } = useForm({
     defaultValues: {
-      idZona: 0,
-      idPuerto: 0,
-      idNav: 0,
-      fechSal: 0,
-      duracion: 0,
+      idZona: "",
+      idPuerto: "",
+      idNav: "",
+      fechSal: "",
+      duracion: "",
     },
   });
   return (

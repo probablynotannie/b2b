@@ -8,7 +8,7 @@ function Zonas({ setRequestData }) {
     .slice(0, 4);
 
   const handleZoneClick = (producto) => {
-    const newRequestData = {
+    const datosForm = {
       idZona: producto.id_zona_destino,
       fechSal: 0,
       duracion: 0,
@@ -19,12 +19,12 @@ function Zonas({ setRequestData }) {
       desc: producto.texto,
     };
 
-    setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData } });
+    setRequestData(datosForm);
+    navigate("/listadoCruceros", { state: { datosForm } });
   };
 
   return (
-    <div>
+    <div className="tw-h-full tw-flex tw-flex-col">
       <h2 className="tw-font-bold tw-text-xl xl:tw-text-2xl dark:tw-text-white">
         Zonas Destacadas
       </h2>
@@ -33,7 +33,11 @@ function Zonas({ setRequestData }) {
           <div key={index} onClick={() => handleZoneClick(zona)}>
             <div className="tw-relative tw-h-[12vh] lg:tw-h-[5vh] xl:tw-h-[8.5vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
               <img
-                src={zona.img_zona_header || "/default-image.jpg"}
+                src={
+                  zona.img_zona_header !== ""
+                    ? `//pic-2.vpackage.net/cruceros_img/${zona.img_zona_header}`
+                    : "/cruceros/norte_de_europa_y_fiordos.jpg"
+                }
                 className="tw-opacity-90 tw-rounded tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
                 alt="Imagen reserva"
               />

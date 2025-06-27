@@ -3,7 +3,7 @@ import Cruceros_destacados from "./Cruceros_destacados";
 import Meses from "./Meses";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-
+import navieras from "./navieras.json";
 function Cruceros({ setRequestData }) {
   const contentRef = useRef(null);
   const handleScroll = () => {
@@ -77,34 +77,13 @@ function Cruceros({ setRequestData }) {
       precio: "750€",
     },
   ];
-  const navierasDest = [
-    {
-      id: 0,
-      txt: "alma",
-      img: "/cruceros/alma.webp",
-    },
-    {
-      id: 1,
-      txt: "msc",
-      img: "/cruceros/msc.jpg",
-    },
-    {
-      id: 2,
-      txt: "costa",
-      img: "/cruceros/costa.webp",
-    },
-  ];
 
-  const handleNavieraClick = (navieraName) => {
-    const newRequestData = {
-      puerto: "",
-      destino: "",
-      mes: "",
-      duracion: "",
-      naviera: navieraName,
+  const handleNavieraClick = (nav) => {
+    const datosForm = {
+      idNav: nav,
     };
-    setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData } });
+    setRequestData(datosForm);
+    navigate("/listadoCruceros", { state: { datosForm } });
   };
   const navigate = useNavigate();
   return (
@@ -127,15 +106,15 @@ function Cruceros({ setRequestData }) {
               Buscar por Navieras
             </h2>
             <div className="tw-flex tw-justify-center tw-gap-10 tw-flex-wrap tw-my-5">
-              {navierasDest.map((nav, index) => (
+              {navieras.map((nav, index) => (
                 <div
                   className="hover:tw-scale-105 tw-smooth tw-cursor-pointer"
                   key={index}
-                  onClick={() => handleNavieraClick(nav.txt)}
+                  onClick={() => handleNavieraClick(nav.id_naviera)}
                 >
                   <img
-                    src={nav.img}
-                    alt={`Naviera ${nav.txt}`}
+                    src={`//pic-2.vpackage.net/cruceros_img/${nav.img_naviera}`}
+                    alt={`Naviera ${nav.name_naviera}`}
                     className="tw-object-fill tw-h-[100px] tw-rounded-lg"
                   />
                 </div>

@@ -7,36 +7,52 @@ import { MdCancel } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 
 const fetchData = async (datosForm) => {
-  const response = await fetch(
-    "https://devxml-2.vpackage.net/FrontCruceros//cruceros/duracion/7-8d/puertos/Barcelona(Espa%C3%B1a)/?destino=&puertos=4&naviera=&fechSal=&duracion=2&idv=207&p=1&json=1"
-  );
-
-  if (!response.ok) {
-    throw new Error("Error cargando datos");
+  console.log(datosForm);
+  if (
+    !datosForm ||
+    (!datosForm.idZona &&
+      !datosForm.idPuerto &&
+      !datosForm.idNav &&
+      !datosForm.fechSal &&
+      !datosForm.duracion)
+  ) {
+    console.warn("No se han proporcionado los datos.");
+    return null;
   }
-  const data = await response.json();
 
-  const matchesFilters =
-    (!datosForm.idPuerto ||
-      String(data.idPuerto) === String(datosForm.idPuerto)) &&
-    (!datosForm.idZona || String(data.idZona) === String(datosForm.idZona)) &&
-    (!datosForm.fechSal ||
-      String(data.fechSal).includes(String(datosForm.fechSal))) &&
-    (!datosForm.duracion ||
-      String(data.duracion) === String(datosForm.duracion)) &&
-    (!datosForm.idNav || String(data.idNav) === String(datosForm.idNav));
+  const baseUrl = "https://devxml-2.vpackage.net/FrontCruceros/cruceros/";
 
-  if (matchesFilters) {
+  const params = new URLSearchParams({
+    destino: datosForm.idZona || "",
+    puertos: datosForm.idPuerto || "",
+    naviera: datosForm.idNav || "",
+    fechSal: datosForm.fechSal || "",
+    duracion: datosForm.duracion || "",
+    idv: "207",
+    p: "1",
+    json: "1",
+  });
+
+  const url = `${baseUrl}?${params.toString()}`;
+
+  try {
+    const response = await fetch(url);
+    if (!response.ok) {
+      throw new Error("Error cargando datos");
+    }
+    const data = await response.json();
+    console.log(data);
     return data.items;
-  } else {
-    return [];
+  } catch (error) {
+    console.error(error);
+    return null;
   }
 };
 
 function Productos() {
   const location = useLocation();
   const params = useParams();
-  console.log(params)
+  console.log(params);
   const { newRequestData = {}, datosForm } = location.state || {};
   const { data, isLoading, isError, error } = useQuery({
     queryKey: ["crucerosData", datosForm],
@@ -90,7 +106,16 @@ function Productos() {
           ) : data === null ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
               <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-              <p>No hay cruceros con estos datos :(</p>
+              <p>
+                {datosForm &&
+                (datosForm.idZona ||
+                  datosForm.idPuerto ||
+                  datosForm.idNav ||
+                  datosForm.fechSal ||
+                  datosForm.duracion)
+                  ? "No hay cruceros con estos datos :("
+                  : "Por favor, no rompas la pagina 🤬"}
+              </p>
             </div>
           ) : (
             <>

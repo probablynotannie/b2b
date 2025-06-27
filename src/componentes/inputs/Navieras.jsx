@@ -23,7 +23,7 @@ function Navieras({ control, name, datos, placeholder }) {
               <optgroup label="Destacados">
                 {groupedpuertos.destacados.map((zona) => (
                   <option key={zona.id_naviera} value={zona.id_naviera}>
-                    {zona.name}
+                    {zona.name_naviera}
                   </option>
                 ))}
               </optgroup>

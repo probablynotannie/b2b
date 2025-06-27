@@ -12,7 +12,7 @@ function Puertos({ setRequestData }) {
   const navigate = useNavigate();
   const highlightedPorts = puertos.filter((zona) => zona.destacado === 1);
   const handlePortClick = (producto) => {
-    const newRequestData = {
+    const datosForm = {
       idPuerto: producto.id_puerto,
       idZona: 0,
       fechSal: 0,
@@ -22,8 +22,8 @@ function Puertos({ setRequestData }) {
       titulo: producto.name,
       desc: producto.descripcion,
     };
-    setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData } });
+    setRequestData(datosForm);
+    navigate("/listadoCruceros", { state: { datosForm } });
   };
 
   return (
@@ -54,10 +54,15 @@ function Puertos({ setRequestData }) {
               onMouseLeave={() => swiperRef.current?.autoplay.start()}
             >
               <img
-                src={zona.img_puerto_header || "/default-image.jpg"}
-                className="tw-opacity-90 tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
-                alt="Imagen puerto"
+              className="tw-h-full tw-w-full"
+                src={
+                  zona.img_puerto_header
+                    ? `//pic-2.vpackage.net/cruceros_img/${zona.img_puerto_header}`
+                    : "/default-image.jpg"
+                }
+                alt="Imagen del barco"
               />
+
               <div
                 className="tw-absolute tw-text-slate-100 tw-text-xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full 
                  tw-bg-blue-700 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-opacity-30
