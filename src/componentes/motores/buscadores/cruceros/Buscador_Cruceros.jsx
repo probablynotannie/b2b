@@ -10,16 +10,21 @@ import datos_destinos from "./destinos.json";
 import datos_puertos from "./puertos.json";
 import datos_navieras from "./navieras.json";
 import { useForm } from "react-hook-form";
+import { slugify } from "../../../../helpers/slugify";
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buildCruiseURLFromForm = (data) => {
     const urlParts = [];
 
-    if (data.idZona && data.idZona !== 0) urlParts.push("zona", data.idZona);
+    if (data.idZona && data.idZona !== 0)
+      urlParts.push("zona", slugify(data.titulo || data.idZona));
+
     if (data.idPuerto && data.idPuerto !== 0)
-      urlParts.push("puerto", data.idPuerto);
-    if (data.idNav && data.idNav !== 0) urlParts.push("naviera", data.idNav);
+      urlParts.push("puerto", slugify(data.titulo || data.idPuerto));
+
+    if (data.idNav && data.idNav !== 0)
+      urlParts.push("naviera", slugify(data.titulo || data.idNav));
     if (data.fechSal && data.fechSal !== 0) {
       const monthNames = [
         "enero",
@@ -36,8 +41,9 @@ function Buscador_Cruceros() {
         "diciembre",
       ];
       const monthName = monthNames[parseInt(data.fechSal) - 1];
-      urlParts.push("mes", monthName);
+      urlParts.push("mes", slugify(monthName));
     }
+
     if (data.duracion && data.duracion !== 0)
       urlParts.push("duracion", data.duracion);
 

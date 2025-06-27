@@ -6,6 +6,7 @@ import "swiper/css/pagination";
 import puertos from "./puertos.json";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { slugify } from "../../../../helpers/slugify";
 
 function Puertos({ setRequestData }) {
   const swiperRef = useRef(null);
@@ -22,8 +23,9 @@ function Puertos({ setRequestData }) {
       titulo: producto.name,
       desc: producto.descripcion,
     };
+    const enlace = "/zona/" + slugify(producto.name);
     setRequestData(datosForm);
-    navigate("/listadoCruceros", { state: { datosForm } });
+    navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };
 
   return (
@@ -54,7 +56,7 @@ function Puertos({ setRequestData }) {
               onMouseLeave={() => swiperRef.current?.autoplay.start()}
             >
               <img
-              className="tw-h-full tw-w-full"
+                className="tw-h-full tw-w-full"
                 src={
                   zona.img_puerto_header
                     ? `//pic-2.vpackage.net/cruceros_img/${zona.img_puerto_header}`

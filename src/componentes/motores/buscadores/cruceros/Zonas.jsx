@@ -1,3 +1,4 @@
+import { slugify } from "../../../../helpers/slugify";
 import zonas from "./destinos.json";
 import { useNavigate } from "react-router-dom";
 
@@ -19,8 +20,9 @@ function Zonas({ setRequestData }) {
       desc: producto.texto,
     };
 
+    const enlace = "/zona/" + slugify(producto.name);
     setRequestData(datosForm);
-    navigate("/listadoCruceros", { state: { datosForm } });
+    navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };
 
   return (

@@ -26,7 +26,7 @@ function Meses({ setRequestData }) {
       idNav: "",
     };
 
-    const enlace = `/fechSal/${monthNumber}`;
+    const enlace = `/fechSal/${mes}`;
     setRequestData(newRequestData);
     navigate(`/listadoCruceros${enlace}`, {
       state: { datosForm: newRequestData },

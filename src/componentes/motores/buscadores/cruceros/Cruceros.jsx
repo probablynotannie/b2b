@@ -3,6 +3,7 @@ import Cruceros_destacados from "./Cruceros_destacados";
 import Meses from "./Meses";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
+import { slugify } from "../../../../helpers/slugify";
 import navieras from "./navieras.json";
 function Cruceros({ setRequestData }) {
   const contentRef = useRef(null);
@@ -80,11 +81,13 @@ function Cruceros({ setRequestData }) {
 
   const handleNavieraClick = (nav) => {
     const datosForm = {
-      idNav: nav,
+      idNav: nav.id_naviera,
     };
     setRequestData(datosForm);
-    navigate("/listadoCruceros", { state: { datosForm } });
+    const enlace = "/zona/" + slugify(nav.name_naviera);
+    navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };
+
   const navigate = useNavigate();
   return (
     <div className="tw-px-5">
@@ -110,7 +113,7 @@ function Cruceros({ setRequestData }) {
                 <div
                   className="hover:tw-scale-105 tw-smooth tw-cursor-pointer"
                   key={index}
-                  onClick={() => handleNavieraClick(nav.id_naviera)}
+                  onClick={() => handleNavieraClick(nav)}
                 >
                   <img
                     src={`//pic-2.vpackage.net/cruceros_img/${nav.img_naviera}`}
