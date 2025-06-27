@@ -1,5 +1,5 @@
 import Buscador from "./filtros/Buscador";
-import Cruceros from "./Destinos2";
+import Cruceros from "./Listado";
 import { useLocation, useParams } from "react-router-dom";
 import PlaceHolder from "../../estructura/skeleton_placeholders/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders/Cargando";
@@ -19,9 +19,7 @@ const fetchData = async (datosForm) => {
     console.warn("No se han proporcionado los datos.");
     return null;
   }
-
   const baseUrl = "https://devxml-2.vpackage.net/FrontCruceros/cruceros/";
-
   const params = new URLSearchParams({
     destino: datosForm.idZona || "",
     puertos: datosForm.idPuerto || "",

@@ -1,7 +1,7 @@
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
-function Resultado({ destinos }) {
+function Listado({ destinos }) {
   const encontrarPrecioMasBajo = (tarifas) => {
     let precioMasBajo = Infinity;
     tarifas.forEach((tarifa) => {
@@ -206,4 +206,4 @@ function Resultado({ destinos }) {
   );
 }
 
-export default Resultado;
+export default Listado;
