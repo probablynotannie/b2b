@@ -7,6 +7,7 @@ import Input_Texto from "../../../../inputs/Texto";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import Fecha from "../../../../inputs/Fecha";
 import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
+import { slugify } from "../../../../../helpers/slugify";
 const Vuelo = () => {
   const location = useLocation();
   const { producto, pasajeros, precioSeleccionado } = location.state || {};
@@ -45,11 +46,16 @@ const Vuelo = () => {
       shouldValidate: true,
     });
   };
-
+  console.log(producto);
   const onSubmit = (data) => {
-    navigate("/reservaCrucero", {
-      state: { data, producto, precioSeleccionado },
-    });
+    navigate(
+      `/crucero/reserva/${producto.id_crucero}/${slugify(
+        producto.itinerario.name
+      )}`,
+      {
+        state: { data, producto, precioSeleccionado },
+      }
+    );
   };
 
   const infoPasajeros = (

@@ -52,7 +52,7 @@ function Zonas({ setRequestData }) {
                 <p className="hidden lg:flex tw-text-md tw-text-center">
                   {zona.descripcion}
                 </p>
-                <h3 className="tw-flex lg:hidden tw-text-3xl tw-text-center tw-font-bold">
+                <h3 className="tw-flex lg:hidden tw-text-xl xl:tw-text-2xl tw-text-center tw-font-bold">
                   {zona.texto}
                 </h3>
               </div>

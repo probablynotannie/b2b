@@ -246,7 +246,10 @@ function Header() {
         <Route path="/reservaentrada" element={<ReservaEntrada />} />
         <Route path="/reservatickets" element={<ReservaTickets />} />
         <Route path="/reservaHotel" element={<ReservaHotel />} />
-        <Route path="/reservaCrucero" element={<ReservaCrucero />} />
+        <Route
+          path="/crucero/reserva/:id/:itinerario"
+          element={<ReservaCrucero />}
+        />
         <Route path="/reservaFerry" element={<ReservaFerry />} />
         <Route path="/reservaDestino" element={<ReservaDestino />} />
         <Route path="/reservaTren" element={<ReservaTren />} />
@@ -266,7 +269,10 @@ function Header() {
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
         <Route path="/datosTransfer" element={<DatosTransfer />} />
-        <Route path="datos/:idCrucero/:itinerario" element={<DatosCrucero />} />
+        <Route
+          path="/crucero/datos/:idCrucero/:itinerario"
+          element={<DatosCrucero />}
+        />
         <Route path="/datosEntrada" element={<DatosEntrada />} />
         <Route path="/datostickets" element={<DatosTickets />} />
         <Route path="/datoshotel" element={<DatosHotel />} />

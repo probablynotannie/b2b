@@ -182,7 +182,7 @@ function Producto() {
             />
 
             <Link
-              to={`/datos/${producto.id_crucero}/${slugify(
+              to={`/crucero/datos/${producto.id_crucero}/${slugify(
                 producto.itinerario.name
               )}`}
               state={{ producto, pasajeros, precioSeleccionado }}
