@@ -1,11 +1,9 @@
 import { useParams, useLocation, Link } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-
 import { GiCruiser } from "react-icons/gi";
 import { MdCancel, MdMeetingRoom } from "react-icons/md";
 import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
-
 import Reserva from "../../estructura/reserva/Resumen";
 import Tarifas from "./crucero/Tarifas";
 import Pasajeros from "./crucero/Pasajeros";
@@ -13,28 +11,28 @@ import Pasajeros_Display from "./crucero/Pasajeros_Display";
 import Itinerario from "./crucero/Itinerario";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import Placeholder from "../../../../helpers/placeholders/Detalles";
-
+import { slugify } from "../../../../helpers/slugify";
 /*     
-  "https://devxml-2.vpackage.net/FrontCruceros/cruceros/?destino=11&puertos=&naviera=&fechSal=&duracion=&idv=207&p=1&json=1"
+      Necesito un enlace para sacar todos los cruceros.
+     "https://devxml-2.vpackage.net/FrontCruceros/cruceros/?destino=11&puertos=&naviera=&fechSal=&duracion=&idv=207&p=1&json=1"
  */
 const fetchCruceros = async () => {
   const res = await fetch(
     "https://devxml-2.vpackage.net/FrontCruceros/cruceros/?destino=11&puertos=&naviera=&fechSal=&duracion=&idv=207&p=1&json=1"
   );
-  if (!res.ok) throw new Error("Error fetching cruceros");
+  if (!res.ok) throw new Error("Ha habido un error");
   const data = await res.json();
-  if (!Array.isArray(data.items)) throw new Error("No cruceros found");
+  if (!Array.isArray(data.items)) throw new Error("No hay cruceros");
   return data.items;
 };
 
 function Producto() {
-  const { idCrucero } = useParams();
+  const { idCrucero, itinerario } = useParams();
+  console.log(idCrucero, itinerario);
   const location = useLocation();
-
   const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
-
   const {
     data: cruceros,
     isLoading,
@@ -78,15 +76,17 @@ function Producto() {
 
   if (!producto) {
     return (
-      <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
+      <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-flex-col">
+        <div></div>
         <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-        <p>No se ha encontrado este crucero</p>
+        <p className="tw-text-xl tw-text-slate-400 tw-animate-pulse">
+          No se ha encontrado este crucero
+        </p>
       </div>
     );
   }
 
   const cruiseImage = getCruiseImage(producto);
-
   return (
     <main className="tw-container lg:tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-gap-y-10 tw-my-10 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
@@ -122,7 +122,6 @@ function Producto() {
               Itinerario
             </button>
           </div>
-
           <section className="tw-p-5">
             {selectedTab === "tarifas" ? (
               <>
@@ -183,7 +182,9 @@ function Producto() {
             />
 
             <Link
-              to="/datoscrucero"
+              to={`/datos/${producto.id_crucero}/${slugify(
+                producto.itinerario.name
+              )}`}
               state={{ producto, pasajeros, precioSeleccionado }}
             >
               <div className="tw-flex tw-justify-center">

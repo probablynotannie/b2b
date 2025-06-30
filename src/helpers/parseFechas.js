@@ -16,7 +16,7 @@ const parseFecha = (fechaStr) => {
     return new Date(`${year}-${month}-${day}`);
   }
 
-  return new Date(fechaStr); // fallback
+  return new Date(fechaStr);
 };
 
 export default parseFecha;

@@ -266,7 +266,7 @@ function Header() {
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
         <Route path="/datosTransfer" element={<DatosTransfer />} />
-        <Route path="/datosCrucero" element={<DatosCrucero />} />
+        <Route path="datos/:idCrucero/:itinerario" element={<DatosCrucero />} />
         <Route path="/datosEntrada" element={<DatosEntrada />} />
         <Route path="/datostickets" element={<DatosTickets />} />
         <Route path="/datoshotel" element={<DatosHotel />} />

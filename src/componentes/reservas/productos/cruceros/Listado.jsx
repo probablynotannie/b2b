@@ -1,6 +1,7 @@
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
+import { slugify } from "../../../../helpers/slugify";
 function Listado({ destinos }) {
   const encontrarPrecioMasBajo = (tarifas) => {
     let precioMasBajo = Infinity;
@@ -110,12 +111,18 @@ function Listado({ destinos }) {
                   })}
               </div>
             </div>
-            <Link to="/crucero" state={destino}>
+            <Link
+              to={`/crucero/${destino.id_crucero}/${slugify(
+                destino.itinerario.name
+              )}`}
+              state={destino}
+            >
               <div className="tw-px-5 tw-py-3 ">
                 <div className="tw-flex tw-justify-between tw-items-center">
                   <div>
                     <h4 className="tw-font-semibold tw-text-lg dark:tw-text-slate-100">
-                      {destino.itinerario.name} ({destino.num_dias} días y {destino.num_noches} noches)
+                      {destino.itinerario.name} ({destino.num_dias} días y{" "}
+                      {destino.num_noches} noches)
                     </h4>
                     <p className="tw-text-sm tw-text-slate-400 dark:tw-text-slate-300">
                       {destino.itinerario.name}
@@ -186,9 +193,9 @@ function Listado({ destinos }) {
             </Link>
             <div className="tw-flex tw-justify-end tw-mt-5">
               <Link
-                to={`/crucero/${
-                  destino.id_crucero
-                }/${destino.itinerario.name.replaceAll(" ", "")}`}
+                to={`/crucero/${destino.id_crucero}/${slugify(
+                  destino.itinerario.name
+                )}`}
                 state={destino}
               >
                 <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
