@@ -16,20 +16,18 @@ function Buscador_Cruceros() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const buildCruiseURLFromForm = (data) => {
     const urlParts = [];
-
     if (data.idZona && data.idZona !== 0)
-      urlParts.push("zona", slugify(data.titulo || data.idZona));
+      urlParts.push("zona", slugify(data.idZona));
 
     if (data.idPuerto && data.idPuerto !== 0)
-      urlParts.push("puerto", slugify(data.titulo || data.idPuerto));
+      urlParts.push("puerto", slugify(data.idPuerto));
 
     if (data.idNav && data.idNav !== 0)
-      urlParts.push("naviera", slugify(data.titulo || data.idNav));
+      urlParts.push("naviera", slugify(data.idNav));
 
     if (data.fechSal && typeof data.fechSal === "string") {
       const [year, month] = data.fechSal.split("-");
       const monthIndex = parseInt(month, 10) - 1;
-
       if (!isNaN(monthIndex) && monthIndex >= 0 && monthIndex < 12) {
         const monthNames = [
           "enero",
@@ -46,7 +44,6 @@ function Buscador_Cruceros() {
           "diciembre",
         ];
         const monthName = monthNames[monthIndex];
-
         urlParts.push("año", year, "mes", slugify(monthName));
       }
     }

@@ -20,7 +20,7 @@ function Zonas({ setRequestData }) {
       desc: producto.texto,
     };
 
-    const enlace = "/zona/" + slugify(producto.name);
+    const enlace = "/" + slugify(producto.name);
     setRequestData(datosForm);
     navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };

@@ -5,8 +5,8 @@ import { useEffect, useState } from "react";
 import flightSets from "./Vuelos.json";
 import Buscador from "./filtros/Buscador";
 import vuelos from "./Vuelos.json";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Vuelos";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Vuelos";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 function Vuelos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

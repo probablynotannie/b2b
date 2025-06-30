@@ -9,8 +9,8 @@ import ferris from "./Ferris.json";
 import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

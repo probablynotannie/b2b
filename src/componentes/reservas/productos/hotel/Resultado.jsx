@@ -3,8 +3,8 @@ import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Hoteles";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import MapaHoteles from "./mapa/MapaHoteles";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 function Productos() {

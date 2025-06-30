@@ -10,8 +10,9 @@ import datos_puertos from "../../../../motores/buscadores/cruceros/puertos.json"
 import datos_navieras from "../../../../motores/buscadores/cruceros/navieras.json";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-function Buscador() {
+function Buscador({datos}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
+  console.log(datos)
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const navigate = useNavigate();
   const onSubmit = (data) => {

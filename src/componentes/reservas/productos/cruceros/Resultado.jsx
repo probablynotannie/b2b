@@ -1,8 +1,8 @@
 import Buscador from "./filtros/Buscador";
 import Cruceros from "./Listado";
 import { useLocation, useParams } from "react-router-dom";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Cruceros";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import { MdCancel } from "react-icons/md";
 import { useQuery } from "@tanstack/react-query";
 
@@ -33,7 +33,7 @@ const fetchData = async (datosForm) => {
   });
 
   const url = `${baseUrl}?${params.toString()}`;
-
+  console.log(url);
   try {
     const response = await fetch(url);
     if (!response.ok) {
@@ -69,7 +69,7 @@ function Productos() {
         <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">
-            <Buscador />
+            <Buscador datos={datosForm} />
           </div>
         </div>
       </div>
@@ -129,7 +129,7 @@ function Productos() {
                     ) : (
                       <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
                         <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-                        <p>No hay cruceros con estos datos :(</p>
+                        <p>No hay cruceros con estos datos</p>
                       </div>
                     )}
                   </div>

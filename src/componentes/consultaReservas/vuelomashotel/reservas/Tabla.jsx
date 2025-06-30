@@ -1,4 +1,4 @@
-import { FaCheck, FaFilePdf, FaHotel, FaTimes } from "react-icons/fa";
+import { FaHotel } from "react-icons/fa";
 import Placeholder from "../../_skeleton_placeholders/Tabla";
 import Cajas from "./Cajas";
 function Tabla({ datos, detalles, loading }) {

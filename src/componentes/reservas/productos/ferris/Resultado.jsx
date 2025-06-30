@@ -3,8 +3,8 @@ import Aside from "./filtros/Aside";
 import Ferris from "./Ferris";
 import ferris from "./Ferris.json";
 import { useState, useEffect } from "react";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Ferris";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Ferris";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

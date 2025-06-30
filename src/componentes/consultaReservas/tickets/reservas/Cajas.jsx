@@ -1,4 +1,4 @@
-import { FaCalendar, FaHotel, FaMapPin } from "react-icons/fa";
+import { FaCalendar, FaHotel } from "react-icons/fa";
 import PlaceholderCajas from "../../_skeleton_placeholders/Cajas";
 import { FaTicket } from "react-icons/fa6";
 function Cajas({ datos, detalles, loading }) {
