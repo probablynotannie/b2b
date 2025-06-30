@@ -1,14 +1,12 @@
+import { useLocation, useParams } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { MdCancel } from "react-icons/md";
 import Buscador from "./filtros/Buscador";
 import Cruceros from "./Listado";
-import { useLocation, useParams } from "react-router-dom";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import { MdCancel } from "react-icons/md";
-import { useQuery } from "@tanstack/react-query";
 
-const fetchData = async (datosForm) => {
-  console.log(datosForm.fechSal);
-
+const fetchData = async (datosForm, page = 1) => {
   if (
     !datosForm ||
     (!datosForm.idZona &&
@@ -18,53 +16,78 @@ const fetchData = async (datosForm) => {
       !datosForm.duracion)
   ) {
     console.warn("No se han proporcionado los datos.");
-    return null;
+    return [];
   }
+
   const baseUrl = "https://devxml-2.vpackage.net/FrontCruceros/cruceros/";
   const params = new URLSearchParams({
     destino: datosForm.idZona || "",
     puertos: datosForm.idPuerto || "",
     naviera: datosForm.idNav || "",
-    fechSal: datosForm.fechSal || "" /* 2025-10 */,
+    fechSal: datosForm.fechSal || "",
     duracion: datosForm.duracion || "",
     idv: "207",
-    p: "1",
+    p: page.toString(),
     json: "1",
   });
 
   const url = `${baseUrl}?${params.toString()}`;
-  console.log(url);
   try {
     const response = await fetch(url);
-    if (!response.ok) {
-      throw new Error("Error cargando datos");
-    }
+    if (!response.ok) throw new Error("Error cargando datos");
     const data = await response.json();
-    console.log(data);
-    return data.items;
+    return data.items || [];
   } catch (error) {
     console.error(error);
-    return null;
+    throw error;
   }
 };
 
 function Productos() {
   const location = useLocation();
   const params = useParams();
-  console.log(params);
   const { newRequestData = {}, datosForm } = location.state || {};
-  const { data, isLoading, isError, error } = useQuery({
-    queryKey: ["crucerosData", datosForm],
-    queryFn: () => fetchData(datosForm),
-  });
+
+  const [page, setPage] = useState(1);
+  const [allResults, setAllResults] = useState([]);
+  const [isFetching, setIsFetching] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
+  const [fetchError, setFetchError] = useState(null);
+
+  // Reset if filters (datosForm) change
+  useEffect(() => {
+    setPage(1);
+    setAllResults([]);
+    setHasMore(true);
+  }, [datosForm]);
+
+  useEffect(() => {
+    const loadData = async () => {
+      setIsFetching(true);
+      setFetchError(null);
+      try {
+        const results = await fetchData(datosForm, page);
+        if (results.length === 0) {
+          setHasMore(false);
+        }
+        setAllResults((prev) => (page === 1 ? results : [...prev, ...results]));
+      } catch (error) {
+        setFetchError(error.message || "Error desconocido");
+      } finally {
+        setIsFetching(false);
+      }
+    };
+
+    if (datosForm) {
+      loadData();
+    }
+  }, [page, datosForm]);
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
       <div
         className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
-        style={{
-          backgroundImage: "url('/banners/banner_cruise.webp')",
-        }}
+        style={{ backgroundImage: "url('/banners/banner_cruise.webp')" }}
       >
         <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-flex">
@@ -73,10 +96,11 @@ function Productos() {
           </div>
         </div>
       </div>
+
       <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[55vh] lg:tw-min-h-[40vh]">
         {newRequestData.img && (
           <section className="tw-mb-10">
-            <h1 className="tw-text-2xl tw-text-secondary tw-font-extrabold tw-mb-5 ">
+            <h1 className="tw-text-2xl tw-text-secondary tw-font-extrabold tw-mb-5">
               {newRequestData.titulo}
             </h1>
             <div
@@ -92,17 +116,13 @@ function Productos() {
             </div>
           </section>
         )}
-        <section className="tw-col-span-9 lg:tw-col-span-6 ">
-          {isLoading ? (
-            <>
-              <Cargando />
-              <PlaceHolder />
-            </>
-          ) : isError ? (
+
+        <section className="tw-col-span-9 lg:tw-col-span-6">
+          {fetchError ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-danger">
-              <p>Error: {error.message}</p>
+              <p>Error: {fetchError}</p>
             </div>
-          ) : data === null ? (
+          ) : allResults.length === 0 && !isFetching ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
               <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
               <p>
@@ -113,28 +133,29 @@ function Productos() {
                   datosForm.fechSal ||
                   datosForm.duracion)
                   ? "No hay cruceros con estos datos :("
-                  : "Por favor, no rompas la pagina 🤬"}
+                  : "Por favor, no rompas la página 🤬"}
               </p>
             </div>
           ) : (
             <>
-              {data && (
-                <>
-                  <div className="px-4 tw-p-5 lg:tw-px-10">
-                    <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-                      Resultados ({data.length})
-                    </h3>
-                    {data.length > 0 ? (
-                      <Cruceros destinos={data} />
-                    ) : (
-                      <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
-                        <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-                        <p>No hay cruceros con estos datos</p>
-                      </div>
-                    )}
+              <div className="px-4 tw-p-5 lg:tw-px-10">
+                <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
+                  Resultados ({allResults.length})
+                </h3>
+                <Cruceros destinos={allResults} />
+                {hasMore && !isFetching && (
+                  <div className="tw-text-center tw-mt-6">
+                    <button
+                      onClick={() => setPage((prev) => prev + 1)}
+                      className="tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
+                      disabled={isFetching}
+                    >
+                      {!isFetching && "Cargar más"}
+                    </button>
                   </div>
-                </>
-              )}
+                )}
+              </div>
+              {isFetching && <PlaceHolder />}
             </>
           )}
         </section>

@@ -38,7 +38,7 @@ function Listado({ destinos }) {
 
         const backgroundImg = firstItinDiaWithImg
           ? firstItinDiaWithImg.puerto.img_puerto_header
-          : "default-image.jpg"; // your fallback image
+          : "/cruceros/mediterraneo.jpg";
         const puertoName = firstItinDiaWithImg
           ? firstItinDiaWithImg.puerto.name
           : "Destino";
@@ -46,14 +46,12 @@ function Listado({ destinos }) {
         return (
           <article
             key={index}
-            className="dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow hover:tw-shadow-lg tw-duration-300 tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
+            className="tw-overflow-hidden dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow hover:tw-shadow-lg tw-duration-300 tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
           >
             <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
               <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
                 Próxima salida: {proximaSalida}
               </div>
-
-              {/* Mobile view */}
               <div
                 className="tw-w-full tw-min-h-[20vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center sm:tw-hidden"
                 style={{
@@ -64,8 +62,6 @@ function Listado({ destinos }) {
                   {puertoName}
                 </div>
               </div>
-
-              {/* Desktop view */}
               <div className="tw-hidden sm:tw-flex tw-w-full">
                 {destino.barco.img_header_embarcacion &&
                 destino.barco.img_header_embarcacion.trim() !== "" &&
@@ -82,7 +78,6 @@ function Listado({ destinos }) {
                     </div>
                   </div>
                 ) : null}
-
                 {destino.itin_dias
                   .filter(
                     (destination) =>
