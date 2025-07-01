@@ -13,6 +13,8 @@ function Puertos({ setRequestData }) {
   const navigate = useNavigate();
   const highlightedPorts = puertos.filter((zona) => zona.destacado === 1);
   const handlePortClick = (producto) => {
+    if (swiperRef.current?.animating) return; 
+
     const datosForm = {
       idPuerto: producto.id_puerto,
       idZona: 0,
@@ -36,6 +38,7 @@ function Puertos({ setRequestData }) {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
+        loop={true}
         slidesPerView={1}
         breakpoints={{
           640: { slidesPerView: 1 },
