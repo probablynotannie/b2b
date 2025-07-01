@@ -34,6 +34,7 @@ const fetchCruceros = async (idCrucero) => {
   if (found) return found;
 
   for (let p = 2; p <= totalPages; p++) {
+    console.log(p);
     const pageData = await fetchPage(p);
     found = pageData.items.find(
       (item) => String(item.id_crucero) === String(idCrucero)
@@ -59,7 +60,7 @@ function Producto() {
   } = useQuery({
     queryKey: ["crucero", idCrucero],
     queryFn: () => fetchCruceros(idCrucero),
-    enabled: !location.state && !!idCrucero,
+    enabled: !!idCrucero,
   });
 
   const producto = location.state ?? cruceroFetched;
