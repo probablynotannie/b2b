@@ -136,7 +136,7 @@ function Productos() {
                     <span> No hay cruceros con estos datos :(</span>
                     <Link
                       to={"/cruceros"}
-                      className="tw-bg-slate-200 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+                      className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
                     >
                       volver atrás
                     </Link>
@@ -146,7 +146,7 @@ function Productos() {
                     <span>Por favor, no rompas la página 🤬</span>
                     <Link
                       to={"/cruceros"}
-                      className="tw-bg-slate-200 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+                      className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
                     >
                       volver atrás
                     </Link>
