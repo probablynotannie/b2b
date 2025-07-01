@@ -12,41 +12,57 @@ import Itinerario from "./crucero/Itinerario";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import Placeholder from "../../../../helpers/placeholders/Detalles";
 import { slugify } from "../../../../helpers/slugify";
-/*     
-      Necesito un enlace para sacar todos los cruceros.
-     "https://devxml-2.vpackage.net/FrontCruceros/cruceros/?destino=11&puertos=&naviera=&fechSal=&duracion=&idv=207&p=1&json=1"
- */
-const fetchCruceros = async () => {
-  const res = await fetch(
-    "https://devxml-2.vpackage.net/FrontCruceros/cruceros/?destino=11&puertos=&naviera=&fechSal=&duracion=&idv=207&p=1&json=1"
+
+const fetchCruceros = async (idCrucero) => {
+  const baseUrl =
+    "https://devxml-2.vpackage.net/FrontCruceros/cruceros/?destino=&puertos=&naviera=&fechSal=&duracion=&idv=207&json=1";
+
+  const fetchPage = async (page) => {
+    const res = await fetch(`${baseUrl}&p=${page}`);
+    if (!res.ok) throw new Error("Error fetching page " + page);
+    return res.json();
+  };
+
+  const firstPage = await fetchPage(1);
+  const totalResults = Number(firstPage.totalresults);
+  const pageSize = firstPage.items.length;
+  const totalPages = Math.ceil(totalResults / pageSize);
+
+  let found = firstPage.items.find(
+    (item) => String(item.id_crucero) === String(idCrucero)
   );
-  if (!res.ok) throw new Error("Ha habido un error");
-  const data = await res.json();
-  if (!Array.isArray(data.items)) throw new Error("No hay cruceros");
-  return data.items;
+  if (found) return found;
+
+  for (let p = 2; p <= totalPages; p++) {
+    const pageData = await fetchPage(p);
+    found = pageData.items.find(
+      (item) => String(item.id_crucero) === String(idCrucero)
+    );
+    if (found) return found;
+  }
+
+  throw new Error("Crucero no encontrado");
 };
 
 function Producto() {
-  const { idCrucero, itinerario } = useParams();
-  console.log(idCrucero, itinerario);
+  const { idCrucero } = useParams();
   const location = useLocation();
   const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
+
   const {
-    data: cruceros,
+    data: cruceroFetched,
     isLoading,
     isError,
     error,
   } = useQuery({
-    queryKey: ["cruceros"],
-    queryFn: fetchCruceros,
-    enabled: !location.state,
+    queryKey: ["crucero", idCrucero],
+    queryFn: () => fetchCruceros(idCrucero),
+    enabled: !location.state && !!idCrucero,
   });
 
-  const producto =
-    location.state ||
-    cruceros?.find((item) => String(item.id_crucero) === String(idCrucero));
+  const producto = location.state ?? cruceroFetched;
 
   const getCruiseImage = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
@@ -77,7 +93,6 @@ function Producto() {
   if (!producto) {
     return (
       <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-flex-col">
-        <div></div>
         <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
         <p className="tw-text-xl tw-text-slate-400 tw-animate-pulse">
           No se ha encontrado este crucero
@@ -87,6 +102,7 @@ function Producto() {
   }
 
   const cruiseImage = getCruiseImage(producto);
+
   return (
     <main className="tw-container lg:tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-gap-y-10 tw-my-10 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
