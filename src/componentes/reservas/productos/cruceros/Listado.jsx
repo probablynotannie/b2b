@@ -129,7 +129,6 @@ function Listado({ destinos }) {
               to={`/crucero/${destino.id_crucero}/${slugify(
                 destino.itinerario.name
               )}`}
-              state={destino}
             >
               <div className="tw-px-5 tw-py-3">
                 <div className="tw-flex tw-justify-between tw-items-center">
@@ -189,7 +188,6 @@ function Listado({ destinos }) {
                 to={`/crucero/${destino.id_crucero}/${slugify(
                   destino.itinerario.name
                 )}`}
-                state={destino}
               >
                 <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
                   Desde {precioMasBajo}

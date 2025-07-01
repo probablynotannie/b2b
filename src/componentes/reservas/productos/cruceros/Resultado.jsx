@@ -36,6 +36,7 @@ const fetchData = async (datosForm, page = 1) => {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Error cargando datos");
     const data = await response.json();
+    console.log(data.totalresults);
     return {
       items: data.items || [],
       total: data.totalresults || 0,
@@ -55,7 +56,7 @@ function Productos() {
   const [page, setPage] = useState(1);
   const [allResults, setAllResults] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
-  const [hasMore, setHasMore] = useState(false);
+  const [hasMore, setHasMore] = useState(true);
   const [fetchError, setFetchError] = useState(null);
   useEffect(() => {
     setPage(1);
@@ -69,17 +70,11 @@ function Productos() {
       setFetchError(null);
       try {
         const { items, total } = await fetchData(datosForm, page);
-
-        setAllResults((prev) => {
-          const updated = page === 1 ? items : [...prev, ...items];
-          setHasMore(updated.length < total);
-          return updated;
-        });
-        setTotalResults(total);
-
-        if (items.length === 0 && page === 1) {
+        if (items.length === 0) {
           setHasMore(false);
         }
+        setAllResults((prev) => (page === 1 ? items : [...prev, ...items]));
+        setTotalResults(total);
       } catch (error) {
         setFetchError(error.message || "Error desconocido");
       } finally {

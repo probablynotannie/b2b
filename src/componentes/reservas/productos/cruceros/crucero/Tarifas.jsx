@@ -21,8 +21,8 @@ const formatPrice = (price) =>
 const transformTarifas = (tarifas) => {
   const categoriesMap = new Map();
   tarifas.forEach((tarifa) => {
-    const cabinId = tarifa.Camarotes.id_camarote;
-    const cabina = tarifa.Camarotes.tipo_camarote;
+    const cabinId = tarifa.camarotes.id_camarote;
+    const cabina = tarifa.camarotes.tipo_camarote;
     const price = tarifa.precio !== "0.00" ? parseFloat(tarifa.precio) : null;
     const date = tarifa.fecha;
     const tituloCategoria = getNombreCategoria(cabina);
@@ -38,7 +38,7 @@ const transformTarifas = (tarifas) => {
     if (!cabin) {
       cabin = {
         id: cabinId,
-        title: tarifa.Camarotes.name,
+        title: tarifa.camarotes.name,
         prices: {},
         datos: tarifa,
       };
