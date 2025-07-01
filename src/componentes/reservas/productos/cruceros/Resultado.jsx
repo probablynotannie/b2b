@@ -1,4 +1,4 @@
-import { useLocation, useParams } from "react-router-dom";
+import { Link, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { MdCancel } from "react-icons/md";
 import Buscador from "./filtros/Buscador";
@@ -131,9 +131,27 @@ function Productos() {
                   datosForm.idPuerto ||
                   datosForm.idNav ||
                   datosForm.fechSal ||
-                  datosForm.duracion)
-                  ? "No hay cruceros con estos datos :("
-                  : "Por favor, no rompas la página 🤬"}
+                  datosForm.duracion) ? (
+                  <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-center tw-items-center">
+                    <span> No hay cruceros con estos datos :(</span>
+                    <Link
+                      to={"/cruceros"}
+                      className="tw-bg-slate-200 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+                    >
+                      volver atrás
+                    </Link>
+                  </div>
+                ) : (
+                  <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-center tw-items-center">
+                    <span>Por favor, no rompas la página 🤬</span>
+                    <Link
+                      to={"/cruceros"}
+                      className="tw-bg-slate-200 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+                    >
+                      volver atrás
+                    </Link>
+                  </div>
+                )}
               </p>
             </div>
           ) : (

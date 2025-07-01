@@ -18,7 +18,7 @@
     "name_zona": 3353,
     "name": "Caribe",
     "descripcion": 3354,
-    "destacado": 0,
+    "destacado": 1,
     "ordenZona": 4,
     "img_zona_header": "headers/caribe.jpg",
     "activ": 1,

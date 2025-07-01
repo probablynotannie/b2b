@@ -127,7 +127,7 @@ function Buscador({datos}) {
           onSubmit={handleSubmit(onSubmit)}
           className="tw-grid tw-grid-cols-12 tw-gap-3"
         >
-          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Destinos
               required={true}
               datos={datos_destinos}
@@ -136,7 +136,7 @@ function Buscador({datos}) {
               placeholder="Selecciona un destino"
             />
           </div>
-          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Puertos
               datos={datos_puertos}
               name="idPuerto"
@@ -144,7 +144,7 @@ function Buscador({datos}) {
               placeholder="Selecciona un puerto"
             />
           </div>
-          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Navieras
               datos={datos_navieras}
               name="idNav"
@@ -152,13 +152,13 @@ function Buscador({datos}) {
               placeholder="Selecciona una naviera"
             />
           </div>
-          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Mes control={control} name="fechSal" />
           </div>
-          <div className="tw-col-span-12 tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
             <Input_Dias control={control} name="duracion" />
           </div>
-          <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
+          <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-span-4 xl:tw-col-span-1">
             <FaSearch className="tw-text-white tw-text-xl" />
           </button>
         </form>
