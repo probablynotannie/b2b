@@ -201,7 +201,6 @@ function Header() {
           path="vuelo+hotel/detalles"
           element={<Detalles_Reserva_VueloMasHotel />}
         />
-
         {/* LISTADOS */}
         <Route path="/listadoHoteles" element={<ListadoHoteles />} />
         <Route path="/listadoTrenes" element={<ListadoTrenes />} />
@@ -219,7 +218,11 @@ function Header() {
           element={<ListadoHotelMasActividades />}
         />
         <Route path="/listadoCircuitos" element={<ListadoCircuitos />} />
-        <Route path="/listadoCruceros/*" element={<ListadoCruceros />} />
+        <Route
+          path="/listadoCruceros/:idZona?/:idZonaVal?/:idPuerto?/:idPuertoVal?/:idNav?/:idNavVal?/:fechSal?/:fechSalVal?/:duracion?/:duracionVal?"
+          element={<ListadoCruceros />}
+        />
+        z
         <Route path="/listadoEntradas" element={<ListadoEntradas />} />
         <Route path="/listadoVuelos" element={<ListadoVuelos />} />
         <Route
@@ -264,7 +267,6 @@ function Header() {
           path="/reservaHotelMasActividades"
           element={<ReservaHotelMasActividades />}
         />
-
         {/* DATOS */}
         <Route path="/datosVuelo" element={<DatosVuelo />} />
         <Route path="/datosCoche" element={<DatosCoche />} />
@@ -288,7 +290,6 @@ function Header() {
           path="/datosHotelMasActividades"
           element={<DatosHotelMasActividades />}
         />
-
         {/* RESUMEN FINAL */}
         <Route path="/resumenHotel" element={<ResumenHotel />} />
         <Route path="/resumenCircuito" element={<ResumenCircuitos />} />
@@ -315,7 +316,6 @@ function Header() {
         <Route path="/resumenTren" element={<ResumenTren />} />
         <Route path="/resumenVuelo" element={<ResumenVuelo />} />
         <Route path="/resumenCombinados" element={<ResumenCombinado />} />
-
         {/*otros*/}
         <Route path="/fecha" element={<Fecha />} />
         <Route path="/clientes" element={<Clientes />} />

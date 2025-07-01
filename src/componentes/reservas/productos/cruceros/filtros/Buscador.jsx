@@ -10,64 +10,23 @@ import datos_puertos from "../../../../motores/buscadores/cruceros/puertos.json"
 import datos_navieras from "../../../../motores/buscadores/cruceros/navieras.json";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import { slugify } from "../../../../../helpers/slugify";
-function Buscador({ datos }) {
+function Buscador({datos}) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-  console.log(datos);
+  console.log(datos)
   const toggleModal = () => setIsModalOpen(!isModalOpen);
   const navigate = useNavigate();
   const onSubmit = (data) => {
-    const url = buildCruiseURLFromForm(data);
-    navigate(url, { state: { datosForm: data } });
+    navigate("/listadoCruceros", {
+      state: { datosForm: data },
+    });
   };
-  const buildCruiseURLFromForm = (data) => {
-    const urlParts = [];
-
-    if (data.idZona && data.idZona !== 0)
-      urlParts.push("zona", slugify(data.idZona));
-
-    if (data.idPuerto && data.idPuerto !== 0)
-      urlParts.push("puerto", slugify(data.idPuerto));
-
-    if (data.idNav && data.idNav !== 0)
-      urlParts.push("naviera", slugify(data.idNav));
-
-    if (data.fechSal && typeof data.fechSal === "string") {
-      const [year, month] = data.fechSal.split("-");
-      const monthIndex = parseInt(month, 10) - 1;
-      if (!isNaN(monthIndex) && monthIndex >= 0 && monthIndex < 12) {
-        const monthNames = [
-          "enero",
-          "febrero",
-          "marzo",
-          "abril",
-          "mayo",
-          "junio",
-          "julio",
-          "agosto",
-          "septiembre",
-          "octubre",
-          "noviembre",
-          "diciembre",
-        ];
-        const monthName = monthNames[monthIndex];
-        urlParts.push("año", year, "mes", slugify(monthName));
-      }
-    }
-
-    if (data.duracion && data.duracion !== 0)
-      urlParts.push("duracion", data.duracion);
-
-    return `/listadoCruceros/${urlParts.join("/")}`;
-  };
-
   const { handleSubmit, control } = useForm({
     defaultValues: {
-      idZona: datos.idZona || "",
-      idPuerto: datos.idPuerto || "",
-      idNav: datos.idNav || "",
-      fechSal: datos.fechSal || "",
-      duracion: datos.duracion || "",
+      idZona: 0,
+      idPuerto: 0,
+      idNav: 0,
+      fechSal: 0,
+      duracion: 0,
     },
   });
   return (
@@ -170,6 +129,7 @@ function Buscador({ datos }) {
         >
           <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Destinos
+              required={true}
               datos={datos_destinos}
               name="idZona"
               control={control}

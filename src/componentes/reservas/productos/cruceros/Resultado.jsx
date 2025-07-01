@@ -36,7 +36,6 @@ const fetchData = async (datosForm, page = 1) => {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Error cargando datos");
     const data = await response.json();
-    console.log(data.totalresults);
     return {
       items: data.items || [],
       total: data.totalresults || 0,
@@ -50,19 +49,48 @@ const fetchData = async (datosForm, page = 1) => {
 function Productos() {
   const location = useLocation();
   const params = useParams();
-  const { newRequestData = {}, datosForm } = location.state || {};
-  const [totalResults, setTotalResults] = useState(0);
+  const { newRequestData = {}, datosForm: datosFormFromState } = location.state || {};
 
+  const buildFormFromParams = (params) => {
+    const form = {};
+    const entries = Object.entries(params);
+
+    for (let i = 0; i < entries.length; i += 2) {
+      const [key, val] = [entries[i][1], entries[i + 1]?.[1]];
+      if (!key || !val) continue;
+
+      switch (key) {
+        case "idZona":
+        case "idPuerto":
+        case "idNav":
+        case "duracion":
+          form[key] = val;
+          break;
+        case "fechSal":
+          if (val.includes("-")) {
+            const [month, year] = val.split("-");
+            form.fechSal = `${year}-${month}`;
+          }
+          break;
+      }
+    }
+    return form;
+  };
+
+  const datosForm = datosFormFromState || buildFormFromParams(params);
+
+  const [totalResults, setTotalResults] = useState(0);
   const [page, setPage] = useState(1);
   const [allResults, setAllResults] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [fetchError, setFetchError] = useState(null);
+
   useEffect(() => {
     setPage(1);
     setAllResults([]);
     setHasMore(true);
-  }, [datosForm]);
+  }, [JSON.stringify(datosForm)]);
 
   useEffect(() => {
     const loadData = async () => {
@@ -85,7 +113,7 @@ function Productos() {
     if (datosForm) {
       loadData();
     }
-  }, [page, datosForm]);
+  }, [page, JSON.stringify(datosForm)]);
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
@@ -129,70 +157,58 @@ function Productos() {
           ) : allResults.length === 0 && !isFetching ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
               <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-              <p>
-                {datosForm &&
-                (datosForm.idZona ||
-                  datosForm.idPuerto ||
-                  datosForm.idNav ||
-                  datosForm.fechSal ||
-                  datosForm.duracion) ? (
-                  <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-center tw-items-center">
-                    <span> No hay cruceros con estos datos :(</span>
-                    <Link
-                      to={"/cruceros"}
-                      className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-                    >
-                      volver atrás
-                    </Link>
-                  </div>
-                ) : (
-                  <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-center tw-items-center">
-                    <span>Por favor, no rompas la página 🤬</span>
-                    <Link
-                      to={"/cruceros"}
-                      className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-                    >
-                      volver atrás
-                    </Link>
-                  </div>
-                )}
-              </p>
+              <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-center tw-items-center">
+                <span>
+                  {datosForm &&
+                  (datosForm.idZona ||
+                    datosForm.idPuerto ||
+                    datosForm.idNav ||
+                    datosForm.fechSal ||
+                    datosForm.duracion)
+                    ? "No hay cruceros con estos datos :("
+                    : "Por favor, no rompas la página 🤬"}
+                </span>
+                <Link
+                  to={"/cruceros"}
+                  className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+                >
+                  volver atrás
+                </Link>
+              </div>
             </div>
           ) : (
-            <>
-              <div className="px-4 tw-p-5 lg:tw-px-10">
-                {isFetching && allResults.length === 0 ? (
-                  <>
-                    <Cargando />
-                    <PlaceHolder />
-                  </>
-                ) : (
-                  <>
-                    <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-                      Resultados ({totalResults})
-                    </h3>
-                    <Cruceros destinos={allResults} />
-                    {!isFetching && hasMore && (
-                      <div className="tw-text-center tw-mt-6">
-                        <button
-                          onClick={() => setPage((prev) => prev + 1)}
-                          className="tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
-                          disabled={isFetching}
-                        >
-                          {!isFetching && "Cargar más"}
-                        </button>
-                      </div>
-                    )}
-                    {isFetching && (
-                      <>
-                        <Cargando />
-                        <PlaceHolder />
-                      </>
-                    )}
-                  </>
-                )}
-              </div>
-            </>
+            <div className="px-4 tw-p-5 lg:tw-px-10">
+              {isFetching && allResults.length === 0 ? (
+                <>
+                  <Cargando />
+                  <PlaceHolder />
+                </>
+              ) : (
+                <>
+                  <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
+                    Resultados ({totalResults})
+                  </h3>
+                  <Cruceros destinos={allResults} />
+                  {!isFetching && hasMore && (
+                    <div className="tw-text-center tw-mt-6">
+                      <button
+                        onClick={() => setPage((prev) => prev + 1)}
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
+                        disabled={isFetching}
+                      >
+                        {!isFetching && "Cargar más"}
+                      </button>
+                    </div>
+                  )}
+                  {isFetching && (
+                    <>
+                      <Cargando />
+                      <PlaceHolder />
+                    </>
+                  )}
+                </>
+              )}
+            </div>
           )}
         </section>
       </article>
