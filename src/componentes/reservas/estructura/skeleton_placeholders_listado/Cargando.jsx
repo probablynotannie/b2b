@@ -2,7 +2,7 @@ import { GoDotFill } from "react-icons/go";
 
 function Cargando() {
   return (
-    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center tw-p-3 tw-rounded-xl dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
+    <div className="tw-flex tw-flex-row tw-justify-between tw-items-center tw-p-3 tw-rounded-xl dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-60">
       <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
         Cargando...
       </h3>

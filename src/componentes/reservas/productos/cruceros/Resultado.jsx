@@ -30,13 +30,17 @@ const fetchData = async (datosForm, page = 1) => {
     p: page.toString(),
     json: "1",
   });
-
   const url = `${baseUrl}?${params.toString()}`;
+
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Error cargando datos");
     const data = await response.json();
-    return data.items || [];
+    console.log(data.totalresults);
+    return {
+      items: data.items || [],
+      total: data.totalresults || 0, // Assuming 'total' is returned by the API
+    };
   } catch (error) {
     console.error(error);
     throw error;
@@ -47,14 +51,13 @@ function Productos() {
   const location = useLocation();
   const params = useParams();
   const { newRequestData = {}, datosForm } = location.state || {};
+  const [totalResults, setTotalResults] = useState(0);
 
   const [page, setPage] = useState(1);
   const [allResults, setAllResults] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [fetchError, setFetchError] = useState(null);
-
-  // Reset if filters (datosForm) change
   useEffect(() => {
     setPage(1);
     setAllResults([]);
@@ -66,11 +69,12 @@ function Productos() {
       setIsFetching(true);
       setFetchError(null);
       try {
-        const results = await fetchData(datosForm, page);
-        if (results.length === 0) {
+        const { items, total } = await fetchData(datosForm, page);
+        if (items.length === 0) {
           setHasMore(false);
         }
-        setAllResults((prev) => (page === 1 ? results : [...prev, ...results]));
+        setAllResults((prev) => (page === 1 ? items : [...prev, ...items]));
+        setTotalResults(total);
       } catch (error) {
         setFetchError(error.message || "Error desconocido");
       } finally {
@@ -157,23 +161,37 @@ function Productos() {
           ) : (
             <>
               <div className="px-4 tw-p-5 lg:tw-px-10">
-                <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-                  Resultados ({allResults.length})
-                </h3>
-                <Cruceros destinos={allResults} />
-                {hasMore && !isFetching && (
-                  <div className="tw-text-center tw-mt-6">
-                    <button
-                      onClick={() => setPage((prev) => prev + 1)}
-                      className="tw-bg-blue-600 hover:tw-bg-blue-700 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
-                      disabled={isFetching}
-                    >
-                      {!isFetching && "Cargar más"}
-                    </button>
-                  </div>
+                {isFetching && allResults.length === 0 ? (
+                  <>
+                    <Cargando />
+                    <PlaceHolder />
+                  </>
+                ) : (
+                  <>
+                    <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
+                      Resultados ({totalResults})
+                    </h3>
+                    <Cruceros destinos={allResults} />
+                    {!isFetching && hasMore && (
+                      <div className="tw-text-center tw-mt-6">
+                        <button
+                          onClick={() => setPage((prev) => prev + 1)}
+                          className="tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
+                          disabled={isFetching}
+                        >
+                          {!isFetching && "Cargar más"}
+                        </button>
+                      </div>
+                    )}
+                    {isFetching && (
+                      <>
+                        <Cargando />
+                        <PlaceHolder />
+                      </>
+                    )}
+                  </>
                 )}
               </div>
-              {isFetching && <PlaceHolder />}
             </>
           )}
         </section>
