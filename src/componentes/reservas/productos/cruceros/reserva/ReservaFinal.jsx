@@ -36,7 +36,7 @@ function ReservaFinal() {
             </p>
           </div>
           <img
-            className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow dark:tw-shadow-slate-500"
+            className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-bordertw-border-slate-100 dark:tw-border-slate-700"
             src={
               "//pic-2.vpackage.net/cruceros_img/" +
               producto.naviera.img_naviera

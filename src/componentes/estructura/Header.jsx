@@ -236,7 +236,7 @@ function Header() {
         <Route path="/seguro" element={<Seguro />} />
         <Route path="/hotelMasVuelo" element={<HotelMasVuelo />} />
         <Route path="/destino" element={<Destino />} />
-        <Route path="/crucero/:idCrucero/:itinerario" element={<Crucero />} />
+        <Route path="/crucero/:idCrucero/:itinerario?" element={<Crucero />} />
         <Route path="/coche" element={<Coche />} />
         <Route path="/ticket" element={<Ticket />} />
         <Route path="/entrada" element={<Entrada />} />

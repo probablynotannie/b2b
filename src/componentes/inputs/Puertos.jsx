@@ -1,22 +1,31 @@
 import { FaAnchor } from "react-icons/fa";
 import { Controller } from "react-hook-form";
 
+function filterUniqueById(datos) {
+  const visto = new Set();
+  return datos.filter((item) => {
+    if (visto.has(item.id_puerto)) return false;
+    visto.add(item.id_puerto);
+    return true;
+  });
+}
 function Puertoss({ control, name, placeholder, datos }) {
+  const datosUnicos = filterUniqueById(datos);
   const groupedpuertos = {
-    destacados: datos.filter((zona) => zona.destacado === 1),
-    resto: datos.filter((zona) => zona.destacado === 0),
+    destacados: datosUnicos.filter((zona) => zona.destacado === 1),
+    resto: datosUnicos.filter((zona) => zona.destacado === 0),
   };
 
   return (
-    <div className="tw-relative tw-flex tw-w-full">
+    <div className="tw-relative tw-w-full">
       <Controller
         name={name}
         control={control}
         render={({ field }) => (
           <select
-            {...field} 
+            {...field}
             className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
-            onChange={(e) => field.onChange(Number(e.target.value))} 
+            onChange={(e) => field.onChange(Number(e.target.value))}
           >
             <option value="">{placeholder || "Todos los puertos"}</option>
             {groupedpuertos.destacados.length > 0 && (

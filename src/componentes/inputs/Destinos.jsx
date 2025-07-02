@@ -1,18 +1,7 @@
 import { FaMap } from "react-icons/fa";
 import { useController } from "react-hook-form";
 
-function Destinos({
-  control,
-  name,
-  placeholder,
-  datos,
-  required,
-  defaultId = !19,
-}) {
-  // Convert defaultId to string for select matching, or empty string if none
-  const defaultValue =
-    defaultId !== undefined && defaultId !== null ? String(defaultId) : "";
-
+function Destinos({ control, name, placeholder, datos, required }) {
   const {
     field: { value, onChange },
     fieldState: { error },
@@ -20,7 +9,7 @@ function Destinos({
     name,
     control,
     rules: { required: required ? "Este campo es obligatorio" : false },
-    defaultValue,
+    defaultValue: "",
   });
 
   const groupedDestinos = {
@@ -67,7 +56,7 @@ function Destinos({
             >
               {groupedDestinos.resto.map((zona) => (
                 <option
-                  key={zona.id_zona_destino}
+                  key={zona.name_zona}
                   value={String(zona.id_zona_destino)}
                 >
                   {zona.name}

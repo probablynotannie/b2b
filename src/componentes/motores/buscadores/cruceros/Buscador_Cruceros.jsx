@@ -2,22 +2,30 @@ import { useState, useMemo } from "react";
 import { FaSearch } from "react-icons/fa";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
-
 import Input_Destinos from "../../../inputs/Destinos";
 import Input_Puertos from "../../../inputs/Puertos";
 import Input_Navieras from "../../../inputs/Navieras";
 import Input_Mes from "../../../inputs/Mes";
 import Input_Dias from "../../../inputs/SelectorDias";
-
-import datos_destinos from "./destinos.json";
-import datos_puertos from "./puertos.json";
-import datos_navieras from "./navieras.json";
+import { useQuery } from "@tanstack/react-query";
+const fetchDestinos = async () => {
+  const res = await fetch(
+    "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&info&json=1"
+  );
+  if (!res.ok) throw new Error("Network response was not ok");
+  const data = await res.json();
+  return data;
+};
 
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-
+  const { data, error, isLoading } = useQuery({
+    queryKey: ["destinos"],
+    queryFn: fetchDestinos,
+  });
+  console.log(data);
   const defaultFormValues = useMemo(() => {
     const parts = location.pathname.split("/").filter(Boolean);
     const values = {
@@ -99,19 +107,19 @@ function Buscador_Cruceros() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
-                    datos={datos_destinos}
+                    datos={!isLoading ? data.zonas : []}
                     name="idZona"
                     control={control}
                     placeholder="Selecciona un destino"
                   />
                   <Input_Puertos
-                    datos={datos_puertos}
+                    datos={!isLoading ? data.puertos : []}
                     name="idPuerto"
                     control={control}
                     placeholder="Selecciona un puerto"
                   />
                   <Input_Navieras
-                    datos={datos_navieras}
+                    datos={!isLoading ? data.puertos : []}
                     name="idNav"
                     control={control}
                     placeholder="Selecciona una naviera"
@@ -143,19 +151,19 @@ function Buscador_Cruceros() {
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
-              datos={datos_destinos}
+              datos={!isLoading ? data.zonas : []}
               name="idZona"
               control={control}
               placeholder="Selecciona un destino"
             />
             <Input_Puertos
-              datos={datos_puertos}
+              datos={!isLoading ? data.puertos : []}
               name="idPuerto"
               control={control}
               placeholder="Selecciona un puerto"
             />
             <Input_Navieras
-              datos={datos_navieras}
+              datos={!isLoading ? data.navieras : []}
               name="idNav"
               control={control}
               placeholder="Selecciona una naviera"

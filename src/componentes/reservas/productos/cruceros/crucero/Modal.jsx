@@ -33,8 +33,8 @@ function ModalPrecio({
             alt="imagen crucero"
             className="tw-h-[25vh] tw-w-full tw-rounded-xl tw-object-cover tw-my-4"
           />
-          <div className="tw-mt-5">
-            <div className="tw-flex tw-justify-around tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-3 tw-mb-3 tw-mt-3">
+          <div className="tw-my-5 tw-py-5 tw-border-y dark:tw-border-slate-600 tw-border-slate-100">
+            <div className="tw-flex tw-justify-around tw-border-y-2 tw-border-slate-100 dark:tw-border-slate-700 tw-py-3">
               <div className="tw-flex tw-items-center tw-justify-center tw-flex-col tw-text-secondary tw-font-semibold">
                 <AiFillEuroCircle className="tw-text-3xl" />
                 {parseFloat(temporal.price).toFixed(2)}€
@@ -73,18 +73,20 @@ function ModalPrecio({
               </li>
             </ul>
           </div>
-          <button
-            onClick={() => {
-              if (temporal) {
-                setPrecioSeleccionado(temporal);
-                setIsModalOpen(false);
-              }
-            }}
-            disabled={!temporal}
-            className=" tw-btn_accesorios tw-btn_primario tw-mt-4"
-          >
-            Confirmar selección
-          </button>
+          <div className="tw-w-full tw-flex tw-justify-center">
+            <button
+              onClick={() => {
+                if (temporal) {
+                  setPrecioSeleccionado(temporal);
+                  setIsModalOpen(false);
+                }
+              }}
+              disabled={!temporal}
+              className="tw-btn_accesorios tw-btn_primario tw-px-10"
+            >
+              Confirmar selección
+            </button>
+          </div>
         </div>
       </div>
     </div>

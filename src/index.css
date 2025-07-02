@@ -298,8 +298,29 @@ body {
   bottom: -1px !important;
 }
 
-/* los borders de los popovers */
 [data-testid="flowbite-popover"] {
   border:0px transparent;
   background-color: transparent;
+}
+
+@keyframes wave {
+  0%, 100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(-8px);
+    opacity: 1;
+  }
+}
+
+.tw-animate-wave > div {
+  animation-name: wave;
+  animation-duration: 1.5s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+}
+
+.tw-animate-bounce-slow {
+  animation: bounce 2s infinite;
 }

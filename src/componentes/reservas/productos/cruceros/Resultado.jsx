@@ -5,7 +5,7 @@ import Buscador from "./filtros/Buscador";
 import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-
+import Error from "./filtros/Error";
 const fetchData = async (datosForm, page = 1) => {
   if (
     !datosForm ||
@@ -49,7 +49,8 @@ const fetchData = async (datosForm, page = 1) => {
 function Productos() {
   const location = useLocation();
   const params = useParams();
-  const { newRequestData = {}, datosForm: datosFormFromState } = location.state || {};
+  const { newRequestData = {}, datosForm: datosFormFromState } =
+    location.state || {};
 
   const buildFormFromParams = (params) => {
     const form = {};
@@ -77,31 +78,55 @@ function Productos() {
     return form;
   };
 
-  const datosForm = datosFormFromState || buildFormFromParams(params);
+  // Normalize datosForm to always have an object (empty if nothing)
+  const datosFormNormalized =
+    datosFormFromState || buildFormFromParams(params) || {};
+
+  // Helper to check if datosForm is empty of meaningful filters
+  const isDatosFormEmpty = (form) => {
+    if (!form) return true;
+    return !(
+      form.idZona ||
+      form.idPuerto ||
+      form.idNav ||
+      form.fechSal ||
+      form.duracion
+    );
+  };
 
   const [totalResults, setTotalResults] = useState(0);
   const [page, setPage] = useState(1);
-  const [allResults, setAllResults] = useState([]);
+  const [cruceros, setCruceros] = useState([]);
   const [isFetching, setIsFetching] = useState(false);
   const [hasMore, setHasMore] = useState(true);
   const [fetchError, setFetchError] = useState(null);
 
   useEffect(() => {
     setPage(1);
-    setAllResults([]);
+    setCruceros([]);
     setHasMore(true);
-  }, [JSON.stringify(datosForm)]);
+  }, [JSON.stringify(datosFormNormalized)]);
 
   useEffect(() => {
+    if (isDatosFormEmpty(datosFormNormalized)) {
+      // No filters - clear data and don't fetch
+      setCruceros([]);
+      setHasMore(false);
+      setIsFetching(false);
+      setFetchError(null);
+      return;
+    }
+
     const loadData = async () => {
       setIsFetching(true);
       setFetchError(null);
       try {
-        const { items, total } = await fetchData(datosForm, page);
-        if (items.length === 0) {
-          setHasMore(false);
-        }
-        setAllResults((prev) => (page === 1 ? items : [...prev, ...items]));
+        const { items, total } = await fetchData(datosFormNormalized, page);
+        setCruceros((prev) => {
+          const newCruceros = page === 1 ? items : [...prev, ...items];
+          setHasMore(newCruceros.length < total);
+          return newCruceros;
+        });
         setTotalResults(total);
       } catch (error) {
         setFetchError(error.message || "Error desconocido");
@@ -110,10 +135,8 @@ function Productos() {
       }
     };
 
-    if (datosForm) {
-      loadData();
-    }
-  }, [page, JSON.stringify(datosForm)]);
+    loadData();
+  }, [page, JSON.stringify(datosFormNormalized)]);
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
@@ -124,7 +147,7 @@ function Productos() {
         <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">
-            <Buscador datos={datosForm} />
+            <Buscador datos={datosFormNormalized} />
           </div>
         </div>
       </div>
@@ -154,31 +177,39 @@ function Productos() {
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-danger">
               <p>Error: {fetchError}</p>
             </div>
-          ) : allResults.length === 0 && !isFetching ? (
-            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col">
-              <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-              <div className="tw-flex tw-flex-col tw-gap-2 tw-justify-center tw-items-center">
-                <span>
-                  {datosForm &&
-                  (datosForm.idZona ||
-                    datosForm.idPuerto ||
-                    datosForm.idNav ||
-                    datosForm.fechSal ||
-                    datosForm.duracion)
-                    ? "No hay cruceros con estos datos :("
-                    : "Por favor, no rompas la página 🤬"}
-                </span>
-                <Link
-                  to={"/cruceros"}
-                  className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-                >
-                  volver atrás
-                </Link>
-              </div>
+          ) : isDatosFormEmpty(datosFormNormalized) && !isFetching ? (
+            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col tw-gap-3">
+              <Error
+                tipo={2}
+                error="No se han proporcionado los datos para filtrar"
+              />
+              <Link
+                to={"/cruceros"}
+                className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+              >
+                volver atrás
+              </Link>
+            </div>
+          ) : cruceros.length === 0 && !isFetching ? (
+            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col tw-gap-3">
+              {datosFormNormalized &&
+                (datosFormNormalized.idZona ||
+                  datosFormNormalized.idPuerto ||
+                  datosFormNormalized.idNav ||
+                  datosFormNormalized.fechSal ||
+                  datosFormNormalized.duracion) && (
+                  <Error error={"No hay cruceros con estos datos :("} />
+                )}
+              <Link
+                to={"/cruceros"}
+                className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+              >
+                volver atrás
+              </Link>
             </div>
           ) : (
             <div className="px-4 tw-p-5 lg:tw-px-10">
-              {isFetching && allResults.length === 0 ? (
+              {isFetching && cruceros.length === 0 ? (
                 <>
                   <Cargando />
                   <PlaceHolder />
@@ -188,7 +219,8 @@ function Productos() {
                   <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
                     Resultados ({totalResults})
                   </h3>
-                  <Cruceros destinos={allResults} />
+                  <Cruceros destinos={cruceros} />
+
                   {!isFetching && hasMore && (
                     <div className="tw-text-center tw-mt-6">
                       <button

@@ -12,7 +12,7 @@ import Itinerario from "./crucero/Itinerario";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import Placeholder from "../../../../helpers/placeholders/Detalles";
 import { slugify } from "../../../../helpers/slugify";
-
+import Error from "./filtros/Error";
 const fetchCruceros = async (idCrucero) => {
   const url = `https://devxml-2.vpackage.net/FrontCruceros/crucero/${idCrucero}/crucero?&idv=207&json=1`;
   const res = await fetch(url);
@@ -56,21 +56,18 @@ function Producto() {
     );
   }
 
-  if (isError) {
+  /*   if (isError) {
     return (
       <div className="tw-text-red-500 tw-text-center tw-mt-10">
         Ha habido un error: Error: {error.message}
       </div>
     );
-  }
+  } */
 
-  if (!producto) {
+  if (!producto || isError) {
     return (
-      <div className="tw-w-full tw-h-full tw-flex tw-justify-start tw-items-center tw-flex-col">
-        <MdCancel className="tw-text-4xl tw-text-danger tw-animate-bounce" />
-        <p className="tw-text-xl tw-text-slate-400 tw-animate-pulse">
-          No se ha encontrado este crucero
-        </p>
+      <div>
+        <Error error={"No se ha encontrado este crucero"} />
       </div>
     );
   }
