@@ -1,3 +1,9 @@
+/* 
+
+Tipo 2 - cuando no se han proporcionado los datos.
+todo el resto va a ser para crucero no enconetrado o que no haya cruceros con esos filtros.
+*/
+
 const AnimatedCruise = ({ error, tipo }) => {
   const colors = {
     hullGradientStart: tipo === 2 ? "#1E3A8A" : "#7F1D1D",
@@ -12,10 +18,11 @@ const AnimatedCruise = ({ error, tipo }) => {
   };
 
   return (
-    <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-items-center tw-space-y-6 tw-p-8">
+    <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-items-center tw-space-y-1 tw-p-8">
       <svg
         className="tw-w-36 tw-h-36 boat"
         viewBox="0 0 64 64"
+        x
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -34,8 +41,15 @@ const AnimatedCruise = ({ error, tipo }) => {
           strokeWidth="1.5"
           rx="2"
         />
-        <circle cx="28" cy="28" r="2" fill={colors.windowFill} />
-        <circle cx="36" cy="28" r="2" fill={colors.windowFill} />
+        <circle cx="26" cy="26" r="2" fill={colors.windowFill} />
+        <circle cx="38" cy="26" r="2" fill={colors.windowFill} />
+        <path
+          d={tipo === 2 ? "M30 28 Q32 30 34 28" : "M30 30 Q32 27 35 30"}
+          stroke={colors.windowFill}
+          strokeWidth="1.5"
+          fill="none"
+          strokeLinecap="round"
+        />
         <rect
           x="30"
           y="8"
@@ -84,14 +98,14 @@ const AnimatedCruise = ({ error, tipo }) => {
           50% { transform: translateX(-12px); }
         }
         .boat {
-          transform-origin: 50% 90%; /* pivot near bottom center */
+          transform-origin: 50% 90%;
           animation: boatRock 5s ease-in-out infinite;
         }
         @keyframes boatRock {
           0%, 100% { transform: rotate(0deg); }
-          25% { transform: rotate(-3deg); }  
+          25% { transform: rotate(-3deg); }
           50% { transform: rotate(0deg); }
-          75% { transform: rotate(3deg); }  
+          75% { transform: rotate(3deg); }
         }
       `}</style>
     </div>

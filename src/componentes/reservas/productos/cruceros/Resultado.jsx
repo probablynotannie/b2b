@@ -1,6 +1,5 @@
 import { Link, useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { MdCancel } from "react-icons/md";
 import Buscador from "./filtros/Buscador";
 import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
