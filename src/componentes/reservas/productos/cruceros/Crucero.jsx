@@ -36,6 +36,7 @@ function Producto() {
     queryKey: ["crucero", idCrucero],
     queryFn: () => fetchCruceros(idCrucero),
     enabled: !!idCrucero,
+    refetchOnWindowFocus: false, 
   });
 
   const getCruiseImage = (producto) => {
