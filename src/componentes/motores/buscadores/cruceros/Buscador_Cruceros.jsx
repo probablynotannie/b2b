@@ -25,7 +25,6 @@ function Buscador_Cruceros() {
     queryKey: ["destinos"],
     queryFn: fetchDestinos,
   });
-  console.log(data);
   const defaultFormValues = useMemo(() => {
     const parts = location.pathname.split("/").filter(Boolean);
     const values = {

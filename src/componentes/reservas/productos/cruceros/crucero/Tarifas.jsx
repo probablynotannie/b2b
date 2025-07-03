@@ -31,7 +31,7 @@ const transformTarifas = (tarifas) => {
         id: tituloCategoria,
         title: tituloCategoria,
         cabins: [],
-        minMaxPrices: {}, // <--- NUEVO
+        minMaxPrices: {}, 
       });
     }
 
@@ -50,8 +50,6 @@ const transformTarifas = (tarifas) => {
     if (cabin.prices[date] === undefined || price < cabin.prices[date]) {
       cabin.prices[date] = price;
     }
-
-    // Calcular min/max por fecha
     if (price !== null) {
       if (!category.minMaxPrices[date]) {
         category.minMaxPrices[date] = {
@@ -135,8 +133,6 @@ function Tarifas({
   );
   const minGlobal = allPrices.length > 0 ? Math.min(...allPrices) : null;
   const maxGlobal = allPrices.length > 0 ? Math.max(...allPrices) : null;
-
-  console.log(maxGlobal);
   const handlePriceClick = (price, date, cabin) => {
     if (price) {
       setIsModalOpen(true);

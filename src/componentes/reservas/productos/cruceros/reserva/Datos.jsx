@@ -46,7 +46,6 @@ const Vuelo = () => {
       shouldValidate: true,
     });
   };
-  console.log(producto);
   const onSubmit = (data) => {
     navigate(
       `/crucero/reserva/${producto.id_crucero}/${slugify(

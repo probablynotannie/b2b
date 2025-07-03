@@ -41,7 +41,6 @@ function Producto() {
     setModalMasProductos(false);
   };
   const sinProductosAdicionales = () => {
-    console.log(habitacionSeleccionada.regimen);
     navigate("/datosHotel", {
       state: {
         producto,

@@ -104,7 +104,6 @@ function Productos() {
 
   useEffect(() => {
     if (isDatosFormEmpty(datosFormNormalized)) {
-      // No filters - clear data and don't fetch
       setCruceros([]);
       setHasMore(false);
       setIsFetching(false);

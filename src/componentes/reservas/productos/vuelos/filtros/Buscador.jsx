@@ -26,13 +26,7 @@ function Buscador() {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-  const {
-    register,
-    setValue,
-    control,
-    handleSubmit,
-    formState: { errors },
-  } = useForm({
+  const { setValue, control, handleSubmit } = useForm({
     defaultValues: {
       adulto: 2,
       ninio: 0,
