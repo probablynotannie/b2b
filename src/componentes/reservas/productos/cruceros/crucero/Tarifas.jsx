@@ -31,7 +31,7 @@ const transformTarifas = (tarifas) => {
         id: tituloCategoria,
         title: tituloCategoria,
         cabins: [],
-        minMaxPrices: {}, 
+        minMaxPrices: {},
       });
     }
 
@@ -68,7 +68,6 @@ const transformTarifas = (tarifas) => {
       }
     }
   });
-
   return Array.from(categoriesMap.values()).map((category) => {
     category.cabins.sort((a, b) => {
       const minPriceA = Math.min(

@@ -13,13 +13,7 @@ import FormatearFecha from "../../estructura/FormatearFecha";
 import Placeholder from "../../../../helpers/placeholders/Detalles";
 import { slugify } from "../../../../helpers/slugify";
 import Error from "./filtros/Error";
-const fetchCruceros = async (idCrucero) => {
-  const url = `https://devxml-2.vpackage.net/FrontCruceros/crucero/${idCrucero}/crucero?&idv=207&json=1`;
-  const res = await fetch(url);
-  if (!res.ok) throw new Error(`Error fetching crucero ${idCrucero}`);
-  const data = await res.json();
-  return data.item;
-};
+import fetchCrucero from "./hook/crucero";
 
 function Producto() {
   const { idCrucero } = useParams();
@@ -32,7 +26,7 @@ function Producto() {
     isError,
   } = useQuery({
     queryKey: ["crucero", idCrucero],
-    queryFn: () => fetchCruceros(idCrucero),
+    queryFn: () => fetchCrucero(idCrucero),
     enabled: !!idCrucero,
     refetchOnWindowFocus: false,
   });

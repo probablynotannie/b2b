@@ -18,6 +18,7 @@ function ReservaFinal() {
       .find((img) => img && img.trim() !== "");
     return firstAvailablePortImage;
   };
+  
   const imagenCrucero = getImagenCrucero(producto);
   const precioBase = Number(precioSeleccionado.price);
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);

@@ -4,6 +4,8 @@ Tipo 2 - cuando no se han proporcionado los datos.
 todo el resto va a ser para crucero no enconetrado o que no haya cruceros con esos filtros.
 */
 
+import { Link } from "react-router-dom";
+
 const AnimatedCruise = ({ error, tipo }) => {
   const colors = {
     hullGradientStart: tipo === 2 ? "#1E3A8A" : "#7F1D1D",
@@ -18,74 +20,82 @@ const AnimatedCruise = ({ error, tipo }) => {
   };
 
   return (
-    <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-items-center tw-space-y-1 tw-p-8">
-      <svg
-        className="tw-w-36 tw-h-36 boat"
-        viewBox="0 0 64 64"
-        xmlns="http://www.w3.org/2000/svg"
-      >
-        <path
-          d="M8 40 L56 40 L50 52 L14 52 Z"
-          fill="url(#hullGradient)"
-          stroke={colors.hullStroke}
-          strokeWidth="2"
-        />
-        <rect
-          x="20"
-          y="20"
-          width="24"
-          height="12"
-          fill={colors.hullFill}
-          stroke={colors.hullStroke}
-          strokeWidth="1.5"
-          rx="2"
-        />
-        <circle cx="26" cy="26" r="2" fill={colors.windowFill} />
-        <circle cx="38" cy="26" r="2" fill={colors.windowFill} />
-        <path
-          d={tipo === 2 ? "M30 28 Q32 30 34 28" : "M30 30 Q32 27 35 30"}
-          stroke={colors.windowFill}
-          strokeWidth="1.5"
-          fill="none"
-          strokeLinecap="round"
-        />
-        <rect
-          x="30"
-          y="8"
-          width="4"
-          height="12"
-          fill={colors.mastFill}
-          rx="1"
-        />
-        <polygon points="34,8 42,14 34,20" fill={colors.flagFill} />
-        <g className="waves">
+    <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-gap-4 tw-items-center tw-space-y-1 tw-p-8">
+      <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
+        <svg
+          className="tw-w-36 tw-h-36 boat"
+          viewBox="0 0 64 64"
+          xmlns="http://www.w3.org/2000/svg"
+        >
           <path
-            d="M0 56 C8 52 16 60 24 56 S40 52 48 56 S64 52 72 56"
-            stroke={colors.waveStroke}
-            strokeWidth="3"
-            fill="none"
+            d="M8 40 L56 40 L50 52 L14 52 Z"
+            fill="url(#hullGradient)"
+            stroke={colors.hullStroke}
+            strokeWidth="2"
           />
-        </g>
-        <defs>
-          <linearGradient
-            id="hullGradient"
-            x1="0"
-            y1="40"
-            x2="0"
-            y2="52"
-            gradientUnits="userSpaceOnUse"
-          >
-            <stop stopColor={colors.hullGradientStart} offset="0%" />
-            <stop stopColor={colors.hullGradientEnd} offset="100%" />
-          </linearGradient>
-        </defs>
-      </svg>
+          <rect
+            x="20"
+            y="20"
+            width="24"
+            height="12"
+            fill={colors.hullFill}
+            stroke={colors.hullStroke}
+            strokeWidth="1.5"
+            rx="2"
+          />
+          <circle cx="26" cy="26" r="2" fill={colors.windowFill} />
+          <circle cx="38" cy="26" r="2" fill={colors.windowFill} />
+          <path
+            d={tipo === 2 ? "M30 28 Q32 30 34 28" : "M30 30 Q32 27 35 30"}
+            stroke={colors.windowFill}
+            strokeWidth="1.5"
+            fill="none"
+            strokeLinecap="round"
+          />
+          <rect
+            x="30"
+            y="8"
+            width="4"
+            height="12"
+            fill={colors.mastFill}
+            rx="1"
+          />
+          <polygon points="34,8 42,14 34,20" fill={colors.flagFill} />
+          <g className="waves">
+            <path
+              d="M0 56 C8 52 16 60 24 56 S40 52 48 56 S64 52 72 56"
+              stroke={colors.waveStroke}
+              strokeWidth="3"
+              fill="none"
+            />
+          </g>
+          <defs>
+            <linearGradient
+              id="hullGradient"
+              x1="0"
+              y1="40"
+              x2="0"
+              y2="52"
+              gradientUnits="userSpaceOnUse"
+            >
+              <stop stopColor={colors.hullGradientStart} offset="0%" />
+              <stop stopColor={colors.hullGradientEnd} offset="100%" />
+            </linearGradient>
+          </defs>
+        </svg>
 
-      <p
-        className={`tw-text-xl tw-select-none tw-text-center tw-text-slate-300 dark:tw-text-slate-400`}
+        <p
+          className={`tw-text-md tw-select-none tw-text-center tw-text-slate-400`}
+        >
+          {error}
+        </p>
+      </div>
+      <Link
+        to={"/cruceros"}
+        className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
       >
-        {error}
-      </p>
+        volver atrás
+      </Link>
 
       <style>{`
         .waves path {

@@ -1,0 +1,45 @@
+{
+  "price": 79,
+  "date": "2026-05-13",
+  "cabin": "Exterior Bebidas Incluidas",
+  "datos": {
+    "id_tarifa": 10591913,
+    "id_crucero": 221114,
+    "id_tipo_tarifa": 7,
+    "fecha": "2026-05-13",
+    "cubierta": 0,
+    "camarote": 4954,
+    "precio": "79.00",
+    "pvp": "0.00",
+    "neto_pvp": 0,
+    "sup_individual": "0.00",
+    "sup_adulto": "0.00",
+    "tasas": "50.00",
+    "margen": "1.0000",
+    "margenDit": "1.0000",
+    "tasas_activ": 1,
+    "stock": 0,
+    "tipo_oferta": "0",
+    "vuelo_incluido": 0,
+    "origen": 4,
+    "codigo": "OX20260513GOAMRS-OXC00049PO6012DE-OB",
+    "created_at": "2025-01-30 05:04:53",
+    "updated_at": "2025-07-03 05:04:22",
+    "activ": 1,
+    "camarotes": {
+      "id_camarote": 4954,
+      "id_barco": 33,
+      "name_camarote": 0,
+      "tipo_camarote": 2,
+      "activ": 1,
+      "name": "Exterior Bebidas Incluidas",
+      "nombre": {
+        "id_texto": 0,
+        "id_idioma": 1,
+        "texto": "MSC WORLD ASIA"
+      }
+    },
+    "tipo_tarifa_ad": null,
+    "cubiertas": null
+  }
+}

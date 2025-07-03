@@ -1,4 +1,4 @@
-import { Link, useLocation, useParams } from "react-router-dom";
+import { useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Buscador from "./filtros/Buscador";
 import Cruceros from "./Listado";
@@ -177,12 +177,6 @@ function Productos() {
                 tipo={2}
                 error="No se han proporcionado los datos para filtrar"
               />
-              <Link
-                to={"/cruceros"}
-                className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-              >
-                volver atrás
-              </Link>
             </div>
           ) : cruceros.length === 0 && !isFetching ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col tw-gap-3">
@@ -194,12 +188,6 @@ function Productos() {
                   datosFormNormalized.duracion) && (
                   <PaginaError error={"No hay cruceros con estos datos :("} />
                 )}
-              <Link
-                to={"/cruceros"}
-                className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-              >
-                volver atrás
-              </Link>
             </div>
           ) : (
             <div className="px-4 tw-p-5 lg:tw-px-10">
