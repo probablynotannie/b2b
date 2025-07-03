@@ -44,7 +44,6 @@ function Fecha({
     }
   };
 
-  // ✅ Find first available date when deshabilitable is true
   const firstAvailableDate = useMemo(() => {
     if (!deshabilitable) return null;
     for (let i = 0; i < 365; i++) {
@@ -55,7 +54,6 @@ function Fecha({
     return null;
   }, [productos, diasAntes, diasDespues, deshabilitable]);
 
-  // ✅ Set default value if none provided and deshabilitable is true
   useEffect(() => {
     if (!fecha && firstAvailableDate && deshabilitable) {
       setValue(name, firstAvailableDate, {

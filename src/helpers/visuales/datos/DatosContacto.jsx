@@ -1,4 +1,3 @@
-// src/components/formularios/InputsContacto.js
 import Input_Texto from "../../../componentes/inputs/Texto";
 import Input_Numero from "../../../componentes/inputs/Numero";
 import Input_Email from "../../../componentes/inputs/Email";

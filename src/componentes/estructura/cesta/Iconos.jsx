@@ -1,5 +1,3 @@
-// components/Iconos.jsx
-
 import {
   FaGlobe,
   FaHotel,

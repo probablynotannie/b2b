@@ -16,8 +16,6 @@ function Destinos({ control, name, placeholder, datos, required }) {
     destacados: datos.filter((zona) => zona.destacado === 1),
     resto: datos.filter((zona) => zona.destacado === 0),
   };
-
-  // onChange passes number value back to react-hook-form
   const handleChange = (e) => {
     const val = e.target.value;
     onChange(val === "" ? "" : Number(val));
