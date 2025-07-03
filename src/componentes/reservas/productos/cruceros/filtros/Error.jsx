@@ -22,7 +22,6 @@ const AnimatedCruise = ({ error, tipo }) => {
       <svg
         className="tw-w-36 tw-h-36 boat"
         viewBox="0 0 64 64"
-        x
         xmlns="http://www.w3.org/2000/svg"
       >
         <path
@@ -83,7 +82,7 @@ const AnimatedCruise = ({ error, tipo }) => {
       </svg>
 
       <p
-        className={`tw-text-xl tw-font-semibold tw-select-none tw-text-center tw-text-slate-300 dark:tw-text-slate-400`}
+        className={`tw-text-xl tw-select-none tw-text-center tw-text-slate-300 dark:tw-text-slate-400`}
       >
         {error}
       </p>

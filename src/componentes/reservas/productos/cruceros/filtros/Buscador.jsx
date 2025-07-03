@@ -8,7 +8,6 @@ import Input_Puertos from "../../../../inputs/Puertos";
 import Input_Navieras from "../../../../inputs/Navieras";
 import Input_Mes from "../../../../inputs/Mes";
 import Input_Dias from "../../../../inputs/SelectorDias";
-import { useEffect } from "react";
 const fetchDestinos = async () => {
   const res = await fetch(
     "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&info&json=1"
@@ -22,7 +21,7 @@ function Buscador() {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const location = useLocation();
-  const { data, error, isLoading } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["destinos"],
     queryFn: fetchDestinos,
   });

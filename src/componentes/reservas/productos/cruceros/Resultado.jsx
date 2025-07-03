@@ -4,7 +4,7 @@ import Buscador from "./filtros/Buscador";
 import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import Error from "./filtros/Error";
+import PaginaError from "./filtros/Error";
 const fetchData = async (datosForm, page = 1) => {
   if (
     !datosForm ||
@@ -76,12 +76,8 @@ function Productos() {
     }
     return form;
   };
-
-  // Normalize datosForm to always have an object (empty if nothing)
   const datosFormNormalized =
     datosFormFromState || buildFormFromParams(params) || {};
-
-  // Helper to check if datosForm is empty of meaningful filters
   const isDatosFormEmpty = (form) => {
     if (!form) return true;
     return !(
@@ -173,12 +169,12 @@ function Productos() {
 
         <section className="tw-col-span-9 lg:tw-col-span-6">
           {fetchError ? (
-            <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-danger">
-              <p>Error: {fetchError}</p>
-            </div>
+            <>
+              <PaginaError error={fetchError} />
+            </>
           ) : isDatosFormEmpty(datosFormNormalized) && !isFetching ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col tw-gap-3">
-              <Error
+              <PaginaError
                 tipo={2}
                 error="No se han proporcionado los datos para filtrar"
               />
@@ -197,7 +193,7 @@ function Productos() {
                   datosFormNormalized.idNav ||
                   datosFormNormalized.fechSal ||
                   datosFormNormalized.duracion) && (
-                  <Error error={"No hay cruceros con estos datos :("} />
+                  <PaginaError error={"No hay cruceros con estos datos :("} />
                 )}
               <Link
                 to={"/cruceros"}

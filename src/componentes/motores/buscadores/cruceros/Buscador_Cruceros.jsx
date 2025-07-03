@@ -21,7 +21,7 @@ function Buscador_Cruceros() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data, error, isLoading } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["destinos"],
     queryFn: fetchDestinos,
   });
@@ -65,9 +65,7 @@ function Buscador_Cruceros() {
         urlParts.push("fechSal", `${month}-${year}`);
       }
     }
-
     if (data.duracion) urlParts.push("duracion", data.duracion);
-
     return `/listadoCruceros/${urlParts.join("/")}`;
   };
 

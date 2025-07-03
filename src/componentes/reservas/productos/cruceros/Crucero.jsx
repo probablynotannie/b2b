@@ -1,8 +1,8 @@
-import { useParams, useLocation, Link } from "react-router-dom";
+import { useParams, Link } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { GiCruiser } from "react-icons/gi";
-import { MdCancel, MdMeetingRoom } from "react-icons/md";
+import { MdMeetingRoom } from "react-icons/md";
 import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
 import Reserva from "../../estructura/reserva/Resumen";
 import Tarifas from "./crucero/Tarifas";
@@ -23,7 +23,6 @@ const fetchCruceros = async (idCrucero) => {
 
 function Producto() {
   const { idCrucero } = useParams();
-  const location = useLocation();
   const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
@@ -31,12 +30,11 @@ function Producto() {
     data: producto,
     isLoading,
     isError,
-    error,
   } = useQuery({
     queryKey: ["crucero", idCrucero],
     queryFn: () => fetchCruceros(idCrucero),
     enabled: !!idCrucero,
-    refetchOnWindowFocus: false, 
+    refetchOnWindowFocus: false,
   });
 
   const getCruiseImage = (producto) => {
