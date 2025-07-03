@@ -6,7 +6,7 @@ todo el resto va a ser para crucero no enconetrado o que no haya cruceros con es
 
 import { Link } from "react-router-dom";
 
-const AnimatedCruise = ({ error, tipo }) => {
+const AnimatedCruise = ({ error, tipo, enlace }) => {
   const colors = {
     hullGradientStart: tipo === 2 ? "#1E3A8A" : "#7F1D1D",
     hullGradientEnd: tipo === 2 ? "#2563EB" : "#B91C1C",
@@ -91,10 +91,10 @@ const AnimatedCruise = ({ error, tipo }) => {
         </p>
       </div>
       <Link
-        to={"/cruceros"}
+        to={enlace ? enlace : "/cruceros"}
         className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
       >
-        volver atrás
+        volver
       </Link>
 
       <style>{`

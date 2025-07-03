@@ -19,7 +19,6 @@ const Datos = () => {
   const idCrucero = state?.producto?.id_crucero;
   const pasajeros = state?.pasajeros ?? [];
   const precioSeleccionado = random;
-  console.log(state.precioSeleccionado);
   const {
     data: producto,
     isLoading,
@@ -53,16 +52,19 @@ const Datos = () => {
 
   if (isLoading) return <Placeholder />;
 
-  if (isError || !producto) {
+  if (isError || !producto || !precioSeleccionado) {
     return (
-      <Error tipo={2} error="No se pudo cargar la información del crucero" />
+      <Error
+        tipo={2}
+        error="Se necesitan más datos para acceder a esta página"
+      />
     );
   }
 
   if (!precioSeleccionado || !tarifaSigueDisponible) {
     return (
       <Error
-        tipo={3}
+        enlace={`/crucero/${idCrucero}/`}
         error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
       />
     );
@@ -95,18 +97,19 @@ const Datos = () => {
     return edad;
   };
 
-  const handleDateChange = (date, idx) => {
+  const handleDateChange = (date, index) => {
     if (!date) return;
-    setValue(`pasajeros[${idx}].fechaNacimiento`, formatDate(date));
-    const edad = calcularEdad(date);
-    const esperada = pasajeros[idx].age;
-    if (edad !== esperada) {
-      setError(`pasajeros[${idx}].fechaNacimiento`, {
+    const formattedDate = formatDate(date);
+    setValue(`pasajeros[${index}].fechaNacimiento`, formattedDate);
+    const edadCalculada = calcularEdad(date);
+    const expectedAge = pasajeros[index].age;
+    if (edadCalculada !== expectedAge) {
+      setError(`pasajeros[${index}].fechaNacimiento`, {
         type: "manual",
-        message: `No coincide con la edad (${esperada})`,
+        message: `No coincide con la edad del pasajero (${expectedAge} años). Calculado: ${edadCalculada} años`,
       });
     } else {
-      clearErrors(`pasajeros[${idx}].fechaNacimiento`);
+      clearErrors(`pasajeros[${index}].fechaNacimiento`);
     }
   };
 

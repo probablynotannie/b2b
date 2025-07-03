@@ -5,10 +5,20 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 import Detalles from "./Detalles";
 import DatosContacto from "../../../estructura/DatosContacto";
+import { useQuery } from "@tanstack/react-query";
 import Pasajeros from "./Pasajeros";
+import random from "./random.json";
+import FetchCrucero from "../hook/crucero";
+import Error from "../filtros/Error";
+import Placeholder from "../../../../../helpers/placeholders/Detalles";
+import { useParams } from "react-router-dom";
 function ReservaFinal() {
-  const location = useLocation();
-  const { data, producto, precioSeleccionado } = location.state || {};
+  const enlace = useParams();
+  console.log(enlace.id);
+  const { state } = useLocation();
+  const idCrucero = state?.producto?.id_crucero;
+  const data = state?.data;
+  const precioSeleccionado = random;
   const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -18,7 +28,43 @@ function ReservaFinal() {
       .find((img) => img && img.trim() !== "");
     return firstAvailablePortImage;
   };
-  
+  const {
+    data: producto,
+    isLoading,
+    isError,
+  } = useQuery({
+    queryKey: ["crucero", idCrucero],
+    queryFn: () => FetchCrucero(idCrucero),
+    enabled: Boolean(idCrucero),
+    refetchOnWindowFocus: false,
+  });
+
+  const tarifaSigueDisponible = producto?.tarifas?.some(
+    (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
+  );
+  if (isLoading)
+    return (
+      <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
+        <Placeholder />
+      </main>
+    );
+  if (isError || !producto || !precioSeleccionado) {
+    return (
+      <Error
+        tipo={2}
+        error="Se necesitan más datos para acceder a esta página"
+      />
+    );
+  }
+
+  if (!precioSeleccionado || !tarifaSigueDisponible) {
+    return (
+      <Error
+        enlace={`/crucero/${idCrucero}/`}
+        error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
+      />
+    );
+  }
   const imagenCrucero = getImagenCrucero(producto);
   const precioBase = Number(precioSeleccionado.price);
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
