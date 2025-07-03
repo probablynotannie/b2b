@@ -28,7 +28,7 @@ function ReservaFinal() {
       <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
         <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
           <div>
-            <h1 className="tw-font-bold">Reservando Crucero</h1>
+            <h1 className="tw-font-bold tw-text-md">Reservando Crucero</h1>
             <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm">
               {producto.num_dias +
                 " días a bordo de " +
@@ -55,7 +55,7 @@ function ReservaFinal() {
       </section>
       <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
         <div className="w-border-b-2  tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-mb-4">
-          <h2 className="tw-font-semibold ">Resumen</h2>
+          <h2 className="tw-font-bold tw-text-md ">Resumen</h2>
         </div>
         <Reserva
           img={"//pic-2.vpackage.net/cruceros_img/" + imagenCrucero}

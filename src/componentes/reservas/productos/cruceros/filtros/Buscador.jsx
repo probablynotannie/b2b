@@ -115,7 +115,7 @@ function Buscador() {
               onSubmit={handleSubmit(onSubmit)}
               className="tw-grid tw-grid-cols-12 tw-gap-3 tw-p-5"
             >
-              <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+              <div className="tw-col-span-12">
                 <Input_Destinos
                   datos={!isLoading ? data.zonas : []}
                   name="idZona"
@@ -123,7 +123,7 @@ function Buscador() {
                   placeholder="Selecciona un destino"
                 />
               </div>
-              <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+              <div className="tw-col-span-12">
                 <Input_Puertos
                   datos={!isLoading ? data.puertos : []}
                   name="idPuerto"
@@ -131,7 +131,7 @@ function Buscador() {
                   placeholder="Selecciona un puerto"
                 />
               </div>
-              <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+              <div className="tw-col-span-12">
                 <Input_Navieras
                   datos={!isLoading ? data.navieras : []}
                   name="idNav"
@@ -145,11 +145,9 @@ function Buscador() {
               <div className="tw-col-span-12">
                 <Input_Dias control={control} name="duracion" />
               </div>
-              <div className="tw-col-span-12">
-                <button className="tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-w-full tw-p-3 tw-rounded-lg tw-shadow">
-                  <FaSearch className="tw-text-white tw-text-xl" />
-                </button>
-              </div>
+              <button className="tw-col-span-12 tw-bg-slate-800 dark:tw-bg-slate-900 tw-text-white tw-w-full tw-p-3 tw-rounded-lg tw-shadow tw-flex tw-justify-center tw-items-center">
+                <FaSearch className="tw-text-white tw-text-xl" />
+              </button>
             </form>
             <div className="tw-flex tw-flex-col tw-items-center tw-my-4">
               <button

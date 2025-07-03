@@ -12,7 +12,7 @@ const fetchDestinos = async () => {
   const res = await fetch(
     "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&info&json=1"
   );
-  if (!res.ok) throw new Error("Network response was not ok");
+  if (!res.ok) throw new Error("Problemas con red");
   const data = await res.json();
   return data;
 };
