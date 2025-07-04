@@ -18,7 +18,7 @@ const Datos = () => {
   const { state } = useLocation();
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
-  const precioSeleccionado = random;
+  const precioSeleccionado = state?.precioSeleccionado;
 
   const { data: productoRaw, isLoading } = useQuery({
     refetchInterval: 10_000,
