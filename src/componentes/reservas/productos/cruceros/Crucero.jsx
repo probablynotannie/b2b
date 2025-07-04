@@ -24,7 +24,10 @@ function Producto() {
     data: producto,
     isLoading,
     isError,
+    error,
   } = useQuery({
+    refetchInterval: 10_000,
+    refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
     queryFn: () => fetchCrucero(idCrucero),
     enabled: !!idCrucero,
@@ -49,13 +52,13 @@ function Producto() {
     );
   }
 
-  /*   if (isError) {
+  if (isError) {
     return (
       <div className="tw-text-red-500 tw-text-center tw-mt-10">
-        Ha habido un error: Error: {error.message}
+        <Error error={error.message} />
       </div>
     );
-  } */
+  }
 
   if (!producto || isError) {
     return (

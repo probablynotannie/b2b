@@ -10,29 +10,37 @@ import Fecha from "../../../../inputs/Fecha";
 import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import { slugify } from "../../../../../helpers/slugify";
 import Error from "../filtros/Error";
-import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Placeholder from "../../../../../helpers/placeholders/Datos";
+
 const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
-  const idCrucero = state?.producto?.id_crucero;
+  const idCrucero = state?.producto.id_crucero;
+
   const pasajeros = state?.pasajeros ?? [];
-  const precioSeleccionado = random;
+  const precioSeleccionado = state?.precioSeleccionado;
+
   const {
-    data: producto,
+    data: productoRaw,
     isLoading,
     isError,
+    error,
   } = useQuery({
+    refetchInterval: 10_000,
+    refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
     queryFn: () => FetchCrucero(idCrucero),
     enabled: Boolean(idCrucero),
+    retry: (failureCount, err) => {
+      if (err?.response?.status === 404) return false;
+      return failureCount < 3;
+    },
     refetchOnWindowFocus: false,
   });
 
-  const tarifaSigueDisponible = producto?.tarifas?.some(
-    (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
-  );
+  const producto =
+    Array.isArray(productoRaw) && productoRaw.length === 0 ? null : productoRaw;
 
   const {
     register,
@@ -49,26 +57,6 @@ const Datos = () => {
   useEffect(() => {
     if (pasajeros.length) reset({ pasajeros });
   }, [pasajeros, reset]);
-
-  if (isLoading) return <Placeholder />;
-
-  if (isError || !producto || !precioSeleccionado) {
-    return (
-      <Error
-        tipo={2}
-        error="Se necesitan más datos para acceder a esta página"
-      />
-    );
-  }
-
-  if (!precioSeleccionado || !tarifaSigueDisponible) {
-    return (
-      <Error
-        enlace={`/crucero/${idCrucero}/`}
-        error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
-      />
-    );
-  }
 
   const paises = [
     "España",
@@ -96,6 +84,45 @@ const Datos = () => {
     if (m < 0 || (m === 0 && hoy.getDate() < nac.getDate())) edad--;
     return edad;
   };
+
+  if (isLoading) return <Placeholder />;
+
+  if (isError || !producto) {
+    const notFound = error?.response?.status === 404 || producto === null;
+    return (
+      <Error
+        tipo={4}
+        error={
+          "No hemos encontrado ningún crucero con ese identificador. Es posible que la oferta haya caducado o ya no exista."
+          /*  "Ha ocurrido un error inesperado al cargar el crucero. Inténtalo de nuevo más tarde." */
+        }
+        enlace="/cruceros"
+      />
+    );
+  }
+
+  if (!precioSeleccionado) {
+    return (
+      <Error
+        tipo={2}
+        error="Se necesitan más datos para acceder a esta página."
+      />
+    );
+  }
+
+  const tarifaSigueDisponible = producto?.tarifas?.some(
+    (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
+  );
+
+  if (!tarifaSigueDisponible) {
+    return (
+      <Error
+        tipo={3}
+        enlace={`/crucero/${idCrucero}/`}
+        error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
+      />
+    );
+  }
 
   const handleDateChange = (date, index) => {
     if (!date) return;
@@ -135,7 +162,6 @@ const Datos = () => {
   );
 
   const img = "/banners/banner_cruise.webp";
-
   return (
     <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
       <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-smooth tw-bg-white dark:tw-bg-slate-800">
@@ -155,6 +181,7 @@ const Datos = () => {
             fechaIda={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
             extras={infoPasajeros}
           />
+
           <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
             Datos Pasajeros
           </h2>

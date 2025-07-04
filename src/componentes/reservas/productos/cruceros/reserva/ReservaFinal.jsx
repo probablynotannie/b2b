@@ -33,6 +33,8 @@ function ReservaFinal() {
     isLoading,
     isError,
   } = useQuery({
+    refetchInterval: 10_000,
+    refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
     queryFn: () => FetchCrucero(idCrucero),
     enabled: Boolean(idCrucero),
@@ -48,11 +50,19 @@ function ReservaFinal() {
         <Placeholder />
       </main>
     );
-  if (isError || !producto || !precioSeleccionado) {
+  if (!producto || !precioSeleccionado) {
     return (
       <Error
         tipo={2}
         error="Se necesitan más datos para acceder a esta página"
+      />
+    );
+  }
+  if (!isError) {
+    return (
+      <Error
+        tipo={2}
+        error="No hemos encontrado ningún crucero con ese identificador. Es posible que la oferta haya caducado o ya no exista."
       />
     );
   }
