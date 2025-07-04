@@ -25,12 +25,7 @@ function ReservaFinal() {
       .find((img) => img && img.trim() !== "");
     return firstAvailablePortImage;
   };
-  const {
-    data: producto,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
+  const { data: producto, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -38,7 +33,6 @@ function ReservaFinal() {
     enabled: Boolean(idCrucero),
     refetchOnWindowFocus: false,
   });
-  console.log(producto);
   const tarifaSigueDisponible = producto?.tarifas?.some(
     (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
   );
@@ -65,9 +59,7 @@ function ReservaFinal() {
       />
     );
   }
-  if (isError) {
-    return <Error error={error} />;
-  }
+
   const imagenCrucero = getImagenCrucero(producto);
   const precioBase = Number(precioSeleccionado.price);
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
