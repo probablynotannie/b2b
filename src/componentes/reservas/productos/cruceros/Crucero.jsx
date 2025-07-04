@@ -20,12 +20,7 @@ function Producto() {
   const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
-  const {
-    data: producto,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
+  const { data: producto, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -56,13 +51,6 @@ function Producto() {
     return (
       <div>
         <Error error={"No se ha encontrado este crucero"} />
-      </div>
-    );
-  }
-  if (!isError) {
-    return (
-      <div>
-        <Error error={error} />
       </div>
     );
   }
