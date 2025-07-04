@@ -1,3 +1,4 @@
+import { slugify } from "../../../../helpers/slugify";
 import zonas from "./destinos.json";
 import { useNavigate } from "react-router-dom";
 
@@ -8,7 +9,7 @@ function Zonas({ setRequestData }) {
     .slice(0, 4);
 
   const handleZoneClick = (producto) => {
-    const newRequestData = {
+    const datosForm = {
       idZona: producto.id_zona_destino,
       fechSal: 0,
       duracion: 0,
@@ -19,12 +20,13 @@ function Zonas({ setRequestData }) {
       desc: producto.texto,
     };
 
-    setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData } });
+    const enlace = "/" + slugify(producto.name);
+    setRequestData(datosForm);
+    navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };
 
   return (
-    <div>
+    <div className="tw-h-full tw-flex tw-flex-col">
       <h2 className="tw-font-bold tw-text-xl xl:tw-text-2xl dark:tw-text-white">
         Zonas Destacadas
       </h2>
@@ -33,7 +35,11 @@ function Zonas({ setRequestData }) {
           <div key={index} onClick={() => handleZoneClick(zona)}>
             <div className="tw-relative tw-h-[12vh] lg:tw-h-[5vh] xl:tw-h-[8.5vh] tw-top-0 tw-cursor-pointer tw-group hover:tw-scale-[103%] tw-transition tw-duration-400">
               <img
-                src={zona.img_zona_header || "/default-image.jpg"}
+                src={
+                  zona.img_zona_header !== ""
+                    ? `//pic-2.vpackage.net/cruceros_img/${zona.img_zona_header}`
+                    : "/cruceros/norte_de_europa_y_fiordos.jpg"
+                }
                 className="tw-opacity-90 tw-rounded tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
                 alt="Imagen reserva"
               />
@@ -46,7 +52,7 @@ function Zonas({ setRequestData }) {
                 <p className="hidden lg:flex tw-text-md tw-text-center">
                   {zona.descripcion}
                 </p>
-                <h3 className="tw-flex lg:hidden tw-text-3xl tw-text-center tw-font-bold">
+                <h3 className="tw-flex lg:hidden tw-text-xl xl:tw-text-2xl tw-text-center tw-font-bold">
                   {zona.texto}
                 </h3>
               </div>

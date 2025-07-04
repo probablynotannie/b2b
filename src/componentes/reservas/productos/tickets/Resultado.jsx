@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Buscador from "./filtros/Buscador";
 import Tickets from "./Tickets";
 import tickets from "./Tickets.json";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Entradas";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Entradas";
 
 function Productos() {
   const [searchTerm, setSearchTerm] = useState("");

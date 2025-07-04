@@ -16,12 +16,11 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
       scrollRefs.current[id].scrollBy({ left: 150, behavior: "smooth" });
     }
   };
-
   return (
     <div className="tw-gap-10 tw-space-y-10">
-      {precios.map((category, index) => (
+      {precios.map((category) => (
         <div
-          key={index}
+          key={category.id}
           className="tw-border dark:tw-border-slate-800 tw-rounded-lg tw-shadow tw-bg-white dark:tw-bg-slate-900"
         >
           <h3 className="tw-text-lg tw-bg-slate-800 dark:tw-bg-slate-900 tw-rounded-t-lg tw-p-6 tw-text-white tw-font-semibold tw-text-center">
@@ -32,7 +31,7 @@ const PriceCarousel = ({ precios, handlePriceClick, precioSeleccionado }) => {
 
             return (
               <div
-                key={cabin.tarifaId}
+                key={cabin.id}
                 className="tw-p-3 tw-border-2 dark:tw-border-slate-900 dark:tw-bg-slate-700"
               >
                 <h4 className="tw-text-center tw-text-secondary tw-font-semibold dark:tw-text-secondaryDarkDarks">

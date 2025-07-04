@@ -5,8 +5,8 @@ import trenes from "./Trenes.json";
 import { useState, useEffect } from "react";
 import Seleccion from "./Seleccion";
 import { Link } from "react-router-dom";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Trenes";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Trenes";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

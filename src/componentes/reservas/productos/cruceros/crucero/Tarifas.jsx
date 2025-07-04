@@ -5,8 +5,7 @@ import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import PriceCarousel from "./Carousel";
-import { AiFillEuroCircle } from "react-icons/ai";
-import { TbTaxEuro } from "react-icons/tb";
+
 import ModalPrecio from "./Modal";
 import {
   FaPlus,
@@ -21,24 +20,27 @@ const formatPrice = (price) =>
 const transformTarifas = (tarifas) => {
   const categoriesMap = new Map();
   tarifas.forEach((tarifa) => {
-    const cabinId = tarifa.Camarotes.id_camarote;
-    const cabina = tarifa.Camarotes.tipo_camarote;
+    const cabinId = tarifa.camarotes.id_camarote;
+    const cabina = tarifa.camarotes.tipo_camarote;
     const price = tarifa.precio !== "0.00" ? parseFloat(tarifa.precio) : null;
     const date = tarifa.fecha;
     const tituloCategoria = getNombreCategoria(cabina);
+
     if (!categoriesMap.has(tituloCategoria)) {
       categoriesMap.set(tituloCategoria, {
         id: tituloCategoria,
         title: tituloCategoria,
         cabins: [],
+        minMaxPrices: {},
       });
     }
+
     let category = categoriesMap.get(tituloCategoria);
     let cabin = category.cabins.find((c) => c.id === cabinId);
     if (!cabin) {
       cabin = {
         id: cabinId,
-        title: tarifa.Camarotes.name,
+        title: tarifa.camarotes.name,
         prices: {},
         datos: tarifa,
       };
@@ -47,6 +49,23 @@ const transformTarifas = (tarifas) => {
 
     if (cabin.prices[date] === undefined || price < cabin.prices[date]) {
       cabin.prices[date] = price;
+    }
+    if (price !== null) {
+      if (!category.minMaxPrices[date]) {
+        category.minMaxPrices[date] = {
+          min: price,
+          max: price,
+        };
+      } else {
+        category.minMaxPrices[date].min = Math.min(
+          category.minMaxPrices[date].min,
+          price
+        );
+        category.minMaxPrices[date].max = Math.max(
+          category.minMaxPrices[date].max,
+          price
+        );
+      }
     }
   });
   return Array.from(categoriesMap.values()).map((category) => {
@@ -63,6 +82,7 @@ const transformTarifas = (tarifas) => {
     return category;
   });
 };
+
 const getNombreCategoria = (cabina) => {
   if (cabina === 1) return "Interior";
   if (cabina === 2) return "Exterior";
@@ -105,7 +125,13 @@ function Tarifas({
     }
   };
   const [temporal, setTemporal] = useState(null);
-
+  const allPrices = precios.flatMap((category) =>
+    category.cabins.flatMap((cabin) =>
+      Object.values(cabin.prices).filter((p) => p !== null && p !== undefined)
+    )
+  );
+  const minGlobal = allPrices.length > 0 ? Math.min(...allPrices) : null;
+  const maxGlobal = allPrices.length > 0 ? Math.max(...allPrices) : null;
   const handlePriceClick = (price, date, cabin) => {
     if (price) {
       setIsModalOpen(true);
@@ -144,7 +170,7 @@ function Tarifas({
         />
       </section>
       <div className="tw-hidden md:tw-block">
-        <div className="tw-flex tw-items-center tw-justify-between tw-text-sm dark:tw-text-slate-200">
+        <div className="tw-flex tw-flex-wrap tw-items-center tw-justify-between tw-text-sm dark:tw-text-slate-200">
           <ul className="tw-flex tw-items-center tw-gap-1 ">
             <li className="tw-flex tw-items-center tw-text-sm tw-gap-1">
               <GoDotFill className="tw-text-green-700" /> Precio más bajo
@@ -218,27 +244,47 @@ function Tarifas({
                         {fechasDisponibles
                           .slice(startIndex, startIndex + fechas_visibles)
                           .map((date) => {
-                            const lowestPrice = category.cabins
+                            const pricesForDate = category.cabins
                               .map((cabin) => cabin.prices[date])
-                              .filter((price) => price !== null)
-                              .reduce(
-                                (min, current) =>
-                                  current < min ? current : min,
-                                Infinity
+                              .filter(
+                                (price) =>
+                                  price !== null &&
+                                  price !== undefined &&
+                                  price !== 0
                               );
+
+                            const lowestPrice = pricesForDate.length
+                              ? Math.min(...pricesForDate)
+                              : null;
+
+                            const hasMaxPrice = pricesForDate.some(
+                              (price) => price === maxGlobal
+                            );
 
                             return (
                               <td
                                 key={date}
-                                className={`tw-py-2 tw-text-[0.8rem] tw-px-2 tw-border-r tw-border-slate-300 dark:tw-border-slate-600 tw-text-center`}
+                                className={`... ${
+                                  lowestPrice !== null
+                                    ? lowestPrice === minGlobal
+                                      ? "tw-text-green-600 tw-bg-green-50 dark:tw-bg-green-900 dark:tw-text-green-400 tw-font-semibold"
+                                      : hasMaxPrice
+                                      ? "tw-text-red-600 dark:tw-bg-red-900 dark:tw-text-red-400 tw-bg-red-50 tw-font-semibold"
+                                      : ""
+                                    : ""
+                                }`}
                               >
-                                {lowestPrice !== Infinity ? (
-                                  <span>
-                                    <span className="tw-text-slate-500 dark:tw-text-slate-400">
-                                      desde{" "}
-                                    </span>
-                                    {formatPrice(lowestPrice)}{" "}
-                                  </span>
+                                {lowestPrice !== null ? (
+                                  <div className="tw-flex tw-justify-center tw-items-center tw-relative tw-gap-1">
+                                    {lowestPrice === minGlobal && (
+                                      <div className="tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-green-700  dark:tw-bg-green-400 tw-animate-pulse"></div>
+                                    )}
+                                    {hasMaxPrice && (
+                                      <div className="tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-red-700 dark:tw-bg-red-400 tw-animate-pulse"></div>
+                                    )}
+                                    <span> desde</span>
+                                    {formatPrice(lowestPrice)}
+                                  </div>
                                 ) : (
                                   "-"
                                 )}
@@ -277,15 +323,7 @@ function Tarifas({
                               const isSelected =
                                 precioSeleccionado?.date === date &&
                                 precioSeleccionado?.cabin === cabin.title;
-                              const allPrices = Object.values(
-                                cabin.prices
-                              ).filter((p) => p !== null && p !== undefined);
-                              let lowestPrice = null;
-                              let highestPrice = null;
-                              if (allPrices.length > 1) {
-                                lowestPrice = Math.min(...allPrices);
-                                highestPrice = Math.max(...allPrices);
-                              }
+
                               return (
                                 <td
                                   key={date}
@@ -301,14 +339,7 @@ function Tarifas({
                                   ${
                                     isSelected
                                       ? "tw-bg-blue-100 dark:tw-bg-cyan-800 dark:tw-text-cyan-300 tw-text-blue-900 tw-font-semibold"
-                                      : precioSeleccionado?.price === price
-                                      ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
-                                      : price === lowestPrice
-                                      ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
-                                      : price === highestPrice &&
-                                        allPrices.length > 1
-                                      ? "tw-text-red-700 dark:tw-text-danger dark:tw-bg-slate-800 tw-font-semibold"
-                                      : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
+                                      : "dark:tw-bg-slate-800 dark:tw-text-slate-300"
                                   }`}
                                 >
                                   {price ? formatPrice(price) : "-"}
@@ -324,8 +355,8 @@ function Tarifas({
                           key={cabin.id}
                           className={`tw-border-b tw-border-slate-300 dark:tw-border-slate-600 tw-transition ${
                             index % 2 === 0
-                              ? "tw-bg-white dark:tw-bg-slate-700 dark:tw-text-slate-300"
-                              : "tw-bg-slate-50 dark:tw-bg-slate-700 dark:tw-text-slate-300"
+                              ? "tw-bg-white dark:tw-bg-slate-800 dark:tw-text-slate-300"
+                              : "tw-bg-slate-50 dark:tw-bg-slate-800 dark:tw-text-slate-300"
                           }`}
                         >
                           <td className="tw-py-2 tw-px-4 tw-pl-8 tw-text-slate-700 tw-border-r tw-border-slate-300 dark:tw-border-slate-600 dark:tw-text-slate-300">
@@ -338,17 +369,6 @@ function Tarifas({
                               const isSelected =
                                 precioSeleccionado?.date === date &&
                                 precioSeleccionado?.cabin === cabin.title;
-                              const allPrices = Object.values(
-                                cabin.prices
-                              ).filter((p) => p !== null && p !== undefined);
-                              const lowestPrice =
-                                allPrices.length > 1
-                                  ? Math.min(...allPrices)
-                                  : null;
-                              const highestPrice =
-                                allPrices.length > 1
-                                  ? Math.max(...allPrices)
-                                  : null;
                               return (
                                 <td
                                   key={date}
@@ -364,13 +384,8 @@ function Tarifas({
                                   ${
                                     isSelected
                                       ? "tw-bg-blue-100 dark:tw-bg-cyan-800 dark:tw-text-cyan-300 tw-text-blue-900 tw-font-semibold"
-                                      : precioSeleccionado?.price === price
+                                      : isSelected
                                       ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
-                                      : price === lowestPrice
-                                      ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
-                                      : price === highestPrice &&
-                                        allPrices.length > 1
-                                      ? "tw-text-red-700 dark:tw-text-danger  tw-font-semibold"
                                       : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
                                   }`}
                                 >

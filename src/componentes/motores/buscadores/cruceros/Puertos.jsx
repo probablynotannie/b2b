@@ -6,24 +6,28 @@ import "swiper/css/pagination";
 import puertos from "./puertos.json";
 import { useRef } from "react";
 import { useNavigate } from "react-router-dom";
+import { slugify } from "../../../../helpers/slugify";
 
 function Puertos({ setRequestData }) {
   const swiperRef = useRef(null);
   const navigate = useNavigate();
   const highlightedPorts = puertos.filter((zona) => zona.destacado === 1);
   const handlePortClick = (producto) => {
-    const newRequestData = {
-      puerto: producto.id_puerto,
-      destino: 0,
-      mes: 0,
+    if (swiperRef.current?.animating) return; 
+
+    const datosForm = {
+      idPuerto: producto.id_puerto,
+      idZona: 0,
+      fechSal: 0,
       duracion: 0,
-      naviera: 0,
+      idNav: 0,
       img: producto.img_puerto_header,
       titulo: producto.name,
       desc: producto.descripcion,
     };
-    setRequestData(newRequestData);
-    navigate("/listadoCruceros", { state: { newRequestData } });
+    const enlace = "/zona/" + slugify(producto.name);
+    setRequestData(datosForm);
+    navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };
 
   return (
@@ -34,6 +38,7 @@ function Puertos({ setRequestData }) {
       <Swiper
         modules={[Navigation, Pagination, Autoplay]}
         spaceBetween={20}
+        loop={true}
         slidesPerView={1}
         breakpoints={{
           640: { slidesPerView: 1 },
@@ -54,10 +59,15 @@ function Puertos({ setRequestData }) {
               onMouseLeave={() => swiperRef.current?.autoplay.start()}
             >
               <img
-                src={zona.img_puerto_header || "/default-image.jpg"}
-                className="tw-opacity-90 tw-h-full tw-shadow tw-mb-4 tw-w-full tw-object-cover"
-                alt="Imagen puerto"
+                className="tw-h-full tw-w-full"
+                src={
+                  zona.img_puerto_header
+                    ? `//pic-2.vpackage.net/cruceros_img/${zona.img_puerto_header}`
+                    : "/default-image.jpg"
+                }
+                alt="Imagen del barco"
               />
+
               <div
                 className="tw-absolute tw-text-slate-100 tw-text-xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full 
                  tw-bg-blue-700 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-opacity-30

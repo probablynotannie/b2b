@@ -3,7 +3,7 @@ import Buscador from "./filtros/Buscador";
 import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
 import { useEffect } from "react";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Circuitos";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Circuitos";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

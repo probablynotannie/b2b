@@ -2,8 +2,8 @@ import Buscador from "./filtros/Buscador";
 import Aside from "./filtros/Aside";
 import Destinos from "./Destinos";
 import { useEffect, useState } from "react";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders/Destinos";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Destinos";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

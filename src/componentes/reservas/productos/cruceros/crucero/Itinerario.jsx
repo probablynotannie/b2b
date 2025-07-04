@@ -5,7 +5,7 @@ function Itinerario({ producto }) {
       className="tw-space-y-8 tw-relative before:tw-absolute before:tw-inset-0 
       before:tw-ml-2 md:before:tw-ml-4 before:-tw-translate-x-1/2 
       before:tw-h-full before:tw-w-0.5 before:tw-bg-gradient-to-b 
-      before:tw-from-transparent before:tw-via-slate-300 before:tw-to-transparent"
+      before:tw-from-transparent before:tw-via-slate-300 dark:before:tw-via-slate-600 before:tw-to-transparent"
     >
       {producto.map(
         (itinerario, index) =>
@@ -14,7 +14,7 @@ function Itinerario({ producto }) {
               <div className="md:tw-flex tw-items-center tw-space-x-4 tw-mb-3">
                 <div className="tw-flex tw-items-center tw-space-x-3 md:tw-space-x-2">
                   <div className="tw-w-8 tw-h-8 tw-flex tw-items-center tw-justify-center">
-                    <FaArrowCircleRight className="tw-text-2xl tw-text-secondary tw-bg-white dark:tw-bg-transparent dark:tw-text-white" />
+                    <FaArrowCircleRight className="tw-text-2xl tw-text-secondary tw-bg-white dark:tw-bg-slate-700 tw-rounded-full tw-overflow-hidden dark:tw-text-secondaryDark" />
                   </div>
                 </div>
                 <div className="tw-text-slate-500 dark:tw-text-slate-400 tw-ml-4 md:tw-ml-8">

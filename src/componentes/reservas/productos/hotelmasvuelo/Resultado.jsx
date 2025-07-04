@@ -9,8 +9,8 @@ import { FaPlane } from "react-icons/fa";
 import vuelos from "./Vuelos.json";
 import hoteles from "./Hoteles.json";
 import { Link } from "react-router-dom";
-import Placeholder from "../../estructura/skeleton_placeholders/Hotelmasvuelo";
-import Cargando from "../../estructura/skeleton_placeholders/Cargando";
+import Placeholder from "../../estructura/skeleton_placeholders_listado/Hotelmasvuelo";
+import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

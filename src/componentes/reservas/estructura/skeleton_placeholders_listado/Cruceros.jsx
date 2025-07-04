@@ -1,6 +1,6 @@
 function Cruceros() {
   return (
-    <article className="tw-cursor-pointer tw-bg-slate-100 tw-flex dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 lg:tw-flex tw-flex-col tw-relative min-lg:h-[25vh] tw-animate-pulse">
+    <article className="tw-cursor-pointer tw-bg-slate-100 tw-flex dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-rounded-xl tw-transition lg:tw-flex tw-flex-col tw-relative min-lg:h-[25vh] tw-animate-pulse">
       <div className="tw-relative tw-w-full">
         <div className="tw-min-h-[25vh] tw-border-t-2 tw-border-slate-200 dark:tw-border-slate-900 tw-rounded-tr-xl tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
           {[...Array(5)].map((_, index) => (

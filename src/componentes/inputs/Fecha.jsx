@@ -1,4 +1,4 @@
-import { useEffect } from "react";
+import { useEffect, useMemo } from "react";
 import { DatePickerInput } from "@mantine/dates";
 import { FaCalendarAlt } from "react-icons/fa";
 import { DatesProvider } from "@mantine/dates";
@@ -7,6 +7,7 @@ import "dayjs/locale/es";
 import InfiniteScrollCalendarSingle from "./movil/InfiniteScrollCalendarSingle";
 import parseFecha from "../../helpers/parseFechas";
 import cesta from "../estructura/cesta/Zustand";
+
 function Fecha({
   fecha,
   name,
@@ -16,34 +17,19 @@ function Fecha({
   required,
   deshabilitable,
 }) {
-  useEffect(() => {
-    if (fecha) {
-      setValue(name, fecha);
-    }
-  }, [fecha, name, setValue]);
-
-  const handleDateChange = (date) => {
-    if (date) {
-      setValue(name, date, { shouldValidate: true, shouldTouch: true });
-    } else {
-      setValue(name, null, { shouldValidate: true, shouldTouch: true });
-    }
-  };
-
   const productos = cesta((state) => state.productos);
   const diasAntes = cesta((state) => state.diasAntes);
   const diasDespues = cesta((state) => state.diasDespues);
 
+  const normalize = (d) => new Date(d.getFullYear(), d.getMonth(), d.getDate());
+
   const disabledDates = (date) => {
-    const normalize = (d) =>
-      new Date(d.getFullYear(), d.getMonth(), d.getDate());
     const today = normalize(new Date());
     if (productos[0]?.fecha) {
       const fechaInicio = parseFecha(productos[0].fecha);
       const fechaFin = productos[0].fechaVuelta
         ? parseFecha(productos[0].fechaVuelta)
         : parseFecha(productos[0].fecha);
-
       const minDate = new Date(fechaInicio);
       minDate.setDate(fechaInicio.getDate() - diasAntes);
       const maxDate = new Date(fechaFin);
@@ -58,6 +44,32 @@ function Fecha({
     }
   };
 
+  const firstAvailableDate = useMemo(() => {
+    if (!deshabilitable) return null;
+    for (let i = 0; i < 365; i++) {
+      const candidate = new Date();
+      candidate.setDate(candidate.getDate() + i);
+      if (!disabledDates(candidate)) return candidate;
+    }
+    return null;
+  }, [productos, diasAntes, diasDespues, deshabilitable]);
+
+  useEffect(() => {
+    if (!fecha && firstAvailableDate && deshabilitable) {
+      setValue(name, firstAvailableDate, {
+        shouldValidate: true,
+        shouldTouch: true,
+      });
+    }
+  }, [fecha, name, setValue, firstAvailableDate, deshabilitable]);
+
+  const handleDateChange = (date) => {
+    setValue(name, date ?? null, {
+      shouldValidate: true,
+      shouldTouch: true,
+    });
+  };
+
   return (
     <div>
       <div
@@ -69,7 +81,7 @@ function Fecha({
           setValue={setValue}
         />
       </div>
-      <div className={` ${edadSelector !== true && "tw-hidden md:tw-block"}`}>
+      <div className={`${edadSelector !== true && "tw-hidden md:tw-block"}`}>
         <DatesProvider settings={{ locale: "es" }}>
           <Controller
             name={name}
@@ -79,11 +91,16 @@ function Fecha({
               <>
                 <div className="tw-relative">
                   <DatePickerInput
+                    defaultDate={
+                      deshabilitable && firstAvailableDate
+                        ? firstAvailableDate
+                        : undefined
+                    }
                     excludeDate={deshabilitable === true ? disabledDates : null}
                     placeholder="Selecciona fecha"
                     value={fecha}
                     onChange={handleDateChange}
-                    required={required === true ? true : false}
+                    required={required === true}
                     classNames={{
                       input:
                         "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 dark:tw-text-slate-300 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer",

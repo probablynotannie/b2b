@@ -5,10 +5,17 @@ import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 import Detalles from "./Detalles";
 import DatosContacto from "../../../estructura/DatosContacto";
+import { useQuery } from "@tanstack/react-query";
 import Pasajeros from "./Pasajeros";
+import random from "./random.json";
+import FetchCrucero from "../hook/crucero";
+import Error from "../filtros/Error";
+import Placeholder from "../../../../../helpers/placeholders/Detalles";
 function ReservaFinal() {
-  const location = useLocation();
-  const { data, producto, precioSeleccionado } = location.state || {};
+  const { state } = useLocation();
+  const idCrucero = state?.producto?.id_crucero;
+  const data = state?.data;
+  const precioSeleccionado = state?.precioSeleccionado;
   const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -18,6 +25,49 @@ function ReservaFinal() {
       .find((img) => img && img.trim() !== "");
     return firstAvailablePortImage;
   };
+  const {
+    data: producto,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
+    refetchInterval: 10_000,
+    refetchIntervalInBackground: true,
+    queryKey: ["crucero", idCrucero],
+    queryFn: () => FetchCrucero(idCrucero),
+    enabled: Boolean(idCrucero),
+    refetchOnWindowFocus: false,
+  });
+  console.log(producto);
+  const tarifaSigueDisponible = producto?.tarifas?.some(
+    (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
+  );
+  if (isLoading)
+    return (
+      <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
+        <Placeholder />
+      </main>
+    );
+  if (!producto || !precioSeleccionado) {
+    return (
+      <Error
+        tipo={2}
+        error="Se necesitan más datos para acceder a esta página"
+      />
+    );
+  }
+
+  if (!precioSeleccionado || !tarifaSigueDisponible) {
+    return (
+      <Error
+        enlace={`/crucero/${idCrucero}/`}
+        error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
+      />
+    );
+  }
+  if (isError) {
+    return <Error error={error} />;
+  }
   const imagenCrucero = getImagenCrucero(producto);
   const precioBase = Number(precioSeleccionado.price);
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
@@ -28,7 +78,7 @@ function ReservaFinal() {
       <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
         <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
           <div>
-            <h1 className="tw-font-bold">Reservando Crucero</h1>
+            <h1 className="tw-font-bold tw-text-md">Reservando Crucero</h1>
             <p className="tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm">
               {producto.num_dias +
                 " días a bordo de " +
@@ -36,7 +86,7 @@ function ReservaFinal() {
             </p>
           </div>
           <img
-            className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-shadow dark:tw-shadow-slate-500"
+            className="tw-w-[70px] tw-h-[50px] tw-object-contain tw-rounded-md tw-bordertw-border-slate-100 dark:tw-border-slate-700"
             src={
               "//pic-2.vpackage.net/cruceros_img/" +
               producto.naviera.img_naviera
@@ -55,7 +105,7 @@ function ReservaFinal() {
       </section>
       <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
         <div className="w-border-b-2  tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-mb-4">
-          <h2 className="tw-font-semibold ">Resumen</h2>
+          <h2 className="tw-font-bold tw-text-md ">Resumen</h2>
         </div>
         <Reserva
           img={"//pic-2.vpackage.net/cruceros_img/" + imagenCrucero}

@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Buscador from "./filtros/Buscador";
 import Tickets from "./Entradas";
 import tickets from "./Entradas.json";
-import Entradas from "../../estructura/skeleton_placeholders/Entradas";
+import Entradas from "../../estructura/skeleton_placeholders_listado/Entradas";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

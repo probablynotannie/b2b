@@ -1,32 +1,78 @@
-import { useState } from "react";
+import { useState, useMemo } from "react";
 import { FaSearch } from "react-icons/fa";
+import { useNavigate, useLocation } from "react-router-dom";
+import { useForm } from "react-hook-form";
 import Input_Destinos from "../../../inputs/Destinos";
 import Input_Puertos from "../../../inputs/Puertos";
 import Input_Navieras from "../../../inputs/Navieras";
 import Input_Mes from "../../../inputs/Mes";
 import Input_Dias from "../../../inputs/SelectorDias";
-import { useNavigate } from "react-router-dom";
-import datos_destinos from "./destinos.json";
-import datos_puertos from "./puertos.json";
-import datos_navieras from "./navieras.json";
-import { useForm } from "react-hook-form";
+import { useQuery } from "@tanstack/react-query";
+const fetchDestinos = async () => {
+  const res = await fetch(
+    "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&info&json=1"
+  );
+  if (!res.ok) throw new Error("Problemas con red");
+  const data = await res.json();
+  return data;
+};
+
 function Buscador_Cruceros() {
   const navigate = useNavigate();
+  const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const onSubmit = (data) => {
-    navigate("/listadocruceros", {
-      state: { datosForm: data },
-    });
-  };
-  const { handleSubmit, control } = useForm({
-    defaultValues: {
-      idZona: 0,
-      idPuerto: 0,
-      idNav: 0,
-      fechSal: 0,
-      duracion: 0,
-    },
+  const { data, isLoading } = useQuery({
+    queryKey: ["destinos"],
+    queryFn: fetchDestinos,
   });
+  const defaultFormValues = useMemo(() => {
+    const parts = location.pathname.split("/").filter(Boolean);
+    const values = {
+      idZona: "",
+      idPuerto: "",
+      idNav: "",
+      fechSal: "",
+      duracion: "",
+    };
+
+    for (let i = 0; i < parts.length; i++) {
+      if (parts[i] === "idZona" && parts[i + 1]) values.idZona = parts[i + 1];
+      if (parts[i] === "idPuerto" && parts[i + 1])
+        values.idPuerto = parts[i + 1];
+      if (parts[i] === "idNav" && parts[i + 1]) values.idNav = parts[i + 1];
+      if (parts[i] === "fechSal" && parts[i + 1]) values.fechSal = parts[i + 1];
+      if (parts[i] === "duracion" && parts[i + 1])
+        values.duracion = parts[i + 1];
+    }
+
+    return values;
+  }, [location.pathname]);
+
+  const { handleSubmit, control } = useForm({
+    defaultValues: defaultFormValues,
+  });
+  const buildCruiseURLFromForm = (data) => {
+    const urlParts = [];
+
+    if (data.idZona) urlParts.push("idZona", data.idZona);
+    if (data.idPuerto) urlParts.push("idPuerto", data.idPuerto);
+    if (data.idNav) urlParts.push("idNav", data.idNav);
+
+    if (data.fechSal) {
+      const [year, month] = data.fechSal.split("-");
+      if (month && year) {
+        urlParts.push("fechSal", `${month}-${year}`);
+      }
+    }
+    if (data.duracion) urlParts.push("duracion", data.duracion);
+    return `/listadoCruceros/${urlParts.join("/")}`;
+  };
+
+  const onSubmit = (data) => {
+    const url = buildCruiseURLFromForm(data);
+    navigate(url, { state: { datosForm: data } });
+  };
+
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -58,19 +104,19 @@ function Buscador_Cruceros() {
               <form onSubmit={handleSubmit(onSubmit)}>
                 <div className="tw-grid tw-grid-cols-1 tw-gap-4">
                   <Input_Destinos
-                    datos={datos_destinos}
+                    datos={!isLoading ? data.zonas : []}
                     name="idZona"
                     control={control}
                     placeholder="Selecciona un destino"
                   />
                   <Input_Puertos
-                    datos={datos_puertos}
+                    datos={!isLoading ? data.puertos : []}
                     name="idPuerto"
                     control={control}
                     placeholder="Selecciona un puerto"
                   />
                   <Input_Navieras
-                    datos={datos_navieras}
+                    datos={!isLoading ? data.puertos : []}
                     name="idNav"
                     control={control}
                     placeholder="Selecciona una naviera"
@@ -95,26 +141,26 @@ function Buscador_Cruceros() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
-        <form onSubmit={handleSubmit(onSubmit)}>
+      <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit w-full">
+        <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Cruceros
           </h2>
           <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
             <Input_Destinos
-              datos={datos_destinos}
+              datos={!isLoading ? data.zonas : []}
               name="idZona"
               control={control}
               placeholder="Selecciona un destino"
             />
             <Input_Puertos
-              datos={datos_puertos}
+              datos={!isLoading ? data.puertos : []}
               name="idPuerto"
               control={control}
               placeholder="Selecciona un puerto"
             />
             <Input_Navieras
-              datos={datos_navieras}
+              datos={!isLoading ? data.navieras : []}
               name="idNav"
               control={control}
               placeholder="Selecciona una naviera"
