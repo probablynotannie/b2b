@@ -12,14 +12,14 @@ import { slugify } from "../../../../../helpers/slugify";
 import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
 import Placeholder from "../../../../../helpers/placeholders/Datos";
-
+import random from "./random.json";
 const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const idCrucero = state?.producto.id_crucero;
 
   const pasajeros = state?.pasajeros ?? [];
-  const precioSeleccionado = state?.precioSeleccionado;
+  const precioSeleccionado = random;
 
   const {
     data: productoRaw,
@@ -86,21 +86,6 @@ const Datos = () => {
   };
 
   if (isLoading) return <Placeholder />;
-
-  if (isError || !producto) {
-    const notFound = error?.response?.status === 404 || producto === null;
-    return (
-      <Error
-        tipo={4}
-        error={
-          "No hemos encontrado ningún crucero con ese identificador. Es posible que la oferta haya caducado o ya no exista."
-          /*  "Ha ocurrido un error inesperado al cargar el crucero. Inténtalo de nuevo más tarde." */
-        }
-        enlace="/cruceros"
-      />
-    );
-  }
-
   if (!precioSeleccionado) {
     return (
       <Error
@@ -109,11 +94,20 @@ const Datos = () => {
       />
     );
   }
-
+  if (isError || !producto) {
+    return (
+      <Error
+        tipo={4}
+        error={
+          "No hemos encontrado ningún crucero con ese identificador. Es posible que la oferta haya caducado o ya no exista."
+        }
+        enlace="/cruceros"
+      />
+    );
+  }
   const tarifaSigueDisponible = producto?.tarifas?.some(
     (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
   );
-
   if (!tarifaSigueDisponible) {
     return (
       <Error
