@@ -172,7 +172,7 @@ function Buscador_Cruceros() {
       )}
       <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit w-full">
         <form
-          className="tw-grid tw-grid-cols-12 tw-gap-3"
+          className="tw-grid tw-grid-cols-12 tw-gap-3 tw-w-full"
           onSubmit={handleSubmit(onSubmit)}
         >
           <div className="tw-flex tw-justify-between tw-items-center tw-col-span-12">
