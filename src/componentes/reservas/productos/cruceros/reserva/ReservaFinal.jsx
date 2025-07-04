@@ -11,14 +11,11 @@ import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Error from "../filtros/Error";
 import Placeholder from "../../../../../helpers/placeholders/Detalles";
-import { useParams } from "react-router-dom";
 function ReservaFinal() {
-  const enlace = useParams();
-  console.log(enlace.id);
   const { state } = useLocation();
   const idCrucero = state?.producto?.id_crucero;
   const data = state?.data;
-  const precioSeleccionado = random;
+  const precioSeleccionado = state?.precioSeleccionado;
   const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -32,6 +29,7 @@ function ReservaFinal() {
     data: producto,
     isLoading,
     isError,
+    error,
   } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
@@ -40,7 +38,7 @@ function ReservaFinal() {
     enabled: Boolean(idCrucero),
     refetchOnWindowFocus: false,
   });
-
+  console.log(producto);
   const tarifaSigueDisponible = producto?.tarifas?.some(
     (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
   );
@@ -58,14 +56,6 @@ function ReservaFinal() {
       />
     );
   }
-  if (!isError) {
-    return (
-      <Error
-        tipo={2}
-        error="No hemos encontrado ningún crucero con ese identificador. Es posible que la oferta haya caducado o ya no exista."
-      />
-    );
-  }
 
   if (!precioSeleccionado || !tarifaSigueDisponible) {
     return (
@@ -74,6 +64,9 @@ function ReservaFinal() {
         error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
       />
     );
+  }
+  if (isError) {
+    return <Error error={error} />;
   }
   const imagenCrucero = getImagenCrucero(producto);
   const precioBase = Number(precioSeleccionado.price);

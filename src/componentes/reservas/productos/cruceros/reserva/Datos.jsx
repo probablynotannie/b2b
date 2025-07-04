@@ -17,16 +17,10 @@ const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const idCrucero = state?.producto.id_crucero;
-
-  const pasajeros = state?.pasajeros ?? [];
+  const pasajeros = state?.pasajeros || [];
   const precioSeleccionado = random;
 
-  const {
-    data: productoRaw,
-    isLoading,
-    isError,
-    error,
-  } = useQuery({
+  const { data: productoRaw, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -86,34 +80,26 @@ const Datos = () => {
   };
 
   if (isLoading) return <Placeholder />;
-  if (!precioSeleccionado) {
+
+  const tarifaSigueDisponible = producto?.tarifas?.some(
+    (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
+  );
+
+  if (!tarifaSigueDisponible) {
+    return (
+      <Error
+        tipo={2}
+        enlace={`/crucero/${idCrucero}/`}
+        error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
+      />
+    );
+  }
+
+  if (!precioSeleccionado || pasajeros.length === 0) {
     return (
       <Error
         tipo={2}
         error="Se necesitan más datos para acceder a esta página."
-      />
-    );
-  }
-  if (isError || !producto) {
-    return (
-      <Error
-        tipo={4}
-        error={
-          "No hemos encontrado ningún crucero con ese identificador. Es posible que la oferta haya caducado o ya no exista."
-        }
-        enlace="/cruceros"
-      />
-    );
-  }
-  const tarifaSigueDisponible = producto?.tarifas?.some(
-    (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
-  );
-  if (!tarifaSigueDisponible) {
-    return (
-      <Error
-        tipo={3}
-        enlace={`/crucero/${idCrucero}/`}
-        error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
       />
     );
   }

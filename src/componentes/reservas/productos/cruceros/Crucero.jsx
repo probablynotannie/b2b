@@ -52,18 +52,17 @@ function Producto() {
     );
   }
 
-  if (isError) {
-    return (
-      <div className="tw-text-red-500 tw-text-center tw-mt-10">
-        <Error error={error.message} />
-      </div>
-    );
-  }
-
-  if (!producto || isError) {
+  if (!producto) {
     return (
       <div>
         <Error error={"No se ha encontrado este crucero"} />
+      </div>
+    );
+  }
+  if (!isError) {
+    return (
+      <div>
+        <Error error={error} />
       </div>
     );
   }
