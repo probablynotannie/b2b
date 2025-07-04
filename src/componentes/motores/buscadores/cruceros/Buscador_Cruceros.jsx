@@ -8,23 +8,12 @@ import Input_Navieras from "../../../inputs/Navieras";
 import Input_Mes from "../../../inputs/Mes";
 import Input_Dias from "../../../inputs/SelectorDias";
 import { useQuery } from "@tanstack/react-query";
-const fetchDestinos = async () => {
-  const res = await fetch(
-    "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&info&json=1"
-  );
-  if (!res.ok) throw new Error("Problemas con red");
-  const data = await res.json();
-  return data;
-};
 
 function Buscador_Cruceros() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isModalOpen, setIsModalOpen] = useState(false);
-  const { data, isLoading } = useQuery({
-    queryKey: ["destinos"],
-    queryFn: fetchDestinos,
-  });
+
   const defaultFormValues = useMemo(() => {
     const parts = location.pathname.split("/").filter(Boolean);
     const values = {
@@ -48,31 +37,71 @@ function Buscador_Cruceros() {
     return values;
   }, [location.pathname]);
 
-  const { handleSubmit, control } = useForm({
+  const { handleSubmit, control, watch } = useForm({
     defaultValues: defaultFormValues,
   });
-  const buildCruiseURLFromForm = (data) => {
+
+  const watchedValues = watch();
+
+  const { data, isLoading } = useQuery({
+    queryKey: ["cruceros", watchedValues],
+    queryFn: async () => {
+      const { idZona, idNav, idPuerto, fechSal, duracion } = watchedValues;
+
+      const allEmpty =
+        (!idZona || idZona === "") &&
+        (!idNav || idNav === "0" || idNav === "") &&
+        (!idPuerto || idPuerto === "0" || idPuerto === "") &&
+        (!fechSal || fechSal === "") &&
+        (!duracion || duracion === "0" || duracion === "");
+
+      if (allEmpty) {
+        const url =
+          "https://devxml-2.vpackage.net/FrontCruceros/searchjson?rand=774408346&idZona=&idNav=0&idPuerto=0&fechaSalida=0&duracionCru=0&json=1";
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Problemas con red");
+        return res.json();
+      } else {
+        const urlParams = new URLSearchParams({
+          rand: "774408346",
+          idZona: idZona || "0",
+          idNav: idNav || "0",
+          idPuerto: idPuerto || "0",
+          fechaSalida: fechSal || "0",
+          duracionCru: duracion || "0",
+          json: "1",
+        });
+        const url = `https://devxml-2.vpackage.net/FrontCruceros/searchjson?${urlParams.toString()}`;
+        const res = await fetch(url);
+        if (!res.ok) throw new Error("Problemas con red");
+        return res.json();
+      }
+    },
+    keepPreviousData: true,
+  });
+
+  const buildCruiseURLFromForm = (formData) => {
     const urlParts = [];
 
-    if (data.idZona) urlParts.push("idZona", data.idZona);
-    if (data.idPuerto) urlParts.push("idPuerto", data.idPuerto);
-    if (data.idNav) urlParts.push("idNav", data.idNav);
+    if (formData.idZona) urlParts.push("idZona", formData.idZona);
+    if (formData.idPuerto) urlParts.push("idPuerto", formData.idPuerto);
+    if (formData.idNav) urlParts.push("idNav", formData.idNav);
 
-    if (data.fechSal) {
-      const [year, month] = data.fechSal.split("-");
+    if (formData.fechSal) {
+      const [year, month] = formData.fechSal.split("-");
       if (month && year) {
         urlParts.push("fechSal", `${month}-${year}`);
       }
     }
-    if (data.duracion) urlParts.push("duracion", data.duracion);
+    if (formData.duracion) urlParts.push("duracion", formData.duracion);
+
     return `/listadoCruceros/${urlParts.join("/")}`;
   };
 
-  const onSubmit = (data) => {
-    const url = buildCruiseURLFromForm(data);
-    navigate(url, { state: { datosForm: data } });
+  const onSubmit = (formData) => {
+    const url = buildCruiseURLFromForm(formData);
+    navigate(url, { state: { datosForm: formData } });
   };
-
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -80,7 +109,7 @@ function Buscador_Cruceros() {
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
         >
-          Buscador de Cruceros
+          Buscador de Cruceros ({data?.CountCruceros})
           <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
@@ -142,34 +171,56 @@ function Buscador_Cruceros() {
         </div>
       )}
       <div className="tw-hidden sm:tw-flex tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit w-full">
-        <form className="w-full" onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Cruceros
-          </h2>
-          <div className="tw-grid tw-grid-cols-3 md:tw-grid-cols-3 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
+        <form
+          className="tw-grid tw-grid-cols-12 tw-gap-3"
+          onSubmit={handleSubmit(onSubmit)}
+        >
+          <div className="tw-flex tw-justify-between tw-items-center tw-col-span-12">
+            <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
+              Buscador de Cruceros{" "}
+            </h2>
+            {data?.CountCruceros ? (
+              <span className="tw-bg-green-500 tw-p-1 tw-text-sm tw-text-white tw-font-bold tw-rounded">
+                cruceros: {data.CountCruceros}
+              </span>
+            ) : (
+              <span className="tw-bg-orange-400 tw-p-1 tw-text-sm tw-text-white tw-font-bold tw-rounded">
+                Cargando datos
+              </span>
+            )}
+          </div>
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Destinos
               datos={!isLoading ? data.zonas : []}
               name="idZona"
               control={control}
               placeholder="Selecciona un destino"
             />
+          </div>
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-3">
             <Input_Puertos
               datos={!isLoading ? data.puertos : []}
               name="idPuerto"
               control={control}
               placeholder="Selecciona un puerto"
             />
+          </div>
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Navieras
               datos={!isLoading ? data.navieras : []}
               name="idNav"
               control={control}
               placeholder="Selecciona una naviera"
             />
-            <Input_Mes name={"fechSal"} control={control} />
+          </div>
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+            <Input_Mes control={control} name="fechSal" />
+          </div>
+          <div className="tw-md:col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
             <Input_Dias control={control} name="duracion" />
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
-            Buscar
+          <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-span-4 xl:tw-col-span-1">
+            <FaSearch className="tw-text-white tw-text-xl" />
           </button>
         </form>
       </div>
