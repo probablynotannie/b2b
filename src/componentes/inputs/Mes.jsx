@@ -13,6 +13,7 @@ function InputMes({ control, name }) {
             <MonthPickerInput
               clearable
               {...field}
+              valueFormat="MMM YY"
               value={
                 field.value && /^\d{4}-\d{2}$/.test(field.value)
                   ? new Date(field.value + "-01")
@@ -21,8 +22,9 @@ function InputMes({ control, name }) {
               placeholder="Mes"
               classNames={{
                 input:
-                  "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer",
-                clear: "tw-text-white",
+                  "tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 " +
+                  "dark:tw-placeholder-slate-400 dark:tw-text-white tw-text-sm tw-text-slate-500 tw-rounded-lg " +
+                  "tw-h-[40px] tw-pl-10 tw-w-full tw-whitespace-nowrap tw-overflow-hidden tw-text-ellipsis",
               }}
               onChange={(newDate) => {
                 if (newDate) {
