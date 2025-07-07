@@ -1,7 +1,6 @@
 import { useLocation, useParams } from "react-router-dom";
 import { useState, useEffect } from "react";
-import Buscador from "./filtros/Buscador";
-import Buscador2 from "../../../motores/buscadores/cruceros/Buscador_Cruceros";
+import Buscador from "../../../motores/buscadores/cruceros/Buscador_Cruceros";
 import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
@@ -142,7 +141,7 @@ function Productos() {
         <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">
-            <Buscador2 listado={true} />
+            <Buscador listado={true} />
           </div>
         </div>
       </div>

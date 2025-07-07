@@ -127,18 +127,20 @@ function Buscador_Cruceros({ listado }) {
       {isModalOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black/50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white dark:tw-bg-slate-800 tw-w-[100vw] tw-min-h-[100vh] tw-relative">
-            <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
-              <h2 className="tw-text-xl tw-font-bold tw-text-white">
+            <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-4">
+              <h2 className="tw-text-xl tw-font-bold tw-text-white py-2">
                 Buscador
               </h2>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="tw-text-xl tw-text-white"
-              >
-                &times;
-              </button>
+              {isFetching ? (
+                <div className="">
+                  <Cargando />
+                </div>
+              ) : (
+                <span className="tw-text-sm tw-font-semibold tw-text-white">
+                  cruceros: {cruiseData.CountCruceros}
+                </span>
+              )}
             </div>
-
             <div className="tw-p-3">
               <form
                 onSubmit={handleSubmit(onSubmit)}
@@ -169,6 +171,15 @@ function Buscador_Cruceros({ listado }) {
                 </button>
               </form>
             </div>
+            <div className="tw-flex tw-flex-col tw-items-center tw-my-4 tw-mt-10">
+              <button
+                onClick={() => setIsModalOpen(false)}
+                className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
+              >
+                X
+              </button>
+              <span className="tw-text-slate-400">Cerrar</span>
+            </div>
           </div>
         </div>
       )}
@@ -182,7 +193,7 @@ function Buscador_Cruceros({ listado }) {
               Buscador de Cruceros
             </h2>
             {isFetching ? (
-              <Cargando soloPuntos />
+              <Cargando />
             ) : (
               <span className="tw-text-sm tw-font-semibold">
                 cruceros: {cruiseData.CountCruceros}
