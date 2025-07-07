@@ -142,7 +142,7 @@ function Productos() {
         <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">
-            <Buscador2 />
+            <Buscador2 listado={true} />
           </div>
         </div>
       </div>
