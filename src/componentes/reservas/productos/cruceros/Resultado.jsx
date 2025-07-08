@@ -6,6 +6,7 @@ import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PaginaError from "./filtros/Error";
+import { FaAnglesLeft, FaAnglesRight } from "react-icons/fa6";
 
 const fetchCruceros = async ({ queryKey }) => {
   const [, datosForm, page] = queryKey;
@@ -19,7 +20,6 @@ const fetchCruceros = async ({ queryKey }) => {
   ) {
     return { items: [], total: 0 };
   }
-
   const baseUrl = "https://devxml-2.vpackage.net/FrontCruceros/cruceros/";
   const params = new URLSearchParams({
     destino: datosForm.idZona || "",
@@ -138,7 +138,7 @@ function Productos() {
           </section>
         )}
 
-        <section className="tw-col-span-9 lg:tw-col-span-6">
+        <section className="tw-col-span-9 lg:tw-col-span-6 tw-overflow-visible">
           {isError ? (
             <PaginaError
               error={
@@ -173,17 +173,40 @@ function Productos() {
                   <PlaceHolder />
                 </>
               ) : (
-                <>
-                  <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-                    Resultados ({totalResults})
-                  </h3>
+                <div>
+                  <div className="tw-sticky tw-top-0 tw-bg-white/90 dark:tw-bg-slate-700/80 tw-py-10 tw-p-3 tw-z-50 tw-flex tw-justify-between tw-items-center">
+                    <h3 className=" tw-font-semibold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
+                      Resultados ({totalResults})
+                    </h3>
+                    {totalPages > 1 && (
+                      <div className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-2">
+                        <button
+                          onClick={() => setPage((p) => Math.max(1, p - 1))}
+                          disabled={page === 1}
+                          className="tw-text-xl tw-text-secondary hover:tw-text-secondary/90 tw-smooth tw-px-3 tw-py-1 tw-rounded disabled:tw-text-slate-400"
+                        >
+                          <FaAnglesLeft />
+                        </button>
+                        <span className="tw-text-slate-500"> {page}</span>
+                        <button
+                          onClick={() =>
+                            setPage((p) => Math.min(totalPages, p + 1))
+                          }
+                          disabled={page === totalPages}
+                          className="tw-text-xl tw-text-secondary hover:tw-text-secondary/90 tw-smooth tw-px-3 tw-py-1 tw-rounded disabled:tw-text-slate-400"
+                        >
+                          <FaAnglesRight />
+                        </button>
+                      </div>
+                    )}
+                  </div>
                   <Cruceros destinos={cruceros} />
                   {totalPages > 1 && (
                     <div className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-2 tw-mt-6">
                       <button
                         onClick={() => setPage((p) => Math.max(1, p - 1))}
                         disabled={page === 1}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-gray-400"
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400"
                       >
                         Anterior
                       </button>
@@ -205,13 +228,13 @@ function Productos() {
                           setPage((p) => Math.min(totalPages, p + 1))
                         }
                         disabled={page === totalPages}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-gray-400"
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400"
                       >
                         Siguiente
                       </button>
                     </div>
                   )}
-                </>
+                </div>
               )}
             </div>
           )}
