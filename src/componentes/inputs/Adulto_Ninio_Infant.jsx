@@ -12,13 +12,13 @@ function SelectorPersonas({ control, nameAdult, nameKid, nameInfant }) {
   const [open, setOpen] = useState(false);
 
   return (
-    <div className="tw-relative tw-hidden lg:tw-grid tw-grid-cols-1 tw-gap-3">
+    <div className="tw-relative tw-grid tw-grid-cols-1 tw-gap-3">
       <Popover
         aria-labelledby="area-popover"
         open={open}
         onOpenChange={setOpen}
         content={
-          <div className="dark:tw-border-slate-700 dark:tw-bg-slate-700 tw-border-2 tw-rounded-lg">
+          <div className="dark:tw-border-slate-700 dark:tw-bg-slate-700 tw-bg-white tw-border-2 tw-rounded-lg">
             <div className="tw-bg-slate-900 tw-text-white tw-h-14 tw-flex tw-items-center tw-pl-4 tw-font-semibold tw-rounded-t-lg">
               Adultos / Niños
             </div>
