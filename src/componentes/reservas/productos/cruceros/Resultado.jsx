@@ -1,11 +1,13 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useState, useEffect } from "react";
+import { useInfiniteQuery } from "@tanstack/react-query";
 import Buscador from "../../../motores/buscadores/cruceros/Buscador_Cruceros";
 import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PaginaError from "./filtros/Error";
-const fetchData = async (datosForm, page = 1) => {
+
+const fetchCruceros = async ({ pageParam = 1, queryKey }) => {
+  const [, datosForm] = queryKey;
   if (
     !datosForm ||
     (!datosForm.idZona &&
@@ -14,8 +16,7 @@ const fetchData = async (datosForm, page = 1) => {
       !datosForm.fechSal &&
       !datosForm.duracion)
   ) {
-    console.warn("No se han proporcionado los datos.");
-    return [];
+    return { items: [], total: 0 };
   }
 
   const baseUrl = "https://devxml-2.vpackage.net/FrontCruceros/cruceros/";
@@ -26,22 +27,17 @@ const fetchData = async (datosForm, page = 1) => {
     fechSal: datosForm.fechSal || "",
     duracion: datosForm.duracion || "",
     idv: "207",
-    p: page.toString(),
+    p: pageParam.toString(),
     json: "1",
   });
   const url = `${baseUrl}?${params.toString()}`;
-  try {
-    const response = await fetch(url);
-    if (!response.ok) throw new Error("Error cargando datos");
-    const data = await response.json();
-    return {
-      items: data.items || [],
-      total: data.totalresults || 0,
-    };
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
+  const response = await fetch(url);
+  if (!response.ok) throw new Error("Error cargando datos");
+  const data = await response.json();
+  return {
+    items: data.items || [],
+    total: data.totalresults || 0,
+  };
 };
 
 function Productos() {
@@ -49,11 +45,9 @@ function Productos() {
   const params = useParams();
   const { newRequestData = {}, datosForm: datosFormFromState } =
     location.state || {};
-
   const buildFormFromParams = (params) => {
     const form = {};
     const entries = Object.entries(params);
-
     for (let i = 0; i < entries.length; i += 2) {
       const [key, val] = [entries[i][1], entries[i + 1]?.[1]];
       if (!key || !val) continue;
@@ -75,8 +69,10 @@ function Productos() {
     }
     return form;
   };
+
   const datosFormNormalized =
     datosFormFromState || buildFormFromParams(params) || {};
+
   const isDatosFormEmpty = (form) => {
     if (!form) return true;
     return !(
@@ -88,48 +84,30 @@ function Productos() {
     );
   };
 
-  const [totalResults, setTotalResults] = useState(0);
-  const [page, setPage] = useState(1);
-  const [cruceros, setCruceros] = useState([]);
-  const [isFetching, setIsFetching] = useState(false);
-  const [hasMore, setHasMore] = useState(true);
-  const [fetchError, setFetchError] = useState(null);
-
-  useEffect(() => {
-    setPage(1);
-    setCruceros([]);
-    setHasMore(true);
-  }, [JSON.stringify(datosFormNormalized)]);
-
-  useEffect(() => {
-    if (isDatosFormEmpty(datosFormNormalized)) {
-      setCruceros([]);
-      setHasMore(false);
-      setIsFetching(false);
-      setFetchError(null);
-      return;
-    }
-
-    const loadData = async () => {
-      setIsFetching(true);
-      setFetchError(null);
-      try {
-        const { items, total } = await fetchData(datosFormNormalized, page);
-        setCruceros((prev) => {
-          const newCruceros = page === 1 ? items : [...prev, ...items];
-          setHasMore(newCruceros.length < total);
-          return newCruceros;
-        });
-        setTotalResults(total);
-      } catch (error) {
-        setFetchError(error.message || "Error desconocido");
-      } finally {
-        setIsFetching(false);
+  const {
+    data,
+    isLoading,
+    isError,
+    error,
+    fetchNextPage,
+    hasNextPage,
+    isFetchingNextPage,
+    refetch,
+  } = useInfiniteQuery({
+    queryKey: ["cruceros", datosFormNormalized],
+    queryFn: fetchCruceros,
+    enabled: !isDatosFormEmpty(datosFormNormalized),
+    getNextPageParam: (lastPage, allPages) => {
+      const loaded = allPages.flatMap((p) => p.items).length;
+      if (loaded < (lastPage.total || 0)) {
+        return allPages.length + 1;
       }
-    };
-
-    loadData();
-  }, [page, JSON.stringify(datosFormNormalized)]);
+      return undefined;
+    },
+    retry: 1,
+  });
+  const cruceros = data?.pages.flatMap((p) => p.items) || [];
+  const totalResults = data?.pages[0]?.total || 0;
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
@@ -166,18 +144,22 @@ function Productos() {
         )}
 
         <section className="tw-col-span-9 lg:tw-col-span-6">
-          {fetchError ? (
-            <>
-              <PaginaError error={fetchError} />
-            </>
-          ) : isDatosFormEmpty(datosFormNormalized) && !isFetching ? (
+          {isError ? (
+            <PaginaError
+              error={
+                error?.message ||
+                "No se pudieron cargar los datos. Por favor, inténtalo de nuevo más tarde."
+              }
+              onRetry={refetch}
+            />
+          ) : isDatosFormEmpty(datosFormNormalized) && !isLoading ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col tw-gap-3">
               <PaginaError
                 tipo={2}
                 error="No se han proporcionado los datos para filtrar"
               />
             </div>
-          ) : cruceros.length === 0 && !isFetching ? (
+          ) : cruceros.length === 0 && !isLoading ? (
             <div className="tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-text-slate-400 tw-text-lg tw-flex-col tw-gap-3">
               {datosFormNormalized &&
                 (datosFormNormalized.idZona ||
@@ -190,7 +172,7 @@ function Productos() {
             </div>
           ) : (
             <div className="px-4 tw-p-5 lg:tw-px-10">
-              {isFetching && cruceros.length === 0 ? (
+              {isLoading || (isFetchingNextPage && cruceros.length === 0) ? (
                 <>
                   <Cargando />
                   <PlaceHolder />
@@ -202,18 +184,18 @@ function Productos() {
                   </h3>
                   <Cruceros destinos={cruceros} />
 
-                  {!isFetching && hasMore && (
+                  {hasNextPage && (
                     <div className="tw-text-center tw-mt-6">
                       <button
-                        onClick={() => setPage((prev) => prev + 1)}
+                        onClick={() => fetchNextPage()}
                         className="tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
-                        disabled={isFetching}
+                        disabled={isFetchingNextPage}
                       >
-                        {!isFetching && "Cargar más"}
+                        {isFetchingNextPage ? "Cargando..." : "Cargar más"}
                       </button>
                     </div>
                   )}
-                  {isFetching && (
+                  {isFetchingNextPage && (
                     <>
                       <Cargando />
                       <PlaceHolder />
