@@ -1,13 +1,14 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useInfiniteQuery } from "@tanstack/react-query";
+import { useState, useMemo } from "react";
+import { useQuery } from "@tanstack/react-query";
 import Buscador from "../../../motores/buscadores/cruceros/Buscador_Cruceros";
 import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PaginaError from "./filtros/Error";
 
-const fetchCruceros = async ({ pageParam = 1, queryKey }) => {
-  const [, datosForm] = queryKey;
+const fetchCruceros = async ({ queryKey }) => {
+  const [, datosForm, page] = queryKey;
   if (
     !datosForm ||
     (!datosForm.idZona &&
@@ -27,7 +28,7 @@ const fetchCruceros = async ({ pageParam = 1, queryKey }) => {
     fechSal: datosForm.fechSal || "",
     duracion: datosForm.duracion || "",
     idv: "207",
-    p: pageParam.toString(),
+    p: page.toString(),
     json: "1",
   });
   const url = `${baseUrl}?${params.toString()}`;
@@ -45,9 +46,11 @@ function Productos() {
   const params = useParams();
   const { newRequestData = {}, datosForm: datosFormFromState } =
     location.state || {};
+
   const buildFormFromParams = (params) => {
     const form = {};
     const entries = Object.entries(params);
+
     for (let i = 0; i < entries.length; i += 2) {
       const [key, val] = [entries[i][1], entries[i + 1]?.[1]];
       if (!key || !val) continue;
@@ -84,30 +87,22 @@ function Productos() {
     );
   };
 
-  const {
-    data,
-    isLoading,
-    isError,
-    error,
-    fetchNextPage,
-    hasNextPage,
-    isFetchingNextPage,
-    refetch,
-  } = useInfiniteQuery({
-    queryKey: ["cruceros", datosFormNormalized],
+  const [page, setPage] = useState(1);
+
+  const { data, isLoading, isError, error, refetch, isFetching } = useQuery({
+    queryKey: ["cruceros", datosFormNormalized, page],
     queryFn: fetchCruceros,
     enabled: !isDatosFormEmpty(datosFormNormalized),
-    getNextPageParam: (lastPage, allPages) => {
-      const loaded = allPages.flatMap((p) => p.items).length;
-      if (loaded < (lastPage.total || 0)) {
-        return allPages.length + 1;
-      }
-      return undefined;
-    },
-    retry: 1,
+    keepPreviousData: true,
   });
-  const cruceros = data?.pages.flatMap((p) => p.items) || [];
-  const totalResults = data?.pages[0]?.total || 0;
+
+  const cruceros = data?.items || [];
+  const totalResults = data?.total || 0;
+  const pageSize = 20;
+  const totalPages = Math.ceil(totalResults / pageSize);
+  useMemo(() => {
+    setPage(1);
+  }, [JSON.stringify(datosFormNormalized)]);
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
@@ -172,7 +167,7 @@ function Productos() {
             </div>
           ) : (
             <div className="px-4 tw-p-5 lg:tw-px-10">
-              {isLoading || (isFetchingNextPage && cruceros.length === 0) ? (
+              {isLoading || isFetching ? (
                 <>
                   <Cargando />
                   <PlaceHolder />
@@ -183,23 +178,38 @@ function Productos() {
                     Resultados ({totalResults})
                   </h3>
                   <Cruceros destinos={cruceros} />
-
-                  {hasNextPage && (
-                    <div className="tw-text-center tw-mt-6">
+                  {totalPages > 1 && (
+                    <div className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-2 tw-mt-6">
                       <button
-                        onClick={() => fetchNextPage()}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white tw-px-4 tw-py-2 tw-rounded tw-font-semibold"
-                        disabled={isFetchingNextPage}
+                        onClick={() => setPage((p) => Math.max(1, p - 1))}
+                        disabled={page === 1}
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-gray-400"
                       >
-                        {isFetchingNextPage ? "Cargando..." : "Cargar más"}
+                        Anterior
+                      </button>
+                      {[...Array(totalPages)].map((_, idx) => (
+                        <button
+                          key={idx + 1}
+                          onClick={() => setPage(idx + 1)}
+                          className={`tw-px-3 tw-py-1 tw-rounded ${
+                            page === idx + 1
+                              ? "tw-bg-secondary tw-text-white"
+                              : "tw-bg-slate-200 hover:tw-bg-slate-400 tw-smooth"
+                          }`}
+                        >
+                          {idx + 1}
+                        </button>
+                      ))}
+                      <button
+                        onClick={() =>
+                          setPage((p) => Math.min(totalPages, p + 1))
+                        }
+                        disabled={page === totalPages}
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-gray-400"
+                      >
+                        Siguiente
                       </button>
                     </div>
-                  )}
-                  {isFetchingNextPage && (
-                    <>
-                      <Cargando />
-                      <PlaceHolder />
-                    </>
                   )}
                 </>
               )}
