@@ -4,13 +4,11 @@ import DatosContacto from "../../../estructura/DatosContacto";
 import Resumen from "../../../estructura/reserva/Resumen";
 import Crucero from "./Crucero";
 function ResumenFinal() {
+  
   const location = useLocation();
   const { data, producto, precioSeleccionado } = location.state || {};
   const numReserva = "AUYGJEAOGPOI153";
-  console.log("producto", producto);
-  console.log("data", data);
-  console.log("precioSeleccionado", precioSeleccionado);
-  console.log("numReserva", numReserva);
+
   return (
     <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
       <section>

@@ -17,12 +17,17 @@ function Itinerario({ producto }) {
                     <FaArrowCircleRight className="tw-text-2xl tw-text-secondary tw-bg-white dark:tw-bg-slate-700 tw-rounded-full tw-overflow-hidden dark:tw-text-secondaryDark" />
                   </div>
                 </div>
-                <div className="tw-text-slate-500 dark:tw-text-slate-400 tw-ml-4 md:tw-ml-8">
+                <div className="tw-text-slate-500 dark:tw-text-slate-400 tw-ml-4 md:tw-ml-8 tw-flex tw-gap-1 tw-items-center">
+                  <span className="tw-text-secondary tw-font-bold tw-text-sm">
+                    Día {itinerario.id_dia}
+                  </span>
                   <span className="tw-text-slate-900 dark:tw-text-slate-100 tw-font-bold">
                     {itinerario.puerto.name}
                   </span>{" "}
-                  {itinerario.hora_llegada !== "-" && itinerario.hora_llegada} -{" "}
-                  {itinerario.hora_salida !== "-" && itinerario.hora_salida}
+                  {itinerario.hora_llegada !== "-" && itinerario.hora_llegada}
+                  {itinerario.hora_salida !== "-" && (
+                    <span> - {itinerario.hora_salida}</span>
+                  )}
                 </div>
               </div>
               <div className="tw-bg-white dark:tw-bg-slate-900 tw-p-4 tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg tw-text-slate-500 tw-shadow tw-ml-10 md:tw-ml-20">

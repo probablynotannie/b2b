@@ -13,9 +13,7 @@ function Buscador_Destinos() {
     });
   };
   const {
-    register,
     handleSubmit,
-    setValue,
     control,
     formState: { errors },
   } = useForm();

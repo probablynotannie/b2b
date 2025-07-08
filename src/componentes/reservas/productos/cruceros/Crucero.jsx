@@ -14,7 +14,7 @@ import Placeholder from "../../../../helpers/placeholders/Detalles";
 import { slugify } from "../../../../helpers/slugify";
 import Error from "./filtros/Error";
 import fetchCrucero from "./hook/crucero";
-
+import Detalles from "./crucero/Detalles";
 function Producto() {
   const { idCrucero } = useParams();
   const [selectedTab, setSelectedTab] = useState("tarifas");
@@ -28,7 +28,7 @@ function Producto() {
     enabled: !!idCrucero,
     refetchOnWindowFocus: false,
   });
-
+  console.log(producto);
   const getCruiseImage = (producto) => {
     if (producto?.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -54,7 +54,6 @@ function Producto() {
       </div>
     );
   }
-
   const cruiseImage = getCruiseImage(producto) ?? "default-image.jpg";
 
   return (
@@ -72,7 +71,7 @@ function Producto() {
             <p className="tw-text-slate-600 dark:tw-text-slate-400 tw-mt-3">
               {producto?.barco?.descripcion ?? "Sin descripción disponible."}
             </p>
-
+            <Detalles producto={producto} />
             <article className="tw-mt-5 tw-rounded-xl tw-shadow">
               <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
                 <button
@@ -120,7 +119,6 @@ function Producto() {
               </section>
             </article>
           </section>
-
           <article
             className={`tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5 ${
               !precioSeleccionado &&
@@ -139,7 +137,6 @@ function Producto() {
                     producto?.barco?.nombre?.texto ?? "este crucero"
                   }`}
                 />
-
                 <p className="tw-flex tw-gap-2 tw-mt-3 dark:tw-text-slate-100">
                   <span className="tw-flex tw-gap-1 tw-items-center">
                     <FaCalendar className="tw-text-secondary" />

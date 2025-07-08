@@ -46,7 +46,7 @@ function Listado({ destinos }) {
         return (
           <article
             key={index}
-            className="tw-overflow-hidden dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow hover:tw-shadow-lg tw-duration-300 tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-mt-5 lg:tw-mt-10 tw-relative"
+            className="tw-overflow-hidden dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow hover:tw-shadow-lg tw-duration-300 tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-relative"
           >
             <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
               <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">

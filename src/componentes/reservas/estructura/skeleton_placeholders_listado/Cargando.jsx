@@ -8,7 +8,7 @@ function Cargando() {
       </h3>
       <div className="tw-flex tw-flex-col tw-gap-5 md:tw-flex-row md:tw-justify-between">
         <div className="tw-flex tw-items-center tw-gap-2">
-          <GoDotFill className="tw-animate-bounce tw-animate-infinite tw-animate-delay-0 tw-text-secondary" />
+          <GoDotFill className="tw-animate-bounce tw-animate-infinite tw-animate-delay-0 tw-text-orange-400" />
           <GoDotFill className="tw-animate-bounce tw-animate-infinite tw-animate-delay-100 tw-text-pink-400" />
           <GoDotFill className="tw-animate-bounce tw-animate-infinite tw-animate-delay-200 tw-text-blue-500" />
         </div>

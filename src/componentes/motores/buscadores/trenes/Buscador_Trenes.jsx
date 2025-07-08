@@ -14,7 +14,7 @@ function Buscador_Destinos() {
   const [viaje, setViaje] = useState("ida");
   const [fecha, setFecha] = useState();
   const handleviajeChange = (type) => {
-    setViaje(type); 
+    setViaje(type);
   };
   const onSubmit = (data) => {
     navigate("/listadoTrenes", {
@@ -144,7 +144,7 @@ function Buscador_Destinos() {
       )}
       <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
-          <div className="tw-flex tw-justify-between">
+          <div className="tw-flex tw-justify-between tw-flex-wrap-reverse">
             <div className="tw-flex tw-gap-2">
               <div
                 onClick={() => handleviajeChange("ida")}
@@ -176,7 +176,7 @@ function Buscador_Destinos() {
               Buscador de Trenes
             </h2>
           </div>
-          <div className="tw-grid tw-grid-cols-3  2xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
+          <div className="tw-grid tw-grid-cols-2 lg:tw-grid-cols-4  2xl:tw-grid-cols-4 tw-gap-4 tw-mt-4">
             <Input_Select placeholder={"Origen"} />
             <Input_Select placeholder={"Destino"} />
             {viaje === "ida" ? (

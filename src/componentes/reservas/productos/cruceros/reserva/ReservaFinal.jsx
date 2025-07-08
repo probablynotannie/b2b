@@ -11,11 +11,12 @@ import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Error from "../filtros/Error";
 import Placeholder from "../../../../../helpers/placeholders/Detalles";
+
 function ReservaFinal() {
   const { state } = useLocation();
   const idCrucero = state?.producto?.id_crucero;
   const data = state?.data;
-  const precioSeleccionado = state?.precioSeleccionado;
+  const precioSeleccionado = state?.precioSeleccionado2 || random;
   const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -50,7 +51,6 @@ function ReservaFinal() {
       />
     );
   }
-
   if (!precioSeleccionado || !tarifaSigueDisponible) {
     return (
       <Error
@@ -65,6 +65,7 @@ function ReservaFinal() {
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
   const precioTotalPassajero = precioBase + tasasPorPasajero;
   const precioTotal = precioTotalPassajero * data.pasajeros.length;
+
   return (
     <main className=" tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
@@ -160,4 +161,5 @@ function ReservaFinal() {
     </main>
   );
 }
+
 export default ReservaFinal;
