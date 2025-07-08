@@ -187,7 +187,7 @@ function Buscador_Cruceros({ listado }) {
             {isFetching ? (
               <Cargando />
             ) : (
-              <span className="tw-text-sm tw-font-semibold">
+              <span className="tw-text-sm tw-font-semibold dark:tw-text-slate-300">
                 cruceros: {crucerosData.CountCruceros}
               </span>
             )}
