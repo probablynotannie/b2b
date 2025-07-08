@@ -1,11 +1,21 @@
 import Sidebar from "./sidebar/Sidebar";
 import { useState } from "react";
-import Destacados from "./buscadores/cruceros/Cruceros";
-import Zonas from "./buscadores/cruceros/Zonas";
-import Puertos from "./buscadores/cruceros/Puertos";
+import Destacados from "./buscadores/cruceros/destacados/Cruceros";
+import Zonas from "./buscadores/cruceros/destacados/Zonas";
+import Puertos from "./buscadores/cruceros/destacados/Puertos";
 import Buscador_Cruceros from "./buscadores/cruceros/Buscador_Cruceros";
+import { useQuery } from "@tanstack/react-query";
+import fetchCrucero from "./buscadores/cruceros/destacados/hook/fetch";
+import Zonas_Puertos_Placeholder from "./buscadores/cruceros/destacados/placeholders/Zonas_Puertos_Placeholder";
 function Cruceros() {
   const [duracion, setDuracion] = useState(2);
+  const { data, isLoading } = useQuery({
+    queryKey: ["destacados"],
+    queryFn: fetchCrucero,
+    refetchInterval: 10_000,
+    refetchIntervalInBackground: true,
+    refetchOnWindowFocus: false,
+  });
   const [requestData, setRequestData] = useState({
     idZona: 0,
     fechSal: 0,
@@ -29,20 +39,37 @@ function Cruceros() {
             <Buscador_Cruceros setDuracion={setDuracion} duracion={duracion} />
           </div>
         </div>
-        <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">
-          <div className="xl:tw-col-span-1">
-            <Zonas setRequestData={setRequestData} requestData={requestData} />
+        {isLoading ? (
+          <Zonas_Puertos_Placeholder />
+        ) : (
+          <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">
+            <div className="xl:tw-col-span-1">
+              <Zonas
+                data={data?.zonas}
+                isLoading={isLoading}
+                setRequestData={setRequestData}
+                requestData={requestData}
+              />
+            </div>
+            <div className="xl:tw-col-span-2">
+              <Puertos
+                data={data?.puertos}
+                isLoading={isLoading}
+                setRequestData={setRequestData}
+                requestData={requestData}
+              />
+            </div>
           </div>
-          <div className="xl:tw-col-span-2">
-            <Puertos
-              setRequestData={setRequestData}
-              requestData={requestData}
-            />
-          </div>
-        </div>
+        )}
       </div>
       <section className="tw-col-span-10 tw-mt-5">
-        <Destacados setRequestData={setRequestData} columnas={4} filas={2} />
+        <Destacados
+          data={data}
+          isLoading={isLoading}
+          setRequestData={setRequestData}
+          columnas={4}
+          filas={2}
+        />
       </section>
     </article>
   );

@@ -11,6 +11,7 @@ import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Error from "../filtros/Error";
 import Placeholder from "../../../../../helpers/placeholders/Detalles";
+
 function ReservaFinal() {
   const { state } = useLocation();
   const idCrucero = state?.producto?.id_crucero;
@@ -58,6 +59,7 @@ function ReservaFinal() {
       />
     );
   }
+
   const imagenCrucero = getImagenCrucero(producto);
   const precioBase = Number(precioSeleccionado.price);
   const tasasPorPasajero = Number(precioSeleccionado.datos.tasas);
@@ -159,4 +161,5 @@ function ReservaFinal() {
     </main>
   );
 }
+
 export default ReservaFinal;

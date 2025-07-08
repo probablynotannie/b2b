@@ -30,7 +30,6 @@ const fetchData = async (datosForm, page = 1) => {
     json: "1",
   });
   const url = `${baseUrl}?${params.toString()}`;
-
   try {
     const response = await fetch(url);
     if (!response.ok) throw new Error("Error cargando datos");
