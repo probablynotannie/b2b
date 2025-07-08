@@ -3,7 +3,15 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { GiCruiser } from "react-icons/gi";
 import { MdMeetingRoom } from "react-icons/md";
-import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
+import {
+  FaCalendar,
+  FaMapMarked,
+  FaInfoCircle,
+  FaShip,
+  FaMoon,
+  FaArrowUp,
+  FaGlobe,
+} from "react-icons/fa";
 import Reserva from "../../estructura/reserva/Resumen";
 import Tarifas from "./crucero/Tarifas";
 import Pasajeros from "./crucero/Pasajeros";
@@ -14,7 +22,7 @@ import Placeholder from "../../../../helpers/placeholders/Detalles";
 import { slugify } from "../../../../helpers/slugify";
 import Error from "./filtros/Error";
 import fetchCrucero from "./hook/crucero";
-
+import DatoTituloIcono from "../../../../helpers/visuales/DatoTituloIcono";
 function Producto() {
   const { idCrucero } = useParams();
   const [selectedTab, setSelectedTab] = useState("tarifas");
@@ -28,7 +36,7 @@ function Producto() {
     enabled: !!idCrucero,
     refetchOnWindowFocus: false,
   });
-
+  console.log(producto);
   const getCruiseImage = (producto) => {
     if (producto?.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -72,7 +80,37 @@ function Producto() {
             <p className="tw-text-slate-600 dark:tw-text-slate-400 tw-mt-3">
               {producto?.barco?.descripcion ?? "Sin descripción disponible."}
             </p>
-
+            <div className="tw-border-y tw-border-slate-100 dark:tw-border-slate-700 tw-py-10 tw-my-5 tw-text-slate-500 tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-10 tw-flex-wrap">
+              <DatoTituloIcono
+                className={"tw-text-pink-500"}
+                icon={<FaGlobe />}
+                title={"Puerto de salida"}
+                value={producto.puerto.name}
+              />
+              <DatoTituloIcono
+                className={"tw-text-blue-500"}
+                icon={<FaShip />}
+                title={"Barco"}
+                value={producto.barco.nombre.texto}
+              />
+              <DatoTituloIcono
+                className={"tw-text-secondary"}
+                icon={<FaArrowUp />}
+                title={"Naviera"}
+                value={producto.naviera.name_naviera}
+              />
+              <DatoTituloIcono
+                className={"tw-text-blue-600"}
+                icon={<FaMoon />}
+                title={"Duración"}
+                value={
+                  producto.num_dias +
+                  " días y " +
+                  producto.num_noches +
+                  " noches"
+                }
+              />
+            </div>
             <article className="tw-mt-5 tw-rounded-xl tw-shadow">
               <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
                 <button

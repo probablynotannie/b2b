@@ -16,7 +16,6 @@ function Buscador_Cruceros({ listado }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const defaultFormValues = useMemo(() => {
     const parts = location.pathname.split("/").filter(Boolean);
-
     const values = { idZona: "", idPuerto: "", idNav: "", fechSal: "" };
     for (let i = 0; i < parts.length; i++) {
       if (parts[i] === "idZona") values.idZona = parts[i + 1] ?? "";
@@ -34,11 +33,9 @@ function Buscador_Cruceros({ listado }) {
   const [idZona, idPuerto, idNav] = useWatch({
     control,
     name: ["idZona", "idPuerto", "idNav"],
-    defaultValue: ["0", "0", "0"],
   });
-
   const {
-    data: cruiseData = {
+    data: crucerosData = {
       zonas: [],
       puertos: [],
       navieras: [],
@@ -58,7 +55,6 @@ function Buscador_Cruceros({ listado }) {
           fechaSalida: "0",
           json: "1",
         });
-      console.log("GET", url);
       const res = await fetch(url);
       if (!res.ok) throw new Error("Problemas con red");
       return res.json();
@@ -71,28 +67,26 @@ function Buscador_Cruceros({ listado }) {
 
   const zonasOrd = useMemo(
     () =>
-      Array.isArray(cruiseData.zonas)
-        ? [...cruiseData.zonas].sort(sortByNameAsc)
+      Array.isArray(crucerosData.zonas)
+        ? [...crucerosData.zonas].sort(sortByNameAsc)
         : [],
-    [cruiseData.zonas]
+    [crucerosData.zonas]
   );
-
   const puertosOrd = useMemo(
     () =>
-      Array.isArray(cruiseData.puertos)
-        ? [...cruiseData.puertos].sort(sortByNameAsc)
+      Array.isArray(crucerosData.puertos)
+        ? [...crucerosData.puertos].sort(sortByNameAsc)
         : [],
-    [cruiseData.puertos]
+    [crucerosData.puertos]
   );
   const navierasOrd = useMemo(
     () =>
-      Array.isArray(cruiseData.navieras)
-        ? [...cruiseData.navieras].sort(sortByNameAsc)
+      Array.isArray(crucerosData.navieras)
+        ? [...crucerosData.navieras].sort(sortByNameAsc)
         : [],
-    [cruiseData.navieras]
+    [crucerosData.navieras]
   );
-
-  const buildCruiseURLFromForm = (f) => {
+  const buildUrl = (f) => {
     const parts = [];
     if (f.idZona) parts.push("idZona", f.idZona);
     if (f.idPuerto) parts.push("idPuerto", f.idPuerto);
@@ -105,11 +99,10 @@ function Buscador_Cruceros({ listado }) {
     return `/listadoCruceros/${parts.join("/")}`;
   };
   const onSubmit = (formData) => {
-    navigate(buildCruiseURLFromForm(formData), {
+    navigate(buildUrl(formData), {
       state: { datosForm: formData },
     });
   };
-
   return (
     <>
       <div className="tw-w-full sm:tw-hidden">
@@ -117,13 +110,12 @@ function Buscador_Cruceros({ listado }) {
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full"
         >
-          Buscador de Cruceros ({cruiseData.CountCruceros})
+          Buscador de Cruceros ({crucerosData.CountCruceros})
           <span className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
         </button>
       </div>
-
       {isModalOpen && (
         <div className="tw-fixed tw-inset-0 tw-bg-black/50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white dark:tw-bg-slate-800 tw-w-[100vw] tw-min-h-[100vh] tw-relative">
@@ -137,7 +129,7 @@ function Buscador_Cruceros({ listado }) {
                 </div>
               ) : (
                 <span className="tw-text-sm tw-font-semibold tw-text-white">
-                  cruceros: {cruiseData.CountCruceros}
+                  cruceros: {crucerosData.CountCruceros}
                 </span>
               )}
             </div>
@@ -196,7 +188,7 @@ function Buscador_Cruceros({ listado }) {
               <Cargando />
             ) : (
               <span className="tw-text-sm tw-font-semibold">
-                cruceros: {cruiseData.CountCruceros}
+                cruceros: {crucerosData.CountCruceros}
               </span>
             )}
           </div>
