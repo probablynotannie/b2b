@@ -3,15 +3,7 @@ import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import { GiCruiser } from "react-icons/gi";
 import { MdMeetingRoom } from "react-icons/md";
-import {
-  FaCalendar,
-  FaMapMarked,
-  FaInfoCircle,
-  FaShip,
-  FaMoon,
-  FaArrowUp,
-  FaGlobe,
-} from "react-icons/fa";
+import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
 import Reserva from "../../estructura/reserva/Resumen";
 import Tarifas from "./crucero/Tarifas";
 import Pasajeros from "./crucero/Pasajeros";
@@ -22,7 +14,6 @@ import Placeholder from "../../../../helpers/placeholders/Detalles";
 import { slugify } from "../../../../helpers/slugify";
 import Error from "./filtros/Error";
 import fetchCrucero from "./hook/crucero";
-import DatoTituloIcono from "../../../../helpers/visuales/DatoTituloIcono";
 import Detalles from "./crucero/Detalles";
 function Producto() {
   const { idCrucero } = useParams();
@@ -63,7 +54,6 @@ function Producto() {
       </div>
     );
   }
-
   const cruiseImage = getCruiseImage(producto) ?? "default-image.jpg";
 
   return (
@@ -129,7 +119,6 @@ function Producto() {
               </section>
             </article>
           </section>
-
           <article
             className={`tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5 ${
               !precioSeleccionado &&
@@ -148,7 +137,6 @@ function Producto() {
                     producto?.barco?.nombre?.texto ?? "este crucero"
                   }`}
                 />
-
                 <p className="tw-flex tw-gap-2 tw-mt-3 dark:tw-text-slate-100">
                   <span className="tw-flex tw-gap-1 tw-items-center">
                     <FaCalendar className="tw-text-secondary" />
