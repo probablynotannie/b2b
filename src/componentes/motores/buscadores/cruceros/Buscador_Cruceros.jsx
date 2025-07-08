@@ -195,7 +195,7 @@ function Buscador_Cruceros({ listado }) {
           <div
             className={`tw-col-span-4 ${
               listado
-                ? "lg:tw-col-span-4 xl:tw-col-span-2"
+                ? "lg:tw-col-span-4 xl:tw-col-span-3"
                 : "lg:tw-col-span-6 xl:tw-col-span-3"
             }`}
           >
@@ -228,14 +228,20 @@ function Buscador_Cruceros({ listado }) {
               placeholder="Naviera"
             />
           </div>
-          <div className="tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-2">
+          <div
+            className={`${
+              listado
+                ? "tw-col-span-5 lg:tw-col-span-5 xl:tw-col-span-2"
+                : "tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-2"
+            }`}
+          >
             <Input_Mes control={control} name="fechSal" />
           </div>
           <div
-            className={`tw-col-span-6 lg:tw-col-span-4 ${
+            className={`${
               listado
-                ? "lg:tw-col-span-4 xl:tw-col-span-3"
-                : "lg:tw-col-span-4 xl:tw-col-span-2"
+                ? "tw-col-span-5 lg:tw-col-span-5 xl:tw-col-span-2"
+                : "tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-2"
             }`}
           >
             <Input_Dias control={control} name="duracion" />
@@ -246,7 +252,7 @@ function Buscador_Cruceros({ listado }) {
               Buscar
             </button>
           ) : (
-            <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-span-4 xl:tw-col-span-1">
+            <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-span-2 lg:tw-col-span-2 xl:tw-col-span-1">
               <FaSearch className="tw-text-white tw-text-xl" />
             </button>
           )}

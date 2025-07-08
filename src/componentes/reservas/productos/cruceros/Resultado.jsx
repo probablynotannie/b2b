@@ -101,8 +101,9 @@ function Productos() {
   const pageSize = 20;
   const totalPages = Math.ceil(totalResults / pageSize);
   useMemo(() => {
+    console.log("memo");
     setPage(1);
-  }, [JSON.stringify(datosFormNormalized)]);
+  }, []);
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
@@ -118,7 +119,7 @@ function Productos() {
         </div>
       </div>
 
-      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[55vh] lg:tw-min-h-[40vh]">
+      <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container md:tw-mt-5 tw-min-h-[55vh] lg:tw-min-h-[40vh]">
         {newRequestData.img && (
           <section className="tw-mb-10">
             <h1 className="tw-text-2xl tw-text-secondary tw-font-extrabold tw-mb-5">
@@ -208,7 +209,7 @@ function Productos() {
                         disabled={page === 1}
                         className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400"
                       >
-                        Anterior
+                        anterior
                       </button>
                       {[...Array(totalPages)].map((_, idx) => (
                         <button
@@ -230,7 +231,7 @@ function Productos() {
                         disabled={page === totalPages}
                         className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400"
                       >
-                        Siguiente
+                        siguiente
                       </button>
                     </div>
                   )}
