@@ -23,7 +23,7 @@ import { slugify } from "../../../../helpers/slugify";
 import Error from "./filtros/Error";
 import fetchCrucero from "./hook/crucero";
 import DatoTituloIcono from "../../../../helpers/visuales/DatoTituloIcono";
-import Detalles from "./reserva/Detalles";
+import Detalles from "./crucero/Detalles";
 function Producto() {
   const { idCrucero } = useParams();
   const [selectedTab, setSelectedTab] = useState("tarifas");
@@ -78,7 +78,9 @@ function Producto() {
             <h1 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
               Reservando el crucero
             </h1>
-
+            <p className="tw-text-slate-600 dark:tw-text-slate-400 tw-mt-3">
+              {producto?.barco?.descripcion ?? "Sin descripción disponible."}
+            </p>
             <Detalles producto={producto} />
             <article className="tw-mt-5 tw-rounded-xl tw-shadow">
               <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
