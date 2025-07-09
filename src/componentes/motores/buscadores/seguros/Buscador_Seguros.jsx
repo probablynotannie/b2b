@@ -89,7 +89,6 @@ function Buscador_Destinos() {
   });
 
   const onSubmit = (data) => {
-    
     navigate("/seguro", {
       state: { data },
     });
@@ -189,44 +188,54 @@ function Buscador_Destinos() {
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Destinos
           </h2>
-          <div className="tw-grid tw-grid-cols-3 lg:tw-grid-cols-3 2xl:tw-grid-cols-5 tw-gap-4 tw-mt-4">
-            <Input_Select
-              errors={errors}
-              icono={<FaUserShield />}
-              placeholder="Tipo seguro"
-              opciones={seguros}
-              name={"tipo"}
-              register={register}
-            />
-            <Input_Select
-              errors={errors}
-              icono={<FaGlobe />}
-              placeholder="Destino"
-              opciones={destinos}
-              name={"destino"}
-              register={register}
-            />
-            <Input_dateRange
-              control={control}
-              placeholder={"Fechas"}
-              nameStartDate={"salida"}
-              nameEndDate={"llegada"}
-            />
-            <Input_Select
-              errors={errors}
-              icono={<IoPersonSharp />}
-              placeholder="Residencia"
-              opciones={residentes}
-              name="residente"
-              register={register}
-            />
-            <Input_selectNum
-              placeholder={"Núm pasajeros"}
-              control={control}
-              name={"pasajeros"}
-              num={maxPasajeros}
-              icono={<FaPerson />}
-            />
+          <div className="tw-grid tw-grid-cols-12 tw-gap-4 tw-mt-4">
+            <div className="tw-col-span-6 xl:tw-col-span-3">
+              <Input_Select
+                errors={errors}
+                icono={<FaUserShield />}
+                placeholder="Tipo seguro"
+                opciones={seguros}
+                name={"tipo"}
+                register={register}
+              />
+            </div>
+            <div className="tw-col-span-6 xl:tw-col-span-3">
+              <Input_Select
+                errors={errors}
+                icono={<FaGlobe />}
+                placeholder="Destino"
+                opciones={destinos}
+                name={"destino"}
+                register={register}
+              />
+            </div>
+            <div className="tw-col-span-4 xl:tw-col-span-2">
+              <Input_dateRange
+                control={control}
+                placeholder={"Fechas"}
+                nameStartDate={"salida"}
+                nameEndDate={"llegada"}
+              />
+            </div>
+            <div className="tw-col-span-4 xl:tw-col-span-2">
+              <Input_Select
+                errors={errors}
+                icono={<IoPersonSharp />}
+                placeholder="Residencia"
+                opciones={residentes}
+                name="residente"
+                register={register}
+              />
+            </div>
+            <div className="tw-col-span-4 xl:tw-col-span-2">
+              <Input_selectNum
+                placeholder={"Personas"}
+                control={control}
+                name={"pasajeros"}
+                num={maxPasajeros}
+                icono={<FaPerson />}
+              />
+            </div>
           </div>
           <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
             Buscar
