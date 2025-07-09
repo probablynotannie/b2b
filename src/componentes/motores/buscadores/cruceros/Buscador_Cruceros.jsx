@@ -115,10 +115,10 @@ function Buscador_Cruceros({ listado }) {
       <div className="tw-w-full sm:tw-hidden">
         <button
           onClick={() => setIsModalOpen(true)}
-          className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full"
+          className="tw-relative tw-border tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 tw-border-slate-300 tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full"
         >
           Buscador de Cruceros ({crucerosData.CountCruceros})
-          <span className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+          <span className="tw-absolute tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
             <FaSearch />
           </span>
         </button>

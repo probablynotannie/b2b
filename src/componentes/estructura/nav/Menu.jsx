@@ -22,15 +22,12 @@ import { Link } from "react-router-dom";
 const Dropdown = () => {
   const [openDropdown, setOpenDropdown] = useState(null);
   const dropdownRefs = useRef({});
-
   const toggleDropdown = (category) => {
     setOpenDropdown((prev) => (prev === category ? null : category));
   };
-
   const handleItemClick = () => {
     setOpenDropdown(null);
   };
-
   const menu = [
     {
       key: "motores",
@@ -186,7 +183,7 @@ const Dropdown = () => {
             </button>
             {openDropdown === category.key && (
               <ul
-                className={`tw-absolute tw-z-50 tw-top-full tw-mt-2 tw-border-2 tw-bg-white dark:tw-bg-slate-800 dark:tw-border-slate-500 
+                className={`tw-absolute tw-z-50 tw-top-full tw-mt-2 tw-border-2 tw-bg-white dark:tw-bg-slate-800 dark:tw-border-slate-600 
             tw-rounded-lg tw-shadow-lg tw-border-slate-200 tw-min-w-[70vw] tw-max-w-[90vw] tw-max-h-[80vh] tw-overflow-auto 
             tw-grid sm:tw-grid-cols-2 md:tw-grid-cols-3 lg:tw-grid-cols-4 
             ${
