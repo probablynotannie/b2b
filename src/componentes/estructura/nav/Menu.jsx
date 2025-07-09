@@ -133,7 +133,12 @@ const Dropdown = () => {
         },
       ],
     },
-  ];
+  ].map((section) => ({
+    ...section,
+    subItems: [...section.subItems].sort((a, b) =>
+      a.texto.localeCompare(b.texto, "es", { sensitivity: "base" })
+    ),
+  }));
 
   useEffect(() => {
     const handleClickOutside = (event) => {
@@ -164,7 +169,7 @@ const Dropdown = () => {
 
   return (
     <nav>
-      <ul className="tw-flex tw-gap-6 tw-items-center tw-flex-wrap">
+      <ul className="tw-flex tw-gap-6 tw-items-center tw-flex-wrap tw-z-20">
         {menu.map((category) => (
           <li
             key={category.key}
