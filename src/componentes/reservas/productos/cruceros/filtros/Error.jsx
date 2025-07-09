@@ -2,15 +2,15 @@ import { Link } from "react-router-dom";
 
 const AnimatedCruise = ({ error, tipo, enlace }) => {
   const colors = {
-    hullGradientStart: tipo === 2 ? "#1E3A8A" : "#7F1D1D",
-    hullGradientEnd: tipo === 2 ? "#2563EB" : "#B91C1C",
-    hullStroke: tipo === 2 ? "#1E40AF" : "#7F1D1D",
-    hullFill: tipo === 2 ? "#3B82F6" : "#B91C1C",
-    windowFill: tipo === 2 ? "#BFDBFE" : "#FCA5A5",
-    mastFill: tipo === 2 ? "#1E40AF" : "#7F1D1D",
-    flagFill: tipo === 2 ? "#3B82F6" : "#EF4444",
-    waveStroke: "#3B82F6", // always blue to avoid red lines
-    textColor: tipo === 2 ? "tw-text-blue-400" : "tw-text-red-400",
+    hullGradientStart:
+      tipo === 2 ? "#1E3A8A" : tipo === 3 ? "#4F46E5" : "#7F1D1D",
+    hullGradientEnd:
+      tipo === 2 ? "#2563EB" : tipo === 3 ? "#6366F1" : "#B91C1C",
+    hullStroke: tipo === 2 ? "#1E40AF" : tipo === 3 ? "#3730A3" : "#7F1D1D",
+    hullFill: tipo === 2 ? "#3B82F6" : tipo === 3 ? "#818CF8" : "#B91C1C",
+    windowFill: tipo === 2 ? "#BFDBFE" : tipo === 3 ? "#C7D2FE" : "#FCA5A5",
+    mastFill: tipo === 2 ? "#1E40AF" : tipo === 3 ? "#3730A3" : "#7F1D1D",
+    flagFill: tipo === 2 ? "#3B82F6" : tipo === 3 ? "#6366F1" : "#EF4444",
   };
 
   return (
@@ -41,7 +41,11 @@ const AnimatedCruise = ({ error, tipo, enlace }) => {
             <circle cx="26" cy="26" r="2" fill={colors.windowFill} />
             <circle cx="38" cy="26" r="2" fill={colors.windowFill} />
             <path
-              d={tipo === 2 ? "M30 28 Q32 30 34 28" : "M30 30 Q32 27 35 30"}
+              d={
+                tipo === 2 || tipo === 3
+                  ? "M30 28 Q32 30 34 28"
+                  : "M30 30 Q32 27 35 30"
+              }
               stroke={colors.windowFill}
               strokeWidth="1.5"
               fill="none"

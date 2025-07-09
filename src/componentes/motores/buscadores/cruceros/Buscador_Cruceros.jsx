@@ -16,12 +16,19 @@ function Buscador_Cruceros({ listado }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const defaultFormValues = useMemo(() => {
     const parts = location.pathname.split("/").filter(Boolean);
-    const values = { idZona: "", idPuerto: "", idNav: "", fechSal: "" };
+    const values = {
+      idZona: "",
+      idPuerto: "",
+      idNav: "",
+      fechSal: "",
+      duracion: "",
+    };
     for (let i = 0; i < parts.length; i++) {
       if (parts[i] === "idZona") values.idZona = parts[i + 1] ?? "";
       if (parts[i] === "idPuerto") values.idPuerto = parts[i + 1] ?? "";
       if (parts[i] === "idNav") values.idNav = parts[i + 1] ?? "";
       if (parts[i] === "fechSal") values.fechSal = parts[i + 1] ?? "";
+      if (parts[i] === "duracion") values.duracion = parts[i + 1] ?? "";
     }
     return values;
   }, [location.pathname]);
