@@ -4,7 +4,6 @@ import Input_DateRange from "../../../inputs/filtrados/fechas/DateRange";
 import Input_Texto from "../../../inputs/filtrados/Texto";
 
 function Filtrado({
-
   fechaEntradaDesde,
   setFechaEntradaDesde,
   fechaEntradaHasta,

@@ -196,8 +196,8 @@ function Buscador_Coches({ listado }) {
                 lugarEntrega === true && listado === true
                   ? "tw-col-span-12 lg:tw-col-span-12 xl:tw-col-span-3 2xl:tw-col-span-4"
                   : lugarEntrega === false
-                  ? "tw-col-span-12 lg:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-3"
-                  : "tw-col-span-12 lg:tw-col-span-3 2xl:tw-col-span-4"
+                  ? "tw-col-span-6 lg:tw-col-span-6 xl:tw-col-span-3 2xl:tw-col-span-3"
+                  : "tw-col-span-12 lg:tw-col-span-12 xl:tw-col-span-4 2xl:tw-col-span-4"
               }
             >
               <Input_Destinos
@@ -213,7 +213,7 @@ function Buscador_Coches({ listado }) {
               <div
                 className={`${
                   lugarEntrega === false
-                    ? "tw-col-span-6 xl:tw-col-span-3"
+                    ? "tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-3"
                     : "tw-col-span-2"
                 }`}
               >
@@ -254,7 +254,7 @@ function Buscador_Coches({ listado }) {
             <div
               className={`${
                 listado === true
-                  ? "tw-col-span-3 lg:tw-col-span-2 2xl:tw-col-span-1"
+                  ? "tw-col-span-3 lg:tw-col-span-2 xl:tw-col-span-2 2xl:tw-col-span-1"
                   : "tw-col-span-4 xl:tw-col-span-2"
               }`}
             >

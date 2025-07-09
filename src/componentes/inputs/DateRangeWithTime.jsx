@@ -86,7 +86,6 @@ const DateWithTime = ({
           withTime
           clearable
           minDate={new Date()}
-          ampm={false}
           timeInputProps={{ type: "select" }}
           styles={{
             input: {
