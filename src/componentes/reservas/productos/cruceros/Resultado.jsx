@@ -98,7 +98,6 @@ function Productos() {
   const pageSize = 20;
   const totalPages = Math.ceil(totalResults / pageSize);
   useMemo(() => {
-    console.log("memo");
     setPage(1);
   }, []);
 
@@ -185,7 +184,10 @@ function Productos() {
                         >
                           <FaAnglesLeft />
                         </button>
-                        <span className="tw-text-slate-500 dark:tw-text-slate-300"> {page}</span>
+                        <span className="tw-text-slate-500 dark:tw-text-slate-300">
+                          {" "}
+                          {page}
+                        </span>
                         <button
                           onClick={() =>
                             setPage((p) => Math.min(totalPages, p + 1))
@@ -201,13 +203,6 @@ function Productos() {
                   <Cruceros destinos={cruceros} />
                   {totalPages > 1 && (
                     <div className="tw-flex tw-flex-wrap tw-justify-center tw-items-center tw-gap-2 tw-mt-6">
-                      <button
-                        onClick={() => setPage((p) => Math.max(1, p - 1))}
-                        disabled={page === 1}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400 disabled:dark:tw-bg-slate-600"
-                      >
-                        anterior
-                      </button>
                       {[...Array(totalPages)].map((_, idx) => (
                         <button
                           key={idx + 1}
@@ -221,15 +216,6 @@ function Productos() {
                           {idx + 1}
                         </button>
                       ))}
-                      <button
-                        onClick={() =>
-                          setPage((p) => Math.min(totalPages, p + 1))
-                        }
-                        disabled={page === totalPages}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400 disabled:dark:tw-bg-slate-600"
-                      >
-                        siguiente
-                      </button>
                     </div>
                   )}
                 </div>
