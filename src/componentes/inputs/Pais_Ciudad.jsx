@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { FaMap } from "react-icons/fa";
-import { useController } from "react-hook-form"; 
+import { useController } from "react-hook-form";
 
 function SelectorPaisCiudad({
   control,
@@ -62,7 +62,7 @@ function SelectorPaisCiudad({
                   (r) => r.id === fieldRegion.value
                 )?.name
               }`
-            : "Selecciona continente y región"}
+            : "Continente y región"}
         </span>
         <svg
           className="tw-w-2.5 tw-h-2.5"

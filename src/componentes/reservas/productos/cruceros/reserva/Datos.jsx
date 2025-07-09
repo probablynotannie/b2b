@@ -65,6 +65,12 @@ const Datos = () => {
     "Colombia",
   ].map((pais, id) => ({ id, pais }));
 
+  function ordenarPaisesAlfabeticamente(arr) {
+    return [...arr].sort((a, b) =>
+      a.pais.localeCompare(b.pais, "es", { sensitivity: "base" })
+    );
+  }
+  const paisesOrdenados = ordenarPaisesAlfabeticamente(paises);
   const handleGenderChange = (idx, genero) =>
     setValue(`pasajeros[${idx}].genero`, genero, { shouldValidate: true });
 
@@ -213,7 +219,7 @@ const Datos = () => {
                       {...register(`pasajeros[${index}].pais`)}
                     >
                       <option value="">País</option>
-                      {paises.map(({ id, pais }) => (
+                      {paisesOrdenados.map(({ id, pais }) => (
                         <option key={id} value={pais}>
                           {pais}
                         </option>

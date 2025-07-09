@@ -97,7 +97,7 @@ function Fecha({
                         : undefined
                     }
                     excludeDate={deshabilitable === true ? disabledDates : null}
-                    placeholder="Selecciona fecha"
+                    placeholder="Fecha"
                     value={fecha}
                     onChange={handleDateChange}
                     required={required === true}

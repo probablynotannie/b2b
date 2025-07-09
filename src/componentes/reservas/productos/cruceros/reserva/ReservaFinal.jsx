@@ -16,7 +16,7 @@ function ReservaFinal() {
   const { state } = useLocation();
   const idCrucero = state?.producto?.id_crucero;
   const data = state?.data;
-  const precioSeleccionado = state?.precioSeleccionado2 || random;
+  const precioSeleccionado = state?.precioSeleccionado || random;
   const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;

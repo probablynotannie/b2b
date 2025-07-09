@@ -8,7 +8,7 @@ function Circuitos() {
       <Sidebar />
       <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
         <div
-          className="tw-relative tw-h-fit md:tw-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+          className="tw-relative tw-h-fit md:tw-min-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
             backgroundImage: `url(/banners/banner_circuitos.webp)`,
             backgroundSize: "cover",

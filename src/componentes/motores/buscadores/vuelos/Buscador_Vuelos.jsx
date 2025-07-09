@@ -7,7 +7,7 @@ import Input_Fecha from "../../../inputs/Fecha";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { GoArrowSwitch } from "react-icons/go";
-function Buscador_Cruceros() {
+function Buscador_Cruceros({ listado }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [fecha, setFecha] = useState();
@@ -43,7 +43,11 @@ function Buscador_Cruceros() {
   };
   return (
     <>
-      <div className="tw-w-full sm:tw-hidden">
+      <div
+        className={`tw-w-full ${
+          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
+        }`}
+      >
         <button
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"

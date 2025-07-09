@@ -4,7 +4,7 @@ import destinos from "./destinos.json";
 import Input_Destinos from "../../../inputs/Destinos";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-function Buscador_Destinos() {
+function Buscador_Destinos({ listado }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const onSubmit = (data) => {
@@ -19,7 +19,11 @@ function Buscador_Destinos() {
   } = useForm();
   return (
     <>
-      <div className="tw-w-full sm:tw-hidden">
+      <div
+        className={`tw-w-full ${
+          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
+        }`}
+      >
         <button
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
