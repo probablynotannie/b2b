@@ -17,6 +17,7 @@ function Vuelos() {
 
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
+
   useEffect(() => {
     const findCheapestCombination = () => {
       let cheapestCombination = null;

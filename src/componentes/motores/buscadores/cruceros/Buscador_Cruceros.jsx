@@ -8,7 +8,7 @@ import Input_Puertos from "../../../inputs/Puertos";
 import Input_Navieras from "../../../inputs/Navieras";
 import Input_Mes from "../../../inputs/Mes";
 import Input_Dias from "../../../inputs/SelectorDias";
-import Cargando from "../../../../helpers/placeholders/Cargando";
+import Cargando from "../../../../helpers/placeholders/Spinner";
 
 function Buscador_Cruceros({ listado }) {
   const navigate = useNavigate();
