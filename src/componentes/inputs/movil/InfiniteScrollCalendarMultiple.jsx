@@ -63,10 +63,8 @@ const InfiniteScrollCalendar = ({
       const candidate = new Date();
       candidate.setDate(candidate.getDate() + i);
 
-      const isBeforeMin =
-        fechaMin && isBefore(candidate, startOfDay(fechaMin));
-      const isAfterMax =
-        fechaMax && isAfter(candidate, startOfDay(fechaMax));
+      const isBeforeMin = fechaMin && isBefore(candidate, startOfDay(fechaMin));
+      const isAfterMax = fechaMax && isAfter(candidate, startOfDay(fechaMax));
       const isBeforeToday = isBefore(candidate, today);
 
       if (!isBeforeMin && !isAfterMax && !isBeforeToday) {
@@ -210,7 +208,7 @@ const InfiniteScrollCalendar = ({
         "dd/MM/yyyy"
       )}`;
     }
-    return "Selecciona Fechas";
+    return "Fechas";
   };
 
   return (

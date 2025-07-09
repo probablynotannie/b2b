@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import Coches from "./Listado";
 import { useQuery } from "@tanstack/react-query";
-import Buscador from "./filtros/Buscador";
+import Buscador from "../../../motores/buscadores/transfers/Buscador_Transfers";
 import Aside from "./filtros/Aside";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/transfers";
@@ -65,7 +65,7 @@ function Productos() {
         <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-text-pink-600 tw-bg-orange-200 tw-pointer-events-none dark:tw-bg-black tw-bg-opacity-35 dark:tw-bg-opacity-45"></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">
-            <Buscador />
+            <Buscador listado={true} />
           </div>
           <aside className="tw-col-span-9 tw-px-3 tw-transition tw-rounded-lg lg:tw-hidden lg:tw-col-span-3 tw-h-fit  tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 lg:tw-shadow-xl hover:lg:tw-shadow-2xl lg:tw-p-3 lg:tw-pb-10">
             <Aside values={values} setValues={setValues} minMax={minMax} />

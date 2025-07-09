@@ -8,7 +8,7 @@ import Input_Hora from "../../../inputs/Hora";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 
-function Buscador_Coches() {
+function Buscador_Coches({ listado }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [lugarEntrega, setLugarEntrega] = useState(true);
@@ -43,9 +43,14 @@ function Buscador_Coches() {
       state: { data },
     });
   };
+  console.log(listado, lugarEntrega);
   return (
     <>
-      <div className="tw-w-full sm:tw-hidden">
+      <div
+        className={`tw-w-full ${
+          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
+        }`}
+      >
         <button
           onClick={() => setIsModalOpen(true)}
           className=" tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
@@ -154,7 +159,11 @@ function Buscador_Coches() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div
+        className={`tw-hidden ${
+          listado === true ? "lg:tw-flex" : "sm:tw-flex"
+        } tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
+      >
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <div className="tw-flex tw-justify-between tw-items-center">
             <div className="tw-flex tw-items-center tw-gap-2 tw-mt-3">
@@ -181,9 +190,15 @@ function Buscador_Coches() {
               Buscador de Coches
             </h2>
           </div>
-          <div className="tw-grid tw-grid-cols-4 md:tw-grid-cols-4 xl:tw-grid-cols-5 tw-gap-4 tw-mt-4 tw-items-start">
+          <div className="tw-grid tw-grid-cols-12 tw-gap-4 tw-mt-4 tw-items-start">
             <div
-              className={`${lugarEntrega === false ? "" : "xl:tw-col-span-2"}`}
+              className={
+                lugarEntrega === true && listado === true
+                  ? "tw-col-span-12 lg:tw-col-span-12 xl:tw-col-span-3 2xl:tw-col-span-4"
+                  : lugarEntrega === false
+                  ? "tw-col-span-12 lg:tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-3"
+                  : "tw-col-span-12 lg:tw-col-span-3 2xl:tw-col-span-4"
+              }
             >
               <Input_Destinos
                 required={true}
@@ -195,38 +210,71 @@ function Buscador_Coches() {
               />
             </div>
             {lugarEntrega === false && (
-              <Input_Destinos
-                required={true}
-                control={control}
-                name={"destino"}
-                setValue={setValue}
-                placeholder={"Destino"}
-                destinos={destinos}
-              />
+              <div
+                className={`${
+                  lugarEntrega === false
+                    ? "tw-col-span-6 xl:tw-col-span-3"
+                    : "tw-col-span-2"
+                }`}
+              >
+                <Input_Destinos
+                  required={true}
+                  control={control}
+                  name={"destino"}
+                  setValue={setValue}
+                  placeholder={"Destino"}
+                  destinos={destinos}
+                />
+              </div>
             )}
-
-            <Input_DateRange
-              control={control}
-              nameFecha="startDate"
-              nameHora="horaRecogida"
-              placeholder="Selecciona una fecha y hora"
-            />
-            <Input_DateRange
-              control={control}
-              nameFecha="endDate"
-              nameHora="horaDevolucion"
-              placeholder="Selecciona una fecha y hora"
-            />
-            <Input_Edad
-              control={control}
-              name="edadConductor"
-              edadMinima={18}
-              edadMaxima={100}
-            />
+            <div
+              className={`tw-col-span-4 ${
+                lugarEntrega === false ? "xl:tw-col-span-2" : "xl:tw-col-span-3"
+              } `}
+            >
+              <Input_DateRange
+                control={control}
+                nameFecha="startDate"
+                nameHora="horaRecogida"
+                placeholder="Selecciona una fecha y hora"
+              />
+            </div>
+            <div
+              className={`tw-col-span-4 ${
+                lugarEntrega === false ? "xl:tw-col-span-2" : "xl:tw-col-span-3"
+              } `}
+            >
+              <Input_DateRange
+                control={control}
+                nameFecha="endDate"
+                nameHora="horaDevolucion"
+                placeholder="Selecciona una fecha y hora"
+              />
+            </div>
+            <div
+              className={`${
+                listado === true
+                  ? "tw-col-span-3 lg:tw-col-span-2 2xl:tw-col-span-1"
+                  : "tw-col-span-4 xl:tw-col-span-2"
+              }`}
+            >
+              <Input_Edad
+                control={control}
+                name="edadConductor"
+                edadMinima={18}
+                edadMaxima={100}
+              />
+            </div>
+            {listado !== true ? (
+              <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
+                Buscar
+              </button>
+            ) : (
+              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-span-2 xl:tw-col-span-1">
+                <FaSearch className="tw-text-white tw-text-xl" />
+              </button>
+            )}
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
-            Buscar
-          </button>
         </form>
       </div>
     </>

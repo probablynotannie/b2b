@@ -13,13 +13,13 @@ import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
 import Placeholder from "../../../../../helpers/placeholders/Datos";
 import random from "./random.json";
+
 const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
   const precioSeleccionado = state?.precioSeleccionado;
-
   const { data: productoRaw, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
@@ -65,11 +65,15 @@ const Datos = () => {
     "Colombia",
   ].map((pais, id) => ({ id, pais }));
 
-  const handleGenderChange = (idx, genero) =>
+  function ordenarPaisesAlfabeticamente(arr) {
+    return [...arr].sort((a, b) =>
+      a.pais.localeCompare(b.pais, "es", { sensitivity: "base" })
+    );
+  }
+  const paisesOrdenados = ordenarPaisesAlfabeticamente(paises);
+  const handleGeneroChange = (idx, genero) =>
     setValue(`pasajeros[${idx}].genero`, genero, { shouldValidate: true });
-
   const formatDate = (d) => new Date(d).toLocaleDateString("es-ES");
-
   const calcularEdad = (f) => {
     const hoy = new Date(),
       nac = new Date(f);
@@ -79,12 +83,11 @@ const Datos = () => {
     return edad;
   };
 
-  if (isLoading) return <Placeholder />;
-
   const tarifaSigueDisponible = producto?.tarifas?.some(
     (t) => t.id_tarifa === precioSeleccionado?.datos?.id_tarifa
   );
 
+  if (isLoading) return <Placeholder />;
   if (!tarifaSigueDisponible) {
     return (
       <Error
@@ -107,13 +110,14 @@ const Datos = () => {
   const handleDateChange = (date, index) => {
     if (!date) return;
     const formattedDate = formatDate(date);
+    console.log(formattedDate);
     setValue(`pasajeros[${index}].fechaNacimiento`, formattedDate);
     const edadCalculada = calcularEdad(date);
-    const expectedAge = pasajeros[index].age;
-    if (edadCalculada !== expectedAge) {
+    const edadEsperada = pasajeros[index].age;
+    if (edadCalculada !== edadEsperada) {
       setError(`pasajeros[${index}].fechaNacimiento`, {
         type: "manual",
-        message: `No coincide con la edad del pasajero (${expectedAge} años). Calculado: ${edadCalculada} años`,
+        message: `No coincide con la edad del pasajero (${edadEsperada} años). Calculado: ${edadCalculada} años`,
       });
     } else {
       clearErrors(`pasajeros[${index}].fechaNacimiento`);
@@ -213,7 +217,7 @@ const Datos = () => {
                       {...register(`pasajeros[${index}].pais`)}
                     >
                       <option value="">País</option>
-                      {paises.map(({ id, pais }) => (
+                      {paisesOrdenados.map(({ id, pais }) => (
                         <option key={id} value={pais}>
                           {pais}
                         </option>
@@ -233,7 +237,7 @@ const Datos = () => {
                         ? "tw-bg-blue-500 dark:tw-bg-blue-600 tw-text-white"
                         : "tw-bg-slate-200 dark:tw-bg-slate-500 tw-text-black"
                     }`}
-                    onClick={() => handleGenderChange(index, "Hombre")}
+                    onClick={() => handleGeneroChange(index, "Hombre")}
                   >
                     <FaMars />
                   </button>
@@ -245,7 +249,7 @@ const Datos = () => {
                         ? "tw-bg-pink-400 dark:tw-bg-pink-600 tw-text-white"
                         : "tw-bg-slate-200 dark:tw-bg-slate-500 tw-text-black"
                     }`}
-                    onClick={() => handleGenderChange(index, "Mujer")}
+                    onClick={() => handleGeneroChange(index, "Mujer")}
                   >
                     <FaVenus />
                   </button>

@@ -9,7 +9,7 @@ import Input_Bonificacion from "../../../inputs/Bonificacion";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { GoArrowSwitch } from "react-icons/go";
-function Buscador_Destinos() {
+function Buscador_Destinos({ listado }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viaje, setViaje] = useState("ida");
@@ -48,7 +48,11 @@ function Buscador_Destinos() {
 
   return (
     <>
-      <div className="tw-w-full sm:tw-hidden">
+      <div
+        className={`tw-w-full ${
+          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
+        }`}
+      >
         <button
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
@@ -169,7 +173,11 @@ function Buscador_Destinos() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div
+        className={`tw-hidden ${
+          listado === true ? "lg:tw-flex" : "sm:tw-flex"
+        } tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
+      >
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <div className="tw-flex tw-justify-between tw-flex-wrap-reverse">
             <div className="tw-flex tw-gap-2">
@@ -205,23 +213,35 @@ function Buscador_Destinos() {
           </div>
 
           <div className="tw-grid tw-grid-cols-12 tw-gap-4 tw-mt-4">
-            <div className=" tw-col-span-6 xl:tw-col-span-3">
+            <div
+              className={`${
+                listado === true
+                  ? "tw-col-span-6 2xl:tw-col-span-2"
+                  : "tw-col-span-6 2xl:tw-col-span-3"
+              }`}
+            >
               <Input_Destinos
                 datos={datos_destinos}
                 name="idZonaOrigen"
                 control={control}
-                placeholder="Selecciona un origen"
+                placeholder="Origen"
               />
             </div>
-            <div className=" tw-col-span-6 xl:tw-col-span-2">
+            <div className=" tw-col-span-6 2xl:tw-col-span-2">
               <Input_Destinos
                 datos={datos_destinos}
                 name="idZona"
                 control={control}
-                placeholder="Selecciona un destino"
+                placeholder="Destino"
               />
             </div>
-            <div className=" tw-col-span-4 xl:tw-col-span-3">
+            <div
+              className={`${
+                listado === true
+                  ? "tw-col-span-3 2xl:tw-col-span-3"
+                  : "tw-col-span-4 2xl:tw-col-span-3"
+              }`}
+            >
               {viaje === "ida" ? (
                 <div className="tw-flex tw-flex-col">
                   <Input_Fecha
@@ -240,7 +260,13 @@ function Buscador_Destinos() {
                 />
               )}
             </div>
-            <div className=" tw-col-span-4 xl:tw-col-span-2">
+            <div
+              className={`${
+                listado === true
+                  ? "tw-col-span-3 2xl:tw-col-span-2"
+                  : "tw-col-span-4 2xl:tw-col-span-2"
+              }`}
+            >
               <Input_Bonificacion
                 setValue={setValue}
                 namePasajeros="pasajeros"
@@ -248,7 +274,13 @@ function Buscador_Destinos() {
                 errors={errors}
               />
             </div>
-            <div className=" tw-col-span-4 xl:tw-col-span-2">
+            <div
+              className={`${
+                listado === true
+                  ? "tw-col-span-5 2xl:tw-col-span-2"
+                  : "tw-col-span-4 2xl:tw-col-span-2"
+              }`}
+            >
               <Input_Vehiculos
                 setValue={setValue}
                 nameVehiculos="vehiculos"
@@ -260,10 +292,16 @@ function Buscador_Destinos() {
                 nameAltRemolque={"alturaRemolque"}
               />
             </div>
+            {listado !== true ? (
+              <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
+                Buscar
+              </button>
+            ) : (
+              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
+                <FaSearch className="tw-text-white tw-text-xl" />
+              </button>
+            )}
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
-            Buscar
-          </button>
         </form>
       </div>
     </>

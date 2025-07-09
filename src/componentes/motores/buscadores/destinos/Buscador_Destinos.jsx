@@ -10,7 +10,7 @@ import {
 import Input_Destinos from "../../../inputs/Pais_Ciudad";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-function Buscador_Destinos() {
+function Buscador_Destinos({ listado }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const navigate = useNavigate();
   const continents = [
@@ -71,7 +71,11 @@ function Buscador_Destinos() {
   });
   return (
     <>
-      <div className="tw-w-full sm:tw-hidden">
+      <div
+        className={`tw-w-full ${
+          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
+        }`}
+      >
         <button
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
@@ -125,24 +129,46 @@ function Buscador_Destinos() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div
+        className={`tw-hidden ${
+          listado === true ? "lg:tw-flex" : "sm:tw-flex"
+        } tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
+      >
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
             Buscador de Destinos
           </h2>
-          <div className="tw-grid tw-grid-cols-2 tw-gap-4 tw-mt-4">
-            <Input_Destinos
-              control={control}
-              nameContinent="continent"
-              nameRegion="region"
-              continents={continents}
-              regions={regions}
-            />
-            <Input_Mes name={"fechSal"} control={control} />
+          <div className="tw-grid tw-grid-cols-12 tw-gap-4 tw-mt-4">
+            <div
+              className={`${
+                listado === true ? "tw-col-span-6" : "tw-col-span-6"
+              }`}
+            >
+              <Input_Destinos
+                control={control}
+                nameContinent="continent"
+                nameRegion="region"
+                continents={continents}
+                regions={regions}
+              />
+            </div>
+            <div
+              className={`${
+                listado === true ? "tw-col-span-5" : "tw-col-span-6"
+              }`}
+            >
+              <Input_Mes name={"fechSal"} control={control} />
+            </div>
+            {listado !== true ? (
+              <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
+                Buscar
+              </button>
+            ) : (
+              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios  ">
+                <FaSearch className="tw-text-white tw-text-xl" />
+              </button>
+            )}
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
-            Buscar
-          </button>
         </form>
       </div>
     </>

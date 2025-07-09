@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Buscador from "./filtros/Buscador";
+import Buscador from "../../../motores/buscadores/tickets/Buscador_Tickets";
 import Tickets from "./Tickets";
 import tickets from "./Tickets.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Entradas";

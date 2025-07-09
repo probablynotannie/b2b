@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import Buscador from "./filtros/Buscador";
+import Buscador from "../../../motores/buscadores/hoteles/Buscador_Hoteles";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
@@ -28,7 +28,7 @@ function Productos() {
         <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-text-pink-600 tw-bg-orange-200 tw-pointer-events-none dark:tw-bg-black tw-bg-opacity-35 dark:tw-bg-opacity-45"></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">
-            <Buscador />
+            <Buscador listado={true} />
           </div>
           <aside className="tw-col-span-9 tw-px-3 lg:tw-hidden lg:tw-col-span-3">
             <Aside

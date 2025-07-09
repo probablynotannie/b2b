@@ -3,7 +3,7 @@ import Aside from "../hotel/filtros/Aside";
 import Resultado from "../hotel/HotelMas";
 import Vuelos from "../vuelos/VueloSeleccionados";
 import MasVuelos from "./Vuelos";
-import Buscador from "./Buscador";
+import Buscador from "../../../motores/buscadores/hotelmasvuelo/Buscador_HotVuelo";
 import { FaHotel } from "react-icons/fa";
 import { FaPlane } from "react-icons/fa";
 import vuelos from "./Vuelos.json";
@@ -89,7 +89,7 @@ function Productos() {
           <div className="tw-bg-indigo-300 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-55 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
           <div className="tw-flex">
             <div className="tw-container tw-relative">
-              <Buscador />
+              <Buscador listado={true} />
             </div>
             <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-10 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
               <Aside values={values} setValues={setValues} minMax={minMax} />

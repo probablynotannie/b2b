@@ -46,15 +46,12 @@ function Productos() {
   const params = useParams();
   const { newRequestData = {}, datosForm: datosFormFromState } =
     location.state || {};
-
   const buildFormFromParams = (params) => {
     const form = {};
     const entries = Object.entries(params);
-
     for (let i = 0; i < entries.length; i += 2) {
       const [key, val] = [entries[i][1], entries[i + 1]?.[1]];
       if (!key || !val) continue;
-
       switch (key) {
         case "idZona":
         case "idPuerto":
@@ -188,7 +185,7 @@ function Productos() {
                         >
                           <FaAnglesLeft />
                         </button>
-                        <span className="tw-text-slate-500"> {page}</span>
+                        <span className="tw-text-slate-500 dark:tw-text-slate-300"> {page}</span>
                         <button
                           onClick={() =>
                             setPage((p) => Math.min(totalPages, p + 1))
@@ -207,7 +204,7 @@ function Productos() {
                       <button
                         onClick={() => setPage((p) => Math.max(1, p - 1))}
                         disabled={page === 1}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400"
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400 disabled:dark:tw-bg-slate-600"
                       >
                         anterior
                       </button>
@@ -218,7 +215,7 @@ function Productos() {
                           className={`tw-px-3 tw-py-1 tw-rounded ${
                             page === idx + 1
                               ? "tw-bg-secondary tw-text-white"
-                              : "tw-bg-slate-200 hover:tw-bg-slate-400 tw-smooth"
+                              : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-white hover:tw-bg-slate-400 tw-smooth"
                           }`}
                         >
                           {idx + 1}
@@ -229,7 +226,7 @@ function Productos() {
                           setPage((p) => Math.min(totalPages, p + 1))
                         }
                         disabled={page === totalPages}
-                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400"
+                        className="tw-bg-secondary hover:tw-bg-secondary/90 tw-smooth tw-text-white tw-px-3 tw-py-1 tw-rounded disabled:tw-bg-slate-400 disabled:dark:tw-bg-slate-600"
                       >
                         siguiente
                       </button>

@@ -7,7 +7,7 @@ import Input_Fecha from "../../../inputs/Fecha";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { GoArrowSwitch } from "react-icons/go";
-function Buscador_Cruceros() {
+function Buscador_Cruceros({ listado }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [fecha, setFecha] = useState();
@@ -43,7 +43,11 @@ function Buscador_Cruceros() {
   };
   return (
     <>
-      <div className="tw-w-full sm:tw-hidden">
+      <div
+        className={`tw-w-full ${
+          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
+        }`}
+      >
         <button
           onClick={() => setIsModalOpen(true)}
           className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-text-white dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
@@ -144,7 +148,11 @@ function Buscador_Cruceros() {
           </div>
         </div>
       )}
-      <div className="tw-hidden sm:tw-flex tw-w-full tw-bg-white dark:tw-bg-slate-900 dark:tw-bg-opacity-80 tw-bg-opacity-80 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit">
+      <div
+        className={`tw-hidden ${
+          listado === true ? "lg:tw-flex" : "sm:tw-flex"
+        } tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
+      >
         <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
           <div className="tw-flex tw-justify-between tw-items-center">
             <div className="tw-flex tw-gap-2">
@@ -178,42 +186,59 @@ function Buscador_Cruceros() {
               Buscador de Vuelos
             </h2>
           </div>
-          <div className="tw-grid tw-grid-cols-3 tw-gap-4 tw-mt-4">
-            <Input_Buscador
-              /* required={true} */
-              control={control}
-              name={"origen"}
-              setValue={setValue}
-              placeholder={"Origen"}
-              destinos={destinos}
-            />
-            <Input_Buscador
-              /* required={true} */
-              control={control}
-              name={"destino"}
-              setValue={setValue}
-              placeholder={"Destino"}
-              destinos={destinos}
-            />
-            {viaje === "ida" ? (
-              <Input_Fecha
-                fecha={fecha}
-                name={"fecha"}
+          <div className="tw-grid tw-grid-cols-12 tw-gap-4 tw-mt-4">
+            <div className="tw-col-span-4">
+              <Input_Buscador
+                /* required={true} */
+                control={control}
+                name={"origen"}
                 setValue={setValue}
-                control={control}
+                placeholder={"Origen"}
+                destinos={destinos}
               />
+            </div>
+            <div className="tw-col-span-4">
+              <Input_Buscador
+                /* required={true} */
+                control={control}
+                name={"destino"}
+                setValue={setValue}
+                placeholder={"Destino"}
+                destinos={destinos}
+              />
+            </div>
+
+            <div
+              className={`${
+                listado === true ? "tw-col-span-3" : "tw-col-span-4"
+              }`}
+            >
+              {viaje === "ida" ? (
+                <Input_Fecha
+                  fecha={fecha}
+                  name={"fecha"}
+                  setValue={setValue}
+                  control={control}
+                />
+              ) : (
+                <Input_DateRange
+                  control={control}
+                  placeholder={"Fechas"}
+                  nameStartDate={"salida"}
+                  nameEndDate={"llegada"}
+                />
+              )}
+            </div>
+            {listado !== true ? (
+              <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
+                Buscar
+              </button>
             ) : (
-              <Input_DateRange
-                control={control}
-                placeholder={"Fechas"}
-                nameStartDate={"salida"}
-                nameEndDate={"llegada"}
-              />
+              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
+                <FaSearch className="tw-text-white tw-text-xl" />
+              </button>
             )}
           </div>
-          <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
-            Buscar
-          </button>
         </form>
       </div>
     </>
