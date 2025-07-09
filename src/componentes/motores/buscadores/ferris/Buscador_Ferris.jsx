@@ -13,7 +13,7 @@ function Buscador_Destinos({ listado }) {
   const navigate = useNavigate();
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [viaje, setViaje] = useState("ida");
-  const [fecha, setFecha] = useState();
+  let fecha;
   const handleviajeChange = (type) => {
     if (type === "ida") {
       setValue("tipo", 0);
