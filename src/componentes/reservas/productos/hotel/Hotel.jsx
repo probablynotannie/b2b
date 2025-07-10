@@ -1,4 +1,3 @@
-import Buscador from "../../../motores/buscadores/hoteles/Buscador_Hoteles";
 import { FaPerson } from "react-icons/fa6";
 import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
 import Listado_Tablas from "../../estructura/hoteles/Listado";
