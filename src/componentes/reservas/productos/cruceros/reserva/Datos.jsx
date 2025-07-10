@@ -13,13 +13,13 @@ import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
 import Placeholder from "../../../../../helpers/placeholders/Datos";
 import random from "./random.json";
-
+import MasDatos from "../../../../../helpers/visuales/error/Error";
 const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
-  const precioSeleccionado = state?.precioSeleccionado2 || random;
+  const precioSeleccionado = state?.precioSeleccionado2;
   const { data, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,

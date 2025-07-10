@@ -191,6 +191,7 @@ function Buscador_Cruceros({ listado }) {
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
               Buscador de Cruceros
             </h2>
+            
             {isFetching ? (
               <Cargando />
             ) : (
