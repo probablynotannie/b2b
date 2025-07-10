@@ -43,7 +43,6 @@ function Buscador_Coches({ listado }) {
       state: { data },
     });
   };
-  console.log(listado, lugarEntrega);
   return (
     <>
       <div

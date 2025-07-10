@@ -25,7 +25,6 @@ function Producto() {
   const navigate = useNavigate();
   const anadirProducto = cesta((state) => state.anadirProducto);
   const aniadirMas = () => {
-    console.log("holi")
     anadirProducto({
       hotel: producto,
       habitacion: habitacionSeleccionada,

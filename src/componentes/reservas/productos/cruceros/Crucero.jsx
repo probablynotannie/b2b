@@ -28,7 +28,6 @@ function Producto() {
     enabled: !!idCrucero,
     refetchOnWindowFocus: false,
   });
-  console.log(producto);
   const getCruiseImage = (producto) => {
     if (producto?.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
