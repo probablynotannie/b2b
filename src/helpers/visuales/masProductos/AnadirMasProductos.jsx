@@ -97,9 +97,14 @@ const ConfirmModal = ({ setModalOpen, isOpen, masProductos, onConfirm }) => {
     },
   ];
   function continuar(producto) {
-     masProductos(); 
-    navigate(producto.link); 
+    masProductos();
+    navigate(producto.link);
   }
+  function cestaSinAdicionales() {
+    masProductos();
+    navigate("/cesta");
+  }
+
   return (
     <div className="tw-fixed tw-inset-0 tw-bg-black/50 tw-z-50 tw-flex tw-items-center tw-justify-center tw-p-4">
       <div className="tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-2xl tw-max-w-3xl tw-w-full tw-relative">
@@ -139,13 +144,19 @@ const ConfirmModal = ({ setModalOpen, isOpen, masProductos, onConfirm }) => {
               </div>
             ))}
           </div>
+
           <div className="tw-mt-6 tw-flex tw-flex-col sm:tw-flex-row tw-justify-end tw-gap-3 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pt-4">
-           
+            <button
+              onClick={cestaSinAdicionales}
+              className="tw-bg-slate-600 hover:tw-bg-slate-700 dark:tw-bg-slate-700 dark:hover:tw-bg-slate-600 tw-smooth tw-text-white tw-font-semibold tw-px-4 tw-py-2 tw-rounded-lg tw-text-sm"
+            >
+              Añadir e ir a la cesta
+            </button>
             <button
               onClick={onConfirm}
-              className="tw-bg-blue-600 hover:tw-bg-blue-700 dark:tw-bg-blue-700 dark:hover:tw-bg-blue-600 tw-smooth tw-text-white tw-font-semibold tw-px-4 tw-py-2 tw-rounded-lg tw-text-sm"
+              className="tw-btn_primario tw-smooth tw-text-white tw-font-semibold tw-px-4 tw-py-2 tw-rounded-lg tw-text-sm"
             >
-              Solo añadir este producto
+              Solo este producto
             </button>
           </div>
         </div>

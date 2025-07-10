@@ -116,7 +116,7 @@ body {
 .swipe-item.slide-out {
   transform: translateX(-100%);
 }
-/* calendario */
+
 .react-calendar__tile:hover {
   background-color: lightgray !important;
   color: black !important;
