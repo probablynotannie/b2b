@@ -20,7 +20,6 @@ const Datos = () => {
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
   const precioSeleccionado = state?.precioSeleccionado || random;
-  console.log(precioSeleccionado);
   const { data, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
