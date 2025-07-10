@@ -107,7 +107,6 @@ const Datos = () => {
   const handleDateChange = (date, index) => {
     if (!date) return;
     const formattedDate = formatDate(date);
-    console.log(formattedDate);
     setValue(`pasajeros[${index}].fechaNacimiento`, formattedDate);
     const edadCalculada = calcularEdad(date);
     const edadEsperada = pasajeros[index].age;
