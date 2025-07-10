@@ -19,7 +19,8 @@ const Datos = () => {
   const { state } = useLocation();
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
-  const precioSeleccionado = state?.precioSeleccionado2 || random;
+  const precioSeleccionado = state?.precioSeleccionado || random;
+  console.log(precioSeleccionado);
   const { data, isLoading } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
@@ -129,19 +130,30 @@ const Datos = () => {
       { state: { data, producto, precioSeleccionado } }
     );
 
-  const infoPasajeros = (
+  const extra = (
     <div className="tw-flex tw-flex-wrap tw-justify-center">
+      <div className="tw-bg-green-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
+        Cabina: {precioSeleccionado.cabin}
+      </div>
+      {precioSeleccionado.datos.vuelo_incluido === 1 && (
+        <div className="tw-bg-cyan-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
+          Vuelo incluido
+        </div>
+      )}
+
+      <div className="tw-bg-indigo-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
+        Pasajeros: {pasajeros.length}
+      </div>
       {pasajeros.map((p, i) => (
         <div
           key={i}
-          className="tw-bg-secondary tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2"
+          className="tw-bg-secondary dark:tw-bg-secondaryDark tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2"
         >
           Pasajero {i + 1} - {p.age} años
         </div>
       ))}
     </div>
   );
-
   const img = "/banners/banner_cruise.webp";
   return (
     <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
@@ -158,9 +170,9 @@ const Datos = () => {
             img={img}
             position="center"
             tipo="Crucero"
-            itinerario={producto.recorrido}
+            itinerario={producto.itinerario.name}
             fechaIda={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
-            extras={infoPasajeros}
+            extras={extra}
           />
 
           <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
@@ -181,7 +193,6 @@ const Datos = () => {
                     <span className="tw-font-semibold">{pasajero.age}</span>
                   </div>
                 </div>
-
                 <div className="tw-space-y-3 tw-text-sm tw-mt-4">
                   <div className="tw-grid md:tw-grid-cols-2 tw-gap-3">
                     <Input_Texto
@@ -199,7 +210,6 @@ const Datos = () => {
                       errors={errors}
                     />
                   </div>
-
                   <Fecha
                     control={control}
                     edadSelector
@@ -207,7 +217,6 @@ const Datos = () => {
                     name={`pasajeros[${index}].fechaNacimiento`}
                     setValue={(name, value) => handleDateChange(value, index)}
                   />
-
                   <div className="tw-relative">
                     <select
                       className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"

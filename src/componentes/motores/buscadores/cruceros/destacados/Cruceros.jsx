@@ -4,6 +4,7 @@ import Meses from "./Meses";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
 import { slugify } from "../../../../../helpers/slugify";
+import Placeholder_Cruceros from "./placeholders/Cruceros";
 function Cruceros({ setRequestData, data, isLoading }) {
   const contentRef = useRef(null);
   const handleScroll = () => {
@@ -86,8 +87,9 @@ function Cruceros({ setRequestData, data, isLoading }) {
     const enlace = "/zona/" + slugify(nav.name_naviera);
     navigate(`/listadoCruceros${enlace}`, { state: { datosForm } });
   };
-
   const navigate = useNavigate();
+  const crucerosLoading = false;
+  const crucerosSeleccionLoading = false;
   return (
     <div className="tw-px-5">
       <div className="tw-text-4xl tw-text-center tw-font-bold tw-p-3 tw-border-b-2 dark:tw-text-white tw-border-slate-100 dark:tw-border-slate-700 tw-mb-5 tw-flex tw-items-center tw-justify-between">
@@ -131,13 +133,21 @@ function Cruceros({ setRequestData, data, isLoading }) {
             <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
               Cruceros destacados
             </h2>
-            <Cruceros_destacados cruceros={crucerosDestacados} />
+            {crucerosLoading === false ? (
+              <Cruceros_destacados cruceros={crucerosDestacados} />
+            ) : (
+              <Placeholder_Cruceros />
+            )}
           </div>
           <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-smooth tw-rounded-lg dark:tw-bg-slate-900 tw-p-5 tw-mt-5">
             <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
               Crucero de selección
             </h2>
-            <Cruceros_destacados cruceros={ofertasUltimoMinuto} />
+            {crucerosSeleccionLoading === false ? (
+              <Cruceros_destacados cruceros={ofertasUltimoMinuto} />
+            ) : (
+              <Placeholder_Cruceros />
+            )}
           </div>
         </div>
       </div>

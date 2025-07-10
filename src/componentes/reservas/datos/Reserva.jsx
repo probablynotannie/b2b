@@ -17,12 +17,12 @@ function Contacto({
           backgroundPosition: position,
         }}
       >
-        <div className="tw-bg-black tw-rounded-xl tw-w-full tw-min-h-[30vh] tw-bg-opacity-45 tw-flex tw-justify-center tw-items-center tw-flex-col">
-          <h4 className="tw-text-white tw-font-bold tw-text-7xl tw-text-center">
+        <div className="tw-bg-black tw-rounded-xl tw-w-full tw-min-h-[30vh] tw-bg-opacity-45 tw-flex tw-justify-center tw-items-center tw-flex-col tw-py-5">
+          <h4 className="tw-text-white tw-font-bold tw-text-5xl md:tw-text-7xl tw-text-center">
             {tipo}
           </h4>
           <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-white">
-            <span className="tw-font-semibold tw-text-3xl tw-text-center">
+            <span className="tw-font-semibold tw-text-lg 2xl:tw-text-3xl tw-text-center tw-px-4">
               {itinerario}
             </span>
             <p className="tw-text-slate-200 tw-text-center tw-px-4">

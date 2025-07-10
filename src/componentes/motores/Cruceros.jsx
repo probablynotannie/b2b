@@ -39,10 +39,13 @@ function Cruceros() {
             <Buscador_Cruceros setDuracion={setDuracion} duracion={duracion} />
           </div>
         </div>
+
         {isLoading ? (
-          <Zonas_Puertos_Placeholder />
+          <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-8 tw-container">
+            <Zonas_Puertos_Placeholder />
+          </div>
         ) : (
-          <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-5 tw-container">
+          <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-8 tw-container">
             <div className="xl:tw-col-span-1">
               <Zonas
                 data={data?.zonas}

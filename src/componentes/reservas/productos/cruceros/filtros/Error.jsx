@@ -3,14 +3,14 @@ import { Link } from "react-router-dom";
 const AnimatedCruise = ({ error, tipo, enlace }) => {
   const colors = {
     hullGradientStart:
-      tipo === 2 ? "#1E3A8A" : tipo === 3 ? "#4F46E5" : "#7F1D1D",
+      tipo === 2 ? "#1E3A8A" : tipo === 3 ? "#6B4226" : "#7F1D1D",
     hullGradientEnd:
-      tipo === 2 ? "#2563EB" : tipo === 3 ? "#6366F1" : "#B91C1C",
-    hullStroke: tipo === 2 ? "#1E40AF" : tipo === 3 ? "#3730A3" : "#7F1D1D",
-    hullFill: tipo === 2 ? "#3B82F6" : tipo === 3 ? "#818CF8" : "#B91C1C",
-    windowFill: tipo === 2 ? "#BFDBFE" : tipo === 3 ? "#C7D2FE" : "#FCA5A5",
-    mastFill: tipo === 2 ? "#1E40AF" : tipo === 3 ? "#3730A3" : "#7F1D1D",
-    flagFill: tipo === 2 ? "#3B82F6" : tipo === 3 ? "#6366F1" : "#EF4444",
+      tipo === 2 ? "#2563EB" : tipo === 3 ? "#8B5E3C" : "#B91C1C",
+    hullStroke: tipo === 2 ? "#1E40AF" : tipo === 3 ? "#4E342E" : "#7F1D1D",
+    hullFill: tipo === 2 ? "#3B82F6" : tipo === 3 ? "#A0522D" : "#B91C1C",
+    windowFill: tipo === 2 ? "#BFDBFE" : tipo === 3 ? "#D2B48C" : "#FCA5A5",
+    mastFill: tipo === 2 ? "#1E40AF" : tipo === 3 ? "#4E342E" : "#7F1D1D",
+    flagFill: tipo === 2 ? "#3B82F6" : tipo === 3 ? "#8B4513" : "#EF4444",
   };
 
   return (
@@ -84,7 +84,7 @@ const AnimatedCruise = ({ error, tipo, enlace }) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="#002366"
+                fill="#1E3A8A"
                 fillOpacity="1"
                 d="M0,64L48,69.3C96,75,192,85,288,117.3C384,149,480,203,576,229.3C672,256,768,256,864,224C960,192,1056,128,1152,122.7C1248,117,1344,171,1392,197.3L1440,224L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
               ></path>
@@ -96,7 +96,7 @@ const AnimatedCruise = ({ error, tipo, enlace }) => {
               xmlns="http://www.w3.org/2000/svg"
             >
               <path
-                fill="#001a4d"
+                fill="#172554"
                 fillOpacity="0.7"
                 d="M0,192L48,197.3C96,203,192,213,288,224C384,235,480,245,576,234.7C672,224,768,192,864,165.3C960,139,1056,117,1152,112C1248,107,1344,117,1392,122.7L1440,128L1440,320L1392,320C1344,320,1248,320,1152,320C1056,320,960,320,864,320C768,320,672,320,576,320C480,320,384,320,288,320C192,320,96,320,48,320L0,320Z"
               ></path>
@@ -115,24 +115,24 @@ const AnimatedCruise = ({ error, tipo, enlace }) => {
       </Link>
 
       <style>{`
-     .boat {
-  margin-top: 27px;
-  transform-origin: 50% 90%;
-  animation: boatRockWithWave 12s linear infinite;
-}
+        .boat {
+          margin-top: 27px;
+          transform-origin: 50% 90%;
+          animation: boatRockWithWave 12s linear infinite;
+        }
 
-@keyframes boatRockWithWave {
-  0%   { transform: rotate(0deg) translateX(0); }
-  25%  { transform: rotate(3deg) translateX(4px); }
-  50%  { transform: rotate(0deg) translateX(0); }
-  75%  { transform: rotate(-3deg) translateX(-4px); }
-  100% { transform: rotate(0deg) translateX(0); }
-}
+        @keyframes boatRockWithWave {
+          0%   { transform: rotate(0deg) translateX(0); }
+          25%  { transform: rotate(3deg) translateX(4px); }
+          50%  { transform: rotate(0deg) translateX(0); }
+          75%  { transform: rotate(-3deg) translateX(-4px); }
+          100% { transform: rotate(0deg) translateX(0); }
+        }
 
         .waves {
           position: absolute;
           bottom: 0;
-          left: 0;
+          left:   0;
           width: 100%;
           height: 60px;
           overflow: hidden;

@@ -2,6 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
+body {
+  overflow-x: hidden !important;
+  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
+}
+
 #root {
   display: flex;
   flex-direction: column;
@@ -18,10 +23,7 @@
 .dropdown-arrow {
   display: none; 
 }
-body {
-  overflow-x: hidden !important;
-  font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
-}
+
 .m_396ce5cb:where([data-selected]){
   background-color: #ff8c4c!important;
 }
