@@ -49,7 +49,7 @@ function Listado({
             </th>
           </tr>
         </thead>
-        <tbody className="dark:tw-bg-slate-800">
+        <tbody className="dark:tw-bg-slate-800 tw-bg-slate-50">
           {habitaciones.map((habitacion) => (
             <tr
               className="tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700"

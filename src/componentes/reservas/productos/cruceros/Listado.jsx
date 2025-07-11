@@ -2,17 +2,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import { slugify } from "../../../../helpers/slugify";
-
 function Listado({ destinos }) {
-  const encontrarPrecioMasBajo = (tarifas) => {
-    let precioMasBajo = Infinity;
-    tarifas.forEach((tarifa) => {
-      const precio = parseFloat(tarifa.precio);
-      if (precio < precioMasBajo) precioMasBajo = precio;
-    });
-    return precioMasBajo === Infinity ? "No disponible" : `${precioMasBajo}€`;
-  };
-
   const encontrarProximaSalida = (tarifas) => {
     const tarifasValidas = tarifas.filter((tarifa) => tarifa.fecha);
     if (tarifasValidas.length === 0) return "No disponible";
@@ -27,7 +17,6 @@ function Listado({ destinos }) {
   return (
     <section className="tw-pb-12">
       {destinos.map((destino, index) => {
-        const precioMasBajo = encontrarPrecioMasBajo(destino.tarifas);
         const proximaSalida = FormatearFecha(
           encontrarProximaSalida(destino.tarifas)
         );
@@ -180,9 +169,9 @@ function Listado({ destinos }) {
                 <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
+                <div>hola</div>
               </div>
             </Link>
-
             <div className="tw-flex tw-justify-end tw-mt-5">
               <Link
                 to={`/crucero/${destino.id_crucero}/${slugify(
@@ -190,7 +179,7 @@ function Listado({ destinos }) {
                 )}`}
               >
                 <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
-                  Desde {precioMasBajo}
+                  Desde {destino.minPrice}€
                   <span className="tw-text-xs tw-flex tw-items-center tw-gap-1">
                     + tasas <FaChevronRight />
                   </span>

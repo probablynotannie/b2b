@@ -48,7 +48,7 @@ import Hotel from "../reservas/productos/hotel/Hotel";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
 import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/HotelMasVuelo";
 import Destino from "../reservas/productos/destinos/destino/Destino";
-import Crucero from "../reservas/productos/cruceros/Crucero";
+import Crucero from "../reservas/productos/cruceros/crucero/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
 import Seguro from "../reservas/productos/seguro/Resultado";
 import Ticket from "../reservas/productos/tickets/Ticket";

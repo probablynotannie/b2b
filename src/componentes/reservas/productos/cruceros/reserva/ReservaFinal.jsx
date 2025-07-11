@@ -1,3 +1,4 @@
+import { useState } from "react";
 import { useLocation } from "react-router-dom";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { SiMentorcruise } from "react-icons/si";
@@ -11,12 +12,12 @@ import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Error from "../filtros/Error";
 import Placeholder from "../../../../../helpers/placeholders/Detalles";
-
 function ReservaFinal() {
   const { state } = useLocation();
   const idCrucero = state?.producto?.id_crucero;
   const data = state?.data;
   const precioSeleccionado = state?.precioSeleccionado || random;
+  const [pagoSeleccionado, setPagoSeleccionado] = useState(null);
   const getImagenCrucero = (producto) => {
     if (producto.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -51,6 +52,7 @@ function ReservaFinal() {
       />
     );
   }
+
   if (!precioSeleccionado || !tarifaSigueDisponible) {
     return (
       <Error
@@ -66,6 +68,21 @@ function ReservaFinal() {
   const precioTotalPassajero = precioBase + tasasPorPasajero;
   const precioTotal = precioTotalPassajero * data.pasajeros.length;
 
+  const handleSelect = (option) => {
+    setPagoSeleccionado(option);
+  };
+  const pagos = [
+    {
+      id: 0,
+      img: "/paypal.png",
+      texto: "paypal",
+    },
+    {
+      id: 1,
+      img: "/visa.png",
+      texto: "visa",
+    },
+  ];
   return (
     <main className=" tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
       <section className="tw-col-span-2 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
@@ -115,18 +132,21 @@ function ReservaFinal() {
           return (
             <div
               key={index}
-              className="tw-border-b tw-flex tw-text-sm tw-justify-between tw-items-end dark:tw-border-slate-700 tw-py-2 tw-my-2"
+              className={`tw-flex tw-text-sm tw-justify-between tw-items-end tw-py-2 ${
+                index !== data.pasajeros.length - 1 &&
+                "tw-border-b tw-border-slate-100 dark:tw-border-slate-700"
+              }`}
             >
               <div>
                 <h4 className="dark:tw-text-white tw-font-semibold tw-text-base">
                   Pasajero {index + 1}
                 </h4>
-                <span className="dark:tw-text-slate-300 tw-block">
-                  Base: {Number(discountedPrice).toFixed(2)}€
-                </span>
-                <span className="dark:tw-text-slate-300 tw-block">
-                  Tasas: {Number(precioSeleccionado.datos.tasas).toFixed(2)}€
-                </span>
+                <ul className="tw-text-slate-600 dark:tw-text-slate-400">
+                  <li>Base: {Number(discountedPrice).toFixed(2)}€</li>
+                  <li>
+                    Tasas: {Number(precioSeleccionado.datos.tasas).toFixed(2)}€
+                  </li>
+                </ul>
               </div>
               <span className="dark:tw-text-white tw-font-semibold">
                 Total:{" "}
@@ -139,7 +159,26 @@ function ReservaFinal() {
             </div>
           );
         })}
-
+        <div>
+          <ul className="tw-grid tw-grid-cols-2 tw-gap-5">
+            {pagos.map((pago) => (
+              <li
+                key={pago.id}
+                onClick={() => handleSelect(pago.texto)}
+                className={`tw-flex tw-justify-center hover:tw-scale-105 tw-smooth tw-p-2 tw-rounded tw-pb-2 tw-border ${
+                  pagoSeleccionado === pago.texto
+                    ? "tw-bg-blue-100 dark:tw-bg-blue-900 tw-border-blue-500"
+                    : "tw-bg-slate-50 dark:tw-bg-slate-800 tw-border-slate-100 dark:tw-border-slate-700"
+                }`}
+              >
+                <img
+                  src={pago.img}
+                  className="tw-h-12 tw-w-20 tw-object-contain"
+                />
+              </li>
+            ))}
+          </ul>
+        </div>
         <Link
           to={"/resumenCrucero"}
           state={{
@@ -148,7 +187,7 @@ function ReservaFinal() {
             precioSeleccionado,
           }}
         >
-          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-3">
             TOTAL: {precioTotal.toFixed(2)} €
           </button>
         </Link>

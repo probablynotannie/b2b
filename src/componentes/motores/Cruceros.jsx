@@ -7,9 +7,11 @@ import Buscador_Cruceros from "./buscadores/cruceros/Buscador_Cruceros";
 import { useQuery } from "@tanstack/react-query";
 import fetchCrucero from "./buscadores/cruceros/destacados/hook/fetch";
 import Zonas_Puertos_Placeholder from "./buscadores/cruceros/destacados/placeholders/Zonas_Puertos_Placeholder";
+import { MdCancel } from "react-icons/md";
+
 function Cruceros() {
   const [duracion, setDuracion] = useState(2);
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError } = useQuery({
     queryKey: ["destacados"],
     queryFn: fetchCrucero,
     refetchInterval: 10_000,
@@ -44,7 +46,7 @@ function Cruceros() {
           <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-8 tw-container">
             <Zonas_Puertos_Placeholder />
           </div>
-        ) : (
+        ) : !isError ? (
           <div className="tw-px-5 tw-grid tw-grid-cols-1 xl:tw-grid-cols-3 tw-gap-10 tw-mt-8 tw-container">
             <div className="xl:tw-col-span-1">
               <Zonas
@@ -63,6 +65,11 @@ function Cruceros() {
               />
             </div>
           </div>
+        ) : (
+          <span className="tw-flex tw-justify-center tw-items-center tw-flex-col tw-mt-8 tw-h-[30vh]">
+            <MdCancel className="tw-text-red-500 tw-text-3xl" />
+            No se han podido cargar los datos para cruceros destacados
+          </span>
         )}
       </div>
       <section className="tw-col-span-10 tw-mt-5">

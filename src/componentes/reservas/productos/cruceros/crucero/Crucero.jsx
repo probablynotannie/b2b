@@ -4,23 +4,28 @@ import { useQuery } from "@tanstack/react-query";
 import { GiCruiser } from "react-icons/gi";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
-import Reserva from "../../estructura/reserva/Resumen";
-import Tarifas from "./crucero/Tarifas";
-import Pasajeros from "./crucero/Pasajeros";
-import Pasajeros_Display from "./crucero/Pasajeros_Display";
-import Itinerario from "./crucero/Itinerario";
-import FormatearFecha from "../../estructura/FormatearFecha";
-import Placeholder from "../../../../helpers/placeholders/Detalles";
-import { slugify } from "../../../../helpers/slugify";
-import Error from "./filtros/Error";
-import fetchCrucero from "./hook/crucero";
-import Detalles from "./crucero/Detalles";
+import Reserva from "../../../estructura/reserva/Resumen";
+import Tarifas from "./Tarifas";
+import Pasajeros from "./Pasajeros";
+import Pasajeros_Display from "./Pasajeros_Display";
+import Itinerario from "./Itinerario";
+import FormatearFecha from "../../../estructura/FormatearFecha";
+import Placeholder from "../../../../../helpers/placeholders/Detalles";
+import { slugify } from "../../../../../helpers/slugify";
+import Error from "../filtros/Error";
+import fetchCrucero from "../hook/crucero";
+import Detalles from "./Detalles";
 function Producto() {
   const { idCrucero } = useParams();
   const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
-  const { data: producto, isLoading } = useQuery({
+  const {
+    data: producto,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -28,8 +33,8 @@ function Producto() {
     enabled: !!idCrucero,
     refetchOnWindowFocus: false,
   });
-  console.log(producto);
-  const getCruiseImage = (producto) => {
+
+  const getImagenCruceroDisponible = (producto) => {
     if (producto?.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
     }
@@ -54,7 +59,18 @@ function Producto() {
       </div>
     );
   }
-  const cruiseImage = getCruiseImage(producto) ?? "default-image.jpg";
+
+  if (isError) {
+    console.error(error);
+    return (
+      <div>
+        <Error tipo={3} error={"Ha habido un error inesperado."} />
+      </div>
+    );
+  }
+
+  const cruiseImage =
+    getImagenCruceroDisponible(producto) ?? "default-image.jpg";
 
   return (
     <>

@@ -20,8 +20,7 @@ const Datos = () => {
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
   const precioSeleccionado = state?.precioSeleccionado || random;
-  console.log(precioSeleccionado);
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -105,10 +104,14 @@ const Datos = () => {
     );
   }
 
+  if (isError) {
+    console.error(error);
+    return <Error tipo={3} error={"Ha habido un error inesperado."} />;
+  }
+
   const handleDateChange = (date, index) => {
     if (!date) return;
     const formattedDate = formatDate(date);
-    console.log(formattedDate);
     setValue(`pasajeros[${index}].fechaNacimiento`, formattedDate);
     const edadCalculada = calcularEdad(date);
     const edadEsperada = pasajeros[index].age;
@@ -132,25 +135,24 @@ const Datos = () => {
 
   const extra = (
     <div className="tw-flex tw-flex-wrap tw-justify-center">
-      <div className="tw-bg-green-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
+      <span className="tw-bg-green-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
         Cabina: {precioSeleccionado.cabin}
-      </div>
+      </span>
       {precioSeleccionado.datos.vuelo_incluido === 1 && (
-        <div className="tw-bg-cyan-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
+        <span className="tw-bg-cyan-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
           Vuelo incluido
-        </div>
+        </span>
       )}
-
-      <div className="tw-bg-indigo-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
+      <span className="tw-bg-indigo-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
         Pasajeros: {pasajeros.length}
-      </div>
+      </span>
       {pasajeros.map((p, i) => (
-        <div
+        <span
           key={i}
           className="tw-bg-secondary dark:tw-bg-secondaryDark tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2"
         >
           Pasajero {i + 1} - {p.age} años
-        </div>
+        </span>
       ))}
     </div>
   );
@@ -174,7 +176,6 @@ const Datos = () => {
             fechaIda={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
             extras={extra}
           />
-
           <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
             Datos Pasajeros
           </h2>
@@ -234,7 +235,6 @@ const Datos = () => {
                     </div>
                   </div>
                 </div>
-
                 <div className="tw-flex tw-items-center tw-justify-end tw-gap-1 tw-space-x-3 tw-mt-3 dark:tw-text-slate-100">
                   <button
                     type="button"
@@ -264,7 +264,6 @@ const Datos = () => {
               </div>
             ))}
           </div>
-
           <div className="tw-flex tw-justify-end tw-border-t tw-border-slate-100 dark:tw-border-slate-700 tw-pt-5 tw-mt-10">
             <button type="submit" className="tw-btn_primario tw-btn_accesorios">
               Reservar
