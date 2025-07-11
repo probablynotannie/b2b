@@ -79,8 +79,8 @@ function Productos() {
                   <button
                     className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
                       viewMode === "list"
-                        ? "tw-bg-blue-400 dark:tw-bg-blue-700 tw-text-white"
-                        : "tw-bg-gray-200 dark:tw-bg-slate-500 dark:tw-text-slate-200"
+                        ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                        : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
                     }`}
                     onClick={() => setViewMode("list")}
                   >
@@ -89,8 +89,8 @@ function Productos() {
                   <button
                     className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-ml-2 tw-rounded-md ${
                       viewMode === "map"
-                        ? "tw-bg-blue-400 dark:tw-bg-blue-700 tw-text-white"
-                        : "tw-bg-gray-200 dark:tw-bg-slate-500 dark:tw-text-slate-200"
+                        ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                        : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
                     }`}
                     onClick={() => setViewMode("map")}
                   >
