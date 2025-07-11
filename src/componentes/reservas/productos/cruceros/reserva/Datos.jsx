@@ -20,7 +20,7 @@ const Datos = () => {
   const idCrucero = state?.producto.id_crucero;
   const pasajeros = state?.pasajeros || [];
   const precioSeleccionado = state?.precioSeleccionado || random;
-  const { data, isLoading } = useQuery({
+  const { data, isLoading, isError, error } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -102,6 +102,11 @@ const Datos = () => {
         error="La tarifa seleccionada ya no está disponible. Vuelve a la pantalla anterior y elige otra opción."
       />
     );
+  }
+
+  if (isError) {
+    console.error(error);
+    return <Error tipo={3} error={"Ha habido un error inesperado."} />;
   }
 
   const handleDateChange = (date, index) => {

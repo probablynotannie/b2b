@@ -20,7 +20,12 @@ function Producto() {
   const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
-  const { data: producto, isLoading } = useQuery({
+  const {
+    data: producto,
+    isLoading,
+    isError,
+    error,
+  } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
     queryKey: ["crucero", idCrucero],
@@ -29,7 +34,6 @@ function Producto() {
     refetchOnWindowFocus: false,
   });
 
-  console.log(producto);
   const getImagenCruceroDisponible = (producto) => {
     if (producto?.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
@@ -52,6 +56,15 @@ function Producto() {
     return (
       <div>
         <Error error={"No se ha encontrado este crucero"} />
+      </div>
+    );
+  }
+
+  if (isError) {
+    console.error(error);
+    return (
+      <div>
+        <Error tipo={3} error={"Ha habido un error inesperado."} />
       </div>
     );
   }
