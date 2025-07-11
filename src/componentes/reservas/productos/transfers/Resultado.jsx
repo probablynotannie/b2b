@@ -8,6 +8,7 @@ import PlaceHolder from "../../estructura/skeleton_placeholders_listado/transfer
 import { MdCancel } from "react-icons/md";
 
 const fetchData = async (newRequestData) => {
+  console.log(newRequestData);
   const response = await fetch(
     "https://devxml.vpackage.net/Motores/public/api/Traslados/search/123/1"
   );
@@ -24,7 +25,6 @@ function Productos() {
     queryKey: ["transfersData", newRequestData],
     queryFn: () => fetchData(newRequestData),
   });
-
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const [selectedCars, setSelectedCars] = useState([]);

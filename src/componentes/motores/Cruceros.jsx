@@ -8,6 +8,7 @@ import { useQuery } from "@tanstack/react-query";
 import fetchCrucero from "./buscadores/cruceros/destacados/hook/fetch";
 import Zonas_Puertos_Placeholder from "./buscadores/cruceros/destacados/placeholders/Zonas_Puertos_Placeholder";
 import { MdCancel } from "react-icons/md";
+
 function Cruceros() {
   const [duracion, setDuracion] = useState(2);
   const { data, isLoading, isError } = useQuery({
@@ -24,8 +25,7 @@ function Cruceros() {
     idPuerto: 0,
     idNav: 0,
   });
-  console.log(isError);
-  return (
+  return ( 
     <article className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10">
       <Sidebar />
       <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">

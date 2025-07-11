@@ -3,11 +3,10 @@ function Pasajeros_Display({ pasajeros, precio }) {
     <>
       {" "}
       {pasajeros.map((pasajero, index) => {
-        const discount = /* pasajero.discount || */ 0;
-        const discountedPrice = (precio.price * (1 - discount / 100)).toFixed(
+        const descuento = pasajero.descuento;
+        const precioDescontado = (precio.price * (1 - descuento / 100)).toFixed(
           2
         );
-
         return (
           <div
             key={index}
@@ -20,13 +19,18 @@ function Pasajeros_Display({ pasajeros, precio }) {
               <span className="dark:tw-text-slate-300 tw-block tw-text-sm">
                 Edad: {pasajero.age}
               </span>
+              {pasajero.descuento > 0 && (
+                <span className="dark:tw-text-slate-300 tw-block tw-text-sm">
+                  descuento: {pasajero.descuento}%
+                </span>
+              )}
               <span className="dark:tw-text-slate-300 tw-block tw-text-sm">
                 Tasas: {precio.datos.tasas}
               </span>
             </div>
             <span className="dark:tw-text-white tw-font-semibold">
               Total:{" "}
-              {(Number(discountedPrice) + Number(precio.datos.tasas)).toFixed(
+              {(Number(precioDescontado) + Number(precio.datos.tasas)).toFixed(
                 2
               )}
               €

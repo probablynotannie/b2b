@@ -28,7 +28,9 @@ function Producto() {
     enabled: !!idCrucero,
     refetchOnWindowFocus: false,
   });
-  const getCruiseImage = (producto) => {
+
+  console.log(producto);
+  const getImagenCruceroDisponible = (producto) => {
     if (producto?.barco?.img_header_embarcacion) {
       return producto.barco.img_header_embarcacion;
     }
@@ -53,7 +55,9 @@ function Producto() {
       </div>
     );
   }
-  const cruiseImage = getCruiseImage(producto) ?? "default-image.jpg";
+
+  const cruiseImage =
+    getImagenCruceroDisponible(producto) ?? "default-image.jpg";
 
   return (
     <>
