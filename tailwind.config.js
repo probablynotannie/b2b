@@ -91,7 +91,7 @@ module.exports = {
           backgroundColor: '#1e293b',
         },
         '.btn_buscador_con_icono_dark': {
-          backgroundColor: '#10142c',
+          backgroundColor: 'rgb(51 65 85 / var(--tw-bg-opacity, 1))',
         },
         '.btn_buscador_con_icono:hover': {
           backgroundColor: '#10142c',
