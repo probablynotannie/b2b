@@ -44,7 +44,7 @@ function Zonas({ isLoading, data, setRequestData }) {
                     alt="Imagen reserva"
                   />
                   <div className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-indigo-800 dark:tw-bg-indigo-900 dark:tw-bg-opacity-70 tw-bg-opacity-30 hover:tw-bg-opacity-65 tw-smooth tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
-                    <div className="tw-text-white lg:tw-text-xl xl:tw-text-3xl tw-font-semibold tw-text-center">
+                    <div className="tw-text-white lg:tw-text-xl xl:tw-text-xl tw-font-semibold tw-text-center">
                       {zona.texto}
                     </div>
                   </div>
