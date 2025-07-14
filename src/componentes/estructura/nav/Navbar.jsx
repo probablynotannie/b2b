@@ -22,8 +22,8 @@ const Navbar = () => {
           smooth
         />
       </div>
-      <nav className="tw-mx-auto md:tw-px-4 tw-py-4 tw-flex md:tw-justify-between tw-flex-wrap tw-items-center tw-px-5 tw-justify-center">
-        <div className="tw-flex md:tw-space-x-3 tw-items-center">
+      <div className="tw-mx-auto tw-flex-col-reverse md:tw-flex-row md:tw-px-4 tw-py-4 tw-flex md:tw-justify-between tw-flex-wrap tw-px-5 tw-justify-center">
+        <div className="tw-flex md:tw-space-x-3 tw-items-center tw-mt-3 md:tw-mt-0">
           <Link className="tw-hidden md:tw-block" to="/">
             <img src="/logo.png" className="tw-w-full" alt="Logo" />
           </Link>
@@ -35,7 +35,7 @@ const Navbar = () => {
           <Notificaciones />
           <Usuario />
         </div>
-      </nav>
+      </div>
     </header>
   );
 };

@@ -165,8 +165,8 @@ const Dropdown = () => {
   }, [openDropdown]);
 
   return (
-    <nav>
-      <ul className="tw-flex tw-gap-6 tw-items-center tw-flex-wrap tw-z-20">
+    <nav className="tw-w-full">
+      <ul className="tw-flex tw-gap-6 tw-items-center tw-z-20 tw-justify-around ">
         {menu.map((category) => (
           <li
             key={category.key}

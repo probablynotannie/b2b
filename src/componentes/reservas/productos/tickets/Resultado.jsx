@@ -32,7 +32,7 @@ function Productos() {
       >
         <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
         <div className="tw-container tw-relative">
-          <Buscador />
+          <Buscador listado={true} />
         </div>
       </div>
       <article className="tw-grid tw-grid-cols-1 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[35vh]">
