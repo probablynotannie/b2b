@@ -2,6 +2,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import { slugify } from "../../../../helpers/slugify";
+
 function Listado({ destinos }) {
   const encontrarProximaSalida = (tarifas) => {
     const tarifasValidas = tarifas.filter((tarifa) => tarifa.fecha);
@@ -13,9 +14,9 @@ function Listado({ destinos }) {
       ? new Date(proximaTarifa.fecha).toLocaleDateString()
       : "No disponible";
   };
+
   function obtenerTarifasMinimasPorFecha(tarifas) {
     const tarifasMinimas = {};
-
     tarifas.forEach((tarifa) => {
       const fecha = tarifa.fecha;
       const precioActual = parseFloat(tarifa.precio);
@@ -32,6 +33,7 @@ function Listado({ destinos }) {
     );
     return resultado;
   }
+
   return (
     <section className="tw-pb-12">
       {destinos.map((destino, index) => {
@@ -101,7 +103,6 @@ function Listado({ destinos }) {
                           d.puerto.id_puerto === destination.puerto.id_puerto
                       ) === i
                   )
-
                   .slice(0, 4)
                   .map((destination, i, arr) => {
                     const imageWidth = 100 / arr.length;
@@ -199,11 +200,11 @@ function Listado({ destinos }) {
                 <p className="tw-text-sm  tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
-                <div className="tw-grid tw-grid-cols-2 sm:tw-grid-cols-4 xl:tw-grid-cols-8 tw-gap-3 tw-py-2">
+                <div className="tw-flex tw-flex-wrap tw-justify-center sm:tw-grid tw-grid-cols-2 sm:tw-grid-cols-4 xl:tw-grid-cols-8 tw-gap-3 tw-py-2">
                   {tarifasAMostrar.slice(0, 7).map((tarifa) => (
                     <div
                       key={tarifa.id_camarote}
-                      className="tw-bg-white dark:tw-bg-slate-700 tw-border dark:tw-border-slate-700 tw-border-slate-200 dark:tw-text-slate-300 tw-p-3 tw-rounded-lg tw-shadow-sm"
+                      className="tw-bg-white dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 tw-smooth tw-border dark:tw-border-slate-700 tw-border-slate-200 dark:tw-text-slate-300 tw-p-3 tw-rounded-lg tw-shadow-sm"
                     >
                       <p className="tw-font-semibold">{tarifa.precio}€</p>
                       <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
@@ -212,7 +213,7 @@ function Listado({ destinos }) {
                     </div>
                   ))}
                   {tarifasAMostrar.length > 7 && (
-                    <div className="tw-px-8 tw-bg-white dark:tw-bg-slate-700 tw-border dark:tw-border-slate-700 tw-border-slate-200 dark:tw-text-slate-300 tw-p-3 tw-rounded-lg tw-shadow-sm tw-flex tw-justify-center tw-items-center">
+                    <div className="tw-px-8 tw-bg-white dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 tw-smooth tw-border dark:tw-border-slate-700 tw-border-slate-200 dark:tw-text-slate-300 tw-p-3 tw-rounded-lg tw-shadow-sm tw-flex tw-justify-center tw-items-center">
                       y más ...
                     </div>
                   )}
