@@ -168,8 +168,18 @@ function Listado({ destinos }) {
                     </div>
                   )}
                   <div>
-                    {destino.tarifas.length > 0 && (
-                      <h5 className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
+                    {destino.tarifas[0].fecha ===
+                    destino.tarifas[destino.tarifas.length - 1].fecha ? (
+                      <span className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-pink-400 tw-text-xs tw-font-semibold">
+                        Fecha disponible:{" "}
+                        {FormatearFecha(
+                          new Date(
+                            destino.tarifas[0].fecha
+                          ).toLocaleDateString()
+                        )}{" "}
+                      </span>
+                    ) : (
+                      <span className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
                         Fechas disponibles de{" "}
                         {FormatearFecha(
                           new Date(
@@ -182,7 +192,7 @@ function Listado({ destinos }) {
                             destino.tarifas[destino.tarifas.length - 1].fecha
                           ).toLocaleDateString()
                         )}
-                      </h5>
+                      </span>
                     )}
                   </div>
                 </div>
