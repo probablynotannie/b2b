@@ -4,11 +4,11 @@ import Destacados from "./buscadores/destacados/Destacados";
 import destacados from "./buscadores/circuitos/destacados.json";
 function Circuitos() {
   return (
-    <article className="lg:tw-grid tw-grid-cols-10  tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
+    <article className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10 tw-min-h-[76vh]">
       <Sidebar />
       <div className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
         <div
-          className="tw-relative tw-h-fit md:tw-min-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
+          className="tw-relative tw-h-fit lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
             backgroundImage: `url(/banners/banner_circuitos.webp)`,
             backgroundSize: "cover",
@@ -24,4 +24,5 @@ function Circuitos() {
     </article>
   );
 }
+
 export default Circuitos;

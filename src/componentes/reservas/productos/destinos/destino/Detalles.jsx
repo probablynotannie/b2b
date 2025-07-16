@@ -24,7 +24,7 @@ function Detalles({ producto, cesta }) {
           Detalles
         </h3>
         <p className="dark:tw-text-slate-300">{producto.descripcion}</p>
-        <div className="tw-mt-5 tw-border-b-2 tw-border-slate-100 tw-pb-5">
+        <div className="tw-mt-5 tw-pb-5">
           <Incluidos destino={producto} />
         </div>
         <h3 className="dark:tw-text-white tw-text-slate-700 tw-font-bold tw-mt-3 tw-text-xl">

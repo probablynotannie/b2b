@@ -286,7 +286,9 @@ function Tarifas({
                                     {formatPrice(lowestPrice)}
                                   </div>
                                 ) : (
-                                  "-"
+                                  <div className="tw-flex tw-items-center tw-justify-center">
+                                    -
+                                  </div>
                                 )}
                               </td>
                             );

@@ -1,5 +1,5 @@
 import { useLocation, useParams } from "react-router-dom";
-import { useState, useMemo } from "react";
+import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Buscador from "../../../motores/buscadores/cruceros/Buscador_Cruceros";
 import Cruceros from "./Listado";
@@ -93,13 +93,21 @@ function Productos() {
     keepPreviousData: true,
   });
 
-  const cruceros = data?.items || [];
+  const cruceros = useMemo(() => data?.items || [], [data?.items]);
+
   const totalResults = data?.total || 0;
   const pageSize = 20;
   const totalPages = Math.ceil(totalResults / pageSize);
   useMemo(() => {
     setPage(1);
   }, []);
+  const resultadosRef = useRef(null);
+
+  useEffect(() => {
+    if (!isFetching) {
+      window.scrollTo({ top: 0, behavior: "smooth" });
+    }
+  }, [cruceros, isFetching]);
 
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
@@ -114,7 +122,6 @@ function Productos() {
           </div>
         </div>
       </div>
-
       <article className="lg:tw-gap-10 xs:gap-28 tw-w-full tw-container md:tw-mt-5 tw-min-h-[55vh] lg:tw-min-h-[40vh]">
         {newRequestData.img && (
           <section className="tw-mb-10">
@@ -170,9 +177,9 @@ function Productos() {
                   <PlaceHolder />
                 </>
               ) : (
-                <div>
+                <div ref={resultadosRef}>
                   <div className="tw-sticky tw-top-0 tw-bg-white/90 dark:tw-bg-slate-700/80 tw-py-10 tw-p-3 tw-z-10 tw-flex tw-justify-between tw-items-center">
-                    <h3 className=" tw-font-semibold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
+                    <h3 className="tw-font-semibold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
                       Resultados ({totalResults})
                     </h3>
                     {totalPages > 1 && (
@@ -189,9 +196,7 @@ function Productos() {
                           {page}
                         </span>
                         <button
-                          onClick={() =>
-                            setPage((p) => Math.min(totalPages, p + 1))
-                          }
+                          onClick={() => setPage((p) => Math.max(1, p + 1))}
                           disabled={page === totalPages}
                           className="tw-text-xl tw-text-secondary hover:tw-text-secondary/90 tw-smooth tw-px-3 tw-py-1 tw-rounded disabled:tw-text-slate-400"
                         >

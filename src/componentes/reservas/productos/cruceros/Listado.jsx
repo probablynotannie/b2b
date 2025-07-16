@@ -2,6 +2,7 @@ import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import FormatearFecha from "../../estructura/FormatearFecha";
 import { slugify } from "../../../../helpers/slugify";
+
 function Listado({ destinos }) {
   const encontrarProximaSalida = (tarifas) => {
     const tarifasValidas = tarifas.filter((tarifa) => tarifa.fecha);
@@ -14,9 +15,31 @@ function Listado({ destinos }) {
       : "No disponible";
   };
 
+  function obtenerTarifasMinimasPorFecha(tarifas) {
+    const tarifasMinimas = {};
+    tarifas.forEach((tarifa) => {
+      const fecha = tarifa.fecha;
+      const precioActual = parseFloat(tarifa.precio);
+
+      if (
+        !tarifasMinimas[fecha] ||
+        precioActual < parseFloat(tarifasMinimas[fecha].precio)
+      ) {
+        tarifasMinimas[fecha] = tarifa;
+      }
+    });
+    const resultado = Object.values(tarifasMinimas).sort(
+      (a, b) => new Date(a.fecha) - new Date(b.fecha)
+    );
+    return resultado;
+  }
+
   return (
     <section className="tw-pb-12">
       {destinos.map((destino, index) => {
+        const tarifasAMostrar = Array.isArray(destino.tarifas)
+          ? obtenerTarifasMinimasPorFecha(destino.tarifas)
+          : [];
         const proximaSalida = FormatearFecha(
           encontrarProximaSalida(destino.tarifas)
         );
@@ -80,7 +103,6 @@ function Listado({ destinos }) {
                           d.puerto.id_puerto === destination.puerto.id_puerto
                       ) === i
                   )
-
                   .slice(0, 4)
                   .map((destination, i, arr) => {
                     const imageWidth = 100 / arr.length;
@@ -147,8 +169,18 @@ function Listado({ destinos }) {
                     </div>
                   )}
                   <div>
-                    {destino.tarifas.length > 0 && (
-                      <h5 className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
+                    {destino.tarifas[0].fecha ===
+                    destino.tarifas[destino.tarifas.length - 1].fecha ? (
+                      <span className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-pink-400 tw-text-xs tw-font-semibold">
+                        Fecha disponible:{" "}
+                        {FormatearFecha(
+                          new Date(
+                            destino.tarifas[0].fecha
+                          ).toLocaleDateString()
+                        )}{" "}
+                      </span>
+                    ) : (
+                      <span className="tw-p-1 tw-text-white tw-rounded-sm tw-shadow tw-mb-3 tw-w-fit tw-bg-blue-400 tw-text-xs tw-font-semibold">
                         Fechas disponibles de{" "}
                         {FormatearFecha(
                           new Date(
@@ -161,15 +193,31 @@ function Listado({ destinos }) {
                             destino.tarifas[destino.tarifas.length - 1].fecha
                           ).toLocaleDateString()
                         )}
-                      </h5>
+                      </span>
                     )}
                   </div>
                 </div>
-
-                <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
+                <p className="tw-text-sm  tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
-                <div>hola</div>
+                <div className="tw-flex tw-flex-wrap tw-justify-center sm:tw-grid tw-grid-cols-2 sm:tw-grid-cols-4 xl:tw-grid-cols-8 tw-gap-3 tw-py-2">
+                  {tarifasAMostrar.slice(0, 7).map((tarifa) => (
+                    <div
+                      key={tarifa.id_camarote}
+                      className="tw-bg-white dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 tw-smooth tw-border dark:tw-border-slate-700 tw-border-slate-200 dark:tw-text-slate-300 tw-p-3 tw-rounded-lg tw-shadow-sm"
+                    >
+                      <p className="tw-font-semibold">{tarifa.precio}€</p>
+                      <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
+                        {FormatearFecha(tarifa.fecha)}
+                      </p>
+                    </div>
+                  ))}
+                  {tarifasAMostrar.length > 7 && (
+                    <div className="tw-px-8 tw-bg-white dark:tw-bg-slate-700 dark:hover:tw-bg-slate-900 tw-smooth tw-border dark:tw-border-slate-700 tw-border-slate-200 dark:tw-text-slate-300 tw-p-3 tw-rounded-lg tw-shadow-sm tw-flex tw-justify-center tw-items-center">
+                      y más ...
+                    </div>
+                  )}
+                </div>
               </div>
             </Link>
             <div className="tw-flex tw-justify-end tw-mt-5">
