@@ -8,7 +8,6 @@ function Detalles({ producto, tickets, setTickets, cesta, data }) {
           ""
         ) : (
           <>
-            <h1 className="tw-font-semibold">{producto.titulo}</h1>
             <img
               src={producto.img}
               alt="imagen producto"

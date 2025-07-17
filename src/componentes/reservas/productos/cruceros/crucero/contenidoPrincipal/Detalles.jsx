@@ -1,4 +1,4 @@
-import DatoTituloIcono from "../../../../../helpers/visuales/DatoTituloIcono";
+import DatoTituloIcono from "../../../../../../helpers/visuales/DatoTituloIcono";
 import { FaArrowUp, FaGlobe, FaMoon, FaShip } from "react-icons/fa";
 
 function Detalles({ producto }) {

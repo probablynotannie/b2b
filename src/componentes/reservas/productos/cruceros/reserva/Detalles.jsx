@@ -1,5 +1,5 @@
-import Itinerario from "../crucero/Itinerario";
-import DetallesConIconos from "../crucero/Detalles";
+import Itinerario from "../crucero/contenidoPrincipal/Itinerario";
+import DetallesConIconos from "../crucero/contenidoPrincipal/Detalles";
 function Detalles({ producto }) {
   return (
     <div>

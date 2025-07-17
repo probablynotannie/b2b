@@ -58,7 +58,7 @@ function ElegirEntradas({ tickets, setTickets, producto, cesta }) {
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="tw-mb-5 tw-border dark:tw-border-slate-700 tw-bg-slate-50 dark:tw-bg-slate-800 tw-shadow hover:tw-shadow-md tw-smooth tw-rounded-lg"
+            className="tw-mb-5 tw-border dark:tw-border-slate-700 tw-bg-slate-50 dark:tw-bg-slate-800 tw-shadow hover:tw-shadow-md tw-smooth tw-rounded-lg tw-overflow-hidden"
           >
             <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-700 dark:tw-bg-slate-900 tw-p-2">
               <h2 className="tw-font-semibold tw-text-white">

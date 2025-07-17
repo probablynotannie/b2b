@@ -1,7 +1,7 @@
 import { AiFillEuroCircle } from "react-icons/ai";
 import { FaCalendarAlt } from "react-icons/fa";
 import { TbTaxEuro } from "react-icons/tb";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../../../helpers/FormatearFecha";
 
 function ModalPrecio({
   isOpen,

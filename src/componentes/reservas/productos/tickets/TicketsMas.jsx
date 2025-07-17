@@ -3,7 +3,6 @@ import { Modal } from "flowbite-react";
 import formatearFecha from "../../estructura/FormatearFecha";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
-
 function Resultado({ tickets, actividades, setActividades }) {
   const [activeActividad, setActiveActividad] = useState(null);
   const [fechaSeleccionada, setFechaSeleccionada] = useState("");
@@ -12,7 +11,6 @@ function Resultado({ tickets, actividades, setActividades }) {
     adulto: 0,
     niño: 0,
   });
-
   useEffect(() => {
     if (activeActividad) {
       const actividad = actividades.find(
@@ -58,14 +56,11 @@ function Resultado({ tickets, actividades, setActividades }) {
       alert("Por favor selecciona al menos una entrada.");
       return;
     }
-
     if (!fechaSeleccionada || !horaSeleccionada) {
       alert("Por favor selecciona una fecha y una hora.");
       return;
     }
-
     const totalPrice = calculateTotalPrice();
-
     const actividadConDetalles = {
       ...actividad,
       fechaSeleccionada,
@@ -236,14 +231,14 @@ function Resultado({ tickets, actividades, setActividades }) {
                     Entradas:
                   </label>
                   {isSelected ? (
-                    <div className="tw-flex tw-gap-4">
-                      <div className="tw-p-1 tw-bg-pink-100 tw-text-pink-600 tw-rounded-lg tw-shadow">
+                    <div className="tw-flex tw-gap-4 tw-text-sm">
+                      <div className="tw-p-1 tw-bg-pink-100 tw-text-pink-600 dark:tw-bg-pink-700 dark:tw-text-pink-100 tw-rounded-lg tw-shadow">
                         <p>
                           Adultos: {entradasSeleccionadas.adulto} (
                           {activeActividad.tiposEntradas.adulto.precio}€)
                         </p>
                       </div>
-                      <div className="tw-p-1 tw-bg-indigo-100 tw-text-indigo-600 tw-rounded-lg tw-shadow">
+                      <div className="tw-p-1 tw-bg-indigo-100 tw-text-indigo-600 dark:tw-bg-indigo-800 dark:tw-text-indigo-200 tw-rounded-lg tw-shadow">
                         <p>
                           Niños: {entradasSeleccionadas.niño} (
                           {activeActividad.tiposEntradas.niño.precio}€)
@@ -319,7 +314,7 @@ function Resultado({ tickets, actividades, setActividades }) {
           </Modal.Body>
           <Modal.Footer className="dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-border-slate-100">
             <button
-              className="tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
+              className="tw-p-3 tw-bg-slate-500 dark:tw-bg-slate-600 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
               onClick={() => setActiveActividad(null)}
             >
               Cerrar
