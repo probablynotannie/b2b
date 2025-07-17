@@ -21,7 +21,6 @@ function Zonas_Puertos_Placeholder() {
           <h2 className="tw-font-bold tw-text-xl xl:tw-text-2xl dark:tw-text-white tw-animate-pulse">
             Puertos Destacados
           </h2>
-          <Cargando />
         </div>
         <div className="tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded-lg tw-h-40 xl:tw-h-72 tw-animate-pulse tw-mb-4" />
       </div>

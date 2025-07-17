@@ -83,7 +83,7 @@ const DateWithTime = ({
           onChange={handleDateTimeChange}
           value={arrivalDateTime}
           placeholder={placeholder}
-          withTime
+          withtime="true"
           clearable
           minDate={new Date()}
           timeInputProps={{ type: "select" }}

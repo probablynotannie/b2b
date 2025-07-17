@@ -49,6 +49,7 @@ const PriceRangeSlider = ({ values, setValues, minMax }) => {
           const { key, ...restProps } = props;
           return (
             <div
+              key={key}
               {...restProps}
               className="tw-w-5 tw-h-5 tw-bg-slate-500 tw-rounded-full tw-flex tw-items-center tw-justify-center tw-shadow-lg"
             >

@@ -24,7 +24,7 @@ function ferris({ ferry }) {
   return (
     <>
       {ferry?.ida && (
-        <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
+        <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-overflow-hidden tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
           <img
             className="tw-h-[25vh] tw-w-full tw-object-cover tw-rounded-t-lg"
             src={ferry.ida.barco}
@@ -45,12 +45,9 @@ function ferris({ ferry }) {
             className="tw-w-[80px] tw-rounded tw-absolute tw-top-4 tw-left-4 tw-bg-white"
           />
           <span
-            className={`tw-absolute tw-rotate-45 tw-bg-blue-400 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-10 tw-right-3 tw-z-10 tw-shadow-lg`}
+            className={`tw-absolute tw-w-[250px] tw-text-center tw-rotate-45 tw-bg-blue-600/60 tw-text-white tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-xs tw-top-10 -tw-right-16 tw-z-10 tw-shadow-lg`}
           >
-            Tarifa:{" "}
-            <span className="tw-uppercase tw-font-bold">
-              {ferry.ida.tarifa}
-            </span>
+            <span className="tw-uppercase tw-font-bold">Ferry</span>
           </span>
           <div className="tw-p-3">
             <h4 className="tw-text-secondary tw-font-semibold">
@@ -59,7 +56,8 @@ function ferris({ ferry }) {
                 - {ferry.vuelta ? "Ida y vuelta" : "solo ida"}
               </span>
             </h4>
-            <div className="tw-flex tw-items-center tw-gap-2">
+            <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
+              <p>Tarifa: {ferry.ida.tarifa}</p>
               <span className="tw-text-sm tw-flex tw-items-center dark:tw-text-slate-300 tw-gap-1">
                 {ferry.ida.cambios === true ? (
                   <FaCheck className="tw-text-green-500" />

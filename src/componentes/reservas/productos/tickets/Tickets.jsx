@@ -18,10 +18,10 @@ function Resultado({ tickets }) {
             key={index}
           >
             <span
-              className={`tw-absolute tw-rotate-45 tw-w-[130px] tw-text-center tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw--right-8 tw-z-10 tw-shadow-lg ${
+              className={`tw-absolute tw-w-[130px] tw-rotate-45 tw-text-center tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw--right-8 tw-z-10 tw-shadow-lg ${
                 actividad.tipoPrecio === "Neto"
-                  ? "tw-bg-green-300 tw-text-green-800"
-                  : "tw-bg-red-500 tw-text-red-200"
+                  ? "tw-bg-green-300/70 tw-text-green-800"
+                  : "tw-bg-red-500/70 tw-text-red-200"
               }`}
             >
               {actividad.tipoPrecio}

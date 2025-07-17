@@ -277,10 +277,10 @@ function Tarifas({
                                 {lowestPrice !== null ? (
                                   <div className="tw-flex tw-justify-center tw-items-center tw-relative tw-gap-1">
                                     {lowestPrice === minGlobal && (
-                                      <div className="tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-green-700  dark:tw-bg-green-400 tw-animate-pulse"></div>
+                                      <div className="tw-hidden xl:tw-block tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-green-700  dark:tw-bg-green-400 tw-animate-pulse"></div>
                                     )}
                                     {hasMaxPrice && (
-                                      <div className="tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-red-700 dark:tw-bg-red-400 tw-animate-pulse"></div>
+                                      <div className="tw-hidden xl:tw-block tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-red-700 dark:tw-bg-red-400 tw-animate-pulse"></div>
                                     )}
                                     <span> desde</span>
                                     {formatPrice(lowestPrice)}
