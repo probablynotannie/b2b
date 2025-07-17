@@ -60,35 +60,27 @@ function Producto() {
     getImagenCruceroDisponible(producto) ?? "default-image.jpg";
 
   return (
-    <>
-      {isLoading ? (
-        <Placeholder />
-      ) : (
-        <>
-          <PaginaDetalles
-            titulo={producto?.barco?.nombre?.texto}
-            contenidoPrincipal={
-              <Crucero
-                producto={producto}
-                pasajeros={pasajeros}
-                setPasajeros={setPasajeros}
-                cruiseImage={cruiseImage}
-                precioSeleccionado={precioSeleccionado}
-                setPrecioSeleccionado={setPrecioSeleccionado}
-              />
-            }
-            contenidoSecundario={
-              <Aside
-                producto={producto}
-                precioSeleccionado={precioSeleccionado}
-                pasajeros={pasajeros}
-                cruiseImage={cruiseImage}
-              />
-            }
-          />
-        </>
-      )}
-    </>
+    <PaginaDetalles
+      titulo={producto?.barco?.nombre?.texto}
+      contenidoPrincipal={
+        <Crucero
+          producto={producto}
+          pasajeros={pasajeros}
+          setPasajeros={setPasajeros}
+          cruiseImage={cruiseImage}
+          precioSeleccionado={precioSeleccionado}
+          setPrecioSeleccionado={setPrecioSeleccionado}
+        />
+      }
+      contenidoSecundario={
+        <Aside
+          producto={producto}
+          precioSeleccionado={precioSeleccionado}
+          pasajeros={pasajeros}
+          cruiseImage={cruiseImage}
+        />
+      }
+    />
   );
 }
 
