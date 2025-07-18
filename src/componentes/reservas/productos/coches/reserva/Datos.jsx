@@ -43,19 +43,18 @@ function Vuelo() {
     });
   };
   return (
-    <>
-      <ComponenteDatos
-        submit={handleSubmit(onSubmit)}
-        img={img}
-        register={register}
-        errors={errors}
-        tipo={"Coche"}
-        itinerario={itinerario}
-        fechaIda={fechaIda}
-        fechaVuelta={fechaVuelta}
-        extras={extras}
-      />
-    </>
+    <ComponenteDatos
+      submit={handleSubmit(onSubmit)}
+      img={img}
+      register={register}
+      errors={errors}
+      tipo={"Coche"}
+      itinerario={itinerario}
+      fecha={fechaIda}
+      fechaVuelta={fechaVuelta}
+      extras={extras}
+      datosAdicionales={""}
+    />
   );
 }
 export default Vuelo;

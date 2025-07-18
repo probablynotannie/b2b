@@ -48,7 +48,7 @@ function Reserva({ pasajeros, setPasajeros, restringido }) {
               className={`tw-p-2 tw-rounded-lg tw-font-semibold tw-w-12 tw-text-sm ${
                 pasajerosInput === num
                   ? "tw-bg-secondary tw-text-white"
-                  : "tw-bg-slate-200 dark:tw-bg-slate-800 tw-text-slate-700 dark:tw-text-white hover:tw-bg-slate-300 dark:hover:tw-bg-slate-700"
+                  : "tw-bg-slate-200 dark:tw-bg-slate-700 tw-text-slate-700 dark:tw-text-white hover:tw-bg-slate-300 dark:hover:tw-bg-slate-700"
               }`}
             >
               {num}
@@ -67,7 +67,7 @@ function Reserva({ pasajeros, setPasajeros, restringido }) {
                 <label className="tw-text-sm tw-font-semibold tw-text-slate-600 dark:tw-text-slate-300">
                   Pasajero {index + 1}
                 </label>
-                <div className="tw-relative tw-w-full md:tw-w-fit">
+                <div className="tw-relative tw-w-full md:tw-w-fit tw-mt-2">
                   <select
                     value={pasajero.age}
                     onChange={(e) =>

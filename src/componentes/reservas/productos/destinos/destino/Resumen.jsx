@@ -2,7 +2,6 @@ import { FaCalendarAlt } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { FaMapPin, FaClock } from "react-icons/fa";
-import { FaBed } from "react-icons/fa6";
 import { MdRestaurant } from "react-icons/md";
 function Resumen({ producto }) {
   return (
@@ -25,13 +24,6 @@ function Resumen({ producto }) {
           {producto.desayunos} desayunos
         </span>
       </p>
-      <div className="tw-mt-4">
-        <div className="tw-relative">
-          <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-            <FaBed />
-          </div>
-        </div>
-      </div>
       <div className="tw-mt-5 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pt-3 tw-text-sm">
         <div className="tw-flex tw-justify-between dark:tw-text-slate-300 tw-text-slate-500">
           <span>PAX</span>
@@ -43,7 +35,7 @@ function Resumen({ producto }) {
           <span>PVP Desde (por persona)</span>
           <span>{producto.precio} €</span>
         </p>
-        <p className="tw-text-secondary tw-flex tw-justify-between tw-font-bold tw-mt-2 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-600 tw-pt-3">
+        <p className="tw-text-secondary tw-flex tw-justify-between tw-font-bold tw-mt-2 tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pt-3">
           <span>Total</span>
           <span>
             {producto.pax * producto.precio}

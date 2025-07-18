@@ -32,7 +32,7 @@ function Datos({
             extras={extras}
           />
           {datosAdicionales}
-          <div className="tw-flex tw-justify-end tw-border-t tw-border-slate-100 dark:tw-border-slate-700 tw-pt-5 tw-mt-10">
+          <div className="tw-flex tw-justify-end tw-pt-5 tw-mt-10">
             <button type="submit" className="tw-btn_primario tw-btn_accesorios">
               Reservar
             </button>

@@ -169,7 +169,7 @@ const Datos = () => {
         fecha={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
         extras={extra}
         datosAdicionales={
-          <>
+          <div className="tw-border-b border-slate-100 dark:tw-border-slate-700 tw-pb-10">
             <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
               Datos Pasajeros
             </h2>
@@ -258,7 +258,7 @@ const Datos = () => {
                 </div>
               ))}
             </div>
-          </>
+          </div>
         }
       />
     </>
