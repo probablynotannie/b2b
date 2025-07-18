@@ -13,7 +13,7 @@ import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
 import Placeholder from "../../../../../helpers/placeholders/Datos";
 import random from "./random.json";
-
+import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -144,7 +144,7 @@ const Datos = () => {
         </span>
       )}
       <span className="tw-bg-indigo-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
-        Pasajeros: {pasajeros.length}
+        Pasajero(s): {pasajeros.length}x
       </span>
       {pasajeros.map((p, i) => (
         <span
@@ -158,120 +158,110 @@ const Datos = () => {
   );
   const img = "/banners/banner_cruise.webp";
   return (
-    <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
-      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-smooth tw-bg-white dark:tw-bg-slate-800">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
-            Datos Contacto
-          </h2>
-          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <DatosContacto register={register} errors={errors} />
-          </div>
-
-          <Reserva
-            img={img}
-            position="center"
-            tipo="Crucero"
-            itinerario={producto.itinerario.name}
-            fechaIda={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
-            extras={extra}
-          />
-          <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
-            Datos Pasajeros
-          </h2>
-          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-10">
-            {pasajeros.map((pasajero, index) => (
-              <div
-                key={index}
-                className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-smooth"
-              >
-                <div>
-                  <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
-                    Pasajero {index + 1}
-                  </h2>
-                  <div className="tw-text-slate-800 dark:tw-text-slate-200 tw-border-b tw-border-slate-200 dark:tw-border-slate-700">
-                    <span className="tw-text-sm">Edad:</span>{" "}
-                    <span className="tw-font-semibold">{pasajero.age}</span>
-                  </div>
-                </div>
-                <div className="tw-space-y-3 tw-text-sm tw-mt-4">
-                  <div className="tw-grid md:tw-grid-cols-2 tw-gap-3">
-                    <Input_Texto
-                      required
-                      tipo="Nombre"
-                      name={`pasajeros[${index}].nombre`}
-                      register={register}
-                      errors={errors}
-                    />
-                    <Input_Texto
-                      required
-                      tipo="Apellido/s"
-                      name={`pasajeros[${index}].apellido`}
-                      register={register}
-                      errors={errors}
-                    />
-                  </div>
-                  <Fecha
-                    control={control}
-                    edadSelector
-                    fecha={pasajero.fechaNacimiento}
-                    name={`pasajeros[${index}].fechaNacimiento`}
-                    setValue={(name, value) => handleDateChange(value, index)}
-                  />
-                  <div className="tw-relative">
-                    <select
-                      className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
-                      {...register(`pasajeros[${index}].pais`)}
-                    >
-                      <option value="">País</option>
-                      {paisesOrdenados.map(({ id, pais }) => (
-                        <option key={id} value={pais}>
-                          {pais}
-                        </option>
-                      ))}
-                    </select>
-                    <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-                      <FaUser />
+    <>
+      <ComponenteDatos
+        submit={handleSubmit(onSubmit)}
+        tipo={"Crucero"}
+        register={register}
+        errors={errors}
+        img={img}
+        itinerario={producto.itinerario.name}
+        fecha={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
+        extras={extra}
+        datosAdicionales={
+          <>
+            <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
+              Datos Pasajeros
+            </h2>
+            <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-10">
+              {pasajeros.map((pasajero, index) => (
+                <div
+                  key={index}
+                  className="tw-border dark:tw-border-slate-700 tw-bg-slate-100 dark:tw-bg-slate-900 tw-rounded-lg tw-p-4 tw-mt-4 tw-shadow hover:tw-shadow-md tw-smooth"
+                >
+                  <div>
+                    <h2 className="tw-font-semibold tw-text-lg dark:tw-text-slate-200">
+                      Pasajero {index + 1}
+                    </h2>
+                    <div className="tw-text-slate-800 dark:tw-text-slate-200 tw-border-b tw-border-slate-200 dark:tw-border-slate-700">
+                      <span className="tw-text-sm">Edad:</span>{" "}
+                      <span className="tw-font-semibold">{pasajero.age}</span>
                     </div>
                   </div>
+                  <div className="tw-space-y-3 tw-text-sm tw-mt-4">
+                    <div className="tw-grid md:tw-grid-cols-2 tw-gap-3">
+                      <Input_Texto
+                        required
+                        tipo="Nombre"
+                        name={`pasajeros[${index}].nombre`}
+                        register={register}
+                        errors={errors}
+                      />
+                      <Input_Texto
+                        required
+                        tipo="Apellido/s"
+                        name={`pasajeros[${index}].apellido`}
+                        register={register}
+                        errors={errors}
+                      />
+                    </div>
+                    <Fecha
+                      control={control}
+                      edadSelector
+                      fecha={pasajero.fechaNacimiento}
+                      name={`pasajeros[${index}].fechaNacimiento`}
+                      setValue={(name, value) => handleDateChange(value, index)}
+                    />
+                    <div className="tw-relative">
+                      <select
+                        className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-h-[40px] tw-pl-10 tw-w-full tw-cursor-pointer"
+                        {...register(`pasajeros[${index}].pais`)}
+                      >
+                        <option value="">País</option>
+                        {paisesOrdenados.map(({ id, pais }) => (
+                          <option key={id} value={pais}>
+                            {pais}
+                          </option>
+                        ))}
+                      </select>
+                      <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
+                        <FaUser />
+                      </div>
+                    </div>
+                  </div>
+                  <div className="tw-flex tw-items-center tw-justify-end tw-gap-1 tw-space-x-3 tw-mt-3 dark:tw-text-slate-100">
+                    <button
+                      type="button"
+                      className={`tw-p-2 tw-rounded-md tw-text-lg ${
+                        getValues(`pasajeros[${index}].genero`) === "Hombre"
+                          ? "tw-bg-blue-500 dark:tw-bg-blue-600 tw-text-white"
+                          : "tw-bg-slate-200 dark:tw-bg-slate-500 tw-text-black"
+                      }`}
+                      onClick={() => handleGeneroChange(index, "Hombre")}
+                    >
+                      <FaMars />
+                    </button>
+                    H
+                    <button
+                      type="button"
+                      className={`tw-p-2 tw-rounded-md tw-text-lg ${
+                        getValues(`pasajeros[${index}].genero`) === "Mujer"
+                          ? "tw-bg-pink-400 dark:tw-bg-pink-600 tw-text-white"
+                          : "tw-bg-slate-200 dark:tw-bg-slate-500 tw-text-black"
+                      }`}
+                      onClick={() => handleGeneroChange(index, "Mujer")}
+                    >
+                      <FaVenus />
+                    </button>
+                    M
+                  </div>
                 </div>
-                <div className="tw-flex tw-items-center tw-justify-end tw-gap-1 tw-space-x-3 tw-mt-3 dark:tw-text-slate-100">
-                  <button
-                    type="button"
-                    className={`tw-p-2 tw-rounded-md tw-text-lg ${
-                      getValues(`pasajeros[${index}].genero`) === "Hombre"
-                        ? "tw-bg-blue-500 dark:tw-bg-blue-600 tw-text-white"
-                        : "tw-bg-slate-200 dark:tw-bg-slate-500 tw-text-black"
-                    }`}
-                    onClick={() => handleGeneroChange(index, "Hombre")}
-                  >
-                    <FaMars />
-                  </button>
-                  H
-                  <button
-                    type="button"
-                    className={`tw-p-2 tw-rounded-md tw-text-lg ${
-                      getValues(`pasajeros[${index}].genero`) === "Mujer"
-                        ? "tw-bg-pink-400 dark:tw-bg-pink-600 tw-text-white"
-                        : "tw-bg-slate-200 dark:tw-bg-slate-500 tw-text-black"
-                    }`}
-                    onClick={() => handleGeneroChange(index, "Mujer")}
-                  >
-                    <FaVenus />
-                  </button>
-                  M
-                </div>
-              </div>
-            ))}
-          </div>
-          <div className="tw-flex tw-justify-end tw-border-t tw-border-slate-100 dark:tw-border-slate-700 tw-pt-5 tw-mt-10">
-            <button type="submit" className="tw-btn_primario tw-btn_accesorios">
-              Reservar
-            </button>
-          </div>
-        </form>
-      </article>
-    </main>
+              ))}
+            </div>
+          </>
+        }
+      />
+    </>
   );
 };
 
