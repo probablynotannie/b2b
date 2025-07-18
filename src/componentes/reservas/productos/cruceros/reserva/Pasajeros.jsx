@@ -1,15 +1,14 @@
 import { FaMars, FaVenus, FaGlobe } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
 function Pasajeros({ pasajeros }) {
   return (
     <section className="tw-my-6 tw-space-y-2">
       <h3 className="tw-font-semibold dark:tw-text-slate-100">Pasajeros</h3>
-      <div className="tw-grid md:tw-grid-cols-2 tw-gap-7">
+      <div className="tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-7">
         {pasajeros.map((pasajero) => (
           <div
             key={pasajero.id}
-            className="tw-flex tw-border dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-800 tw-shadow tw-rounded-lg"
+            className="tw-flex tw-border dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900/60 tw-shadow tw-rounded-lg"
           >
             <div
               className={`tw-px-3 tw-min-h-[8vh] tw-text-white tw-rounded-l-lg ${

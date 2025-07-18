@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { FaUser, FaCar } from "react-icons/fa";
 import { MdEmail, MdPhoneAndroid } from "react-icons/md";
-import Detalles from "../detalles/Detalles";
+import Detalles from "../detalles/contenidoPrincipal/Coche";
 import Reserva from "../../../estructura/reserva/Resumen";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
@@ -10,8 +10,10 @@ function ReservaFinal() {
     location.state || {};
   return (
     <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
-      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 
-tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
+      <section
+        className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 
+tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5"
+      >
         <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-pb-5 tw-border-slate-100 dark:tw-border-slate-700">
           <h1 className="tw-text-2xl tw-font-bold dark:tw-text-white">
             {producto.nombre}
@@ -84,7 +86,7 @@ tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
             {conductor.nombre} {conductor.apellido}
           </span>
         </div>
-        <p className="tw-text-sm tw-text-red-400 dark:tw-text-danger tw-mt-2">
+        <p className="tw-text-sm tw-text-red-400 dark:tw-text-danger tw-my-2">
           Comprueba los datos de contacto para poder comunicar cualquier cambio
           con la resera.
         </p>

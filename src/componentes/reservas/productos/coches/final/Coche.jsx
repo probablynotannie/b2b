@@ -1,4 +1,4 @@
-import Detalles from "../detalles/Detalles";
+import Detalles from "../detalles/contenidoPrincipal/Coche";
 import { FaCar, FaPlaneArrival } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 function Coche({ producto, precio, conductor, extras }) {

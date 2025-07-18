@@ -15,7 +15,6 @@ function Producto() {
     data: producto,
     isLoading,
     isError,
-    error,
   } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
@@ -48,7 +47,6 @@ function Producto() {
   }
 
   if (isError) {
-    console.error(error);
     return (
       <div>
         <Error tipo={3} error={"Ha habido un error inesperado."} />

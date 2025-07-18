@@ -9,7 +9,7 @@ function Condiciones_alquiler() {
         </h3>
         <MdCarRental className="tw-text-2xl tw-text-secondary" />
       </div>
-      <div className="tw-max-w-7xl tw-mx-auto tw-bg-white dark:tw-bg-slate-900 tw-shadow-md tw-rounded-lg tw-p-8">
+      <div className="tw-max-w-7xl tw-mx-auto tw-bg-white dark:tw-bg-slate-900 tw-shadow-md tw-rounded-lg">
         <h1 className="tw-text-2xl tw-font-bold tw-text-slate-700 dark:tw-text-slate-300 tw-mb-6">
           Drivalia España - Documentación Necesaria
         </h1>

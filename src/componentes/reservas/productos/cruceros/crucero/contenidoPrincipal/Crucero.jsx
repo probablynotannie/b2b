@@ -9,7 +9,7 @@ function Crucero({
   cruiseImage,
 }) {
   return (
-    <div>
+    <>
       <Detalles producto={producto} />
       <Tabs
         producto={producto}
@@ -19,7 +19,7 @@ function Crucero({
         setPrecioSeleccionado={setPrecioSeleccionado}
         cruiseImage={cruiseImage}
       />
-    </div>
+    </>
   );
 }
 
