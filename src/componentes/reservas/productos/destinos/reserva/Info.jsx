@@ -1,5 +1,5 @@
 import React from "react";
-import Desglose from "../destino/reserva/Desglose";
+import Desglose from "../destino/reserva/contenidoSecundario/Desglose";
 import { FaPerson, FaClock } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { MdMeetingRoom } from "react-icons/md";

@@ -1,6 +1,6 @@
 import { FaGlobe } from "react-icons/fa";
-import Detalles from "../destino/Detalles";
-import Desglose from "../destino/reserva/Desglose";
+import Detalles from "../destino/contenidoPrincipal/Destino";
+import Desglose from "../destino/reserva/contenidoSecundario/Desglose";
 import { FaPerson, FaClock } from "react-icons/fa6";
 import { ImSpoonKnife } from "react-icons/im";
 import { MdMeetingRoom } from "react-icons/md";

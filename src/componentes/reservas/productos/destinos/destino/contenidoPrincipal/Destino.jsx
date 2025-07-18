@@ -1,8 +1,8 @@
-import MapWithJourney from "./MapWithJourney";
-import Itinerario from "./Itinerario";
-import Incluidos from "./Incluidos";
-import Importante from "./Importante";
-function Detalles({ producto, cesta }) {
+import MapWithJourney from "./apartados/MapWithJourney";
+import Itinerario from "./apartados/Itinerario";
+import Incluidos from "./apartados/Incluidos";
+import Importante from "./apartados/Importante";
+function Destino({ producto, cesta }) {
   return (
     <section>
       {cesta !== null && cesta !== true && (
@@ -42,4 +42,4 @@ function Detalles({ producto, cesta }) {
   );
 }
 
-export default Detalles;
+export default Destino;

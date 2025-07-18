@@ -1,14 +1,14 @@
 import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
-import Detalles from "./Detalles";
-import Resumen from "./Resumen";
+import Resumen from "./contenidoSecundario/Resumen";
 import { useLocation } from "react-router-dom";
+import ComponenteDestino from "./contenidoPrincipal/Destino";
 function Destino() {
   const location = useLocation();
   const producto = location.state;
 
   return (
     <PaginaDetalles
-      contenidoPrincipal={<Detalles producto={producto} />}
+      contenidoPrincipal={<ComponenteDestino producto={producto} />}
       contenidoSecundario={<Resumen producto={producto} />}
     />
   );

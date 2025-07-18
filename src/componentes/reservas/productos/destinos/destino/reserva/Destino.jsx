@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import Input_Fecha from "../../../../../inputs/DateRangePrice";
-import Aside from "./Aside";
-import Info from "./Info";
+import Aside from "./contenidoSecundario/Aside";
+import Info from "./contenidoPrincipal/Info";
 import { useLocation } from "react-router-dom";
-import Hoteles from "./hoteles/Hoteles";
-import Hoteles2 from "./hoteles/Hoteles2";
+import Hoteles from "./contenidoPrincipal/hoteles/Hoteles";
+import Hoteles2 from "./contenidoPrincipal/hoteles/Hoteles2";
 import PaginaDetalles from "../../../../../../helpers/visuales/PaginaDetalles";
-function Fechas() {
+function Destino() {
   const location = useLocation();
   const producto = location.state;
   const productoConHabitaciones = {
@@ -91,4 +91,4 @@ function Fechas() {
   );
 }
 
-export default Fechas;
+export default Destino;

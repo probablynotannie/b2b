@@ -58,7 +58,7 @@ import Circuito from "../reservas/productos/circuitos/Circuito";
 import HotelmAsActividades from "../reservas/productos/hotelmasactividades/seleccion/Seleccion";
 import Combinado from "../reservas/productos/combinados/Combinado";
 /*Componentes */
-import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
+import Fecha from "../reservas/productos/destinos/destino/reserva/Destino";
 import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* CESTA */
