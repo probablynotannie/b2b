@@ -1,5 +1,5 @@
 import { FaInfoCircle } from "react-icons/fa";
-import formatearFecha from "../../../../estructura/FormatearFecha";
+import formatearFecha from "../../../../../../helpers/FormatearFecha";
 import { Link } from "react-router-dom";
 import Reserva from "../../../../estructura/reserva/Resumen";
 

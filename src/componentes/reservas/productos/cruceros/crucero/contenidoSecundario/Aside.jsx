@@ -1,6 +1,6 @@
 import { FaCalendar, FaInfoCircle } from "react-icons/fa";
 import { MdMeetingRoom } from "react-icons/md";
-import FormatearFecha from "../../../../estructura/FormatearFecha";
+import FormatearFecha from "../../../../../../helpers/FormatearFecha";
 import { slugify } from "../../../../../../helpers/slugify";
 import Pasajeros_Display from "./Pasajeros_Display";
 import Reserva from "../../../../estructura/reserva/Resumen";

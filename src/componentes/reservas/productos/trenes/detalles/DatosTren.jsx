@@ -1,4 +1,4 @@
-import FormateadFecha from "../../../estructura/FormatearFecha";
+import FormateadFecha from "../../../../../helpers/FormatearFecha";
 import formatearMinutos from "../../../../../helpers/FormatearMinutos";
 function DatosTren({ tren, tipo }) {
   return (
