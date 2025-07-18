@@ -51,7 +51,7 @@ import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/crucero/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
 import Seguro from "../reservas/productos/seguro/Resultado";
-import Ticket from "../reservas/productos/tickets/Ticket";
+import Ticket from "../reservas/productos/tickets/ticket/Ticket";
 import Entrada from "../reservas/productos/entradas/entrada/Entrada";
 import Tren from "../reservas/productos/trenes/Tren";
 import Circuito from "../reservas/productos/circuitos/Circuito";

@@ -1,6 +1,5 @@
-import React from "react";
 import { FaTicket } from "react-icons/fa6";
-import Detalles from "../Detalles";
+import Detalles from "../ticket/contenidoPrincipal/Detalles";
 function Entradas({ producto, tickets, data }) {
   const calculateTotalPrice = () => {
     return tickets.reduce((total, ticket) => {

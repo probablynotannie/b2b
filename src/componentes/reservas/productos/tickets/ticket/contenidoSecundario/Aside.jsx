@@ -40,7 +40,7 @@ function Aside({ tickets, producto, link }) {
           {link ? (
             link
           ) : (
-            <Link to={"/datosEntrada"} state={{ producto, tickets }}>
+            <Link to={"/datosTickets"} state={{ producto, tickets }}>
               <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
                 Total: €{calcularPrecio().toFixed(2)}
               </button>
