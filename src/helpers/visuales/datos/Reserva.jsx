@@ -25,10 +25,10 @@ function Contacto({
             <span className="tw-font-semibold tw-text-lg 2xl:tw-text-3xl tw-text-center tw-px-4">
               {itinerario}
             </span>
-            <p className="tw-text-slate-200 tw-text-center tw-px-4">
+            <div className="tw-text-slate-200 tw-text-center tw-px-4">
               {fechaIda}
               {fechaVuelta && <span> - {fechaVuelta} </span>}
-            </p>
+            </div>
             {extras !== null && extras}
           </div>
         </div>

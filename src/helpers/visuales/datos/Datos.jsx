@@ -28,7 +28,7 @@ function Datos({
             tipo={tipo}
             itinerario={itinerario}
             fechaIda={fecha}
-            fechaVuelta={fecha}
+            fechaVuelta={fechaVuelta}
             extras={extras}
           />
           {datosAdicionales}

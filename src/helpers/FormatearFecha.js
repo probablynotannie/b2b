@@ -3,18 +3,18 @@ export default function formatearFecha(fecha) {
         "enero", "febrero", "marzo", "abril", "mayo", "junio",
         "julio", "agosto", "septiembre", "octubre", "noviembre", "diciembre"
     ];
-
     let dateObj;
-
     if (fecha instanceof Date) {
         dateObj = fecha;
     } else if (typeof fecha === "string") {
-        const matchDMY = fecha.match(/^(\d{1,2})\/(\d{1,2})\/(\d{4})$/);
-        if (matchDMY) {
-            const [, dia, mes, año] = matchDMY.map(Number);
+        const match = fecha.match(/^(\d{1,2})[-/](\d{1,2})[-/](\d{4})$/);
+        if (match) {
+            const [, diaStr, mesStr, añoStr] = match;
+            const dia = parseInt(diaStr, 10);
+            const mes = parseInt(mesStr, 10);
+            const año = parseInt(añoStr, 10);
             dateObj = new Date(año, mes - 1, dia);
         } else {
-
             const parsed = new Date(fecha);
             if (!isNaN(parsed)) {
                 dateObj = parsed;
@@ -31,7 +31,7 @@ export default function formatearFecha(fecha) {
     }
 
     const day = dateObj.getDate();
-    const month = dateObj.getMonth(); // 0-based
+    const month = dateObj.getMonth();
     const year = dateObj.getFullYear();
 
     return `${day} de ${meses[month]} de ${year}`;

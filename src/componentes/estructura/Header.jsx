@@ -52,7 +52,7 @@ import Crucero from "../reservas/productos/cruceros/crucero/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
 import Seguro from "../reservas/productos/seguro/Resultado";
 import Ticket from "../reservas/productos/tickets/Ticket";
-import Entrada from "../reservas/productos/entradas/Entrada";
+import Entrada from "../reservas/productos/entradas/entrada/Entrada";
 import Tren from "../reservas/productos/trenes/Tren";
 import Circuito from "../reservas/productos/circuitos/Circuito";
 import HotelmAsActividades from "../reservas/productos/hotelmasactividades/seleccion/Seleccion";
