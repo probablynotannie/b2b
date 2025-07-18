@@ -1,6 +1,5 @@
-import DatosContacto from "../../../estructura/DatosContacto";
-
-import Ferry from "./Ferry";
+import DatosContacto from "../../../../estructura/DatosContacto";
+import Ferry from "../Ferry";
 function Detalles({ ida, vuelta, datosContacto }) {
   return (
     <section>

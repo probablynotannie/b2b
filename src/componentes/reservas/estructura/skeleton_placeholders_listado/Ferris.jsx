@@ -36,7 +36,7 @@ function Ferris() {
               <div className="tw-flex tw-flex-col tw-gap-3 tw-mt-3">
                 {[...Array(3)].map((_, index) => (
                   <div
-                    className="tw-flex tw-gap-3 tw-h-8 tw-border-b tw-border-slate-200 dark:tw-border-slate-600"
+                    className="tw-flex tw-gap-3 tw-h-10 tw-border-b tw-border-slate-200 dark:tw-border-slate-600"
                     key={index}
                   >
                     <div className="tw-w-3 tw-h-3 dark:tw-bg-slate-100 tw-bg-slate-300 tw-rounded-full" />
