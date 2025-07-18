@@ -1,6 +1,6 @@
 import { GiCruiser } from "react-icons/gi";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-import Detalles from "../reserva/Detalles";
+import Detalles from "./Detalles";
 import Pasajeros from "../reserva/Pasajeros";
 
 function Crucero({ producto, pasajeros, selectedPrice }) {
