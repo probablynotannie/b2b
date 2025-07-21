@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
-import Resumen from "../../../estructura/reserva/Resumen";
-import DatosContacto from "../../../estructura/DatosContacto";
+import Resumen from "../../../../../helpers/visuales/ReservaFinal/Resumen";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import { Link } from "react-router-dom";
 import Hotel from "../../hotel/final/Hotel";
 import Actividades from "./Actividades";

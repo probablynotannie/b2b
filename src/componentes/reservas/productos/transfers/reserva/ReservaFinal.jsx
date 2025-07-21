@@ -1,6 +1,6 @@
 import { useLocation, Link } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
-import Reserva from "../../../estructura/reserva/Resumen";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import Detalles from "./Detalles";
 import { FaArrowRight } from "react-icons/fa";
 

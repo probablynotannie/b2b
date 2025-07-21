@@ -1,8 +1,8 @@
 import { useLocation } from "react-router-dom";
 import Hotel from "../../hotel/final/Hotel";
 import { Link } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
-import Resumen from "../../../estructura/reserva/Resumen";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
+import Resumen from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import Ferry from "../../ferris/final/Ferry";
 function ResumenFinal() {
   const location = useLocation();

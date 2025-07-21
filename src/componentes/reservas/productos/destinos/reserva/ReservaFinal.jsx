@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import Detalles from "./Detalles";
-import Reserva from "../../../estructura/reserva/Resumen";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import Info from "./Info";
 import { Link } from "react-router-dom";
 function ReservaFinal() {

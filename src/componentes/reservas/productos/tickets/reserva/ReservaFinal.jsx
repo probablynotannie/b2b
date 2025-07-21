@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Detalles from "../ticket/contenidoPrincipal/Detalles";
 import { Link } from "react-router-dom";
 import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";

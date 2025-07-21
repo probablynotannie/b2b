@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
-import Reserva from "../../../estructura/reserva/Resumen";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import Aside from "../seleccion/Aside";
 import Detalles from "../seleccion/Detalles";
-import Pasajeros from "../../vuelos/reserva/Pasajeros";
+import Pasajeros from "../../vuelos/reserva/contenidoPrincipal/Pasajeros";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();

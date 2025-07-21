@@ -1,9 +1,9 @@
 import { useLocation } from "react-router-dom";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { FaCalendar } from "react-icons/fa6";
-import DatosContacto from "../../../estructura/DatosContacto";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Detalles from "./Detalles";
-import Resumen from "../../../estructura/reserva/Resumen";
+import Resumen from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { Link } from "react-router-dom";
 
 function Reserva() {

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import Detalles from "./Detalles";
 import { FaPerson } from "react-icons/fa6";
 import { FaCalendar, FaChild, FaDoorOpen } from "react-icons/fa";
-import Reserva from "../../../estructura/reserva/Resumen";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { Link } from "react-router-dom";
 function ReservaFinal() {
   const location = useLocation();

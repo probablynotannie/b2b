@@ -3,7 +3,7 @@ import { MdMeetingRoom } from "react-icons/md";
 import FormatearFecha from "../../../../../../helpers/FormatearFecha";
 import { slugify } from "../../../../../../helpers/slugify";
 import Pasajeros_Display from "./Pasajeros_Display";
-import Reserva from "../../../../estructura/reserva/Resumen";
+import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { Link } from "react-router-dom";
 function Aside({ producto, precioSeleccionado, pasajeros, cruiseImage }) {
   return (

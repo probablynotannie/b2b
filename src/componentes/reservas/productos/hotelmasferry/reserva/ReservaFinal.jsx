@@ -1,10 +1,10 @@
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import Seleccion from "../seleccion/Detalles";
-import Reserva from "../../../estructura/reserva/Resumen";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { FaHotel, FaShip } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
-import DatosContacto from "../../../estructura/DatosContacto";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 function ReservaFinal() {
   const location = useLocation();
   const { hotel, ferry, data, habitacion } = location.state || {};

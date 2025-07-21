@@ -1,4 +1,4 @@
-import DatosContacto from "../../../../estructura/DatosContacto";
+import DatosContacto from "../../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Ferry from "../Ferry";
 function Detalles({ ida, vuelta, datosContacto }) {
   return (

@@ -1,4 +1,4 @@
-import DatosContacto from "../../../estructura/DatosContacto";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Notas from "../destino/contenidoPrincipal/Destino";
 function Detalles({ reserva, datosContacto }) {
   return (

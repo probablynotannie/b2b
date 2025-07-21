@@ -1,5 +1,5 @@
 import { useLocation } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
+import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Detalles from "../entrada/contenidoPrincipal/Detalles";
 import Aside from "../entrada/contenidoSecundario/Aside";
 import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";

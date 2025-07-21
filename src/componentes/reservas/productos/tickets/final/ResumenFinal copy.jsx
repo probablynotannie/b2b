@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { Link } from "react-router-dom";
 import DatosContacto from "../../../estructura/DatosContacto";
-import Resumen from "../../../estructura/reserva/Resumen";
+import Resumen from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import Detalles from "./Entradas";
 function ResumenFinal() {
   const location = useLocation();

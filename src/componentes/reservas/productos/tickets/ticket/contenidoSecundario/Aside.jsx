@@ -1,7 +1,7 @@
 import { FaInfoCircle } from "react-icons/fa";
 import formatearFecha from "../../../../../../helpers/FormatearFecha";
 import { Link } from "react-router-dom";
-import Reserva from "../../../../estructura/reserva/Resumen";
+import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 
 function Aside({ tickets, producto, link }) {
   const calcularPrecio = () => {

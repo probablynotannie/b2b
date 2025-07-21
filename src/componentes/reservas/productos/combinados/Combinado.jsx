@@ -2,7 +2,7 @@ import Producto from "./Producto";
 import cesta from "../../../estructura/cesta/Zustand";
 import Aside from "./Aside";
 import { useNavigate } from "react-router-dom";
-import Reserva from "../../estructura/reserva/Resumen";
+import Reserva from "../../../../helpers/visuales/ReservaFinal/Resumen";
 
 function CestaCompleta() {
   const navigate = useNavigate();
