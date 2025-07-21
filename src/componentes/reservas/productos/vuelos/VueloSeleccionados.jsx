@@ -93,9 +93,9 @@ function Vuelos({ ida, vuelta, cesta }) {
       <div className="tw-mt-10 sm:tw-block tw-grid tw-grid-cols-2 tw-shadow tw-rounded-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-700">
         <div className="tw-border-slate-100 tw-rounded-t-xl dark:tw-bg-slate-800">
           <div
-            className={`tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-800 hover:tw-bg-slate-100 sm:tw-rounded-t-xl dark:hover:tw-bg-slate-900 tw-transition tw-relative tw-border-r-2 sm:tw-border-r-0 sm:tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600`}
+            className={`tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-900/50 hover:tw-bg-slate-100 sm:tw-rounded-t-xl dark:hover:tw-bg-slate-900 tw-transition tw-relative tw-border-r-2 sm:tw-border-r-0 sm:tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-600`}
           >
-            <span className="tw-absolute -tw-top-5 tw-left-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-700 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
+            <span className="tw-absolute -tw-top-5 tw-left-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-900/50 tw-border-2 tw-border-slate-700 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
               <FaPlaneDeparture />
             </span>
             <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">
@@ -138,8 +138,8 @@ function Vuelos({ ida, vuelta, cesta }) {
         </div>
         {vuelta && (
           <div className="tw-rounded-b-xl dark:tw-bg-slate-800">
-            <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-800 hover:tw-bg-slate-100 sm:tw-rounded-b-xl dark:hover:tw-bg-slate-900 tw-transition tw-relative">
-              <span className="tw-absolute -tw-bottom-5 tw-right-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-800 tw-border-2 tw-border-slate-700 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
+            <div className="tw-grid tw-grid-cols-1 md:tw-grid-cols-4 tw-gap-5 tw-p-2 md:tw-p-5 tw-bg-white dark:tw-bg-slate-900/50 hover:tw-bg-slate-100 sm:tw-rounded-b-xl dark:hover:tw-bg-slate-900 tw-transition tw-relative">
+              <span className="tw-absolute -tw-bottom-5 tw-right-3 tw-p-2 tw-text-2xl tw-bg-white dark:tw-bg-slate-900/50 tw-border-2 tw-border-slate-700 dark:tw-border-slate-500 tw-text-slate-700 dark:tw-text-slate-500 tw-rounded-full">
                 <FaPlaneArrival />
               </span>
               <div className="tw-flex tw-flex-col tw-items-center tw-justify-center dark:tw-text-slate-400">

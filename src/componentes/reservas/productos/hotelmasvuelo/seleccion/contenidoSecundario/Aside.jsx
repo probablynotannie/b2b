@@ -1,6 +1,6 @@
 import { FaHotel } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../../helpers/FormatearFecha";
 
 function Aside({ hotel, ida, vuelta }) {
   return (

@@ -1,6 +1,5 @@
 import { useLocation } from "react-router-dom";
 import Hotel from "./Hotel";
-
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaHotel, FaMapPin } from "react-icons/fa";
 function ResumenFinal() {

@@ -2,7 +2,7 @@ import { FaUser, FaPassport, FaGlobe } from "react-icons/fa";
 function Pasajeros({ pasajeros }) {
   return (
     <div>
-      <h2 className="tw-font-semibold dark:tw-text-slate-100">
+      <h2 className="tw-font-bold dark:tw-text-slate-100">
         {pasajeros.length === 1 ? "Pasajero" : "Pasajeros"}
       </h2>
       <div className="tw-grid md:tw-grid-cols-2 tw-gap-10">
