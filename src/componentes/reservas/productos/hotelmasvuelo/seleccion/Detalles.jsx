@@ -1,5 +1,5 @@
 import Vuelos from "../../vuelos/VueloSeleccionados";
-import HotelDetalles from "../../hotel/reserva/HotelDetalles";
+import HotelDetalles from "../../hotel/reserva/contenidoSecundario/HotelDetalles";
 function Detalles({ hotel, ida, vuelta }) {
   return (
     <>

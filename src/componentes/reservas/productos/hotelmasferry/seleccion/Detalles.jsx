@@ -1,7 +1,7 @@
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 
 import { FaFerry } from "react-icons/fa6";
-import HotelDetalles from "../../hotel/reserva/HotelDetalles";
+import HotelDetalles from "../../hotel/reserva/contenidoSecundario/HotelDetalles";
 function Detalles({ hotel, ferry }) {
   function renderFerry(ferry, type, tipo) {
     return (

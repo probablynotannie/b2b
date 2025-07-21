@@ -1,7 +1,7 @@
-import Foto from "../../../../../helpers/visuales/ReservaFinal/Resumen";
+import Foto from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { FaPerson, FaChild, FaDoorOpen } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
-import Info from "../../../estructura/hoteles/Info";
+import Info from "../../../../estructura/hoteles/Info";
 function HotelDetalles({ hotel }) {
   return (
     <section>

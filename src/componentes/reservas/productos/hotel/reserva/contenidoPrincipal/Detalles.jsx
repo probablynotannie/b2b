@@ -1,7 +1,7 @@
-import Info from "../../../estructura/hoteles/Info";
-import Map from "../../../estructura/hoteles/Map";
-import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
-import Imagenes from "../../../estructura/hoteles/Imgs"
+import Info from "../../../../estructura/hoteles/Info";
+import Map from "../../../../estructura/hoteles/Map";
+import DatosContacto from "../../../../../../helpers/visuales/ReservaFinal/DatosContacto";
+import Imagenes from "../../../../estructura/hoteles/Imgs"
 function Detalles({ producto, datosContacto }) {
   
   return (

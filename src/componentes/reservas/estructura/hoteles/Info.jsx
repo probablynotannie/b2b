@@ -12,7 +12,7 @@ function Info({ descripcion, titulo }) {
 
   return (
     <Accordion
-      className="tw-w-full dark:tw-bg-slate-800 dark:tw-border-slate-800 hover:tw-bg-slate-100 dark:hover:tw-bg-slate-700"
+      className="tw-w-full dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-2xl tw-overflow-hidden hover:tw-bg-slate-100 dark:hover:tw-bg-slate-700"
       collapseAll
     >
       <Accordion.Panel>
