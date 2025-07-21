@@ -38,7 +38,7 @@ function Reserva({
       </main>
 
       <main className="tw-container tw-mb-16">
-        <div className="tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-md hover:tw-shadow-xl tw-smooth tw-bg-white">
+        <div className="tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-900 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-md hover:tw-shadow-xl tw-smooth tw-bg-white">
           <DatosContacto
             nombre={datosContacto.nombre}
             apellidos={datosContacto.apellido}

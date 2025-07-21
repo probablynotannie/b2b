@@ -9,7 +9,6 @@ function Aside({ ida, vuelta, tren, data }) {
         img={"/banners/banner_ferris.webp"}
         txt={"tren de ida " + (vuelta && " y vuelta")}
       />
-
       <DatosTren tren={ida} tipo="ida" />
       {vuelta && <DatosTren tren={vuelta} tipo="vuelta" />}
       <Link to={"/resumenTren"} state={{ tren, data }}>

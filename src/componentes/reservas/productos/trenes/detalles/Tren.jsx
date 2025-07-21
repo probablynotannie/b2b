@@ -26,6 +26,7 @@ function Producto() {
       claseElegida: nuevaClase,
     }));
   };
+  console.log(ida)
   return (
     <PaginaDetalles
       titulo={"Reservando tren de ida " + (vuelta && "y vuelta")}

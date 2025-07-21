@@ -9,18 +9,14 @@ function ReservaFinal() {
   const location = useLocation();
   const { producto, habitacion, data } = location.state || {};
   return (
-    <>
-      <PaginaDetalles
-        titulo={producto.nombre}
-        tituloDescripcion={producto.ubicacion}
-        contenidoPrincipal={
-          <Detalles producto={producto} datosContacto={data} />
-        }
-        contenidoSecundario={
-          <Aside producto={producto} habitacion={habitacion} data={data} />
-        }
-      />
-    </>
+    <PaginaDetalles
+      titulo={producto.nombre}
+      tituloDescripcion={producto.ubicacion}
+      contenidoPrincipal={<Detalles producto={producto} datosContacto={data} />}
+      contenidoSecundario={
+        <Aside producto={producto} habitacion={habitacion} data={data} />
+      }
+    />
   );
 }
 

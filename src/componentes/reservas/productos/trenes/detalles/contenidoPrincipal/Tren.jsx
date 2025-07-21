@@ -2,7 +2,7 @@ import Clases from "../../Clases";
 import formatearMinutos from "../../../../../../helpers/FormatearMinutos";
 function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
   return (
-    <div>
+    <div className="dark:tw-bg-slate-800 tw-p-3 tw-pt-0">
       <div className="tw-w-full tw-relative tw-mt-5">
         <div className="tw-flex tw-justify-between tw-items-center">
           <div className="tw-flex tw-flex-col">
