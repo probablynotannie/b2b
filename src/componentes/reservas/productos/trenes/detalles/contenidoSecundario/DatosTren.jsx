@@ -1,6 +1,7 @@
-import FormateadFecha from "../../../../../helpers/FormatearFecha";
-import formatearMinutos from "../../../../../helpers/FormatearMinutos";
+import FormateadFecha from "../../../../../../helpers/FormatearFecha";
+import formatearMinutos from "../../../../../../helpers/FormatearMinutos";
 function DatosTren({ tren, tipo }) {
+  console.log(tren);
   return (
     <div className="tw-p-2 tw-mt-3 tw-rounded tw-border tw-border-slate-100 dark:tw-border-slate-700">
       <div className="tw-flex tw-justify-between tw-items-center tw-border-b tw-border-slate-100 dark:tw-border-slate-700 tw-mb-2">
