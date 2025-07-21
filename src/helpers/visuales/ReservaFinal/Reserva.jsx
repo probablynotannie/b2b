@@ -21,9 +21,9 @@ function Reserva({
               <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
                 {titulo}
               </h3>
-              <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
+              <div className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
                 {descripcionTitulo}
-              </p>
+              </div>
             </div>
             <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
               <Icono className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />

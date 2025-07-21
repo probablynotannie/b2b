@@ -1,49 +1,37 @@
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
-import Resumen from "../../../../../helpers/visuales/ReservaFinal/Resumen";
+
 import Coche from "./Coche";
+import { FaCarAlt } from "react-icons/fa";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 function ResumenFinal() {
   const location = useLocation();
   const { producto, selectedExtras, precio, data, conductor } =
     location.state || {};
   const numReserva = "HGALIUHJ198AJK";
   return (
-    <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
-      <section>
-        <Resumen
-          img={"/banners/completado.webp"}
-          txt={
-            <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
-              <h1 className="tw-text-7xl">Reserva Finalizada</h1>
-              <h2 className="tw-text-6xl">ID: {numReserva}</h2>
-            </div>
-          }
-          finalizada={true}
+    <Reserva
+      finalizada={true}
+      datosContacto={data}
+      numReserva={numReserva}
+      Icono={FaCarAlt}
+      titulo={producto.nombre}
+      descripcionTitulo={
+        <>
+          {FormatearFecha(producto.recogida.fecha)} -{" "}
+          {FormatearFecha(producto.devolucion.fecha)}
+        </>
+      }
+      precio={precio.toFixed(2)}
+      main={
+        <Coche
+          producto={producto}
+          extras={selectedExtras}
+          conductor={conductor}
+          precio={precio}
         />
-      </section>
-      <Coche
-        producto={producto}
-        extras={selectedExtras}
-        conductor={conductor}
-        precio={precio}
-      />
-      <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-bg-white">
-        <DatosContacto
-          nombre={data.nombre}
-          apellidos={data.apellido}
-          email={data.email}
-          numero={data.numero}
-        />
-        <div className="tw-mt-10 tw-flex tw-justify-end">
-          <Link to={"/"}>
-            <button className="tw-btn_muted tw-btn_accesorios dark:tw-btn_muted_dark">
-              Volver a la página principal
-            </button>
-          </Link>
-        </div>
-      </div>
-    </main>
+      }
+    />
   );
 }
 

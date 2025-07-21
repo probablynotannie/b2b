@@ -11,11 +11,7 @@ function Info({ reserva }) {
           <FaPerson className="tw-text-secondary dark:tw-text-secondaryDark" />
           <span>{reserva.pax}x</span>
         </div>
-        <div className="tw-flex tw-items-center tw-gap-1">
-          <MdMeetingRoom className="tw-text-secondary dark:tw-text-secondaryDark" />
 
-          <span>{reserva.habitaciones.length + 1}x hab</span>
-        </div>
         <div className="tw-flex tw-items-center tw-gap-1">
           <FaClock className="tw-text-secondary dark:tw-text-secondaryDark" />
           <span>{reserva.dias} días</span>

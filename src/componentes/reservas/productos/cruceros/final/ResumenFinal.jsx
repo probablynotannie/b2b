@@ -1,6 +1,4 @@
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Crucero from "./Crucero";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaShip } from "react-icons/fa";
@@ -12,24 +10,22 @@ function ResumenFinal() {
   const numReserva = "AUYGJEAOGPOI153";
 
   return (
-    <>
-      <Reserva
-        titulo={producto.barco.nombre.texto}
-        descripcionTitulo={FormatearFecha(precioSeleccionado.date)}
-        Icono={FaShip}
-        precio={precioSeleccionado.price.toFixed(2)}
-        numReserva={numReserva}
-        datosContacto={data}
-        main={
-          <Crucero
-            producto={producto}
-            pasajeros={data.pasajeros}
-            selectedPrice={precioSeleccionado}
-          />
-        }
-        finalizada={true}
-      />
-    </>
+    <Reserva
+      titulo={producto.barco.nombre.texto}
+      descripcionTitulo={FormatearFecha(precioSeleccionado.date)}
+      Icono={FaShip}
+      precio={precioSeleccionado.price.toFixed(2)}
+      numReserva={numReserva}
+      datosContacto={data}
+      main={
+        <Crucero
+          producto={producto}
+          pasajeros={data.pasajeros}
+          selectedPrice={precioSeleccionado}
+        />
+      }
+      finalizada={true}
+    />
   );
 }
 
