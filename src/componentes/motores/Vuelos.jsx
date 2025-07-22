@@ -15,7 +15,7 @@ function Vuelos() {
             backgroundPosition: "center",
           }}
         >
-          <div className="tw-w-full tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
+          <div className="tw-w-full tw-pb-10 tw-bg-indigo-500 dark:tw-bg-indigo-900 dark:tw-bg-opacity-60 tw-rounded tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-bg-opacity-40 tw-p-5 tw-flex tw-items-center tw-justify-center">
             <Buscador_Vuelos />
           </div>
         </div>
