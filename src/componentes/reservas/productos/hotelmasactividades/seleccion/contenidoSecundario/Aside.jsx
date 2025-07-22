@@ -1,7 +1,6 @@
 import { FaHotel } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
-
+import formatearFecha from "../../../../../../helpers/FormatearFecha";
 import { BsDash } from "react-icons/bs";
 function Aside({ hotel, actividades }) {
   return (
@@ -27,7 +26,7 @@ function Aside({ hotel, actividades }) {
             </li>
             <li className="tw-text-slate-600 dark:tw-text-slate-400 tw-flex tw-items-center tw-gap-2 tw-ml-2 tw-text-sm">
               <FaCalendarAlt className="tw-text-slate-300" />{" "}
-              {FormatearFecha(actividad.fechaSeleccionada)} a las{" "}
+              {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
               {actividad.horaSeleccionada}
             </li>
           </ul>

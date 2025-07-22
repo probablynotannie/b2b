@@ -7,7 +7,7 @@ function Ferry({ producto, tipo }) {
       <div className="tw-flex tw-justify-between tw-items-center tw-border-b tw-pb-3 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-100 tw-mb-3">
         <div>
           <h3 className="tw-ml-1 tw-font-semibold">
-            Ferry {tipo}{" "}
+            Ferry {tipo}
             <span className="tw-ml-1 tw-text-sm"> ({producto.ruta})</span>
           </h3>
           <p className="tw-text-sm">{FormatearFecha(producto.fecha)}</p>

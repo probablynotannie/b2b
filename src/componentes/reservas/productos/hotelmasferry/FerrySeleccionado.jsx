@@ -57,7 +57,9 @@ function ferris({ ferry }) {
               </span>
             </h4>
             <div className="tw-flex tw-items-center tw-gap-2 tw-text-sm">
-              <p>Tarifa: {ferry.ida.tarifa}</p>
+              <p className="dark:tw-text-slate-300">
+                Tarifa: {ferry.ida.tarifa}
+              </p>
               <span className="tw-text-sm tw-flex tw-items-center dark:tw-text-slate-300 tw-gap-1">
                 {ferry.ida.cambios === true ? (
                   <FaCheck className="tw-text-green-500" />

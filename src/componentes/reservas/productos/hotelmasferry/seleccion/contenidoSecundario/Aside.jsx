@@ -1,5 +1,4 @@
 import { FaHotel, FaShip } from "react-icons/fa";
-import { Link } from "react-router-dom";
 
 const formatDate = (dateString) => {
   if (!dateString || typeof dateString !== "string") return "";
@@ -20,7 +19,7 @@ const formatDate = (dateString) => {
     return "Fecha inválida";
   }
 };
-function Aside({ hotel, ferry, habitacion }) {
+function Aside({ hotel, ferry }) {
   return (
     <div>
       <h2 className="tw-text-lg tw-font-bold tw-pb-1 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-white tw-mb-2">
@@ -51,14 +50,6 @@ function Aside({ hotel, ferry, habitacion }) {
             {formatDate(ferry.ida.fecha)} - {formatDate(ferry.vuelta?.fecha)}
           </li>
         </ul>
-        <Link to={"/datosHotelFerry"} state={{ hotel, ferry, habitacion }}>
-          <button className="tw-w-full tw-mt-3 tw-btn_primario tw-btn_accesorios">
-            {parseFloat(hotel.precio) +
-              parseFloat(ferry.ida.precio.toFixed(2)) +
-              parseFloat((ferry.vuelta?.precio || 0).toFixed(2))}
-            €
-          </button>
-        </Link>
       </div>
     </div>
   );
