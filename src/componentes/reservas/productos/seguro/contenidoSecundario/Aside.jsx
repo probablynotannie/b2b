@@ -1,5 +1,5 @@
 import { FaCalendar } from "react-icons/fa";
-import FormatearFecha from "../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { TiWorld } from "react-icons/ti";
 import { MdCancel } from "react-icons/md";
 import { FaBriefcaseMedical } from "react-icons/fa";
