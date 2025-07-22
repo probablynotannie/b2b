@@ -5,7 +5,7 @@ function Buscador({ buscador, destacados, backgroundImage }) {
       <section className="lg:tw-col-span-3 xl:tw-col-span-2">
         <Sidebar />
       </section>
-      <section className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col">
+      <section className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col tw-justify-between tw-min-h-[75vh]">
         <div
           className="tw-relative tw-h-fit md:tw-min-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
