@@ -24,18 +24,16 @@ function Datos() {
   };
 
   return (
-    <>
-      <ComponenteDatos
-        submit={handleSubmit(onSubmit)}
-        register={register}
-        errors={errors}
-        img={img}
-        tipo={"Ferry"}
-        itinerario={ida.puerto_origen + " - " + ida.puerto_destino}
-        fecha={FormatearFecha(ida.fecha)}
-        fechaVuelta={vuelta ? FormatearFecha(vuelta.fecha) : null}
-      />
-    </>
+    <ComponenteDatos
+      submit={handleSubmit(onSubmit)}
+      register={register}
+      errors={errors}
+      img={img}
+      tipo={"Ferry"}
+      itinerario={ida.puerto_origen + " - " + ida.puerto_destino}
+      fecha={FormatearFecha(ida.fecha)}
+      fechaVuelta={vuelta ? FormatearFecha(vuelta.fecha) : null}
+    />
   );
 }
 

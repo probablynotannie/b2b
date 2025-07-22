@@ -1,6 +1,6 @@
 import { useState } from "react";
 import Itinerario from "./Itinerario";
-import { Fotos } from "../../../estructura/SlideFotos";
+import { Fotos } from "../../../../estructura/SlideFotos";
 import { FaInfoCircle } from "react-icons/fa";
 import Incluye from "./Incluye";
 function Detalles({ actividad, cesta }) {

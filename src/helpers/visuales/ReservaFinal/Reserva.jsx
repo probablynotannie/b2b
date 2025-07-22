@@ -47,7 +47,7 @@ function Reserva({
           />
           <div className="tw-mt-10 tw-flex tw-justify-end">
             <Link to={"/"}>
-              <button className="tw-btn_muted tw-btn_accesorios dark:tw-btn_muted_dark">
+              <button className="tw-btn_muted tw-btn_accesorios dark:tw-bg-slate-800">
                 Volver a la página principal
               </button>
             </Link>

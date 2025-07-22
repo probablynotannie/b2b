@@ -1,13 +1,13 @@
 import { useState } from "react";
-import Fecha from "../../../../inputs/Fecha";
-import Origen from "../../../../inputs/Destinos";
-import Input_Hab_Ad_Ni from "../../../../inputs/Hab_Adulto_Ninio";
+import Fecha from "../../../../../inputs/Fecha";
+import Origen from "../../../../../inputs/Destinos";
+import Input_Hab_Ad_Ni from "../../../../../inputs/Hab_Adulto_Ninio";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Datos_Destino from "../../../../../helpers/destinos.json";
-import cesta from "../../../../estructura/cesta/Zustand";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
-import AnadirMasProductos from "../../../../../helpers/visuales/masProductos/AnadirMasProductos";
+import Datos_Destino from "../../../../../../helpers/destinos.json";
+import cesta from "../../../../../estructura/cesta/Zustand";
+import formatearFecha from "../../../../../../helpers/FormatearFecha";
+import AnadirMasProductos from "../../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 const Eleccion = ({
   fecha,
   habitacion,
@@ -62,6 +62,9 @@ const Eleccion = ({
 
   return (
     <>
+      <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
+        Elección
+      </h2>
       <form onSubmit={handleSubmit(onSubmit)} className="tw-mt-4 tw-space-y-2">
         <Origen
           required={true}
