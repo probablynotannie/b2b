@@ -1,11 +1,11 @@
 import Sidebar from "../sidebar/Sidebar";
 function Buscador({ buscador, destacados, backgroundImage }) {
   return (
-    <article className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10">
+    <section className="lg:tw-grid tw-grid-cols-10 tw-gap-10 lg:tw-px-20 lg:tw-py-10">
       <section className="lg:tw-col-span-3 xl:tw-col-span-2">
         <Sidebar />
       </section>
-      <section className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col tw-justify-between tw-min-h-[75vh]">
+      <section className="tw-col-span-10 lg:tw-col-span-7 xl:tw-col-span-8 tw-flex-col tw-min-h-[75vh]">
         <div
           className="tw-relative tw-h-fit md:tw-min-h-[25vh] lg:tw-rounded-lg lg:tw-shadow tw-flex"
           style={{
@@ -20,7 +20,7 @@ function Buscador({ buscador, destacados, backgroundImage }) {
         </div>
         <div>{destacados}</div>
       </section>
-    </article>
+    </section>
   );
 }
 
