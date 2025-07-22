@@ -10,6 +10,7 @@ function Reserva({
   titulo,
   descripcionTitulo,
   precio,
+  currency,
 }) {
   return (
     <>
@@ -27,16 +28,14 @@ function Reserva({
             </div>
             <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
               <Icono className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
-
               <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
-                {precio}€
+                {precio} {currency ? currency : "€"}
               </span>
             </div>
           </section>
           {main}
         </article>
       </main>
-
       <main className="tw-container tw-mb-16">
         <div className="tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-900 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-md hover:tw-shadow-xl tw-smooth tw-bg-white">
           <DatosContacto
