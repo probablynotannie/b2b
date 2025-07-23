@@ -1,4 +1,3 @@
-import { FaLongArrowAltRight } from "react-icons/fa";
 import { useQuery } from "@tanstack/react-query";
 import fetchCrucerosDestacados from "./hook/fetchCrucerosDestacados";
 import formatearFecha from "../../../../../helpers/FormatearFecha";
@@ -13,16 +12,11 @@ function Cruceros_destacados() {
     refetchIntervalInBackground: true,
     refetchOnWindowFocus: false,
   });
-
-  /* 
-  https://devxml-2.vpackage.net/FrontCruceros/api/crucerosDestacados?json=1&debug=0&idv=207
-  */
-  console.log(!isLoading && data.cruceros[3]);
   return (
-    <div className="tw-mb-6">
+    <div className="tw-mb-6 tw-mx-10">
       {!isLoading && !isError ? (
         <div className="tw-columns-1 md:tw-columns-2 lg:tw-columns-4 tw-gap-6">
-          {data.cruceros.slice(0, 10).map((crucero, index) => {
+          {data.cruceros.slice(0, 100).map((crucero, index) => {
             const tarifas = crucero.tarifas || [];
             if (tarifas.length === 0) return null;
             const fechaInicio = formatearFecha(
@@ -76,9 +70,6 @@ function Cruceros_destacados() {
                       <span className="tw-text-lg tw-font-semibold tw-text-secondary dark:tw-text-secondarydark">
                         Desde {crucero.minPrice}€
                       </span>
-                      <button className="tw-inline-flex tw-items-center tw-text-sm tw-font-medium tw-text-secondary dark:tw-text-secondarydark hover:tw-underline">
-                        Ver más <FaLongArrowAltRight className="tw-ml-2" />
-                      </button>
                     </div>
                   </div>
                 </Link>

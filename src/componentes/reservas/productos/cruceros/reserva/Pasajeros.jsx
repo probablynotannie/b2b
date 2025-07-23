@@ -52,7 +52,7 @@ function Pasajeros({ pasajeros }) {
   return (
     <section className="tw-my-6 tw-space-y-2">
       <h3 className="tw-font-semibold dark:tw-text-slate-100">Pasajeros</h3>
-      <div className="tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-7">
+      <div className="tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-4 tw-gap-7">
         {normalizados.map((pasajero) => (
           <div
             key={pasajero.id}
