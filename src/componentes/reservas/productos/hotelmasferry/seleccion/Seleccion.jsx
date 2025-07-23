@@ -1,23 +1,32 @@
-import { useLocation } from "react-router-dom";
-import Aside from "./Aside";
-import Detalles from "./Detalles";
+import { Link, useLocation } from "react-router-dom";
+import Aside from "./contenidoSecundario/Aside";
+import Detalles from "./contenidoPrincipal/Detalles";
+import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
 function Seleccion() {
   const location = useLocation();
   const producto = location.state;
   const hotel = producto.hotel;
   const ferry = producto.ferry;
   const habitacion = producto.habitacion;
+  const calcularPrecio =
+    Number(hotel.precio) +
+    Number(ferry.ida.precio.toFixed(2)) +
+    Number(ferry.vuelta?.precio || 0);
   return (
-    <article className="tw-container tw-my-10 lg:tw-mb-10 lg:tw-mt-auto">
-      <article className="tw-my-5 tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
-        <section className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[55vh] dark:tw-bg-slate-800">
-          <Detalles hotel={hotel} ferry={ferry} />
-        </section>
-        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-duration-300 tw-transition tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-10 dark:tw-bg-slate-800">
+    <PaginaDetalles
+      titulo={"Hotel + Ferry"}
+      contenidoPrincipal={<Detalles hotel={hotel} ferry={ferry} />}
+      contenidoSecundario={
+        <>
           <Aside hotel={hotel} ferry={ferry} habitacion={habitacion} />
-        </section>
-      </article>
-    </article>
+          <Link to={"/datosHotelFerry"} state={{ hotel, ferry, habitacion }}>
+            <button className="tw-w-full tw-mt-3 tw-btn_primario tw-btn_accesorios">
+              {calcularPrecio.toFixed(2)}€
+            </button>
+          </Link>
+        </>
+      }
+    />
   );
 }
 export default Seleccion;

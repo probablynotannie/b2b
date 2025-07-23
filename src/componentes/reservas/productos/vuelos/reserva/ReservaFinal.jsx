@@ -1,9 +1,7 @@
 import { useLocation } from "react-router-dom";
-import VueloSeleccionados from "../VueloSeleccionados";
-import Pasajeros from "./Pasajeros";
-import DatosContacto from "../../../estructura/DatosContacto";
-import Reserva from "../../../estructura/reserva/Resumen";
-import { Link } from "react-router-dom";
+import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
+import Aside from "./contenidoSecundario/Aside";
+import Vuelo from "./contenidoPrincipal/Vuelo";
 function ReservaFinal() {
   const location = useLocation();
   const { ida, vuelta, data } = location.state || {};
@@ -16,39 +14,15 @@ function ReservaFinal() {
     );
   }
   return (
-    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
-      <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 
-tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
-        <h1 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
-          Vuelo de ida y vuelta
-        </h1>
-        <VueloSeleccionados ida={ida} vuelta={vuelta} cesta={true} />
-        <Pasajeros pasajeros={data.pasajeros} />
-      </section>
-      <article className="tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5">
-        <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
-          Reservando vuelo
-        </h2>
-        <Reserva
-          img={"/banners/banner_avion.webp"}
-          txt={ida.flight.salida + " - " + ida.flight.llegada}
-        />
-        <h2 className="tw-font-semibold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-700 tw-pb-2">
-          Datos de contacto
-        </h2>
-        <DatosContacto
-          nombre={data.nombre}
-          apellidos={data.apellidos}
-          email={data.email}
-          numero={data.numero}
-        />
-        <Link to={"/resumenVuelo"} state={{ ida, vuelta, data }}>
-          <button className=" tw-btn_accesorios tw-btn_primario tw-w-full">
-            {(ida.flight.precio + (vuelta?.flight.precio || 0)).toFixed(2)}€
-          </button>
-        </Link>
-      </article>
-    </main>
+    <PaginaDetalles
+      titulo={"Vuelo de ida " + (vuelta ? " y vuelta" : "")}
+      contenidoPrincipal={
+        <>
+          <Vuelo ida={ida} vuelta={vuelta} data={data} />
+        </>
+      }
+      contenidoSecundario={<Aside ida={ida} data={data} vuelta={vuelta} />}
+    />
   );
 }
 export default ReservaFinal;

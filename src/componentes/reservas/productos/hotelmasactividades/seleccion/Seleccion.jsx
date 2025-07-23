@@ -1,7 +1,8 @@
 import { useLocation } from "react-router-dom";
 import Detalles from "./Detalles";
 import { Link } from "react-router-dom";
-import Aside from "./Aside";
+import Aside from "./contenidoSecundario/Aside";
+import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
 function Seleccion() {
   const location = useLocation();
   const { hotel, actividades, habitacion } = location.state;
@@ -15,12 +16,11 @@ function Seleccion() {
   };
 
   return (
-    <article className="tw-container tw-my-10 lg:tw-mb-10 lg:tw-mt-auto">
-      <article className="tw-my-5 tw-mt-10 tw-grid tw-grid-cols-3 tw-gap-10">
-        <section className="tw-col-span-3 lg:tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-min-h-[55vh] dark:tw-bg-slate-800">
-          <Detalles hotel={hotel} actividades={actividades} />
-        </section>
-        <section className="tw-col-span-3 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-border-slate-700 tw-h-fit tw-sticky tw-top-10 dark:tw-bg-slate-800">
+    <PaginaDetalles
+      titulo={""}
+      contenidoPrincipal={<Detalles hotel={hotel} actividades={actividades} />}
+      contenidoSecundario={
+        <>
           <Aside hotel={hotel} actividades={actividades} />
           <Link
             to={"/datosHotelMasActividades"}
@@ -30,9 +30,9 @@ function Seleccion() {
               {calculateTotalPrice().toFixed(2)}€
             </button>
           </Link>
-        </section>
-      </article>
-    </article>
+        </>
+      }
+    />
   );
 }
 export default Seleccion;

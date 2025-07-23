@@ -1,4 +1,4 @@
-import HotelDetalles from "../../hotel/reserva/HotelDetalles";
+import HotelDetalles from "../../hotel/reserva/contenidoSecundario/HotelDetalles";
 import Actividad from "./Actividad";
 function Detalles({ hotel, actividades }) {
   return (

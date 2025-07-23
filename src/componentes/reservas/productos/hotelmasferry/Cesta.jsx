@@ -25,7 +25,7 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
     <div className="tw-mt-5 tw-w-full tw-col-span-9">
       <div className="tw-min-h-[30vh] tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-4">
         {hotel && (
-          <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
+          <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-overflow-hidden tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
             <div className="tw-absolute tw-bottom-0 tw-grid tw-grid-cols-2 tw-justify-between tw-items-center tw-w-full tw-p-2">
               <div className="tw-col-span-2 tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-2">
                 <span className="tw-flex tw-items-center">
@@ -60,7 +60,7 @@ function Cesta({ hotel, reserva, setHotel, ferry, habitacion }) {
               </div>
             </div>
             <span
-              className={`tw-absolute tw-rotate-45 tw-bg-secondary tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg`}
+              className={`tw-absolute tw-w-[150px] tw-text-center tw-rotate-45 tw-bg-secondary/40 tw-text-white tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 -tw-right-10 tw-z-10 tw-shadow-lg`}
             >
               Hotel
             </span>

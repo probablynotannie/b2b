@@ -38,10 +38,10 @@ function Resultado({
           Resultados ({hoteles.length})
         </h3>
       </div>
-      {hoteles.map((hotel, index) => (
+      {hoteles.map((hotel) => (
         <>
           <article
-            key={index}
+            key={hotel.id}
             className={`lg:tw-flex tw-flex-row tw-transition tw-mt-10 tw-relative tw-min-h-[15vh] tw-z-0 tw-rounded-xl ${
               selectedHotel?.id === hotel.id
                 ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary"
@@ -108,7 +108,7 @@ function Resultado({
               <div className="tw-flex tw-justify-end tw-mt-3">
                 <button
                   className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn_primario tw-btn_accesorios"
-                  onClick={() => setOpenModal(index)}
+                  onClick={() => setOpenModal(hotel.id)}
                 >
                   Detalles
                 </button>
@@ -117,14 +117,14 @@ function Resultado({
           </article>
           <div
             className={`${
-              openModal === index
+              openModal === hotel.id
                 ? "tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center"
                 : "tw-hidden"
             }`}
           >
             <div
               className={`${
-                openModal === index
+                openModal === hotel.id
                   ? "tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center"
                   : "tw-hidden"
               }`}

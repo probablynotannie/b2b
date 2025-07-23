@@ -1,6 +1,6 @@
 import { FaChevronRight } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import FormatearFecha from "../../estructura/FormatearFecha";
+import FormatearFecha from "../../../../helpers/FormatearFecha";
 import { slugify } from "../../../../helpers/slugify";
 
 function Listado({ destinos }) {

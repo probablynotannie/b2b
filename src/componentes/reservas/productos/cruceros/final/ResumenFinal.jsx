@@ -1,49 +1,74 @@
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
-import Resumen from "../../../estructura/reserva/Resumen";
 import Crucero from "./Crucero";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
+import { FaShip } from "react-icons/fa";
+import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import { useQuery } from "@tanstack/react-query";
+import fetchReserva from "../hook/reserva";
+import ReservaLocalizada from "./Reserva";
+import Placeholder from "../../../../../helpers/visuales/ReservaFinal/Placeholder";
 function ResumenFinal() {
-  
   const location = useLocation();
-  const { data, producto, precioSeleccionado } = location.state || {};
-  const numReserva = "AUYGJEAOGPOI153";
+  const accessedViaLink = !!location.state;
+  const {
+    data,
+    producto,
+    precioSeleccionado,
+    numReserva: stateNumReserva,
+  } = location.state || {};
+  const numReserva = stateNumReserva || "597230-279";
 
-  return (
-    <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
-      <section>
-        <Resumen
-          img={"/banners/completado.webp"}
-          txt={
-            <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
-              <h1 className="tw-text-7xl">Reserva Finalizada</h1>
-              <h2 className="tw-text-6xl">ID: {numReserva}</h2>
-            </div>
-          }
-          finalizada={true}
-        />
-      </section>
-      <Crucero
-        producto={producto}
-        pasajeros={data.pasajeros}
-        selectedPrice={precioSeleccionado}
+  const { data: reserva, isLoading } = useQuery({
+    queryKey: ["reserva", numReserva],
+    queryFn: () => fetchReserva(numReserva),
+    enabled: !accessedViaLink,
+    refetchOnWindowFocus: false,
+  });
+  if (isLoading) {
+    return <Placeholder />;
+  }
+  if (accessedViaLink) {
+    return (
+      <Reserva
+        titulo={producto.barco.nombre.texto}
+        descripcionTitulo={FormatearFecha(precioSeleccionado.date)}
+        Icono={FaShip}
+        precio={precioSeleccionado.price.toFixed(2)}
+        numReserva={stateNumReserva}
+        datosContacto={data}
+        main={
+          <Crucero
+            producto={producto}
+            pasajeros={data.pasajeros}
+            selectedPrice={precioSeleccionado}
+          />
+        }
+        finalizada={true}
       />
-      <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-bg-white">
-        <DatosContacto
-          nombre={data.nombre}
-          apellidos={data.apellido}
-          email={data.email}
-          numero={data.numero}
-        />
-        <div className="tw-mt-10 tw-flex tw-justify-end">
-          <Link to={"/"}>
-            <button className="tw-btn_muted tw-btn_accesorios dark:tw-btn_muted_dark">
-              Volver a la página principal
-            </button>
-          </Link>
-        </div>
-      </div>
-    </main>
+    );
+  }
+  if (!reserva) {
+    return <div>Loading reserva...</div>;
+  }
+  return (
+    <>
+      <Reserva
+        titulo={<span> Núm Reserva: {reserva.orden} </span>}
+        Icono={FaShip}
+        precio={parseFloat(reserva.importe || "0").toFixed(2)}
+        numReserva={numReserva}
+        datosContacto={{
+          nombre: reserva.titular?.split(" ")[0] || "",
+          apellido: reserva.titular?.split(" ")[1] || "",
+          email: reserva.email,
+          numero: reserva.tfno,
+        }}
+        main={
+          <ReservaLocalizada reserva={reserva} pasajeros={reserva.pasajeros} />
+        }
+        finalizada={true}
+      />
+    </>
   );
 }
 

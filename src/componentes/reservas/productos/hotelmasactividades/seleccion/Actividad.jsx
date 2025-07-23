@@ -26,16 +26,17 @@ function Actividad({ actividad }) {
           </span>
         </div>
       </div>
-      <span
-        className={`tw-absolute tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg ${
-          actividad.tipoPrecio === "Neto"
-            ? "bg-green-300 text-green-800"
-            : "bg-red-500 text-red-200"
-        }`}
-      >
-        {actividad.tipoPrecio}
-      </span>
-      <div className="tw-relative">
+
+      <div className="tw-relative tw-overflow-hidden">
+        <span
+          className={`tw-absolute tw-w-[150px] tw-text-center tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 -tw-right-9 tw-z-10 tw-shadow-lg ${
+            actividad.tipoPrecio === "Neto"
+              ? "tw-bg-green-300 tw-text-green-800"
+              : "tw-bg-red-500 tw-text-red-200"
+          }`}
+        >
+          {actividad.tipoPrecio}
+        </span>
         <img
           className="tw-h-[25vh] tw-w-full tw-object-cover tw-rounded-t-lg"
           src={actividad.img}

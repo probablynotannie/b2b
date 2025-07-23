@@ -4,6 +4,7 @@ import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 function Datos() {
   const location = useLocation();
   const seguro = location.state || {};
@@ -22,31 +23,16 @@ function Datos() {
     });
   };
   return (
-    <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
-      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-xl tw-bg-white dark:tw-bg-slate-800">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
-            Datos Contacto
-          </h2>
-          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <DatosContacto register={register} errors={errors} />
-          </div>
-          <Reserva
-            img={img}
-            position={"center"}
-            tipo={"Seguro"}
-            itinerario={seguro.titulo}
-            fechaIda={FormatearFecha(seguro.inicio)}
-            fechaVuelta={FormatearFecha(seguro.fin)}
-          />
-          <div className="tw-flex tw-justify-end">
-            <button className="tw-btn_primario tw-btn_accesorios">
-              Reservar
-            </button>
-          </div>
-        </form>
-      </article>
-    </main>
+    <ComponenteDatos
+      register={register}
+      errors={errors}
+      submit={handleSubmit(onSubmit)}
+      tipo={"Seguro"}
+      img={img}
+      itinerario={seguro.titulo}
+      fecha={FormatearFecha(seguro.inicio)}
+      fechaVuelta={FormatearFecha(seguro.fin)}
+    />
   );
 }
 

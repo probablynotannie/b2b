@@ -1,44 +1,45 @@
 import { useLocation } from "react-router-dom";
-import { Link } from "react-router-dom";
-import DatosContacto from "../../../estructura/DatosContacto";
-import Resumen from "../../../estructura/reserva/Resumen";
+
 import Destino from "./Destino";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
+import { FaClock, FaGlobe } from "react-icons/fa";
+import { FaPerson } from "react-icons/fa6";
+import { ImSpoonKnife } from "react-icons/im";
 function ResumenFinal() {
   const location = useLocation();
   const { reserva, data } = location.state || {};
   const numReserva = "AHOIUHK27658IU";
 
   return (
-    <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
-      <section>
-        <Resumen
-          img={"/banners/completado.webp"}
-          txt={
-            <div className="tw-flex tw-flex-col tw-items-center tw-justify-center">
-              <h1 className="tw-text-7xl">Reserva Finalizada</h1>
-              <h2 className="tw-text-6xl">ID: {numReserva}</h2>
+    <Reserva
+      numReserva={numReserva}
+      titulo={reserva.nombre}
+      precio={reserva.precio.toFixed(2)}
+      Icono={FaGlobe}
+      descripcionTitulo={
+        <div>
+          {reserva.fechaIda} - {reserva.fechaVuelta}
+          <div className="tw-flex tw-justify-between tw-gap-3 tw-flex-wrap tw-text-slate-600 dark:tw-text-slate-100">
+            <div className="tw-flex tw-items-center tw-gap-1">
+              <FaPerson className="tw-text-secondary dark:tw-text-secondaryDark" />
+              <span>{reserva.pax}x</span>
             </div>
-          }
-          finalizada={true}
-        />
-      </section>
-      <Destino reserva={reserva} />
-      <div className="tw-mt-10 tw-p-5 tw-border-2 tw-border-slate-100 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-bg-white">
-        <DatosContacto
-          nombre={data.nombre}
-          apellidos={data.apellido}
-          email={data.email}
-          numero={data.numero}
-        />
-        <div className="tw-mt-10 tw-flex tw-justify-end">
-          <Link to={"/"}>
-            <button className="tw-btn_muted tw-btn_accesorios dark:tw-btn_muted_dark">
-              Volver a la página principal
-            </button>
-          </Link>
+
+            <div className="tw-flex tw-items-center tw-gap-1">
+              <FaClock className="tw-text-secondary dark:tw-text-secondaryDark" />
+              <span>{reserva.dias} días</span>
+            </div>
+            <div className="tw-flex tw-items-center tw-gap-1">
+              <ImSpoonKnife className="tw-text-secondary dark:tw-text-secondaryDark" />
+              <span> {reserva.desayunos}x Desayunos</span>
+            </div>
+          </div>
         </div>
-      </div>
-    </main>
+      }
+      finalizada={true}
+      datosContacto={data}
+      main={<Destino reserva={reserva} />}
+    />
   );
 }
 

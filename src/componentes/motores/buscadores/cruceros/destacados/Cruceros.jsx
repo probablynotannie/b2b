@@ -10,75 +10,6 @@ function Cruceros({ setRequestData, data, isLoading }) {
   const handleScroll = () => {
     contentRef.current?.scrollIntoView({ behavior: "smooth" });
   };
-  const crucerosDestacados = [
-    {
-      id: 0,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Miami, Ocean Cay, Puerto Plata, San Juan, Nassau, Miami",
-      descripcion: "8 días a bordo del MSC Seaside",
-      salidas: ["23 Feb", "09 Mar", "23 Mar"],
-      precio: "669€",
-    },
-    {
-      id: 1,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Venecia, Dubrovnik, Santorini, Mykonos, Atenas, Venecia",
-      descripcion: "10 días a bordo del MSC Lirica",
-      salidas: ["15 Mar", "10 Apr", "20 May"],
-      precio: "799€",
-    },
-    {
-      id: 2,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Barcelona, Palma de Mallorca, Génova, Marsella, Barcelona",
-      descripcion: "7 días a bordo del MSC Grandiosa",
-      salidas: ["01 Apr", "15 Apr", "25 May"],
-      precio: "549€",
-    },
-    {
-      id: 3,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Civitavecchia, Palermo, Malta, Barcelona, Civitavecchia",
-      descripcion: "9 días a bordo del MSC Meraviglia",
-      salidas: ["10 Feb", "20 Mar", "12 Apr"],
-      precio: "699€",
-    },
-    {
-      id: 4,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Cancún, Cozumel, Grand Caymán, Jamaica, Cancún",
-      descripcion: "7 días a bordo del MSC Magnifica",
-      salidas: ["05 Mar", "22 Mar", "15 Apr"],
-      precio: "799€",
-    },
-  ];
-  const ofertasUltimoMinuto = [
-    {
-      id: 0,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Cancún, Cozumel, Grand Caymán, Jamaica, Cancún",
-      descripcion: "7 días a bordo del MSC Magnifica",
-      salidas: ["10 Feb", "22 Feb", "28 Feb"],
-      precio: "599€",
-    },
-    {
-      id: 1,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Miami, Ocean Cay, Puerto Plata, San Juan, Nassau, Miami",
-      descripcion: "8 días a bordo del MSC Seaside",
-      salidas: ["13 Feb", "01 Mar", "28 Mar"],
-      precio: "669€",
-    },
-    {
-      id: 2,
-      logo: "/cruceros/msc.jpg",
-      titulo: "Venecia, Dubrovnik, Santorini, Mykonos, Atenas, Venecia",
-      descripcion: "10 días a bordo del MSC Lirica",
-      salidas: ["15 Feb", "05 Mar", "20 Apr"],
-      precio: "750€",
-    },
-  ];
-
   const handleNavieraClick = (nav) => {
     const datosForm = {
       idNav: nav.id_naviera,
@@ -89,7 +20,6 @@ function Cruceros({ setRequestData, data, isLoading }) {
   };
   const navigate = useNavigate();
   const crucerosLoading = false;
-  const crucerosSeleccionLoading = false;
   return (
     <div className="tw-px-5">
       <div className="tw-text-4xl tw-text-center tw-font-bold tw-p-3 tw-border-b-2 dark:tw-text-white tw-border-slate-100 dark:tw-border-slate-700 tw-mb-5 tw-flex tw-items-center tw-justify-between">
@@ -134,17 +64,7 @@ function Cruceros({ setRequestData, data, isLoading }) {
               Cruceros destacados
             </h2>
             {crucerosLoading === false ? (
-              <Cruceros_destacados cruceros={crucerosDestacados} />
-            ) : (
-              <Placeholder_Cruceros />
-            )}
-          </div>
-          <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-smooth tw-rounded-lg dark:tw-bg-slate-900 tw-p-5 tw-mt-5">
-            <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
-              Crucero de selección
-            </h2>
-            {crucerosSeleccionLoading === false ? (
-              <Cruceros_destacados cruceros={ofertasUltimoMinuto} />
+              <Cruceros_destacados />
             ) : (
               <Placeholder_Cruceros />
             )}

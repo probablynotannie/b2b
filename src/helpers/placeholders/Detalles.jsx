@@ -1,8 +1,10 @@
 function Detalles() {
   return (
-    <>
+    <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
       <section className="tw-bg-white dark:tw-bg-slate-800 tw-space-y-3 tw-col-span-2 tw-shadow-lg tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-5 animate-pulse">
-        <h1 className="tw-font-bold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark"> Cargando detalles</h1>
+        <h1 className="tw-font-bold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
+          Cargando detalles
+        </h1>
         <div className="tw-h-6 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-w-1/3"></div>
         <div>
           <div className="tw-h-6 tw-w-32 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-mb-4"></div>
@@ -31,7 +33,7 @@ function Detalles() {
           <div className="tw-h-4 tw-bg-slate-200 dark:tw-bg-slate-600 tw-rounded tw-w-2/3"></div>
         </div>
       </aside>
-    </>
+    </main>
   );
 }
 

@@ -1,9 +1,8 @@
 import { useState, useEffect } from "react";
 import { Modal } from "flowbite-react";
-import formatearFecha from "../../estructura/FormatearFecha";
+import formatearFecha from "../../../../helpers/FormatearFecha";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
-
 function Resultado({ tickets, actividades, setActividades }) {
   const [activeActividad, setActiveActividad] = useState(null);
   const [fechaSeleccionada, setFechaSeleccionada] = useState("");
@@ -12,7 +11,6 @@ function Resultado({ tickets, actividades, setActividades }) {
     adulto: 0,
     niño: 0,
   });
-
   useEffect(() => {
     if (activeActividad) {
       const actividad = actividades.find(
@@ -58,14 +56,11 @@ function Resultado({ tickets, actividades, setActividades }) {
       alert("Por favor selecciona al menos una entrada.");
       return;
     }
-
     if (!fechaSeleccionada || !horaSeleccionada) {
       alert("Por favor selecciona una fecha y una hora.");
       return;
     }
-
     const totalPrice = calculateTotalPrice();
-
     const actividadConDetalles = {
       ...actividad,
       fechaSeleccionada,
@@ -114,17 +109,17 @@ function Resultado({ tickets, actividades, setActividades }) {
           <article
             key={index}
             onClick={() => setActiveActividad(actividad)}
-            className={`tw-border-2 hover:tw-scale-[102%] tw-duration-300 tw-relative tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer ${
+            className={`tw-border-2 hover:tw-scale-[102%] tw-duration-300 tw-relative tw-overflow-hidden tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer ${
               isSelected
                 ? "tw-bg-elegido dark:tw-bg-green-950 tw-border-2 tw-border-secondary dark:tw-border-green-500"
                 : "tw-bg-white dark:tw-bg-slate-800 tw-border-slate-100 dark:tw-border-slate-700 "
             }`}
           >
             <span
-              className={`tw-absolute tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg ${
+              className={`tw-absolute tw-w-[150px] tw-text-center tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 -tw-right-10 tw-z-10 tw-shadow-lg ${
                 actividad.tipoPrecio === "Neto"
-                  ? "tw-bg-green-300 tw-text-green-800"
-                  : "tw-bg-red-500 tw-text-red-200"
+                  ? "tw-bg-green-300/70 tw-text-green-800"
+                  : "tw-bg-red-500/70 tw-text-red-200"
               }`}
             >
               {actividad.tipoPrecio}
@@ -163,8 +158,8 @@ function Resultado({ tickets, actividades, setActividades }) {
           show={true}
           onClose={() => setActiveActividad(null)}
         >
-          <Modal.Header className="dark:tw-bg-slate-800">
-            <h2 className="dark:tw-text-white"> {activeActividad.titulo}</h2>
+          <Modal.Header className="dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-border-slate-100">
+            <span className="dark:tw-text-white">{activeActividad.titulo}</span>
           </Modal.Header>
           <Modal.Body className="dark:tw-bg-slate-800">
             <div className="tw-space-y-6 ">
@@ -236,14 +231,14 @@ function Resultado({ tickets, actividades, setActividades }) {
                     Entradas:
                   </label>
                   {isSelected ? (
-                    <div className="tw-flex tw-gap-4">
-                      <div className="tw-p-1 tw-bg-pink-100 tw-text-pink-600 tw-rounded-lg tw-shadow">
+                    <div className="tw-flex tw-gap-4 tw-text-sm">
+                      <div className="tw-p-1 tw-bg-pink-100 tw-text-pink-600 dark:tw-bg-pink-700 dark:tw-text-pink-100 tw-rounded-lg tw-shadow">
                         <p>
                           Adultos: {entradasSeleccionadas.adulto} (
                           {activeActividad.tiposEntradas.adulto.precio}€)
                         </p>
                       </div>
-                      <div className="tw-p-1 tw-bg-indigo-100 tw-text-indigo-600 tw-rounded-lg tw-shadow">
+                      <div className="tw-p-1 tw-bg-indigo-100 tw-text-indigo-600 dark:tw-bg-indigo-800 dark:tw-text-indigo-200 tw-rounded-lg tw-shadow">
                         <p>
                           Niños: {entradasSeleccionadas.niño} (
                           {activeActividad.tiposEntradas.niño.precio}€)
@@ -317,9 +312,9 @@ function Resultado({ tickets, actividades, setActividades }) {
               )}
             </div>
           </Modal.Body>
-          <Modal.Footer className="dark:tw-bg-slate-800">
+          <Modal.Footer className="dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-border-slate-100">
             <button
-              className="tw-p-3 tw-bg-slate-500 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
+              className="tw-p-3 tw-bg-slate-500 dark:tw-bg-slate-600 tw-text-white tw-font-semibold tw-rounded-lg tw-shadow"
               onClick={() => setActiveActividad(null)}
             >
               Cerrar

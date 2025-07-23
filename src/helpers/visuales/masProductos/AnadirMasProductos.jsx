@@ -106,8 +106,8 @@ const ConfirmModal = ({ setModalOpen, isOpen, masProductos, onConfirm }) => {
   }
 
   return (
-    <div className="tw-fixed tw-inset-0 tw-bg-black/50 tw-z-50 tw-flex tw-items-center tw-justify-center tw-p-4">
-      <div className="tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-2xl tw-max-w-3xl tw-w-full tw-relative">
+    <div className="tw-fixed tw-inset-0 tw-bg-black/50 tw-z-50 tw-flex tw-items-center tw-justify-center tw-p-4 ">
+      <div className="tw-bg-white dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-2xl tw-max-w-3xl tw-w-full tw-relative tw-max-h-[90vh] tw-overflow-scroll tw-overflow-x-hidden scrollbar-hidden">
         <div className="tw-flex tw-justify-between tw-items-center tw-p-5 dark:tw-bg-slate-900 tw-border-b tw-border-slate-100 tw-bg-slate-50 dark:tw-border-slate-700">
           <h2 className="tw-text-2xl tw-font-semibold tw-mb-2 dark:tw-text-white">
             ¿Te gustaría añadir más productos?

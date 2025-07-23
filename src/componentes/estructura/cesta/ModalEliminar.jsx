@@ -1,5 +1,5 @@
 import ReactDOM from "react-dom";
-import Info from "../../reservas/estructura/reserva/Resumen";
+import Info from "../../../helpers/visuales/ReservaFinal/Resumen";
 function ModalEliminar({ isOpen, onClose, onConfirm, producto }) {
   if (!isOpen) return null;
   return ReactDOM.createPortal(

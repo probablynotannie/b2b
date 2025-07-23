@@ -3,17 +3,15 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
-import Reserva from "../../../datos/Reserva";
 import Input_Texto from "../../../../inputs/Texto";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import Fecha from "../../../../inputs/Fecha";
-import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import { slugify } from "../../../../../helpers/slugify";
 import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
 import Placeholder from "../../../../../helpers/placeholders/Datos";
 import random from "./random.json";
-
+import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 const Datos = () => {
   const navigate = useNavigate();
   const { state } = useLocation();
@@ -144,7 +142,7 @@ const Datos = () => {
         </span>
       )}
       <span className="tw-bg-indigo-600 tw-font-semibold tw-p-1 tw-rounded-md tw-text-sm tw-m-2">
-        Pasajeros: {pasajeros.length}
+        Pasajero(s): {pasajeros.length}x
       </span>
       {pasajeros.map((p, i) => (
         <span
@@ -156,26 +154,20 @@ const Datos = () => {
       ))}
     </div>
   );
+  console.log(pasajeros)
   const img = "/banners/banner_cruise.webp";
   return (
-    <main className="tw-my-16 tw-flex tw-justify-center tw-container tw-min-h-[68vh]">
-      <article className="tw-p-5 tw-w-full tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-xl tw-shadow-md hover:tw-shadow-lg tw-smooth tw-bg-white dark:tw-bg-slate-800">
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <h2 className="tw-font-semibold tw-text-xl dark:tw-text-white">
-            Datos Contacto
-          </h2>
-          <div className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-4 tw-gap-3 tw-text-sm tw-mt-6">
-            <DatosContacto register={register} errors={errors} />
-          </div>
-
-          <Reserva
-            img={img}
-            position="center"
-            tipo="Crucero"
-            itinerario={producto.itinerario.name}
-            fechaIda={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
-            extras={extra}
-          />
+    <ComponenteDatos
+      submit={handleSubmit(onSubmit)}
+      tipo={"Crucero"}
+      register={register}
+      errors={errors}
+      img={img}
+      itinerario={producto.itinerario.name}
+      fecha={`Salida: ${FormatearFecha(precioSeleccionado.date)}`}
+      extras={extra}
+      datosAdicionales={
+        <div className="tw-border-b border-slate-100 dark:tw-border-slate-700 tw-pb-10">
           <h2 className="tw-font-semibold tw-text-xl tw-mt-8 dark:tw-text-white">
             Datos Pasajeros
           </h2>
@@ -264,14 +256,9 @@ const Datos = () => {
               </div>
             ))}
           </div>
-          <div className="tw-flex tw-justify-end tw-border-t tw-border-slate-100 dark:tw-border-slate-700 tw-pt-5 tw-mt-10">
-            <button type="submit" className="tw-btn_primario tw-btn_accesorios">
-              Reservar
-            </button>
-          </div>
-        </form>
-      </article>
-    </main>
+        </div>
+      }
+    />
   );
 };
 

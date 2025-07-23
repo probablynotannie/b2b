@@ -1,30 +1,20 @@
-import { useParams, Link } from "react-router-dom";
+import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
-import { GiCruiser } from "react-icons/gi";
-import { MdMeetingRoom } from "react-icons/md";
-import { FaCalendar, FaMapMarked, FaInfoCircle } from "react-icons/fa";
-import Reserva from "../../../estructura/reserva/Resumen";
-import Tarifas from "./Tarifas";
-import Pasajeros from "./Pasajeros";
-import Pasajeros_Display from "./Pasajeros_Display";
-import Itinerario from "./Itinerario";
-import FormatearFecha from "../../../estructura/FormatearFecha";
+import Aside from "./contenidoSecundario/Aside";
 import Placeholder from "../../../../../helpers/placeholders/Detalles";
-import { slugify } from "../../../../../helpers/slugify";
 import Error from "../filtros/Error";
 import fetchCrucero from "../hook/crucero";
-import Detalles from "./Detalles";
+import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
+import Crucero from "./contenidoPrincipal/Crucero";
 function Producto() {
   const { idCrucero } = useParams();
-  const [selectedTab, setSelectedTab] = useState("tarifas");
   const [pasajeros, setPasajeros] = useState([]);
   const [precioSeleccionado, setPrecioSeleccionado] = useState(null);
   const {
     data: producto,
     isLoading,
     isError,
-    error,
   } = useQuery({
     refetchInterval: 10_000,
     refetchIntervalInBackground: true,
@@ -34,22 +24,8 @@ function Producto() {
     refetchOnWindowFocus: false,
   });
 
-  const getImagenCruceroDisponible = (producto) => {
-    if (producto?.barco?.img_header_embarcacion) {
-      return producto.barco.img_header_embarcacion;
-    }
-    const firstAvailablePortImage = producto?.itin_dias
-      ?.map((dia) => dia.puerto?.img_puerto_header)
-      .find((img) => img && img.trim() !== "");
-    return firstAvailablePortImage || null;
-  };
-
   if (isLoading) {
-    return (
-      <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
-        <Placeholder />
-      </main>
-    );
+    return <Placeholder />;
   }
 
   if (!producto) {
@@ -61,146 +37,46 @@ function Producto() {
   }
 
   if (isError) {
-    console.error(error);
     return (
       <div>
         <Error tipo={3} error={"Ha habido un error inesperado."} />
       </div>
     );
   }
-
+  const getImagenCruceroDisponible = (producto) => {
+    if (producto?.barco?.img_header_embarcacion) {
+      return producto.barco.img_header_embarcacion;
+    }
+    const firstAvailablePortImage = producto?.itin_dias
+      ?.map((dia) => dia.puerto?.img_puerto_header)
+      .find((img) => img && img.trim() !== "");
+    return firstAvailablePortImage || null;
+  };
   const cruiseImage =
     getImagenCruceroDisponible(producto) ?? "default-image.jpg";
 
   return (
-    <>
-      {isLoading ? (
-        <main className="tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-container tw-gap-y-10 tw-my-10 tw-mb-20 lg:tw-gap-12">
-          <Placeholder />
-        </main>
-      ) : (
-        <main className="tw-container lg:tw-grid lg:tw-grid-cols-3 tw-min-h-[55vh] tw-items-start tw-gap-y-10 tw-my-10 lg:tw-gap-12">
-          <section className="tw-col-span-2 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-200 tw-bg-white dark:tw-border-slate-700 dark:tw-bg-slate-900 tw-p-5">
-            <h1 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-text-slate-200 dark:tw-border-slate-800 tw-pb-2">
-              Reservando el crucero
-            </h1>
-            <p className="tw-text-slate-600 dark:tw-text-slate-400 tw-mt-3">
-              {producto?.barco?.descripcion ?? "Sin descripción disponible."}
-            </p>
-            <Detalles producto={producto} />
-            <article className="tw-mt-5 tw-rounded-xl tw-shadow">
-              <div className="tw-flex tw-gap-5 tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-mt-5">
-                <button
-                  className={`tw-p-3 tw-font-semibold tw-text-lg tw-flex tw-gap-2 tw-items-center ${
-                    selectedTab === "tarifas"
-                      ? "tw-border-b-4 tw-border-secondary tw-text-secondary"
-                      : "tw-text-gray-500 hover:tw-text-gray-800 dark:tw-text-gray-400 dark:hover:tw-text-gray-200"
-                  }`}
-                  onClick={() => setSelectedTab("tarifas")}
-                >
-                  <GiCruiser className="tw-text-2xl" />
-                  Tarifas
-                </button>
-                <button
-                  className={`tw-p-3 tw-font-semibold tw-text-lg tw-flex tw-gap-2 tw-items-center ${
-                    selectedTab === "itinerario"
-                      ? "tw-border-b-4 tw-border-secondary tw-text-secondary"
-                      : "tw-text-gray-500 hover:tw-text-gray-800 dark:tw-text-gray-400 dark:hover:tw-text-gray-200"
-                  }`}
-                  onClick={() => setSelectedTab("itinerario")}
-                >
-                  <FaMapMarked className="tw-text-lg" />
-                  Itinerario
-                </button>
-              </div>
-              <section className="tw-p-5">
-                {selectedTab === "tarifas" ? (
-                  <>
-                    <Pasajeros
-                      pasajeros={pasajeros}
-                      setPasajeros={setPasajeros}
-                      restringido={producto?.pax2ADRestrin}
-                    />
-                    <Tarifas
-                      producto={producto}
-                      cruiseImage={cruiseImage}
-                      tarifas={producto.tarifas ?? []}
-                      precioSeleccionado={precioSeleccionado}
-                      setPrecioSeleccionado={setPrecioSeleccionado}
-                    />
-                  </>
-                ) : (
-                  <Itinerario producto={producto?.itin_dias ?? []} />
-                )}
-              </section>
-            </article>
-          </section>
-          <article
-            className={`tw-sticky tw-top-10 tw-col-span-2 lg:tw-col-span-1 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-rounded-lg tw-min-h-[15vh] tw-border tw-border-slate-100 dark:tw-border-slate-800 tw-bg-white dark:tw-bg-slate-900 tw-p-5 ${
-              !precioSeleccionado &&
-              pasajeros.length !== 0 &&
-              " tw-flex tw-justify-center tw-items-center"
-            }`}
-          >
-            {precioSeleccionado && pasajeros.length !== 0 ? (
-              <div>
-                <h2 className="tw-font-semibold dark:tw-text-white tw-mb-2">
-                  {producto?.barco?.nombre?.texto ?? "Nombre no disponible"}
-                </h2>
-                <Reserva
-                  img={`//pic-2.vpackage.net/cruceros_img/${cruiseImage}`}
-                  txt={`${producto?.num_dias ?? "?"} días a bordo de ${
-                    producto?.barco?.nombre?.texto ?? "este crucero"
-                  }`}
-                />
-                <p className="tw-flex tw-gap-2 tw-mt-3 dark:tw-text-slate-100">
-                  <span className="tw-flex tw-gap-1 tw-items-center">
-                    <FaCalendar className="tw-text-secondary" />
-                  </span>
-                  {FormatearFecha(precioSeleccionado.date)}
-                </p>
-                <p className="tw-flex tw-gap-2 tw-mt-3 dark:tw-text-slate-100">
-                  <span className="tw-flex tw-gap-1 tw-items-center">
-                    <MdMeetingRoom className="tw-text-secondary tw-text-xl" />
-                  </span>
-                  {precioSeleccionado.cabin
-                    ? precioSeleccionado.cabin.charAt(0).toUpperCase() +
-                      precioSeleccionado.cabin.slice(1).toLowerCase()
-                    : "Cabina no seleccionada"}
-                </p>
-
-                <Pasajeros_Display
-                  pasajeros={pasajeros}
-                  precio={precioSeleccionado}
-                />
-
-                <Link
-                  to={`/crucero/datos/${producto?.id_crucero ?? ""}/${slugify(
-                    producto?.itinerario?.name ?? "itinerario"
-                  )}`}
-                  state={{ producto, pasajeros, precioSeleccionado }}
-                >
-                  <div className="tw-flex tw-justify-center">
-                    <button className="tw-bg-secondary tw-mt-5 tw-w-full tw-p-3 tw-px-8 tw-rounded-xl tw-shadow-md tw-text-white tw-font-bold">
-                      Total:{" "}
-                      {(pasajeros.length * precioSeleccionado.price).toFixed(2)}{" "}
-                      €
-                    </button>
-                  </div>
-                </Link>
-              </div>
-            ) : (
-              <div className="tw-w-full tw-h-full tw-mt-10 tw-flex tw-flex-col tw-items-center tw-justify-center">
-                <FaInfoCircle className="tw-text-danger tw-text-4xl" />
-                <p className="tw-text-center tw-text-danger dark:tw-text-red-400 tw-animate-pulse tw-font-semibold">
-                  Selecciona la cabina y pasajeros a bordo
-                </p>
-              </div>
-            )}
-          </article>
-        </main>
-      )}
-    </>
+    <PaginaDetalles
+      titulo={producto?.barco?.nombre?.texto}
+      contenidoPrincipal={
+        <Crucero
+          producto={producto}
+          pasajeros={pasajeros}
+          setPasajeros={setPasajeros}
+          cruiseImage={cruiseImage}
+          precioSeleccionado={precioSeleccionado}
+          setPrecioSeleccionado={setPrecioSeleccionado}
+        />
+      }
+      contenidoSecundario={
+        <Aside
+          producto={producto}
+          precioSeleccionado={precioSeleccionado}
+          pasajeros={pasajeros}
+          cruiseImage={cruiseImage}
+        />
+      }
+    />
   );
 }
 

@@ -1,29 +1,12 @@
-import Itinerario from "../detalles/Itinerario";
-import Incluye from "../detalles/Incluye";
+import Itinerario from "../detalles/contenidoPrincipal/Itinerario";
+import Incluye from "../detalles/contenidoPrincipal/Incluye";
 import { FaInfoCircle } from "react-icons/fa";
 import { MdMeetingRoom } from "react-icons/md";
 import { FaPerson, FaChild } from "react-icons/fa6";
-import { IoMdFunnel } from "react-icons/io";
 
-function Circuito({ actividad, fechaIda, adultos, ninios, habitacion }) {
-  return ( 
+function Circuito({ actividad, adultos, ninios, habitacion }) {
+  return (
     <section className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
-      <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
-        <div>
-          <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
-            {actividad.titulo}
-          </h3>
-          <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
-            {fechaIda}
-          </p>
-        </div>
-        <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          <IoMdFunnel className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
-          <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
-            {actividad.precio.toFixed(2)}€
-          </span>
-        </div>
-      </section>
       <div className="tw-flex tw-justify-around tw-flex-wrap tw-gap-5">
         <div className="tw-w-[150px] tw-h-[150px] tw-shadow-md hover:tw-shadow-lg tw-smooth tw-border-2 tw-border-orange-400 tw-bg-orange-100 dark:tw-bg-orange-400 dark:tw-text-white tw-text-orange-400 tw-font-bold tw-rounded-full tw-flex tw-items-center tw-justify-center">
           <div className="tw-flex tw-items-center tw-flex-col">

@@ -51,14 +51,14 @@ import Destino from "../reservas/productos/destinos/destino/Destino";
 import Crucero from "../reservas/productos/cruceros/crucero/Crucero";
 import Coche from "../reservas/productos/coches/detalles/Coche";
 import Seguro from "../reservas/productos/seguro/Resultado";
-import Ticket from "../reservas/productos/tickets/Ticket";
-import Entrada from "../reservas/productos/entradas/Entrada";
-import Tren from "../reservas/productos/trenes/Tren";
-import Circuito from "../reservas/productos/circuitos/Circuito";
+import Ticket from "../reservas/productos/tickets/ticket/Ticket";
+import Entrada from "../reservas/productos/entradas/entrada/Entrada";
+import Tren from "../reservas/productos/trenes/detalles/Tren";
+import Circuito from "../reservas/productos/circuitos/detalles/Circuito";
 import HotelmAsActividades from "../reservas/productos/hotelmasactividades/seleccion/Seleccion";
 import Combinado from "../reservas/productos/combinados/Combinado";
 /*Componentes */
-import Fecha from "../reservas/productos/destinos/destino/reserva/Fechas";
+import Fecha from "../reservas/productos/destinos/destino/reserva/Destino";
 import Condiciones from "../reservas/estructura/Condiciones_reserva";
 
 /* CESTA */

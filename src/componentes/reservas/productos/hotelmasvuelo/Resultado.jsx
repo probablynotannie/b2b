@@ -148,7 +148,6 @@ function Productos() {
                     <Vuelos ida={ida} vuelta={vuelta} cesta={true} />
                     <Resultado
                       setActiveTab={setActiveTab}
-                      tab={"Vuelos"}
                       hoteles={hoteles}
                       selectedHotel={selectedHotel}
                       setHotel={setHotel}
