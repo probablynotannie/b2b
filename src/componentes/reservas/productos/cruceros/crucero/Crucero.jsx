@@ -24,16 +24,6 @@ function Producto() {
     refetchOnWindowFocus: false,
   });
 
-  const getImagenCruceroDisponible = (producto) => {
-    if (producto?.barco?.img_header_embarcacion) {
-      return producto.barco.img_header_embarcacion;
-    }
-    const firstAvailablePortImage = producto?.itin_dias
-      ?.map((dia) => dia.puerto?.img_puerto_header)
-      .find((img) => img && img.trim() !== "");
-    return firstAvailablePortImage || null;
-  };
-
   if (isLoading) {
     return <Placeholder />;
   }
@@ -53,7 +43,15 @@ function Producto() {
       </div>
     );
   }
-
+  const getImagenCruceroDisponible = (producto) => {
+    if (producto?.barco?.img_header_embarcacion) {
+      return producto.barco.img_header_embarcacion;
+    }
+    const firstAvailablePortImage = producto?.itin_dias
+      ?.map((dia) => dia.puerto?.img_puerto_header)
+      .find((img) => img && img.trim() !== "");
+    return firstAvailablePortImage || null;
+  };
   const cruiseImage =
     getImagenCruceroDisponible(producto) ?? "default-image.jpg";
 

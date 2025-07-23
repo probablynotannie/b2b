@@ -139,16 +139,6 @@ function Cruceros({ setRequestData, data, isLoading }) {
               <Placeholder_Cruceros />
             )}
           </div>
-          <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-smooth tw-rounded-lg dark:tw-bg-slate-900 tw-p-5 tw-mt-5">
-            <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
-              Crucero de selección
-            </h2>
-            {crucerosSeleccionLoading === false ? (
-              <Cruceros_destacados cruceros={ofertasUltimoMinuto} />
-            ) : (
-              <Placeholder_Cruceros />
-            )}
-          </div>
         </div>
       </div>
     </div>

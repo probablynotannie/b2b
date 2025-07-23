@@ -17,7 +17,7 @@ function Reserva({
       <main className="tw-container tw-min-h-[55vh] tw-my-10 tw-p-5">
         <Header numReserva={numReserva} finalizada={finalizada} />
         <article className="tw-mt-10 tw-shadow-md hover:tw-shadow-xl tw-smooth tw-border dark:tw-bg-slate-900 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
-          <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
+          <section className="tw-flex tw-gap-10 tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">
             <div>
               <h3 className="tw-text-lg tw-font-bold dark:tw-text-white">
                 {titulo}
@@ -28,9 +28,10 @@ function Reserva({
             </div>
             <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
               <Icono className="tw-text-xl tw-text-secondary dark:tw-text-secondaryDark" />
-              <span className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold">
-                {precio} {currency ? currency : "€"}
-              </span>
+              <p className="tw-text-secondary dark:tw-text-secondaryDark tw-font-bold tw-text-center">
+                {precio}
+                {currency ? currency : "€"}
+              </p>
             </div>
           </section>
           {main}

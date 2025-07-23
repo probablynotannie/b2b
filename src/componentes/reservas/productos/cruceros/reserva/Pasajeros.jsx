@@ -1,11 +1,59 @@
 import { FaMars, FaVenus, FaGlobe } from "react-icons/fa";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
+const normalizePasajero = (pasajero, index) => {
+  if (pasajero.nombre && pasajero.apellido) {
+    return {
+      ...pasajero,
+      genero: normalizarGenero(pasajero.genero),
+    };
+  }
+
+  const [nombre = "", apellido = ""] = pasajero.Name?.split(" ") || [];
+  return {
+    id: pasajero.id || index + 1,
+    nombre,
+    apellido,
+    fechaNacimiento: pasajero.Fecha,
+    genero: normalizarGenero(pasajero.Sex),
+    age: calcularEdad(pasajero.Fecha),
+  };
+};
+
+const normalizarGenero = (genero) => {
+  const g = genero?.toLowerCase();
+  if (g === "m" || g === "mujer") return "Mujer";
+  if (g === "h" || g === "hombre") return "Hombre";
+  return "Otro";
+};
+
+const parseFecha = (fechaStr) => {
+  const [dia, mes, anio] = fechaStr.split("/");
+  return new Date(`${anio}-${mes}-${dia}`);
+};
+
+const calcularEdad = (fechaStr) => {
+  const nacimiento = parseFecha(fechaStr);
+  if (isNaN(nacimiento)) {
+    console.warn("Fecha inválida:", fechaStr);
+    return null;
+  }
+  const hoy = new Date();
+  let edad = hoy.getFullYear() - nacimiento.getFullYear();
+  const mes = hoy.getMonth() - nacimiento.getMonth();
+  if (mes < 0 || (mes === 0 && hoy.getDate() < nacimiento.getDate())) {
+    edad--;
+  }
+  return edad;
+};
+
 function Pasajeros({ pasajeros }) {
+  if (!pasajeros || !pasajeros.length) return null;
+  const normalizados = pasajeros.map((p, i) => normalizePasajero(p, i));
   return (
     <section className="tw-my-6 tw-space-y-2">
       <h3 className="tw-font-semibold dark:tw-text-slate-100">Pasajeros</h3>
       <div className="tw-grid md:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-7">
-        {pasajeros.map((pasajero) => (
+        {normalizados.map((pasajero) => (
           <div
             key={pasajero.id}
             className="tw-flex tw-border dark:tw-border-slate-700 tw-bg-white dark:tw-bg-slate-900/60 tw-shadow tw-rounded-lg"
@@ -29,12 +77,17 @@ function Pasajeros({ pasajeros }) {
                   {pasajero.nombre} {pasajero.apellido}
                 </li>
                 <li className="tw-flex tw-gap-1 ">
-                  {FormatearFecha(pasajero.fechaNacimiento)} ({pasajero.age})
+                  {FormatearFecha(pasajero.fechaNacimiento)}{" "}
+                  {pasajero.age ? <span> ({pasajero.age}) </span> : ""}
                 </li>
-                <li className="tw-flex tw-gap-1">
-                  <FaGlobe className="tw-text-slate-500" />
-                  {pasajero.pais}
-                </li>
+                {pasajero.pais ? (
+                  <li className="tw-flex tw-gap-1">
+                    <FaGlobe className="tw-text-slate-500" />
+                    {pasajero.pais || "N/A"}
+                  </li>
+                ) : (
+                  ""
+                )}
               </ul>
             </div>
           </div>
