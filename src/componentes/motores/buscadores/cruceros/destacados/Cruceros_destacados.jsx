@@ -13,7 +13,7 @@ function Cruceros_destacados() {
     refetchOnWindowFocus: false,
   });
   return (
-    <div className="tw-mb-6 tw-mx-10">
+    <div className="tw-mb-6">
       {!isLoading && !isError ? (
         <div className="tw-columns-1 md:tw-columns-2 lg:tw-columns-4 tw-gap-6">
           {data.cruceros.slice(0, 100).map((crucero, index) => {

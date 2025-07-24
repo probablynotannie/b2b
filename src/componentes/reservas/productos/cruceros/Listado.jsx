@@ -226,11 +226,8 @@ function Listado({ destinos }) {
                   destino.itinerario.name
                 )}`}
               >
-                <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-rounded-br-lg">
+                <button className="tw-bg-slate-700 dark:tw-bg-slate-900 tw-text-white tw-p-2 tw-py-3 tw-rounded-br-lg tw-rounded-tl-lg">
                   Desde {destino.minPrice}€
-                  <span className="tw-text-xs tw-flex tw-items-center tw-gap-1">
-                    + tasas <FaChevronRight />
-                  </span>
                 </button>
               </Link>
             </div>

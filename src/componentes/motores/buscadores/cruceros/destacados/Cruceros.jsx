@@ -59,7 +59,7 @@ function Cruceros({ setRequestData, data, isLoading }) {
           )}
         </div>
         <div className="tw-mt-8">
-          <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-smooth tw-rounded-lg dark:tw-bg-slate-900 tw-p-5">
+          <div className="tw-bg-slate-50 tw-shadow-sm hover:tw-shadow-md tw-smooth tw-rounded-lg dark:tw-bg-slate-900 tw-p-5  tw-px-10">
             <h2 className="tw-font-bold tw-text-2xl tw-mb-5 tw-text-slate-800 dark:tw-text-slate-100 tw-mt-5">
               Cruceros destacados
             </h2>
