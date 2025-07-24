@@ -80,13 +80,11 @@ function Pasajeros({ pasajeros }) {
                   {FormatearFecha(pasajero.fechaNacimiento)}{" "}
                   {pasajero.age ? <span> ({pasajero.age}) </span> : ""}
                 </li>
-                {pasajero.pais ? (
+                {pasajero.pais && (
                   <li className="tw-flex tw-gap-1">
                     <FaGlobe className="tw-text-slate-500" />
                     {pasajero.pais || "N/A"}
                   </li>
-                ) : (
-                  ""
                 )}
               </ul>
             </div>
