@@ -1,12 +1,10 @@
 import { useState } from "react";
 import { FaCity } from "react-icons/fa";
-import Input_Destinos from "../../../inputs/Buscador";
-import Input_DateRange from "../../../inputs/DateRangeWithTime";
-import Input_Edad from "../../../inputs/Edad";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
-import Buscador from "../Buscados";
+import Buscador from "../Buscador";
 import Movil from "./Movil";
+import Escritorio from "./Escritorio";
 function Buscador_Coches({ listado }) {
   const navigate = useNavigate();
   const [lugarEntrega, setLugarEntrega] = useState(true);
@@ -70,93 +68,22 @@ function Buscador_Coches({ listado }) {
           </div>
         }
         contenidoMovil={
-          <>
-            <Movil
-              control={control}
-              lugarEntrega={lugarEntrega}
-              setLugarEntrega={setLugarEntrega}
-              destinos={destinos}
-              setValue={setValue}
-            />
-          </>
+          <Movil
+            control={control}
+            lugarEntrega={lugarEntrega}
+            setLugarEntrega={setLugarEntrega}
+            destinos={destinos}
+            setValue={setValue}
+          />
         }
         contenidoEscritorio={
-          <>
-            <div
-              className={
-                lugarEntrega === true && listado === true
-                  ? "tw-col-span-12 lg:tw-col-span-12 xl:tw-col-span-3 2xl:tw-col-span-4"
-                  : lugarEntrega === false
-                  ? "tw-col-span-6 lg:tw-col-span-6 xl:tw-col-span-3 2xl:tw-col-span-3"
-                  : "tw-col-span-12 lg:tw-col-span-12 xl:tw-col-span-4 2xl:tw-col-span-4"
-              }
-            >
-              <Input_Destinos
-                required={true}
-                control={control}
-                name={"origen"}
-                setValue={setValue}
-                placeholder={"Origen"}
-                destinos={destinos}
-              />
-            </div>
-            {lugarEntrega === false && (
-              <div
-                className={`${
-                  lugarEntrega === false
-                    ? "tw-col-span-6 xl:tw-col-span-2 2xl:tw-col-span-3"
-                    : "tw-col-span-2"
-                }`}
-              >
-                <Input_Destinos
-                  required={true}
-                  control={control}
-                  name={"destino"}
-                  setValue={setValue}
-                  placeholder={"Destino"}
-                  destinos={destinos}
-                />
-              </div>
-            )}
-            <div
-              className={`tw-col-span-4 ${
-                lugarEntrega === false ? "xl:tw-col-span-2" : "xl:tw-col-span-3"
-              } `}
-            >
-              <Input_DateRange
-                control={control}
-                nameFecha="startDate"
-                nameHora="horaRecogida"
-                placeholder="Selecciona una fecha y hora"
-              />
-            </div>
-            <div
-              className={`tw-col-span-4 ${
-                lugarEntrega === false ? "xl:tw-col-span-2" : "xl:tw-col-span-3"
-              } `}
-            >
-              <Input_DateRange
-                control={control}
-                nameFecha="endDate"
-                nameHora="horaDevolucion"
-                placeholder="Selecciona una fecha y hora"
-              />
-            </div>
-            <div
-              className={`${
-                listado === true
-                  ? "tw-col-span-3 lg:tw-col-span-2 xl:tw-col-span-2 2xl:tw-col-span-1"
-                  : "tw-col-span-4 xl:tw-col-span-2"
-              }`}
-            >
-              <Input_Edad
-                control={control}
-                name="edadConductor"
-                edadMinima={18}
-                edadMaxima={100}
-              />
-            </div>
-          </>
+          <Escritorio
+            lugarEntrega={lugarEntrega}
+            control={control}
+            setValue={setValue}
+            destinos={destinos}
+            listado={listado}
+          />
         }
       />
     </>

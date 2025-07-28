@@ -1,13 +1,14 @@
 import { useState } from "react";
 import { FaSearch } from "react-icons/fa";
 
-function Buscados({
+function Buscador({
   titulo,
   listado,
   submit,
   contenidoMovil,
   contenidoEscritorio,
   secundario,
+  reverse,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 
@@ -29,7 +30,7 @@ function Buscados({
         </button>
       </div>
       {isModalOpen && (
-        <div className="tw-fixed  tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
           <div className="tw-bg-white tw-rounded-lg  tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
             <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
               <h2 className="tw-text-xl tw-font-bold tw-text-white">
@@ -44,7 +45,7 @@ function Buscados({
             </div>
             <div className="tw-p-3">
               <form onSubmit={submit}>
-                <div className="tw-grid tw-grid-cols-1 tw-gap-4">
+                <div className="tw-grid tw-grid-cols-1 tw-space-y-2">
                   {contenidoMovil}
                 </div>
                 <button className="tw-bg-slate-800 tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
@@ -67,10 +68,14 @@ function Buscados({
       <div
         className={`tw-hidden ${
           listado === true ? "lg:tw-flex" : "sm:tw-flex"
-        } tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
+        } tw-w-full tw-bg-white  dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
       >
         <form onSubmit={submit} className="tw-w-full">
-          <div className="tw-flex tw-justify-between tw-items-center">
+          <div
+            className={`tw-flex tw-justify-between tw-items-center tw-flex-wrap-reverse ${
+              reverse === true && "tw-flex-row-reverse"
+            }`}
+          >
             {secundario}
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
               {titulo}
@@ -84,7 +89,7 @@ function Buscados({
                 Buscar
               </button>
             ) : (
-              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-span-2 xl:tw-col-span-1">
+              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios tw-col-">
                 <FaSearch className="tw-text-white tw-text-xl" />
               </button>
             )}
@@ -95,4 +100,4 @@ function Buscados({
   );
 }
 
-export default Buscados;
+export default Buscador;

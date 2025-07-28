@@ -4,10 +4,16 @@ import Input_Edad from "../../../inputs/Edad";
 import Input_DateRangeMobile from "../../../inputs/DateRange";
 import Input_Hora from "../../../inputs/Hora";
 
-function Movil({ control, lugarEntrega, setLugarEntrega, destinos, setValue }) {
+function Inputs({
+  control,
+  lugarEntrega,
+  setLugarEntrega,
+  destinos,
+  setValue,
+}) {
   return (
     <>
-      <div className="tw-flex tw-items-center tw-col-span-1 tw-gap-2">
+      <div className="tw-gap-2">
         <input
           id="ciudadEntrega"
           type="checkbox"
@@ -35,7 +41,6 @@ function Movil({ control, lugarEntrega, setLugarEntrega, destinos, setValue }) {
         placeholder={"Origen"}
         destinos={destinos}
       />
-
       {lugarEntrega === false && (
         <Input_Destinos
           required={true}
@@ -74,4 +79,4 @@ function Movil({ control, lugarEntrega, setLugarEntrega, destinos, setValue }) {
   );
 }
 
-export default Movil;
+export default Inputs;
