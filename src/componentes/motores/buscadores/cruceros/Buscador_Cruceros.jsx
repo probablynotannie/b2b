@@ -37,20 +37,21 @@ function Buscador_Cruceros({ listado }) {
     defaultValues: defaultFormValues,
   });
 
-  const [idZona, idPuerto, idNav] = useWatch({
+  const [idZona, idPuerto, idNav, fechaSalida] = useWatch({
     control,
-    name: ["idZona", "idPuerto", "idNav"],
+    name: ["idZona", "idPuerto", "idNav", "fechSal"],
   });
   const {
     data: crucerosData = {
       zonas: [],
       puertos: [],
       navieras: [],
+      fechaSalida: [],
       CountCruceros: 0,
     },
     isFetching,
   } = useQuery({
-    queryKey: ["cruceros", idZona, idPuerto, idNav],
+    queryKey: ["cruceros", idZona, idPuerto, idNav, fechaSalida],
     queryFn: async () => {
       const url =
         `https://devxml-2.vpackage.net/FrontCruceros/searchjson?` +
@@ -59,7 +60,7 @@ function Buscador_Cruceros({ listado }) {
           idZona: idZona || "0",
           idPuerto: idPuerto || "0",
           idNav: idNav || "0",
-          fechaSalida: "0",
+          fechaSalida: fechaSalida || "0",
           json: "1",
         });
       const res = await fetch(url);
@@ -191,7 +192,7 @@ function Buscador_Cruceros({ listado }) {
             <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
               Buscador de Cruceros
             </h2>
-            
+
             {isFetching ? (
               <Cargando />
             ) : (
