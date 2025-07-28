@@ -1,7 +1,5 @@
-import Reserva from "../../../datos/Reserva";
 import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
-import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import { useState } from "react";
 import FormatearFecha from "../../../../../helpers/FormatearFecha";
 import { useNavigate } from "react-router-dom";

@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
-import Resultado from "../hotel/HotelMas";
+import Hoteles from "../hotel/HotelMas";
 import Entradas from "../tickets/TicketsMas";
 import Buscador from "../../../motores/buscadores/hotelmasactividades/Buscador_Hotel_Mas_Actividades";
 import { FaHotel } from "react-icons/fa";
@@ -11,6 +11,7 @@ import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import { FaCheck } from "react-icons/fa";
+import Resultado from "../../Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -28,27 +29,23 @@ function Productos() {
     habitaciones: 2,
     noches: 7,
   };
+  console.log(activeTab);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   return (
-    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
-      <div className="tw-w-full">
-        <div
-          className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
-          style={{
-            backgroundImage: "url('/banners/banner_actividades2.webp')",
-          }}
-        >
-          <div className="tw-bg-indigo-300/20 dark:tw-bg-black/20 tw-text-pink-600 tw-bg-opacity-55 dark:bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
-          <div className="tw-flex">
-            <div className="tw-container tw-relative">
-              <Buscador listado={true} />
-            </div>
-            <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
-              <Aside values={values} setValues={setValues} minMax={minMax} />
-            </aside>
-          </div>
-        </div>
+    <Resultado
+      background={"url('/banners/banner_actividades2.webp')"}
+      position={"center"}
+      color={"tw-bg-indigo-300/20"}
+      buscador={<Buscador listado={true} />}
+      ocultarAside={
+        activeTab === "actividades" || (activeTab === "Cesta" && true)
+      }
+      wideContent={
+        activeTab === "actividades" || (activeTab === "Cesta" && true)
+      }
+      aside={<Aside values={values} setValues={setValues} minMax={minMax} />}
+      extraInfo={
         <div className="tw-flex tw-items-center tw-space-x-4 tw-mb-6 tw-col-span-9 tw-container tw-mt-10">
           <div className="tw-flex tw-items-center tw-relative">
             <button
@@ -100,40 +97,33 @@ function Productos() {
             </button>
           </div>
         </div>
-        <article className="tw-grid tw-grid-cols-9 lg:tw-gap-8 xs:gap-28 tw-container">
-          {activeTab === "Resultados" && (
+      }
+      listado={
+        <>
+          {activeTab === "Resultados" ? (
             <>
-              <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
-                <Aside values={values} setValues={setValues} minMax={minMax} />
-              </aside>
-              <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
-                {loading ? (
-                  <PlaceHolder />
-                ) : (
-                  <Resultado
-                    setActiveTab={setActiveTab}
-                    tab={"actividades"}
-                    hoteles={hoteles}
-                    selectedHotel={selectedHotel}
-                    setHotel={setHotel}
-                    setHabitacion={setHabitacion}
-                  />
-                )}
-              </section>
+              {loading ? (
+                <PlaceHolder />
+              ) : (
+                <Hoteles
+                  setActiveTab={setActiveTab}
+                  tab={"actividades"}
+                  hoteles={hoteles}
+                  selectedHotel={selectedHotel}
+                  setHotel={setHotel}
+                  setHabitacion={setHabitacion}
+                />
+              )}
             </>
-          )}
-        </article>
-        <div className="tw-container">
-          {activeTab === "actividades" && (
-            <Entradas
-              tickets={entradas}
-              actividades={actividades}
-              setActividades={setActividades}
-            />
-          )}
-        </div>
-        <div className="tw-container">
-          {activeTab === "Cesta" && (
+          ) : activeTab === "actividades" ? (
+            <>
+              <Entradas
+                tickets={entradas}
+                actividades={actividades}
+                setActividades={setActividades}
+              />
+            </>
+          ) : (
             <Cesta
               habitacion={habitacion}
               hotel={selectedHotel}
@@ -143,9 +133,9 @@ function Productos() {
               setActividades={setActividades}
             />
           )}
-        </div>
-      </div>
-    </main>
+        </>
+      }
+    />
   );
 }
 export default Productos;

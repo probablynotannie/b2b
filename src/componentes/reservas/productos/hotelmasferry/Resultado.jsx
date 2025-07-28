@@ -1,6 +1,7 @@
 import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
-import Resultado from "../hotel/HotelMas";
+import Aside_Ferry from "../ferris/filtros/Aside";
+import Hoteles from "../hotel/HotelMas";
 import MasFerris from "./Ferris";
 import Buscador from "../../../motores/buscadores/hotelmasferri/Buscador_hotelferry";
 import { FaHotel } from "react-icons/fa";
@@ -11,6 +12,7 @@ import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import Resultado from "../../Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -32,25 +34,28 @@ function Productos() {
   };
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const [valuesFerris, setValuesFerris] = useState([0, 5000]);
+  const [minMaxFerris, setMinMaxFerris] = useState([0, 5000]);
   return (
-    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20">
-      <div className="tw-w-full">
-        <div
-          className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
-          style={{
-            backgroundImage: "url('/banners/banner_avion.webp')",
-          }}
-        >
-          <div className="tw-bg-indigo-300 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-55 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
-          <div className="tw-flex">
-            <div className="tw-container tw-relative">
-              <Buscador listado={true} />
-            </div>
-            <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
-              <Aside values={values} setValues={setValues} minMax={minMax} />
-            </aside>
-          </div>
-        </div>
+    <Resultado
+      background={"url('/banners/banner_avion.webp')"}
+      position={"center"}
+      color={"tw-bg-blue-500/50"}
+      buscador={<Buscador listado={true} />}
+      aside={
+        <>
+          {activeTab === "Resultados" ? (
+            <Aside values={values} setValues={setValues} minMax={minMax} />
+          ) : (
+            <Aside_Ferry
+              values={valuesFerris}
+              setValues={setValuesFerris}
+              minMax={minMaxFerris}
+            />
+          )}
+        </>
+      }
+      extraInfo={
         <div className="tw-flex tw-space-x-4 tw-mb-6 tw-col-span-9 tw-container tw-mt-10">
           <button
             className={`tw-px-4 tw-py-2 tw-border-b-2 tw-flex tw-items-center ${
@@ -83,29 +88,28 @@ function Productos() {
             <BsFillBasket2Fill className="tw-mr-1" /> Cesta
           </button>
         </div>
-        <article className="tw-grid tw-grid-cols-9 lg:tw-gap-8 xs:gap-28 tw-container">
+      }
+      wideContent={activeTab === "Cesta" && true}
+      ocultarAside={activeTab === "Cesta" && true}
+      listado={
+        <>
           {activeTab === "Resultados" && (
             <>
-              <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 tw-h-fit lg:tw-sticky tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
-                <Aside values={values} setValues={setValues} minMax={minMax} />
-              </aside>
-              <section className="tw-col-span-9 lg:tw-col-span-6 tw-p-3">
-                {loading ? (
-                  <>
-                    <Cargando />
-                    <PlaceHolder />
-                  </>
-                ) : (
-                  <Resultado
-                    setActiveTab={setActiveTab}
-                    tab={"Ferris"}
-                    setHabitacion={setHabitacion}
-                    hoteles={hoteles}
-                    selectedHotel={selectedHotel}
-                    setHotel={setHotel}
-                  />
-                )}
-              </section>
+              {loading ? (
+                <>
+                  <Cargando />
+                  <PlaceHolder />
+                </>
+              ) : (
+                <Hoteles
+                  setActiveTab={setActiveTab}
+                  tab={"Ferris"}
+                  setHabitacion={setHabitacion}
+                  hoteles={hoteles}
+                  selectedHotel={selectedHotel}
+                  setHotel={setHotel}
+                />
+              )}
             </>
           )}
           {activeTab === "Ferris" && (
@@ -129,9 +133,9 @@ function Productos() {
               setHotel={setHotel}
             />
           )}
-        </article>
-      </div>
-    </main>
+        </>
+      }
+    />
   );
 }
 export default Productos;

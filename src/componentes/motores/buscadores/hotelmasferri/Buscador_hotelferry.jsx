@@ -76,6 +76,7 @@ function Buscador_Destinos({ listado }) {
       titulo={"Buscador de Hotel + Ferry"}
       contenidoEscritorio={
         <Escritorio
+          listado={listado}
           control={control}
           setValue={setValue}
           errors={errors}

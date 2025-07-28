@@ -54,7 +54,7 @@ function Escritorio({ listado, zonasOrd, control, puertosOrd, navierasOrd }) {
       <div
         className={`${
           listado
-            ? "tw-col-span-5 lg:tw-col-span-5 xl:tw-col-span-2"
+            ? "tw-col-span-5 lg:tw-col-span-6 xl:tw-col-span-2"
             : "tw-col-span-6 lg:tw-col-span-4 xl:tw-col-span-2"
         }`}
       >
