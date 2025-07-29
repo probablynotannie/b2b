@@ -1,5 +1,5 @@
 import { useState } from "react";
-import Buscador from "./filtros/Buscador";
+import Buscador from "../../../motores/buscadores/circuitos/Buscador_Circuitos";
 import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
 import { useEffect } from "react";
@@ -28,7 +28,7 @@ function Productos() {
       background={"url('/banners/banner_actividades2.webp')"}
       position={"center"}
       color={"tw-bg-pink-200/45"}
-      buscador={<Buscador />}
+      buscador={<Buscador listado={true} />}
       aside={false}
       extraInfo={
         <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 md:tw-gap-10 tw-mb-5 md:tw-mb-0 tw-h-fit tw-mt-10 tw-w-full tw-container">

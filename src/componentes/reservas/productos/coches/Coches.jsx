@@ -13,9 +13,7 @@ function Resultado() {
       setSelectedCars((prev) => prev.filter((car) => car.id !== coche.id));
     }
   };
-  const handleCheckboxChange = (event) => {
-    setComparar(event.target.checked);
-  };
+
   return (
     <section className="tw-pb-12 tw-min-h-[50.2vh]">
       <div className="tw-flex tw-justify-between tw-items-center">
@@ -24,19 +22,18 @@ function Resultado() {
         </h3>
         {selectedCars.length > 0 && (
           <div className="tw-flex tw-flex-col tw-gap-5 md:tw-flex-row md:tw-justify-between">
-            <label className="tw-inline-flex tw-items-center tw-cursor-pointer">
-              <input
-                type="checkbox"
-                value=""
-                className="tw-sr-only tw-peer"
-                checked={comparar}
-                onChange={handleCheckboxChange}
-              />
-              <div className="tw-relative tw-w-11 tw-h-6 tw-bg-gray-200 dark:tw-bg-slate-800 dark:md:tw-bg-slate-800 peer-focus:outline-none peer-focus:ring-4 tw-rounded-full tw-peer peer-checked:tw-after:translate-x-full rtl:peer-checked:tw-after:-translate-x-full peer-checked:tw-after:border-white after:tw-content-[''] after:tw-absolute after:tw-top-[2px] after:tw-start-[2px] after:tw-bg-white after:tw-border-gray-300 after:tw-border after:tw-rounded-full after:tw-h-5 after:tw-w-5 after:tw-transition-all peer-checked:tw-bg-secondary"></div>
-              <span className="tw-ms-3 tw-text-sm tw-font-medium tw-text-slate-500 dark:tw-text-slate-400">
-                Comparar {selectedCars.length}
-              </span>
-            </label>
+            <button
+              type="button"
+              onClick={() => setComparar(!comparar)}
+              className={`tw-inline-flex tw-items-center tw-gap-2 tw-px-4 tw-py-2 tw-text-sm tw-font-medium tw-rounded tw-transition tw-shadow-sm ${
+                comparar
+                  ? "tw-bg-secondary tw-text-white hover:tw-bg-secondary/90"
+                  : "tw-bg-gray-200 tw-text-slate-700 hover:tw-bg-gray-300 dark:tw-bg-slate-800 dark:tw-text-slate-300"
+              }`}
+            >
+              {comparar ? "Listado" : "Comparar"}
+              <span className="tw-font-bold">({selectedCars.length})</span>
+            </button>
           </div>
         )}
       </div>
