@@ -2,7 +2,7 @@ import { useParams } from "react-router-dom";
 import { useState } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Aside from "./contenidoSecundario/Aside";
-import Placeholder from "../../../../../helpers/placeholders/Detalles";
+import Placeholder from "../../../../../placeholders/Detalles";
 import Error from "../filtros/Error";
 import fetchCrucero from "../hook/crucero";
 import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";

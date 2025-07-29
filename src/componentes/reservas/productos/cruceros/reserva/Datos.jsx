@@ -9,7 +9,7 @@ import Fecha from "../../../../inputs/Fecha";
 import { slugify } from "../../../../../scripts/slugify";
 import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
-import Placeholder from "../../../../../helpers/placeholders/Datos";
+import Placeholder from "../../../../../placeholders/Datos";
 import random from "./random.json";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 const Datos = () => {

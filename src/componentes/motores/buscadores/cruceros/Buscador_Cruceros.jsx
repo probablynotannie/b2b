@@ -2,7 +2,7 @@ import { useMemo } from "react";
 import { useNavigate, useLocation } from "react-router-dom";
 import { useForm, useWatch } from "react-hook-form";
 import { useQuery } from "@tanstack/react-query";
-import Cargando from "../../../../helpers/placeholders/Spinner";
+import Cargando from "../../../../placeholders/Spinner";
 import Movil from "./Movil";
 import Escritorio from "./Escritorio";
 import Buscador from "../Buscador";

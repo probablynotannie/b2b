@@ -1,4 +1,4 @@
-import Cargando from "../../../../../../helpers/placeholders/Cargando";
+import Cargando from "../../../../../../placeholders/Cargando";
 function Zonas_Puertos_Placeholder() {
   return (
     <>

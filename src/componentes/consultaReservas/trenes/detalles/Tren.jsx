@@ -5,7 +5,7 @@ import Desglose from "./Desglose";
 import DatosAgencia from "../../../../helpers/visuales/agencia/DatosAgencia";
 import Ticket from "./Ticket";
 import { useState, useEffect } from "react";
-import SkeletonPlaceholder from "../../../../helpers/placeholders/Detalles";
+import SkeletonPlaceholder from "../../../../placeholders/Detalles";
 function Detalles() {
   const location = useLocation();
   const { tren = {} } = location.state || {};

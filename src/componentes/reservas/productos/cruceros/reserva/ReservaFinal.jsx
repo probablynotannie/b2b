@@ -10,7 +10,7 @@ import Pasajeros from "./Pasajeros";
 import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Error from "../filtros/Error";
-import Placeholder from "../../../../../helpers/placeholders/Detalles";
+import Placeholder from "../../../../../placeholders/Detalles";
 import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
 import Itinerario from "../crucero/contenidoPrincipal/Itinerario";
 import DetallesConIconos from "../crucero/contenidoPrincipal/Detalles";
