@@ -7,7 +7,7 @@ import { FaCalendarAlt } from "react-icons/fa";
 import InfiniteScrollCalendar from "./movil/InfiniteScrollCalendarMultiple";
 import { useController } from "react-hook-form";
 import cesta from "../estructura/cesta/Zustand";
-import parseFecha from "../../helpers/parseFechas";
+import parseFecha from "../../scripts/ParseFechas";
 const DateRange = ({
   control,
   nameStartDate,

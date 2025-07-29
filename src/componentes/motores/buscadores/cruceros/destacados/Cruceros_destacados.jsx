@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchCrucerosDestacados from "./hook/fetchCrucerosDestacados";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import formatearFecha from "../../../../../scripts/FormatearFecha";
 import Placeholder from "./placeholders/Cruceros";
 import { Link } from "react-router-dom";
-import { slugify } from "../../../../../helpers/slugify";
+import { slugify } from "../../../../../scripts/slugify";
 function Cruceros_destacados() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["cruceros_destacados"],

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "flowbite-react";
-import formatearMinutos from "../../../../helpers/FormatearMinutos";
+import formatearMinutos from "../../../../scripts/FormatearMinutos";
 import Mapa from "./Mapa";
 import {
   FaClock,

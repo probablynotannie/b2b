@@ -6,7 +6,7 @@ import { useNavigate } from "react-router-dom";
 import Iconos from "./Iconos";
 import { useState } from "react";
 import ModalEliminar from "./ModalEliminar";
-import formatearFecha from "../../../helpers/FormatearFecha";
+import formatearFecha from "../../../scripts/FormatearFecha";
 const ProductoItem = ({ producto, index, onRemove }) => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   return (

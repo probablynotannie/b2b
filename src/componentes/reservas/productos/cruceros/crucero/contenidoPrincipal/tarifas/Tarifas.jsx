@@ -3,7 +3,7 @@ import { GiCruiser } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import FormatearFecha from "../../../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../../../scripts/FormatearFecha";
 import PriceCarousel from "./Carousel";
 
 import ModalPrecio from "./Modal";

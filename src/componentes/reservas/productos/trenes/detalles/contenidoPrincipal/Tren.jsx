@@ -1,5 +1,5 @@
 import Clases from "../../Clases";
-import formatearMinutos from "../../../../../../helpers/FormatearMinutos";
+import formatearMinutos from "../../../../../../scripts/FormatearMinutos";
 function Tren({ tren, tipo, classSeat, setClassSeat, cesta }) {
   return (
     <div className="dark:tw-bg-slate-800 tw-p-3 tw-pt-0">

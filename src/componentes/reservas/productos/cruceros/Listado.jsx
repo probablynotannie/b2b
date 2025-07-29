@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import FormatearFecha from "../../../../helpers/FormatearFecha";
-import { slugify } from "../../../../helpers/slugify";
+import FormatearFecha from "../../../../scripts/FormatearFecha";
+import { slugify } from "../../../../scripts/slugify";
 
 function Listado({ destinos }) {
   const encontrarProximaSalida = (tarifas) => {

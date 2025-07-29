@@ -21,7 +21,9 @@ function Buscador_Destinos({ listado }) {
       submit={handleSubmit(onSubmit)}
       listado={listado}
       titulo={"Buscador de circuitos"}
-      contenidoEscritorio={<Escritorio control={control} destinos={destinos} />}
+      contenidoEscritorio={
+        <Escritorio control={control} destinos={destinos} listado={listado} />
+      }
       contenidoMovil={<Movil control={control} destinos={destinos} />}
     />
   );

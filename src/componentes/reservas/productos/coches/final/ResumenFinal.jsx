@@ -3,7 +3,7 @@ import { useLocation } from "react-router-dom";
 import Coche from "./Coche";
 import { FaCarAlt } from "react-icons/fa";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../scripts/FormatearFecha";
 function ResumenFinal() {
   const location = useLocation();
   const { producto, selectedExtras, precio, data, conductor } =

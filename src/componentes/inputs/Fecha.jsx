@@ -5,7 +5,7 @@ import { DatesProvider } from "@mantine/dates";
 import { Controller } from "react-hook-form";
 import "dayjs/locale/es";
 import InfiniteScrollCalendarSingle from "./movil/InfiniteScrollCalendarSingle";
-import parseFecha from "../../helpers/parseFechas";
+import parseFecha from "../../scripts/ParseFechas";
 import cesta from "../estructura/cesta/Zustand";
 
 function Fecha({

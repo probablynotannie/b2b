@@ -1,5 +1,5 @@
 import Input_Destinos from "../../../inputs/Destinos";
-function Escritorio({ destinos, control }) {
+function Escritorio({ destinos, control, listado }) {
   return (
     <>
       <div className="tw-col-span-6">
@@ -10,7 +10,9 @@ function Escritorio({ destinos, control }) {
           placeholder="Selecciona un origen"
         />
       </div>
-      <div className="tw-col-span-6">
+      <div
+        className={`${listado === true ? "tw-col-span-5" : "tw-col-span-6"}`}
+      >
         <Input_Destinos
           datos={destinos}
           name="destino"

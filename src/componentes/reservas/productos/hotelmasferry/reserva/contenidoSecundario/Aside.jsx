@@ -1,5 +1,5 @@
 import { FaHotel, FaShip } from "react-icons/fa6";
-import formatearFecha from "../../../../../../helpers/FormatearFecha";
+import formatearFecha from "../../../../../../scripts/FormatearFecha";
 import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 
 function Aside({ hotel, ferry, precioFerry }) {

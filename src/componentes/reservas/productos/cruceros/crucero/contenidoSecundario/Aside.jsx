@@ -1,7 +1,7 @@
 import { FaCalendar, FaInfoCircle } from "react-icons/fa";
 import { MdMeetingRoom } from "react-icons/md";
-import FormatearFecha from "../../../../../../helpers/FormatearFecha";
-import { slugify } from "../../../../../../helpers/slugify";
+import FormatearFecha from "../../../../../../scripts/FormatearFecha";
+import { slugify } from "../../../../../../scripts/slugify";
 import Pasajeros_Display from "./Pasajeros_Display";
 import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { Link } from "react-router-dom";

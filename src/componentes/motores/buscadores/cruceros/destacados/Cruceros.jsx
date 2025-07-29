@@ -3,7 +3,7 @@ import Cruceros_destacados from "./Cruceros_destacados";
 import Meses from "./Meses";
 import { FaArrowDownLong } from "react-icons/fa6";
 import { useNavigate } from "react-router-dom";
-import { slugify } from "../../../../../helpers/slugify";
+import { slugify } from "../../../../../scripts/slugify";
 import Placeholder_Cruceros from "./placeholders/Cruceros";
 function Cruceros({ setRequestData, data, isLoading }) {
   const contentRef = useRef(null);

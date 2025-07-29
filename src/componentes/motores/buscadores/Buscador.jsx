@@ -11,7 +11,6 @@ function Buscador({
   reverse,
 }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
-
   return (
     <>
       <div
