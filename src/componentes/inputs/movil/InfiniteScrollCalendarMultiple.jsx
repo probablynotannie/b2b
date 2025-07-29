@@ -14,7 +14,7 @@ import {
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
 import { useController } from "react-hook-form";
-import parseFecha from "../../../scripts/ParseFechas";
+import parseFecha from "../../../scripts/parseFechas";
 import cesta from "../../estructura/cesta/Zustand";
 
 const InfiniteScrollCalendar = ({

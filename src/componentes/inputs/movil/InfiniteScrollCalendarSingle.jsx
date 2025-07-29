@@ -14,7 +14,7 @@ import {
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
 import cesta from "../../estructura/cesta/Zustand";
-import parseFecha from "../../../scripts/ParseFechas";
+import parseFecha from "../../../scripts/parseFechas";
 
 const InfiniteScrollCalendar = ({ name, setValue, deshabilitable }) => {
   const productos = cesta((state) => state.productos);
