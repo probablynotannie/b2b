@@ -40,7 +40,6 @@ const fetchCruceros = async ({ queryKey }) => {
     total: data.totalresults || 0,
   };
 };
-
 function Productos() {
   const location = useLocation();
   const params = useParams();
@@ -69,10 +68,8 @@ function Productos() {
     }
     return form;
   };
-
   const datosFormNormalized =
     datosFormFromState || buildFormFromParams(params) || {};
-
   const isDatosFormEmpty = (form) => {
     if (!form) return true;
     return !(
@@ -136,7 +133,6 @@ function Productos() {
               </div>
             </section>
           )}
-
           <section className="tw-col-span-9 lg:tw-col-span-6 tw-overflow-visible">
             {isError ? (
               <PaginaError
@@ -173,7 +169,7 @@ function Productos() {
                   </>
                 ) : (
                   <div ref={resultadosRef}>
-                    <div className="tw-sticky tw-top-0 tw-bg-white/90 dark:tw-bg-slate-700/80 tw-py-10 tw-p-3 tw-z-10 tw-flex tw-justify-between tw-items-center">
+                    <div className="tw-sticky tw-top-0 tw-bg-white/90 dark:tw-bg-slate-700/80 tw-p-3 tw-z-10 tw-flex tw-justify-between tw-items-center">
                       <h3 className="tw-font-semibold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
                         Resultados ({totalResults})
                       </h3>

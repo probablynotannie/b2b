@@ -4,7 +4,6 @@ import Tickets from "./Entradas";
 import tickets from "./Entradas.json";
 import Entradas from "../../estructura/skeleton_placeholders_listado/Entradas";
 import Resultado from "../../Resultado";
-import { Result } from "postcss";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -32,11 +31,11 @@ function Productos() {
       extraInfo={
         <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 md:tw-gap-10 tw-mb-5 md:tw-mb-0 tw-h-fit tw-mt-10 tw-w-full tw-container">
           {loading ? (
-            <div className="tw-grid tw-grid-cols-2 tw-gap-5">
+            <>
               <div className="tw-h-10 tw-w-full tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded tw-mb-3 tw-animate-pulse"></div>
 
               <div className="tw-h-10 tw-w-full tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded tw-mb-3 tw-animate-pulse"></div>
-            </div>
+            </>
           ) : (
             <>
               <input
