@@ -58,7 +58,6 @@ function Landing() {
   ];
 
   const [loaded, setLoaded] = useState(Array(imagenes.length).fill(false));
-
   useEffect(() => {
     imagenes.forEach((img, index) => {
       const image = new Image();

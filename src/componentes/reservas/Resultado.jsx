@@ -24,7 +24,7 @@ function Resultado({
         ></div>
         <div className="tw-flex">
           <div className="tw-container tw-relative">{buscador}</div>
-          <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3 tw-h-fit  tw-top-5 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
+          <aside className="lg:tw-hidden tw-col-span-9 lg:tw-col-span-3">
             {aside}
           </aside>
         </div>
@@ -34,7 +34,7 @@ function Resultado({
         className={`tw-grid tw-grid-cols-9 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-min-h-[50vh]`}
       >
         {aside !== false && !ocultarAside && (
-          <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 tw-h-fit tw-top-10 lg:tw-bg-slate-100 lg:dark:tw-bg-slate-800 lg:tw-border-2 tw-border-slate-200 dark:tw-border-slate-800 tw-rounded-lg lg:tw-shadow-xl hover:lg:tw-shadow-2xl tw-transition tw-px-3 lg:tw-p-3 lg:tw-pb-10">
+          <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 ">
             {aside}
           </aside>
         )}
