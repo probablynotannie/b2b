@@ -1,4 +1,3 @@
-import Sidebar from "./sidebar/Sidebar";
 import Buscador_Vuelos from "./buscadores/vuelos/Buscador_Vuelos";
 import Destacados from "./buscadores/destacados/Destacados";
 import destacados from "./buscadores/vuelos/destacados.json";
