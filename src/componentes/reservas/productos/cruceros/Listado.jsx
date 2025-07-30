@@ -60,7 +60,7 @@ function Listado({ destinos }) {
             className="tw-overflow-hidden dark:tw-bg-slate-800 tw-bg-slate-100 tw-shadow hover:tw-shadow-lg tw-duration-300 tw-border-2 dark:tw-border-slate-700 tw-rounded-xl tw-transition tw-relative tw-mb-10"
           >
             <div className="tw-min-h-[28vh] tw-border-t-2 tw-border-secondary tw-rounded-tl-xl tw-max-h-[45vh] tw-flex tw-relative">
-              <div className="tw-absolute tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
+              <div className="tw-absolute tw-z-10 tw-bottom-0 tw-w-full tw-bg-red-700 dark:tw-bg-red-900 tw-bg-opacity-90 tw-text-white tw-font-bold tw-px-5">
                 Próxima salida: {proximaSalida}
               </div>
               <div
@@ -74,21 +74,25 @@ function Listado({ destinos }) {
                 </div>
               </div>
               <div className="tw-hidden sm:tw-flex tw-w-full">
+                {/* Barco */}
                 {destino.barco.img_header_embarcacion &&
                 destino.barco.img_header_embarcacion.trim() !== "" &&
                 destino.barco.img_header_embarcacion !==
                   destino.itin_dias[0]?.puerto?.img_puerto_header ? (
-                  <div
-                    className="tw-transition-all tw-rounded-tl-xl tw-duration-300 tw-w-full sm:tw-w-[33.33%] hover:tw-w-[50%] tw-min-h-[20vh] tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center"
-                    style={{
-                      backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${destino.barco.img_header_embarcacion}')`,
-                    }}
-                  >
-                    <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-rounded-tl-xl tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
+                  <div className="tw-relative tw-transition-all tw-rounded-tl-xl tw-duration-300 tw-w-full sm:tw-w-[33.33%] hover:tw-w-[50%] tw-min-h-[20vh] tw-max-h-[45vh] tw-overflow-hidden">
+                    <img
+                      src={`//pic-2.vpackage.net/cruceros_img/${destino.barco.img_header_embarcacion}`}
+                      alt={destino.barco.nombre.texto}
+                      loading="lazy"
+                      className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-object-cover"
+                    />
+                    <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-rounded-tl-xl tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col tw-relative">
                       {destino.barco.nombre.texto}
                     </div>
                   </div>
                 ) : null}
+
+                {/* Puerto */}
                 {destino.itin_dias
                   .filter(
                     (destination) =>
@@ -111,11 +115,10 @@ function Listado({ destinos }) {
                     return (
                       <div
                         key={destination.puerto.id_puerto}
-                        className={`tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-max-h-[45vh] tw-bg-cover tw-bg-center tw-flex tw-justify-center tw-items-center ${
+                        className={`tw-relative tw-transition-all tw-duration-300 tw-min-h-[20vh] tw-max-h-[45vh] tw-overflow-hidden ${
                           isLast ? "tw-rounded-tr-lg" : ""
                         }`}
                         style={{
-                          backgroundImage: `url('//pic-2.vpackage.net/cruceros_img/${destination.puerto.img_puerto_header}')`,
                           width: `${imageWidth}%`,
                           transition: "width 0.3s ease-in-out",
                         }}
@@ -126,7 +129,13 @@ function Listado({ destinos }) {
                           (e.currentTarget.style.width = `${imageWidth}%`)
                         }
                       >
-                        <div className="md:tw-text-xl tw-text-white tw-bg-slate-800 tw-font-bold tw-text-center tw-bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col">
+                        <img
+                          src={`//pic-2.vpackage.net/cruceros_img/${destination.puerto.img_puerto_header}`}
+                          alt={destination.puerto.name}
+                          loading="lazy"
+                          className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-object-cover"
+                        />
+                        <div className="md:tw-text-xl tw-text-white tw-bg-slate-800 tw-font-bold tw-text-center tw-bg-opacity-45 tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col tw-relative">
                           {destination.puerto.name}
                         </div>
                       </div>
