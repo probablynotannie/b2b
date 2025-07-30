@@ -1,6 +1,5 @@
 import { FaUser } from "react-icons/fa";
 import { FaPassport } from "react-icons/fa6";
-
 function Input_Texto({ tipo, name, register, errors, required }) {
   const error = errors?.[name];
   return (
@@ -19,7 +18,6 @@ function Input_Texto({ tipo, name, register, errors, required }) {
           {name !== "pasaporte" ? <FaUser /> : <FaPassport />}
         </div>
       </div>
-
       {error && <p className="tw-text-danger tw-text-xs">{error?.message}</p>}
     </div>
   );

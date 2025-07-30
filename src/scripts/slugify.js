@@ -1,3 +1,4 @@
+/* Para el ruteo, quitar simbolos y reemplazarlos por _ y otras mejoras para URL. */
 export const slugify = (text) =>
   text
     .toString()

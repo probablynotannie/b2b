@@ -1,7 +1,6 @@
 import { useNavigate } from "react-router-dom";
 import { useState, useEffect } from "react";
 import { FaSpinner } from "react-icons/fa";
-
 function Landing() {
   const navigate = useNavigate();
   const imagenes = [
@@ -79,7 +78,7 @@ function Landing() {
       {imagenes.map((img, index) => (
         <div
           key={index}
-          className={`tw-relative tw-smooth tw-bg-cover tw-border-1 tw-border-slate-100 tw-bg-center tw-cursor-pointer tw-flex tw-items-center tw-justify-center tw-text-white tw-font-semibold tw-text-lg tw-h-[120px] sm:tw-h-[160px] md:tw-h-[150px] ${
+          className={`tw-relative tw-smooth tw-bg-cover tw-border-1 tw-border-slate-100 tw-bg-center tw-cursor-pointer tw-flex tw-items-end tw-justify-start tw-p-2 tw-text-white tw-font-semibold tw-text-lg tw-h-[120px] sm:tw-h-[160px] md:tw-h-[150px] ${
             index + 1 === imagenes.length && " tw-col-span-2 md:tw-col-span-1"
           }`}
           style={{

@@ -1,3 +1,4 @@
+/* pasar de dd/mm/yyyy a d de m de yyyy */
 export default function formatearFecha(fecha) {
     const meses = [
         "enero", "febrero", "marzo", "abril", "mayo", "junio",
