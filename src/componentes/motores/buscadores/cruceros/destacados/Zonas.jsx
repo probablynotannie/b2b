@@ -5,7 +5,7 @@ function Zonas({ isLoading, data, setRequestData }) {
   const zonasDestacadas = data
     .filter((zona) => zona.destacado === 1)
     .slice(0, 4);
-    
+
   const handleZoneClick = (producto) => {
     const datosForm = {
       idZona: producto.id_zona_destino,

@@ -49,7 +49,7 @@ function Buscador_Coches({ listado }) {
           <div className="tw-flex tw-items-center tw-gap-2 tw-mt-3">
             <input
               id="ciudadEntrega"
-              type="checkbox"
+              type="checkbox" 
               checked={lugarEntrega}
               onChange={(e) => setLugarEntrega(e.target.checked)}
               className="tw-hidden peer"

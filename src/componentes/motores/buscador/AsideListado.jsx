@@ -8,7 +8,7 @@ function Aside({ contenido }) {
     <div>
       <button
         onClick={() => setIsModalOpen(true)}
-        className="lg:tw-hidden tw-relative tw-border-2 tw-border-slate-200 dark:tw-border-slate-600 tw-rounded-xl tw-p-3 tw-text-slate-700 tw-bg-white dark:tw-bg-slate-800 dark:tw-text-slate-500 tw-shadow-xl"
+        className="lg:tw-hidden tw-relative tw-border-2 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-xl tw-p-3 tw-text-slate-700 tw-bg-white/90 dark:tw-bg-slate-950/70 dark:tw-text-slate-400 tw-shadow-xl"
       >
         <IoMdOptions className="tw-text-xl" />
       </button>
