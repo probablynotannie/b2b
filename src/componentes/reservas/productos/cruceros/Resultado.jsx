@@ -166,7 +166,7 @@ function Productos() {
                   </>
                 ) : (
                   <div ref={resultadosRef}>
-                    <div className="tw-sticky tw-top-0 tw-bg-white/90 dark:tw-bg-slate-700/80 tw-p-3 tw-z-10 tw-flex tw-justify-between tw-items-center">
+                    <div className="tw-sticky tw-z-20 tw-top-0 tw-bg-white/90 dark:tw-bg-slate-700/80 tw-p-3 tw-flex tw-justify-between tw-items-center">
                       <h3 className="tw-font-semibold tw-text-lg tw-text-secondary dark:tw-text-secondaryDark">
                         Resultados ({totalResults})
                       </h3>
