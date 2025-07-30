@@ -31,7 +31,7 @@ function Resultado({
       </div>
       {extraInfo}
       <article
-        className={`tw-grid tw-grid-cols-9 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-min-h-[50vh]`}
+        className={`tw-grid tw-grid-cols-9 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-min-h-[55vh]`}
       >
         {aside !== false && !ocultarAside && (
           <aside className="tw-hidden lg:tw-block tw-col-span-9 lg:tw-col-span-3 ">
