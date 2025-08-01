@@ -24,7 +24,7 @@ function SidebarContent({
   soloDirectos,
 }) {
   return (
-    <div className="tw-p-6 lg:tw-p-3 lg:tw-pt-1">
+    <div>
       <div className="tw-mx-3 tw-mt-5">
         <PrecioRange values={values} setValues={setValues} minMax={minMax} />
       </div>
