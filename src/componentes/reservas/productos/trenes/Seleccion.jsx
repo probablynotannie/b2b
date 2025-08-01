@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Modal, Accordion } from "flowbite-react";
+import { Modal } from "flowbite-react";
 import formatearMinutos from "../../../../scripts/FormatearMinutos";
 import Mapa from "./Mapa";
 import {
@@ -11,7 +11,6 @@ import {
   FaUsers,
   FaChevronDown,
   FaChevronUp,
-  FaArrowLeft,
   FaArrowRight,
 } from "react-icons/fa";
 
@@ -31,7 +30,15 @@ function Seleccion({ tren, reservar, setTren }) {
     return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
   }
   return (
-    <article className="tw-bg-slate-50 dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-md tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-mt-10 tw-p-5 tw-max-w-4xl tw-mx-auto tw-transition tw-duration-300 hover:tw-shadow-lg">
+    <article
+      className={`tw-border tw-border-slate-200 dark:tw-border-slate-700
+        ${
+          tren.stops === 0
+            ? "tw-border-l-2  tw-border-l-green-500 dark:tw-border-l-green-400"
+            : "tw-border-l-2 tw-border-l-blue-500 dark:tw-border-l-blue-500"
+        }
+        tw-bg-slate-50 dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-md tw-mt-10 tw-p-5 tw-max-w-4xl tw-mx-auto tw-transition tw-duration-300 hover:tw-shadow-lg`}
+    >
       <div className="tw-flex tw-justify-between tw-items-start tw-mb-4">
         <div>
           <h3 className="tw-text-xl tw-font-semibold   dark:tw-text-slate-300 tw-flex tw-items-center tw-gap-1">
