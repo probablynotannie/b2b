@@ -13,7 +13,7 @@ import {
   FaChevronUp,
   FaArrowRight,
 } from "react-icons/fa";
-
+import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
 function Seleccion({ tren, reservar, setTren }) {
   const [openModal, setOpenModal] = useState(null);
   const [expandedSeats, setExpandedSeats] = useState({});
@@ -25,10 +25,6 @@ function Seleccion({ tren, reservar, setTren }) {
     }));
   };
 
-  function capitalizeFirstLetterOnly(text) {
-    if (!text) return "";
-    return text.charAt(0).toUpperCase() + text.slice(1).toLowerCase();
-  }
   return (
     <article
       className={`tw-border tw-border-slate-200 dark:tw-border-slate-700

@@ -5,20 +5,20 @@ import Hoteles from "./Hoteles";
 import hoteles from "./Hoteles.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import MapaHoteles from "./mapa/MapaHoteles";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 import Resultado from "../../Resultado";
+import hotelesReales from "./hotelesReaeles.json";
 function Productos() {
+  console.log(hotelesReales);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("list");
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
-    }, 3000);
+    }, 1000);
   }, []);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
-  console.log(viewMode);
   return (
     <Resultado
       background={"url('/banners/banner_hoteles.webp')"}
@@ -54,7 +54,7 @@ function Productos() {
               <>
                 <div className="tw-flex tw-items-center tw-justify-between tw-col-span-9">
                   <h3 className="tw-text-secondary tw-font-semibold tw-text-lg tw-flex tw-items-center">
-                    Resultados ({hoteles.length})
+                    Resultados ({hotelesReales.length})
                   </h3>
                   <div className="tw-flex ">
                     <button
@@ -80,15 +80,17 @@ function Productos() {
                   </div>
                 </div>
                 {viewMode === "list" ? (
-                  <Hoteles hoteles={hoteles} />
+                  <Hoteles hoteles={hotelesReales} />
                 ) : (
-                  <MapaHoteles
-                    hoteles={hoteles}
-                    values={values}
-                    setValues={setValues}
-                    minMax={minMax}
-                    setMinMax={setMinMax}
-                  />
+                  <>
+                    {/*  <MapaHoteles
+                      hoteles={hoteles}
+                      values={values}
+                      setValues={setValues}
+                      minMax={minMax}
+                      setMinMax={setMinMax}
+                    /> */}
+                  </>
                 )}
               </>
             )}
