@@ -10,6 +10,7 @@ import Estrellas from "../../../../helpers/visuales/Estrellas";
 import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
 import { Modal } from "flowbite-react";
 import FormatearFecha from "../../../../scripts/FormatearFecha";
+import ModalWindow from "../../../../helpers/visuales/ModalWindow";
 function Resultado({ hoteles }) {
   const reserva = {
     pax: 2,
@@ -119,25 +120,16 @@ function Resultado({ hoteles }) {
                   >
                     Detalles
                   </button>
-                  <Modal
+                  <ModalWindow
                     show={openModal === index}
                     onClose={() => setOpenModal(null)}
-                    size="4xl"
-                    className="tw-rounded-lg tw-bg-slate-950/70"
-                    dismissible
-                  >
-                    <Modal.Header className="dark:tw-bg-slate-900 dark:tw-border-slate-700">
-                      <div>
-                        <h4 className="tw-text-secondary tw-font-semibold tw-text-xl">
-                          {hotel.NombreHotel}
-                        </h4>
-                        <p className="tw-text-sm tw-text-slate-400">
-                          {FormatearFecha(reserva.fecha)} -{" "}
-                          {FormatearFecha(reserva.fechaSalida)}
-                        </p>
-                      </div>
-                    </Modal.Header>
-                    <Modal.Body className="tw-bg-white dark:tw-bg-slate-800 tw-p-6 tw-text-gray-900 dark:tw-text-gray-100 scrollbar-hidden tw-overflow-scroll tw-overflow-x-hidden tw-max-h-[74vh]">
+                    titulo={hotel.NombreHotel}
+                    subTitulo={
+                      FormatearFecha(reserva.fecha) +
+                      " - " +
+                      FormatearFecha(reserva.fechaSalida)
+                    }
+                    body={
                       <div className="tw-space-y-6">
                         <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
                           {hotel.ShortDesc}
@@ -150,16 +142,8 @@ function Resultado({ hoteles }) {
                         </p>
                         <Imagenes imagenes={hotel.ListFotos} />
                       </div>
-                    </Modal.Body>
-                    <Modal.Footer className="dark:tw-bg-slate-900 dark:tw-border-slate-700">
-                      <button
-                        className="tw-p-3 tw-px-5 tw-bg-slate-700 dark:tw-bg-secondaryDark tw-font-bold tw-rounded-xl tw-text-white"
-                        onClick={() => setOpenModal(null)}
-                      >
-                        Cerrar
-                      </button>
-                    </Modal.Footer>
-                  </Modal>
+                    }
+                  />
 
                   <Link className="tw-col-span-2" to="/hotel" state={hotel}>
                     <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-px-8 tw-btn_primario tw-btn_accesorios">
