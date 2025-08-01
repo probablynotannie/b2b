@@ -76,11 +76,9 @@ function Ferris({
   };
   return (
     <section>
-      <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-shadow-md lg:tw-shadow-none tw-p-3 tw-rounded-xl tw-border-2 lg:tw-border-0 tw-border-slate-200 dark:tw-bg-slate-800 dark:md:tw-bg-inherit dark:md:tw-border-0 dark:md:tw-shadow-none dark:tw-border-slate-600 lg:tw-mt-0">
-        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-          Resultados ({ferris.length})
-        </h3>
-      </div>
+      <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
+        Resultados ({ferris.length})
+      </h3>
       {ferris.map((ferrySet) => {
         const minIdaPrice = Math.min(
           ...ferrySet.ida.precios.map((option) => option.precio)

@@ -1,4 +1,3 @@
-import Sidebar from "./sidebar/Sidebar";
 import Buscador_Transfers from "./buscadores/transfers/Buscador_Transfers";
 import Destacados from "./buscadores/destacados/Destacados";
 import Buscador from "./buscador/Buscador";

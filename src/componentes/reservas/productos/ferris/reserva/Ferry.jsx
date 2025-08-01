@@ -1,4 +1,4 @@
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../scripts/FormatearFecha";
 import { FaCheck } from "react-icons/fa";
 
 function Ferry({ producto, tipo }) {

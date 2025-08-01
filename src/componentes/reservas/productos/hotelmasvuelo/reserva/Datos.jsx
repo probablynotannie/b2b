@@ -1,9 +1,7 @@
-import Reserva from "../../../datos/Reserva";
 import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
-import DatosContacto from "../../../../../helpers/visuales/datos/DatosContacto";
 import { useState } from "react";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../scripts/FormatearFecha";
 import { useNavigate } from "react-router-dom";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useForm, Controller } from "react-hook-form";

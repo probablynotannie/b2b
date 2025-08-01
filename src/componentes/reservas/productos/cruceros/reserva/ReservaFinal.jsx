@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../scripts/FormatearFecha";
 import { SiMentorcruise } from "react-icons/si";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { Link } from "react-router-dom";
@@ -10,7 +10,7 @@ import Pasajeros from "./Pasajeros";
 import random from "./random.json";
 import FetchCrucero from "../hook/crucero";
 import Error from "../filtros/Error";
-import Placeholder from "../../../../../helpers/placeholders/Detalles";
+import Placeholder from "../../../../../placeholders/Detalles";
 import PaginaDetalles from "../../../../../helpers/visuales/PaginaDetalles";
 import Itinerario from "../crucero/contenidoPrincipal/Itinerario";
 import DetallesConIconos from "../crucero/contenidoPrincipal/Detalles";

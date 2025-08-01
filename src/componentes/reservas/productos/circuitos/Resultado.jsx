@@ -1,9 +1,10 @@
 import { useState } from "react";
-import Buscador from "./filtros/Buscador";
+import Buscador from "../../../motores/buscadores/circuitos/Buscador_Circuitos";
 import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
 import { useEffect } from "react";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Circuitos";
+import Resultado from "../../Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
@@ -23,24 +24,17 @@ function Productos() {
   };
 
   return (
-    <main className="tw-flex tw-justify-center tw-flex-col tw-items-center tw-mb-20 tw-min-h-[70vh]">
-      <div
-        className="tw-w-full tw-bg-cover tw-bg-center tw-p-8 tw-relative tw-shadow-md"
-        style={{
-          backgroundImage: "url('/banners/banner_actividades2.webp')",
-        }}
-      >
-        <div className="tw-bg-indigo-200 dark:tw-bg-black tw-text-pink-600 tw-bg-opacity-50 dark:tw-bg-opacity-45 tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-pointer-events-none"></div>
-        <div className="tw-container tw-relative">
-          <Buscador />
-        </div>
-      </div>
-      <article className="tw-grid tw-grid-cols-1 lg:tw-gap-10 xs:gap-28 tw-w-full tw-container tw-mt-10 tw-min-h-[40vh] tw-px-10">
-        <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 md:tw-gap-10 tw-mb-5 md:tw-mb-0 tw-h-fit">
+    <Resultado
+      background={"url('/banners/banner_actividades2.webp')"}
+      position={"center"}
+      color={"tw-bg-pink-200/45"}
+      buscador={<Buscador listado={true} />}
+      aside={false}
+      extraInfo={
+        <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 md:tw-gap-10 tw-mb-5 md:tw-mb-0 tw-h-fit tw-mt-10 tw-w-full tw-container">
           {loading ? (
             <>
               <div className="tw-h-10 tw-w-full tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded tw-mb-3 tw-animate-pulse"></div>
-
               <div className="tw-h-10 tw-w-full tw-bg-slate-200 dark:tw-bg-slate-800 tw-rounded tw-mb-3 tw-animate-pulse"></div>
             </>
           ) : (
@@ -63,9 +57,25 @@ function Productos() {
             </>
           )}
         </div>
-        {loading ? <PlaceHolder /> : <Circuitos entradas={filteredEntradas} />}
-      </article>
-    </main>
+      }
+      listado={
+        <>
+          {loading ? (
+            <PlaceHolder />
+          ) : (
+            <div>
+              {filteredEntradas.length > 0 ? (
+                <Circuitos entradas={filteredEntradas} />
+              ) : (
+                <div className="tw-text-slate-500 tw-flex tw-justify-center">
+                  No se ha encontrado ningun producto :(
+                </div>
+              )}
+            </div>
+          )}
+        </>
+      }
+    />
   );
 }
 

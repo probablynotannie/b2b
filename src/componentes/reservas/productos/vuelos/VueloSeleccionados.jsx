@@ -2,7 +2,7 @@ import { FaPlaneDeparture, FaPlaneArrival } from "react-icons/fa";
 import { useState } from "react";
 import cestaZustand from "../../../estructura/cesta/Zustand";
 import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
-import formatearFecha from "../../../../helpers/FormatearFecha";
+import formatearFecha from "../../../../scripts/FormatearFecha";
 import { useNavigate } from "react-router-dom";
 function Vuelos({ ida, vuelta, cesta }) {
   const navigate = useNavigate();

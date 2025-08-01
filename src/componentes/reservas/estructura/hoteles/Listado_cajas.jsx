@@ -34,7 +34,7 @@ function Listado({
   };
 
   return (
-    <div className="tw-space-y-5 tw-mt-12 tw-mb-16 lg:tw-mt-0">
+    <div className="tw-mt-12 tw-mb-16 lg:tw-mt-0">
       <TipoHabitacion values={values} setValues={setValues} minMax={minMax} />
       <div className="tw-grid tw-grid-cols-4 tw-gap-5">
         {habitaciones.map((habitacion) => (

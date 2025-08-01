@@ -2,7 +2,7 @@ import DetallesCoche from "./Detalles";
 import Error from "../../../../helpers/visuales/error/Error";
 import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
-import SkeletonPlaceholder from "../../../../helpers/placeholders/Detalles";
+import SkeletonPlaceholder from "../../../../placeholders/Detalles";
 import { useEffect, useState } from "react";
 
 function Detalles() {

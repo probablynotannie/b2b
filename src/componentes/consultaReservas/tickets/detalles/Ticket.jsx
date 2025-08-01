@@ -4,7 +4,7 @@ import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
 import Acciones from "./Acciones";
 import { useEffect, useState } from "react";
-import SkeletonPlaceholder from "../../../../helpers/placeholders/Detalles";
+import SkeletonPlaceholder from "../../../../placeholders/Detalles";
 
 function Detalles() {
   const location = useLocation();

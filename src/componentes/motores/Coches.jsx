@@ -1,7 +1,6 @@
 import Buscador_Coches from "./buscadores/coches/Buscador_Coches";
 import Destacados from "./buscadores/destacados/Destacados";
 import Buscador from "./buscador/Buscador";
-
 function Coches() {
   const getAdjustedTime = () => {
     const now = new Date();
@@ -60,4 +59,5 @@ function Coches() {
     />
   );
 }
+
 export default Coches;

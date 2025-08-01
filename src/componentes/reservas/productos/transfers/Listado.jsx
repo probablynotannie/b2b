@@ -2,7 +2,7 @@ import { FaChevronUp, FaChevronDown, FaPerson } from "react-icons/fa6";
 import { MdLuggage } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import formatearMinutos from "../../../../helpers/FormatearMinutos";
+import formatearMinutos from "../../../../scripts/FormatearMinutos";
 import { FaShareAlt } from "react-icons/fa";
 function Listado({ coches }) {
   const [activeCars, setActiveCars] = useState([]);

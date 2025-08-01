@@ -6,7 +6,7 @@ import Acciones from "./Acciones";
 import Servicio from "./Servicio";
 import DatosAccionRealizada from "./DatosAccionRealizada";
 import { useEffect, useState } from "react";
-import SkeletonPlaceholder from "../../../../helpers/placeholders/Detalles";
+import SkeletonPlaceholder from "../../../../placeholders/Detalles";
 
 function Detalles() {
   const location = useLocation();

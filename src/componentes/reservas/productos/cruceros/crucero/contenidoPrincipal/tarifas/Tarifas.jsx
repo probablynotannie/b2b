@@ -3,7 +3,7 @@ import { GiCruiser } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import FormatearFecha from "../../../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../../../scripts/FormatearFecha";
 import PriceCarousel from "./Carousel";
 
 import ModalPrecio from "./Modal";
@@ -34,7 +34,6 @@ const transformTarifas = (tarifas) => {
         minMaxPrices: {},
       });
     }
-
     let category = categoriesMap.get(tituloCategoria);
     let cabin = category.cabins.find((c) => c.id === cabinId);
     if (!cabin) {
@@ -280,7 +279,7 @@ function Tarifas({
                                       <div className="tw-hidden xl:tw-block tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-green-700  dark:tw-bg-green-400 tw-animate-pulse"></div>
                                     )}
                                     {hasMaxPrice && (
-                                      <div className="tw-hidden xl:tw-block tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-red-700 dark:tw-bg-red-400 tw-animate-pulse"></div>
+                                      <div className="tw-hidden xl:tw-block tw-absolute tw-right-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-red-700 dark:tw-bg-red-400 tw-animate-pulse"></div>
                                     )}
                                     <span> desde</span>
                                     {formatPrice(lowestPrice)}
@@ -383,13 +382,16 @@ function Tarifas({
                                     )
                                   }
                                   className={`tw-py-2 tw-px-4 tw-text-center tw-font-medium tw-cursor-pointer tw-transition tw-border-r tw-border-slate-300 dark:tw-border-slate-600
-                                  ${
-                                    isSelected
-                                      ? "tw-bg-blue-100 dark:tw-bg-cyan-800 dark:tw-text-cyan-300 tw-text-blue-900 tw-font-semibold"
-                                      : isSelected
-                                      ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
-                                      : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
-                                  }`}
+                                
+                                    ${
+                                      isSelected
+                                        ? "tw-bg-blue-100 dark:tw-bg-cyan-800 dark:tw-text-cyan-300 tw-text-blue-900 tw-font-semibold"
+                                        : isSelected
+                                        ? "tw-text-green-500 dark:tw-text-green-400 tw-font-semibold"
+                                        : price === minGlobal
+                                        ? "tw-bg-green-100 tw-text-green-700"
+                                        : " dark:tw-bg-slate-800 dark:tw-text-slate-300"
+                                    }`}
                                 >
                                   {price ? formatPrice(price) : "-"}
                                 </td>

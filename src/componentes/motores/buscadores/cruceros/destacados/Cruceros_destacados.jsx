@@ -1,9 +1,9 @@
 import { useQuery } from "@tanstack/react-query";
 import fetchCrucerosDestacados from "./hook/fetchCrucerosDestacados";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import formatearFecha from "../../../../../scripts/FormatearFecha";
 import Placeholder from "./placeholders/Cruceros";
 import { Link } from "react-router-dom";
-import { slugify } from "../../../../../helpers/slugify";
+import { slugify } from "../../../../../scripts/slugify";
 function Cruceros_destacados() {
   const { data, isLoading, isError } = useQuery({
     queryKey: ["cruceros_destacados"],
@@ -13,7 +13,7 @@ function Cruceros_destacados() {
     refetchOnWindowFocus: false,
   });
   return (
-    <div className="tw-mb-6 tw-mx-10">
+    <div className="tw-mb-6">
       {!isLoading && !isError ? (
         <div className="tw-columns-1 md:tw-columns-2 lg:tw-columns-4 tw-gap-6">
           {data.cruceros.slice(0, 100).map((crucero, index) => {
@@ -51,7 +51,7 @@ function Cruceros_destacados() {
 
                   <div className="tw-p-5 tw-flex tw-flex-col tw-justify-between tw-h-full">
                     <div>
-                      <h5 className="tw-text-xl tw-font-bold tw-text-slate-900 dark:tw-text-white">
+                      <h5 className="tw-font-bold tw-text-slate-900 dark:tw-text-white">
                         {crucero.itinerario.name.replace(/,\s*/g, ", ")}
                       </h5>
                       <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-300">
@@ -61,13 +61,13 @@ function Cruceros_destacados() {
 
                       <p className="tw-mt-2 tw-text-slate-600 dark:tw-text-slate-400">
                         {fechaInicio === fechaFin
-                          ? `Fecha: ${fechaInicio}`
+                          ? `${fechaInicio}`
                           : `Fechas: ${fechaInicio} – ${fechaFin}`}
                       </p>
                     </div>
 
                     <div className="tw-mt-4 tw-flex tw-items-center tw-justify-between">
-                      <span className="tw-text-lg tw-font-semibold tw-text-secondary dark:tw-text-secondarydark">
+                      <span className="tw-font-semibold tw-text-secondary dark:tw-text-secondarydark">
                         Desde {crucero.minPrice}€
                       </span>
                     </div>

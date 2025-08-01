@@ -3,7 +3,7 @@ import Error from "../../../../helpers/visuales/error/Error";
 import { useLocation } from "react-router-dom";
 import Desglose from "./Desglose";
 import { useEffect, useState } from "react";
-import SkeletonPlaceholder from "../../../../helpers/placeholders/Detalles";
+import SkeletonPlaceholder from "../../../../placeholders/Detalles";
 function Detalles() {
   const location = useLocation();
   const { coche = {} } = location.state || {};

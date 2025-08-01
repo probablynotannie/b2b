@@ -1,20 +1,17 @@
-import { useState } from "react";
-import { FaSearch } from "react-icons/fa";
-import Input_Destinos from "../../../inputs/Pais_Ciudad";
 import {
   FaGlobeAfrica,
   FaGlobeAsia,
   FaGlobeEurope,
   FaGlobeAmericas,
 } from "react-icons/fa";
-import Input_Vehiculos from "../../../inputs/Vehiculos";
-import Input_Bonificaciones from "../../../inputs/Bonificacion";
-import Input_DateRange from "../../../inputs/DateRange";
+
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import Movil from "./Movil";
+import Escritorio from "./Escritorio";
+import Buscador from "../Buscador";
 function Buscador_Destinos({ listado }) {
   const navigate = useNavigate();
-  const [isModalOpen, setIsModalOpen] = useState(false);
   const continents = [
     { id: "AF", name: "Africa", flag: <FaGlobeAfrica /> },
     { id: "AM", name: "América", flag: <FaGlobeAmericas /> },
@@ -65,8 +62,6 @@ function Buscador_Destinos({ listado }) {
     });
   };
   const {
-    register,
-    watch,
     handleSubmit,
     setValue,
     control,
@@ -75,166 +70,30 @@ function Buscador_Destinos({ listado }) {
     defaultValues: {},
   });
   return (
-    <>
-      <div
-        className={`tw-w-full ${
-          listado === true ? "lg:tw-hidden" : "sm:tw-hidden"
-        }`}
-      >
-        <button
-          onClick={() => setIsModalOpen(true)}
-          className="tw-relative tw-border-2 tw-shadow-xl dark:tw-border-slate-700 tw-bg-white lg:tw-hidden dark:tw-bg-slate-800 dark:tw-placeholder-slate-400 dark:tw-focus:ring-slate-600 dark:tw-focus:border-slate-600 tw-border-slate-300 tw-text-slate-500 dark:tw-text-slate-400 tw-text-sm tw-rounded-lg tw-p-3 tw-pl-10 tw-w-full tw-cursor-pointer"
-        >
-          Buscador de Hotel + Ferry
-          <span className="tw-absolute dark:tw-bg-slate-800 dark:tw-border-slate-800 dark:tw-border-y-2 dark:tw-border-l-2 tw-top-0 tw-left-0 tw-pointer-events-none tw-bg-inputIcon tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-            <FaSearch />
-          </span>
-        </button>
-      </div>
-      {isModalOpen && (
-        <div className="tw-fixed  tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center tw-z-50">
-          <div className="tw-bg-white tw-rounded-lg  tw-relative  dark:tw-bg-slate-800 tw-min-h-[100vh] tw-w-[100vw]">
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-4 tw-bg-slate-800 dark:tw-bg-slate-900 tw-p-5">
-              <h2 className="tw-text-xl tw-font-bold tw-text-white">
-                Buscador
-              </h2>
-              <button
-                onClick={() => setIsModalOpen(false)}
-                className="tw-text-xl tw-text-white"
-              >
-                &times;
-              </button>
-            </div>
-            <div className="tw-p-3">
-              <form onSubmit={handleSubmit(onSubmit)}>
-                <div className="tw-space-y-2">
-                  <div className="tw-col-span-2 lg:tw-col-span-2">
-                    <Input_DateRange
-                      control={control}
-                      placeholder={"Fechas"}
-                      nameStartDate={"salida"}
-                      nameEndDate={"llegada"}
-                    />
-                  </div>
-                  <div className="tw-col-span-2 lg:tw-col-span-1">
-                    <Input_Bonificaciones
-                      setValue={setValue}
-                      namePasajeros="pasajeros"
-                      control={control}
-                      errors={errors}
-                    />
-                  </div>
-                  <div className="tw-col-span-2 lg:tw-col-span-1">
-                    <Input_Vehiculos
-                      setValue={setValue}
-                      nameVehiculos="vehiculos"
-                      nameTipoVehiculo="tipoVehiculo"
-                      nameRemolque="remolque"
-                      nameLongitud="longitud"
-                      nameAltura={"altura"}
-                      nameLongRemolque={"longitudRemolque"}
-                      nameAltRemolque={"alturaRemolque"}
-                    />
-                  </div>
-                  <div className="tw-col-span-2 lg:tw-col-span-2">
-                    <Input_Destinos
-                      control={control}
-                      nameContinent="continent"
-                      nameRegion="region"
-                      continents={continents}
-                      regions={regions}
-                    />
-                  </div>
-                </div>
-                <button className="tw-bg-slate-800 tw-w-full tw-mt-3 dark:tw-bg-slate-900 tw-flex tw-justify-center tw-items-center tw-h-full tw-p-3 tw-px-10 tw-rounded-lg tw-shadow">
-                  <FaSearch className="tw-text-white tw-text-xl" />
-                </button>
-              </form>
-              <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-col-span-12">
-                <button
-                  className="tw-text-2xl tw-rounded-full tw-w-[50px] tw-h-[50px] tw-border-2 tw-mt-10 tw-text-slate-300 tw-border-slate-300 dark:tw-border-slate-600"
-                  onClick={() => setIsModalOpen(false)}
-                >
-                  X
-                </button>
-                <span className="tw-text-slate-400">Cerrar</span>
-              </div>
-            </div>
-          </div>
-        </div>
-      )}
-      <div
-        className={`tw-hidden ${
-          listado === true ? "lg:tw-flex" : "sm:tw-flex"
-        } tw-w-full tw-bg-white dark:tw-bg-slate-900 tw-bg-opacity-80 dark:tw-bg-opacity-75 tw-rounded tw-p-4 tw-pb-10 tw-flex-col tw-items-center tw-justify-center tw-h-fit`}
-      >
-        <form onSubmit={handleSubmit(onSubmit)} className="tw-w-full">
-          <h2 className="tw-text-3xl tw-font-bold dark:tw-text-white">
-            Buscador de Hotel + Ferry
-          </h2>
-          <div className="tw-grid tw-grid-cols-12 tw-gap-4 tw-mt-4">
-            <div
-              className={`${
-                listado === true
-                  ? "tw-col-span-6 md:tw-col-span-3 lg:tw-col-span-6 xl:tw-col-span-2"
-                  : "tw-col-span-6 md:tw-col-span-3 lg:tw-col-span-6 xl:tw-col-span-3"
-              }`}
-            >
-              <Input_DateRange
-                control={control}
-                placeholder={"Fechas"}
-                nameStartDate={"salida"}
-                nameEndDate={"llegada"}
-              />
-            </div>
-            <div className="tw-col-span-6 md:tw-col-span-3 lg:tw-col-span-6 xl:tw-col-span-3">
-              <Input_Bonificaciones
-                setValue={setValue}
-                namePasajeros="pasajeros"
-                control={control}
-                errors={errors}
-              />
-            </div>
-
-            <div className="tw-col-span-6 md:tw-col-span-3 lg:tw-col-span-6 xl:tw-col-span-3">
-              <Input_Vehiculos
-                setValue={setValue}
-                nameVehiculos="vehiculos"
-                nameTipoVehiculo="tipoVehiculo"
-                nameRemolque="remolque"
-                nameLongitud="longitud"
-                nameAltura={"altura"}
-                nameLongRemolque={"longitudRemolque"}
-                nameAltRemolque={"alturaRemolque"}
-              />
-            </div>
-
-            <div
-              className={`tw-col-span-6 md:tw-col-span-3 xl:tw-col-span-3 ${
-                listado === true ? "lg:tw-col-span-5" : "lg:tw-col-span-6"
-              }`}
-            >
-              <Input_Destinos
-                control={control}
-                nameContinent="continent"
-                nameRegion="region"
-                continents={continents}
-                regions={regions}
-              />
-            </div>
-            {listado !== true ? (
-              <button className="tw-absolute tw--bottom-3 lg:tw--bottom-7 tw-right-10 lg:tw-right-5 tw-px-8 tw-btn_primario tw-btn_accesorios">
-                Buscar
-              </button>
-            ) : (
-              <button className="tw-btn_buscador_con_icono dark:tw-btn_buscador_con_icono_dark tw-btn_buscador_con_icono_accesorios">
-                <FaSearch className="tw-text-white tw-text-xl" />
-              </button>
-            )}
-          </div>
-        </form>
-      </div>
-    </>
+    <Buscador
+      submit={handleSubmit(onSubmit)}
+      listado={listado}
+      titulo={"Buscador de Hotel + Ferry"}
+      contenidoEscritorio={
+        <Escritorio
+          listado={listado}
+          control={control}
+          setValue={setValue}
+          errors={errors}
+          continents={continents}
+          regions={regions}
+        />
+      }
+      contenidoMovil={
+        <Movil
+          control={control}
+          setValue={setValue}
+          errors={errors}
+          continents={continents}
+          regions={regions}
+        />
+      }
+    />
   );
 }
 

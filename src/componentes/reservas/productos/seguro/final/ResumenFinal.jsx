@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import formatearFecha from "../../../../../scripts/FormatearFecha";
 import { FaKitMedical } from "react-icons/fa6";
 import Detalles from "../reserva/contenidoPrincipal/Detalles";
 

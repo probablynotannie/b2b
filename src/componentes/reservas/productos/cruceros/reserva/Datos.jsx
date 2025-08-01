@@ -4,12 +4,12 @@ import { useLocation, useNavigate } from "react-router-dom";
 import { useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Input_Texto from "../../../../inputs/Texto";
-import FormatearFecha from "../../../../../helpers/FormatearFecha";
+import FormatearFecha from "../../../../../scripts/FormatearFecha";
 import Fecha from "../../../../inputs/Fecha";
-import { slugify } from "../../../../../helpers/slugify";
+import { slugify } from "../../../../../scripts/slugify";
 import Error from "../filtros/Error";
 import FetchCrucero from "../hook/crucero";
-import Placeholder from "../../../../../helpers/placeholders/Datos";
+import Placeholder from "../../../../../placeholders/Datos";
 import random from "./random.json";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 const Datos = () => {

@@ -2,7 +2,7 @@ import HotelDetalles from "../../hotel/final/Hotel";
 import CocheDetalles from "../../coches/final/Coche";
 import CircuitoDetalles from "../../circuitos/final/Circuito";
 import VuelosDetalles from "../../vuelos/final/Vuelos";
-import formatearFecha from "../../../../../helpers/FormatearFecha";
+import formatearFecha from "../../../../../scripts/FormatearFecha";
 function Detalles({ productos }) {
   const typeComponentMap = {
     1: (producto) => (
