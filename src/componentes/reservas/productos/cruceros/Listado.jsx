@@ -42,7 +42,6 @@ function Listado({ destinos }) {
         const proximaSalida = FormatearFecha(
           encontrarProximaSalida(destino.tarifas)
         );
-
         const firstItinDiaWithImg = destino.itin_dias.find(
           (d) => d.puerto?.img_puerto_header?.trim() !== ""
         );
@@ -91,7 +90,7 @@ function Listado({ destinos }) {
                     </div>
                   </div>
                 ) : null}
-
+  
                 {/* Puerto */}
                 {destino.itin_dias
                   .filter(

@@ -20,8 +20,35 @@ function Productos() {
   const [vuelta, setVuelta] = useState(null);
   const hasVueltas = trenes.vueltas && trenes.vueltas.length > 0;
   const seleccion = vuelta ? [ida, vuelta] : [ida];
+  /* filtros */
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const [soloDirectos, setSoloDirectos] = useState(false);
+
+  useEffect(() => {
+    const allTrenes = [...(trenes.idas || []), ...(trenes.vueltas || [])];
+
+    if (allTrenes.length > 0) {
+      const prices = allTrenes
+        .map((tren) => tren.price)
+        .filter((p) => typeof p === "number");
+
+      const minPrice = Math.min(...prices);
+      const maxPrice = Math.max(...prices);
+
+      setMinMax([minPrice, maxPrice]);
+      setValues([minPrice, maxPrice]);
+    }
+  }, [trenes]);
+  const filterTrenes = (listado) =>
+    listado.filter((tren) => {
+      const precioMatch = tren.price >= values[0] && tren.price <= values[1];
+      const directoMatch = !soloDirectos || tren.stops === 0;
+      return precioMatch && directoMatch;
+    });
+
+  const idasFiltradas = filterTrenes(trenes.idas || []);
+  const vueltasFiltradas = filterTrenes(trenes.vueltas || []);
 
   return (
     <Resultado
@@ -29,7 +56,15 @@ function Productos() {
       position={"center"}
       color={"tw-bg-indigo-400/40"}
       buscador={<Buscador listado={true} />}
-      aside={<Aside values={values} setValues={setValues} minMax={minMax} />}
+      aside={
+        <Aside
+          soloDirectos={soloDirectos}
+          setSoloDirectos={setSoloDirectos}
+          values={values}
+          setValues={setValues}
+          minMax={minMax}
+        />
+      }
       listado={
         <>
           {loading ? (
@@ -43,7 +78,7 @@ function Productos() {
                   <div>
                     <Trenes
                       setTren={setIda}
-                      trenes={trenes.idas}
+                      trenes={idasFiltradas}
                       tipo={"idas"}
                     />
                   </div>
@@ -51,7 +86,7 @@ function Productos() {
                   <div>
                     <Trenes
                       setTren={setVuelta}
-                      trenes={trenes.vueltas}
+                      trenes={vueltasFiltradas}
                       tipo={"vueltas"}
                     />
                   </div>

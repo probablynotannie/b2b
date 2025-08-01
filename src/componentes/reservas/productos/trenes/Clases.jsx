@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-function Clases({ clases, tren, classSeat, setClassSeat }) {
+function Clases({ clases, classSeat, setClassSeat }) {
   const [expandedSubclass, setExpandedSubclass] = useState(null);
   const handleClassSelect = (clase) => {
     setClassSeat({

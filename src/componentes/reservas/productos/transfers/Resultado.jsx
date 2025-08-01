@@ -24,9 +24,10 @@ function Productos() {
     queryKey: ["transfersData", newRequestData],
     queryFn: () => fetchData(newRequestData),
   });
+  const [selectedCars, setSelectedCars] = useState([]);
+
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
-  const [selectedCars, setSelectedCars] = useState([]);
 
   useEffect(() => {
     if (!isLoading && data && data.length > 0) {
