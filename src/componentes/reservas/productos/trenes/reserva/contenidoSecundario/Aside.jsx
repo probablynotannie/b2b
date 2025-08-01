@@ -6,7 +6,7 @@ function Aside({ ida, vuelta, tren, data }) {
   return (
     <div>
       <Reserva
-        img={"/banners/banner_ferris.webp"}
+        img={"/banners/banner_trenes.webp"}
         txt={"tren de ida " + (vuelta && " y vuelta")}
       />
       <DatosTren tren={ida} tipo="ida" />

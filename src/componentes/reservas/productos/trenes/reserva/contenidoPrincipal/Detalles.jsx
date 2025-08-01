@@ -6,7 +6,7 @@ function Detalles({ data, ida, vuelta }) {
     <div>
       <DatosContacto
         nombre={data.nombre}
-        apellidos={data.apellidos}
+        apellidos={data.apellido}
         email={data.email}
         numero={data.numero}
       />
