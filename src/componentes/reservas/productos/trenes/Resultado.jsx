@@ -23,6 +23,23 @@ function Productos() {
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
 
+  useEffect(() => {
+    const allTrenes = [...(trenes.idas || []), ...(trenes.vueltas || [])];
+
+    if (allTrenes.length > 0) {
+      const prices = allTrenes
+        .map((tren) => tren.price)
+        .filter((p) => typeof p === "number");
+
+      const minPrice = Math.min(...prices);
+      const maxPrice = Math.max(...prices);
+
+      setMinMax([minPrice, maxPrice]);
+      setValues([minPrice, maxPrice]);
+    }
+  }, [trenes]);
+
+  console.log(values);
   return (
     <Resultado
       background={"url('/banners/banner_trenes.webp')"}
@@ -42,6 +59,7 @@ function Productos() {
                 !ida ? (
                   <div>
                     <Trenes
+                      values={values}
                       setTren={setIda}
                       trenes={trenes.idas}
                       tipo={"idas"}
@@ -50,6 +68,7 @@ function Productos() {
                 ) : hasVueltas ? (
                   <div>
                     <Trenes
+                      values={values}
                       setTren={setVuelta}
                       trenes={trenes.vueltas}
                       tipo={"vueltas"}

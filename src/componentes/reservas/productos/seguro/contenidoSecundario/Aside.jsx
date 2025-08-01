@@ -34,7 +34,7 @@ function Aside({ seguro }) {
             {seguro.destino}
           </li>
         </ul>
-        <ul className="tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-3 dark:tw-text-slate-300">
+        <ul className="tw-border tw-border-slate-100 dark:tw-border-slate-700 tw-p-3 dark:tw-text-slate-300 tw-text-slate-500 tw-text-sm">
           <li className="tw-flex tw-items-center tw-gap-1">
             <MdCancel className="tw-text-secondary dark:tw-text-secondaryDark" />
             Cancelaciónes hasta {seguro.cancelación.toFixed(2)}€
