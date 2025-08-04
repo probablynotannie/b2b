@@ -5,7 +5,6 @@ import { FaFilePdf } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaCheck } from "react-icons/fa";
 import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
-
 function Listado({
   values,
   setValues,
@@ -56,21 +55,24 @@ function Listado({
               key={habitacion.id}
             >
               <td className="tw-p-3 tw-font-semibold dark:tw-text-secondaryDark">
-                {habitacion.nombre}
+                {habitacion.Name}
               </td>
               <td className="tw-p-3 tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-                {habitacion.regimen}
+                {habitacion.BoardName}
               </td>
               <td className="tw-p-3">
-                {habitacion.reembolso === "SI" ? (
+                {habitacion.NoReembolsable !== "true" ? (
                   <div className="tw-flex tw-flex-col tw-items-center tw-space-x-3">
                     <span className="tw-bg-green-50 dark:tw-bg-green-700 dark:tw-text-white tw-flex tw-items-center tw-text-slate-600 tw-rounded-lg tw-text-sm tw-gap-2 tw-p-2 tw-font-semibold tw-flex-row">
                       <FaCheck className="text-md" />
                       Reembolsable
                     </span>
-                    <span className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold">
-                      {habitacion.reembolso_penalizacion}
-                    </span>
+                    <div
+                      className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
+                      dangerouslySetInnerHTML={{
+                        __html: habitacion.Cancelation,
+                      }}
+                    />
                   </div>
                 ) : (
                   <div className="tw-flex tw-flex-col tw-items-center tw-space-x-3">
@@ -78,45 +80,53 @@ function Listado({
                       <RxCross2 className="tw-text-2xl tw-text-red-600 dark:tw-text-red-300" />
                       No Reembolsable
                     </span>
-                    {Array.isArray(habitacion.reembolso_penalizacion) ? (
-                      <>
-                        {habitacion.reembolso_penalizacion
-                          .slice(0, 2)
-                          .map((penalizacion, index) => (
-                            <span
-                              key={index}
-                              className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
-                            >
-                              {penalizacion}
-                            </span>
-                          ))}
-                        {expandedPenaltyId === habitacion.id &&
-                          habitacion.reembolso_penalizacion
-                            .slice(2)
+                    {(() => {
+                      const dummyPenalties = [
+                        "Cancelación gratuita hasta 3 días antes de la llegada.",
+                        "Penalización del 50% si se cancela 2 días antes.",
+                        "Penalización del 100% si no se presenta (no show).",
+                        "No se permite reembolso después del check-in.",
+                      ];
+
+                      return (
+                        <>
+                          {dummyPenalties
+                            .slice(0, 2)
                             .map((penalizacion, index) => (
                               <span
                                 key={index}
-                                className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
+                                className="tw-block tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
                               >
                                 {penalizacion}
                               </span>
                             ))}
-                        {habitacion.reembolso_penalizacion.length > 2 && (
-                          <button
-                            onClick={() => handleTogglePenalties(habitacion.id)}
-                            className="tw-text-sm tw-text-slate-400 tw-mt-2"
-                          >
-                            {expandedPenaltyId === habitacion.id
-                              ? "Ver menos"
-                              : "Ver más..."}
-                          </button>
-                        )}
-                      </>
-                    ) : (
-                      <span className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold">
-                        {habitacion.reembolso_penalizacion}
-                      </span>
-                    )}
+
+                          {expandedPenaltyId === habitacion.id &&
+                            dummyPenalties
+                              .slice(2)
+                              .map((penalizacion, index) => (
+                                <span
+                                  key={`extra-${index}`}
+                                  className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
+                                >
+                                  {penalizacion}
+                                </span>
+                              ))}
+                          {dummyPenalties.length > 2 && (
+                            <button
+                              onClick={() =>
+                                handleTogglePenalties(habitacion.id)
+                              }
+                              className="tw-text-sm tw-text-slate-400 tw-mt-2"
+                            >
+                              {expandedPenaltyId === habitacion.id
+                                ? "Ver menos"
+                                : "Ver más..."}
+                            </button>
+                          )}
+                        </>
+                      );
+                    })()}
                   </div>
                 )}
               </td>
@@ -129,12 +139,12 @@ function Listado({
                     className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg"
                     onClick={() => {
                       tab && setActiveTab(tab);
-                      setHotel({ ...hotel, precio: habitacion.precio });
+                      setHotel({ ...hotel, precio: habitacion.Price });
                       setHabitacion(habitacion);
                       setOpenModal(null);
                     }}
                   >
-                    {habitacion.precio}€
+                    {habitacion.Price}€
                   </button>
                 ) : (
                   <>
@@ -145,7 +155,7 @@ function Listado({
                       }}
                       className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg"
                     >
-                      {habitacion.precio.toFixed(2)}€
+                      {habitacion.Price}€
                     </button>
                   </>
                 )}

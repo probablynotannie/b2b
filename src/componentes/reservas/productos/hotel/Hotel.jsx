@@ -12,6 +12,14 @@ import { useNavigate } from "react-router-dom";
 import cesta from "../../../estructura/cesta/Zustand";
 
 function Producto() {
+  const reserva = {
+    pax: 2,
+    pax_ninios: 1,
+    habitaciones: 2,
+    noches: 7,
+    fecha: "10/12/2025",
+    fechaSalida: "19/12/2025",
+  };
   const location = useLocation();
   const producto = location.state;
   const [values, setValues] = useState([0, 5000]);
@@ -48,14 +56,15 @@ function Producto() {
       },
     });
   };
+  console.log(producto);
   return (
     <main className="tw-flex tw-justify-center tw-flex-col tw-my-10 tw-px-5 md:tw-px-10  tw-container">
       <Head
-        nombre={producto.nombre}
+        nombre={producto.NombreHotel}
         descripcion={
           <p className="tw-flex tw-items-center">
             <FaMapPin className="tw-text-secondary tw-text-lg" />
-            {producto.ubicacion}
+            {producto.Dir}
           </p>
         }
       />
@@ -68,14 +77,14 @@ function Producto() {
             <div className="tw-flex tw-items-center tw-space-x-1 tw-text-sm tw-font-semibold dark:tw-text-slate-100">
               <FaPerson className="tw-text-xl tw-text-secondary" />
               <span className="tw-text-white">
-                {producto.pax}x adulto{producto.pax !== 1 && "s"}
+                {reserva.pax}x adulto{reserva.pax !== 1 && "s"}
               </span>
             </div>
-            {producto.pax_ninios > 0 && (
+            {reserva.pax_ninios > 0 && (
               <div className="tw-flex tw-items-center tw-space-x-1 tw-text-sm tw-font-semibold dark:tw-text-slate-100">
                 <FaChild className="tw-text-lg tw-text-secondary" />
                 <span className="tw-text-white">
-                  {producto.pax_ninios}x niño{producto.pax_ninios > 1 && "s"}
+                  {reserva.pax_ninios}x niño{reserva.pax_ninios > 1 && "s"}
                 </span>
               </div>
             )}
@@ -112,12 +121,12 @@ function Producto() {
           </div>
         </section>
         <aside className="tw-h-full lg:tw-col-span-4 tw-col-span-5 tw-mt-5 tw-lg:mt-0">
-          <Map location={producto.ubicacion} />
+          <Map hotel={producto} />
         </aside>
         <section className="tw-col-span-5 tw-mt-10 tw-mb-5 lg:tw-my-5">
           <Info
             titulo={"Descripción del hotel"}
-            descripcion={producto.descripcion}
+            descripcion={producto.ShortDesc}
           />
         </section>
         <section className="tw-col-span-5 tw-hidden md:tw-block">
@@ -126,8 +135,7 @@ function Producto() {
             setValues={setValues}
             minMax={minMax}
             producto={producto}
-            habitaciones={producto.habitaciones}
-            /* cositas de zustand */
+            habitaciones={producto.ListaPrecios}
             habitacionSeleccionada={habitacionSeleccionada}
             setHabitacionSeleccionada={setHabitacionSeleccionada}
             modalMasProductos={modalMasProductos}
@@ -137,6 +145,7 @@ function Producto() {
             aniadirMas={aniadirMas}
           />
         </section>
+        {/* 
         <section className="tw-col-span-5 tw-block md:tw-hidden">
           <Listado_cajas
             values={values}
@@ -144,7 +153,9 @@ function Producto() {
             minMax={minMax}
             producto={producto}
             habitaciones={producto.habitaciones}
-            /* cositas de zustand */
+      
+            
+
             habitacionSeleccionada={habitacionSeleccionada}
             setHabitacionSeleccionada={setHabitacionSeleccionada}
             modalMasProductos={modalMasProductos}
@@ -153,12 +164,12 @@ function Producto() {
             sinProductosAdicionales={sinProductosAdicionales}
             aniadirMas={aniadirMas}
           />
-        </section>
+        </section> */}
         <section className="tw-col-span-5">
           <h4 className="tw-font-bold tw-text-lg tw-mb-3 dark:tw-text-white">
             Imagenes
           </h4>
-          <Imagenes imagenes={producto.habitacionImgs} />
+          <Imagenes imagenes={producto.ListFotos} />
         </section>
       </article>
     </main>

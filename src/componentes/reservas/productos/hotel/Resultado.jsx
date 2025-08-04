@@ -2,16 +2,19 @@ import { useState, useEffect } from "react";
 import Buscador from "../../../motores/buscadores/hoteles/Buscador_Hoteles";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
-import hoteles from "./Hoteles.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 import Resultado from "../../Resultado";
 import hotelesReales from "./hotelesReaeles.json";
+import MapaHoteles from "./mapa/MapaHoteles";
+
 function Productos() {
-  console.log(hotelesReales);
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("list");
+  const [hoteles, setHoteles] = useState(hotelesReales);
+  const [page, setPage] = useState(1);
+
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -19,6 +22,7 @@ function Productos() {
   }, []);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+
   return (
     <Resultado
       background={"url('/banners/banner_hoteles.webp')"}
@@ -29,7 +33,9 @@ function Productos() {
       ocultarAside={viewMode === "list" ? false : true}
       aside={
         <Aside
-          hoteles={hoteles}
+          setPage={setPage}
+          setHoteles={setHoteles}
+          hoteles={hotelesReales}
           values={values}
           setValues={setValues}
           minMax={minMax}
@@ -54,7 +60,7 @@ function Productos() {
               <>
                 <div className="tw-flex tw-items-center tw-justify-between tw-col-span-9">
                   <h3 className="tw-text-secondary tw-font-semibold tw-text-lg tw-flex tw-items-center">
-                    Resultados ({hotelesReales.length})
+                    Resultados ({hoteles.length})
                   </h3>
                   <div className="tw-flex ">
                     <button
@@ -80,16 +86,18 @@ function Productos() {
                   </div>
                 </div>
                 {viewMode === "list" ? (
-                  <Hoteles hoteles={hotelesReales} />
+                  <Hoteles hoteles={hoteles} page={page} setPage={setPage} />
                 ) : (
                   <>
-                    {/*  <MapaHoteles
+                    <MapaHoteles
+                      setHoteles={setHoteles}
+                      hotelesSinFiltrar={hotelesReales}
                       hoteles={hoteles}
                       values={values}
                       setValues={setValues}
                       minMax={minMax}
                       setMinMax={setMinMax}
-                    /> */}
+                    />
                   </>
                 )}
               </>

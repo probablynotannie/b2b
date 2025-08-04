@@ -1,19 +1,30 @@
-function Map() {
+import { MapContainer, TileLayer, Marker } from "react-leaflet";
+import L from "leaflet";
+
+import "leaflet/dist/leaflet.css";
+const customIconUrl = "/logos/hotel.png";
+
+function Map({ hotel }) {
+  const markerIcon = new L.Icon({
+    iconUrl: customIconUrl,
+    iconSize: [40, 40],
+    iconAnchor: [20, 40],
+    popupAnchor: [0, -40],
+  });
+
   return (
-    <>
-      <iframe
-        className="shadow"
-        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3164.9157119463276!2d2.738751015311664!3d41.6420440792395!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x12bb21f1f30e2ecb%3A0x34457c4e5d36c7e!2sPasseig%20de%20Llevant%2C%203%2C%2008380%20Malgrat%20de%20Mar%2C%20Barcelona%2C%20Spain!5e0!3m2!1sen!2sus!4v1603905480409!5m2!1sen!2sus"
-        width="100%"
-        height="100%"
-        style={{ border: 0 }}
-        allowFullScreen
-        loading="lazy"
-        aria-hidden="false"
-        tabIndex="0"
-        title="Mapa de la calle del hotel, Malgrat de Mar, Barcelona, Spain"
-      ></iframe>
-    </>
+    <MapContainer
+      center={[hotel.Lat, hotel.Long]}
+      zoom={12}
+      style={{ height: "100%", width: "100%" }}
+      zoomControl={false}
+    >
+      <TileLayer
+        url="https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png"
+        attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
+      />
+      <Marker position={[hotel.Lat, hotel.Long]} icon={markerIcon} />
+    </MapContainer>
   );
 }
 

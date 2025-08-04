@@ -8,10 +8,11 @@ import { Link } from "react-router-dom";
 import Imagenes from "../../estructura/hoteles/Imgs";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
 import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
-import { Modal } from "flowbite-react";
 import FormatearFecha from "../../../../scripts/FormatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
-function Resultado({ hoteles }) {
+import Paginacion from "../../../../helpers/visuales/pagination/Corto";
+import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
+function Resultado({ hoteles, page, setPage }) {
   const reserva = {
     pax: 2,
     pax_ninios: 1,
@@ -33,17 +34,32 @@ function Resultado({ hoteles }) {
       document.body.style.overflow = "auto";
     };
   }, [openModal]);
-  console.log(hoteles);
-  return (
-    <section className="tw-pb-12">
-      {hoteles.map((hotel, index) => {
-        const estrella = hotel.CategoryCode.split("*").length - 1;
+  function habitacionMasBarata(hotel) {
+    if (!hotel?.ListaPrecios || hotel.ListaPrecios.length === 0) return null;
 
+    return hotel.ListaPrecios.reduce((min, item) =>
+      parseFloat(item.Price) < parseFloat(min.Price) ? item : min
+    );
+  }
+  const hotelsPerPage = 10;
+  const paginasTotales = Math.ceil(hoteles.length / hotelsPerPage);
+  const indexUltimoHotel = page * hotelsPerPage;
+  const indexPrimerHotel = indexUltimoHotel - hotelsPerPage;
+  const hotelesAMostrar = hoteles.slice(indexPrimerHotel, indexUltimoHotel);
+
+  return (
+    <section>
+      <div className="tw-flex tw-justify-start">
+        <Paginacion totalPages={paginasTotales} page={page} setPage={setPage} />
+      </div>
+      {hotelesAMostrar.map((hotel, index) => {
+        const estrella = hotel.CategoryCode.split("*").length - 1;
+        const habitacion = habitacionMasBarata(hotel);
         return (
           <>
             <article
               key={index}
-              className="md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
+              className="tw-gap-2 md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
             >
               <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
                 <Carousel
@@ -56,6 +72,7 @@ function Resultado({ hoteles }) {
                     : hotel.ListFotos || []
                   ).map((foto, idx) => (
                     <img
+                      loading="lazy"
                       key={idx}
                       src={foto}
                       alt={`Imagen ${idx + 1} de ${hotel.NombreHotel}`}
@@ -64,13 +81,13 @@ function Resultado({ hoteles }) {
                   ))}
                 </Carousel>
               </div>
-              <div className="tw-p-5 md:tw-w-2/3">
+              <div className="tw-p-5 md:tw-w-2/3 tw-px-2">
                 <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
                   <div className="tw-flex tw-justify-between tw-w-full">
                     <h4 className="tw-text-secondary tw-font-semibold">
                       {hotel.NombreHotel}
                       <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
-                        - {hotel.regimen}
+                        - {habitacion.BoardName}
                       </span>
                     </h4>
                     <Estrellas estrellas={estrella} />
@@ -103,7 +120,7 @@ function Resultado({ hoteles }) {
                 <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
                   {hotel.ShortDesc}
                 </p>
-                <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-justify-end  tw-mt-3 tw-gap-3">
+                <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-justify-end tw-mt-3 tw-gap-3">
                   <button
                     className="tw-bg-slate-400 dark:tw-bg-slate-700 tw-btn_accesorios"
                     onClick={() =>
@@ -134,12 +151,6 @@ function Resultado({ hoteles }) {
                         <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
                           {hotel.ShortDesc}
                         </p>
-                        <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
-                          <span className="tw-font-semibold">
-                            Precio por noche:
-                          </span>
-                          {/* ${hotel.precio} */}
-                        </p>
                         <Imagenes imagenes={hotel.ListFotos} />
                       </div>
                     }
@@ -147,11 +158,10 @@ function Resultado({ hoteles }) {
 
                   <Link className="tw-col-span-2" to="/hotel" state={hotel}>
                     <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-px-8 tw-btn_primario tw-btn_accesorios">
-                      Desde{" "}
-                      {/*    {Math.min(
-                      ...hotel.habitaciones.map((h) => parseFloat(h.precio))
-                    )} */}
-                      €
+                      desde {habitacion.Price}
+                      {habitacion.Currency === "EUR"
+                        ? "€"
+                        : habitacion.Currency}
                     </button>
                   </Link>
                 </div>
@@ -177,6 +187,12 @@ function Resultado({ hoteles }) {
                             (No reembolsable)
                           </span>
                         )}
+                        <span className="tw-font-semibold dark:tw-text-white">
+                          {precio.Price}
+                          {habitacion.Currency === "EUR"
+                            ? "€"
+                            : habitacion.Currency}
+                        </span>
                       </p>
                     </div>
                   </div>
@@ -186,6 +202,13 @@ function Resultado({ hoteles }) {
           </>
         );
       })}
+      <div className="tw-flex tw-justify-end tw-mt-4">
+        <PaginacionFooter
+          totalPages={paginasTotales}
+          page={page}
+          setPage={setPage}
+        />
+      </div>
     </section>
   );
 }
