@@ -8,6 +8,8 @@ import { FaList, FaMapMarkedAlt } from "react-icons/fa";
 import Resultado from "../../Resultado";
 import hotelesReales from "./hotelesReaeles.json";
 import MapaHoteles from "./mapa/MapaHoteles";
+import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
+import Paginacion from "../../../../helpers/visuales/pagination/Corto";
 
 function Productos() {
   const [loading, setLoading] = useState(true);
@@ -22,6 +24,11 @@ function Productos() {
   }, []);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const hotelsPerPage = 10;
+  const indexUltimoHotel = page * hotelsPerPage;
+  const indexPrimerHotel = indexUltimoHotel - hotelsPerPage;
+  const hotelesAMostrar = hoteles.slice(indexPrimerHotel, indexUltimoHotel);
+  const paginasTotales = Math.ceil(hoteles.length / hotelsPerPage);
 
   return (
     <Resultado
@@ -86,7 +93,27 @@ function Productos() {
                   </div>
                 </div>
                 {viewMode === "list" ? (
-                  <Hoteles hoteles={hoteles} page={page} setPage={setPage} />
+                  <>
+                    <div className="tw-flex tw-justify-start">
+                      <Paginacion
+                        totalPages={paginasTotales}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    </div>
+                    <Hoteles
+                      hoteles={hotelesAMostrar}
+                      page={page}
+                      setPage={setPage}
+                    />
+                    <div className="tw-flex tw-justify-end tw-mt-4">
+                      <PaginacionFooter
+                        totalPages={paginasTotales}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    </div>
+                  </>
                 ) : (
                   <>
                     <MapaHoteles

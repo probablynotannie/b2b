@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import { FaMapPin } from "react-icons/fa";
 
-const HotelPopup = ({ hotel, onNavigate, habitacion }) => (
+const HotelPopup = ({ hotel, onNavigate, habitacion, estrellas }) => (
   <div className="tw-w-fit tw-bg-white/90 tw-p-2 tw-rounded-lg tw-shadow">
     <img
       className="tw-min-w-[270px] tw-h-[150px] tw-object-cover tw-rounded-lg tw-block tw-mb-2"
@@ -14,8 +14,8 @@ const HotelPopup = ({ hotel, onNavigate, habitacion }) => (
       alt={hotel.NombreHotel}
     />
     <div className="tw-flex tw-justify-between tw-items-center ">
-      <span className="tw-font-bold">{hotel.nombre}</span>
-      <Estrellas estrellas={hotel.estrellas || 5} />
+      <span className="tw-font-bold">{hotel.NombreHotel}</span>
+      {estrellas && <Estrellas estrellas={estrellas} />}
     </div>
     <span className="tw-flex tw-items-center tw-gap-1 tw-mb-2">
       <FaMapPin className="tw-text-red-600" />
@@ -46,9 +46,12 @@ const Cluster = ({ hoteles, markerIcon, onMarkerRef, onNavigateToHotel }) => {
     const clusterGroup = L.markerClusterGroup();
     hoteles.forEach((hotel) => {
       const habitacion = habitacionMasBarata(hotel);
+      const estrellas = hotel.CategoryCode.split("*").length - 1;
+
       console.log(hotel);
       const marker = L.marker([hotel.Lat, hotel.Long], { icon: markerIcon });
       const popupContainer = document.createElement("div");
+
       marker.bindPopup(popupContainer, {
         autoPan: true,
         autoPanPadding: [20, 20],
@@ -61,6 +64,7 @@ const Cluster = ({ hoteles, markerIcon, onMarkerRef, onNavigateToHotel }) => {
         }
         reactRoot.render(
           <HotelPopup
+            estrellas={estrellas}
             habitacion={habitacion}
             hotel={hotel}
             onNavigate={() => {

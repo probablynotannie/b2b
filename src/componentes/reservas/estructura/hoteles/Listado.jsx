@@ -55,7 +55,9 @@ function Listado({
               key={habitacion.id}
             >
               <td className="tw-p-3 tw-font-semibold dark:tw-text-secondaryDark">
-                {habitacion.Name}
+                {habitacion.combinedName
+                  ? habitacion.combinedName
+                  : habitacion.Name}
               </td>
               <td className="tw-p-3 tw-text-sm tw-text-slate-500 dark:tw-text-slate-400">
                 {habitacion.BoardName}

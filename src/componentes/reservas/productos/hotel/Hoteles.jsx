@@ -10,17 +10,8 @@ import Estrellas from "../../../../helpers/visuales/Estrellas";
 import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
 import FormatearFecha from "../../../../scripts/FormatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
-import Paginacion from "../../../../helpers/visuales/pagination/Corto";
-import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
-function Resultado({ hoteles, page, setPage }) {
-  const reserva = {
-    pax: 2,
-    pax_ninios: 1,
-    habitaciones: 2,
-    noches: 7,
-    fecha: "10/12/2025",
-    fechaSalida: "19/12/2025",
-  };
+
+function Resultado({ hoteles }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
   useEffect(() => {
@@ -29,32 +20,83 @@ function Resultado({ hoteles, page, setPage }) {
     } else {
       document.body.style.overflow = "auto";
     }
-
     return () => {
       document.body.style.overflow = "auto";
     };
   }, [openModal]);
-  function habitacionMasBarata(hotel) {
-    if (!hotel?.ListaPrecios || hotel.ListaPrecios.length === 0) return null;
 
-    return hotel.ListaPrecios.reduce((min, item) =>
-      parseFloat(item.Price) < parseFloat(min.Price) ? item : min
-    );
+  function habitacionMasBarata(hotel) {
+    if (!hotel?.ListaPrecios) return [];
+
+    const groupedById = {};
+    hotel.ListaPrecios.forEach((item) => {
+      if (!groupedById[item.id]) {
+        groupedById[item.id] = {
+          id: item.id,
+          relatedRooms: [],
+          baseRoom: null,
+        };
+      }
+      if (item.NumRoom === 0) {
+        groupedById[item.id].baseRoom = item;
+      }
+      groupedById[item.id].relatedRooms.push(item);
+    });
+
+    const regimenMap = new Map();
+
+    Object.values(groupedById).forEach(({ baseRoom, relatedRooms }) => {
+      if (!baseRoom) return;
+
+      const regimenKey = baseRoom.BoardNameFiltro?.toLowerCase();
+      if (!regimenKey) return;
+
+      const current = regimenMap.get(regimenKey);
+
+      if (
+        !current ||
+        parseFloat(baseRoom.Price) < parseFloat(current.baseRoom.Price)
+      ) {
+        const reserva = {
+          habitaciones: relatedRooms.length,
+          pax: relatedRooms.reduce(
+            (total, room) =>
+              total + (room.NumAdults ?? 0) + (room.NumChilds ?? 0),
+            0
+          ),
+          pax_ninios: relatedRooms.reduce(
+            (total, room) => total + (room.NumChilds ?? 0),
+            0
+          ),
+          noches: 7, // static for now, could be dynamic if you want
+          fecha: "10/12/2025",
+          fechaSalida: "19/12/2025",
+        };
+
+        regimenMap.set(regimenKey, { baseRoom, relatedRooms, reserva });
+      }
+    });
+
+    return Array.from(regimenMap.values());
   }
-  const hotelsPerPage = 10;
-  const paginasTotales = Math.ceil(hoteles.length / hotelsPerPage);
-  const indexUltimoHotel = page * hotelsPerPage;
-  const indexPrimerHotel = indexUltimoHotel - hotelsPerPage;
-  const hotelesAMostrar = hoteles.slice(indexPrimerHotel, indexUltimoHotel);
 
   return (
     <section>
-      <div className="tw-flex tw-justify-start">
-        <Paginacion totalPages={paginasTotales} page={page} setPage={setPage} />
-      </div>
-      {hotelesAMostrar.map((hotel, index) => {
+      {hoteles.map((hotel, index) => {
         const estrella = hotel.CategoryCode.split("*").length - 1;
         const habitacion = habitacionMasBarata(hotel);
+        const reserva =
+          habitacion.length > 0
+            ? habitacion[0].reserva
+            : {
+                pax: 2,
+                pax_ninios: 1,
+                habitaciones: 2,
+                noches: 7,
+                fecha: "10/12/2025",
+                fechaSalida: "19/12/2025",
+              };
+
         return (
           <>
             <article
@@ -81,14 +123,17 @@ function Resultado({ hoteles, page, setPage }) {
                   ))}
                 </Carousel>
               </div>
+
               <div className="tw-p-5 md:tw-w-2/3 tw-px-2">
                 <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
                   <div className="tw-flex tw-justify-between tw-w-full">
                     <h4 className="tw-text-secondary tw-font-semibold">
-                      {hotel.NombreHotel}
-                      <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
-                        - {habitacion.BoardName}
-                      </span>
+                      {hotel.NombreHotel} -
+                      {habitacion.length > 0 && (
+                        <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
+                          - {habitacion[0].baseRoom.BoardName}
+                        </span>
+                      )}
                     </h4>
                     <Estrellas estrellas={estrella} />
                   </div>
@@ -98,7 +143,8 @@ function Resultado({ hoteles, page, setPage }) {
                   </span>
                   <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
                     <span className="tw-flex tw-items-center tw-gap-1">
-                      <FaHotel className="tw-text-lg" /> regimen
+                      <FaHotel className="tw-text-lg" />{" "}
+                      {habitacion[0].baseRoom.BoardName}
                     </span>
                     <span className="tw-flex tw-items-center">
                       <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
@@ -109,7 +155,7 @@ function Resultado({ hoteles, page, setPage }) {
                     </span>
                     <span className="tw-flex tw-items-center">
                       <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
-                      {reserva.habitaciones} Habitación/es
+                      {habitacion.length}x Hab
                     </span>
                     <span className="tw-flex tw-items-center">
                       <MdModeNight className="tw-text-lg" />
@@ -117,9 +163,11 @@ function Resultado({ hoteles, page, setPage }) {
                     </span>
                   </div>
                 </div>
+
                 <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
                   {hotel.ShortDesc}
                 </p>
+
                 <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-justify-end tw-mt-3 tw-gap-3">
                   <button
                     className="tw-bg-slate-400 dark:tw-bg-slate-700 tw-btn_accesorios"
@@ -131,12 +179,14 @@ function Resultado({ hoteles, page, setPage }) {
                       ? "Ocultar precios"
                       : "Más precios"}
                   </button>
+
                   <button
                     className="tw-w-full lg:tw-w-fit tw-btn_oscuro tw-btn_accesorios"
                     onClick={() => setOpenModal(index)}
                   >
                     Detalles
                   </button>
+
                   <ModalWindow
                     show={openModal === index}
                     onClose={() => setOpenModal(null)}
@@ -158,10 +208,11 @@ function Resultado({ hoteles, page, setPage }) {
 
                   <Link className="tw-col-span-2" to="/hotel" state={hotel}>
                     <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-px-8 tw-btn_primario tw-btn_accesorios">
-                      desde {habitacion.Price}
-                      {habitacion.Currency === "EUR"
-                        ? "€"
-                        : habitacion.Currency}
+                      desde {habitacion[0]?.baseRoom?.Price}
+                      {habitacion.length > 0 &&
+                        (habitacion[0].baseRoom.Currency === "EUR"
+                          ? "€"
+                          : habitacion[0].baseRoom.Currency)}
                     </button>
                   </Link>
                 </div>
@@ -169,46 +220,60 @@ function Resultado({ hoteles, page, setPage }) {
             </article>
             {expandedHotel === index && (
               <div className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
-                {hotel.ListaPrecios.sort(
-                  (a, b) => parseFloat(a.Price) - parseFloat(b.Price)
-                ).map((precio, idx) => (
-                  <div
-                    key={idx}
-                    className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
-                  >
-                    <div>
-                      <p className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1">
-                        <span> {precio.Name}</span>
-                      </p>
-                      <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
-                        {capitalizeFirstLetterOnly(precio.BoardName)}
-                        {precio.NoReembolsable && (
-                          <span className="tw-block tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
-                            (No reembolsable)
+                {Object.values(
+                  hotel.ListaPrecios.reduce((groupedByBoardName, item) => {
+                    const boardKey = item.BoardNameFiltro?.toLowerCase();
+                    if (!boardKey || item.NumRoom !== 0)
+                      return groupedByBoardName;
+                    const relatedRooms = hotel.ListaPrecios.filter(
+                      (r) => r.id === item.id
+                    );
+                    const merged = {
+                      ...item,
+                      relatedRooms,
+                      combinedName: relatedRooms.map((r) => r.Name).join(" + "),
+                    };
+                    if (
+                      !groupedByBoardName[boardKey] ||
+                      parseFloat(merged.Price) <
+                        parseFloat(groupedByBoardName[boardKey].Price)
+                    ) {
+                      groupedByBoardName[boardKey] = merged;
+                    }
+                    return groupedByBoardName;
+                  }, {})
+                )
+                  .sort((a, b) => parseFloat(a.Price) - parseFloat(b.Price))
+                  .map((precio, idx) => (
+                    <div
+                      key={idx}
+                      className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
+                    >
+                      <div>
+                        <p className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1">
+                          <span>{precio.combinedName}</span>
+                        </p>
+                        <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
+                          {capitalizeFirstLetterOnly(precio.BoardName)}
+                          {precio.NoReembolsable && (
+                            <span className="tw-block tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
+                              (No reembolsable)
+                            </span>
+                          )}
+                          <span className="tw-font-semibold dark:tw-text-white">
+                            <span className="tw-text-slate-400"> desde </span>
+                            {precio.Price}
+                            {precio.Currency === "EUR" ? "€" : precio.Currency}
                           </span>
-                        )}
-                        <span className="tw-font-semibold dark:tw-text-white">
-                          {precio.Price}
-                          {habitacion.Currency === "EUR"
-                            ? "€"
-                            : habitacion.Currency}
-                        </span>
-                      </p>
+                        </p>
+                      </div>
                     </div>
-                  </div>
-                ))}
+                  ))}
               </div>
             )}
           </>
         );
       })}
-      <div className="tw-flex tw-justify-end tw-mt-4">
-        <PaginacionFooter
-          totalPages={paginasTotales}
-          page={page}
-          setPage={setPage}
-        />
-      </div>
     </section>
   );
 }

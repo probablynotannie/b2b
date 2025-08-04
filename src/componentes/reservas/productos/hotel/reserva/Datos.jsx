@@ -5,6 +5,7 @@ import formatearFecha from "../../../../../scripts/FormatearFecha";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
+  console.log(habitacion);
   const img = "/banners/banner_hoteles.webp";
   const navigate = useNavigate();
   const extras = (
@@ -34,16 +35,20 @@ function Datos() {
       state: { data, producto, habitacion },
     });
   };
-
+  const fechaEntrada = "05/09/2025";
+  const fechaSalida = "10/09/2025";
+  console.log(producto);
   return (
     <ComponenteDatos
       register={register}
       errors={errors}
       submit={handleSubmit(onSubmit)}
       tipo={"Hotel"}
-      itinerario={producto.nombre + " - " + habitacion.regimen}
-      fecha={formatearFecha(producto.fecha)}
-      fechaVuelta={formatearFecha(producto.fechaSalida)}
+      itinerario={
+        habitacion.combinedName ? habitacion.combinedName : habitacion.Name
+      }
+      fecha={formatearFecha(fechaEntrada)}
+      fechaVuelta={formatearFecha(fechaSalida)}
       img={img}
       extras={extras}
     />

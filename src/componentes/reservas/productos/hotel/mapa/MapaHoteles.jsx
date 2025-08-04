@@ -97,6 +97,7 @@ const MapaHoteles = ({
               {hoteles.map((hotel) => {
                 const estrellas = hotel.CategoryCode.split("*").length - 1;
                 const habitacion = habitacionMasBarata(hotel);
+                console.log(hotel.NombreHotel);
                 return (
                   <Link
                     to={"/hotel"}
