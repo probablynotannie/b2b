@@ -13,13 +13,13 @@ function Datos() {
       {producto.pax !== 0 && (
         <span className="tw-mr-2 tw-bg-pink-400 tw-rounded-xl  tw-font-semibold tw-text-sm tw-p-1">
           {" "}
-          Adultos: {producto.pax}x
+          Adultos: {habitacion.adultosTotal}x
         </span>
       )}
-      {producto.pax_ninios !== 0 && (
+      {habitacion.niniosTotal !== 0 && (
         <span className="tw-bg-pink-400 tw-rounded-xl  tw-font-semibold tw-text-sm tw-p-1">
           {" "}
-          Niños: {producto.pax_ninios}x
+          Niños: {habitacion.niniosTotal}x
         </span>
       )}
     </div>

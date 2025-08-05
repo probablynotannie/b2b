@@ -1,11 +1,8 @@
-import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
-import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
+import AnadirMasProductos from "../../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 
 function Listado({
-  values,
-  setValues,
-  minMax,
+  neto,
   setActiveTab,
   tab,
   habitaciones,
@@ -22,16 +19,15 @@ function Listado({
   sinProductosAdicionales,
 }) {
   return (
-    <div className="tw-mt-12 tw-mb-16 lg:tw-mt-0">
-      <TipoHabitacion values={values} setValues={setValues} minMax={minMax} />
+    <div className="tw-mb-16">
       <div className="tw-grid tw-grid-cols-4 tw-gap-5">
         {habitaciones.map((habitacion) => (
           <div
-            className="tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-mt-5 tw-border-2 dark:tw-border-slate-800 tw-bg-slate-700 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-800 tw-group tw-transition tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10"
+            className="tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-border dark:tw-border-slate-800 tw-bg-slate-100 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-200 tw-group tw-smooth tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10"
             key={habitacion.id}
           >
-            <FaBed className="tw-text-4xl tw-text-white" />
-            <h3 className="tw-text-center tw-font-semibold tw-text-white">
+            <FaBed className="tw-text-4xl dark:tw-text-white tw-text-secondary" />
+            <h3 className="tw-text-center tw-font-semibold dark:tw-text-white">
               {habitacion.combinedName
                 ? habitacion.combinedName
                 : habitacion.Name}
@@ -66,7 +62,7 @@ function Listado({
                   setOpenModal(null);
                 }}
               >
-                {habitacion.precio}€
+                {habitacion.Price}€
               </button>
             ) : (
               <button
@@ -74,9 +70,9 @@ function Listado({
                   setHabitacionSeleccionada(habitacion);
                   confirmacion(habitacion);
                 }}
-                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2  tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
+                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-btn_accesorios tw-bg-slate-500 dark:tw-bg-secondaryDark tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
               >
-                {habitacion.Price}
+                {neto !== true ? habitacion.Price : habitacion.Pvp}
                 {habitacion.Currency === "EUR" ? "€" : habitacion.Currency}
               </button>
             )}

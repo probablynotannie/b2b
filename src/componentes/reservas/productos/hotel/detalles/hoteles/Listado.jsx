@@ -1,14 +1,11 @@
 import { useState } from "react";
-import TipoHabitacion from "./TipoHabitacion";
 import { FaBed } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
 import { RxCross2 } from "react-icons/rx";
 import { FaCheck } from "react-icons/fa";
-import AnadirMasProductos from "../../../../helpers/visuales/masProductos/AnadirMasProductos";
+import AnadirMasProductos from "../../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 function Listado({
-  values,
-  setValues,
-  minMax,
+  neto,
   habitaciones,
   seleccion,
   hotel,
@@ -30,7 +27,6 @@ function Listado({
   };
   return (
     <div className="tw-space-y-10 tw-w-full">
-      <TipoHabitacion values={values} setValues={setValues} minMax={minMax} />
       <table className="tw-w-full">
         <thead className="tw-bg-slate-700 dark:tw-bg-slate-900">
           <tr>
@@ -133,7 +129,7 @@ function Listado({
                 )}
               </td>
               <td className="tw-p-3 tw-flex tw-justify-end tw-space-x-2">
-                <button className="tw-btn_muted dark:tw-btn_muted_dark tw-btn_accesorios tw-shadow-md hover:tw-shadow-lg">
+                <button className="tw-bg-slate-300 dark:tw-bg-slate-700 tw-btn_accesorios tw-shadow-md hover:tw-shadow-lg">
                   <FaFilePdf />
                 </button>
                 {seleccion === "seleccionar" ? (
@@ -146,20 +142,36 @@ function Listado({
                       setOpenModal(null);
                     }}
                   >
-                    {habitacion.Price}€
+                    {neto !== true ? habitacion.Price : habitacion.Pvp}
+                    {habitacion.Currency === "EUR" ? "€" : habitacion.Currency}
                   </button>
                 ) : (
-                  <>
+                  <div className="tw-flex tw-flex-col">
                     <button
                       onClick={() => {
                         setHabitacionSeleccionada(habitacion);
                         confirmacion(habitacion);
                       }}
-                      className="tw-p-3 tw-transition tw-font-semibold tw-min-w-[100px]  tw-btn_accesorios tw-btn_primario tw-shadow-md hover:tw-shadow-lg"
+                      className={`tw-p-3 tw-flex tw-flex-col tw-transition tw-font-semibold tw-min-w-[100px] tw-btn_accesorios ${
+                        neto === true
+                          ? "tw-btn_primario"
+                          : "tw-bg-sky-200 tw-text-sky-800"
+                      } tw-shadow-md hover:tw-shadow-lg`}
                     >
-                      {habitacion.Price}€
+                      {neto !== true ? habitacion.Price : habitacion.Pvp}
+                      {habitacion.Currency === "EUR"
+                        ? "€"
+                        : habitacion.Currency}
                     </button>
-                  </>
+                    {neto !== true && (
+                      <span className="tw-text-xs tw-text-center tw-mt-1 dark:tw-text-sky-300">
+                        neto: {habitacion.Pvp}
+                        {habitacion.Currency === "EUR"
+                          ? "€"
+                          : habitacion.Currency}
+                      </span>
+                    )}
+                  </div>
                 )}
               </td>
             </tr>

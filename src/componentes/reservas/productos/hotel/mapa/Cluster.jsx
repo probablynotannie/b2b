@@ -5,8 +5,8 @@ import "leaflet.markercluster";
 import ReactDOM from "react-dom/client";
 import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import { FaMapPin } from "react-icons/fa";
-
-const HotelPopup = ({ hotel, onNavigate, habitacion, estrellas }) => (
+import getEstrellas from "../scripts/getEstrellas";
+const HotelPopup = ({ hotel, onNavigate, habitacion }) => (
   <div className="tw-w-fit tw-bg-white/90 tw-p-2 tw-rounded-lg tw-shadow">
     <img
       className="tw-min-w-[270px] tw-h-[150px] tw-object-cover tw-rounded-lg tw-block tw-mb-2"
@@ -15,7 +15,7 @@ const HotelPopup = ({ hotel, onNavigate, habitacion, estrellas }) => (
     />
     <div className="tw-flex tw-justify-between tw-items-center ">
       <span className="tw-font-bold">{hotel.NombreHotel}</span>
-      {estrellas && <Estrellas estrellas={estrellas} />}
+      <Estrellas estrellas={getEstrellas(hotel.CategoryName)} />
     </div>
     <span className="tw-flex tw-items-center tw-gap-1 tw-mb-2">
       <FaMapPin className="tw-text-red-600" />

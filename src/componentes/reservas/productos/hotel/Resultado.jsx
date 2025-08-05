@@ -24,11 +24,11 @@ function Productos() {
   }, []);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
-  const hotelsPerPage = 10;
-  const indexUltimoHotel = page * hotelsPerPage;
-  const indexPrimerHotel = indexUltimoHotel - hotelsPerPage;
+  const hotelesPorPagina = 10;
+  const indexUltimoHotel = page * hotelesPorPagina;
+  const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
   const hotelesAMostrar = hoteles.slice(indexPrimerHotel, indexUltimoHotel);
-  const paginasTotales = Math.ceil(hoteles.length / hotelsPerPage);
+  const paginasTotales = Math.ceil(hoteles.length / hotelesPorPagina);
 
   return (
     <Resultado

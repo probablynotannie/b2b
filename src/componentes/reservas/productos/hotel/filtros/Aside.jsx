@@ -36,7 +36,6 @@ function Aside({
   }, []);
   useEffect(() => {
     const regimenesSet = new Set();
-
     hoteles.forEach((hotel) => {
       hotel.ListaPrecios?.forEach((precio) => {
         if (precio?.BoardNameFiltro)

@@ -6,6 +6,8 @@ function ResumenFinal() {
   const location = useLocation();
   const { producto, habitacion, data } = location.state || {};
   const numReserva = "HGJLAIU26098A";
+  console.log(producto);
+  console.log(habitacion);
   return (
     <Reserva
       Icono={FaHotel}
@@ -14,12 +16,16 @@ function ResumenFinal() {
       main={<Hotel hotel={producto} habitacion={habitacion} />}
       datosContacto={data}
       titulo={
-        producto.nombre + "(" + habitacion.nombre + ") - " + habitacion.regimen
+        producto.NombreHotel +
+        "(" +
+        habitacion.combinedName +
+        ") - " +
+        habitacion.BoardName
       }
       descripcionTitulo={
         <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
           <FaMapPin className="tw-text-secondary dark:tw-text-secondaryDark" />
-          {producto.ubicacion}
+          {producto.Dir}
         </p>
       }
       finalizada={true}

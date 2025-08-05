@@ -1,16 +1,15 @@
-import Listado_Tablas from "../../estructura/hoteles/Listado";
-import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
-import Imagenes from "../../estructura/hoteles/Imgs";
-import Info from "../../estructura/hoteles/Info";
-import Map from "../../estructura/hoteles/Map";
-import { FaMapPin, FaRegCalendarAlt, FaChild } from "react-icons/fa";
-import Head from "../../estructura/ProductoHeader";
+import { FaMapPin } from "react-icons/fa";
 import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cesta from "../../../estructura/cesta/Zustand";
 import groupAndMergeRooms from "./scripts/mergeHabitaciones.js";
-
+import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
+import Detalles from "./detalles/contenidoPrincipal/Hotel.jsx";
+import Aside from "./detalles/contenidoSecundario/Aside.jsx";
+import Precios from "./detalles/contenidoPrincipal/Precios.jsx";
+import { FaHotel } from "react-icons/fa";
+import NetoSwitch from "./filtros/NetoSwitch.jsx";
 function Producto() {
   const reserva = {
     pax: 2,
@@ -57,68 +56,47 @@ function Producto() {
       },
     });
   };
-  console.log(agrupados);
+  const [neto, setNeto] = useState(false);
   return (
-    <main className="tw-flex tw-justify-center tw-flex-col tw-my-10 tw-px-5 md:tw-px-10  tw-container">
-      <Head
-        nombre={producto.NombreHotel}
-        descripcion={
-          <p className="tw-flex tw-items-center">
+    <>
+      <PaginaDetalles
+        titulo={producto.NombreHotel}
+        tituloDescripcion={
+          <span className="tw-flex tw-gap-1">
             <FaMapPin className="tw-text-secondary tw-text-lg" />
+
             {producto.Dir}
-          </p>
+          </span>
+        }
+        contenidoPrincipal={
+          <>
+            <Detalles
+              setNeto={setNeto}
+              neto={neto}
+              hotel={producto}
+              values={values}
+              setValues={setValues}
+              minMax={minMax}
+              setMinMax={setMinMax}
+              producto={producto}
+              habitaciones={agrupados}
+              habitacionSeleccionada={habitacionSeleccionada}
+              setHabitacionSeleccionada={setHabitacionSeleccionada}
+              modalMasProductos={modalMasProductos}
+              setModalMasProductos={setModalMasProductos}
+              confirmacion={confirmacion}
+              sinProductosAdicionales={sinProductosAdicionales}
+              aniadirMas={aniadirMas}
+            />
+          </>
+        }
+        contenidoSecundario={
+          <>
+            <Aside />
+          </>
         }
       />
-      <article className="tw-grid tw-grid-cols-5 lg:tw-gap-10 tw-my-5 tw-mt-10 ">
-        <aside className="tw-h-[25vh] tw-col-span-5 tw-mt-5 tw-lg:mt-0">
-          <Map hotel={producto} />
-        </aside>
-        <section className="tw-col-span-5 tw-mt-10 tw-mb-5 lg:tw-my-5">
-          <Info
-            titulo={"Descripción del hotel"}
-            descripcion={producto.ShortDesc}
-          />
-        </section>
-        <section className="tw-col-span-5 tw-hidden md:tw-block">
-          <Listado_Tablas
-            values={values}
-            setValues={setValues}
-            minMax={minMax}
-            producto={producto}
-            habitaciones={agrupados}
-            habitacionSeleccionada={habitacionSeleccionada}
-            setHabitacionSeleccionada={setHabitacionSeleccionada}
-            modalMasProductos={modalMasProductos}
-            setModalMasProductos={setModalMasProductos}
-            confirmacion={confirmacion}
-            sinProductosAdicionales={sinProductosAdicionales}
-            aniadirMas={aniadirMas}
-          />
-        </section>
-        <section className="tw-col-span-5 tw-block md:tw-hidden">
-          <Listado_cajas
-            values={values}
-            setValues={setValues}
-            minMax={minMax}
-            producto={producto}
-            habitaciones={agrupados}
-            habitacionSeleccionada={habitacionSeleccionada}
-            setHabitacionSeleccionada={setHabitacionSeleccionada}
-            modalMasProductos={modalMasProductos}
-            setModalMasProductos={setModalMasProductos}
-            confirmacion={confirmacion}
-            sinProductosAdicionales={sinProductosAdicionales}
-            aniadirMas={aniadirMas}
-          />
-        </section>
-        <section className="tw-col-span-5">
-          <h4 className="tw-font-bold tw-text-lg tw-mb-3 dark:tw-text-white">
-            Imagenes
-          </h4>
-          <Imagenes imagenes={producto.ListFotos} />
-        </section>
-      </article>
-    </main>
+    </>
   );
 }
 

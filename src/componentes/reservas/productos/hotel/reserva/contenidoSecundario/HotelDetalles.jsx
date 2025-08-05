@@ -1,7 +1,6 @@
 import Foto from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { FaPerson, FaChild, FaDoorOpen } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
-import Info from "../../../../estructura/hoteles/Info";
 function HotelDetalles({ hotel }) {
   return (
     <section>
@@ -24,9 +23,6 @@ function HotelDetalles({ hotel }) {
           <MdModeNight className="text-lg" />
           {hotel.noches} noches
         </span>
-      </div>
-      <div className="my-8">
-        <Info titulo={"Descripción de hotel"} descripcion={hotel.descripcion} />
       </div>
     </section>
   );

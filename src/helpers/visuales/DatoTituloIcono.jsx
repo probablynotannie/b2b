@@ -10,7 +10,7 @@ function DatoTituloIcono({ className, icon, title, value, cancelada }) {
         >
           {title}
         </h4>
-        <p className="tw-text-base tw-font-medium tw-text-slate-900 dark:tw-text-slate-400">
+        <p className="tw-text-base tw-font-medium tw-text-slate-900 dark:tw-text-slate-400 tw-truncate">
           {value}
         </p>
       </div>

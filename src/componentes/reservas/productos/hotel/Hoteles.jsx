@@ -5,13 +5,14 @@ import { MdModeNight } from "react-icons/md";
 import { Carousel } from "flowbite-react";
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
-import Imagenes from "../../estructura/hoteles/Imgs";
+import Imagenes from "./detalles/hoteles/Imgs";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
 import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
 import FormatearFecha from "../../../../scripts/FormatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
 
 function Resultado({ hoteles }) {
+  console.log(hoteles);
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
   useEffect(() => {
@@ -68,7 +69,7 @@ function Resultado({ hoteles }) {
             (total, room) => total + (room.NumChilds ?? 0),
             0
           ),
-          noches: 7, // static for now, could be dynamic if you want
+          noches: 7,
           fecha: "10/12/2025",
           fechaSalida: "19/12/2025",
         };
@@ -131,7 +132,7 @@ function Resultado({ hoteles }) {
                       {hotel.NombreHotel} -
                       {habitacion.length > 0 && (
                         <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
-                          - {habitacion[0].baseRoom.BoardName}
+                          {habitacion[0].baseRoom.BoardName}
                         </span>
                       )}
                     </h4>

@@ -10,14 +10,14 @@ export default function groupAndMergeById(listaPrecios) {
                     ...item,
                     relatedRooms: [item],
                     combinedName: item.Name,
-                    AdultosTotal: item.NumAdults || 0,
-                    NiniosTotal: item.NumChilds || 0,  // adjust keys if your data uses different names
+                    adultosTotal: item.NumAdults || 0,
+                    niniosTotal: item.NumChilds || 0,
                 };
             } else {
                 acc[item.id].relatedRooms.push(item);
                 acc[item.id].combinedName = acc[item.id].relatedRooms.map(r => r.Name).join(" + ");
-                acc[item.id].AdultosTotal += item.NumAdults || 0;
-                acc[item.id].NiniosTotal += item.NumChilds || 0;
+                acc[item.id].adultosTotal += item.NumAdults || 0;
+                acc[item.id].niniosTotal += item.NumChilds || 0;
 
                 if (parseFloat(item.Price) < parseFloat(acc[item.id].Price)) {
                     acc[item.id].Price = item.Price;

@@ -13,7 +13,7 @@ import { FaArrowLeft, FaArrowRight, FaMapPin } from "react-icons/fa";
 import Filtrado from "./Filtrado";
 import Placeholder from "./Placeholder";
 import { MdCancel } from "react-icons/md";
-
+import getEstrellas from "../scripts/getEstrellas";
 const customIconUrl = "/logos/hotel.png";
 const MapaHoteles = ({
   hoteles,
@@ -95,7 +95,6 @@ const MapaHoteles = ({
           {!showMapOnly && (
             <div className=" tw-hidden lg:tw-grid xl:tw-grid-cols-1 lg:tw-col-span-2 2xl:tw-col-span-1">
               {hoteles.map((hotel) => {
-                const estrellas = hotel.CategoryCode.split("*").length - 1;
                 const habitacion = habitacionMasBarata(hotel);
                 console.log(hotel.NombreHotel);
                 return (
@@ -118,7 +117,9 @@ const MapaHoteles = ({
                           <h3 className="tw-text-lg tw-font-semibold tw-text-gray-900 dark:tw-text-white">
                             {hotel.NombreHotel}
                           </h3>
-                          <Estrellas estrellas={estrellas} />
+                          <Estrellas
+                            estrellas={getEstrellas(hotel.CategoryName)}
+                          />
                         </div>
                         <p className="tw-text-xs tw-text-gray-500 dark:tw-text-gray-400 tw-flex tw-items-start tw-gap-2">
                           <FaMapPin className="tw-text-red-500 tw-text-[1rem]" />{" "}
