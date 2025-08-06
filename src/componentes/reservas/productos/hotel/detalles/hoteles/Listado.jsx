@@ -172,7 +172,7 @@ function Listado({
                             ? "€"
                             : habitacion.Currency}
                         </span>
-                        <span className="tw-text-sky-800 tw-font-semibold">
+                        <span className="tw-text-sky-800 dark:tw-text-sky-500 tw-font-semibold">
                           +
                           {parseFloat(
                             habitacion.Price - habitacion.Pvp

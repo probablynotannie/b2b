@@ -278,7 +278,7 @@ function Resultado({ hoteles, neto }) {
                               {precio.Currency === "EUR"
                                 ? "€"
                                 : precio.Currency}
-                              <span className="tw-text-green-600 tw-font-semibold tw-ml-1">
+                              <span className="tw-text-sky-800 dark:tw-text-sky-500 tw-font-semibold tw-ml-1">
                                 (+
                                 {parseFloat(precio.Price - precio.Pvp).toFixed(
                                   2
