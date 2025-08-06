@@ -20,7 +20,7 @@ function Listado({
 }) {
   return (
     <div className="tw-mb-16">
-      <div className="tw-grid tw-grid-cols-4 tw-gap-5">
+      <div className="tw-grid tw-grid-cols-4 tw-gap-9">
         {habitaciones.map((habitacion) => (
           <div
             className="tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-border dark:tw-border-slate-800 tw-bg-slate-100 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-200 tw-group tw-smooth tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10"
@@ -70,9 +70,13 @@ function Listado({
                   setHabitacionSeleccionada(habitacion);
                   confirmacion(habitacion);
                 }}
-                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-btn_accesorios tw-bg-slate-500 dark:tw-bg-secondaryDark tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
+                className={`tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-btn_accesorios ${
+                  neto === true
+                    ? "tw-bg-sky-200 dark:tw-bg-sky-800 dark:tw-text-sky-300 dark:tw-border-sky-700 tw-text-sky-800 tw-border-sky-300/60"
+                    : "tw-bg-secondary dark:tw-bg-secondaryDark tw-border-secondary"
+                } tw-font-semibold tw-border-2  tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl`}
               >
-                {neto !== true ? habitacion.Price : habitacion.Pvp}
+                {neto === true ? habitacion.Pvp : habitacion.Price}
                 {habitacion.Currency === "EUR" ? "€" : habitacion.Currency}
               </button>
             )}

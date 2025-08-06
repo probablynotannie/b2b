@@ -22,7 +22,7 @@ function Hotel({
   aniadirMas,
 }) {
   return (
-    <main className="tw-flex tw-flex-col tw-space-y-10 tw-mt-10f">
+    <main className="tw-flex tw-flex-col tw-space-y-10">
       <section className="lg:tw-hidden tw-block">
         <InfoHotel hotel={hotel} />
       </section>
@@ -31,7 +31,9 @@ function Hotel({
           <Map hotel={hotel} />
         </div>
       </section>
-      <Info titulo={"Descripción del hotel"} descripcion={hotel.ShortDesc} />
+      {hotel.ShortDesc && (
+        <Info titulo={"Descripción del hotel"} descripcion={hotel.ShortDesc} />
+      )}
       <Precios
         setNeto={setNeto}
         neto={neto}

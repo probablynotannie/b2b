@@ -25,6 +25,7 @@ function Listado({
   const handleTogglePenalties = (id) => {
     setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
   };
+  console.log(habitaciones);
   return (
     <div className="tw-space-y-10 tw-w-full">
       <table className="tw-w-full">
@@ -153,7 +154,7 @@ function Listado({
                         confirmacion(habitacion);
                       }}
                       className={`tw-p-3 tw-flex tw-flex-col tw-transition tw-font-semibold tw-min-w-[100px] tw-btn_accesorios ${
-                        neto !== true
+                        neto === true
                           ? "tw-bg-sky-200 tw-text-sky-800 dark:tw-bg-sky-900 dark:tw-text-sky-300"
                           : "tw-btn_primario"
                       } tw-shadow-md hover:tw-shadow-lg`}
@@ -163,13 +164,24 @@ function Listado({
                         ? "€"
                         : habitacion.Currency}
                     </button>
-                    {neto !== true && (
-                      <span className="tw-text-xs tw-text-center tw-mt-1 dark:tw-text-sky-300">
-                        neto: {habitacion.Pvp}
-                        {habitacion.Currency === "EUR"
-                          ? "€"
-                          : habitacion.Currency}
-                      </span>
+                    {neto === true && (
+                      <div className="tw-text-xs tw-text-center tw-mt-1 dark:tw-text-sky-300 tw-flex tw-flex-col">
+                        <span>
+                          agencia: {habitacion.Price}
+                          {habitacion.Currency === "EUR"
+                            ? "€"
+                            : habitacion.Currency}
+                        </span>
+                        <span className="tw-text-sky-800 tw-font-semibold">
+                          +
+                          {parseFloat(
+                            habitacion.Price - habitacion.Pvp
+                          ).toFixed(2)}
+                          {habitacion.Currency === "EUR"
+                            ? "€"
+                            : habitacion.Currency}
+                        </span>
+                      </div>
                     )}
                   </div>
                 )}

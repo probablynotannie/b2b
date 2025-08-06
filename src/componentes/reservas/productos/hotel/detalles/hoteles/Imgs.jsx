@@ -51,35 +51,35 @@ function Imagenes({ imagenes }) {
       </div>
 
       {selectedImageIndex !== null && (
-        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-80 tw-flex tw-items-center tw-justify-center tw-p-5 tw-z-50">
-          <button
-            onClick={closeModal}
-            className="tw-absolute tw-top-4 tw-right-4 tw-text-white tw-text-2xl tw-font-bold tw-p-5"
-          >
-            &times;
-          </button>
-
+        <div className="tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-80 tw-flex tw-flex-col tw-items-center tw-justify-between tw-p-5 tw-z-50">
+          <div>
+            <button
+              onClick={closeModal}
+              className="tw-absolute tw-top-4 tw-right-4 tw-text-white tw-text-2xl tw-font-bold tw-p-5"
+            >
+              &times;
+            </button>
+          </div>
           <div className="tw-flex tw-flex-col tw-items-center tw-space-y-4 md:tw-space-y-0 md:tw-flex-col md:tw-space-x-4">
             <img
               src={imagenes[selectedImageIndex]}
               alt={`Large view of Gallery Image ${selectedImageIndex + 1}`}
-              className="tw-w-[80vw] tw-h-[60vh] tw-object-contain tw-max-h-[80vh] tw-rounded-lg"
+              className="tw-object-contain  tw-rounded-lg"
             />
-
-            <div className="tw-flex tw-justify-between tw-w-full md:tw-w-auto tw-space-x-32 tw-mt-4 md:tw-mt-0">
-              <button
-                onClick={goToPrevious}
-                className="tw-text-white tw-text-3xl tw-p-5"
-              >
-                &#10094;
-              </button>
-              <button
-                onClick={goToNext}
-                className="tw-text-white tw-text-3xl tw-p-5"
-              >
-                &#10095;
-              </button>
-            </div>
+          </div>
+          <div className="tw-flex tw-justify-between tw-w-full md:tw-w-auto tw-space-x-52 tw-mt-4 md:tw-mt-0">
+            <button
+              onClick={goToPrevious}
+              className="tw-text-white tw-text-3xl tw-p-5"
+            >
+              &#10094;
+            </button>
+            <button
+              onClick={goToNext}
+              className="tw-text-white tw-text-3xl tw-p-5"
+            >
+              &#10095;
+            </button>
           </div>
         </div>
       )}

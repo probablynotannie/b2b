@@ -4,7 +4,6 @@ import { FaCity, FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 function Info({ hotel, aside }) {
-  console.log(hotel);
   return (
     <section
       className={`tw-grid ${
@@ -16,31 +15,41 @@ function Info({ hotel, aside }) {
         title={"HFotel"}
         value={hotel.NombreHotel}
       />
-      <DatoTituloIcono
-        icon={<FaCity className="tw-text-indigo-500" />}
-        title={"Localidad"}
-        value={hotel.City}
-      />
-      <DatoTituloIcono
-        icon={<FaDirections className="tw-text-amber-500" />}
-        title={"Direccion"}
-        value={hotel.Dir}
-      />
-      <DatoTituloIcono
-        icon={<FaGlobe className="tw-text-green-500" />}
-        title={"Codigo Postal"}
-        value={hotel.ZipCode}
-      />
-      <DatoTituloIcono
-        icon={<FaPhone className="tw-text-orange-500" />}
-        title={"Teléfono"}
-        value={hotel.Tfno}
-      />
-      <DatoTituloIcono
-        icon={<MdEmail className="tw-text-blue-500" />}
-        title={"Email"}
-        value={hotel.Email}
-      />
+      {hotel.City && (
+        <DatoTituloIcono
+          icon={<FaCity className="tw-text-indigo-500" />}
+          title={"Localidad"}
+          value={hotel.City}
+        />
+      )}
+      {hotel.Dir && (
+        <DatoTituloIcono
+          icon={<FaDirections className="tw-text-amber-500" />}
+          title={"Direccion"}
+          value={hotel.Dir}
+        />
+      )}
+      {hotel.ZipCode && (
+        <DatoTituloIcono
+          icon={<FaGlobe className="tw-text-green-500" />}
+          title={"Codigo Postal"}
+          value={hotel.ZipCode}
+        />
+      )}
+      {hotel.Tfno && (
+        <DatoTituloIcono
+          icon={<FaPhone className="tw-text-orange-500" />}
+          title={"Teléfono"}
+          value={hotel.Tfno}
+        />
+      )}
+      {hotel.Email && (
+        <DatoTituloIcono
+          icon={<MdEmail className="tw-text-blue-500" />}
+          title={"Email"}
+          value={hotel.Email}
+        />
+      )}
     </section>
   );
 }
