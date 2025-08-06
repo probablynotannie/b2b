@@ -79,7 +79,6 @@ function Listado({
           </div>
         ))}
       </div>
-
       <AnadirMasProductos
         isOpen={modalMasProductos}
         setModalOpen={setModalMasProductos}

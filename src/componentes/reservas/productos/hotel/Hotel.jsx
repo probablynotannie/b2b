@@ -7,9 +7,8 @@ import groupAndMergeRooms from "./scripts/mergeHabitaciones.js";
 import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
 import Detalles from "./detalles/contenidoPrincipal/Hotel.jsx";
 import Aside from "./detalles/contenidoSecundario/Aside.jsx";
-import Precios from "./detalles/contenidoPrincipal/Precios.jsx";
-import { FaHotel } from "react-icons/fa";
-import NetoSwitch from "./filtros/NetoSwitch.jsx";
+import useNetoStore from "./zustand/useNetoStore.js";
+
 function Producto() {
   const reserva = {
     pax: 2,
@@ -43,7 +42,6 @@ function Producto() {
       precio: habitacionSeleccionada.precio,
       img: "/banners/banner_hoteles.webp",
       pax: pax,
-
       type: 1,
     });
     setModalMasProductos(false);
@@ -56,7 +54,8 @@ function Producto() {
       },
     });
   };
-  const [neto, setNeto] = useState(false);
+  const { neto, setNeto } = useNetoStore();
+
   return (
     <>
       <PaginaDetalles
