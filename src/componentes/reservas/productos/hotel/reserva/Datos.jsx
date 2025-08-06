@@ -2,11 +2,9 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 import formatearFecha from "../../../../../scripts/FormatearFecha";
-import useNetoStore from "../zustand/useNetoStore";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
-  const { neto, setNeto } = useNetoStore();
 
   const img = "/banners/banner_hoteles.webp";
   const navigate = useNavigate();
@@ -33,7 +31,7 @@ function Datos() {
   } = useForm();
   const onSubmit = (data) => {
     navigate("/reservaHotel", {
-      state: { data, producto, habitacion, neto, setNeto },
+      state: { data, producto, habitacion },
     });
   };
   const fechaEntrada = "05/09/2025";

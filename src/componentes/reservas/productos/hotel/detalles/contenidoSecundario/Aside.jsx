@@ -1,10 +1,13 @@
-import NetoSwitch from "../../filtros/NetoSwitch";
-import Info from "../Info";
+import InfoHotel from "../contenidoPrincipal/Info";
+import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 function Aside({ producto }) {
   return (
-    <div>
-      <NetoSwitch />
-    </div>
+    <>
+      <Reserva img={producto.ListFotos[0]} txt={producto.NombreHotel} />
+      <section>
+        <InfoHotel aside={true} hotel={producto} />
+      </section>
+    </>
   );
 }
 

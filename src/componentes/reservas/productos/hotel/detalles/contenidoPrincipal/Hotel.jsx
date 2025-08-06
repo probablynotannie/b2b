@@ -23,7 +23,7 @@ function Hotel({
 }) {
   return (
     <main className="tw-flex tw-flex-col tw-space-y-10 tw-mt-10f">
-      <section>
+      <section className="lg:tw-hidden tw-block">
         <InfoHotel hotel={hotel} />
       </section>
       <section>

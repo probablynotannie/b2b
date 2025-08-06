@@ -3,9 +3,14 @@ import DatoTituloIcono from "../../../../../../helpers/visuales/DatoTituloIcono"
 import { FaCity, FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
-function Info({ hotel }) {
+function Info({ hotel, aside }) {
+  console.log(hotel);
   return (
-    <section className="tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-flex-wrap tw-gap-5 tw-bg-slate-50 tw-p-5 tw-rounded-lg">
+    <section
+      className={`tw-grid ${
+        !aside && "lg:tw-grid-cols-2 xl:tw-grid-cols-3"
+      } tw-flex-wrap tw-gap-5 tw-bg-slate-50 tw-p-5 tw-rounded-lg`}
+    >
       <DatoTituloIcono
         icon={<FaHotel className="tw-text-pink-500" />}
         title={"HFotel"}
