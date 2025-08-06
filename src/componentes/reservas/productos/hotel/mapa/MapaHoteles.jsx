@@ -96,7 +96,6 @@ const MapaHoteles = ({
             <div className=" tw-hidden lg:tw-grid xl:tw-grid-cols-1 lg:tw-col-span-2 2xl:tw-col-span-1">
               {hoteles.map((hotel) => {
                 const habitacion = habitacionMasBarata(hotel);
-                console.log(hotel.NombreHotel);
                 return (
                   <Link
                     to={"/hotel"}

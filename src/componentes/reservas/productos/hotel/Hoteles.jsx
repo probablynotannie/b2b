@@ -1,4 +1,11 @@
-import { FaDoorOpen, FaHotel, FaMapPin } from "react-icons/fa";
+import {
+  FaDoorOpen,
+  FaEye,
+  FaHotel,
+  FaMapPin,
+  FaMinus,
+  FaPlus,
+} from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
@@ -11,8 +18,7 @@ import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetter
 import FormatearFecha from "../../../../scripts/FormatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
 
-function Resultado({ hoteles }) {
-  console.log(hoteles);
+function Resultado({ hoteles, neto }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
   useEffect(() => {
@@ -123,6 +129,12 @@ function Resultado({ hoteles }) {
                     />
                   ))}
                 </Carousel>
+                <button
+                  className="tw-absolute tw-top-3 tw-left-2 tw-flex tw-justify-center tw-items-center tw-bg-secondary tw-text-white tw-font-medium tw-p-2 tw-rounded-full hover:tw-bg-slate-700 transition"
+                  onClick={() => setOpenModal(index)}
+                >
+                  <FaEye />
+                </button>
               </div>
 
               <div className="tw-p-5 md:tw-w-2/3 tw-px-2">
@@ -169,25 +181,23 @@ function Resultado({ hoteles }) {
                   {hotel.ShortDesc}
                 </p>
 
-                <div className="tw-grid tw-grid-cols-2 md:tw-flex tw-justify-end tw-mt-3 tw-gap-3">
+                <div className="tw-grid tw-grid-cols-2 lg:tw-flex tw-flex-wrap tw-justify-end tw-gap-2 tw-mt-4">
                   <button
-                    className="tw-bg-slate-400 dark:tw-bg-slate-700 tw-btn_accesorios"
+                    className="tw-bg-slate-200 hover:tw-bg-slate-200/70 dark:tw-bg-slate-700 tw-text-slate-800 dark:tw-text-slate-300 tw-font-medium tw-px-4 tw-py-2 tw-rounded-lg  dark:hover:tw-bg-slate-600 transition"
                     onClick={() =>
                       setExpandedHotel(expandedHotel === index ? null : index)
                     }
                   >
-                    {expandedHotel === index
-                      ? "Ocultar precios"
-                      : "Más precios"}
+                    {expandedHotel === index ? (
+                      <span className="tw-flex tw-gap-1 tw-items-center">
+                        <FaMinus className="tw-text-xs" /> precios
+                      </span>
+                    ) : (
+                      <span className="tw-flex tw-gap-1 tw-items-center">
+                        <FaPlus className="tw-text-xs" /> precios
+                      </span>
+                    )}
                   </button>
-
-                  <button
-                    className="tw-w-full lg:tw-w-fit tw-btn_oscuro tw-btn_accesorios"
-                    onClick={() => setOpenModal(index)}
-                  >
-                    Detalles
-                  </button>
-
                   <ModalWindow
                     show={openModal === index}
                     onClose={() => setOpenModal(null)}
@@ -206,14 +216,26 @@ function Resultado({ hoteles }) {
                       </div>
                     }
                   />
-
-                  <Link className="tw-col-span-2" to="/hotel" state={hotel}>
-                    <button className="tw-w-full lg:tw-w-fit tw-p-3 tw-px-8 tw-btn_primario tw-btn_accesorios">
-                      desde {habitacion[0]?.baseRoom?.Price}
-                      {habitacion.length > 0 &&
-                        (habitacion[0].baseRoom.Currency === "EUR"
-                          ? "€"
-                          : habitacion[0].baseRoom.Currency)}
+                  <Link
+                    className={`tw-col-span-2 ${
+                      neto === true
+                        ? "tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white "
+                        : "tw-bg-sky-200 tw-text-sky-800 hover:tw-bg-sky-200/80 dark:tw-bg-sky-900 dark:tw-text-sky-300 hover:dark:tw-bg-sky-950"
+                    } tw-font-semibold tw-px-6 tw-py-2 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-gap-2 tw-smooth`}
+                    to="/hotel"
+                    state={hotel}
+                  >
+                    <button className="tw-flex tw-gap-1">
+                      desde
+                      <span>
+                        {neto !== true
+                          ? habitacion[0]?.baseRoom?.Price
+                          : habitacion[0]?.baseRoom?.Pvp}
+                        {habitacion.length > 0 &&
+                          (habitacion[0].baseRoom.Currency === "EUR"
+                            ? "€"
+                            : habitacion[0].baseRoom.Currency)}
+                      </span>
                     </button>
                   </Link>
                 </div>
@@ -261,11 +283,32 @@ function Resultado({ hoteles }) {
                               (No reembolsable)
                             </span>
                           )}
-                          <span className="tw-font-semibold dark:tw-text-white">
-                            <span className="tw-text-slate-400"> desde </span>
-                            {precio.Price}
-                            {precio.Currency === "EUR" ? "€" : precio.Currency}
-                          </span>
+                          <div className="tw-flex tw-flex-col">
+                            <span className="tw-font-semibold dark:tw-text-white">
+                              <span className="tw-text-slate-400"> desde </span>
+                              {neto === true ? precio.Pvp : precio.Price}
+                              {precio.Currency === "EUR"
+                                ? "€"
+                                : precio.Currency}
+                            </span>
+                            {neto !== true && (
+                              <span className="tw-font-semibold dark:tw-text-white">
+                                <span className="tw-text-slate-400">
+                                  {" "}
+                                  agencia:{" "}
+                                </span>
+                                {precio.Price}
+                                {precio.Currency === "EUR"
+                                  ? "€"
+                                  : precio.Currency}{" "}
+                                (+
+                                {parseFloat(precio.Price - precio.Pvp).toFixed(
+                                  2
+                                )}
+                                )
+                              </span>
+                            )}
+                          </div>
                         </p>
                       </div>
                     </div>

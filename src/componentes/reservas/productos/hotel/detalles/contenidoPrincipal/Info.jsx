@@ -4,7 +4,6 @@ import { FaCity, FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 
 function Info({ hotel }) {
-  console.log(hotel);
   return (
     <section className="tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-flex-wrap tw-gap-5 tw-bg-slate-50 tw-p-5 tw-rounded-lg">
       <DatoTituloIcono

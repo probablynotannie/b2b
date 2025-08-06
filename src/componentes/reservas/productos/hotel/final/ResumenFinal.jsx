@@ -6,8 +6,7 @@ function ResumenFinal() {
   const location = useLocation();
   const { producto, habitacion, data } = location.state || {};
   const numReserva = "HGJLAIU26098A";
-  console.log(producto);
-  console.log(habitacion);
+
   return (
     <Reserva
       Icono={FaHotel}

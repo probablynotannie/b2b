@@ -142,7 +142,7 @@ function Listado({
                       setOpenModal(null);
                     }}
                   >
-                    {neto !== true ? habitacion.Price : habitacion.Pvp}
+                    {neto === true ? habitacion.Pvp : habitacion.Price}
                     {habitacion.Currency === "EUR" ? "€" : habitacion.Currency}
                   </button>
                 ) : (
@@ -153,12 +153,12 @@ function Listado({
                         confirmacion(habitacion);
                       }}
                       className={`tw-p-3 tw-flex tw-flex-col tw-transition tw-font-semibold tw-min-w-[100px] tw-btn_accesorios ${
-                        neto === true
-                          ? "tw-btn_primario"
-                          : "tw-bg-sky-200 tw-text-sky-800"
+                        neto !== true
+                          ? "tw-bg-sky-200 tw-text-sky-800 dark:tw-bg-sky-900 dark:tw-text-sky-300"
+                          : "tw-btn_primario"
                       } tw-shadow-md hover:tw-shadow-lg`}
                     >
-                      {neto !== true ? habitacion.Price : habitacion.Pvp}
+                      {neto === true ? habitacion.Pvp : habitacion.Price}
                       {habitacion.Currency === "EUR"
                         ? "€"
                         : habitacion.Currency}

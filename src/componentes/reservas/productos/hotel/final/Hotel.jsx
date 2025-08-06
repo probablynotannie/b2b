@@ -3,7 +3,6 @@ import { FaCalendarAlt } from "react-icons/fa";
 import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import getEstrellas from "../scripts/getEstrellas";
 function Hote({ hotel, habitacion }) {
-  console.log("hotel", hotel);
   return (
     <>
       <section className="tw-my-10 2xl:tw-flex tw-gap-5">

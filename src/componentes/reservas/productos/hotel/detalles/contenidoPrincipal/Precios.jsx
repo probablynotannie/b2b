@@ -19,6 +19,7 @@ function Precios({
   sinProductosAdicionales,
   aniadirMas,
 }) {
+  console.log(neto);
   useEffect(() => {
     const allPrices = [];
     producto.ListaPrecios?.forEach((item) => {

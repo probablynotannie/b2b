@@ -154,7 +154,6 @@ const Datos = () => {
       ))}
     </div>
   );
-  console.log(pasajeros)
   const img = "/banners/banner_cruise.webp";
   return (
     <ComponenteDatos

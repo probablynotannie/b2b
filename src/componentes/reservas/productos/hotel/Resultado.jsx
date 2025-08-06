@@ -4,19 +4,19 @@ import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import { FaList, FaMapMarkedAlt } from "react-icons/fa";
+import { FaEye, FaList, FaMapMarkedAlt } from "react-icons/fa";
 import Resultado from "../../Resultado";
 import hotelesReales from "./hotelesReaeles.json";
 import MapaHoteles from "./mapa/MapaHoteles";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import Paginacion from "../../../../helpers/visuales/pagination/Corto";
-
+import useNetoStore from "./scripts/zustand/useNetoStore";
 function Productos() {
   const [loading, setLoading] = useState(true);
   const [viewMode, setViewMode] = useState("list");
   const [hoteles, setHoteles] = useState(hotelesReales);
   const [page, setPage] = useState(1);
-
+  const { neto, setNeto } = useNetoStore();
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
@@ -66,10 +66,23 @@ function Productos() {
             ) : (
               <>
                 <div className="tw-flex tw-items-center tw-justify-between tw-col-span-9">
-                  <h3 className="tw-text-secondary tw-font-semibold tw-text-lg tw-flex tw-items-center">
+                  <h3
+                    className={`tw-text-secondary
+                 tw-font-semibold tw-text-lg tw-flex tw-items-center`}
+                  >
                     Resultados ({hoteles.length})
                   </h3>
-                  <div className="tw-flex ">
+                  <div className="tw-flex tw-gap-2">
+                    <button
+                      className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
+                        neto === true
+                          ? "tw-bg-secondary dark:tw-bg-green-700 tw-text-white"
+                          : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
+                      }`}
+                      onClick={() => setNeto(!neto)}
+                    >
+                      <FaEye />
+                    </button>
                     <button
                       className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
                         viewMode === "list"
@@ -81,7 +94,7 @@ function Productos() {
                       <FaList /> Lista
                     </button>
                     <button
-                      className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-ml-2 tw-rounded-md ${
+                      className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
                         viewMode === "map"
                           ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
                           : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
@@ -102,6 +115,7 @@ function Productos() {
                       />
                     </div>
                     <Hoteles
+                      neto={neto}
                       hoteles={hotelesAMostrar}
                       page={page}
                       setPage={setPage}

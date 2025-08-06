@@ -3,8 +3,7 @@ export default function groupAndMergeById(listaPrecios) {
 
     const grouped = Object.values(
         listaPrecios.reduce((acc, item) => {
-            if (!item.id) return acc;
-
+            if (item.id === undefined || item.id === null) return acc;
             if (!acc[item.id]) {
                 acc[item.id] = {
                     ...item,
@@ -20,8 +19,7 @@ export default function groupAndMergeById(listaPrecios) {
                 acc[item.id].niniosTotal += item.NumChilds || 0;
 
                 if (parseFloat(item.Price) < parseFloat(acc[item.id].Price)) {
-                    acc[item.id].Price = item.Price;
-                    acc[item.id].Currency = item.Currency;
+
                     acc[item.id].NoReembolsable = item.NoReembolsable;
                     acc[item.id].BoardName = item.BoardName;
                 }
@@ -29,6 +27,5 @@ export default function groupAndMergeById(listaPrecios) {
             return acc;
         }, {})
     );
-
     return grouped.sort((a, b) => parseFloat(a.Price) - parseFloat(b.Price));
 }

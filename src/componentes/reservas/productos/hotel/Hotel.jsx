@@ -7,7 +7,7 @@ import groupAndMergeRooms from "./scripts/mergeHabitaciones.js";
 import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
 import Detalles from "./detalles/contenidoPrincipal/Hotel.jsx";
 import Aside from "./detalles/contenidoSecundario/Aside.jsx";
-import useNetoStore from "./zustand/useNetoStore.js";
+import useNetoStore from "./scripts/zustand/useNetoStore.js";
 
 function Producto() {
   const reserva = {

@@ -47,8 +47,6 @@ const Cluster = ({ hoteles, markerIcon, onMarkerRef, onNavigateToHotel }) => {
     hoteles.forEach((hotel) => {
       const habitacion = habitacionMasBarata(hotel);
       const estrellas = hotel.CategoryCode.split("*").length - 1;
-
-      console.log(hotel);
       const marker = L.marker([hotel.Lat, hotel.Long], { icon: markerIcon });
       const popupContainer = document.createElement("div");
 
