@@ -8,7 +8,7 @@ function Info({ hotel, aside }) {
     <section
       className={`tw-grid ${
         !aside && "lg:tw-grid-cols-2 xl:tw-grid-cols-3"
-      } tw-flex-wrap tw-gap-5 tw-bg-slate-50 tw-p-5 tw-rounded-lg`}
+      } tw-flex-wrap tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-900 tw-p-5 tw-rounded-lg`}
     >
       <DatoTituloIcono
         icon={<FaHotel className="tw-text-pink-500" />}
