@@ -35,7 +35,8 @@ function Listado({
             <span className="tw-text-slate-400 tw-text-sm">
               {habitacion.regimen}
             </span>
-            {habitacion.NoReembolsable === true ? (
+            {habitacion.NoReembolsable === true ||
+            habitacion.NoReembolsable === 1 ? (
               <span className="tw-bg-danger tw-text-white tw-text-xs tw-font-medium tw-me-2 tw-px-2.5 tw-py-0.5 tw-rounded tw-mt-1">
                 No reembolsablee
               </span>
@@ -44,14 +45,15 @@ function Listado({
                 Reembolsable
               </span>
             )}
-            {habitacion.NoReembolsable === true && (
-              <div
-                className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
-                dangerouslySetInnerHTML={{
-                  __html: habitacion.Cancelation,
-                }}
-              />
-            )}
+            {habitacion.NoReembolsable === true ||
+              (habitacion.NoReembolsable === 1 && (
+                <div
+                  className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
+                  dangerouslySetInnerHTML={{
+                    __html: habitacion.Cancelation,
+                  }}
+                />
+              ))}
             {seleccion === "seleccionar" ? (
               <button
                 className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2  tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"

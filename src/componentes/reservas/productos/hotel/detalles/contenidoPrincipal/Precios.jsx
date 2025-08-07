@@ -19,7 +19,6 @@ function Precios({
   sinProductosAdicionales,
   aniadirMas,
 }) {
-  console.log(neto);
   useEffect(() => {
     const allPrices = [];
     producto.ListaPrecios?.forEach((item) => {
@@ -55,7 +54,6 @@ function Precios({
     const filtered = habitaciones.filter((habitacion) => {
       const price = parseFloat(habitacion?.Price);
       const board = habitacion?.BoardNameFiltro?.toLowerCase();
-      const isRefundable = habitacion?.Reembolsable === true;
 
       const matchesPrice =
         !isNaN(price) && price >= values[0] && price <= values[1];
@@ -63,7 +61,11 @@ function Precios({
       const matchesRegimen =
         selectedRegimenes.length === 0 || selectedRegimenes.includes(board);
 
-      const matchesReembolsable = !reembolsable || isRefundable;
+      const matchesReembolsable =
+        reembolsable === false || reembolsable === 0
+          ? true
+          : habitacion?.NoReembolsable === true ||
+            habitacion?.NoReembolsable === 1;
 
       return matchesPrice && matchesRegimen && matchesReembolsable;
     });

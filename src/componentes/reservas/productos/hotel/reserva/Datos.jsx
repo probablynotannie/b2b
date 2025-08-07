@@ -5,20 +5,17 @@ import formatearFecha from "../../../../../scripts/FormatearFecha";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
-
   const img = "/banners/banner_hoteles.webp";
   const navigate = useNavigate();
   const extras = (
     <div className="tw-mt-2">
       {producto.pax !== 0 && (
-        <span className="tw-mr-2 tw-bg-pink-400 tw-rounded-xl  tw-font-semibold tw-text-sm tw-p-1">
-          {" "}
+        <span className="tw-mr-2 tw-bg-pink-400 tw-rounded-xl tw-font-semibold tw-text-sm tw-p-1">
           Adultos: {habitacion.adultosTotal}x
         </span>
       )}
       {habitacion.niniosTotal !== 0 && (
-        <span className="tw-bg-pink-400 tw-rounded-xl  tw-font-semibold tw-text-sm tw-p-1">
-          {" "}
+        <span className="tw-bg-pink-400 tw-rounded-xl tw-font-semibold tw-text-sm tw-p-1">
           Niños: {habitacion.niniosTotal}x
         </span>
       )}

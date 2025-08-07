@@ -1,8 +1,5 @@
-import { useState } from "react";
 import { FaBed } from "react-icons/fa";
 import { FaFilePdf } from "react-icons/fa";
-import { RxCross2 } from "react-icons/rx";
-import { FaCheck } from "react-icons/fa";
 import AnadirMasProductos from "../../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 function Listado({
   neto,
@@ -21,11 +18,6 @@ function Listado({
   setActiveTab,
   tab,
 }) {
-  const [expandedPenaltyId, setExpandedPenaltyId] = useState(null);
-  const handleTogglePenalties = (id) => {
-    setExpandedPenaltyId(expandedPenaltyId === id ? null : id);
-  };
-  console.log(habitaciones);
   return (
     <div className="tw-space-y-10 tw-w-full">
       <table className="tw-w-full">
@@ -60,14 +52,14 @@ function Listado({
                 {habitacion.BoardName}
               </td>
               <td className="tw-p-3">
-                {habitacion.NoReembolsable !== "true" ? (
+                {habitacion.NoReembolsable === true ||
+                habitacion.NoReembolsable === 1 ? (
                   <div className="tw-flex tw-flex-col tw-items-center tw-space-x-3">
-                    <span className="tw-bg-green-50 dark:tw-bg-green-700 dark:tw-text-white tw-flex tw-items-center tw-text-slate-600 tw-rounded-lg tw-text-sm tw-gap-2 tw-p-2 tw-font-semibold tw-flex-row">
-                      <FaCheck className="text-md" />
-                      Reembolsable
+                    <span className="tw-block tw-bg-red-100 tw-font-semibold dark:tw-bg-red-800 tw-text-sm tw-lowercase tw-p-1 tw-rounded-lg tw-text-red-500 dark:tw-text-red-200">
+                      No reembolsable
                     </span>
                     <div
-                      className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
+                      className="tw-text-xs tw-text-danger_text tw-mt-2 tw-font-semibold"
                       dangerouslySetInnerHTML={{
                         __html: habitacion.Cancelation,
                       }}
@@ -75,57 +67,15 @@ function Listado({
                   </div>
                 ) : (
                   <div className="tw-flex tw-flex-col tw-items-center tw-space-x-3">
-                    <span className="tw-bg-red-50 dark:tw-bg-danger dark:tw-text-white tw-flex tw-items-center tw-text-slate-600 tw-rounded-lg tw-text-sm tw-gap-2 tw-p-1 tw-font-semibold tw-flex-row">
-                      <RxCross2 className="tw-text-2xl tw-text-red-600 dark:tw-text-red-300" />
-                      No Reembolsable
+                    <span className="tw-block tw-font-semibold tw-bg-green-100 dark:tw-bg-green-800 tw-p-1 tw-text-sm tw-lowercase tw-rounded-lg tw-text-green-600 dark:tw-text-green-200">
+                      Reembolsable
                     </span>
-                    {(() => {
-                      const dummyPenalties = [
-                        "Cancelación gratuita hasta 3 días antes de la llegada.",
-                        "Penalización del 50% si se cancela 2 días antes.",
-                        "Penalización del 100% si no se presenta (no show).",
-                        "No se permite reembolso después del check-in.",
-                      ];
-
-                      return (
-                        <>
-                          {dummyPenalties
-                            .slice(0, 2)
-                            .map((penalizacion, index) => (
-                              <span
-                                key={index}
-                                className="tw-block tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
-                              >
-                                {penalizacion}
-                              </span>
-                            ))}
-
-                          {expandedPenaltyId === habitacion.id &&
-                            dummyPenalties
-                              .slice(2)
-                              .map((penalizacion, index) => (
-                                <span
-                                  key={`extra-${index}`}
-                                  className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
-                                >
-                                  {penalizacion}
-                                </span>
-                              ))}
-                          {dummyPenalties.length > 2 && (
-                            <button
-                              onClick={() =>
-                                handleTogglePenalties(habitacion.id)
-                              }
-                              className="tw-text-sm tw-text-slate-400 tw-mt-2"
-                            >
-                              {expandedPenaltyId === habitacion.id
-                                ? "Ver menos"
-                                : "Ver más..."}
-                            </button>
-                          )}
-                        </>
-                      );
-                    })()}
+                    <div
+                      className="tw-text-xs tw-text-red-500 tw-mt-2 tw-font-semibold"
+                      dangerouslySetInnerHTML={{
+                        __html: habitacion.Cancelation,
+                      }}
+                    />
                   </div>
                 )}
               </td>

@@ -50,8 +50,7 @@ function Resultado({ hoteles, neto }) {
         const reserva = {
           habitaciones: relatedRooms.length,
           pax: relatedRooms.reduce(
-            (total, room) =>
-              total + Number(room.NumAdults ?? 0) + Number(room.NumChilds ?? 0),
+            (total, room) => total + Number(room.NumAdults ?? 0),
             0
           ),
           pax_ninios: relatedRooms.reduce(
@@ -62,7 +61,6 @@ function Resultado({ hoteles, neto }) {
           fecha: "10/12/2025",
           fechaSalida: "19/12/2025",
         };
-
         groupedByBoard[boardKey] = {
           baseRoom: item,
           relatedRooms,
@@ -132,7 +130,7 @@ function Resultado({ hoteles, neto }) {
                   ))}
                 </Carousel>
                 <button
-                  className="tw-absolute tw-top-3 tw-left-2 tw-flex tw-justify-center tw-items-center tw-bg-secondary tw-text-white tw-font-medium tw-p-2 tw-rounded-full hover:tw-bg-slate-700 transition"
+                  className="transition tw-absolute tw-top-3 tw-left-2 tw-flex tw-justify-center tw-items-center tw-bg-secondary tw-text-white tw-font-medium tw-p-2 tw-rounded-full hover:tw-bg-slate-700"
                   onClick={() => setOpenModal(index)}
                 >
                   <FaEye />
@@ -184,7 +182,7 @@ function Resultado({ hoteles, neto }) {
                 </p>
                 <div className="tw-grid tw-grid-cols-2 lg:tw-flex tw-flex-wrap tw-justify-end tw-gap-2 tw-mt-4">
                   <button
-                    className="tw-flex tw-justify-center tw-bg-slate-200 hover:tw-bg-slate-200/70 dark:tw-bg-slate-700 tw-text-slate-800 dark:tw-text-slate-300 tw-font-medium tw-px-4 tw-py-2 tw-rounded-lg  dark:hover:tw-bg-slate-600 transition"
+                    className="transition tw-flex tw-justify-center tw-bg-slate-200 hover:tw-bg-slate-200/70 dark:tw-bg-slate-700 tw-text-slate-800 dark:tw-text-slate-300 tw-font-medium tw-px-4 tw-py-2 tw-rounded-lg dark:hover:tw-bg-slate-600"
                     onClick={() =>
                       setExpandedHotel(expandedHotel === index ? null : index)
                     }
@@ -255,11 +253,12 @@ function Resultado({ hoteles, neto }) {
                       </p>
                       <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
                         {capitalizeFirstLetterOnly(precio.BoardName)}
-                        {precio.NoReembolsable && (
-                          <span className="tw-block tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
-                            (No reembolsable)
-                          </span>
-                        )}
+                        {precio.NoReembolsable === true ||
+                          (precio.NoReembolsable === 1 && (
+                            <span className="tw-block tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
+                              (No reembolsable)
+                            </span>
+                          ))}
                         <div className="tw-flex tw-flex-col">
                           <span className="tw-font-semibold dark:tw-text-white">
                             <span className="tw-text-slate-400">
