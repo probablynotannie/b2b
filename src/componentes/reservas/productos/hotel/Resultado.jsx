@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Buscador from "../../../motores/buscadores/hoteles/Buscador_Hoteles";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
@@ -6,29 +6,29 @@ import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles"
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import { FaEye, FaList, FaMapMarkedAlt } from "react-icons/fa";
 import Resultado from "../../Resultado";
-import hotelesReales from "./hotelesReaeles.json";
 import MapaHoteles from "./mapa/MapaHoteles";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import Paginacion from "../../../../helpers/visuales/pagination/Corto";
 import useNetoStore from "./scripts/zustand/useNetoStore";
+import getHoteles from "./scripts/getHoteles";
+import { useQuery } from "@tanstack/react-query";
 function Productos() {
-  const [loading, setLoading] = useState(true);
+  const { data, isLoading, isFetching } = useQuery({
+    queryKey: ["hoteles"],
+    queryFn: getHoteles,
+    keepPreviousData: true,
+  });
   const [viewMode, setViewMode] = useState("list");
-  const [hoteles, setHoteles] = useState(hotelesReales);
+  const [hoteles, setHoteles] = useState(data);
   const [page, setPage] = useState(1);
   const { neto, setNeto } = useNetoStore();
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 1000);
-  }, []);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const hotelesPorPagina = 10;
   const indexUltimoHotel = page * hotelesPorPagina;
   const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
-  const hotelesAMostrar = hoteles.slice(indexPrimerHotel, indexUltimoHotel);
-  const paginasTotales = Math.ceil(hoteles.length / hotelesPorPagina);
+  const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
+  const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
 
   return (
     <Resultado
@@ -42,7 +42,7 @@ function Productos() {
         <Aside
           setPage={setPage}
           setHoteles={setHoteles}
-          hoteles={hotelesReales}
+          hoteles={data ? data : []}
           values={values}
           setValues={setValues}
           minMax={minMax}
@@ -58,7 +58,7 @@ function Productos() {
           tw-col-span-9 tw-p-3 
           `}
           >
-            {loading ? (
+            {isLoading || isFetching ? (
               <>
                 <Cargando />
                 <PlaceHolder />
@@ -70,7 +70,7 @@ function Productos() {
                     className={`tw-text-secondary
                  tw-font-semibold tw-text-lg tw-flex tw-items-center`}
                   >
-                    Resultados ({hoteles.length})
+                    Resultados ({hoteles?.length})
                   </h3>
                   <div className="tw-flex tw-gap-2">
                     <button
@@ -132,7 +132,7 @@ function Productos() {
                   <>
                     <MapaHoteles
                       setHoteles={setHoteles}
-                      hotelesSinFiltrar={hotelesReales}
+                      hotelesSinFiltrar={data}
                       hoteles={hoteles}
                       values={values}
                       setValues={setValues}

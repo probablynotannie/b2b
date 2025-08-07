@@ -21,7 +21,6 @@ import ModalWindow from "../../../../helpers/visuales/ModalWindow";
 function Resultado({ hoteles, neto }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
-  console.log(hoteles);
   useEffect(() => {
     if (openModal !== null) {
       document.body.style.overflow = "hidden";

@@ -42,7 +42,6 @@ function Producto() {
     });
     setModalMasProductos(false);
   };
-  console.log("🚀 ~ aniadirMas ~ producto:", habitacionSeleccionada);
 
   const sinProductosAdicionales = () => {
     navigate("/datosHotel", {

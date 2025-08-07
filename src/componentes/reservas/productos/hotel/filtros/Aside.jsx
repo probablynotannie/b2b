@@ -33,7 +33,7 @@ function Aside({
       setMinMax([minPrice, maxPrice]);
       setValues([minPrice, maxPrice]);
     }
-  }, []);
+  }, [hoteles]);
   useEffect(() => {
     const regimenesSet = new Set();
     hoteles.forEach((hotel) => {
@@ -45,7 +45,7 @@ function Aside({
 
     const regimenesArray = Array.from(regimenesSet);
     setRegimenesUnicos(regimenesArray);
-  }, []);
+  }, [hoteles]);
   useEffect(() => {
     setRegimenes((prev) =>
       prev.filter((regimen) => regimenesUnicos.includes(regimen))
