@@ -4,9 +4,8 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
-function Gallery({ imagenes }) {
+function Gallery({ imagenes, texto }) {
   const swiperRef = useRef(null);
-
   return (
     <Swiper
       modules={[Navigation, Pagination, Autoplay]}
@@ -25,7 +24,7 @@ function Gallery({ imagenes }) {
       {imagenes.map((imagen, index) => (
         <SwiperSlide key={index}>
           <div
-            className="tw-relative hover:tw-scale-[103%] tw-transition tw-duration-400 lg:tw-h-[18vh] xl:tw-h-[38vh] tw-h-[15vh] tw-cursor-pointer tw-group"
+            className="tw-relative tw-rounded-lg tw-overflow-hidden hover:tw-scale-[103%] tw-transition tw-duration-400  lg:tw-h-[18vh] xl:tw-h-[38vh] tw-h-[30vh] tw-cursor-pointer tw-group"
             onMouseEnter={() => swiperRef.current?.autoplay.stop()}
             onMouseLeave={() => swiperRef.current?.autoplay.start()}
           >
@@ -34,14 +33,8 @@ function Gallery({ imagenes }) {
               src={imagen ? imagen : "/default-image.jpg"}
               alt="Imagen"
             />
-
-            <div
-              className="tw-absolute tw-text-slate-100 tw-text-xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full 
-                 tw-bg-blue-700 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 tw-bg-opacity-30
-                 dark:hover:tw-orange-900 dark:hover:tw-bg-opacity-75 hover:tw-bg-opacity-20
-                 tw-smooth tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded"
-            >
-              {/*   {zona.name} */}
+            <div className="tw-absolute tw-text-slate-100 tw-text-3xl tw-font-semibold tw-text-center tw-top-0 tw-left-0 tw-w-full tw-h-full tw-bg-orange-700/40 dark:tw-bg-orange-900 dark:tw-bg-opacity-40 dark:hover:tw-orange-900 dark:hover:tw-bg-opacity-75 hover:tw-bg-opacity-20 tw-smooth tw-flex tw-items-center tw-justify-center tw-p-4 tw-rounded">
+              {texto && texto}
             </div>
           </div>
         </SwiperSlide>

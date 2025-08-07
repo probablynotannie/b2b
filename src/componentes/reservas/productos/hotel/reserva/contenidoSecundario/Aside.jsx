@@ -10,28 +10,26 @@ function Aside({ producto, habitacion, data }) {
       <h2 className="tw-font-bold tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-slate-200 tw-my-3">
         Resumen
       </h2>
-      <div className="tw-grid tw-grid-cols-2">
+      <TituloIcono
+        icon={<FaPerson className="tw-text-lg tw-text-secondary" />}
+        title="Adultos"
+        value={`${habitacion.adultosTotal} adulto${
+          habitacion.adultosTotal !== 1 ? "s" : ""
+        }`}
+      />
+      {habitacion.niniosTotal > 0 && (
         <TituloIcono
-          icon={<FaPerson className="tw-text-lg tw-text-secondary" />}
-          title="Adultos"
-          value={`${habitacion.adultosTotal} adulto${
-            habitacion.adultosTotal !== 1 ? "s" : ""
+          icon={<FaChild className="tw-text-lg tw-text-secondary" />}
+          title="Niños"
+          value={`${habitacion.niniosTotal} niño${
+            habitacion.niniosTotal !== 1 ? "s" : ""
           }`}
         />
-        {habitacion.niniosTotal > 0 && (
-          <TituloIcono
-            icon={<FaChild className="tw-text-lg tw-text-secondary" />}
-            title="Niños"
-            value={`${habitacion.niniosTotal} niño${
-              habitacion.niniosTotal !== 1 ? "s" : ""
-            }`}
-          />
-        )}
-      </div>
+      )}
       <TituloIcono
         icon={<FaCalendar className="tw-text-lg tw-text-secondary" />}
         title="Fechas"
-        value={producto.fecha + " – " + producto.fechaSalida}
+        value={"producto.fecha" + " – " + "producto.fechaSalida"}
       />
       <TituloIcono
         icon={<FaDoorOpen className="tw-text-lg tw-text-secondary" />}

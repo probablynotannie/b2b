@@ -20,6 +20,7 @@ function Hotel({
   confirmacion,
   sinProductosAdicionales,
   aniadirMas,
+  reservaFinal,
 }) {
   return (
     <main className="tw-flex tw-flex-col tw-space-y-10">
@@ -34,23 +35,27 @@ function Hotel({
       {hotel.ShortDesc && (
         <Info titulo={"Descripción del hotel"} descripcion={hotel.ShortDesc} />
       )}
-      <Precios
-        setNeto={setNeto}
-        neto={neto}
-        values={values}
-        setValues={setValues}
-        minMax={minMax}
-        setMinMax={setMinMax}
-        producto={producto}
-        habitaciones={habitaciones}
-        habitacionSeleccionada={habitacionSeleccionada}
-        setHabitacionSeleccionada={setHabitacionSeleccionada}
-        modalMasProductos={modalMasProductos}
-        setModalMasProductos={setModalMasProductos}
-        confirmacion={confirmacion}
-        sinProductosAdicionales={sinProductosAdicionales}
-        aniadirMas={aniadirMas}
-      />
+      {reservaFinal !== true && (
+        <div>
+          <Precios
+            setNeto={setNeto}
+            neto={neto}
+            values={values}
+            setValues={setValues}
+            minMax={minMax}
+            setMinMax={setMinMax}
+            producto={producto}
+            habitaciones={habitaciones}
+            habitacionSeleccionada={habitacionSeleccionada}
+            setHabitacionSeleccionada={setHabitacionSeleccionada}
+            modalMasProductos={modalMasProductos}
+            setModalMasProductos={setModalMasProductos}
+            confirmacion={confirmacion}
+            sinProductosAdicionales={sinProductosAdicionales}
+            aniadirMas={aniadirMas}
+          />
+        </div>
+      )}
       <Imagenes imagenes={hotel.ListFotos} />
     </main>
   );

@@ -87,6 +87,7 @@ function Producto() {
               sinProductosAdicionales={sinProductosAdicionales}
               aniadirMas={aniadirMas}
             />
+          
           </>
         }
         extra={<Aside producto={producto} habitaciones={agrupados} />}
