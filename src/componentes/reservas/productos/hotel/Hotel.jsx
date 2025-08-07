@@ -10,20 +10,13 @@ import Aside from "./detalles/contenidoSecundario/Aside.jsx";
 import useNetoStore from "./scripts/zustand/useNetoStore.js";
 
 function Producto() {
-  const reserva = {
-    pax: 2,
-    pax_ninios: 1,
-    habitaciones: 2,
-    noches: 7,
-    fecha: "10/12/2025",
-    fechaSalida: "19/12/2025",
-  };
+  const vaciarCesta = cesta((state) => state.vaciarCesta);
+
   const location = useLocation();
   const producto = location.state;
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const agrupados = groupAndMergeRooms(producto.ListaPrecios);
-  const pax = producto.pax + producto.pax_ninios;
   const [habitacionSeleccionada, setHabitacionSeleccionada] = useState();
   const [modalMasProductos, setModalMasProductos] = useState(false);
   const confirmacion = () => {
@@ -32,20 +25,25 @@ function Producto() {
   const navigate = useNavigate();
   const anadirProducto = cesta((state) => state.anadirProducto);
   const aniadirMas = () => {
+    vaciarCesta();
     anadirProducto({
       hotel: producto,
       habitacion: habitacionSeleccionada,
-      fecha: producto.fecha,
-      fechaVuelta: producto.fechaSalida,
-      titulo: producto.nombre,
-      ubicacion: producto.direccion,
-      precio: habitacionSeleccionada.precio,
+      fecha: "producto.fecha",
+      fechaVuelta: "producto.fechaSalida",
+      titulo: producto.NombreHotel,
+      ubicacion: producto.Dir,
+      precio: Number(habitacionSeleccionada.Price),
       img: "/banners/banner_hoteles.webp",
-      pax: pax,
+      pax:
+        habitacionSeleccionada.adultosTotal +
+        habitacionSeleccionada.niniosTotal,
       type: 1,
     });
     setModalMasProductos(false);
   };
+  console.log("🚀 ~ aniadirMas ~ producto:", habitacionSeleccionada);
+
   const sinProductosAdicionales = () => {
     navigate("/datosHotel", {
       state: {
@@ -87,7 +85,6 @@ function Producto() {
               sinProductosAdicionales={sinProductosAdicionales}
               aniadirMas={aniadirMas}
             />
-          
           </>
         }
         extra={<Aside producto={producto} habitaciones={agrupados} />}
