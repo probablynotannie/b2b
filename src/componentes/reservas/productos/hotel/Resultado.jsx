@@ -74,12 +74,16 @@ function Productos() {
       }
       listado={
         <>
-          {isReservaIncomplete ? (
+          {isReservaIncomplete || hoteles.length === 0 ? (
             <div className="tw-flex tw-justify-center tw-w-full">
               <Error
-                tipo={1}
+                tipo={isReservaIncomplete ? 1 : 2}
                 enlace={"/hoteles"}
-                error={"Faltan algunos datos para extraer hoteles"}
+                error={
+                  isReservaIncomplete
+                    ? "Faltan algunos datos para extraer hoteles."
+                    : "No hay hoteles con estos parametros."
+                }
               />
             </div>
           ) : (
