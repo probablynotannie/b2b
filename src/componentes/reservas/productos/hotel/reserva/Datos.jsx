@@ -2,6 +2,7 @@ import { useForm } from "react-hook-form";
 import { useLocation, useNavigate } from "react-router-dom";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 import formatearFecha from "../../../../../scripts/FormatearFecha";
+import calcularFechaSalida from "./fechaSalida";
 function Datos() {
   const location = useLocation();
   const { producto, habitacion } = location.state;
@@ -10,13 +11,13 @@ function Datos() {
   const extras = (
     <div className="tw-mt-2">
       {producto.pax !== 0 && (
-        <span className="tw-mr-2 tw-bg-pink-400 tw-rounded-xl tw-font-semibold tw-text-sm tw-p-1">
-          Adultos: {habitacion.adultosTotal}x
+        <span className="tw-mr-2 tw-bg-pink-400 tw-rounded-xl tw-font-semibold tw-text-sm tw-p-1 tw-px-2">
+          adultos: {habitacion.adultosTotal}x
         </span>
       )}
       {habitacion.niniosTotal !== 0 && (
-        <span className="tw-bg-pink-400 tw-rounded-xl tw-font-semibold tw-text-sm tw-p-1">
-          Niños: {habitacion.niniosTotal}x
+        <span className="tw-bg-pink-400 tw-rounded-xl tw-font-semibold tw-text-sm tw-p-1 tw-px-2">
+          niños: {habitacion.niniosTotal}x
         </span>
       )}
     </div>
@@ -31,8 +32,10 @@ function Datos() {
       state: { data, producto, habitacion },
     });
   };
-  const fechaEntrada = "05/09/2025";
-  const fechaSalida = "10/09/2025";
+  const fechaEntrada = producto.reserva.fecini;
+  const noches = producto.reserva.noc;
+  const fechaSalida = calcularFechaSalida(fechaEntrada, noches);
+
   return (
     <ComponenteDatos
       register={register}

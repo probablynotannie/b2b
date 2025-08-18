@@ -33,7 +33,7 @@ function Hotel({
         </div>
       </section>
       {hotel.ShortDesc && (
-        <Info titulo={"Descripción del hotel"} descripcion={hotel.ShortDesc} />
+        <Info titulo={"Descripción del hotel"} descripcion={hotel.ShortDesc} /> 
       )}
       {reservaFinal !== true && (
         <div>

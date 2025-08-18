@@ -218,7 +218,7 @@ function Resultado({ hoteles, neto, reserva }) {
                         : "tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white "
                     } tw-font-semibold tw-px-6 tw-py-2 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-gap-2 tw-smooth`}
                     to="/hotel"
-                    state={hotel}
+                    state={{ ...hotel, reserva }}
                   >
                     <button className="tw-flex tw-gap-1">
                       desde

@@ -74,7 +74,7 @@ function Productos() {
       }
       listado={
         <>
-          {isReservaIncomplete || hoteles.length === 0 ? (
+          {isReservaIncomplete || hoteles?.length === 0 ? (
             <div className="tw-flex tw-justify-center tw-w-full">
               <Error
                 tipo={isReservaIncomplete ? 1 : 2}
