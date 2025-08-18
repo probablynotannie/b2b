@@ -43,7 +43,7 @@ const Error = ({ error, tipo, enlace }) => {
     <div className="tw-w-full tw-h-full tw-flex tw-flex-col tw-justify-center tw-items-center ">
       <div className="tw-relative">
         <svg
-          className="tw-w-56 tw-h-32 hotel"
+          className="tw-w-56 tw-h-40 hotel"
           viewBox="0 0 64 64"
           xmlns="http://www.w3.org/2000/svg"
         >
@@ -90,7 +90,7 @@ const Error = ({ error, tipo, enlace }) => {
           ))}
         </svg>
       </div>
-      <p className="tw-text-md tw-select-none tw-text-center tw-text-slate-400 tw-mb-2 -tw-mt-3">
+      <p className="tw-text-md tw-select-none tw-text-center tw-text-slate-400 tw-mb-2 -tw-mt-5">
         {error}
       </p>
       <Link

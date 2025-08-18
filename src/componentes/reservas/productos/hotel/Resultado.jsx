@@ -53,27 +53,29 @@ function Productos() {
       position={"center"}
       color={"tw-bg-orange-300/45"}
       buscador={<Buscador listado={true} />}
-      wideContent={viewMode === "list" ? false : true}
-      ocultarAside={viewMode === "list" ? false : true}
+      wideContent={!isReservaIncomplete && viewMode === "list" ? false : true}
+      ocultarAside={!isReservaIncomplete && viewMode === "list" ? false : true}
       aside={
         <>
-          <Aside
-            isLoading={isLoading}
-            isFetching={isFetching}
-            setPage={setPage}
-            setHoteles={setHoteles}
-            hoteles={data ? data : []}
-            values={values}
-            setValues={setValues}
-            minMax={minMax}
-            setMinMax={setMinMax}
-          />
+          {!isReservaIncomplete && (
+            <Aside
+              isLoading={isLoading}
+              isFetching={isFetching}
+              setPage={setPage}
+              setHoteles={setHoteles}
+              hoteles={data ? data : []}
+              values={values}
+              setValues={setValues}
+              minMax={minMax}
+              setMinMax={setMinMax}
+            />
+          )}
         </>
       }
       listado={
         <>
           {isReservaIncomplete ? (
-            <div className="tw-mt-5">
+            <div className="tw-flex tw-justify-center tw-w-full">
               <Error
                 tipo={1}
                 enlace={"/hoteles"}
