@@ -1,9 +1,10 @@
-import { FaCalendarAlt, FaDirections, FaMoon } from "react-icons/fa";
+import { FaCalendarAlt, FaMoon } from "react-icons/fa";
 import DatoTituloIcono from "../../../../../../helpers/visuales/DatoTituloIcono";
-import { FaCity, FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
+import { FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import formatearFecha from "../../../../../../scripts/FormatearFecha";
-import calcularFechaSalida from "../../reserva/fechaSalida";
+import calcularFechaSalida from "../../../../../../scripts/fechaSalidaConInicioYNoches";
+import React from "react";
 function Info({ hotel, aside }) {
   const fechaSalida = calcularFechaSalida(
     hotel.reserva.fecini,
@@ -36,23 +37,17 @@ function Info({ hotel, aside }) {
       />
       <DatoTituloIcono
         icon={<FaHotel className="tw-text-pink-500" />}
-        title={"Fotel"}
-        value={hotel.NombreHotel}
+        title={"Hotel"}
+        value={
+          <React.Fragment>
+            <span className="tw-font-semibold tw-text-secondary dark:tw-text-secondaryDark ">
+              {hotel.NombreHotel}
+            </span>
+            , {hotel.City}, {hotel.Dir}
+          </React.Fragment>
+        }
       />
-      {hotel.City && (
-        <DatoTituloIcono
-          icon={<FaCity className="tw-text-indigo-500" />}
-          title={"Localidad"}
-          value={hotel.City}
-        />
-      )}
-      {hotel.Dir && (
-        <DatoTituloIcono
-          icon={<FaDirections className="tw-text-amber-500" />}
-          title={"Direccion"}
-          value={hotel.Dir}
-        />
-      )}
+
       {hotel.ZipCode && (
         <DatoTituloIcono
           icon={<FaGlobe className="tw-text-green-500" />}

@@ -8,7 +8,7 @@ function ResumenFinal() {
   const location = useLocation();
   const { producto, habitacion, data } = location.state || {};
   const numReserva = "HGJLAIU26098A";
-  const { neto, setNeto } = useNetoStore();
+  const { neto } = useNetoStore();
 
   return (
     <Reserva

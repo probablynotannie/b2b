@@ -4,8 +4,14 @@ import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import getEstrellas from "../scripts/getEstrellas";
 import useNetoStore from "../scripts/zustand/useNetoStore";
 import Galeria from "../detalles/contenidoSecundario/Gallery";
+import formatearFecha from "../../../../../scripts/FormatearFecha";
+import calcularFechaSalida from "../../../../../scripts/fechaSalidaConInicioYNoches";
 function Hote({ hotel, habitacion }) {
   const { neto, setNeto } = useNetoStore();
+  const fechaSalida = calcularFechaSalida(
+    hotel.reserva.fecini,
+    hotel.reserva.noc
+  );
   const datos = [
     {
       id: 0,
@@ -14,7 +20,7 @@ function Hote({ hotel, habitacion }) {
     },
     {
       id: 1,
-      titulo: "Resgimen",
+      titulo: "Regimen",
       descripcion: habitacion.BoardName,
     },
     {
@@ -25,12 +31,12 @@ function Hote({ hotel, habitacion }) {
     {
       id: 3,
       titulo: "Noches",
-      descripcion: "noches",
+      descripcion: hotel.reserva.noc + " noches",
     },
     {
       id: 4,
       titulo: "Núm. Hab.",
-      descripcion: habitacion.relatedRooms.length,
+      descripcion: habitacion.relatedRooms.length + "x",
     },
     {
       id: 5,
@@ -59,10 +65,7 @@ function Hote({ hotel, habitacion }) {
       <section className="tw-my-10 2xl:tw-flex tw-gap-5">
         <div className="tw-grid tw-grid-cols-1 lg:tw-grid-cols-3 tw-gap-5">
           <div>
-            <Galeria
-              imagenes={hotel.ListFotos}
-              texto={habitacion.combinedName}
-            />
+            <Galeria imagenes={hotel.ListFotos} />
           </div>
           <div className="tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow tw-w-full tw-p-5 tw-col-span-2">
             <div className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-200 tw-pb-2 tw-mb-3 dark:tw-border-slate-700">
@@ -84,10 +87,17 @@ function Hote({ hotel, habitacion }) {
                 </div>
                 <Estrellas estrellas={getEstrellas(hotel.CategoryName)} />
               </div>
-              <span className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-items-center tw-text-sm tw-gap-2">
+              <div className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-items-center tw-text-sm tw-gap-1 tw-flex-wrap">
                 <FaCalendarAlt className="tw-text-secondary dark:tw-text-secondaryDark" />
-                fecha- fecha
-              </span>
+                <time dateTime={hotel.reserva.fecini}>
+                  {formatearFecha(hotel.reserva.fecini)}
+                </time>
+                -
+                <time dateTime={fechaSalida}>
+                  {formatearFecha(fechaSalida)}
+                </time>
+                <span>({hotel.reserva.noc} noches)</span>
+              </div>
             </div>
             <p className="tw-text-sm dark:tw-text-slate-400">
               {hotel.ShortDesc}

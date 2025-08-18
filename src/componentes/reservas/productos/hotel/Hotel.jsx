@@ -11,7 +11,6 @@ import useNetoStore from "./scripts/zustand/useNetoStore.js";
 
 function Producto() {
   const vaciarCesta = cesta((state) => state.vaciarCesta);
-
   const location = useLocation();
   const producto = location.state;
   const [values, setValues] = useState([0, 5000]);
