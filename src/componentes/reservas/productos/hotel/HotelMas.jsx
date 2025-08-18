@@ -6,11 +6,10 @@ import { MdModeNight } from "react-icons/md";
 import { Carousel } from "flowbite-react";
 import { FaDoorOpen } from "react-icons/fa";
 import { useState } from "react";
-import Listado_cajas from "../../estructura/hoteles/Listado_cajas";
-import Listado2 from "../../estructura/hoteles/Listado";
-import Imagenes from "../../estructura/hoteles/Imgs";
-import Info from "../../estructura/hoteles/Info";
-import Map from "../../estructura/hoteles/Map";
+import Listado_cajas from "./detalles/hoteles/Listado_cajas";
+import Listado2 from "./detalles/hoteles/Listado";
+import Imagenes from "./detalles/hoteles/Imgs";
+import Map from "./detalles/hoteles/Map";
 import { FaRegCalendarAlt } from "react-icons/fa";
 function Resultado({
   hoteles,
@@ -197,12 +196,7 @@ function Resultado({
                     <aside className="tw-h-full lg:tw-col-span-4 tw-col-span-5 tw-mt-5 lg:tw-mt-0">
                       <Map location={hotel.ubicacion} />
                     </aside>
-                    <section className="tw-col-span-5 tw-mt-10 tw-mb-5 lg:tw-my-5">
-                      <Info
-                        titulo={"Descripción del hotel"}
-                        descripcion={hotel.descripcion}
-                      />
-                    </section>
+
                     <section className="tw-col-span-5 tw-hidden md:tw-flex">
                       <Listado2
                         setActiveTab={setActiveTab}

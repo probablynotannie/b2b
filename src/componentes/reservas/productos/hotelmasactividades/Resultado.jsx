@@ -29,7 +29,6 @@ function Productos() {
     habitaciones: 2,
     noches: 7,
   };
-  console.log(activeTab);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   return (

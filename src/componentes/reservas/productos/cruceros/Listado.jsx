@@ -86,7 +86,7 @@ function Listado({ destinos }) {
                       className="tw-absolute tw-top-0 tw-left-0 tw-w-full tw-h-full tw-object-cover"
                     />
                     <div className="md:tw-text-xl tw-font-semibold tw-text-white tw-bg-slate-800 tw-bg-opacity-45 tw-rounded-tl-xl tw-p-2 tw-w-full tw-h-full tw-flex tw-justify-center tw-items-center tw-flex-col tw-relative">
-                      {destino.barco.nombre.texto}
+                      {destino.barco.nombre.tfexto}
                     </div>
                   </div>
                 ) : null}

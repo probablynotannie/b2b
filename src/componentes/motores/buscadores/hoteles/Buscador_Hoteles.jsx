@@ -29,9 +29,17 @@ function Buscador_Cruceros({ listado }) {
   ]);
 
   const onSubmit = (data) => {
-    navigate("/listadoHoteles", {
-      state: { datosContacto: data },
-    });
+    const reserva = {
+      codearea: 251,
+      codcity: 199,
+      fecini: "28-07-2026",
+      noc: 5,
+      numper: "2,0;3,1,6",
+    };
+
+    const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
+
+    navigate(path);
   };
   const {
     register,

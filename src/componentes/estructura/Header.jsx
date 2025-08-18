@@ -41,8 +41,6 @@ import ListadoHotelMasActividades from "../reservas/productos/hotelmasactividade
 import ListadoCircuitos from "../reservas/productos/circuitos/Resultado";
 import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
-/* Cruceros */
-import Cruceros from "../motores/Cruceros";
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
@@ -145,7 +143,6 @@ function Header() {
         <Route path="/notificaciones" element={<Notificaciones />} />
         <Route path="/cesta" element={<Combinado />} />
         {/* MOTORES */}
-        <Route path="/cruceros" element={<Cruceros />} />
         <Route path="/hoteles" element={<Busqueda_Hoteles />} />
         <Route path="/coches" element={<Busqueda_Coches />} />
         <Route path="/transfers" element={<Busqueda_Transfers />} />
@@ -202,7 +199,10 @@ function Header() {
           element={<Detalles_Reserva_VueloMasHotel />}
         />
         {/* LISTADOS */}
-        <Route path="/listadoHoteles" element={<ListadoHoteles />} />
+        <Route
+          path="/listadoHoteles/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<ListadoHoteles />}
+        />
         <Route path="/listadoTrenes" element={<ListadoTrenes />} />
         <Route path="/listadoCoches" element={<ListadoCoches />} />
         <Route path="/listadoTransfers" element={<ListadoTransfers />} />

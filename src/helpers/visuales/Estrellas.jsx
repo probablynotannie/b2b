@@ -1,9 +1,8 @@
-import React from "react";
 import { IoMdStar, IoMdStarHalf, IoMdStarOutline } from "react-icons/io";
 
-function Estrellas({ estrellas }) {
+function Estrellas({ estrellas, color }) {
   return (
-    <div className="tw-flex tw-text-secondary">
+    <div className={`tw-flex ${color ? color : "tw-text-secondary"}`}>
       {[...Array(5)].map((_, i) =>
         i < Math.floor(estrellas) ? (
           <IoMdStar key={i} className="tw-text-lg" />

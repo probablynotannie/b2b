@@ -11,7 +11,7 @@ function DatosTren({ tren, tipo }) {
       </div>
       <div className="tw-grid tw-grid-cols-3 dark:tw-text-slate-100">
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center">
-          {tren.price.toFixed(2)}
+          {tren.price.toFixed(2)}€
           <span className="tw-text-sm">Precio Base</span>
         </div>
         <div className="tw-flex tw-flex-col tw-justify-center tw-items-center tw-text-center">
