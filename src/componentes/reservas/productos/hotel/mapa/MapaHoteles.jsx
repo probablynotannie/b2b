@@ -23,6 +23,7 @@ const MapaHoteles = ({
   setMinMax,
   setHoteles,
   hotelesSinFiltrar,
+  neto,
 }) => {
   const markersRef = useRef({});
   const [showMapOnly, setShowMapOnly] = useState(false);
@@ -130,8 +131,14 @@ const MapaHoteles = ({
                       </div>
                       <div className="tw-mt-4">
                         <button className="tw-w-full tw-font-medium tw-rounded-lg">
-                          <span className="tw-smooth group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-text-xl tw-font-mono dark:tw-text-slate-100">
-                            €{habitacion.Price}
+                          <span
+                            className={`tw-smooth group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-text-xl tw-font-mono ${
+                              neto === true
+                                ? "tw-text-sky-500 dark:tw-text-sky-300"
+                                : "dark:tw-text-slate-100"
+                            }`}
+                          >
+                            {neto !== true ? habitacion.Price : habitacion.Pvp}
                             {habitacion.Currency === "EUR"
                               ? "€"
                               : habitacion.Currency}
@@ -170,6 +177,7 @@ const MapaHoteles = ({
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
               />
               <Cluster
+                neto={neto}
                 hoteles={hoteles}
                 markerIcon={markerIcon}
                 onMarkerRef={(id, marker) => (markersRef.current[id] = marker)}

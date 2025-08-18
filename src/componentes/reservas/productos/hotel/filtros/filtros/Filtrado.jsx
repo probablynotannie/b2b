@@ -20,8 +20,12 @@ function Filtrado({
   setPage,
   setHoteles,
   hoteles,
+  isLoading,
+  isFetching,
 }) {
   useEffect(() => {
+    if (isLoading || isFetching) return;
+
     const filtered = hoteles.filter((hotel) => {
       const starCount = starsFromCategory(hotel.CategoryCode);
       const matchesEstrellas = estrellas === 0 || starCount === estrellas;

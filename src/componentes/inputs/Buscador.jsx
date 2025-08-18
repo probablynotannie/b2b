@@ -115,7 +115,9 @@ function Buscador({
                         <FaMap />
                       )}
                     </span>
-                    <span className="dark:tw-text-white">{suggestion.name}</span>
+                    <span className="dark:tw-text-white">
+                      {suggestion.name}
+                    </span>
                   </span>
                   <span className="tw-block tw-text-slate-300 tw-pl-6">
                     {suggestion.destino}
@@ -124,7 +126,7 @@ function Buscador({
               ))}
             </ul>
           ) : (
-            <div className="tw-p-4 tw-flex tw-justify-center tw-text-slate-500">
+            <div className="tw-p-4 tw-flex tw-justify-center tw-text-slate-500 tw-gap-1">
               No hay resultados para
               <span className="tw-text-danger">{inputText}</span>
             </div>

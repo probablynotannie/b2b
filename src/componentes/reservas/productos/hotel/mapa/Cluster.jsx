@@ -6,7 +6,7 @@ import ReactDOM from "react-dom/client";
 import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import { FaMapPin } from "react-icons/fa";
 import getEstrellas from "../scripts/getEstrellas";
-const HotelPopup = ({ hotel, onNavigate, habitacion }) => (
+const HotelPopup = ({ hotel, onNavigate, habitacion, neto }) => (
   <div className="tw-w-fit tw-bg-white/90 tw-p-2 tw-rounded-lg tw-shadow">
     <img
       className="tw-min-w-[270px] tw-h-[150px] tw-object-cover tw-rounded-lg tw-block tw-mb-2"
@@ -22,17 +22,27 @@ const HotelPopup = ({ hotel, onNavigate, habitacion }) => (
       {hotel.Dir}
     </span>
     <button
-      className="tw-btn_accesorios tw-bg-indigo-500"
+      className={`tw-btn_accesorios ${
+        neto === true
+          ? "tw-bg-sky-200 tw-text-sky-800 hover:tw-bg-sky-200/80 dark:tw-bg-sky-900 dark:tw-text-sky-100 hover:dark:tw-bg-sky-950"
+          : "tw-bg-secondary dark:tw-bg-secondaryDark"
+      }`}
       style={{ width: "100%" }}
       onClick={onNavigate}
     >
-      desde {habitacion.Price}
+      desde {neto !== true ? habitacion.Price : habitacion.Pvp}
       {habitacion.Currency === "EUR" ? "€" : habitacion.Currency}
     </button>
   </div>
 );
 
-const Cluster = ({ hoteles, markerIcon, onMarkerRef, onNavigateToHotel }) => {
+const Cluster = ({
+  hoteles,
+  markerIcon,
+  onMarkerRef,
+  onNavigateToHotel,
+  neto,
+}) => {
   function habitacionMasBarata(hotel) {
     if (!hotel?.ListaPrecios || hotel.ListaPrecios.length === 0) return null;
 
@@ -62,6 +72,7 @@ const Cluster = ({ hoteles, markerIcon, onMarkerRef, onNavigateToHotel }) => {
         }
         reactRoot.render(
           <HotelPopup
+            neto={neto}
             estrellas={estrellas}
             habitacion={habitacion}
             hotel={hotel}

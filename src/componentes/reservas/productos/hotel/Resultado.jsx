@@ -12,10 +12,28 @@ import Paginacion from "../../../../helpers/visuales/pagination/Corto";
 import useNetoStore from "./scripts/zustand/useNetoStore";
 import getHoteles from "./scripts/getHoteles";
 import { useQuery } from "@tanstack/react-query";
+import { useParams } from "react-router-dom";
+import Error from "./filtros/Error";
 function Productos() {
+  const { codearea, codcity, fecini, noc, numper } = useParams();
+
+  const reserva = {
+    codearea: codearea ? Number(codearea) : null,
+    codcity: codcity ? Number(codcity) : null,
+    fecini: fecini || null,
+    noc: noc ? Number(noc) : null,
+    numper: numper || null,
+  };
+
+  const isReservaIncomplete = Object.values(reserva).some(
+    (val) => val === null || val === ""
+  );
+
   const { data, isLoading, isFetching } = useQuery({
-    queryKey: ["hoteles"],
+    queryKey: ["hoteles", reserva],
     queryFn: getHoteles,
+    enabled: !isReservaIncomplete, // <-- important
+
     keepPreviousData: true,
   });
   const [viewMode, setViewMode] = useState("list");
@@ -29,7 +47,6 @@ function Productos() {
   const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
   const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
   const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
-
   return (
     <Resultado
       background={"url('/banners/banner_hoteles.webp')"}
@@ -39,111 +56,131 @@ function Productos() {
       wideContent={viewMode === "list" ? false : true}
       ocultarAside={viewMode === "list" ? false : true}
       aside={
-        <Aside
-          setPage={setPage}
-          setHoteles={setHoteles}
-          hoteles={data ? data : []}
-          values={values}
-          setValues={setValues}
-          minMax={minMax}
-          setMinMax={setMinMax}
-        />
+        <>
+          <Aside
+            isLoading={isLoading}
+            isFetching={isFetching}
+            setPage={setPage}
+            setHoteles={setHoteles}
+            hoteles={data ? data : []}
+            values={values}
+            setValues={setValues}
+            minMax={minMax}
+            setMinMax={setMinMax}
+          />
+        </>
       }
       listado={
         <>
-          <section
-            className={`
+          {isReservaIncomplete ? (
+            <div className="tw-mt-5">
+              <Error
+                tipo={1}
+                enlace={"/hoteles"}
+                error={"Faltan algunos datos para extraer hoteles"}
+              />
+            </div>
+          ) : (
+            <section
+              className={`
             ${viewMode === "list" ? "lg:tw-col-span-6" : "lg:tw-col-span-9"}
 
           tw-col-span-9 tw-p-3 
           `}
-          >
-            {isLoading || isFetching ? (
-              <>
-                <Cargando />
-                <PlaceHolder />
-              </>
-            ) : (
-              <>
-                <div className="tw-flex tw-items-center tw-justify-between tw-col-span-9">
-                  <h3
-                    className={`tw-text-secondary
+            >
+              {isLoading || isFetching ? (
+                <>
+                  <Cargando />
+                  <PlaceHolder />
+                </>
+              ) : (
+                <>
+                  <div className="tw-flex tw-items-center tw-justify-between tw-col-span-9">
+                    <h3
+                      className={`tw-text-secondary
                  tw-font-semibold tw-text-lg tw-flex tw-items-center`}
-                  >
-                    Resultados ({hoteles?.length})
-                  </h3>
-                  <div className="tw-flex tw-gap-2">
-                    <button
-                      className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
-                        neto !== true
-                          ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
-                          : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
-                      }`}
-                      onClick={() => setNeto(!neto)}
                     >
-                      <FaEye />
-                    </button>
-                    <button
-                      className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
-                        viewMode === "list"
-                          ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
-                          : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
-                      }`}
-                      onClick={() => setViewMode("list")}
-                    >
-                      <FaList /> Lista
-                    </button>
-                    <button
-                      className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
-                        viewMode === "map"
-                          ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
-                          : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
-                      }`}
-                      onClick={() => setViewMode("map")}
-                    >
-                      <FaMapMarkedAlt /> Mapa
-                    </button>
+                      Resultados ({hoteles?.length})
+                    </h3>
+                    <div className="tw-flex tw-gap-2">
+                      <button
+                        className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
+                          neto !== true
+                            ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                            : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
+                        }`}
+                        onClick={() => setNeto(!neto)}
+                      >
+                        <FaEye />
+                      </button>
+                      <button
+                        className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
+                          viewMode === "list"
+                            ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                            : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
+                        }`}
+                        onClick={() => setViewMode("list")}
+                      >
+                        <FaList /> Lista
+                      </button>
+                      <button
+                        className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
+                          viewMode === "map"
+                            ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                            : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
+                        }`}
+                        onClick={() => setViewMode("map")}
+                      >
+                        <FaMapMarkedAlt /> Mapa
+                      </button>
+                    </div>
                   </div>
-                </div>
-                {viewMode === "list" ? (
-                  <>
-                    <div className="tw-flex tw-justify-start">
-                      <Paginacion
-                        totalPages={paginasTotales}
-                        page={page}
-                        setPage={setPage}
-                      />
+                  {viewMode === "list" ? (
+                    <div>
+                      {hotelesAMostrar && (
+                        <>
+                          <div className="tw-flex tw-justify-start">
+                            <Paginacion
+                              totalPages={paginasTotales}
+                              page={page}
+                              setPage={setPage}
+                            />
+                          </div>
+                          <Hoteles
+                            reserva={reserva}
+                            neto={neto}
+                            hoteles={hotelesAMostrar}
+                            page={page}
+                            setPage={setPage}
+                          />
+                          <div className="tw-flex tw-justify-end tw-mt-4">
+                            <PaginacionFooter
+                              totalPages={paginasTotales}
+                              page={page}
+                              setPage={setPage}
+                            />
+                          </div>
+                        </>
+                      )}
                     </div>
-                    <Hoteles
-                      neto={neto}
-                      hoteles={hotelesAMostrar}
-                      page={page}
-                      setPage={setPage}
-                    />
-                    <div className="tw-flex tw-justify-end tw-mt-4">
-                      <PaginacionFooter
-                        totalPages={paginasTotales}
-                        page={page}
-                        setPage={setPage}
+                  ) : (
+                    <>
+                      <MapaHoteles
+                        setHoteles={setHoteles}
+                        hotelesSinFiltrar={data}
+                        neto={neto}
+                        hoteles={hoteles}
+                        values={values}
+                        setValues={setValues}
+                        minMax={minMax}
+                        setMinMax={setMinMax}
                       />
-                    </div>
-                  </>
-                ) : (
-                  <>
-                    <MapaHoteles
-                      setHoteles={setHoteles}
-                      hotelesSinFiltrar={data}
-                      hoteles={hoteles}
-                      values={values}
-                      setValues={setValues}
-                      minMax={minMax}
-                      setMinMax={setMinMax}
-                    />
-                  </>
-                )}
-              </>
-            )}
-          </section>
+                    </>
+                  )}
+                </>
+              )}
+            </section>
+          )}
         </>
       }
     />

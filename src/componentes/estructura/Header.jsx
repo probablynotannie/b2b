@@ -199,7 +199,10 @@ function Header() {
           element={<Detalles_Reserva_VueloMasHotel />}
         />
         {/* LISTADOS */}
-        <Route path="/listadoHoteles" element={<ListadoHoteles />} />
+        <Route
+          path="/listadoHoteles/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<ListadoHoteles />}
+        />
         <Route path="/listadoTrenes" element={<ListadoTrenes />} />
         <Route path="/listadoCoches" element={<ListadoCoches />} />
         <Route path="/listadoTransfers" element={<ListadoTransfers />} />

@@ -11,6 +11,8 @@ function Aside({
   setHoteles,
   setPage,
   hoteles,
+  isLoading,
+  isFetching,
 }) {
   const [regimenesUnicos, setRegimenesUnicos] = useState([]);
   const [estrellas, setEstrellas] = useState(0);
@@ -56,6 +58,8 @@ function Aside({
     <AsideListado
       contenido={
         <Filtrado
+          isLoading={isLoading}
+          isFetching={isFetching}
           reembolsable={reembolsable}
           setReembolsable={setReembolsable}
           values={values}

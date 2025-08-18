@@ -18,7 +18,7 @@ import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetter
 import FormatearFecha from "../../../../scripts/FormatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
 
-function Resultado({ hoteles, neto }) {
+function Resultado({ hoteles, neto, reserva }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
   useEffect(() => {
@@ -35,7 +35,6 @@ function Resultado({ hoteles, neto }) {
     if (!hotel?.ListaPrecios) return [];
 
     const groupedByBoard = {};
-
     hotel.ListaPrecios.forEach((item) => {
       if (item.NumRoom !== 0) return;
       const boardKey = item.BoardNameFiltro?.toLowerCase();
@@ -46,7 +45,7 @@ function Resultado({ hoteles, neto }) {
         !groupedByBoard[boardKey] ||
         totalPrice < parseFloat(groupedByBoard[boardKey].baseRoom.Price)
       ) {
-        const reserva = {
+        const info = {
           habitaciones: relatedRooms.length,
           pax: relatedRooms.reduce(
             (total, room) => total + Number(room.NumAdults ?? 0),
@@ -56,14 +55,13 @@ function Resultado({ hoteles, neto }) {
             (total, room) => total + Number(room.NumChilds ?? 0),
             0
           ),
-          noches: 7,
-          fecha: "10/12/2025",
-          fechaSalida: "19/12/2025",
+          noches: reserva.noc,
+          fechaSalida: reserva.fecini,
         };
         groupedByBoard[boardKey] = {
           baseRoom: item,
           relatedRooms,
-          reserva,
+          info,
         };
       }
     });
@@ -74,7 +72,7 @@ function Resultado({ hoteles, neto }) {
       {hoteles.map((hotel, index) => {
         const estrella = hotel.CategoryCode.split("*").length - 1;
         const habitacion = habitacionMasBarata(hotel);
-        const reserva = habitacion[0].reserva;
+        const info = habitacion[0].info;
         const preciosAgrupados = hotel.ListaPrecios.reduce((acc, item) => {
           if (item.NumRoom !== 0) return acc;
           const boardKey = item.BoardNameFiltro?.toLowerCase();
@@ -159,11 +157,10 @@ function Resultado({ hoteles, neto }) {
                       {habitacion[0].baseRoom.BoardName}
                     </span>
                     <span className="tw-flex tw-items-center">
-                      <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
+                      <FaPerson className="tw-text-lg" /> {info.pax} adulto
                     </span>
                     <span className="tw-flex tw-items-center">
-                      <FaChild className="tw-text-lg" /> {reserva.pax_ninios}{" "}
-                      niño
+                      <FaChild className="tw-text-lg" /> {info.pax_ninios} niño
                     </span>
                     <span className="tw-flex tw-items-center">
                       <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
@@ -171,7 +168,7 @@ function Resultado({ hoteles, neto }) {
                     </span>
                     <span className="tw-flex tw-items-center">
                       <MdModeNight className="tw-text-lg" />
-                      {reserva.noches} noches
+                      {info.noches} noches
                     </span>
                   </div>
                 </div>
@@ -201,9 +198,9 @@ function Resultado({ hoteles, neto }) {
                     onClose={() => setOpenModal(null)}
                     titulo={hotel.NombreHotel}
                     subTitulo={
-                      FormatearFecha(reserva.fecha) +
+                      FormatearFecha(info.fecha) +
                       " - " +
-                      FormatearFecha(reserva.fechaSalida)
+                      FormatearFecha(info.fechaSalida)
                     }
                     body={
                       <div className="tw-space-y-6">
@@ -261,7 +258,6 @@ function Resultado({ hoteles, neto }) {
                         <div className="tw-flex tw-flex-col">
                           <span className="tw-font-semibold dark:tw-text-white">
                             <span className="tw-text-slate-400">
-                              {" "}
                               {neto === true && "neto "} desde{" "}
                             </span>
                             {neto === true ? precio.Pvp : precio.Price}
