@@ -16,7 +16,6 @@ import { useParams } from "react-router-dom";
 import Error from "./filtros/Error";
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
-
   const reserva = {
     codearea: codearea ? Number(codearea) : null,
     codcity: codcity ? Number(codcity) : null,

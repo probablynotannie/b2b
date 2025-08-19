@@ -39,7 +39,9 @@ function Resultado({ hoteles, neto, reserva }) {
       if (item.NumRoom !== 0) return;
       const boardKey = item.BoardNameFiltro?.toLowerCase();
       if (!boardKey) return;
-      const relatedRooms = hotel.ListaPrecios.filter((r) => r.id === item.id);
+      const relatedRooms = hotel.ListaPrecios.filter(
+        (r) => r.Code === item.Code
+      );
       const totalPrice = parseFloat(item.Price);
       if (
         !groupedByBoard[boardKey] ||
@@ -79,7 +81,7 @@ function Resultado({ hoteles, neto, reserva }) {
           if (!boardKey) return acc;
 
           const relatedRooms = hotel.ListaPrecios.filter(
-            (r) => r.id === item.id
+            (r) => r.Code === item.Code
           );
           const combinedName = relatedRooms.map((r) => r.Name).join(" + ");
           const price = parseFloat(item.Price);
@@ -108,7 +110,7 @@ function Resultado({ hoteles, neto, reserva }) {
         return (
           <>
             <article
-              key={hotel.idHotel}
+              key={index}
               className="tw-gap-2 md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
             >
               <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
@@ -173,6 +175,7 @@ function Resultado({ hoteles, neto, reserva }) {
                     </span>
                   </div>
                 </div>
+
                 <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
                   {hotel.ShortDesc ? hotel.ShortDesc : "Sin Descripción"}
                 </p>

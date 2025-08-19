@@ -1,12 +1,14 @@
-export default function groupAndMergeById(listaPrecios) {
+export default function groupAndMergeByCode(listaPrecios) {
     if (!Array.isArray(listaPrecios)) return [];
+
     const grouped = Object.values(
         listaPrecios.reduce((acc, item) => {
-            if (item.id === undefined || item.id === null) return acc;
+            if (!item.Code) return acc;
             const numAdults = Number(item.NumAdults) || 0;
             const numChilds = Number(item.NumChilds) || 0;
-            if (!acc[item.id]) {
-                acc[item.id] = {
+
+            if (!acc[item.Code]) {
+                acc[item.Code] = {
                     ...item,
                     relatedRooms: [item],
                     combinedName: item.Name,
@@ -14,15 +16,19 @@ export default function groupAndMergeById(listaPrecios) {
                     niniosTotal: numChilds,
                 };
             } else {
-                acc[item.id].relatedRooms.push(item);
-                acc[item.id].combinedName = acc[item.id].relatedRooms.map(r => r.Name).join(" + ");
-                acc[item.id].adultosTotal += numAdults;
-                acc[item.id].niniosTotal += numChilds;
-                if (parseFloat(item.Price) < parseFloat(acc[item.id].Price)) {
-                    acc[item.id].NoReembolsable = item.NoReembolsable;
-                    acc[item.id].BoardName = item.BoardName;
+                acc[item.Code].relatedRooms.push(item);
+                acc[item.Code].combinedName = acc[item.Code].relatedRooms
+                    .map((r) => r.Name)
+                    .join(" + ");
+                acc[item.Code].adultosTotal += numAdults;
+                acc[item.Code].niniosTotal += numChilds;
+                if (parseFloat(item.Price) < parseFloat(acc[item.Code].Price)) {
+                    acc[item.Code].NoReembolsable = item.NoReembolsable;
+                    acc[item.Code].BoardName = item.BoardName;
+                    acc[item.Code].Price = item.Price;
                 }
             }
+
             return acc;
         }, {})
     );

@@ -25,6 +25,7 @@ function Filtrado({
 }) {
   useEffect(() => {
     if (isLoading || isFetching) return;
+
     const grouped = hoteles.reduce((acc, hotel) => {
       const id = hotel.CommonId;
       if (!id) return acc;
@@ -35,19 +36,20 @@ function Filtrado({
       return acc;
     }, {});
 
-    const duplicates = Object.values(grouped).filter(
-      (group) => group.length > 1
-    );
+    const mergedHotels = Object.values(grouped).map((group) => {
+      if (group.length === 1) return group[0];
 
-    if (duplicates.length > 0) {
-      console.log("Duplicados:", duplicates);
-    }
+      return {
+        ...group[0],
+        ListFotos: group.flatMap((h) => h.ListFotos ?? []),
+        ListaPrecios: group.flatMap((h) => h.ListaPrecios ?? []),
+      };
+    });
 
-    const filtered = hoteles
+    const filtered = mergedHotels
       .map((hotel) => {
         const starCount = starsFromCategory(hotel.CategoryCode);
 
-        // filter prices by ALL criteria
         const filteredPrecios =
           hotel.ListaPrecios?.filter((item) => {
             const price = parseFloat(item.Price);
@@ -81,7 +83,6 @@ function Filtrado({
             );
           }) ?? [];
 
-        // only keep hotels that have at least one matching price
         if (filteredPrecios.length > 0) {
           return {
             ...hotel,
@@ -95,7 +96,18 @@ function Filtrado({
 
     setHoteles(filtered);
     setPage(1);
-  }, [values, estrellas, reembolsable, selectedRegimenes, hotelName, hoteles]);
+  }, [
+    values,
+    estrellas,
+    reembolsable,
+    selectedRegimenes,
+    hotelName,
+    hoteles,
+    isFetching,
+    isLoading,
+    setHoteles,
+    setPage,
+  ]);
 
   const starsFromCategory = (categoryCode) =>
     typeof categoryCode === "string" ? categoryCode.split("*").length - 1 : 0;

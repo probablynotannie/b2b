@@ -24,7 +24,7 @@ function Listado({
         {habitaciones.map((habitacion) => (
           <div
             className="tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-border dark:tw-border-slate-800 tw-bg-slate-100 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-200 tw-group tw-smooth tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10"
-            key={habitacion.id}
+            key={habitacion.Code}
           >
             <FaBed className="tw-text-4xl dark:tw-text-white tw-text-secondary" />
             <h3 className="tw-text-center tw-font-semibold dark:tw-text-white">
@@ -48,7 +48,7 @@ function Listado({
             {habitacion.NoReembolsable === true ||
               (habitacion.NoReembolsable === 1 && (
                 <div
-                  className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold"
+                  className="tw-text-sm tw-text-danger_text tw-mt-2 tw-font-semibold tw-text-center"
                   dangerouslySetInnerHTML={{
                     __html: habitacion.Cancelation,
                   }}
@@ -56,7 +56,7 @@ function Listado({
               ))}
             {seleccion === "seleccionar" ? (
               <button
-                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2  tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
+                className="tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-btn_accesorios tw-btn_primario tw-font-semibold tw-border-2 tw-border-white tw-p-3 tw-px-7 tw-rounded-lg tw-transition group-hover:shadow-xl"
                 onClick={() => {
                   tab && setActiveTab("actividades");
                   setHotel({ ...hotel, precio: habitacion.precio });

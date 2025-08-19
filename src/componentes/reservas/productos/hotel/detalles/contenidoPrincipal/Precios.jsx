@@ -32,7 +32,7 @@ function Precios({
       setMinMax([minPrice, maxPrice]);
       setValues([minPrice, maxPrice]);
     }
-  }, [neto]);
+  }, [neto, setMinMax, setValues, producto]);
   const [selectedRegimenes, setRegimenes] = useState([]);
   const [regimenesUnicos, setRegimenesUnicos] = useState([]);
   const [reembolsable, setReembolsable] = useState(false);
@@ -47,7 +47,7 @@ function Precios({
 
     const regimenesArray = Array.from(regimenesSet);
     setRegimenesUnicos(regimenesArray);
-  }, []);
+  }, [producto]);
   useEffect(() => {
     if (!habitaciones || habitaciones.length === 0) return;
 
@@ -62,16 +62,15 @@ function Precios({
         selectedRegimenes.length === 0 || selectedRegimenes.includes(board);
 
       const matchesReembolsable =
-        reembolsable === false || reembolsable === 0
-          ? true
-          : habitacion?.NoReembolsable === true ||
-            habitacion?.NoReembolsable === 1;
+        !reembolsable ||
+        habitacion.NoReembolsable === "0" ||
+        habitacion.NoReembolsable === false;
 
       return matchesPrice && matchesRegimen && matchesReembolsable;
     });
-
+    console.log(producto);
     setPrecios(filtered);
-  }, [habitaciones, selectedRegimenes, values, reembolsable]);
+  }, [habitaciones, selectedRegimenes, values, reembolsable, producto]);
 
   const [precios, setPrecios] = useState([]);
   return (
