@@ -105,11 +105,10 @@ function Resultado({ hoteles, neto, reserva }) {
             ? hotel.ListFotos
             : ["/placeholder/hoteles.jpg"];
         const fechaSaslida = calcularFechaSalida(reserva.fecini, reserva.noc);
-        console.log(hotel.ListaPrecios.length);
         return (
           <>
             <article
-              key={index}
+              key={hotel.idHotel}
               className="tw-gap-2 md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
             >
               <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">

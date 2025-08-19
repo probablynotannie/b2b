@@ -32,10 +32,10 @@ function Productos() {
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ["hoteles", reserva],
     queryFn: getHoteles,
-    enabled: !isReservaIncomplete, // <-- important
-
+    enabled: !isReservaIncomplete,
     keepPreviousData: true,
   });
+
   const [viewMode, setViewMode] = useState("list");
   const [hoteles, setHoteles] = useState(data);
   const [page, setPage] = useState(1);

@@ -25,6 +25,23 @@ function Filtrado({
 }) {
   useEffect(() => {
     if (isLoading || isFetching) return;
+    const grouped = hoteles.reduce((acc, hotel) => {
+      const id = hotel.CommonId;
+      if (!id) return acc;
+
+      if (!acc[id]) acc[id] = [];
+      acc[id].push(hotel);
+
+      return acc;
+    }, {});
+
+    const duplicates = Object.values(grouped).filter(
+      (group) => group.length > 1
+    );
+
+    if (duplicates.length > 0) {
+      console.log("Duplicados:", duplicates);
+    }
 
     const filtered = hoteles
       .map((hotel) => {
@@ -74,7 +91,7 @@ function Filtrado({
 
         return null;
       })
-      .filter(Boolean); // remove nulls
+      .filter(Boolean);
 
     setHoteles(filtered);
     setPage(1);
