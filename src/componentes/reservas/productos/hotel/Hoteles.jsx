@@ -17,7 +17,7 @@ import Estrellas from "../../../../helpers/visuales/Estrellas";
 import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
 import FormatearFecha from "../../../../scripts/FormatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
-
+import calcularFechaSalida from "../../../../scripts/fechaSalidaConInicioYNoches";
 function Resultado({ hoteles, neto, reserva }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
@@ -104,6 +104,8 @@ function Resultado({ hoteles, neto, reserva }) {
             : hotel.ListFotos?.length > 0
             ? hotel.ListFotos
             : ["/placeholder/hoteles.jpg"];
+        const fechaSaslida = calcularFechaSalida(reserva.fecini, reserva.noc);
+        console.log(hotel.ListaPrecios.length);
         return (
           <>
             <article
@@ -172,7 +174,6 @@ function Resultado({ hoteles, neto, reserva }) {
                     </span>
                   </div>
                 </div>
-
                 <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
                   {hotel.ShortDesc ? hotel.ShortDesc : "Sin Descripción"}
                 </p>
@@ -198,9 +199,9 @@ function Resultado({ hoteles, neto, reserva }) {
                     onClose={() => setOpenModal(null)}
                     titulo={hotel.NombreHotel}
                     subTitulo={
-                      FormatearFecha(info.fecha) +
+                      FormatearFecha(reserva.fecini) +
                       " - " +
-                      FormatearFecha(info.fechaSalida)
+                      FormatearFecha(fechaSaslida)
                     }
                     body={
                       <div className="tw-space-y-6">

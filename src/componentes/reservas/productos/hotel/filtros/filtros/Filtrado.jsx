@@ -26,32 +26,55 @@ function Filtrado({
   useEffect(() => {
     if (isLoading || isFetching) return;
 
-    const filtered = hoteles.filter((hotel) => {
-      const starCount = starsFromCategory(hotel.CategoryCode);
-      const matchesEstrellas = estrellas === 0 || starCount === estrellas;
-      const matchesName =
-        hotelName.trim() === "" ||
-        hotel.NombreHotel?.toLowerCase().includes(hotelName.toLowerCase());
+    const filtered = hoteles
+      .map((hotel) => {
+        const starCount = starsFromCategory(hotel.CategoryCode);
 
-      const matchesListaPrecios = hotel.ListaPrecios?.some((item) => {
-        const price = parseFloat(item.Price);
-        const matchesPrice =
-          !isNaN(price) && price >= values[0] && price <= values[1];
+        // filter prices by ALL criteria
+        const filteredPrecios =
+          hotel.ListaPrecios?.filter((item) => {
+            const price = parseFloat(item.Price);
 
-        const matchesReembolsable =
-          !reembolsable ||
-          item.NoReembolsable === "0" ||
-          item.NoReembolsable === false;
+            const matchesPrice =
+              !isNaN(price) && price >= values[0] && price <= values[1];
 
-        const matchesRegimen =
-          selectedRegimenes.length === 0 ||
-          selectedRegimenes.includes(item.BoardNameFiltro?.toLowerCase());
+            const matchesReembolsable =
+              !reembolsable ||
+              item.NoReembolsable === "0" ||
+              item.NoReembolsable === false;
 
-        return matchesPrice && matchesReembolsable && matchesRegimen;
-      });
+            const matchesRegimen =
+              selectedRegimenes.length === 0 ||
+              selectedRegimenes.includes(item.BoardNameFiltro?.toLowerCase());
 
-      return matchesEstrellas && matchesListaPrecios && matchesName;
-    });
+            const matchesEstrellas = estrellas === 0 || starCount === estrellas;
+
+            const matchesName =
+              hotelName.trim() === "" ||
+              hotel.NombreHotel?.toLowerCase().includes(
+                hotelName.toLowerCase()
+              );
+
+            return (
+              matchesPrice &&
+              matchesReembolsable &&
+              matchesRegimen &&
+              matchesEstrellas &&
+              matchesName
+            );
+          }) ?? [];
+
+        // only keep hotels that have at least one matching price
+        if (filteredPrecios.length > 0) {
+          return {
+            ...hotel,
+            ListaPrecios: filteredPrecios,
+          };
+        }
+
+        return null;
+      })
+      .filter(Boolean); // remove nulls
 
     setHoteles(filtered);
     setPage(1);
