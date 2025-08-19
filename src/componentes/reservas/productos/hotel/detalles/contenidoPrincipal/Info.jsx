@@ -1,34 +1,31 @@
-import { FaCalendarAlt, FaMoon } from "react-icons/fa";
+import { FaCalendarAlt, FaMoon, FaWallet } from "react-icons/fa";
 import DatoTituloIcono from "../../../../../../helpers/visuales/DatoTituloIcono";
 import { FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
 import formatearFecha from "../../../../../../scripts/FormatearFecha";
 import calcularFechaSalida from "../../../../../../scripts/fechaSalidaConInicioYNoches";
 import React from "react";
-function Info({ hotel, aside }) {
+function Info({ hotel, aside, habitacion }) {
   const fechaSalida = calcularFechaSalida(
     hotel.reserva.fecini,
     hotel.reserva.noc
   );
+  console.log(habitacion);
   return (
     <section
       className={`tw-grid ${
         !aside && "lg:tw-grid-cols-2 xl:tw-grid-cols-3"
-      } tw-flex-wrap tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-900 tw-p-5 tw-rounded-lg`}
+      } tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-900 tw-p-5 tw-rounded-lg`}
     >
       <DatoTituloIcono
         icon={<FaCalendarAlt className="tw-text-blue-500" />}
         title={"Fecha Entrada"}
-        value={
-          <span>
-            {formatearFecha(hotel.reserva.fecini)} ({hotel.reserva.noc} noches)
-          </span>
-        }
+        value={formatearFecha(hotel.reserva.fecini)}
       />
       <DatoTituloIcono
         icon={<FaCalendarAlt className="tw-text-green-500" />}
         title={"Fecha Salida"}
-        value={<span>{formatearFecha(fechaSalida)}</span>}
+        value={formatearFecha(fechaSalida)}
       />
       <DatoTituloIcono
         icon={<FaMoon className="tw-text-red-500" />}
@@ -43,8 +40,44 @@ function Info({ hotel, aside }) {
             <span className="tw-font-semibold tw-text-secondary dark:tw-text-secondaryDark ">
               {hotel.NombreHotel}
             </span>
-            , {hotel.City}, {hotel.Dir}
+            <span className="tw-block">
+              {hotel.City}, {hotel.Dir}
+            </span>
           </React.Fragment>
+        }
+      />
+      <DatoTituloIcono
+        icon={<FaWallet className="tw-text-yellow-400" />}
+        title={"Reembolsable"}
+        value={
+          <>
+            {habitacion?.NoReembolsable === true ||
+            habitacion?.NoReembolsable === 1 ? (
+              <div>
+                <span className="tw-bg-red-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
+                  No reembolsable
+                </span>
+                <div
+                  className="tw-text-sm"
+                  dangerouslySetInnerHTML={{
+                    __html: habitacion?.Cancelation,
+                  }}
+                />
+              </div>
+            ) : (
+              <div>
+                <span className="tw-bg-green-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
+                  Reembolsable
+                </span>
+                <div
+                  className="tw-text-s"
+                  dangerouslySetInnerHTML={{
+                    __html: habitacion?.Cancelation,
+                  }}
+                />
+              </div>
+            )}
+          </>
         }
       />
 

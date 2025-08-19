@@ -38,7 +38,7 @@ function Listado({
             {habitacion.NoReembolsable === true ||
             habitacion.NoReembolsable === 1 ? (
               <span className="tw-bg-danger tw-text-white tw-text-xs tw-font-medium tw-me-2 tw-px-2.5 tw-py-0.5 tw-rounded tw-mt-1">
-                No reembolsablee
+                No reembolsable
               </span>
             ) : (
               <span className="tw-bg-green-700 tw-text-white tw-text-xs tw-font-medium tw-me-2 tw-px-2.5 tw-py-0.5 tw-rounded tw-mt-1">

@@ -4,7 +4,7 @@ import "swiper/css/navigation";
 import "swiper/css/pagination";
 import { Swiper, SwiperSlide } from "swiper/react";
 import { useRef } from "react";
-function Gallery({ imagenes, texto }) {
+function Gallery({ imagenes }) {
   const swiperRef = useRef(null);
   return (
     <Swiper
@@ -24,12 +24,12 @@ function Gallery({ imagenes, texto }) {
       {imagenes.map((imagen, index) => (
         <SwiperSlide key={index}>
           <div
-            className="tw-relative tw-rounded-lg tw-overflow-hidden hover:tw-scale-[103%] tw-transition tw-duration-400  lg:tw-h-[18vh] xl:tw-h-[38vh] tw-h-[30vh] tw-cursor-pointer tw-group"
+            className="tw-relative tw-rounded-lg tw-overflow-hidden hover:tw-scale-[103%] tw-transition tw-duration-400 tw-h-[40vh]  tw-cursor-pointer tw-group"
             onMouseEnter={() => swiperRef.current?.autoplay.stop()}
             onMouseLeave={() => swiperRef.current?.autoplay.start()}
           >
             <img
-              className="tw-h-full tw-w-full"
+              className="tw-h-full tw-w-full tw-object-cover"
               src={imagen ? imagen : "/default-image.jpg"}
               alt="Imagen"
             />

@@ -25,7 +25,6 @@ function Precios({
       const price = parseFloat(neto === true ? item.Pvp : item.Price);
       if (!isNaN(price)) allPrices.push(price);
     });
-
     if (allPrices.length > 0) {
       const minPrice = Math.min(...allPrices);
       const maxPrice = Math.max(...allPrices);

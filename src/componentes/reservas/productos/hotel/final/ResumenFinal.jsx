@@ -20,11 +20,10 @@ function ResumenFinal() {
       main={<Hotel hotel={producto} habitacion={habitacion} />}
       datosContacto={data}
       titulo={
-        producto.NombreHotel +
-        "(" +
-        habitacion.combinedName +
-        ") - " +
-        habitacion.BoardName
+        <span>
+          {producto.NombreHotel} ( {habitacion.combinedName} ) -{" "}
+          {habitacion.BoardName}
+        </span>
       }
       descripcionTitulo={
         <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">
