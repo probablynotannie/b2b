@@ -10,7 +10,6 @@ function Info({ hotel, aside, habitacion }) {
     hotel.reserva.fecini,
     hotel.reserva.noc
   );
-  console.log(habitacion);
   return (
     <section
       className={`tw-grid ${

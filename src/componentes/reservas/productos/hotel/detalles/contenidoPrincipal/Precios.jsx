@@ -67,7 +67,6 @@ function Precios({
 
       return matchesPrice && matchesRegimen && matchesReembolsable;
     });
-    console.log(producto);
     setPrecios(filtered);
   }, [habitaciones, selectedRegimenes, values, reembolsable, producto]);
 

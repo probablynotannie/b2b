@@ -2,7 +2,6 @@ import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 import { Link } from "react-router-dom";
 import InfoHotel from "../../detalles/contenidoPrincipal/Info";
 function Aside({ producto, habitacion, data }) {
-  console.log(habitacion)
   return (
     <div className="tw-flex tw-flex-col tw-gap-4">
       <Reserva img={producto.ListFotos[0]} txt={producto.NombreHotel} />
