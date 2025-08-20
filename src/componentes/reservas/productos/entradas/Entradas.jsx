@@ -6,14 +6,14 @@ function Resultado({ entradas }) {
         <Link
           to={"/entrada"}
           state={actividad}
-          className="tw-border-2 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer"
+          className="tw-overflow-hidden tw-border-2 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer"
           key={index}
         >
           <span
-            className={`tw-absolute tw-rotate-45 tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-top-5 tw-right-5 tw-z-10 tw-shadow-lg ${
+            className={`tw-absolute tw-top-5 -tw-right-10 tw-rotate-45 tw-w-[170px] tw-text-center tw-bg-blue-500 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold tw-text-sm tw-z-10 tw-shadow-lg ${
               actividad.tipoPrecio === "Neto"
-                ? "tw-bg-green-300 tw-text-green-800"
-                : "tw-bg-red-500 tw-text-red-200"
+                ? "tw-bg-green-300/70 tw-text-green-800"
+                : "tw-bg-red-500/70 tw-text-red-200"
             }`}
           >
             {actividad.tipoPrecio}

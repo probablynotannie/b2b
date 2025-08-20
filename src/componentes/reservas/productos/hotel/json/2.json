@@ -1,0 +1,46 @@
+{
+  "results": [
+    {
+      "country": "ESPA\u00d1A",
+      "region": "BURGOS",
+      "city": "MADRIGALEJO MONTE",
+      "codcity": "1080",
+      "codarea": "888"
+    },
+    {
+      "country": "ESPA\u00d1A",
+      "region": "CACERES",
+      "city": "MADRO\u00d1ERAS",
+      "codcity": "1159",
+      "codarea": "13235"
+    },
+    {
+      "country": "ESPA\u00d1A",
+      "region": "GIRONA",
+      "city": "MADREMANYA",
+      "codcity": "1288",
+      "codarea": "785"
+    },
+    {
+      "country": "ESPA\u00d1A",
+      "region": "MADRID",
+      "city": "MADRID AIRPORT",
+      "codcity": "222",
+      "codarea": "251"
+    },
+    {
+      "country": "ESPA\u00d1A",
+      "region": "MADRID",
+      "city": "MADRID",
+      "codcity": "199",
+      "codarea": "251"
+    },
+    {
+      "country": "ESPA\u00d1A",
+      "region": "",
+      "city": "MADRID",
+      "codcity": 0,
+      "codarea": "251"
+    }
+  ]
+}

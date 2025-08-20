@@ -45,41 +45,42 @@ function Info({ hotel, aside, habitacion }) {
           </React.Fragment>
         }
       />
-      <DatoTituloIcono
-        icon={<FaWallet className="tw-text-yellow-400" />}
-        title={"Reembolsable"}
-        value={
-          <>
-            {habitacion?.NoReembolsable === true ||
-            habitacion?.NoReembolsable === 1 ? (
-              <div>
-                <span className="tw-bg-red-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
-                  No reembolsable
-                </span>
-                <div
-                  className="tw-text-sm"
-                  dangerouslySetInnerHTML={{
-                    __html: habitacion?.Cancelation,
-                  }}
-                />
-              </div>
-            ) : (
-              <div>
-                <span className="tw-bg-green-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
-                  Reembolsable
-                </span>
-                <div
-                  className="tw-text-s"
-                  dangerouslySetInnerHTML={{
-                    __html: habitacion?.Cancelation,
-                  }}
-                />
-              </div>
-            )}
-          </>
-        }
-      />
-
+      {habitacion && (
+        <DatoTituloIcono
+          icon={<FaWallet className="tw-text-yellow-400" />}
+          title={"Reembolsable"}
+          value={
+            <>
+              {habitacion?.NoReembolsable === true ||
+              habitacion?.NoReembolsable === 1 ? (
+                <div>
+                  <span className="tw-bg-red-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
+                    No reembolsable
+                  </span>
+                  <div
+                    className="tw-text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html: habitacion?.Cancelation,
+                    }}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <span className="tw-bg-green-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
+                    Reembolsable
+                  </span>
+                  <div
+                    className="tw-text-s"
+                    dangerouslySetInnerHTML={{
+                      __html: habitacion?.Cancelation,
+                    }}
+                  />
+                </div>
+              )}
+            </>
+          }
+        />
+      )}
       {hotel.ZipCode && (
         <DatoTituloIcono
           icon={<FaGlobe className="tw-text-green-500" />}

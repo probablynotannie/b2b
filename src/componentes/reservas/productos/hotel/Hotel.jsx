@@ -51,7 +51,6 @@ function Producto() {
     });
   };
   const { neto, setNeto } = useNetoStore();
-
   return (
     <>
       <PaginaDetalles
