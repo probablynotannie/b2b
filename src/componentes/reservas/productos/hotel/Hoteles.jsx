@@ -240,36 +240,50 @@ function Resultado({ hoteles, neto, reserva }) {
               </div>
             </article>
             {expandedHotel === index && (
-              <div className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
-                {preciosOrdenados.map((precio, idx) => (
-                  <div
-                    key={idx}
-                    className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
-                  >
-                    <div>
-                      <p className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1">
-                        <span>{precio.combinedName}</span>
-                      </p>
-                      <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
-                        {capitalizeFirstLetterOnly(precio.BoardName)}
-                        {precio.NoReembolsable === true ||
-                          (precio.NoReembolsable === 1 && (
-                            <span className="tw-block tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
-                              (No reembolsable)
-                            </span>
-                          ))}
-                        <div className="tw-flex tw-flex-col">
-                          <span className="tw-font-semibold dark:tw-text-white">
+              <section
+                aria-labelledby="prices-heading"
+                className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6"
+              >
+                <h2 id="prices-heading" className="sr-only">
+                  Opciones de precios
+                </h2>
+                <ul className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
+                  {preciosOrdenados.map((precio, idx) => (
+                    <li
+                      key={idx}
+                      className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
+                    >
+                      <article aria-labelledby={`price-title-${idx}`}>
+                        <h3
+                          id={`price-title-${idx}`}
+                          className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1"
+                        >
+                          {precio.combinedName}
+                        </h3>
+
+                        <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
+                          {capitalizeFirstLetterOnly(precio.BoardName)}
+                        </p>
+
+                        {(precio.NoReembolsable === true ||
+                          precio.NoReembolsable === 1) && (
+                          <p className="tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
+                            No reembolsable
+                          </p>
+                        )}
+                        <div>
+                          <p className="tw-font-semibold dark:tw-text-white">
                             <span className="tw-text-slate-400">
                               {neto === true && "neto "} desde{" "}
                             </span>
                             {neto === true ? precio.Pvp : precio.Price}
                             {precio.Currency === "EUR" ? "€" : precio.Currency}
-                          </span>
+                          </p>
+
                           {neto === true && (
-                            <span className="tw-font-semibold dark:tw-text-white">
+                            <p className="tw-font-semibold dark:tw-text-white">
                               <span className="tw-text-slate-400">
-                                agencia:
+                                agencia:{" "}
                               </span>
                               {precio.Price}
                               {precio.Currency === "EUR"
@@ -282,14 +296,14 @@ function Resultado({ hoteles, neto, reserva }) {
                                 )}
                                 )
                               </span>
-                            </span>
+                            </p>
                           )}
                         </div>
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                      </article>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             )}
           </>
         );

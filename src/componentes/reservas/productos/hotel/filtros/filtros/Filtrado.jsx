@@ -15,6 +15,9 @@ function Filtrado({
   selectedRegimenes,
   setRegimenes,
   regimenesUnicos,
+  selectedCiudades,
+  setSelectedCiudades,
+  ciudadesUnicas,
   hotelName,
   setHotelName,
   setPage,
@@ -25,7 +28,6 @@ function Filtrado({
 }) {
   useEffect(() => {
     if (isLoading || isFetching) return;
-
     const grouped = hoteles.reduce((acc, hotel) => {
       const id = hotel.CommonId;
       if (!id) return acc;
@@ -49,9 +51,15 @@ function Filtrado({
     const filtered = mergedHotels
       .map((hotel) => {
         const starCount = starsFromCategory(hotel.CategoryCode);
+        const matchesCiudad =
+          selectedCiudades.length === 0 ||
+          selectedCiudades
+            .map((c) => c.toLowerCase().trim())
+            .includes(hotel.StateName?.toLowerCase().trim());
 
         const filteredPrecios =
           hotel.ListaPrecios?.filter((item) => {
+            console.log("item", hotel.StateName);
             const price = parseFloat(item.Price);
 
             const matchesPrice =
@@ -78,6 +86,7 @@ function Filtrado({
               matchesPrice &&
               matchesReembolsable &&
               matchesRegimen &&
+              matchesCiudad &&
               matchesEstrellas &&
               matchesName
             );
@@ -97,6 +106,7 @@ function Filtrado({
     setHoteles(filtered);
     setPage(1);
   }, [
+    selectedCiudades,
     values,
     estrellas,
     reembolsable,
@@ -108,7 +118,7 @@ function Filtrado({
     setHoteles,
     setPage,
   ]);
-
+  console.log("cudades", selectedCiudades);
   const starsFromCategory = (categoryCode) =>
     typeof categoryCode === "string" ? categoryCode.split("*").length - 1 : 0;
   return (
@@ -156,7 +166,22 @@ function Filtrado({
           <FaEuroSign />
         </label>
       </div>
-
+      <div className="tw-mt-5">
+        <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
+          Áreas
+        </span>
+        {ciudadesUnicas.length > 0 ? (
+          <Regimenes
+            selected={selectedCiudades}
+            onChange={setSelectedCiudades}
+            datos={ciudadesUnicas}
+          />
+        ) : (
+          <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
+            No hay regímenes disponibles.
+          </p>
+        )}
+      </div>
       <div className="tw-mt-5">
         <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
           Régimen
@@ -165,7 +190,7 @@ function Filtrado({
           <Regimenes
             selected={selectedRegimenes}
             onChange={setRegimenes}
-            regimenes={regimenesUnicos}
+            datos={regimenesUnicos}
           />
         ) : (
           <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
