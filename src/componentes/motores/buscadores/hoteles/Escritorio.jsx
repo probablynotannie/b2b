@@ -18,7 +18,6 @@ function Escritorio({
     <>
       <div className="tw-col-span-3">
         <Input_Buscador
-          /* required={true} */
           control={control}
           name={"origen"}
           setValue={setValue}

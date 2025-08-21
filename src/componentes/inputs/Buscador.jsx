@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaPlane, FaSearch, FaHotel, FaMap } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { Controller } from "react-hook-form";
-
+import capitalizeFirstLetter from "../../scripts/CapitalizeFirstLetterOnly";
 function Buscador({
   destinos,
   control,
@@ -19,18 +19,22 @@ function Buscador({
   const [selectedDestino, setSelectedDestino] = useState(null);
   const [inputText, setInputText] = useState("");
   const searchBoxRef = useRef(null);
-
   const handleInputChange = (event) => {
     const value = event.target.value;
     setInputText(value);
     setSelectedDestino(null);
     setLoading(true);
-
     if (value) {
       setTimeout(() => {
-        const filteredSuggestions = destinos.filter((suggestion) =>
-          suggestion.name.toLowerCase().includes(value.toLowerCase())
-        );
+        const filteredSuggestions = destinos.filter((suggestion) => {
+          const searchValue = value.toLowerCase();
+          return (
+            suggestion.name.toLowerCase().includes(searchValue) ||
+            (suggestion.destino &&
+              suggestion.destino.toLowerCase().includes(searchValue))
+          );
+        });
+
         setSuggestions(filteredSuggestions);
         setIsDropdownOpen(true);
         setLoading(false);
@@ -73,7 +77,7 @@ function Buscador({
         rules={
           required === true ? { required: "Este campo es obligatorio" } : {}
         }
-        render={({ field, fieldState: { error } }) => (
+        render={({ fieldState: { error } }) => (
           <>
             <input
               type="text"
@@ -92,7 +96,7 @@ function Buscador({
         )}
       />
       {isDropdownOpen && (
-        <div className="tw-absolute tw-top-9 tw-z-10 tw-w-full tw-bg-slate-50 dark:tw-bg-slate-800 dark:tw-border-slate-950 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
+        <div className="tw-absolute tw-top-9 tw-z-10 tw-min-w-[250px] scrollbar-hidden tw-bg-slate-50 dark:tw-bg-slate-800 dark:tw-border-slate-950 tw-border-2 tw-shadow-xl tw-mt-2 tw-rounded-lg tw-max-h-60 tw-overflow-auto">
           {loading ? (
             <div className="tw-p-4 tw-flex tw-justify-center tw-items-center tw-text-slate-500">
               Cargando...
@@ -107,20 +111,20 @@ function Buscador({
                 >
                   <span className="tw-flex tw-space-x-2 tw-items-center">
                     <span className="tw-text-secondary tw-text-lg">
-                      {suggestion.type === "Hotel" ? (
+                      {suggestion.type === "hotel" ? (
                         <FaHotel />
-                      ) : suggestion.type === "Vuelo" ? (
+                      ) : suggestion.type === "vuelo" ? (
                         <FaPlane />
                       ) : (
                         <FaMap />
                       )}
                     </span>
                     <span className="dark:tw-text-white">
-                      {suggestion.name}
+                      {capitalizeFirstLetter(suggestion.name)}
                     </span>
                   </span>
-                  <span className="tw-block tw-text-slate-300 tw-pl-6">
-                    {suggestion.destino}
+                  <span className="tw-block tw-text-slate-300 tw-pl-6 tw-text-sm">
+                    {capitalizeFirstLetter(suggestion.destino)}
                   </span>
                 </li>
               ))}

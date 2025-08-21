@@ -5,24 +5,12 @@ import { useForm } from "react-hook-form";
 import Buscador from "../Buscador";
 import Escritorio from "./Escritorio";
 import Movil from "./Movil";
+import hoteles from "../../../inputs/json/hoteles.json";
+import destinos from "../../../inputs/json/destinos.json";
+import normalizeDestinos from "../../../inputs/scripts/normalizedDestinos";
 function Buscador_Cruceros({ listado }) {
   const navigate = useNavigate();
-  const destinos = [
-    { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { id: 2, type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { id: 3, type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    {
-      id: 4,
-      type: "Destino",
-      name: "MADRID - CAPE GIRARDEAU",
-      destino: "Madrid",
-    },
-    { id: 5, type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
-
+  const destinosormalized = normalizeDestinos(hoteles, destinos);
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
@@ -65,7 +53,7 @@ function Buscador_Cruceros({ listado }) {
             <Escritorio
               control={control}
               setValue={setValue}
-              destinos={destinos}
+              destinos={destinosormalized}
               register={register}
               errors={errors}
               habitacion={habitacion}
@@ -80,7 +68,7 @@ function Buscador_Cruceros({ listado }) {
           <Movil
             control={control}
             setValue={setValue}
-            destinos={destinos}
+            destinos={destinosormalized}
             register={register}
             errors={errors}
             habitacion={habitacion}
