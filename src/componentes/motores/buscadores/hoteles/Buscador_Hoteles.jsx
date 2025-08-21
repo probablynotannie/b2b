@@ -5,17 +5,29 @@ import { useForm } from "react-hook-form";
 import Buscador from "../Buscador";
 import Escritorio from "./Escritorio";
 import Movil from "./Movil";
-import hoteles from "../../../inputs/json/hoteles.json";
-import destinos from "../../../inputs/json/destinos.json";
 import normalizeDestinos from "../../../inputs/scripts/normalizedDestinos";
+import getDestinos from "../_hooks/getDestinos";
+import getHoteles from "../_hooks/getHoteles";
+import { useQuery } from "@tanstack/react-query";
 function Buscador_Cruceros({ listado }) {
+  const { data: hotelesParsed, isLoading: isHotelesLoading } = useQuery({
+    queryKey: ["hoteles"],
+    queryFn: getHoteles,
+  });
+  const { data: destinosParsed, isLoading: isDestinosLoading } = useQuery({
+    queryKey: ["destinos"],
+    queryFn: getDestinos,
+    enabled: !!hotelesParsed,
+  });
   const navigate = useNavigate();
-  const destinosormalized = normalizeDestinos(hoteles, destinos);
+  const destinosormalized = normalizeDestinos(
+    !isHotelesLoading && hotelesParsed,
+    !isDestinosLoading && destinosParsed
+  );
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-
   const onSubmit = (data) => {
     const reserva = {
       codearea: 251,
