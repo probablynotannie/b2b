@@ -4,7 +4,7 @@ import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
 import { useEffect } from "react";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Circuitos";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

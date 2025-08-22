@@ -6,7 +6,7 @@ import Aside from "./filtros/Aside";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/transfers";
 import { MdCancel } from "react-icons/md";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 const fetchData = async (newRequestData) => {
   const response = await fetch(
     "https://devxml.vpackage.net/Motores/public/api/Traslados/search/123/1"

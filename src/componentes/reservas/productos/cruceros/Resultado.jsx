@@ -6,7 +6,7 @@ import Cruceros from "./Listado";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PaginaError from "./filtros/Error";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 import Paginacion from "../../../../helpers/visuales/pagination/Paginacion";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import fetchCruceros from "./hook/fetchCruceros";

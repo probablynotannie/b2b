@@ -211,7 +211,10 @@ function Header() {
           element={<ListadoHotelMasFerry />}
         />
         <Route path="/listadoDestinos" element={<ListadoDestinos />} />
-        <Route path="/listadoTickets" element={<ListadoTickets />} />
+        <Route
+          path="/listadoTickets/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<ListadoTickets />}
+        />
         <Route path="/listadoFerris" element={<ListadoFerris />} />
         <Route
           path="/listadoHotelMasActividades"
@@ -222,8 +225,10 @@ function Header() {
           path="/listadoCruceros/:idZona?/:idZonaVal?/:idPuerto?/:idPuertoVal?/:idNav?/:idNavVal?/:fechSal?/:fechSalVal?/:duracion?/:duracionVal?"
           element={<ListadoCruceros />}
         />
-        z
-        <Route path="/listadoEntradas" element={<ListadoEntradas />} />
+        <Route
+          path="/listadoEntradas/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<ListadoEntradas />}
+        />
         <Route path="/listadoVuelos" element={<ListadoVuelos />} />
         <Route
           path="/listadoHotelMasVuelo"

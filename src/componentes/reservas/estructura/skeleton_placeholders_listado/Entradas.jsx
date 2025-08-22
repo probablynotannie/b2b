@@ -1,4 +1,3 @@
-
 function Entradas() {
   return (
     <section className="tw-pb-12 md:tw-mt-5 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4 tw-animate-pulse">

@@ -1,0 +1,1191 @@
+[
+  {
+    "searchId": 109492,
+    "code": 109492,
+    "token": 109492,
+    "name": "Tour en quad por el Teide desde el sur de Tenerife",
+    "desc": "Recorred a cuatro ruedas el Parque Nacional del Teide y visitad uno de los pueblos m\u00e1s altos de Espa\u00f1a en este tour en quad</b> por Tenerife. \u00a1Os divertir\u00e9is!",
+    "shortDesc": "Recorred a cuatro ruedas el Parque Nacional del Teide y visitad uno de los pueblos m\u00e1s altos de Espa\u00f1a en este tour en quad</b> por Tenerife. \u00a1Os divertir\u00e9is!",
+    "type": 109492,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/san-miguel-de-abona/galeria/tour-en-quad-por-el-teide-desde-el-sur-de-tenerife-8.JPEG",
+        "S": "https://f.civitatis.com/espana/san-miguel-de-abona/galeria/thumbs/tour-en-quad-por-el-teide-desde-el-sur-de-tenerife-8.JPEG"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/san-miguel-de-abona/tour-quad-teide",
+    "ListaOpciones": [
+      {
+        "code": 109492,
+        "family": 109492,
+        "name": "Tour en quad por el Teide desde el sur de Tenerife",
+        "desc": "Tour en quad por el Teide desde el sur de Tenerife",
+        "coin": "EUR",
+        "token": 109492,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9zYW4tbWlndWVsLWRlLWFib25hL3RvdXItcXVhZC10ZWlkZQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Recorred a cuatro ruedas el Parque Nacional del Teide y visitad uno de los pueblos m\u00e1s altos de Espa\u00f1a en este tour en quad</b> por Tenerife. \u00a1Os divertir\u00e9is!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "130.00",
+        "priceDeleted": "130.00",
+        "precioPvp": "130.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "109492-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 133071,
+    "code": 133071,
+    "token": 133071,
+    "name": "Excursi\u00f3n a Santa Cruz, La Laguna y Anaga desde el sur de Tenerife",
+    "desc": "Historia, naturaleza y encanto rural protagonizan la excursi\u00f3n a Santa Cruz, La Laguna y Anaga</strong>. Exploraremos el \u00e1rea metropolitana de la isla canaria.",
+    "shortDesc": "Historia, naturaleza y encanto rural protagonizan la excursi\u00f3n a Santa Cruz, La Laguna y Anaga</strong>. Exploraremos el \u00e1rea metropolitana de la isla canaria.",
+    "type": 133071,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/costa-adeje/galeria/centro-historico-la-laguna.jpg",
+        "S": "https://f.civitatis.com/espana/costa-adeje/galeria/thumbs/centro-historico-la-laguna.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/costa-adeje/excursion-santa-cruz-laguna-taganana",
+    "ListaOpciones": [
+      {
+        "code": 133071,
+        "family": 133071,
+        "name": "Excursi\u00f3n a Santa Cruz, La Laguna y Anaga desde el sur de Tenerife",
+        "desc": "Excursi\u00f3n a Santa Cruz, La Laguna y Anaga desde el sur de Tenerife",
+        "coin": "EUR",
+        "token": 133071,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9jb3N0YS1hZGVqZS9leGN1cnNpb24tc2FudGEtY3J1ei1sYWd1bmEtdGFnYW5hbmE/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Historia, naturaleza y encanto rural protagonizan la excursi\u00f3n a Santa Cruz, La Laguna y Anaga</strong>. Exploraremos el \u00e1rea metropolitana de la isla canaria.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "52.00",
+        "priceDeleted": "52.00",
+        "precioPvp": "52.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "133071-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 134289,
+    "code": 134289,
+    "token": 134289,
+    "name": "Bautismo de buceo en Los Cristianos",
+    "desc": "Si quer\u00e9is aprender a hacer submarinismo</strong>, este bautismo de buceo en Los Cristianos</strong> es ideal. Repasaremos la teor\u00eda y nos sumergiremos en la bah\u00eda de Las Rayas.",
+    "shortDesc": "Si quer\u00e9is aprender a hacer submarinismo</strong>, este bautismo de buceo en Los Cristianos</strong> es ideal. Repasaremos la teor\u00eda y nos sumergiremos en la bah\u00eda de Las Rayas.",
+    "type": 134289,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/mantarraya-tenerife-sur.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/mantarraya-tenerife-sur.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/bautismo-buceo-cristianos",
+    "ListaOpciones": [
+      {
+        "code": 134289,
+        "family": 134289,
+        "name": "Bautismo de buceo en Los Cristianos",
+        "desc": "Bautismo de buceo en Los Cristianos",
+        "coin": "EUR",
+        "token": 134289,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9iYXV0aXNtby1idWNlby1jcmlzdGlhbm9z/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Si quer\u00e9is aprender a hacer submarinismo</strong>, este bautismo de buceo en Los Cristianos</strong> es ideal. Repasaremos la teor\u00eda y nos sumergiremos en la bah\u00eda de Las Rayas.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "85.00",
+        "priceDeleted": "85.00",
+        "precioPvp": "85.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "134289-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 134315,
+    "code": 134315,
+    "token": 134315,
+    "name": "Curso de buceo PADI Open Water en Los Cristianos",
+    "desc": "Si est\u00e1is en el sur de Tenerife y quer\u00e9is conseguir una certificaci\u00f3n oficial de buceo</strong>, este curso PADI Open Water en Los Cristinos</strong> es ideal para vosotros. ",
+    "shortDesc": "Si est\u00e1is en el sur de Tenerife y quer\u00e9is conseguir una certificaci\u00f3n oficial de buceo</strong>, este curso PADI Open Water en Los Cristinos</strong> es ideal para vosotros. ",
+    "type": 134315,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/submarinistas-padi-open-water-cristianos.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/submarinistas-padi-open-water-cristianos.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/buceo-padi-open-water-cristianos",
+    "ListaOpciones": [
+      {
+        "code": 134315,
+        "family": 134315,
+        "name": "Curso de buceo PADI Open Water en Los Cristianos",
+        "desc": "Curso de buceo PADI Open Water en Los Cristianos",
+        "coin": "EUR",
+        "token": 134315,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9idWNlby1wYWRpLW9wZW4td2F0ZXItY3Jpc3RpYW5vcw/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Si est\u00e1is en el sur de Tenerife y quer\u00e9is conseguir una certificaci\u00f3n oficial de buceo</strong>, este curso PADI Open Water en Los Cristinos</strong> es ideal para vosotros. ",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "355.50",
+        "priceDeleted": "355.50",
+        "precioPvp": "355.50",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "134315-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 134851,
+    "code": 134851,
+    "token": 134851,
+    "name": "Excursi\u00f3n a La Palma + Volc\u00e1n Tajogaite",
+    "desc": "En esta excursi\u00f3n a La Palma</strong> dejaremos atr\u00e1s la isla de Tenerife para descubrir c\u00f3mo fue en 2021 la erupci\u00f3n del volc\u00e1n de Cumbre Vieja</strong>, llamado Tajogaite</strong>.",
+    "shortDesc": "En esta excursi\u00f3n a La Palma</strong> dejaremos atr\u00e1s la isla de Tenerife para descubrir c\u00f3mo fue en 2021 la erupci\u00f3n del volc\u00e1n de Cumbre Vieja</strong>, llamado Tajogaite</strong>.",
+    "type": 134851,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/cumbre-vieja-erupcion.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/cumbre-vieja-erupcion.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/excursion-volcan-palma",
+    "ListaOpciones": [
+      {
+        "code": 134851,
+        "family": 134851,
+        "name": "Excursi\u00f3n a La Palma + Volc\u00e1n Tajogaite",
+        "desc": "Excursi\u00f3n a La Palma + Volc\u00e1n Tajogaite",
+        "coin": "EUR",
+        "token": 134851,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9leGN1cnNpb24tdm9sY2FuLXBhbG1h/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En esta excursi\u00f3n a La Palma</strong> dejaremos atr\u00e1s la isla de Tenerife para descubrir c\u00f3mo fue en 2021 la erupci\u00f3n del volc\u00e1n de Cumbre Vieja</strong>, llamado Tajogaite</strong>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "120.00",
+        "priceDeleted": "120.00",
+        "precioPvp": "120.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "134851-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 146348,
+    "code": 146348,
+    "token": 146348,
+    "name": "Avistamiento de cet\u00e1ceos en Los Cristianos",
+    "desc": "\u00bfSab\u00edais que el sur de Tenerife </strong>es una zona ideal para el avistamiento de cet\u00e1ceos</strong>? En este paseo en barco por Los Cristianos</strong> veremos delfines y ballenas</strong>.",
+    "shortDesc": "\u00bfSab\u00edais que el sur de Tenerife </strong>es una zona ideal para el avistamiento de cet\u00e1ceos</strong>? En este paseo en barco por Los Cristianos</strong> veremos delfines y ballenas</strong>.",
+    "type": 146348,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/barco-avistamiento-cetaceos.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/barco-avistamiento-cetaceos.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/avistamiento-cetaceos-cristianos",
+    "ListaOpciones": [
+      {
+        "code": 146348,
+        "family": 146348,
+        "name": "Avistamiento de cet\u00e1ceos en Los Cristianos",
+        "desc": "Avistamiento de cet\u00e1ceos en Los Cristianos",
+        "coin": "EUR",
+        "token": 146348,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9hdmlzdGFtaWVudG8tY2V0YWNlb3MtY3Jpc3RpYW5vcw/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "\u00bfSab\u00edais que el sur de Tenerife </strong>es una zona ideal para el avistamiento de cet\u00e1ceos</strong>? En este paseo en barco por Los Cristianos</strong> veremos delfines y ballenas</strong>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "20.00",
+        "priceDeleted": "20.00",
+        "precioPvp": "20.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "146348-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 150919,
+    "code": 150919,
+    "token": 150919,
+    "name": "Excursi\u00f3n al Teide en bicicleta",
+    "desc": "Si os gusta el deporte y sois unos amantes de los retos, esta excursi\u00f3n al Teide en bicicleta </strong>os fascinar\u00e1. \u00a1Pedalearemos a m\u00e1s de 2000 metros de altura</strong>!",
+    "shortDesc": "Si os gusta el deporte y sois unos amantes de los retos, esta excursi\u00f3n al Teide en bicicleta </strong>os fascinar\u00e1. \u00a1Pedalearemos a m\u00e1s de 2000 metros de altura</strong>!",
+    "type": 150919,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/playa-de-las-americas/galeria/teide-bicicleta.jpg",
+        "S": "https://f.civitatis.com/espana/playa-de-las-americas/galeria/thumbs/teide-bicicleta.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/playa-de-las-americas/excursion-teide-bicicleta",
+    "ListaOpciones": [
+      {
+        "code": 150919,
+        "family": 150919,
+        "name": "Excursi\u00f3n al Teide en bicicleta",
+        "desc": "Excursi\u00f3n al Teide en bicicleta",
+        "coin": "EUR",
+        "token": 150919,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9wbGF5YS1kZS1sYXMtYW1lcmljYXMvZXhjdXJzaW9uLXRlaWRlLWJpY2ljbGV0YQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Si os gusta el deporte y sois unos amantes de los retos, esta excursi\u00f3n al Teide en bicicleta </strong>os fascinar\u00e1. \u00a1Pedalearemos a m\u00e1s de 2000 metros de altura</strong>!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "83.00",
+        "priceDeleted": "83.00",
+        "precioPvp": "83.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "150919-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 151015,
+    "code": 151015,
+    "token": 151015,
+    "name": "Paseo en goleta con avistamiento de cet\u00e1ceos",
+    "desc": "Ballenas y delfines</strong> protagonizan este paseo en goleta con avistamiento de cet\u00e1ceos</strong>. Navegaremos por el Atl\u00e1ntico en un barco pirata por el sur de Tenerife</strong>.",
+    "shortDesc": "Ballenas y delfines</strong> protagonizan este paseo en goleta con avistamiento de cet\u00e1ceos</strong>. Navegaremos por el Atl\u00e1ntico en un barco pirata por el sur de Tenerife</strong>.",
+    "type": 151015,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/barco-peter-pan.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/barco-peter-pan.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/paseo-goleta-avistamiento-cetaceos",
+    "ListaOpciones": [
+      {
+        "code": 151015,
+        "family": 151015,
+        "name": "Paseo en goleta con avistamiento de cet\u00e1ceos",
+        "desc": "Paseo en goleta con avistamiento de cet\u00e1ceos",
+        "coin": "EUR",
+        "token": 151015,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9wYXNlby1nb2xldGEtYXZpc3RhbWllbnRvLWNldGFjZW9z/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Ballenas y delfines</strong> protagonizan este paseo en goleta con avistamiento de cet\u00e1ceos</strong>. Navegaremos por el Atl\u00e1ntico en un barco pirata por el sur de Tenerife</strong>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "24.03",
+        "priceDeleted": "24.03",
+        "precioPvp": "24.03",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "151015-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 151025,
+    "code": 151025,
+    "token": 151025,
+    "name": "Paseo en goleta con avistamiento de cet\u00e1ceos y comida",
+    "desc": "En este paseo en goleta con avistamiento de cet\u00e1ceos </strong>surcaremos las aguas de Tenerife disfrutando de su fauna. Adem\u00e1s, veremos los acantilados de Los Gigantes</strong>. ",
+    "shortDesc": "En este paseo en goleta con avistamiento de cet\u00e1ceos </strong>surcaremos las aguas de Tenerife disfrutando de su fauna. Adem\u00e1s, veremos los acantilados de Los Gigantes</strong>. ",
+    "type": 151025,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/cetaceos-goleta-sur-tenerife.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/cetaceos-goleta-sur-tenerife.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/paseo-goleta-avistamiento-cetaceos-comida",
+    "ListaOpciones": [
+      {
+        "code": 151025,
+        "family": 151025,
+        "name": "Paseo en goleta con avistamiento de cet\u00e1ceos y comida",
+        "desc": "Paseo en goleta con avistamiento de cet\u00e1ceos y comida",
+        "coin": "EUR",
+        "token": 151025,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9wYXNlby1nb2xldGEtYXZpc3RhbWllbnRvLWNldGFjZW9zLWNvbWlkYQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En este paseo en goleta con avistamiento de cet\u00e1ceos </strong>surcaremos las aguas de Tenerife disfrutando de su fauna. Adem\u00e1s, veremos los acantilados de Los Gigantes</strong>. ",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "54.90",
+        "priceDeleted": "54.90",
+        "precioPvp": "54.90",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "151025-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 166196,
+    "code": 166196,
+    "token": 166196,
+    "name": "Paddle surf en Los Cristianos",
+    "desc": "Haciendo paddle surf en Los Cristianos</strong> podr\u00e9is disfrutar de un d\u00eda de playa de forma diferente y original</strong>. \u00a1Un plan de lo m\u00e1s divertido en el sur de Tenerife</strong>!",
+    "shortDesc": "Haciendo paddle surf en Los Cristianos</strong> podr\u00e9is disfrutar de un d\u00eda de playa de forma diferente y original</strong>. \u00a1Un plan de lo m\u00e1s divertido en el sur de Tenerife</strong>!",
+    "type": 166196,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/hombre-paddle-surf-cristianos.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/hombre-paddle-surf-cristianos.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/paddle-surf-cristianos",
+    "ListaOpciones": [
+      {
+        "code": 166196,
+        "family": 166196,
+        "name": "Paddle surf en Los Cristianos",
+        "desc": "Paddle surf en Los Cristianos",
+        "coin": "EUR",
+        "token": 166196,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9wYWRkbGUtc3VyZi1jcmlzdGlhbm9z/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Haciendo paddle surf en Los Cristianos</strong> podr\u00e9is disfrutar de un d\u00eda de playa de forma diferente y original</strong>. \u00a1Un plan de lo m\u00e1s divertido en el sur de Tenerife</strong>!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "60.00",
+        "priceDeleted": "60.00",
+        "precioPvp": "60.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "166196-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 167288,
+    "code": 167288,
+    "token": 167288,
+    "name": "Tarjeta eSIM Civitatis Espa\u00f1a",
+    "desc": "Si vais a viajar por Espa\u00f1a</strong>, con esta tarjeta eSIM con Internet </b>podr\u00e9is conectaros f\u00e1cilmente a la red y mantener el contacto con vuestros familiares y amigos.",
+    "shortDesc": "Si vais a viajar por Espa\u00f1a</strong>, con esta tarjeta eSIM con Internet </b>podr\u00e9is conectaros f\u00e1cilmente a la red y mantener el contacto con vuestros familiares y amigos.",
+    "type": 167288,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/general/general/galeria/tarjeta-e-sim-espana.jpg",
+        "S": "https://f.civitatis.com/general/general/galeria/thumbs/tarjeta-e-sim-espana.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/general/tarjeta-esim-espana",
+    "ListaOpciones": [
+      {
+        "code": 167288,
+        "family": 167288,
+        "name": "Tarjeta eSIM Civitatis Espa\u00f1a",
+        "desc": "Tarjeta eSIM Civitatis Espa\u00f1a",
+        "coin": "EUR",
+        "token": 167288,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9nZW5lcmFsL3RhcmpldGEtZXNpbS1lc3BhbmE/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Si vais a viajar por Espa\u00f1a</strong>, con esta tarjeta eSIM con Internet </b>podr\u00e9is conectaros f\u00e1cilmente a la red y mantener el contacto con vuestros familiares y amigos.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "4.50",
+        "priceDeleted": "4.50",
+        "precioPvp": "4.50",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "167288-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 176860,
+    "code": 176860,
+    "token": 176860,
+    "name": "Paseo en catamar\u00e1n con comida desde Las Galletas",
+    "desc": "En este paseo en catamar\u00e1n desde Las Galletas</b> podr\u00e9is relajaros a bordo mientras os deleit\u00e1is con una selecci\u00f3n de aperitivos y naveg\u00e1is por el sur de Tenerife</b>.",
+    "shortDesc": "En este paseo en catamar\u00e1n desde Las Galletas</b> podr\u00e9is relajaros a bordo mientras os deleit\u00e1is con una selecci\u00f3n de aperitivos y naveg\u00e1is por el sur de Tenerife</b>.",
+    "type": 176860,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/las-galletas/galeria/catamaran-costa-galletas.jpg",
+        "S": "https://f.civitatis.com/espana/las-galletas/galeria/thumbs/catamaran-costa-galletas.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/las-galletas/paseo-catamaran-galletas",
+    "ListaOpciones": [
+      {
+        "code": 176860,
+        "family": 176860,
+        "name": "Paseo en catamar\u00e1n con comida desde Las Galletas",
+        "desc": "Paseo en catamar\u00e1n con comida desde Las Galletas",
+        "coin": "EUR",
+        "token": 176860,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sYXMtZ2FsbGV0YXMvcGFzZW8tY2F0YW1hcmFuLWdhbGxldGFz/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En este paseo en catamar\u00e1n desde Las Galletas</b> podr\u00e9is relajaros a bordo mientras os deleit\u00e1is con una selecci\u00f3n de aperitivos y naveg\u00e1is por el sur de Tenerife</b>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "60.00",
+        "priceDeleted": "60.00",
+        "precioPvp": "60.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "176860-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 181303,
+    "code": 181303,
+    "token": 181303,
+    "name": "Vuelo en paratrike por el sur de Tenerife",
+    "desc": "\u00bfEst\u00e1is buscando actividades emocionantes</b>? En este vuelo en paratrike por Tenerife</b> contemplar\u00e9is la costa sur de la isla a vista de p\u00e1jaro</b>. \u00a1Ser\u00e1 muy divertido!",
+    "shortDesc": "\u00bfEst\u00e1is buscando actividades emocionantes</b>? En este vuelo en paratrike por Tenerife</b> contemplar\u00e9is la costa sur de la isla a vista de p\u00e1jaro</b>. \u00a1Ser\u00e1 muy divertido!",
+    "type": 181303,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/costa-adeje/galeria/sobrevolando-paratrike-sur-tenerife.jpg",
+        "S": "https://f.civitatis.com/espana/costa-adeje/galeria/thumbs/sobrevolando-paratrike-sur-tenerife.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/costa-adeje/vuelo-paratrike-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 181303,
+        "family": 181303,
+        "name": "Vuelo en paratrike por el sur de Tenerife",
+        "desc": "Vuelo en paratrike por el sur de Tenerife",
+        "coin": "EUR",
+        "token": 181303,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9jb3N0YS1hZGVqZS92dWVsby1wYXJhdHJpa2UtdGVuZXJpZmU/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "\u00bfEst\u00e1is buscando actividades emocionantes</b>? En este vuelo en paratrike por Tenerife</b> contemplar\u00e9is la costa sur de la isla a vista de p\u00e1jaro</b>. \u00a1Ser\u00e1 muy divertido!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "140.00",
+        "priceDeleted": "140.00",
+        "precioPvp": "140.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "181303-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 1871,
+    "code": 1871,
+    "token": 1871,
+    "name": "Excursi\u00f3n al Teide, Icod, Masca y Garachico desde el sur de Tenerife",
+    "desc": "En esta excursi\u00f3n al Teide, Icod, Masca y Garachico desde el sur de Tenerife</strong> descubriremos los hermosos parajes del pico m\u00e1s alto de Espa\u00f1a</strong>. \u00a1Os cautivar\u00e1!",
+    "shortDesc": "En esta excursi\u00f3n al Teide, Icod, Masca y Garachico desde el sur de Tenerife</strong> descubriremos los hermosos parajes del pico m\u00e1s alto de Espa\u00f1a</strong>. \u00a1Os cautivar\u00e1!",
+    "type": 1871,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/excursion-teide-icod-garachico.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/excursion-teide-icod-garachico-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/excursion-teide-icod-garachico",
+    "ListaOpciones": [
+      {
+        "code": 1871,
+        "family": 1871,
+        "name": "Excursi\u00f3n al Teide, Icod, Masca y Garachico desde el sur de Tenerife",
+        "desc": "Excursi\u00f3n al Teide, Icod, Masca y Garachico desde el sur de Tenerife",
+        "coin": "EUR",
+        "token": 1871,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9leGN1cnNpb24tdGVpZGUtaWNvZC1nYXJhY2hpY28/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En esta excursi\u00f3n al Teide, Icod, Masca y Garachico desde el sur de Tenerife</strong> descubriremos los hermosos parajes del pico m\u00e1s alto de Espa\u00f1a</strong>. \u00a1Os cautivar\u00e1!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "56.00",
+        "priceDeleted": "56.00",
+        "precioPvp": "56.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "1871-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 1884,
+    "code": 1884,
+    "token": 1884,
+    "name": "Excursi\u00f3n a Los Gigantes, Icod, Puerto de la Cruz y Candelaria",
+    "desc": "En esta vuelta a Tenerife</b> observaremos los acantilados de Los Gigantes</b>, visitando adem\u00e1s pintorescos municipios </b>como Icod, Puerto de la Cuz o Candelaria.",
+    "shortDesc": "En esta vuelta a Tenerife</b> observaremos los acantilados de Los Gigantes</b>, visitando adem\u00e1s pintorescos municipios </b>como Icod, Puerto de la Cuz o Candelaria.",
+    "type": 1884,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/la-caleta/excursion-gigantes-orotava-candelaria.jpg",
+        "S": "https://f.civitatis.com/espana/la-caleta/excursion-gigantes-orotava-candelaria-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/la-caleta/excursion-gigantes-orotava-candelaria",
+    "ListaOpciones": [
+      {
+        "code": 1884,
+        "family": 1884,
+        "name": "Excursi\u00f3n a Los Gigantes, Icod, Puerto de la Cruz y Candelaria",
+        "desc": "Excursi\u00f3n a Los Gigantes, Icod, Puerto de la Cruz y Candelaria",
+        "coin": "EUR",
+        "token": 1884,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sYS1jYWxldGEvZXhjdXJzaW9uLWdpZ2FudGVzLW9yb3RhdmEtY2FuZGVsYXJpYQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En esta vuelta a Tenerife</b> observaremos los acantilados de Los Gigantes</b>, visitando adem\u00e1s pintorescos municipios </b>como Icod, Puerto de la Cuz o Candelaria.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "54.00",
+        "priceDeleted": "54.00",
+        "precioPvp": "54.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "1884-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 1901,
+    "code": 1901,
+    "token": 1901,
+    "name": "Excursi\u00f3n al Puerto de la Cruz por libre",
+    "desc": "\u00bfQu\u00e9 tienen en com\u00fan Agatha Christie</b> y el bot\u00e1nico Alexander von Humboldt</b>? Desc\u00fabrelo con esta excursi\u00f3n al Puerto de la Cruz por libre. \u00a1Te sorprender\u00e1!</b>",
+    "shortDesc": "\u00bfQu\u00e9 tienen en com\u00fan Agatha Christie</b> y el bot\u00e1nico Alexander von Humboldt</b>? Desc\u00fabrelo con esta excursi\u00f3n al Puerto de la Cruz por libre. \u00a1Te sorprender\u00e1!</b>",
+    "type": 1901,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/la-caleta/excursion-puerto-cruz.jpg",
+        "S": "https://f.civitatis.com/espana/la-caleta/excursion-puerto-cruz-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/la-caleta/excursion-puerto-cruz",
+    "ListaOpciones": [
+      {
+        "code": 1901,
+        "family": 1901,
+        "name": "Excursi\u00f3n al Puerto de la Cruz por libre",
+        "desc": "Excursi\u00f3n al Puerto de la Cruz por libre",
+        "coin": "EUR",
+        "token": 1901,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sYS1jYWxldGEvZXhjdXJzaW9uLXB1ZXJ0by1jcnV6/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "\u00bfQu\u00e9 tienen en com\u00fan Agatha Christie</b> y el bot\u00e1nico Alexander von Humboldt</b>? Desc\u00fabrelo con esta excursi\u00f3n al Puerto de la Cruz por libre. \u00a1Te sorprender\u00e1!</b>",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "24.00",
+        "priceDeleted": "24.00",
+        "precioPvp": "24.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "1901-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 1904,
+    "code": 1904,
+    "token": 1904,
+    "name": "Excursi\u00f3n a La Gomera desde el sur de Tenerife",
+    "desc": "Dejaos llevar por los bosques y la arquitectura de la Isla Colombina</strong> en esta excursi\u00f3n a La Gomera desde Tenerife</strong>. \u00a1Incluye billetes de barco, comida y gu\u00eda</strong>!",
+    "shortDesc": "Dejaos llevar por los bosques y la arquitectura de la Isla Colombina</strong> en esta excursi\u00f3n a La Gomera desde Tenerife</strong>. \u00a1Incluye billetes de barco, comida y gu\u00eda</strong>!",
+    "type": 1904,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/calle-tipica-la-gomera.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/calle-tipica-la-gomera.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/excursion-la-gomera",
+    "ListaOpciones": [
+      {
+        "code": 1904,
+        "family": 1904,
+        "name": "Excursi\u00f3n a La Gomera desde el sur de Tenerife",
+        "desc": "Excursi\u00f3n a La Gomera desde el sur de Tenerife",
+        "coin": "EUR",
+        "token": 1904,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9leGN1cnNpb24tbGEtZ29tZXJh/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Dejaos llevar por los bosques y la arquitectura de la Isla Colombina</strong> en esta excursi\u00f3n a La Gomera desde Tenerife</strong>. \u00a1Incluye billetes de barco, comida y gu\u00eda</strong>!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "95.00",
+        "priceDeleted": "95.00",
+        "precioPvp": "95.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "1904-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 1908,
+    "code": 1908,
+    "token": 1908,
+    "name": "Excursi\u00f3n al Loro Parque",
+    "desc": "Aves ex\u00f3ticas</b>, acuarios con numerosas especies marinas</b>, un jard\u00edn de plantas tropicales</b>\u2026 Descubre todas las sorpresas que te ofrece el Loro Parque.",
+    "shortDesc": "Aves ex\u00f3ticas</b>, acuarios con numerosas especies marinas</b>, un jard\u00edn de plantas tropicales</b>\u2026 Descubre todas las sorpresas que te ofrece el Loro Parque.",
+    "type": 1908,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/la-caleta/excursion-loro-parque.jpg",
+        "S": "https://f.civitatis.com/espana/la-caleta/excursion-loro-parque-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/la-caleta/excursion-loro-parque",
+    "ListaOpciones": [
+      {
+        "code": 1908,
+        "family": 1908,
+        "name": "Excursi\u00f3n al Loro Parque",
+        "desc": "Excursi\u00f3n al Loro Parque",
+        "coin": "EUR",
+        "token": 1908,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sYS1jYWxldGEvZXhjdXJzaW9uLWxvcm8tcGFycXVl/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Aves ex\u00f3ticas</b>, acuarios con numerosas especies marinas</b>, un jard\u00edn de plantas tropicales</b>\u2026 Descubre todas las sorpresas que te ofrece el Loro Parque.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "64.00",
+        "priceDeleted": "64.00",
+        "precioPvp": "64.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "1908-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 201986,
+    "code": 201986,
+    "token": 201986,
+    "name": "Excursi\u00f3n a La Gomera desde el sur en grupo reducido",
+    "desc": "En esta excursi\u00f3n a La Gomera</strong> saldremos del sur de Tenerife para descubrir los atractivos de la segunda isla m\u00e1s peque\u00f1a de las Canarias</strong> en un grupo reducido</strong>.",
+    "shortDesc": "En esta excursi\u00f3n a La Gomera</strong> saldremos del sur de Tenerife para descubrir los atractivos de la segunda isla m\u00e1s peque\u00f1a de las Canarias</strong> en un grupo reducido</strong>.",
+    "type": 201986,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/excursion-gomera-grupo-reducido.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/excursion-gomera-grupo-reducido-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/excursion-gomera-grupo-reducido",
+    "ListaOpciones": [
+      {
+        "code": 201986,
+        "family": 201986,
+        "name": "Excursi\u00f3n a La Gomera desde el sur en grupo reducido",
+        "desc": "Excursi\u00f3n a La Gomera desde el sur en grupo reducido",
+        "coin": "EUR",
+        "token": 201986,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9leGN1cnNpb24tZ29tZXJhLWdydXBvLXJlZHVjaWRv/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En esta excursi\u00f3n a La Gomera</strong> saldremos del sur de Tenerife para descubrir los atractivos de la segunda isla m\u00e1s peque\u00f1a de las Canarias</strong> en un grupo reducido</strong>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "145.00",
+        "priceDeleted": "145.00",
+        "precioPvp": "145.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "201986-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 2029,
+    "code": 2029,
+    "token": 2029,
+    "name": "Paseo en submarino por el sur de Tenerife",
+    "desc": "Vivid una experiencia \u00fanica con este paseo </strong>en submarino</b> por </strong>el sur de Tenerife</b>. Podr\u00e9is contemplar los peces que habitan en esta zona del Atl\u00e1ntico.",
+    "shortDesc": "Vivid una experiencia \u00fanica con este paseo </strong>en submarino</b> por </strong>el sur de Tenerife</b>. Podr\u00e9is contemplar los peces que habitan en esta zona del Atl\u00e1ntico.",
+    "type": 2029,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/san-miguel-de-abona/paseo-submarino-tenerife.jpg",
+        "S": "https://f.civitatis.com/espana/san-miguel-de-abona/paseo-submarino-tenerife-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/san-miguel-de-abona/paseo-submarino-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 2029,
+        "family": 2029,
+        "name": "Paseo en submarino por el sur de Tenerife",
+        "desc": "Paseo en submarino por el sur de Tenerife",
+        "coin": "EUR",
+        "token": 2029,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9zYW4tbWlndWVsLWRlLWFib25hL3Bhc2VvLXN1Ym1hcmluby10ZW5lcmlmZQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Vivid una experiencia \u00fanica con este paseo </strong>en submarino</b> por </strong>el sur de Tenerife</b>. Podr\u00e9is contemplar los peces que habitan en esta zona del Atl\u00e1ntico.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "57.00",
+        "priceDeleted": "57.00",
+        "precioPvp": "57.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "2029-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 2220,
+    "code": 2220,
+    "token": 2220,
+    "name": "Paseo en catamar\u00e1n por Costa Adeje",
+    "desc": "Playas, delfines y un men\u00fa a bordo</strong> forman parte de este paseo en catamar\u00e1n por Costa Adeje</strong>. Surcaremos las aguas del suroeste de Tenerife admirando sus costas.",
+    "shortDesc": "Playas, delfines y un men\u00fa a bordo</strong> forman parte de este paseo en catamar\u00e1n por Costa Adeje</strong>. Surcaremos las aguas del suroeste de Tenerife admirando sus costas.",
+    "type": 2220,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/costa-adeje/galeria/costa-adeje-catamaran.jpg",
+        "S": "https://f.civitatis.com/espana/costa-adeje/galeria/thumbs/costa-adeje-catamaran.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/costa-adeje/paseo-catamaran-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 2220,
+        "family": 2220,
+        "name": "Paseo en catamar\u00e1n por Costa Adeje",
+        "desc": "Paseo en catamar\u00e1n por Costa Adeje",
+        "coin": "EUR",
+        "token": 2220,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9jb3N0YS1hZGVqZS9wYXNlby1jYXRhbWFyYW4tdGVuZXJpZmU/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Playas, delfines y un men\u00fa a bordo</strong> forman parte de este paseo en catamar\u00e1n por Costa Adeje</strong>. Surcaremos las aguas del suroeste de Tenerife admirando sus costas.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "38.00",
+        "priceDeleted": "38.00",
+        "precioPvp": "38.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "2220-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 25093,
+    "code": 25093,
+    "token": 25093,
+    "name": "Tour del vino por el sur de Tenerife",
+    "desc": "En este tour descubriremos las </strong>\u00e1reas vitivin\u00edcolas del sur de Tenerife</b> haciendo una ruta enotur\u00edstica</b> que incluye la degustaci\u00f3n de varios vinos canarios</b>.",
+    "shortDesc": "En este tour descubriremos las </strong>\u00e1reas vitivin\u00edcolas del sur de Tenerife</b> haciendo una ruta enotur\u00edstica</b> que incluye la degustaci\u00f3n de varios vinos canarios</b>.",
+    "type": 25093,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/costa-adeje/tour-vino-tenerife.jpg",
+        "S": "https://f.civitatis.com/espana/costa-adeje/tour-vino-tenerife-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/costa-adeje/tour-vino-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 25093,
+        "family": 25093,
+        "name": "Tour del vino por el sur de Tenerife",
+        "desc": "Tour del vino por el sur de Tenerife",
+        "coin": "EUR",
+        "token": 25093,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9jb3N0YS1hZGVqZS90b3VyLXZpbm8tdGVuZXJpZmU/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En este tour descubriremos las </strong>\u00e1reas vitivin\u00edcolas del sur de Tenerife</b> haciendo una ruta enotur\u00edstica</b> que incluye la degustaci\u00f3n de varios vinos canarios</b>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "69.00",
+        "priceDeleted": "69.00",
+        "precioPvp": "69.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "25093-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 34892,
+    "code": 34892,
+    "token": 34892,
+    "name": "Excursi\u00f3n a Masca y Los Gigantes",
+    "desc": "En esta excursi\u00f3n veremos las ballenas y los delfines</b> que habitan en los acantilados de Los Gigantes </strong>y bordearemos las playas rocosas del Barranco de Masca.",
+    "shortDesc": "En esta excursi\u00f3n veremos las ballenas y los delfines</b> que habitan en los acantilados de Los Gigantes </strong>y bordearemos las playas rocosas del Barranco de Masca.",
+    "type": 34892,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/costa-adeje/galeria/excursion-a-masca-y-los-gigantes-11.jpg",
+        "S": "https://f.civitatis.com/espana/costa-adeje/galeria/thumbs/excursion-a-masca-y-los-gigantes-11.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/costa-adeje/excursion-masca-gigantes",
+    "ListaOpciones": [
+      {
+        "code": 34892,
+        "family": 34892,
+        "name": "Excursi\u00f3n a Masca y Los Gigantes",
+        "desc": "Excursi\u00f3n a Masca y Los Gigantes",
+        "coin": "EUR",
+        "token": 34892,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9jb3N0YS1hZGVqZS9leGN1cnNpb24tbWFzY2EtZ2lnYW50ZXM/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En esta excursi\u00f3n veremos las ballenas y los delfines</b> que habitan en los acantilados de Los Gigantes </strong>y bordearemos las playas rocosas del Barranco de Masca.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "60.00",
+        "priceDeleted": "60.00",
+        "precioPvp": "60.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "34892-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 48763,
+    "code": 48763,
+    "token": 48763,
+    "name": "Seguro de viaje Civitatis",
+    "desc": "Con nuestro seguro de viajes solo tendr\u00e1s que preocuparte de desconectar y disfrutar de tus vacaciones. \u00a1No dejes que nada estropee tu viaje!",
+    "shortDesc": "Con nuestro seguro de viajes solo tendr\u00e1s que preocuparte de desconectar y disfrutar de tus vacaciones. \u00a1No dejes que nada estropee tu viaje!",
+    "type": 48763,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/general/general/seguro-viaje.jpg",
+        "S": "https://f.civitatis.com/general/general/seguro-viaje-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/general/seguro-viaje",
+    "ListaOpciones": [
+      {
+        "code": 48763,
+        "family": 48763,
+        "name": "Seguro de viaje Civitatis",
+        "desc": "Seguro de viaje Civitatis",
+        "coin": "EUR",
+        "token": 48763,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9nZW5lcmFsL3NlZ3Vyby12aWFqZQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Con nuestro seguro de viajes solo tendr\u00e1s que preocuparte de desconectar y disfrutar de tus vacaciones. \u00a1No dejes que nada estropee tu viaje!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "18.45",
+        "priceDeleted": "18.45",
+        "precioPvp": "18.45",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "48763-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 49297,
+    "code": 49297,
+    "token": 49297,
+    "name": "Kayak y snorkel en Los Cristianos",
+    "desc": "Nadar entre</strong> tortugas marinas</strong> en Tenerife</strong> es una experiencia \u00fanica. Ahora pod\u00e9is disfrutarlo en esta actividad de kayak y snorkel en Los Cristianos</strong>. ",
+    "shortDesc": "Nadar entre</strong> tortugas marinas</strong> en Tenerife</strong> es una experiencia \u00fanica. Ahora pod\u00e9is disfrutarlo en esta actividad de kayak y snorkel en Los Cristianos</strong>. ",
+    "type": 49297,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/equipo-kayak-cristianos.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/equipo-kayak-cristianos.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/kayak-snorkel-los-cristianos",
+    "ListaOpciones": [
+      {
+        "code": 49297,
+        "family": 49297,
+        "name": "Kayak y snorkel en Los Cristianos",
+        "desc": "Kayak y snorkel en Los Cristianos",
+        "coin": "EUR",
+        "token": 49297,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9rYXlhay1zbm9ya2VsLWxvcy1jcmlzdGlhbm9z/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "Nadar entre</strong> tortugas marinas</strong> en Tenerife</strong> es una experiencia \u00fanica. Ahora pod\u00e9is disfrutarlo en esta actividad de kayak y snorkel en Los Cristianos</strong>. ",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "45.00",
+        "priceDeleted": "45.00",
+        "precioPvp": "45.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "49297-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 6356,
+    "code": 6356,
+    "token": 6356,
+    "name": "Excursi\u00f3n privada por Tenerife",
+    "desc": "En esta excursi\u00f3n privada recorrer\u00e9is los mejores paisajes de Tenerife junto a un gu\u00eda solo para vosotros</strong>. \u00a1La mejor forma de conocer la seductora isla canaria!",
+    "shortDesc": "En esta excursi\u00f3n privada recorrer\u00e9is los mejores paisajes de Tenerife junto a un gu\u00eda solo para vosotros</strong>. \u00a1La mejor forma de conocer la seductora isla canaria!",
+    "type": 6356,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/santa-cruz-de-tenerife/galeria/escursione-privata-a-tenerife-in-italiano-8.jpg",
+        "S": "https://f.civitatis.com/espana/santa-cruz-de-tenerife/galeria/thumbs/escursione-privata-a-tenerife-in-italiano-8.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/santa-cruz-de-tenerife/excursion-privada-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 6356,
+        "family": 6356,
+        "name": "Excursi\u00f3n privada por Tenerife",
+        "desc": "Excursi\u00f3n privada por Tenerife",
+        "coin": "EUR",
+        "token": 6356,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9zYW50YS1jcnV6LWRlLXRlbmVyaWZlL2V4Y3Vyc2lvbi1wcml2YWRhLXRlbmVyaWZl/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En esta excursi\u00f3n privada recorrer\u00e9is los mejores paisajes de Tenerife junto a un gu\u00eda solo para vosotros</strong>. \u00a1La mejor forma de conocer la seductora isla canaria!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "196.00",
+        "priceDeleted": "196.00",
+        "precioPvp": "196.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "6356-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 74042,
+    "code": 74042,
+    "token": 74042,
+    "name": "Tour del vino por el norte de Tenerife",
+    "desc": "El tour del vino por el norte de Tenerife te lleva a conocer y probar los deliciosos caldos de la isla recorriendo la comarca de\u00a0Tacoronte-Acentejo</b>.",
+    "shortDesc": "El tour del vino por el norte de Tenerife te lleva a conocer y probar los deliciosos caldos de la isla recorriendo la comarca de\u00a0Tacoronte-Acentejo</b>.",
+    "type": 74042,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/santa-cruz-de-tenerife/galeria/calle-comercial-la-laguna.jpg",
+        "S": "https://f.civitatis.com/espana/santa-cruz-de-tenerife/galeria/thumbs/calle-comercial-la-laguna.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/santa-cruz-de-tenerife/tour-vino-norte-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 74042,
+        "family": 74042,
+        "name": "Tour del vino por el norte de Tenerife",
+        "desc": "Tour del vino por el norte de Tenerife",
+        "coin": "EUR",
+        "token": 74042,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9zYW50YS1jcnV6LWRlLXRlbmVyaWZlL3RvdXItdmluby1ub3J0ZS10ZW5lcmlmZQ/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "El tour del vino por el norte de Tenerife te lleva a conocer y probar los deliciosos caldos de la isla recorriendo la comarca de\u00a0Tacoronte-Acentejo</b>.",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "82.00",
+        "priceDeleted": "82.00",
+        "precioPvp": "82.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "74042-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 78650,
+    "code": 78650,
+    "token": 78650,
+    "name": "Alquiler de bicicleta en el sur de Tenerife",
+    "desc": "El alquiler de bicicleta en Tenerife os </strong>permitir\u00e1 recorrer los paisajes del sur de la isla a tu aire</b>. Recibir\u00e9is la bici en vuestro hotel y... \u00a1a disfrutar!",
+    "shortDesc": "El alquiler de bicicleta en Tenerife os </strong>permitir\u00e1 recorrer los paisajes del sur de la isla a tu aire</b>. Recibir\u00e9is la bici en vuestro hotel y... \u00a1a disfrutar!",
+    "type": 78650,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/los-cristianos/galeria/bicicletas-tenerife.jpg",
+        "S": "https://f.civitatis.com/espana/los-cristianos/galeria/thumbs/bicicletas-tenerife.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/los-cristianos/alquiler-bicicleta-tenerife-sur",
+    "ListaOpciones": [
+      {
+        "code": 78650,
+        "family": 78650,
+        "name": "Alquiler de bicicleta en el sur de Tenerife",
+        "desc": "Alquiler de bicicleta en el sur de Tenerife",
+        "coin": "EUR",
+        "token": 78650,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9sb3MtY3Jpc3RpYW5vcy9hbHF1aWxlci1iaWNpY2xldGEtdGVuZXJpZmUtc3Vy/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "El alquiler de bicicleta en Tenerife os </strong>permitir\u00e1 recorrer los paisajes del sur de la isla a tu aire</b>. Recibir\u00e9is la bici en vuestro hotel y... \u00a1a disfrutar!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "30.00",
+        "priceDeleted": "30.00",
+        "precioPvp": "30.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "78650-1-0"
+      }
+    ]
+  },
+  {
+    "searchId": 9568,
+    "code": 9568,
+    "token": 9568,
+    "name": "Tour de Tenerife, la vuelta a la isla desde el sur",
+    "desc": "En este tour de Tenerife, la vuelta a la isla desde el sur</b>, visitaremos Candelaria, La Orotava, Garachico y Masca</strong>. \u00a1Una gran ruta para explorar esta zona!",
+    "shortDesc": "En este tour de Tenerife, la vuelta a la isla desde el sur</b>, visitaremos Candelaria, La Orotava, Garachico y Masca</strong>. \u00a1Una gran ruta para explorar esta zona!",
+    "type": 9568,
+    "idOp": "19",
+    "img": [
+      {
+        "L": "https://f.civitatis.com/espana/costa-adeje/tour-tenerife.jpg",
+        "S": "https://f.civitatis.com/espana/costa-adeje/tour-tenerife-m.jpg"
+      }
+    ],
+    "link": "https://www.civitatis.com/es/costa-adeje/tour-tenerife",
+    "ListaOpciones": [
+      {
+        "code": 9568,
+        "family": 9568,
+        "name": "Tour de Tenerife, la vuelta a la isla desde el sur",
+        "desc": "Tour de Tenerife, la vuelta a la isla desde el sur",
+        "coin": "EUR",
+        "token": 9568,
+        "modalcode": "info/ticket/aHR0cHM6Ly93d3cuY2l2aXRhdGlzLmNvbS9lcy9jb3N0YS1hZGVqZS90b3VyLXRlbmVyaWZl/IdOp/19/fecini/",
+        "contractName": "",
+        "modalName": "En este tour de Tenerife, la vuelta a la isla desde el sur</b>, visitaremos Candelaria, La Orotava, Garachico y Masca</strong>. \u00a1Una gran ruta para explorar esta zona!",
+        "incOff": "",
+        "comments": "",
+        "stock": 9999,
+        "precio": "55.00",
+        "priceDeleted": "55.00",
+        "precioPvp": "55.00",
+        "NumDays": "1",
+        "minDay": "20250822",
+        "canc": "20250822-1|100;",
+        "Cantidad": 1,
+        "Code": "9568-1-0"
+      }
+    ]
+  }
+]

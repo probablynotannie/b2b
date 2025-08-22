@@ -7,7 +7,7 @@ import Seleccion from "./Seleccion";
 import { Link } from "react-router-dom";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Trenes";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

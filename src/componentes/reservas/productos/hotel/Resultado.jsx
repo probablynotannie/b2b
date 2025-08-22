@@ -5,7 +5,7 @@ import Hoteles from "./Hoteles";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import { FaEye, FaList, FaMapMarkedAlt } from "react-icons/fa";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 import MapaHoteles from "./mapa/MapaHoteles";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import Paginacion from "../../../../helpers/visuales/pagination/Corto";
@@ -16,6 +16,7 @@ import { useParams } from "react-router-dom";
 import Error from "./filtros/Error";
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
+
   const reserva = {
     codearea: codearea ? Number(codearea) : null,
     codcity: codcity ? Number(codcity) : null,
@@ -37,15 +38,16 @@ function Productos() {
 
   const [viewMode, setViewMode] = useState("list");
   const [hoteles, setHoteles] = useState(data);
-  const [page, setPage] = useState(1);
   const { neto, setNeto } = useNetoStore();
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const hotelesPorPagina = 10;
+  const [page, setPage] = useState(1);
   const indexUltimoHotel = page * hotelesPorPagina;
   const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
   const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
   const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
+
   return (
     <Resultado
       background={"url('/banners/banner_hoteles.webp')"}

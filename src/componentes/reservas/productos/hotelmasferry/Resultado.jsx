@@ -12,7 +12,7 @@ import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

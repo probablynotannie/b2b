@@ -5,7 +5,7 @@ import ferris from "./Ferris.json";
 import { useState, useEffect } from "react";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Ferris";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

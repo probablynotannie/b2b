@@ -36,11 +36,19 @@ function Buscador_Tickets({ listado }) {
   });
 
   const onSubmit = (data) => {
-    navigate("/listadoTickets", {
-      state: { data },
-    });
-  };
+    const reserva = {
+      codearea: 216,
+      codcity: 0,
+      fecini: "31-08-2025",
+      noc: 2,
+      numper: "2,0",
+    };
 
+    const path = `/listadotickets/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
+
+    console.log(data);
+    navigate(path);
+  };
   return (
     <Buscador
       titulo={"Buscador de Tickets"}

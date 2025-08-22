@@ -4,7 +4,7 @@ import Coches from "./Coches";
 import { useEffect, useState } from "react";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Coches";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

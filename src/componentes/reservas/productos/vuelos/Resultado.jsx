@@ -7,7 +7,7 @@ import Buscador from "../../../motores/buscadores/vuelos/Buscador_Vuelos";
 import vuelos from "./Vuelos.json";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Vuelos";
 import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Vuelos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

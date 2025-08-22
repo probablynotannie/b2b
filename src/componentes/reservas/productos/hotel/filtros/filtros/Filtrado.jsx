@@ -56,32 +56,25 @@ function Filtrado({
           selectedCiudades
             .map((c) => c.toLowerCase().trim())
             .includes(hotel.StateName?.toLowerCase().trim());
-
         const filteredPrecios =
           hotel.ListaPrecios?.filter((item) => {
-            console.log("item", hotel.StateName);
             const price = parseFloat(item.Price);
 
             const matchesPrice =
               !isNaN(price) && price >= values[0] && price <= values[1];
-
             const matchesReembolsable =
               !reembolsable ||
               item.NoReembolsable === "0" ||
               item.NoReembolsable === false;
-
             const matchesRegimen =
               selectedRegimenes.length === 0 ||
               selectedRegimenes.includes(item.BoardNameFiltro?.toLowerCase());
-
             const matchesEstrellas = estrellas === 0 || starCount === estrellas;
-
             const matchesName =
               hotelName.trim() === "" ||
               hotel.NombreHotel?.toLowerCase().includes(
                 hotelName.toLowerCase()
               );
-
             return (
               matchesPrice &&
               matchesReembolsable &&
@@ -118,7 +111,6 @@ function Filtrado({
     setHoteles,
     setPage,
   ]);
-  console.log("cudades", selectedCiudades);
   const starsFromCategory = (categoryCode) =>
     typeof categoryCode === "string" ? categoryCode.split("*").length - 1 : 0;
   return (

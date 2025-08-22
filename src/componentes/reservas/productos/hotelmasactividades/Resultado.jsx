@@ -11,7 +11,7 @@ import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
 import { FaCheck } from "react-icons/fa";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

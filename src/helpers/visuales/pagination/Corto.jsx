@@ -2,7 +2,7 @@ import { HiChevronDoubleLeft, HiChevronDoubleRight } from "react-icons/hi";
 import { useEffect } from "react";
 function Corto({ totalPages, page, setPage }) {
   useEffect(() => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
+    window.scrollTo({ top: 300, behavior: "smooth" });
   }, [page]);
 
   return (
