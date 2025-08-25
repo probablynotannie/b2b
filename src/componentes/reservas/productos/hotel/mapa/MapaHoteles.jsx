@@ -13,7 +13,7 @@ import { FaArrowLeft, FaArrowRight, FaMapPin } from "react-icons/fa";
 import Filtrado from "./Filtrado";
 import Placeholder from "./Placeholder";
 import { MdCancel } from "react-icons/md";
-import getEstrellas from "../scripts/getEstrellas";
+import getEstrellas from "../hook/getEstrellas";
 const customIconUrl = "/logos/hotel.png";
 const MapaHoteles = ({
   hoteles,

@@ -36,9 +36,7 @@ function Productos() {
       setEntradas(data);
     }
   }, [data]);
-
   const [page, setPage] = useState(1);
-
   const indexUltimaEntrada = page * entradasPorPagina;
   const indexPrimeraEntrada = indexUltimaEntrada - entradasPorPagina;
   const entradasAMostrar = entradas?.slice(

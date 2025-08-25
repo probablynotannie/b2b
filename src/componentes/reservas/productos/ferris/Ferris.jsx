@@ -1,239 +1,260 @@
 import { useState } from "react";
 import { FaShip } from "react-icons/fa";
-import { GoDotFill } from "react-icons/go";
 import { Link } from "react-router-dom";
-
+import extractDateAndTime from "../../../../scripts/extractDateAndTime";
+import calcularDuracion from "../../../../scripts/calcularDuracion";
 function Ferris({
-  ferris,
   ida,
   setIda,
   vuelta,
   setVuelta,
   setFerry,
-  seleccion,
   ferry,
+  ferrisData,
 }) {
-  const [openFerrySets, setOpenFerrySets] = useState([]);
-  function calculateTotalPrice() {
-    const outboundPrice = ida ? ida.precio : 0;
-    const returnPrice = vuelta ? vuelta.precio : 0;
-    return outboundPrice + returnPrice;
-  }
+  const [openTipoSets, setOpenTipoSets] = useState([]);
+  const results = Object.values(ferrisData.results);
+  const idaFerries = results[0].ListaTarifas;
+  const vueltaFerries = results[1].ListaTarifas;
 
-  const toggleDropdown = (id) => {
-    setOpenFerrySets((prev) =>
-      prev.includes(id) ? prev.filter((setId) => setId !== id) : [...prev, id]
+  const tipos = [
+    ...new Set([...idaFerries, ...vueltaFerries].map((t) => t.Tipo)),
+  ];
+
+  const toggleDropdown = (tipo) => {
+    setOpenTipoSets((prev) =>
+      prev.includes(tipo) ? prev.filter((t) => t !== tipo) : [...prev, tipo]
     );
   };
 
-  const handleSelection = (type, ferryId, ferryOption) => {
-    setFerry((prevFerry) => {
-      const ferrySeleccionado = ferris.find((ferry) => ferry.id === ferryId);
-      if (!ferrySeleccionado) return prevFerry;
+  const handleSelection = (type, tarifa) => {
+    const ferryObj = type === "ida" ? results[0] : results[1];
+    const selectedState = {
+      ferryId: ferryObj.AuxRef,
+      id: tarifa.Code + tarifa.AcomodationCode,
+      tipo: tarifa.Tipo,
+      nombre: tarifa.Name,
+      Pvp: tarifa.Pvp,
+      Restriction: tarifa.Restriction,
+      fecha_salida: ferryObj.FechaSalida.date,
+      fecha_llegada: ferryObj.FechaLlegada.date,
+      puerto_origen: ferryObj.PuertoOrigen,
+      puerto_destino: ferryObj.PuertoDestino,
+      barco: ferryObj.NombreBarco,
+      img: ferryObj.Img,
+    };
 
-      const nuevoFerry = { ...prevFerry };
-      const precioSeleccionado = ferrySeleccionado[type]?.precios.find(
-        (price) => price.id === ferryOption.id
-      );
-      if (!precioSeleccionado) return prevFerry;
-      const nuevoEstado = {
-        ferryId,
-        id: precioSeleccionado.id,
-        precio: precioSeleccionado.precio,
-        extra: precioSeleccionado.extras,
-        tipo: precioSeleccionado.tipo,
-        tarifa: ferrySeleccionado.tarifa,
-        cambios: ferrySeleccionado.cambios,
-        cancelaciones: ferrySeleccionado.cancelaciones,
-        compania: ferrySeleccionado.compania,
-        fecha: ferrySeleccionado[type]?.fecha,
-        ruta: ferrySeleccionado[type]?.ruta,
-        barco: ferrySeleccionado[type]?.barco,
-        hora_salida: ferrySeleccionado[type]?.hora_salida,
-        hora_llegada: ferrySeleccionado[type]?.hora_llegada,
-        duracion_viaje: ferrySeleccionado[type]?.duracion_viaje,
-        puerto_origen: ferrySeleccionado[type]?.puerto_origen,
-        puerto_destino: ferrySeleccionado[type]?.puerto_destino,
-      };
+    setFerry((prevFerry) => {
+      const newFerry = { ...prevFerry };
+
       if (type === "ida") {
-        if (prevFerry.vuelta?.ferryId !== ferryId) {
-          nuevoFerry.vuelta = null;
+        if (vuelta && vuelta.tipo !== tarifa.Tipo) {
+          newFerry.vuelta = null;
           setVuelta(null);
         }
-        nuevoFerry.ida = nuevoEstado;
-        setIda(nuevoFerry.ida);
-      } else if (type === "vuelta") {
-        if (prevFerry.ida?.ferryId !== ferryId) {
-          nuevoFerry.ida = null;
+        newFerry.ida = selectedState;
+        setIda(selectedState);
+      } else {
+        if (ida && ida.tipo !== tarifa.Tipo) {
+          newFerry.ida = null;
           setIda(null);
         }
-        nuevoFerry.vuelta = nuevoEstado;
-        setVuelta(nuevoFerry.vuelta);
+        newFerry.vuelta = selectedState;
+        setVuelta(selectedState);
       }
 
-      return nuevoFerry;
+      return newFerry;
     });
   };
   return (
-    <section>
-      <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-        Resultados ({ferris.length})
-      </h3>
-      {ferris.map((ferrySet) => {
-        const minIdaPrice = Math.min(
-          ...ferrySet.ida.precios.map((option) => option.precio)
+    <section className="tw-space-y-4">
+      {tipos.map((tipo) => {
+        const idaTarifas = idaFerries.filter((t) => t.Tipo === tipo);
+        const vueltaTarifas = vueltaFerries.filter((t) => t.Tipo === tipo);
+
+        const minIda =
+          idaTarifas.length > 0 ? Math.min(...idaTarifas.map((t) => t.Pvp)) : 0;
+        const minVuelta =
+          vueltaTarifas.length > 0
+            ? Math.min(...vueltaTarifas.map((t) => t.Pvp))
+            : 0;
+
+        const minPrice = minIda + minVuelta;
+        const isOpen = openTipoSets.includes(tipo);
+        /* Fechas */
+        const { hora: horaIda } = extractDateAndTime(
+          results[0]?.FechaSalida?.date
         );
-        const minVueltaPrice = ferrySet.vuelta
-          ? Math.min(...ferrySet.vuelta.precios.map((option) => option.precio))
-          : 0;
-        const minTotalPrice = minIdaPrice + minVueltaPrice;
+        const { hora: horaLlegada } = extractDateAndTime(
+          results[0]?.FechaLlegada?.date
+        );
+        const duracionViajeIda = calcularDuracion(
+          results[0]?.FechaSalida?.date,
+          results[0]?.FechaLlegada?.date
+        );
+        /* Vuelta */
+        const { hora: horaVuelta } = extractDateAndTime(
+          results[1]?.FechaSalida?.date
+        );
+        const { hora: horaLlegadaVuelta } = extractDateAndTime(
+          results[1]?.FechaLlegada?.date
+        );
+        const duracionViajeVuelta = calcularDuracion(
+          results[1]?.FechaSalida?.date,
+          results[1]?.FechaLlegada?.date
+        );
+        console.log(results[0]);
         return (
           <div
-            key={ferrySet.id}
-            className="tw-mb-6 tw-relative tw-border tw-mt-5 md:tw-mt-0 dark:tw-border-slate-700 tw-rounded-lg tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-rounded-t-xl"
+            key={tipo}
+            className={`tw-border dark:tw-border-slate-700 tw-border-slate-100 tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-duration-500`}
           >
             <div
-              className="tw-flex tw-justify-between tw-flex-wrap tw-items-center tw-p-4 tw-bg-white dark:tw-bg-slate-800 tw-transition tw-cursor-pointer tw-rounded-xl"
-              onClick={() => toggleDropdown(ferrySet.id)}
+              className="tw-flex tw-justify-between tw-items-center tw-p-4 tw-cursor-pointer"
+              onClick={() => toggleDropdown(tipo)}
             >
-              <div className="tw-w-full md:tw-w-fit">
-                {ida?.ferryId === ferrySet.id && (
-                  <GoDotFill className="tw-absolute tw-top-3 tw-left-3 tw-text-green-500 tw-animate-bounce" />
-                )}
+              <div>
                 <div className="md:tw-w-fit tw-flex tw-w-full tw-justify-between tw-items-center">
                   <h3 className="tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-slate-200">
-                    Tarifa: {ferrySet.tarifa.toUpperCase()}
+                    Tarifa: <span className="tw-uppercase"> {tipo}</span>
                   </h3>
-
                   <span className="tw-ml-3 tw-font-bold tw-bg-green-100 dark:tw-bg-green-800 tw-text-green-600 dark:tw-text-green-200 tw-border-2 tw-border-green-100 dark:tw-border-green-800 tw-px-2 tw-py-1 tw-text-base tw-rounded-full">
-                    Desde: {minTotalPrice}€
+                    Desde: {minPrice}€
                   </span>
                 </div>
-                <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-400">
-                  Cambios:{" "}
-                  <span className="tw-font-medium">
-                    {ferrySet.cambios ? "Permitidos" : "No Permitidos"}
-                  </span>{" "}
-                  | Cancelaciones:{" "}
-                  <span className="tw-font-medium">
-                    {ferrySet.cancelaciones ? "Permitidas" : "No Permitidas"}
-                  </span>
-                </p>
+
+                {ida?.tipo === tipo && vuelta?.tipo === tipo && (
+                  <p className="tw-text-sm tw-text-green-600 dark:tw-text-green-400">
+                    Seleccionado: {ida.nombre} + {vuelta.nombre} (
+                    {(ida.Pvp + vuelta.Pvp).toFixed(2)}€)
+                  </p>
+                )}
               </div>
-              <div className="tw-text-xs tw-text-center tw-justify-center tw-flex-col tw-flex tw-items-center tw-space-x-4 tw-w-full md:tw-w-fit tw-mt-5 md:tw-mt-0">
-                <div className="dark:tw-bg-slate-100 tw-px-2 tw-flex tw-justify-center tw-items-center tw-w-full">
-                  <img
-                    src={ferrySet.compania}
-                    alt="logo compania"
-                    className="tw-h-14 md:tw-w-16 tw-w-full tw-object-contain tw-rounded-md"
-                  />
-                </div>
+              <div className="dark:tw-bg-slate-100 tw-rounded-lg">
+                <img
+                  src={ferrisData.operador.imagen}
+                  alt="GNV Logo"
+                  className="tw-h-12 tw-object-contain"
+                />
               </div>
             </div>
-            <div
-              className={`tw-transition-all tw-duration-500 tw-ease-in-out tw-overflow-hidden ${
-                openFerrySets.includes(ferrySet.id) ? "max-h-screen" : "max-h-0"
-              }`}
-            >
-              <div className="tw-p-4 tw-border-t dark:tw-border-slate-700">
+
+            {isOpen && (
+              <div className="tw-p-4 tw-border-t dark:tw-border-slate-700 tw-space-y-4">
                 <div className="tw-flex tw-justify-between">
-                  <span className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400 tw-mb-3">
-                    Ida: {ferrySet.ida?.ruta || "Ruta no disponible"}
-                  </span>
+                  <div>
+                    <h4 className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400 tw-mb-3">
+                      Ida: {results[0].PuertoOrigen} -{" "}
+                      {results[0].PuertoDestino}
+                    </h4>
+                    <span className="tw-text-slate-500">
+                      duración viaje: {duracionViajeIda}
+                    </span>
+                  </div>
                   <span className="tw-text-slate-800 dark:tw-text-slate-400 tw-text-sm">
-                    {ferrySet.ida?.hora_salida} - {ferrySet.ida?.hora_llegada}
+                    {horaIda} - {horaLlegada}
                   </span>
                 </div>
-                {ferrySet.ida?.precios?.map((option) => (
-                  <div
-                    key={option.id}
-                    className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
-                      ida?.id === option.id && ida.ferryId === ferrySet.id
-                        ? "tw-bg-blue-50 dark:tw-bg-slate-900"
-                        : ""
-                    }`}
-                  >
-                    <input
-                      type="radio"
-                      name={`ida-${ferrySet.id}`}
-                      checked={
-                        ida?.id === option.id && ida.ferryId === ferrySet.id
-                      }
-                      onChange={() =>
-                        handleSelection("ida", ferrySet.id, option)
-                      }
-                      className="tw-h-4 tw-w-4 tw-text-green-500 dark:tw-text-green-400 focus:tw-ring-green-400 tw-border-slate-300 dark:tw-border-slate-700"
-                    />
-                    <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
-                    <div>
-                      <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
-                        {option.tipo}
-                      </p>
-                      <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
-                        Precio: {option.precio}€
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
-              {ferrySet.vuelta && (
-                <div className="tw-p-4 tw-border-t dark:tw-border-slate-700">
-                  <div className="tw-flex tw-justify-between">
-                    <span className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400 tw-mb-3">
-                      Vuelta: {ferrySet.vuelta?.ruta || "Ruta no disponible"}
-                    </span>
-                    <span className="tw-text-slate-800 dark:tw-text-slate-400 tw-text-sm">
-                      {ferrySet.vuelta?.hora_salida} -{" "}
-                      {ferrySet.vuelta?.hora_llegada}
-                    </span>
-                  </div>
-                  {ferrySet.vuelta?.precios?.map((option) => (
-                    <div
-                      key={option.id}
-                      className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
-                        vuelta?.id === option.id &&
-                        vuelta.ferryId === ferrySet.id
-                          ? "tw-bg-blue-50 dark:tw-bg-slate-900"
-                          : ""
-                      }`}
-                    >
-                      <input
-                        type="radio"
-                        name={`vuelta-${ferrySet.id}`}
-                        checked={
-                          vuelta?.id === option.id &&
-                          vuelta.ferryId === ferrySet.id
-                        }
-                        onChange={() =>
-                          handleSelection("vuelta", ferrySet.id, option)
-                        }
-                        className="tw-h-4 tw-w-4 tw-text-green-500 dark:tw-text-green-400 focus:tw-ring-green-400 tw-border-slate-300 dark:tw-border-slate-700"
-                      />
-                      <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
-                      <div>
-                        <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
-                          {option.tipo}
-                        </p>
-                        <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
-                          Precio: {option.precio}€
-                        </p>
+                {idaFerries
+                  .filter((t) => t.Tipo === tipo)
+                  .map((tarifa) => {
+                    const selected =
+                      ida?.id === tarifa.Code + tarifa.AcomodationCode;
+                    return (
+                      <div
+                        key={tarifa.Code + tarifa.AcomodationCode}
+                        className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
+                          selected ? "tw-bg-blue-50 dark:tw-bg-slate-900" : ""
+                        }`}
+                      >
+                        <input
+                          type="radio"
+                          name={`ida-${tipo}`}
+                          checked={selected}
+                          onChange={() => handleSelection("ida", tarifa)}
+                          className="tw-h-4 tw-w-4 tw-text-green-500 dark:tw-text-green-400 tw-border-slate-300 dark:tw-border-slate-700"
+                        />
+                        <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
+                        <div>
+                          <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
+                            {tarifa.Name}
+                          </p>
+                          <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
+                            Precio: {tarifa.Pvp}€
+                          </p>
+                        </div>
                       </div>
-                    </div>
-                  ))}
-                </div>
-              )}
-              {seleccion !== true && (
-                <div className="tw-flex tw-justify-end tw-mt-2 tw-p-3">
-                  {ida?.ferryId === ferrySet.id && (
-                    <Link to={"/datosferry"} state={ferry}>
-                      <button className="tw-btn_primario tw-btn_accesorios">
-                        Reservar por {calculateTotalPrice()}€
-                      </button>
-                    </Link>
+                    );
+                  })}
+
+                {results.length > 1 &&
+                  vueltaFerries.some((t) => t.Tipo === tipo) && (
+                    <>
+                      <div className="tw-flex tw-justify-between">
+                        <div>
+                          <h4 className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400">
+                            Vuelta: {results[1].PuertoOrigen} -{" "}
+                            {results[1].PuertoDestino}
+                          </h4>
+                          <span className="tw-text-slate-500">
+                            duración viaje: {duracionViajeVuelta}
+                          </span>
+                        </div>
+                        <span className="tw-text-slate-800 dark:tw-text-slate-400 tw-text-sm">
+                          {horaVuelta} - {horaLlegadaVuelta}
+                        </span>
+                      </div>
+                      {vueltaFerries
+                        .filter((t) => t.Tipo === tipo)
+                        .map((tarifa) => {
+                          const selected =
+                            vuelta?.id === tarifa.Code + tarifa.AcomodationCode;
+                          return (
+                            <div
+                              key={tarifa.Code + tarifa.AcomodationCode}
+                              className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
+                                selected
+                                  ? "tw-bg-blue-50 dark:tw-bg-slate-900"
+                                  : ""
+                              }`}
+                            >
+                              <input
+                                type="radio"
+                                name={`vuelta-${tipo}`}
+                                checked={selected}
+                                onChange={() =>
+                                  handleSelection("vuelta", tarifa)
+                                }
+                                className="tw-h-4 tw-w-4 tw-text-green-500 dark:tw-text-green-400 tw-border-slate-300 dark:tw-border-slate-700"
+                              />
+                              <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
+                              <div>
+                                <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
+                                  {tarifa.Name}
+                                </p>
+                                <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
+                                  Precio: {tarifa.Pvp}€
+                                </p>
+                              </div>
+                            </div>
+                          );
+                        })}
+                    </>
                   )}
-                </div>
-              )}
-            </div>
+
+                {ida?.tipo === tipo &&
+                  (!results[1] || vuelta?.tipo === tipo) && (
+                    <div className="tw-flex tw-justify-end tw-mt-4">
+                      <Link to={"/datosferry"} state={ferry}>
+                        <button className="tw-btn_primario tw-btn_accesorios">
+                          Reservar por{" "}
+                          {((ida?.Pvp || 0) + (vuelta?.Pvp || 0)).toFixed(2)}€
+                        </button>
+                      </Link>
+                    </div>
+                  )}
+              </div>
+            )}
           </div>
         );
       })}

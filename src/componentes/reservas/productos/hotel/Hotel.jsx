@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cesta from "../../../estructura/cesta/Zustand";
-import groupAndMergeRooms from "./scripts/mergeHabitaciones.js";
+import groupAndMergeRooms from "./hook/mergeHabitaciones.js";
 import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
 import Detalles from "./detalles/contenidoPrincipal/Hotel.jsx";
 import Aside from "./detalles/contenidoSecundario/Aside.jsx";
-import useNetoStore from "./scripts/zustand/useNetoStore.js";
+import useNetoStore from "./hook/zustand/useNetoStore.js";
 
 function Producto() {
   const vaciarCesta = cesta((state) => state.vaciarCesta);
