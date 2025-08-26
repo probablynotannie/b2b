@@ -2,7 +2,7 @@ import Map from "../detalles/hoteles/Map";
 import { FaEye } from "react-icons/fa";
 import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import getEstrellas from "../hook/getEstrellas";
-import useNetoStore from "../hook/zustand/useNetoStore";
+import useNetoStore from "../../../../../helpers/netoSwitcher/useNetoStore";
 import Galeria from "../detalles/contenidoSecundario/Gallery";
 import formatearFecha from "../../../../../scripts/FormatearFecha";
 import calcularFechaSalida from "../../../../../scripts/fechaSalidaConInicioYNoches";

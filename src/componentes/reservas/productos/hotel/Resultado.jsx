@@ -9,14 +9,14 @@ import Resultado from "../../../../helpers/Resultado";
 import MapaHoteles from "./mapa/MapaHoteles";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import Paginacion from "../../../../helpers/visuales/pagination/Corto";
-import useNetoStore from "./hook/zustand/useNetoStore";
+import useNetoStore from "../../../../helpers/netoSwitcher/useNetoStore";
 import getHoteles from "./hook/getHoteles";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import Error from "./filtros/Error";
+import NetoSwitcher from "../../../../helpers/netoSwitcher/Switch";
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
-
   const reserva = {
     codearea: codearea ? Number(codearea) : null,
     codcity: codcity ? Number(codcity) : null,
@@ -24,21 +24,20 @@ function Productos() {
     noc: noc ? Number(noc) : null,
     numper: numper || null,
   };
-
   const isReservaIncomplete = Object.values(reserva).some(
     (val) => val === null || val === ""
   );
-
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ["hoteles", reserva],
     queryFn: getHoteles,
-    enabled: !isReservaIncomplete,
+    refetchInterval: 5000,
     keepPreviousData: true,
+    select: (data) => data,
   });
 
   const [viewMode, setViewMode] = useState("list");
   const [hoteles, setHoteles] = useState(data);
-  const { neto, setNeto } = useNetoStore();
+  const neto = useNetoStore((state) => state.neto);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const hotelesPorPagina = 10;
@@ -95,7 +94,7 @@ function Productos() {
           tw-col-span-9 tw-p-3 
           `}
             >
-              {isLoading || isFetching ? (
+              {isLoading ? (
                 <>
                   <Cargando />
                   <PlaceHolder />
@@ -110,16 +109,7 @@ function Productos() {
                       Resultados ({hoteles?.length})
                     </h3>
                     <div className="tw-flex tw-gap-2">
-                      <button
-                        className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
-                          neto !== true
-                            ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
-                            : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
-                        }`}
-                        onClick={() => setNeto(!neto)}
-                      >
-                        <FaEye />
-                      </button>
+                      <NetoSwitcher />
                       <button
                         className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
                           viewMode === "list"
@@ -142,6 +132,7 @@ function Productos() {
                       </button>
                     </div>
                   </div>
+
                   {viewMode === "list" ? (
                     <div>
                       {hotelesAMostrar && (

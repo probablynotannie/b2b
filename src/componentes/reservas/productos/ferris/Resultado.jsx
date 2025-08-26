@@ -8,6 +8,7 @@ import Resultado from "../../../../helpers/Resultado";
 import ferrisRealesGnv from "./jsons/ferrisRealesGnv.json";
 import ferrisRealesTrasmed from "./jsons/ferrisRealesTrasmed.json";
 import ferrisRealesBalearia from "./jsons/ferrisRealesBalearia.json";
+import NetoSwitcher from "../../../../helpers/netoSwitcher/Switch";
 function Productos() {
   const ferrisArray = [
     ferrisRealesGnv,
@@ -25,6 +26,7 @@ function Productos() {
   const [ferry, setFerry] = useState({});
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+
   return (
     <Resultado
       background={"url('/banners/banner_ferry.webp')"}
@@ -41,12 +43,15 @@ function Productos() {
             </>
           ) : (
             <div className="tw-flex tw-space-y-5 tw-flex-col">
-              <h3
-                className={`tw-text-secondary
+              <div className="tw-flex tw-items-center tw-justify-between">
+                <h3
+                  className={`tw-text-secondary
                  tw-font-semibold tw-text-lg tw-flex tw-items-center`}
-              >
-                Resultados
-              </h3>
+                >
+                  Resultados
+                </h3>
+                <NetoSwitcher />
+              </div>
               {ferrisArray.map((ferryData, index) => (
                 <Ferris
                   key={index}

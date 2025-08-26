@@ -45,8 +45,6 @@ function Buscador_Tickets({ listado }) {
     };
 
     const path = `/listadotickets/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
-
-    console.log(data);
     navigate(path);
   };
   return (

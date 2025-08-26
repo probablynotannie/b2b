@@ -3,6 +3,7 @@ import { FaShip } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import extractDateAndTime from "../../../../scripts/extractDateAndTime";
 import calcularDuracion from "../../../../scripts/calcularDuracion";
+import capitalizeFirstLetter from "../../../../scripts/CapitalizeFirstLetterOnly";
 function Ferris({
   ida,
   setIda,
@@ -16,20 +17,17 @@ function Ferris({
   const results = Object.values(ferrisData.results);
   const idaFerries = results[0].ListaTarifas;
   const vueltaFerries = results[1].ListaTarifas;
-
   const tipos = [
     ...new Set([...idaFerries, ...vueltaFerries].map((t) => t.Tipo)),
   ];
-
   const toggleDropdown = (tipo) => {
     setOpenTipoSets((prev) =>
       prev.includes(tipo) ? prev.filter((t) => t !== tipo) : [...prev, tipo]
     );
   };
-
   const handleSelection = (type, tarifa) => {
     const ferryObj = type === "ida" ? results[0] : results[1];
-    const selectedState = {
+    const opcionSeleccionada = {
       ferryId: ferryObj.AuxRef,
       id: tarifa.Code + tarifa.AcomodationCode,
       tipo: tarifa.Tipo,
@@ -46,23 +44,21 @@ function Ferris({
 
     setFerry((prevFerry) => {
       const newFerry = { ...prevFerry };
-
       if (type === "ida") {
         if (vuelta && vuelta.tipo !== tarifa.Tipo) {
           newFerry.vuelta = null;
           setVuelta(null);
         }
-        newFerry.ida = selectedState;
-        setIda(selectedState);
+        newFerry.ida = opcionSeleccionada;
+        setIda(opcionSeleccionada);
       } else {
         if (ida && ida.tipo !== tarifa.Tipo) {
           newFerry.ida = null;
           setIda(null);
         }
-        newFerry.vuelta = selectedState;
-        setVuelta(selectedState);
+        newFerry.vuelta = opcionSeleccionada;
+        setVuelta(opcionSeleccionada);
       }
-
       return newFerry;
     });
   };
@@ -71,7 +67,7 @@ function Ferris({
       {tipos.map((tipo) => {
         const idaTarifas = idaFerries.filter((t) => t.Tipo === tipo);
         const vueltaTarifas = vueltaFerries.filter((t) => t.Tipo === tipo);
-
+        console.log(idaTarifas);
         const minIda =
           idaTarifas.length > 0 ? Math.min(...idaTarifas.map((t) => t.Pvp)) : 0;
         const minVuelta =
@@ -81,7 +77,6 @@ function Ferris({
 
         const minPrice = minIda + minVuelta;
         const isOpen = openTipoSets.includes(tipo);
-        /* Fechas */
         const { hora: horaIda } = extractDateAndTime(
           results[0]?.FechaSalida?.date
         );
@@ -92,7 +87,6 @@ function Ferris({
           results[0]?.FechaSalida?.date,
           results[0]?.FechaLlegada?.date
         );
-        /* Vuelta */
         const { hora: horaVuelta } = extractDateAndTime(
           results[1]?.FechaSalida?.date
         );
@@ -103,7 +97,6 @@ function Ferris({
           results[1]?.FechaSalida?.date,
           results[1]?.FechaLlegada?.date
         );
-        console.log(results[0]);
         return (
           <div
             key={tipo}
@@ -118,17 +111,25 @@ function Ferris({
                   <h3 className="tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-slate-200">
                     Tarifa: <span className="tw-uppercase"> {tipo}</span>
                   </h3>
-                  <span className="tw-ml-3 tw-font-bold tw-bg-green-100 dark:tw-bg-green-800 tw-text-green-600 dark:tw-text-green-200 tw-border-2 tw-border-green-100 dark:tw-border-green-800 tw-px-2 tw-py-1 tw-text-base tw-rounded-full">
-                    Desde: {minPrice}€
+                  <span
+                    className={`
+                    
+                    tw-ml-3 tw-font-bold  tw-border-2 tw-px-2 tw-py-1 tw-text-base tw-rounded-full
+                    tw-bg-green-100 dark:tw-bg-green-800 tw-text-green-600 dark:tw-text-green-200 tw-border-green-100 dark:tw-border-green-800"
+                    `}
+                  >
+                    Desde: {minPrice.toFixed(2)}€
                   </span>
                 </div>
-
                 {ida?.tipo === tipo && vuelta?.tipo === tipo && (
-                  <p className="tw-text-sm tw-text-green-600 dark:tw-text-green-400">
+                  <p className="tw-text-sm tw-text-green-600 dark:tw-text-green-400 tw-mt-1">
                     Seleccionado: {ida.nombre} + {vuelta.nombre} (
                     {(ida.Pvp + vuelta.Pvp).toFixed(2)}€)
                   </p>
                 )}
+                <p className="dark:tw-text-slate-400">
+                  Cambios | cancelaciones:
+                </p>
               </div>
               <div className="dark:tw-bg-slate-100 tw-rounded-lg">
                 <img
@@ -138,7 +139,6 @@ function Ferris({
                 />
               </div>
             </div>
-
             {isOpen && (
               <div className="tw-p-4 tw-border-t dark:tw-border-slate-700 tw-space-y-4">
                 <div className="tw-flex tw-justify-between">
@@ -177,10 +177,10 @@ function Ferris({
                         <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
                         <div>
                           <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
-                            {tarifa.Name}
+                            {capitalizeFirstLetter(tarifa.Name)}
                           </p>
                           <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
-                            Precio: {tarifa.Pvp}€
+                            {tarifa.Pvp}€
                           </p>
                         </div>
                       </div>
@@ -230,10 +230,10 @@ function Ferris({
                               <FaShip className="tw-text-green-800 dark:tw-text-green-300" />
                               <div>
                                 <p className="tw-text-sm tw-font-semibold tw-text-slate-800 dark:tw-text-slate-300">
-                                  {tarifa.Name}
+                                  {capitalizeFirstLetter(tarifa.Name)}
                                 </p>
                                 <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
-                                  Precio: {tarifa.Pvp}€
+                                  {tarifa.Pvp}€
                                 </p>
                               </div>
                             </div>

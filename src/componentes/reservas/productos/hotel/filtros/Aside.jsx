@@ -58,7 +58,6 @@ function Aside({
     });
 
     const regimenesArray = Array.from(ciudadesSet);
-    console.log("regimenesArray", regimenesArray);
     setCiudadUnicas(regimenesArray);
   }, [hoteles]);
 
@@ -73,7 +72,6 @@ function Aside({
       prev.filter((regimen) => ciudadesUnicas.includes(regimen))
     );
   }, [ciudadesUnicas]);
-  console.log(selectedCiudades);
   return (
     <AsideListado
       contenido={

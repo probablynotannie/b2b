@@ -7,12 +7,13 @@ import groupAndMergeRooms from "./hook/mergeHabitaciones.js";
 import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
 import Detalles from "./detalles/contenidoPrincipal/Hotel.jsx";
 import Aside from "./detalles/contenidoSecundario/Aside.jsx";
-import useNetoStore from "./hook/zustand/useNetoStore.js";
+import useNetoStore from "../../../../helpers/netoSwitcher/useNetoStore.js";
 
 function Producto() {
   const vaciarCesta = cesta((state) => state.vaciarCesta);
   const location = useLocation();
   const producto = location.state;
+
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const agrupados = groupAndMergeRooms(producto.ListaPrecios);

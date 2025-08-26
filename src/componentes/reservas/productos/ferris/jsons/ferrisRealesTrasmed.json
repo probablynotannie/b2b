@@ -36,7 +36,7 @@
     "tourNoReeminfo": "No admite cancelación. No admite cambios."
   },
   "results": {
-    "281120252245XD": {
+    "011220252245XD": {
       "ListaTarifas": [
         {
           "Tipo": 6,
@@ -46,9 +46,9 @@
           "Capacity": "1",
           "Name": "Asiento en zonas comunes",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 45.8,
-          "Pvp": 49.87,
-          "Fee": "4.08",
+          "Neto": 59,
+          "Pvp": 64.4,
+          "Fee": "5.40",
           "Currency": "EUR"
         },
         {
@@ -59,9 +59,9 @@
           "Capacity": "1",
           "Name": " Butaca Turista",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 46.55,
-          "Pvp": 50.7,
-          "Fee": "4.15",
+          "Neto": 60,
+          "Pvp": 65.5,
+          "Fee": "5.50",
           "Currency": "EUR"
         },
         {
@@ -72,9 +72,9 @@
           "Capacity": "1",
           "Name": "Asiento en zonas comunes",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 115.25,
-          "Pvp": 126.27,
-          "Fee": "11.02",
+          "Neto": 151.6,
+          "Pvp": 166.26,
+          "Fee": "14.66",
           "Currency": "EUR"
         },
         {
@@ -85,9 +85,9 @@
           "Capacity": "1",
           "Name": " Butaca Turista",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 116,
-          "Pvp": 127.09,
-          "Fee": "11.10",
+          "Neto": 152.6,
+          "Pvp": 167.36,
+          "Fee": "14.76",
           "Currency": "EUR"
         },
         {
@@ -98,9 +98,9 @@
           "Capacity": "2",
           "Name": "Cam. Cuadruple c/aseo",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 145.92,
-          "Pvp": 160.01,
-          "Fee": "14.09",
+          "Neto": 192.5,
+          "Pvp": 211.25,
+          "Fee": "18.75",
           "Currency": "EUR"
         },
         {
@@ -111,9 +111,9 @@
           "Capacity": "2",
           "Name": "Cam. Doble c/aseo",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 145.92,
-          "Pvp": 160.01,
-          "Fee": "14.09",
+          "Neto": 192.5,
+          "Pvp": 211.25,
+          "Fee": "18.75",
           "Currency": "EUR"
         },
         {
@@ -124,9 +124,9 @@
           "Capacity": "2",
           "Name": "Cam. Doble c/aseo",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 312.57,
-          "Pvp": 343.33,
-          "Fee": "30.76",
+          "Neto": 414.7,
+          "Pvp": 455.67,
+          "Fee": "40.97",
           "Currency": "EUR"
         },
         {
@@ -137,9 +137,9 @@
           "Capacity": "2",
           "Name": "Cam. Cuadruple c/aseo",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 312.57,
-          "Pvp": 343.33,
-          "Fee": "30.76",
+          "Neto": 414.7,
+          "Pvp": 455.67,
+          "Fee": "40.97",
           "Currency": "EUR"
         }
       ],
@@ -147,12 +147,12 @@
       "idOp": "1",
       "TipoTrayecto": 1,
       "FechaSalida": {
-        "date": "2025-11-28 22:45:00.000000",
+        "date": "2025-12-01 22:45:00.000000",
         "timezone_type": 3,
         "timezone": "Europe/Madrid"
       },
       "FechaLlegada": {
-        "date": "2025-11-29 06:00:00.000000",
+        "date": "2025-12-02 06:00:00.000000",
         "timezone_type": 3,
         "timezone": "Europe/Madrid"
       },
@@ -161,10 +161,10 @@
       "NombreBarco": "Ciudad de Palma",
       "CodeBarco": "XD",
       "Img": "//prodxml-2.vpackage.net/Ferrys/public/img/trasmed_barco.jpg",
-      "AuxRef": "281120252245XD",
-      "cacheId": 317235
+      "AuxRef": "011220252245XD",
+      "cacheId": 317495
     },
-    "291120251130XD": {
+    "061220251130XD": {
       "ListaTarifas": [
         {
           "Tipo": 6,
@@ -174,9 +174,9 @@
           "Capacity": "1",
           "Name": "Asiento en zonas comunes",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 45.8,
-          "Pvp": 49.87,
-          "Fee": "4.08",
+          "Neto": 59,
+          "Pvp": 64.4,
+          "Fee": "5.40",
           "Currency": "EUR"
         },
         {
@@ -187,9 +187,9 @@
           "Capacity": "1",
           "Name": " Butaca Turista",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 46.55,
-          "Pvp": 50.7,
-          "Fee": "4.15",
+          "Neto": 60,
+          "Pvp": 65.5,
+          "Fee": "5.50",
           "Currency": "EUR"
         },
         {
@@ -200,9 +200,9 @@
           "Capacity": "1",
           "Name": "Asiento en zonas comunes",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 63.05,
-          "Pvp": 68.85,
-          "Fee": "5.80",
+          "Neto": 82,
+          "Pvp": 89.7,
+          "Fee": "7.70",
           "Currency": "EUR"
         },
         {
@@ -213,9 +213,9 @@
           "Capacity": "1",
           "Name": " Butaca Turista",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 66.8,
-          "Pvp": 72.97,
-          "Fee": "6.18",
+          "Neto": 87,
+          "Pvp": 95.2,
+          "Fee": "8.20",
           "Currency": "EUR"
         },
         {
@@ -226,9 +226,9 @@
           "Capacity": "2",
           "Name": "Cam. Cuadruple c/aseo",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 145.92,
-          "Pvp": 160.01,
-          "Fee": "14.09",
+          "Neto": 192.5,
+          "Pvp": 211.25,
+          "Fee": "18.75",
           "Currency": "EUR"
         },
         {
@@ -239,9 +239,9 @@
           "Capacity": "2",
           "Name": "Cam. Doble c/aseo",
           "Restriction": "(18) Flexibilidad Media: permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa), sujetos a retarificación. No permite anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta",
-          "Neto": 145.92,
-          "Pvp": 160.01,
-          "Fee": "14.09",
+          "Neto": 192.5,
+          "Pvp": 211.25,
+          "Fee": "18.75",
           "Currency": "EUR"
         },
         {
@@ -252,9 +252,9 @@
           "Capacity": "2",
           "Name": "Cam. Doble c/aseo",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 186.05,
-          "Pvp": 204.15,
-          "Fee": "18.10",
+          "Neto": 246,
+          "Pvp": 270.1,
+          "Fee": "24.10",
           "Currency": "EUR"
         },
         {
@@ -265,9 +265,9 @@
           "Capacity": "2",
           "Name": "Cam. Cuadruple c/aseo",
           "Restriction": "(0) Flexibilidad PLUS : permite cambios (fecha, horario, trayecto, acomodación y tipo de flexibilidad de la tarifa) sujetos a retarificación y anulación. Consulta las condiciones de tu tarifa en las Condiciones Generales de Venta.",
-          "Neto": 186.05,
-          "Pvp": 204.15,
-          "Fee": "18.10",
+          "Neto": 246,
+          "Pvp": 270.1,
+          "Fee": "24.10",
           "Currency": "EUR"
         }
       ],
@@ -275,12 +275,12 @@
       "idOp": "1",
       "TipoTrayecto": 2,
       "FechaSalida": {
-        "date": "2025-11-29 11:30:00.000000",
+        "date": "2025-12-06 11:30:00.000000",
         "timezone_type": 3,
         "timezone": "Europe/Madrid"
       },
       "FechaLlegada": {
-        "date": "2025-11-29 19:00:00.000000",
+        "date": "2025-12-06 19:00:00.000000",
         "timezone_type": 3,
         "timezone": "Europe/Madrid"
       },
@@ -289,8 +289,8 @@
       "NombreBarco": "Ciudad de Palma",
       "CodeBarco": "XD",
       "Img": "//prodxml-2.vpackage.net/Ferrys/public/img/trasmed_barco.jpg",
-      "AuxRef": "291120251130XD",
-      "cacheId": 317236
+      "AuxRef": "061220251130XD",
+      "cacheId": 317496
     }
   },
   "origen": {
@@ -333,7 +333,7 @@
     "date_update": "0000-00-00 00:00:00"
   },
   "idaYvuelta": "1",
-  "searchId": 81356,
+  "searchId": 81397,
   "puertos": {
     "ACE": {
       "id_puerto": 1,

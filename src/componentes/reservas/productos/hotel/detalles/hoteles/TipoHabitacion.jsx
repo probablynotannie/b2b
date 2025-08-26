@@ -36,7 +36,7 @@ const DropdownCheckboxSelector = ({
             row={true}
             selected={selectedRegimenes}
             onChange={setRegimenes}
-            regimenes={regimenesUnicos}
+            datos={regimenesUnicos}
           />
         ) : (
           <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
