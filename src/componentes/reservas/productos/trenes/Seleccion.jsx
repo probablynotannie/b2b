@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "flowbite-react";
-import formatearMinutos from "../../../../assets/scripts/FormatearMinutos";
+import formatearMinutos from "../../../../assets/scripts/formatearMinutos";
 import Mapa from "./Mapa";
 import {
   FaClock,
@@ -37,7 +37,7 @@ function Seleccion({ tren, reservar, setTren }) {
     >
       <div className="tw-flex tw-justify-between tw-items-start tw-mb-4">
         <div>
-          <h3 className="tw-text-xl tw-font-semibold   dark:tw-text-slate-300 tw-flex tw-items-center tw-gap-1">
+          <h3 className="tw-text-xl tw-font-semibold dark:tw-text-slate-300 tw-flex tw-items-center tw-gap-1">
             {capitalizeFirstLetterOnly(tren.departureStationName)}{" "}
             <FaArrowRight className="tw-text-sm" />
             {capitalizeFirstLetterOnly(tren.arrivalStationName)}
@@ -52,7 +52,7 @@ function Seleccion({ tren, reservar, setTren }) {
         <img
           src={tren.carrier[0].logo}
           alt={`${tren.carrier[0].name} logo`}
-          className="tw-h-8  tw-object-contain dark:tw-bg-white tw-rounded-md tw-p-1"
+          className="tw-h-8 tw-object-contain dark:tw-bg-white tw-rounded-md tw-p-1"
         />
       </div>
       <div className="tw-grid tw-grid-cols-2 md:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-4 tw-mb-6 tw-text-gray-700 dark:tw-text-gray-300">
@@ -146,7 +146,7 @@ function Seleccion({ tren, reservar, setTren }) {
               >
                 <div className="tw-text-xl">{item.icon}</div>
                 <div>
-                  <p className="tw-font-semibold  tw-text-xs">{item.label}</p>
+                  <p className="tw-font-semibold tw-text-xs">{item.label}</p>
                   <p className="tw-text-sm">{item.value}</p>
                 </div>
               </div>
@@ -166,7 +166,7 @@ function Seleccion({ tren, reservar, setTren }) {
                     className="tw-mb-4 tw-p-4 tw-rounded-md tw-shadow dark:tw-bg-slate-700"
                   >
                     <button
-                      className="tw-w-full tw-flex tw-justify-between tw-items-center tw-font-semibold  dark:tw-text-secondary-slate-200 tw-text-lg tw-select-none"
+                      className="tw-w-full tw-flex tw-justify-between tw-items-center tw-font-semibold dark:tw-text-secondary-slate-200 tw-text-lg tw-select-none"
                       onClick={() => toggleSeatClass(idx)}
                     >
                       <span>
@@ -183,7 +183,7 @@ function Seleccion({ tren, reservar, setTren }) {
                       <div className="tw-mt-3 tw-text-gray-700 dark:tw-text-gray-300 tw-text-sm">
                         {clase.informacion?.map((info, i) => (
                           <div key={i} className="tw-mb-2">
-                            <p className="tw-font-semibold  dark:tw-text-slate-400">
+                            <p className="tw-font-semibold dark:tw-text-slate-400">
                               {info.titulo}
                             </p>
                             <p>{info.texto}</p>
@@ -201,7 +201,7 @@ function Seleccion({ tren, reservar, setTren }) {
                                 </p>
                                 {sub.informacion?.map((subinfo, subi) => (
                                   <div key={subi} className="tw-mb-1">
-                                    <p className="tw-font-semibold  ">
+                                    <p className="tw-font-semibold ">
                                       {subinfo.titulo}:
                                     </p>
                                     <p>{subinfo.texto}</p>
