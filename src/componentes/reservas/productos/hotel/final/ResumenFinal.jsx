@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import Hotel from "./Hotel";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaHotel, FaMapPin } from "react-icons/fa";
-import useNetoStore from "../../../../../helpers/netoSwitcher/useNetoStore";
+import useNetoStore from "../../../../../assets/netoSwitcher/useNetoStore";
 
 function ResumenFinal() {
   const location = useLocation();

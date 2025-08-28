@@ -9,12 +9,12 @@ import Resultado from "../../../../helpers/Resultado";
 import MapaHoteles from "./mapa/MapaHoteles";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import Paginacion from "../../../../helpers/visuales/pagination/Corto";
-import useNetoStore from "../../../../helpers/netoSwitcher/useNetoStore";
+import useNetoStore from "../../../../assets/netoSwitcher/useNetoStore";
 import getHoteles from "./hook/getHoteles";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import Error from "./filtros/Error";
-import NetoSwitcher from "../../../../helpers/netoSwitcher/Switch";
+import NetoSwitcher from "../../../../assets/netoSwitcher/Switch";
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
   const reserva = {
