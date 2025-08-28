@@ -1,5 +1,5 @@
 import { FaMars, FaVenus, FaGlobe } from "react-icons/fa";
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 const normalizePasajero = (pasajero, index) => {
   if (pasajero.nombre && pasajero.apellido) {
     return {

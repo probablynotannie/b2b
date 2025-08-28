@@ -1,4 +1,4 @@
-import FormatearFecha from "../../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../../assets/scripts/formatearFecha";
 
 import { FaFerry } from "react-icons/fa6";
 import HotelDetalles from "../../../hotel/reserva/contenidoSecundario/HotelDetalles";

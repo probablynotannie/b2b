@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 function Datos() {
   const location = useLocation();

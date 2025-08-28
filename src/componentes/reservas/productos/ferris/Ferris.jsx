@@ -1,9 +1,11 @@
 import { useState } from "react";
 import { FaShip } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import extractDateAndTime from "../../../../scripts/extractDateAndTime";
-import calcularDuracion from "../../../../scripts/calcularDuracion";
-import capitalizeFirstLetter from "../../../../scripts/CapitalizeFirstLetterOnly";
+import extractDateAndTime from "../../../../assets/scripts/extractDateAndTime.js";
+import calcularDuracion from "../../../../assets/scripts/calcularDuracion.js";
+import capitalizeFirstLetter from "../../../../assets/scripts/capitalizeFirstLetterOnly.js";
+import TarifaNames from "./jsons/TarifaNames.js";
+
 function Ferris({
   ida,
   setIda,
@@ -14,32 +16,36 @@ function Ferris({
   ferrisData,
 }) {
   const [openTipoSets, setOpenTipoSets] = useState([]);
-  const results = Object.values(ferrisData.results);
-  const idaFerries = results[0].ListaTarifas;
-  const vueltaFerries = results[1].ListaTarifas;
+  const results = Object.values(ferrisData.results) ?? [];
+  const idaFerries = results?.[0]?.ListaTarifas ?? [];
+  const vueltaFerries = results?.[1]?.ListaTarifas ?? [];
+  console.log(TarifaNames[0]);
   const tipos = [
     ...new Set([...idaFerries, ...vueltaFerries].map((t) => t.Tipo)),
   ];
+
   const toggleDropdown = (tipo) => {
     setOpenTipoSets((prev) =>
       prev.includes(tipo) ? prev.filter((t) => t !== tipo) : [...prev, tipo]
     );
   };
   const handleSelection = (type, tarifa) => {
-    const ferryObj = type === "ida" ? results[0] : results[1];
+    const ferryObj = type === "ida" ? results?.[0] : results?.[1];
+    if (!ferryObj) return;
+
     const opcionSeleccionada = {
-      ferryId: ferryObj.AuxRef,
+      ferryId: ferryObj?.AuxRef,
       id: tarifa.Code + tarifa.AcomodationCode,
       tipo: tarifa.Tipo,
       nombre: tarifa.Name,
       Pvp: tarifa.Pvp,
       Restriction: tarifa.Restriction,
-      fecha_salida: ferryObj.FechaSalida.date,
-      fecha_llegada: ferryObj.FechaLlegada.date,
-      puerto_origen: ferryObj.PuertoOrigen,
-      puerto_destino: ferryObj.PuertoDestino,
-      barco: ferryObj.NombreBarco,
-      img: ferryObj.Img,
+      fecha_salida: ferryObj?.FechaSalida?.date,
+      fecha_llegada: ferryObj?.FechaLlegada?.date,
+      puerto_origen: ferryObj?.PuertoOrigen,
+      puerto_destino: ferryObj?.PuertoDestino,
+      barco: ferryObj?.NombreBarco,
+      img: ferryObj?.Img,
     };
 
     setFerry((prevFerry) => {
@@ -62,12 +68,13 @@ function Ferris({
       return newFerry;
     });
   };
+
   return (
-    <section className="tw-space-y-4">
+    <section>
       {tipos.map((tipo) => {
         const idaTarifas = idaFerries.filter((t) => t.Tipo === tipo);
         const vueltaTarifas = vueltaFerries.filter((t) => t.Tipo === tipo);
-        console.log(idaTarifas);
+
         const minIda =
           idaTarifas.length > 0 ? Math.min(...idaTarifas.map((t) => t.Pvp)) : 0;
         const minVuelta =
@@ -77,45 +84,49 @@ function Ferris({
 
         const minPrice = minIda + minVuelta;
         const isOpen = openTipoSets.includes(tipo);
+
         const { hora: horaIda } = extractDateAndTime(
-          results[0]?.FechaSalida?.date
+          results?.[0]?.FechaSalida?.date
         );
         const { hora: horaLlegada } = extractDateAndTime(
-          results[0]?.FechaLlegada?.date
+          results?.[0]?.FechaLlegada?.date
         );
         const duracionViajeIda = calcularDuracion(
-          results[0]?.FechaSalida?.date,
-          results[0]?.FechaLlegada?.date
+          results?.[0]?.FechaSalida?.date,
+          results?.[0]?.FechaLlegada?.date
         );
+
         const { hora: horaVuelta } = extractDateAndTime(
-          results[1]?.FechaSalida?.date
+          results?.[1]?.FechaSalida?.date
         );
         const { hora: horaLlegadaVuelta } = extractDateAndTime(
-          results[1]?.FechaLlegada?.date
+          results?.[1]?.FechaLlegada?.date
         );
         const duracionViajeVuelta = calcularDuracion(
-          results[1]?.FechaSalida?.date,
-          results[1]?.FechaLlegada?.date
+          results?.[1]?.FechaSalida?.date,
+          results?.[1]?.FechaLlegada?.date
         );
         return (
           <div
             key={tipo}
-            className={`tw-border dark:tw-border-slate-700 tw-border-slate-100 tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-duration-500`}
+            className={`tw-mt-2 tw-border dark:tw-border-slate-700 tw-border-slate-100 tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-duration-500`}
           >
             <div
               className="tw-flex tw-justify-between tw-items-center tw-p-4 tw-cursor-pointer"
               onClick={() => toggleDropdown(tipo)}
             >
               <div>
-                <div className="md:tw-w-fit tw-flex tw-w-full tw-justify-between tw-items-center">
+                <div className="md:tw-w-fit tw-flex tw-w-full tw-justify-between tw-items-start">
                   <h3 className="tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-slate-200">
-                    Tarifa: <span className="tw-uppercase"> {tipo}</span>
+                    Tarifa:
+                    <span className="tw-uppercase">
+                      {TarifaNames[tipo].Title}
+                    </span>
                   </h3>
                   <span
                     className={`
-                    
                     tw-ml-3 tw-font-bold  tw-border-2 tw-px-2 tw-py-1 tw-text-base tw-rounded-full
-                    tw-bg-green-100 dark:tw-bg-green-800 tw-text-green-600 dark:tw-text-green-200 tw-border-green-100 dark:tw-border-green-800"
+                    tw-bg-green-100 dark:tw-bg-green-800 tw-text-green-600 dark:tw-text-green-200 dark:tw-border-green-800 tw-border-green-100 dark:tw-border-green-800"
                     `}
                   >
                     Desde: {minPrice.toFixed(2)}€
@@ -127,8 +138,8 @@ function Ferris({
                     {(ida.Pvp + vuelta.Pvp).toFixed(2)}€)
                   </p>
                 )}
-                <p className="dark:tw-text-slate-400">
-                  Cambios | cancelaciones:
+                <p className="dark:tw-text-slate-400 tw-text-sm">
+                  {TarifaNames[tipo].Descrip}
                 </p>
               </div>
               <div className="dark:tw-bg-slate-100 tw-rounded-lg">
@@ -139,15 +150,16 @@ function Ferris({
                 />
               </div>
             </div>
+
             {isOpen && (
               <div className="tw-p-4 tw-border-t dark:tw-border-slate-700 tw-space-y-4">
                 <div className="tw-flex tw-justify-between">
                   <div>
                     <h4 className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400 tw-mb-3">
-                      Ida: {results[0].PuertoOrigen} -{" "}
-                      {results[0].PuertoDestino}
+                      Ida: {results?.[0]?.PuertoOrigen} -{" "}
+                      {results?.[0]?.PuertoDestino}
                     </h4>
-                    <span className="tw-text-slate-500">
+                    <span className="tw-text-slate-500 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
                       duración viaje: {duracionViajeIda}
                     </span>
                   </div>
@@ -180,7 +192,7 @@ function Ferris({
                             {capitalizeFirstLetter(tarifa.Name)}
                           </p>
                           <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
-                            {tarifa.Pvp}€
+                            {tarifa.Pvp.toFixed(2)}€
                           </p>
                         </div>
                       </div>
@@ -193,8 +205,8 @@ function Ferris({
                       <div className="tw-flex tw-justify-between">
                         <div>
                           <h4 className="text-md tw-font-bold tw-text-slate-800 dark:tw-text-slate-400">
-                            Vuelta: {results[1].PuertoOrigen} -{" "}
-                            {results[1].PuertoDestino}
+                            Vuelta: {results?.[1]?.PuertoOrigen} -{" "}
+                            {results?.[1]?.PuertoDestino}
                           </h4>
                           <span className="tw-text-slate-500">
                             duración viaje: {duracionViajeVuelta}
@@ -233,7 +245,7 @@ function Ferris({
                                   {capitalizeFirstLetter(tarifa.Name)}
                                 </p>
                                 <p className="tw-text-sm tw-text-slate-600 dark:tw-text-slate-500">
-                                  {tarifa.Pvp}€
+                                  {tarifa.Pvp.toFixed(2)}€
                                 </p>
                               </div>
                             </div>
@@ -243,9 +255,9 @@ function Ferris({
                   )}
 
                 {ida?.tipo === tipo &&
-                  (!results[1] || vuelta?.tipo === tipo) && (
+                  (!results?.[1] || vuelta?.tipo === tipo) && (
                     <div className="tw-flex tw-justify-end tw-mt-4">
-                      <Link to={"/datosferry"} state={ferry}>
+                      <Link to="/ferry" state={{ ferry, ferrisData }}>
                         <button className="tw-btn_primario tw-btn_accesorios">
                           Reservar por{" "}
                           {((ida?.Pvp || 0) + (vuelta?.Pvp || 0)).toFixed(2)}€

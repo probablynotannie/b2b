@@ -10,8 +10,8 @@ import ferris from "./Ferris.json";
 import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import PlaceHolder from "../../../../placeholders/listados/Hoteles";
+import Cargando from "../../../../placeholders/listados/Cargando";
 import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);

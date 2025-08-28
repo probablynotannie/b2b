@@ -1,5 +1,5 @@
-import FormateadFecha from "../../../../../../scripts/FormatearFecha";
-import formatearMinutos from "../../../../../../scripts/FormatearMinutos";
+import FormateadFecha from "../../../../../../assets/scripts/formatearFecha";
+import formatearMinutos from "../../../../../../assets/scripts/formatearMinutos";
 function DatosTren({ tren, tipo }) {
   return (
     <div className="tw-p-2 tw-mt-3 tw-rounded tw-border tw-border-slate-100 dark:tw-border-slate-700">

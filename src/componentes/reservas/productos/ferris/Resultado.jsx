@@ -2,13 +2,13 @@ import Buscador from "../../../motores/buscadores/ferris/Buscador_Ferris";
 import Aside from "./filtros/Aside";
 import Ferris from "./Ferris";
 import { useState, useEffect } from "react";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Ferris";
+import Cargando from "../../../../placeholders/listados/Cargando";
+import PlaceHolder from "../../../../placeholders/listados/Ferris";
 import Resultado from "../../../../helpers/Resultado";
 import ferrisRealesGnv from "./jsons/ferrisRealesGnv.json";
 import ferrisRealesTrasmed from "./jsons/ferrisRealesTrasmed.json";
 import ferrisRealesBalearia from "./jsons/ferrisRealesBalearia.json";
-import NetoSwitcher from "../../../../helpers/netoSwitcher/Switch";
+import ferrisRealesSoloIda from "./jsons/ferrisRealesSoloIda.json";
 function Productos() {
   const ferrisArray = [
     ferrisRealesGnv,
@@ -42,7 +42,7 @@ function Productos() {
               <PlaceHolder />
             </>
           ) : (
-            <div className="tw-flex tw-space-y-5 tw-flex-col">
+            <div className="tw-flex tw-flex-col tw-gap-3">
               <div className="tw-flex tw-items-center tw-justify-between">
                 <h3
                   className={`tw-text-secondary
@@ -50,20 +50,21 @@ function Productos() {
                 >
                   Resultados
                 </h3>
-                <NetoSwitcher />
               </div>
-              {ferrisArray.map((ferryData, index) => (
-                <Ferris
-                  key={index}
-                  ferrisData={ferryData}
-                  ferry={ferry}
-                  setFerry={setFerry}
-                  ida={ida}
-                  setIda={setIda}
-                  vuelta={vuelta}
-                  setVuelta={setVuelta}
-                />
-              ))}
+              <div>
+                {ferrisArray.map((ferryData, index) => (
+                  <Ferris
+                    key={index}
+                    ferrisData={ferryData}
+                    ferry={ferry}
+                    setFerry={setFerry}
+                    ida={ida}
+                    setIda={setIda}
+                    vuelta={vuelta}
+                    setVuelta={setVuelta}
+                  />
+                ))}
+              </div>
             </div>
           )}
         </>

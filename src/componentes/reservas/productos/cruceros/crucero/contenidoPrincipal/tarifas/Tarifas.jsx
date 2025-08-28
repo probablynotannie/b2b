@@ -3,7 +3,7 @@ import { GiCruiser } from "react-icons/gi";
 import { GoDotFill } from "react-icons/go";
 import { FaDoorOpen, FaEuroSign } from "react-icons/fa6";
 import { FaCalendarAlt } from "react-icons/fa";
-import FormatearFecha from "../../../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../../../assets/scripts/formatearFecha";
 import PriceCarousel from "./Carousel";
 
 import ModalPrecio from "./Modal";
@@ -276,7 +276,7 @@ function Tarifas({
                                 {lowestPrice !== null ? (
                                   <div className="tw-flex tw-justify-center tw-items-center tw-relative tw-gap-1">
                                     {lowestPrice === minGlobal && (
-                                      <div className="tw-hidden xl:tw-block tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-green-700  dark:tw-bg-green-400 tw-animate-pulse"></div>
+                                      <div className="tw-hidden xl:tw-block tw-absolute tw-left-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-green-700 dark:tw-bg-green-400 tw-animate-pulse"></div>
                                     )}
                                     {hasMaxPrice && (
                                       <div className="tw-hidden xl:tw-block tw-absolute tw-right-2 tw-w-2 tw-h-2 tw-rounded-full tw-bg-red-700 dark:tw-bg-red-400 tw-animate-pulse"></div>

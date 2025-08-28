@@ -6,7 +6,7 @@ import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import Datos_Destino from "../../../../../../helpers/destinos.json";
 import cesta from "../../../../../estructura/cesta/Zustand";
-import formatearFecha from "../../../../../../scripts/FormatearFecha";
+import formatearFecha from "../../../../../../assets/scripts/formatearFecha";
 import AnadirMasProductos from "../../../../../../helpers/visuales/masProductos/AnadirMasProductos";
 const Eleccion = ({
   fecha,

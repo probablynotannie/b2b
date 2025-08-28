@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import { FaPlane, FaSearch, FaHotel, FaMap } from "react-icons/fa";
 import { IoClose } from "react-icons/io5";
 import { Controller } from "react-hook-form";
-import capitalizeFirstLetter from "../../scripts/CapitalizeFirstLetterOnly";
+import capitalizeFirstLetter from "../../assets/scripts/capitalizeFirstLetterOnly";
 
 function Buscador({
   destinos,

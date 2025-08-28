@@ -4,8 +4,8 @@ import Estrellas from "../../../../../helpers/visuales/Estrellas";
 import getEstrellas from "../hook/getEstrellas";
 import useNetoStore from "../../../../../helpers/netoSwitcher/useNetoStore";
 import Galeria from "../detalles/contenidoSecundario/Gallery";
-import formatearFecha from "../../../../../scripts/FormatearFecha";
-import calcularFechaSalida from "../../../../../scripts/fechaSalidaConInicioYNoches";
+import formatearFecha from "../../../../../assets/scripts/formatearFecha";
+import calcularFechaSalida from "../../../../../assets/scripts/fechaSalidaConInicioYNoches";
 function Hote({ hotel, habitacion }) {
   const { neto, setNeto } = useNetoStore();
   const fechaSalida = calcularFechaSalida(

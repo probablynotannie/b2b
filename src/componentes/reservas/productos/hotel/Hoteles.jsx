@@ -14,10 +14,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Imagenes from "./detalles/hoteles/Imgs";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
-import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
-import FormatearFecha from "../../../../scripts/FormatearFecha";
+import capitalizeFirstLetterOnly from "../../../../assets/scripts/capitalizeFirstLetterOnly";
+import FormatearFecha from "../../../../assets/scripts/formatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
-import calcularFechaSalida from "../../../../scripts/fechaSalidaConInicioYNoches";
+import calcularFechaSalida from "../../../../assets/scripts/fechaSalidaConInicioYNoches";
 function Resultado({ hoteles, neto, reserva }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);

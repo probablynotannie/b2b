@@ -9,8 +9,8 @@ import { FaPlane } from "react-icons/fa";
 import vuelos from "./Vuelos.json";
 import hoteles from "./Hoteles.json";
 import { Link } from "react-router-dom";
-import Placeholder from "../../estructura/skeleton_placeholders_listado/Hotelmasvuelo";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import Placeholder from "../../../../placeholders/listados/Hotelmasvuelo";
+import Cargando from "../../../../placeholders/listados/Cargando";
 import Resultado from "../../../../helpers/Resultado";
 import Aside_Vuelo from "../vuelos/filtros/Aside_Vuelo";
 

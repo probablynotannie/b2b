@@ -3,7 +3,7 @@ import { DateTimePicker } from "@mantine/dates";
 import { FaCalendarAlt } from "react-icons/fa";
 import { useController } from "react-hook-form";
 import cesta from "../estructura/cesta/Zustand";
-import parseFecha from "../../scripts/parseFechas";
+import parseFecha from "../../assets/scripts/parseFechas";
 const DateWithTime = ({
   control,
   nameFecha,

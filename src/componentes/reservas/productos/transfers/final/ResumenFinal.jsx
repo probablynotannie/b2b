@@ -1,6 +1,6 @@
 import { useLocation } from "react-router-dom";
 import Coche from "./Coche";
-import formatearMinutos from "../../../../../scripts/FormatearMinutos";
+import formatearMinutos from "../../../../../assets/scripts/formatearMinutos";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaCar } from "react-icons/fa6";
 function ResumenFinal() {

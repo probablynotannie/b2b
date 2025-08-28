@@ -2,7 +2,7 @@ import { useState, useEffect } from "react";
 import Buscador from "../../../motores/buscadores/entradas/Buscador_Entradas";
 import Entradas from "./Tickets";
 import tickets from "./Tickets.json";
-import Placeholder from "../../estructura/skeleton_placeholders_listado/Entradas";
+import Placeholder from "../../../../placeholders/listados/Entradas";
 import Resultado from "../../../../helpers/Resultado";
 import { useParams } from "react-router-dom";
 import getEntradas from "./hooks/getEntradas";
@@ -107,7 +107,13 @@ function Productos() {
               <div>
                 {entradasAMostrar && (
                   <>
-                    <div className="tw-flex tw-justify-start">
+                    <div className="tw-flex tw-justify-between tw-items-center">
+                      <h3
+                        className={`tw-text-secondary
+                 tw-font-semibold tw-text-lg tw-flex tw-items-center`}
+                      >
+                        Resultados ({entradas.length})
+                      </h3>
                       <Paginacion
                         totalPages={paginasTotales}
                         page={page}

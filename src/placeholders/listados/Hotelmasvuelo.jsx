@@ -1,6 +1,5 @@
 import Hoteles from "./Hoteles";
 import VueloSeleccionado from "./VueloSeleccionado";
-import { GoDotFill } from "react-icons/go";
 function Hotelmasvuelo() {
   return (
     <div>

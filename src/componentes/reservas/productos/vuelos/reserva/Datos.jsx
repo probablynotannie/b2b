@@ -1,7 +1,7 @@
 import { useLocation, useNavigate } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 import { useForm } from "react-hook-form";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 function Vuelo() {

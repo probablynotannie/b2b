@@ -9,7 +9,7 @@ import Cesta from "./Cesta";
 import entradas from "./Tickets.json";
 import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
+import PlaceHolder from "../../../../placeholders/listados/Hoteles";
 import { FaCheck } from "react-icons/fa";
 import Resultado from "../../../../helpers/Resultado";
 function Productos() {

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import Crucero from "./Crucero";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaShip } from "react-icons/fa";
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 import { useQuery } from "@tanstack/react-query";
 import fetchReserva from "../hook/reserva";
 import ReservaLocalizada from "./Reserva";

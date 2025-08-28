@@ -2,8 +2,8 @@ import { FaCalendarAlt, FaMoon, FaWallet } from "react-icons/fa";
 import DatoTituloIcono from "../../../../../../helpers/visuales/DatoTituloIcono";
 import { FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import formatearFecha from "../../../../../../scripts/FormatearFecha";
-import calcularFechaSalida from "../../../../../../scripts/fechaSalidaConInicioYNoches";
+import formatearFecha from "../../../../../../assets/scripts/formatearFecha";
+import calcularFechaSalida from "../../../../../../assets/scripts/fechaSalidaConInicioYNoches";
 import React from "react";
 function Info({ hotel, aside, habitacion }) {
   const fechaSalida = calcularFechaSalida(

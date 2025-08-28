@@ -1,7 +1,7 @@
 import { useLocation } from "react-router-dom";
 import Input_Texto from "../../../../inputs/Texto";
 import { useState } from "react";
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 import { useNavigate } from "react-router-dom";
 import Input_Nacionalidad from "../../../../inputs/Nacionalidad";
 import { useForm, Controller } from "react-hook-form";

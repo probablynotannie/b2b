@@ -3,7 +3,7 @@ import { HiOutlineChevronDoubleRight } from "react-icons/hi";
 import { HiOutlineChevronDoubleDown } from "react-icons/hi";
 import { FaMapPin, FaCalendarAlt, FaClock } from "react-icons/fa";
 import { HiOutlineChevronDoubleUp } from "react-icons/hi";
-import FormatearFecha from "../../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../../assets/scripts/formatearFecha";
 
 function Itinerario({ coche }) {
   return (

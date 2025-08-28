@@ -2,7 +2,7 @@ import { FaCalendarAlt, FaTrash } from "react-icons/fa";
 import { useState } from "react";
 import Iconos from "../../../estructura/cesta/Iconos";
 import ModalEliminar from "../../../estructura/cesta/ModalEliminar";
-import formatearFecha from "../../../../scripts/FormatearFecha";
+import formatearFecha from "../../../../assets/scripts/formatearFecha";
 function Producto({ producto, onRemove, index }) {
   const [isModalOpen, setIsModalOpen] = useState(false);
 

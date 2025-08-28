@@ -2,8 +2,8 @@ import Buscador from "../../../motores/buscadores/destinos/Buscador_Destinos";
 import Aside from "./filtros/Aside";
 import Destinos from "./Destinos";
 import { useEffect, useState } from "react";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Destinos";
+import Cargando from "../../../../placeholders/listados/Cargando";
+import PlaceHolder from "../../../../placeholders/listados/Destinos";
 import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);

@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { Modal } from "flowbite-react";
-import formatearMinutos from "../../../../scripts/FormatearMinutos";
+import formatearMinutos from "../../../../assets/scripts/FormatearMinutos";
 import Mapa from "./Mapa";
 import {
   FaClock,
@@ -13,7 +13,7 @@ import {
   FaChevronUp,
   FaArrowRight,
 } from "react-icons/fa";
-import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
+import capitalizeFirstLetterOnly from "../../../../assets/scripts/capitalizeFirstLetterOnly";
 function Seleccion({ tren, reservar, setTren }) {
   const [openModal, setOpenModal] = useState(null);
   const [expandedSeats, setExpandedSeats] = useState({});
