@@ -3,12 +3,10 @@ import { Link } from "react-router-dom";
 /* Los que tienen uqe estar pvp: 19 */
 
 function Resultado({ entradas }) {
-  console.log(entradas);
   return (
     <section className="tw-pb-12 md:tw-mt-5 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4">
       {entradas.map((actividad) => {
         const neto = actividad.idOp === "19" ? true : false;
-        console.log(neto);
         return (
           <Link
             to={"/entrada"}

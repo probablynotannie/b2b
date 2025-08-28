@@ -1,6 +1,5 @@
 import Ferry from "./Ferry";
 function Detalles({ ida, vuelta }) {
-  console.log(ida);
   return (
     <div>
       <div className="tw-grid tw-flex-col tw-gap-5">
