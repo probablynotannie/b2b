@@ -5,29 +5,29 @@ import { useForm } from "react-hook-form";
 import Buscador from "../Buscador";
 import Escritorio from "./Escritorio";
 import Movil from "./Movil";
+import normalizeDestinos from "../../../inputs/scripts/normalizedDestinos";
+import getDestinos from "../_hooks/getDestinos";
+import getHoteles from "../_hooks/getHoteles";
+import { useQuery } from "@tanstack/react-query";
 function Buscador_Cruceros({ listado }) {
+  const { data: hotelesParsed, isLoading: isHotelesLoading } = useQuery({
+    queryKey: ["hoteles"],
+    queryFn: getHoteles,
+  });
+  const { data: destinosParsed, isLoading: isDestinosLoading } = useQuery({
+    queryKey: ["destinos"],
+    queryFn: getDestinos,
+    enabled: !!hotelesParsed,
+  });
   const navigate = useNavigate();
-  const destinos = [
-    { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
-    { id: 1, type: "Destino", name: "MADRID Afueras", destino: "Madrid" },
-    { id: 2, type: "Destino", name: "BARCELONA", destino: "Madrid" },
-    { id: 3, type: "Destino", name: "SEVILLA", destino: "Sevilla" },
-    {
-      id: 4,
-      type: "Destino",
-      name: "MADRID - CAPE GIRARDEAU",
-      destino: "Madrid",
-    },
-    { id: 5, type: "Hotel", name: "Hotel Barcelona", destino: "Barcelona" },
-    { id: 6, type: "Hotel", name: "Hotel Madrid", destino: "Madrid" },
-    { id: 7, type: "Hotel", name: "Hotel Sevilla", destino: "Sevilla" },
-  ];
-
+  const destinosormalized = normalizeDestinos(
+    !isHotelesLoading && hotelesParsed,
+    !isDestinosLoading && destinosParsed
+  );
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-
   const onSubmit = (data) => {
     const reserva = {
       codearea: 251,
@@ -65,7 +65,7 @@ function Buscador_Cruceros({ listado }) {
             <Escritorio
               control={control}
               setValue={setValue}
-              destinos={destinos}
+              destinos={destinosormalized}
               register={register}
               errors={errors}
               habitacion={habitacion}
@@ -80,7 +80,7 @@ function Buscador_Cruceros({ listado }) {
           <Movil
             control={control}
             setValue={setValue}
-            destinos={destinos}
+            destinos={destinosormalized}
             register={register}
             errors={errors}
             habitacion={habitacion}

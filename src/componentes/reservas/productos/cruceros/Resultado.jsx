@@ -3,44 +3,14 @@ import { useState, useMemo, useRef, useEffect } from "react";
 import { useQuery } from "@tanstack/react-query";
 import Buscador from "../../../motores/buscadores/cruceros/Buscador_Cruceros";
 import Cruceros from "./Listado";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Cruceros";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
+import PlaceHolder from "../../../../placeholders/listados/Cruceros";
+import Cargando from "../../../../placeholders/listados/Cargando";
 import PaginaError from "./filtros/Error";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
 import Paginacion from "../../../../helpers/visuales/pagination/Paginacion";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
-const fetchCruceros = async ({ queryKey }) => {
-  const [, datosForm, page] = queryKey;
-  if (
-    !datosForm ||
-    (!datosForm.idZona &&
-      !datosForm.idPuerto &&
-      !datosForm.idNav &&
-      !datosForm.fechSal &&
-      !datosForm.duracion)
-  ) {
-    return { items: [], total: 0 };
-  }
-  const baseUrl = "https://devxml-2.vpackage.net/FrontCruceros/cruceros/";
-  const params = new URLSearchParams({
-    destino: datosForm.idZona || "",
-    puertos: datosForm.idPuerto || "",
-    naviera: datosForm.idNav || "",
-    fechSal: datosForm.fechSal || "",
-    duracion: datosForm.duracion || "",
-    idv: "207",
-    p: page.toString(),
-    json: "1",
-  });
-  const url = `${baseUrl}?${params.toString()}`;
-  const response = await fetch(url);
-  if (!response.ok) throw new Error("Error cargando datos");
-  const data = await response.json();
-  return {
-    items: data.items || [],
-    total: data.totalresults || 0,
-  };
-};
+import fetchCruceros from "./hook/fetchCruceros";
+
 function Productos() {
   const location = useLocation();
   const params = useParams();

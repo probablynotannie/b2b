@@ -3,8 +3,8 @@ import Buscador from "../../../motores/buscadores/circuitos/Buscador_Circuitos";
 import Circuitos from "./Circuitos";
 import tickets from "./Circuitos.json";
 import { useEffect } from "react";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Circuitos";
-import Resultado from "../../Resultado";
+import PlaceHolder from "../../../../placeholders/listados/Circuitos";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

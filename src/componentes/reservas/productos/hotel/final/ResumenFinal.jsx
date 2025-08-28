@@ -2,13 +2,13 @@ import { useLocation } from "react-router-dom";
 import Hotel from "./Hotel";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaHotel, FaMapPin } from "react-icons/fa";
-import useNetoStore from "../scripts/zustand/useNetoStore";
+import useNetoStore from "../../../../../assets/netoSwitcher/useNetoStore";
 
 function ResumenFinal() {
   const location = useLocation();
   const { producto, habitacion, data } = location.state || {};
   const numReserva = "HGJLAIU26098A";
-  const { neto, setNeto } = useNetoStore();
+  const { neto } = useNetoStore();
 
   return (
     <Reserva
@@ -20,11 +20,10 @@ function ResumenFinal() {
       main={<Hotel hotel={producto} habitacion={habitacion} />}
       datosContacto={data}
       titulo={
-        producto.NombreHotel +
-        "(" +
-        habitacion.combinedName +
-        ") - " +
-        habitacion.BoardName
+        <span>
+          {producto.NombreHotel} ( {habitacion.combinedName} ) -{" "}
+          {habitacion.BoardName}
+        </span>
       }
       descripcionTitulo={
         <p className="tw-text-slate-500 dark:tw-text-slate-300 tw-flex tw-gap-2 tw-items-center">

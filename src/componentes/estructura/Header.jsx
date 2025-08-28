@@ -43,6 +43,7 @@ import ListadoVuelos from "../reservas/productos/vuelos/Resultado";
 
 /* PRODUCTO */
 import Hotel from "../reservas/productos/hotel/Hotel";
+import Ferry from "../reservas/productos/ferris/detalles/Ferry";
 import HotelMasFerry from "../reservas/productos/hotelmasferry/seleccion/Seleccion";
 import HotelMasVuelo from "../reservas/productos/hotelmasvuelo/seleccion/HotelMasVuelo";
 import Destino from "../reservas/productos/destinos/destino/Destino";
@@ -211,7 +212,10 @@ function Header() {
           element={<ListadoHotelMasFerry />}
         />
         <Route path="/listadoDestinos" element={<ListadoDestinos />} />
-        <Route path="/listadoTickets" element={<ListadoTickets />} />
+        <Route
+          path="/listadoTickets/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<ListadoTickets />}
+        />
         <Route path="/listadoFerris" element={<ListadoFerris />} />
         <Route
           path="/listadoHotelMasActividades"
@@ -222,8 +226,10 @@ function Header() {
           path="/listadoCruceros/:idZona?/:idZonaVal?/:idPuerto?/:idPuertoVal?/:idNav?/:idNavVal?/:fechSal?/:fechSalVal?/:duracion?/:duracionVal?"
           element={<ListadoCruceros />}
         />
-        z
-        <Route path="/listadoEntradas" element={<ListadoEntradas />} />
+        <Route
+          path="/listadoEntradas/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<ListadoEntradas />}
+        />
         <Route path="/listadoVuelos" element={<ListadoVuelos />} />
         <Route
           path="/listadoHotelMasVuelo"
@@ -233,6 +239,7 @@ function Header() {
         <Route path="/hotel" element={<Hotel />} />
         <Route path="/hotelMasFerry" element={<HotelMasFerry />} />
         <Route path="/tren" element={<Tren />} />
+        <Route path="/ferry" element={<Ferry />} />
         <Route path="/seguro" element={<Seguro />} />
         <Route path="/hotelMasVuelo" element={<HotelMasVuelo />} />
         <Route path="/destino" element={<Destino />} />

@@ -15,6 +15,9 @@ function Filtrado({
   selectedRegimenes,
   setRegimenes,
   regimenesUnicos,
+  selectedCiudades,
+  setSelectedCiudades,
+  ciudadesUnicas,
   hotelName,
   setHotelName,
   setPage,
@@ -25,38 +28,89 @@ function Filtrado({
 }) {
   useEffect(() => {
     if (isLoading || isFetching) return;
+    const grouped = hoteles.reduce((acc, hotel) => {
+      const id = hotel.CommonId;
+      if (!id) return acc;
 
-    const filtered = hoteles.filter((hotel) => {
-      const starCount = starsFromCategory(hotel.CategoryCode);
-      const matchesEstrellas = estrellas === 0 || starCount === estrellas;
-      const matchesName =
-        hotelName.trim() === "" ||
-        hotel.NombreHotel?.toLowerCase().includes(hotelName.toLowerCase());
+      if (!acc[id]) acc[id] = [];
+      acc[id].push(hotel);
 
-      const matchesListaPrecios = hotel.ListaPrecios?.some((item) => {
-        const price = parseFloat(item.Price);
-        const matchesPrice =
-          !isNaN(price) && price >= values[0] && price <= values[1];
+      return acc;
+    }, {});
 
-        const matchesReembolsable =
-          !reembolsable ||
-          item.NoReembolsable === "0" ||
-          item.NoReembolsable === false;
+    const mergedHotels = Object.values(grouped).map((group) => {
+      if (group.length === 1) return group[0];
 
-        const matchesRegimen =
-          selectedRegimenes.length === 0 ||
-          selectedRegimenes.includes(item.BoardNameFiltro?.toLowerCase());
-
-        return matchesPrice && matchesReembolsable && matchesRegimen;
-      });
-
-      return matchesEstrellas && matchesListaPrecios && matchesName;
+      return {
+        ...group[0],
+        ListFotos: group.flatMap((h) => h.ListFotos ?? []),
+        ListaPrecios: group.flatMap((h) => h.ListaPrecios ?? []),
+      };
     });
+
+    const filtered = mergedHotels
+      .map((hotel) => {
+        const starCount = starsFromCategory(hotel.CategoryCode);
+        const matchesCiudad =
+          selectedCiudades.length === 0 ||
+          selectedCiudades
+            .map((c) => c.toLowerCase().trim())
+            .includes(hotel.StateName?.toLowerCase().trim());
+        const filteredPrecios =
+          hotel.ListaPrecios?.filter((item) => {
+            const price = parseFloat(item.Price);
+
+            const matchesPrice =
+              !isNaN(price) && price >= values[0] && price <= values[1];
+            const matchesReembolsable =
+              !reembolsable ||
+              item.NoReembolsable === "0" ||
+              item.NoReembolsable === false;
+            const matchesRegimen =
+              selectedRegimenes.length === 0 ||
+              selectedRegimenes.includes(item.BoardNameFiltro?.toLowerCase());
+            const matchesEstrellas = estrellas === 0 || starCount === estrellas;
+            const matchesName =
+              hotelName.trim() === "" ||
+              hotel.NombreHotel?.toLowerCase().includes(
+                hotelName.toLowerCase()
+              );
+            return (
+              matchesPrice &&
+              matchesReembolsable &&
+              matchesRegimen &&
+              matchesCiudad &&
+              matchesEstrellas &&
+              matchesName
+            );
+          }) ?? [];
+
+        if (filteredPrecios.length > 0) {
+          return {
+            ...hotel,
+            ListaPrecios: filteredPrecios,
+          };
+        }
+
+        return null;
+      })
+      .filter(Boolean);
 
     setHoteles(filtered);
     setPage(1);
-  }, [values, estrellas, reembolsable, selectedRegimenes, hotelName, hoteles]);
-
+  }, [
+    selectedCiudades,
+    values,
+    estrellas,
+    reembolsable,
+    selectedRegimenes,
+    hotelName,
+    hoteles,
+    isFetching,
+    isLoading,
+    setHoteles,
+    setPage,
+  ]);
   const starsFromCategory = (categoryCode) =>
     typeof categoryCode === "string" ? categoryCode.split("*").length - 1 : 0;
   return (
@@ -104,7 +158,22 @@ function Filtrado({
           <FaEuroSign />
         </label>
       </div>
-
+      <div className="tw-mt-5">
+        <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
+          Áreas
+        </span>
+        {ciudadesUnicas.length > 0 ? (
+          <Regimenes
+            selected={selectedCiudades}
+            onChange={setSelectedCiudades}
+            datos={ciudadesUnicas}
+          />
+        ) : (
+          <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
+            No hay regímenes disponibles.
+          </p>
+        )}
+      </div>
       <div className="tw-mt-5">
         <span className="tw-text-sm tw-font-semibold dark:tw-text-secondaryDark">
           Régimen
@@ -113,7 +182,7 @@ function Filtrado({
           <Regimenes
             selected={selectedRegimenes}
             onChange={setRegimenes}
-            regimenes={regimenesUnicos}
+            datos={regimenesUnicos}
           />
         ) : (
           <p className="tw-text-sm tw-text-gray-400 tw-mt-2">

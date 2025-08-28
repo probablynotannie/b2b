@@ -2,7 +2,7 @@ import { FaChevronUp, FaChevronDown, FaPerson } from "react-icons/fa6";
 import { MdLuggage } from "react-icons/md";
 import { Link } from "react-router-dom";
 import { useState } from "react";
-import formatearMinutos from "../../../../scripts/FormatearMinutos";
+import formatearMinutos from "../../../../assets/scripts/formatearMinutos";
 import { FaShareAlt } from "react-icons/fa";
 function Listado({ coches }) {
   const [activeCars, setActiveCars] = useState([]);
@@ -12,7 +12,7 @@ function Listado({ coches }) {
       prev.includes(index) ? prev.filter((i) => i !== index) : [...prev, index]
     );
   };
-  
+
   const borderColors = {
     premium_minivan: "tw-border-blue-500",
     taxi: "tw-border-red-500",
@@ -99,9 +99,9 @@ function Listado({ coches }) {
                       Duración del trayecto:{" "}
                       {formatearMinutos(coche.route.duration)}
                     </li>
-                    <li className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-300">
+                    <li className="tw-text-sm tw-text-slate-700 dark:tw-text-slate-300 tw-flex tw-gap-1">
                       Distancia del trayecto:
-                      {coche.route.distance}KM
+                      <span>{coche.route.distance}KM</span>
                     </li>
                   </ul>
                 </div>

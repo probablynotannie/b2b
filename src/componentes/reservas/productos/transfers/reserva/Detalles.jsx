@@ -44,12 +44,12 @@ function Detalles({ coche }) {
             </h3>
             <div className="tw-flex tw-gap-4 tw-mt-2">
               <span className="tw-flex tw-items-center tw-gap-1 tw-bg-yellow-100 dark:tw-bg-yellow-900 tw-text-yellow-700 dark:tw-text-yellow-300 tw-text-sm tw-font-medium tw-py-1 tw-px-3 tw-rounded-lg">
-                <MdPersonPinCircle className="tw-text-xl tw-text-yellow-800" />{" "}
+                <MdPersonPinCircle className="tw-text-xl tw-text-yellow-800 dark:tw-text-yellow-500" />{" "}
                 Máx Pasajeros: {coche.maxPaxes}
               </span>
               <span className="tw-flex tw-items-center tw-gap-1 tw-bg-red-100 dark:tw-bg-red-900 tw-text-red-700 dark:tw-text-red-300 tw-text-sm tw-font-medium tw-py-1 tw-px-3 tw-rounded-lg">
-                <FaLuggageCart className="tw-text-red-800 tw-text-lg" /> Máx
-                Maletas: {coche.maxLuggage}
+                <FaLuggageCart className="tw-text-red-800 dark:tw-text-red-500 tw-text-lg" />{" "}
+                Máx Maletas: {coche.maxLuggage}
               </span>
             </div>
           </div>

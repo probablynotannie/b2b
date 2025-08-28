@@ -6,7 +6,7 @@ import { FaDoorOpen } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import formatearFecha from "../../../../scripts/FormatearFecha";
+import formatearFecha from "../../../../assets/scripts/formatearFecha";
 function Cesta({
   hotel,
   actividades,

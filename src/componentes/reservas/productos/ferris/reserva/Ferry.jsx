@@ -1,4 +1,4 @@
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 import { FaCheck } from "react-icons/fa";
 
 function Ferry({ producto, tipo }) {
@@ -34,11 +34,8 @@ function Ferry({ producto, tipo }) {
               {producto.cambios === true ? (
                 <FaCheck className="tw-text-green-500 tw-text-sm" />
               ) : (
-                <span className="text-red tw-font-bold tw-text-danger">
-                  {" "}
-                  X{" "}
-                </span>
-              )}{" "}
+                <span className="text-red tw-font-bold tw-text-danger">X</span>
+              )}
             </span>
           </li>
           <li className="tw-flex tw-items-center tw-gap-1">

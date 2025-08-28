@@ -41,7 +41,7 @@ function Listado({
           {habitaciones.map((habitacion) => (
             <tr
               className="tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700"
-              key={habitacion.id}
+              key={habitacion.Code}
             >
               <td className="tw-p-3 tw-font-semibold dark:tw-text-secondaryDark">
                 {habitacion.combinedName

@@ -14,10 +14,10 @@ import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import Imagenes from "./detalles/hoteles/Imgs";
 import Estrellas from "../../../../helpers/visuales/Estrellas";
-import capitalizeFirstLetterOnly from "../../../../scripts/CapitalizeFirstLetterOnly";
-import FormatearFecha from "../../../../scripts/FormatearFecha";
+import capitalizeFirstLetterOnly from "../../../../assets/scripts/capitalizeFirstLetterOnly";
+import FormatearFecha from "../../../../assets/scripts/formatearFecha";
 import ModalWindow from "../../../../helpers/visuales/ModalWindow";
-
+import calcularFechaSalida from "../../../../assets/scripts/fechaSalidaConInicioYNoches";
 function Resultado({ hoteles, neto, reserva }) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
@@ -39,7 +39,9 @@ function Resultado({ hoteles, neto, reserva }) {
       if (item.NumRoom !== 0) return;
       const boardKey = item.BoardNameFiltro?.toLowerCase();
       if (!boardKey) return;
-      const relatedRooms = hotel.ListaPrecios.filter((r) => r.id === item.id);
+      const relatedRooms = hotel.ListaPrecios.filter(
+        (r) => r.Code === item.Code
+      );
       const totalPrice = parseFloat(item.Price);
       if (
         !groupedByBoard[boardKey] ||
@@ -79,7 +81,7 @@ function Resultado({ hoteles, neto, reserva }) {
           if (!boardKey) return acc;
 
           const relatedRooms = hotel.ListaPrecios.filter(
-            (r) => r.id === item.id
+            (r) => r.Code === item.Code
           );
           const combinedName = relatedRooms.map((r) => r.Name).join(" + ");
           const price = parseFloat(item.Price);
@@ -104,6 +106,7 @@ function Resultado({ hoteles, neto, reserva }) {
             : hotel.ListFotos?.length > 0
             ? hotel.ListFotos
             : ["/placeholder/hoteles.jpg"];
+        const fechaSaslida = calcularFechaSalida(reserva.fecini, reserva.noc);
         return (
           <>
             <article
@@ -198,9 +201,9 @@ function Resultado({ hoteles, neto, reserva }) {
                     onClose={() => setOpenModal(null)}
                     titulo={hotel.NombreHotel}
                     subTitulo={
-                      FormatearFecha(info.fecha) +
+                      FormatearFecha(reserva.fecini) +
                       " - " +
-                      FormatearFecha(info.fechaSalida)
+                      FormatearFecha(fechaSaslida)
                     }
                     body={
                       <div className="tw-space-y-6">
@@ -237,36 +240,50 @@ function Resultado({ hoteles, neto, reserva }) {
               </div>
             </article>
             {expandedHotel === index && (
-              <div className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6 tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
-                {preciosOrdenados.map((precio, idx) => (
-                  <div
-                    key={idx}
-                    className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
-                  >
-                    <div>
-                      <p className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1">
-                        <span>{precio.combinedName}</span>
-                      </p>
-                      <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
-                        {capitalizeFirstLetterOnly(precio.BoardName)}
-                        {precio.NoReembolsable === true ||
-                          (precio.NoReembolsable === 1 && (
-                            <span className="tw-block tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
-                              (No reembolsable)
-                            </span>
-                          ))}
-                        <div className="tw-flex tw-flex-col">
-                          <span className="tw-font-semibold dark:tw-text-white">
+              <section
+                aria-labelledby="prices-heading"
+                className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6"
+              >
+                <h2 id="prices-heading" className="sr-only">
+                  Opciones de precios
+                </h2>
+                <ul className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
+                  {preciosOrdenados.map((precio, idx) => (
+                    <li
+                      key={idx}
+                      className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
+                    >
+                      <article aria-labelledby={`price-title-${idx}`}>
+                        <h3
+                          id={`price-title-${idx}`}
+                          className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1"
+                        >
+                          {precio.combinedName}
+                        </h3>
+
+                        <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
+                          {capitalizeFirstLetterOnly(precio.BoardName)}
+                        </p>
+
+                        {(precio.NoReembolsable === true ||
+                          precio.NoReembolsable === 1) && (
+                          <p className="tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
+                            No reembolsable
+                          </p>
+                        )}
+                        <div>
+                          <p className="tw-font-semibold dark:tw-text-white">
                             <span className="tw-text-slate-400">
                               {neto === true && "neto "} desde{" "}
                             </span>
                             {neto === true ? precio.Pvp : precio.Price}
                             {precio.Currency === "EUR" ? "€" : precio.Currency}
-                          </span>
+                          </p>
+
                           {neto === true && (
-                            <span className="tw-font-semibold dark:tw-text-white">
+                            <p className="tw-font-semibold dark:tw-text-white">
                               <span className="tw-text-slate-400">
-                                agencia:
+                                agencia:{" "}
                               </span>
                               {precio.Price}
                               {precio.Currency === "EUR"
@@ -279,14 +296,14 @@ function Resultado({ hoteles, neto, reserva }) {
                                 )}
                                 )
                               </span>
-                            </span>
+                            </p>
                           )}
                         </div>
-                      </p>
-                    </div>
-                  </div>
-                ))}
-              </div>
+                      </article>
+                    </li>
+                  ))}
+                </ul>
+              </section>
             )}
           </>
         );

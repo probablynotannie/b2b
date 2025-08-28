@@ -15,9 +15,11 @@ function Aside({
   isFetching,
 }) {
   const [regimenesUnicos, setRegimenesUnicos] = useState([]);
+  const [ciudadesUnicas, setCiudadUnicas] = useState([]);
   const [estrellas, setEstrellas] = useState(0);
   const [reembolsable, setReembolsable] = useState(false);
   const [selectedRegimenes, setRegimenes] = useState([]);
+  const [selectedCiudades, setSelectedCiudades] = useState([]);
   const [hotelName, setHotelName] = useState("");
 
   useEffect(() => {
@@ -48,12 +50,28 @@ function Aside({
     const regimenesArray = Array.from(regimenesSet);
     setRegimenesUnicos(regimenesArray);
   }, [hoteles]);
+
+  useEffect(() => {
+    const ciudadesSet = new Set();
+    hoteles.forEach((hotel) => {
+      ciudadesSet.add(hotel.StateName.toLowerCase());
+    });
+
+    const regimenesArray = Array.from(ciudadesSet);
+    setCiudadUnicas(regimenesArray);
+  }, [hoteles]);
+
   useEffect(() => {
     setRegimenes((prev) =>
       prev.filter((regimen) => regimenesUnicos.includes(regimen))
     );
   }, [regimenesUnicos]);
 
+  useEffect(() => {
+    setSelectedCiudades((prev) =>
+      prev.filter((regimen) => ciudadesUnicas.includes(regimen))
+    );
+  }, [ciudadesUnicas]);
   return (
     <AsideListado
       contenido={
@@ -61,7 +79,7 @@ function Aside({
           isLoading={isLoading}
           isFetching={isFetching}
           reembolsable={reembolsable}
-          setReembolsable={setReembolsable}
+          sxetReembolsable={setReembolsable}
           values={values}
           setValues={setValues}
           minMax={minMax}
@@ -71,6 +89,9 @@ function Aside({
           selectedRegimenes={selectedRegimenes}
           setRegimenes={setRegimenes}
           regimenesUnicos={regimenesUnicos}
+          selectedCiudades={selectedCiudades}
+          setSelectedCiudades={setSelectedCiudades}
+          ciudadesUnicas={ciudadesUnicas}
           hotelName={hotelName}
           setHotelName={setHotelName}
           setHoteles={setHoteles}

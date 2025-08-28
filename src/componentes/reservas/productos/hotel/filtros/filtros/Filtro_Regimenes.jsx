@@ -1,4 +1,4 @@
-function Regimenes({ selected, onChange, regimenes, row }) {
+function Regimenes({ selected, onChange, datos, row }) {
   const handleCheckboxChange = (event) => {
     const value = event.target.value;
     onChange((prev) =>
@@ -9,7 +9,7 @@ function Regimenes({ selected, onChange, regimenes, row }) {
   };
   return (
     <div className={`${row === true && "tw-flex tw-gap-5"}`}>
-      {regimenes.map((option, index) => (
+      {datos.map((option, index) => (
         <div key={index} className="tw-flex tw-items-center tw-mb-2">
           <input
             type="checkbox"

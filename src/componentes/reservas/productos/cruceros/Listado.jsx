@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
-import FormatearFecha from "../../../../scripts/FormatearFecha";
-import { slugify } from "../../../../scripts/slugify";
+import FormatearFecha from "../../../../assets/scripts/formatearFecha";
+import { slugify } from "../../../../assets/scripts/slugify";
 
 function Listado({ destinos }) {
   const encontrarProximaSalida = (tarifas) => {
@@ -204,7 +204,7 @@ function Listado({ destinos }) {
                     )}
                   </div>
                 </div>
-                <p className="tw-text-sm  tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
+                <p className="tw-text-sm tw-text-slate-500 dark:tw-text-slate-400 tw-my-3 tw-line-clamp-3">
                   {destino.barco.descripcion}
                 </p>
                 <div className="tw-flex tw-flex-wrap tw-justify-center sm:tw-grid tw-grid-cols-2 sm:tw-grid-cols-4 xl:tw-grid-cols-8 tw-gap-3 tw-py-2">

@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import Trenes from "./Trenes";
 import Reserva from "../../../../../helpers/visuales/ReservaFinal/Reserva";
 import { FaTrain } from "react-icons/fa";
-import FormatearFecha from "../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../assets/scripts/formatearFecha";
 function ResumenFinal() {
   const location = useLocation();
   const { tren, data } = location.state || {};

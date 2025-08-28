@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { Modal } from "flowbite-react";
-import formatearFecha from "../../../../scripts/FormatearFecha";
+import formatearFecha from "../../../../assets/scripts/formatearFecha";
 import { FaCalendarAlt } from "react-icons/fa";
 import { FaClock } from "react-icons/fa6";
 function Resultado({ tickets, actividades, setActividades }) {

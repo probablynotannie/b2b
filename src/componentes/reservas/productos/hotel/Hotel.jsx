@@ -3,17 +3,17 @@ import { useLocation } from "react-router-dom";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import cesta from "../../../estructura/cesta/Zustand";
-import groupAndMergeRooms from "./scripts/mergeHabitaciones.js";
+import groupAndMergeRooms from "./hook/mergeHabitaciones.js";
 import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
 import Detalles from "./detalles/contenidoPrincipal/Hotel.jsx";
 import Aside from "./detalles/contenidoSecundario/Aside.jsx";
-import useNetoStore from "./scripts/zustand/useNetoStore.js";
+import useNetoStore from "../../../../assets/netoSwitcher/useNetoStore.js";
 
 function Producto() {
   const vaciarCesta = cesta((state) => state.vaciarCesta);
-
   const location = useLocation();
   const producto = location.state;
+
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const agrupados = groupAndMergeRooms(producto.ListaPrecios);
@@ -52,7 +52,6 @@ function Producto() {
     });
   };
   const { neto, setNeto } = useNetoStore();
-
   return (
     <>
       <PaginaDetalles

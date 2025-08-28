@@ -1,6 +1,6 @@
 import Detalles from "../reserva/Detalles";
 import { FaCar } from "react-icons/fa";
-import formatearMinutos from "../../../../../scripts/FormatearMinutos";
+import formatearMinutos from "../../../../../assets/scripts/formatearMinutos";
 function Coche({ transfer }) {
   const extraInfo = (
     <div>

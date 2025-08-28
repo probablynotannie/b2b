@@ -14,7 +14,7 @@ import {
 import { FaCalendarAlt } from "react-icons/fa";
 import { es } from "date-fns/locale";
 import cesta from "../../estructura/cesta/Zustand";
-import parseFecha from "../../../scripts/parseFechas";
+import parseFecha from "../../../assets/scripts/parseFechas";
 
 const InfiniteScrollCalendar = ({ name, setValue, deshabilitable }) => {
   const productos = cesta((state) => state.productos);
@@ -60,7 +60,7 @@ const InfiniteScrollCalendar = ({ name, setValue, deshabilitable }) => {
       initialMonths.push(addMonths(startMonth, i));
     }
     setMonths(initialMonths);
-  }, [minDate]); 
+  }, [minDate]);
   const loadMoreMonths = useCallback(() => {
     const lastMonth = months[months.length - 1];
     const newMonths = [];
@@ -100,7 +100,6 @@ const InfiniteScrollCalendar = ({ name, setValue, deshabilitable }) => {
       </div>
     );
   };
-
 
   const renderMonth = (month) => {
     const daysInMonth = eachDayOfInterval({

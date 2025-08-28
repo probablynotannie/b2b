@@ -2,9 +2,9 @@ import Buscador from "../../../motores/buscadores/coches/Buscador_Coches";
 import Aside from "./filtros/Aside";
 import Coches from "./Coches";
 import { useEffect, useState } from "react";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Coches";
-import Resultado from "../../Resultado";
+import Cargando from "../../../../placeholders/listados/Cargando";
+import PlaceHolder from "../../../../placeholders/listados/Coches";
+import Resultado from "../../../../helpers/Resultado";
 function Productos() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {

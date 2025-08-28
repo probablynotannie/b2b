@@ -16,9 +16,8 @@ function Escritorio({
 }) {
   return (
     <>
-      <div className="tw-col-span-3">
+      <div className="tw-col-span-6 xl:tw-col-span-3">
         <Input_Buscador
-          /* required={true} */
           control={control}
           name={"origen"}
           setValue={setValue}
@@ -26,7 +25,7 @@ function Escritorio({
           destinos={destinos}
         />
       </div>
-      <div className="tw-col-span-3">
+      <div className="tw-col-span-6 xl:tw-col-span-3">
         <Input_DateRange
           control={control}
           nameStartDate="startDate"
@@ -34,8 +33,20 @@ function Escritorio({
           placeholder="Rango de fechas"
         />
       </div>
+      <div className="tw-col-span-6 xl:tw-col-span-3">
+        <Input_Hab_Ad_Nin
+          habitacion={habitacion}
+          setHabitacion={setHabitacion}
+          roomData={roomData}
+          setRoomData={setRoomData}
+        />
+      </div>
       <div
-        className={`${listado === true ? "tw-col-span-2" : "tw-col-span-3"}`}
+        className={`${
+          listado === true
+            ? "tw-col-span-5 xl:tw-col-span-2"
+            : "tw-col-span-6 xl:tw-col-span-3"
+        }`}
       >
         <Input_Nacionalidad
           setValue={setValue}
@@ -44,14 +55,6 @@ function Escritorio({
           register={register}
           errors={errors}
           tipo={"Nacionalidad"}
-        />
-      </div>
-      <div className="tw-col-span-3">
-        <Input_Hab_Ad_Nin
-          habitacion={habitacion}
-          setHabitacion={setHabitacion}
-          roomData={roomData}
-          setRoomData={setRoomData}
         />
       </div>
     </>

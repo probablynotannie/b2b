@@ -1,6 +1,6 @@
 import { FaCalendar } from "react-icons/fa";
 import Resumen from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
-import FormatearFecha from "../../../../../../scripts/FormatearFecha";
+import FormatearFecha from "../../../../../../assets/scripts/formatearFecha";
 import { Link } from "react-router-dom";
 function Aside({ seguro, data }) {
   return (

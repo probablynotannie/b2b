@@ -3,10 +3,11 @@ import Coches from "./Listado";
 import { useQuery } from "@tanstack/react-query";
 import Buscador from "../../../motores/buscadores/transfers/Buscador_Transfers";
 import Aside from "./filtros/Aside";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/transfers";
+import Cargando from "../../../../placeholders/listados/Cargando";
+import PlaceHolder from "../../../../placeholders/listados/Transfers";
 import { MdCancel } from "react-icons/md";
-import Resultado from "../../Resultado";
+import Resultado from "../../../../helpers/Resultado";
+import transfers from "./transfers.json";
 const fetchData = async (newRequestData) => {
   const response = await fetch(
     "https://devxml.vpackage.net/Motores/public/api/Traslados/search/123/1"
@@ -14,7 +15,8 @@ const fetchData = async (newRequestData) => {
   if (!response.ok) {
     throw new Error("Error cargando datos");
   }
-  const data = await response.json();
+  /*  const data = await response.json(); */
+  const data = await transfers;
   return data.traslados;
 };
 

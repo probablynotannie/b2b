@@ -2,21 +2,21 @@ import { useState } from "react";
 import Buscador from "../../../motores/buscadores/hoteles/Buscador_Hoteles";
 import Aside from "./filtros/Aside";
 import Hoteles from "./Hoteles";
-import PlaceHolder from "../../estructura/skeleton_placeholders_listado/Hoteles";
-import Cargando from "../../estructura/skeleton_placeholders_listado/Cargando";
-import { FaEye, FaList, FaMapMarkedAlt } from "react-icons/fa";
-import Resultado from "../../Resultado";
+import PlaceHolder from "../../../../placeholders/listados/Hoteles";
+import Cargando from "../../../../placeholders/listados/Cargando";
+import { FaList, FaMapMarkedAlt } from "react-icons/fa";
+import Resultado from "../../../../helpers/Resultado";
 import MapaHoteles from "./mapa/MapaHoteles";
 import PaginacionFooter from "../../../../helpers/visuales/pagination/PaginacionFooter";
 import Paginacion from "../../../../helpers/visuales/pagination/Corto";
-import useNetoStore from "./scripts/zustand/useNetoStore";
-import getHoteles from "./scripts/getHoteles";
+import useNetoStore from "../../../../assets/netoSwitcher/useNetoStore";
+import getHoteles from "./hook/getHoteles";
 import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import Error from "./filtros/Error";
+import NetoSwitcher from "../../../../assets/netoSwitcher/Switch";
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
-
   const reserva = {
     codearea: codearea ? Number(codearea) : null,
     codcity: codcity ? Number(codcity) : null,
@@ -24,29 +24,29 @@ function Productos() {
     noc: noc ? Number(noc) : null,
     numper: numper || null,
   };
-
   const isReservaIncomplete = Object.values(reserva).some(
     (val) => val === null || val === ""
   );
-
   const { data, isLoading, isFetching } = useQuery({
     queryKey: ["hoteles", reserva],
     queryFn: getHoteles,
-    enabled: !isReservaIncomplete, // <-- important
-
+    refetchInterval: 5000,
     keepPreviousData: true,
+    select: (data) => data,
   });
+
   const [viewMode, setViewMode] = useState("list");
   const [hoteles, setHoteles] = useState(data);
-  const [page, setPage] = useState(1);
-  const { neto, setNeto } = useNetoStore();
+  const neto = useNetoStore((state) => state.neto);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const hotelesPorPagina = 10;
+  const [page, setPage] = useState(1);
   const indexUltimoHotel = page * hotelesPorPagina;
   const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
   const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
   const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
+
   return (
     <Resultado
       background={"url('/banners/banner_hoteles.webp')"}
@@ -94,7 +94,7 @@ function Productos() {
           tw-col-span-9 tw-p-3 
           `}
             >
-              {isLoading || isFetching ? (
+              {isLoading ? (
                 <>
                   <Cargando />
                   <PlaceHolder />
@@ -109,16 +109,7 @@ function Productos() {
                       Resultados ({hoteles?.length})
                     </h3>
                     <div className="tw-flex tw-gap-2">
-                      <button
-                        className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
-                          neto !== true
-                            ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
-                            : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
-                        }`}
-                        onClick={() => setNeto(!neto)}
-                      >
-                        <FaEye />
-                      </button>
+                      <NetoSwitcher />
                       <button
                         className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
                           viewMode === "list"
@@ -141,6 +132,7 @@ function Productos() {
                       </button>
                     </div>
                   </div>
+
                   {viewMode === "list" ? (
                     <div>
                       {hotelesAMostrar && (

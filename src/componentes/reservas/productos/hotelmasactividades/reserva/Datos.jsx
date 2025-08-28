@@ -2,7 +2,7 @@ import { useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { useNavigate } from "react-router-dom";
 import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
-import formatearFecha from "../../../../../scripts/FormatearFecha";
+import formatearFecha from "../../../../../assets/scripts/formatearFecha";
 function Datos() {
   const location = useLocation();
   const { hotel, actividades, habitacion } = location.state || {};

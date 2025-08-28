@@ -1,10 +1,11 @@
-import { FaCalendarAlt, FaDirections, FaMoon } from "react-icons/fa";
+import { FaCalendarAlt, FaMoon, FaWallet } from "react-icons/fa";
 import DatoTituloIcono from "../../../../../../helpers/visuales/DatoTituloIcono";
-import { FaCity, FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
+import { FaGlobe, FaHotel, FaPhone } from "react-icons/fa6";
 import { MdEmail } from "react-icons/md";
-import formatearFecha from "../../../../../../scripts/FormatearFecha";
-import calcularFechaSalida from "../../reserva/fechaSalida";
-function Info({ hotel, aside }) {
+import formatearFecha from "../../../../../../assets/scripts/formatearFecha";
+import calcularFechaSalida from "../../../../../../assets/scripts/fechaSalidaConInicioYNoches";
+import React from "react";
+function Info({ hotel, aside, habitacion }) {
   const fechaSalida = calcularFechaSalida(
     hotel.reserva.fecini,
     hotel.reserva.noc
@@ -13,21 +14,17 @@ function Info({ hotel, aside }) {
     <section
       className={`tw-grid ${
         !aside && "lg:tw-grid-cols-2 xl:tw-grid-cols-3"
-      } tw-flex-wrap tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-900 tw-p-5 tw-rounded-lg`}
+      } tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-900 tw-p-5 tw-rounded-lg`}
     >
       <DatoTituloIcono
         icon={<FaCalendarAlt className="tw-text-blue-500" />}
         title={"Fecha Entrada"}
-        value={
-          <span>
-            {formatearFecha(hotel.reserva.fecini)} ({hotel.reserva.noc} noches)
-          </span>
-        }
+        value={formatearFecha(hotel.reserva.fecini)}
       />
       <DatoTituloIcono
         icon={<FaCalendarAlt className="tw-text-green-500" />}
         title={"Fecha Salida"}
-        value={<span>{formatearFecha(fechaSalida)}</span>}
+        value={formatearFecha(fechaSalida)}
       />
       <DatoTituloIcono
         icon={<FaMoon className="tw-text-red-500" />}
@@ -36,21 +33,52 @@ function Info({ hotel, aside }) {
       />
       <DatoTituloIcono
         icon={<FaHotel className="tw-text-pink-500" />}
-        title={"Fotel"}
-        value={hotel.NombreHotel}
+        title={"Hotel"}
+        value={
+          <React.Fragment>
+            <span className="tw-font-semibold tw-text-secondary dark:tw-text-secondaryDark ">
+              {hotel.NombreHotel}
+            </span>
+            <span className="tw-block">
+              {hotel.City}, {hotel.Dir}
+            </span>
+          </React.Fragment>
+        }
       />
-      {hotel.City && (
+      {habitacion && (
         <DatoTituloIcono
-          icon={<FaCity className="tw-text-indigo-500" />}
-          title={"Localidad"}
-          value={hotel.City}
-        />
-      )}
-      {hotel.Dir && (
-        <DatoTituloIcono
-          icon={<FaDirections className="tw-text-amber-500" />}
-          title={"Direccion"}
-          value={hotel.Dir}
+          icon={<FaWallet className="tw-text-yellow-400" />}
+          title={"Reembolsable"}
+          value={
+            <>
+              {habitacion?.NoReembolsable === true ||
+              habitacion?.NoReembolsable === 1 ? (
+                <div>
+                  <span className="tw-bg-red-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
+                    No reembolsable
+                  </span>
+                  <div
+                    className="tw-text-sm"
+                    dangerouslySetInnerHTML={{
+                      __html: habitacion?.Cancelation,
+                    }}
+                  />
+                </div>
+              ) : (
+                <div>
+                  <span className="tw-bg-green-500 tw-text-xs tw-p-1 tw-rounded tw-text-white tw-font-semibold">
+                    Reembolsable
+                  </span>
+                  <div
+                    className="tw-text-s"
+                    dangerouslySetInnerHTML={{
+                      __html: habitacion?.Cancelation,
+                    }}
+                  />
+                </div>
+              )}
+            </>
+          }
         />
       )}
       {hotel.ZipCode && (
