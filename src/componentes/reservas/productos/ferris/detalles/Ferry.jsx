@@ -10,7 +10,9 @@ function Ferry() {
   return (
     <PaginaDetalles
       titulo={"Ferry"}
-      contenidoPrincipal={<Detalles ida={ida} vuelta={vuelta} />}
+      contenidoPrincipal={
+        <Detalles ida={ida} vuelta={vuelta} ferry={ferrisData} />
+      }
       contenidoSecundario={
         <Aside ida={ida} vuelta={vuelta} ferry={ferrisData} />
       }
