@@ -8,16 +8,11 @@ function ReservaFinal() {
   const location = useLocation();
   const calculateTotalPrice = () => {
     return tickets.reduce((total, ticket) => {
-      const pricePerTicket =
-        ticket.type === "adulto"
-          ? producto.reserva.tiposEntradas.adulto.precio
-          : producto.reserva.tiposEntradas.niño.precio;
-
+      const pricePerTicket = ticket.price;
       return total + pricePerTicket * ticket.quantity;
     }, 0);
   };
   const { data, producto, tickets } = location.state || {};
-  console.log(tickets);
   return (
     <PaginaDetalles
       titulo={"Reservando Ticket"}
@@ -34,7 +29,7 @@ function ReservaFinal() {
       }
       contenidoSecundario={
         <>
-          {/*   <Aside
+          <Aside
             tickets={tickets}
             producto={producto}
             link={
@@ -44,7 +39,7 @@ function ReservaFinal() {
                 </button>
               </Link>
             }
-          /> */}
+          />
         </>
       }
     />

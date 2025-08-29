@@ -27,10 +27,11 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
   };
   return (
     <div className="tw-flex tw-flex-col tw-space-y-5">
-      <h2 className="tw-font-semibold tw-mb-4 dark:tw-text-white">
-        Seleccionar Entradas
-      </h2>
-
+      {cesta !== true && (
+        <h2 className="tw-font-semibold tw-mb-4 dark:tw-text-white">
+          Seleccionar Entradas
+        </h2>
+      )}
       <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 ">
         {tickets.length === 0 && (
           <p className="tw-text-gray-500 dark:tw-text-slate-400r">
