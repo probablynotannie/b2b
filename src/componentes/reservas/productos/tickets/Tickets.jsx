@@ -9,7 +9,7 @@ function Resultado({ entradas }) {
         const neto = actividad.idOp === "19" ? true : false;
         return (
           <Link
-            to={"/entrada"}
+            to={"/ticket"}
             state={actividad}
             className="tw-overflow-hidden tw-border-2 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer"
             key={actividad.code}

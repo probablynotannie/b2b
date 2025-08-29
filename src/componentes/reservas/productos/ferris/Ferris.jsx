@@ -169,7 +169,7 @@ function Ferris({
                 {idaFerries
                   .filter((t) => t.Tipo === tipo)
                   .map((tarifa) => {
-                    console.log(tarifa);
+                    (tarifa);
                     const selected =
                       ida?.id === tarifa.Code + tarifa.AcomodationCode;
                     return (

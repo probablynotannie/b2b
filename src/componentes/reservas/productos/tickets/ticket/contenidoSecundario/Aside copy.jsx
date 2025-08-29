@@ -1,15 +1,19 @@
 import { FaInfoCircle } from "react-icons/fa";
+import formatearFecha from "../../../../../../assets/scripts/formatearFecha";
 import { Link } from "react-router-dom";
-
 import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 
 function Aside({ tickets, producto, link }) {
   const calcularPrecio = () => {
     return tickets.reduce((total, ticket) => {
-      return total + ticket.price * ticket.quantity;
+      const pricePerTicket =
+        ticket.type === "adulto"
+          ? producto.reserva.tiposEntradas.adulto.precio
+          : producto.reserva.tiposEntradas.niño.precio;
+
+      return total + pricePerTicket * ticket.quantity;
     }, 0);
   };
-  console.log(producto);
   return (
     <section>
       {tickets.length > 0 ? (
@@ -17,8 +21,7 @@ function Aside({ tickets, producto, link }) {
           <h2 className="tw-font-semibold dark:tw-text-white">
             Resumen compra
           </h2>
-
-          <Reserva img={producto.img[0].L} txt={producto.name} />
+          <Reserva img={producto.img} txt={producto.titulo} />
 
           {tickets.map((ticket, index) => (
             <div
@@ -27,19 +30,18 @@ function Aside({ tickets, producto, link }) {
             >
               <div className="tw-flex tw-justify-between tw-items-center">
                 <h3 className="tw-font-semibold tw-text-slate-700 dark:tw-text-slate-200 tw-text-sm">
-                  {ticket.modalName}
+                  {formatearFecha(ticket.date)}
                 </h3>
-                <span className="tw-block">€{ticket.price}</span>
+                <span className="tw-block">{ticket.time}</span>
               </div>
-              {ticket.quantity}x
+              {ticket.quantity}x {ticket.type}
             </div>
           ))}
-
           {link ? (
             link
           ) : (
             <Link to={"/datosTickets"} state={{ producto, tickets }}>
-              <button className="tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
+              <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
                 Total: €{calcularPrecio().toFixed(2)}
               </button>
             </Link>
