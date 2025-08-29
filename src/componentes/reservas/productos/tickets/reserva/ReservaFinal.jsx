@@ -17,6 +17,7 @@ function ReservaFinal() {
     }, 0);
   };
   const { data, producto, tickets } = location.state || {};
+  console.log(tickets);
   return (
     <PaginaDetalles
       titulo={"Reservando Ticket"}
@@ -28,26 +29,23 @@ function ReservaFinal() {
             numero={data.email}
             email={data.numero}
           />
-          <Detalles
-            tickets={tickets}
-            producto={producto}
-            cesta={true}
-            data={data}
-          />
+          <Detalles tickets={tickets} producto={producto} cesta={true} />
         </>
       }
       contenidoSecundario={
-        <Aside
-          tickets={tickets}
-          producto={producto}
-          link={
-            <Link to={"/resumenTickets"} state={{ producto, tickets, data }}>
-              <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
-                Total: €{calculateTotalPrice().toFixed(2)}
-              </button>
-            </Link>
-          }
-        />
+        <>
+          {/*   <Aside
+            tickets={tickets}
+            producto={producto}
+            link={
+              <Link to={"/resumenTickets"} state={{ producto, tickets, data }}>
+                <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
+                  Total: €{calculateTotalPrice().toFixed(2)}
+                </button>
+              </Link>
+            }
+          /> */}
+        </>
       }
     />
   );
