@@ -1,8 +1,6 @@
 import ElegirEntradas from "./apartados/ElegirEntradas";
-import Incluido from "./apartados/Incluido";
 import Descripcion from "./apartados/Descripcion";
-import ExtraInfo from "./apartados/ExtraInfo";
-function Detalles({  tickets, setTickets, cesta, ticket }) {
+function Detalles({ tickets, setTickets, cesta, ticket }) {
   return (
     <main className="tw-flex tw-flex-col tw-gap-5">
       <section>
@@ -11,14 +9,8 @@ function Detalles({  tickets, setTickets, cesta, ticket }) {
         ) : (
           <Descripcion img={ticket.img[0].L} ticket={ticket} />
         )}
-
-        {/*  {producto.importante && (
-          <section>
-            <ExtraInfo producto={producto} />
-          </section>
-        )} */}
       </section>
-      <section>
+      <section className="tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pt-4">
         <ElegirEntradas
           cesta={cesta}
           tickets={tickets}
