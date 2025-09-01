@@ -9,17 +9,11 @@ function Aside({ tickets, producto, link }) {
       return total + ticket.price * ticket.quantity;
     }, 0);
   };
-  console.log(producto);
   return (
     <section>
       {tickets.length > 0 ? (
         <div className="dark:tw-text-slate-400">
-          <h2 className="tw-font-semibold dark:tw-text-white">
-            Resumen compra
-          </h2>
-
           <Reserva img={producto.img[0].L} txt={producto.name} />
-
           {tickets.map((ticket, index) => (
             <div
               className="tw-text-sm tw-border-l-2 tw-border-secondary tw-mt-3 tw-pl-2"

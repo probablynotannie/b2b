@@ -5,13 +5,12 @@ import ComponenteDatos from "../../../../../helpers/visuales/datos/Datos";
 function Datos() {
   const location = useLocation();
   const { producto, tickets } = location.state || {};
-  console.log(tickets);
   const fechaIda = (
     <div className="tw-p-3 tw-bg-opacity-40 tw-rounded-lg">
-      {tickets.map((ticket) => (
+      {tickets.map((ticket, index) => (
         <div
           className="tw-text-sm tw-mt-3 tw-pl-2 tw-bg-secondary tw-text-white tw-p-1 tw-rounded-lg tw-font-semibold"
-          key={ticket.modalcode}
+          key={index}
         >
           <span>
             {ticket.modalName} - {ticket.quantity}x
@@ -32,7 +31,6 @@ function Datos() {
     });
   };
   const fecini = "20/11/2025";
-  console.log(producto);
   return (
     <ComponenteDatos
       submit={handleSubmit(onSubmit)}

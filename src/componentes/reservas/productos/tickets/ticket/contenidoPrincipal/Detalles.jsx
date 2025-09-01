@@ -10,7 +10,7 @@ function Detalles({ tickets, setTickets, cesta, ticket }) {
           <Descripcion img={ticket.img[0].L} ticket={ticket} />
         )}
       </section>
-      <section className="tw-border-t-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pt-4">
+      <section className="dark:tw-border-slate-700">
         <ElegirEntradas
           cesta={cesta}
           tickets={tickets}

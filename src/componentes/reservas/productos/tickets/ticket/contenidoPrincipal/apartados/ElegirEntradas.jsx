@@ -41,72 +41,88 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="tw-border tw-rounded-lg tw-bg-slate-50 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-shadow"
+            className="tw-border tw-rounded-2xl tw-bg-white dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-shadow-md tw-overflow-hidden tw-transition hover:tw-shadow-lg"
           >
-            <div className="tw-flex tw-justify-between tw-items-center tw-mb-2 tw-bg-slate-900 tw-p-4 tw-rounded-t-lg">
-              <h3 className=" tw-font-semibold tw-text-white dark:tw-text-slate-100">
+            <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-700 dark:tw-bg-slate-900 tw-px-4 tw-py-3">
+              <h3 className="tw-font-semibold tw-text-white tw-text-lg">
                 Ticket {index + 1}: {ticket.modalName}
               </h3>
               {!cesta && (
                 <button
-                  className="hover:tw-scale-110 tw-smooth tw-bg-red-600 tw-p-1 tw-rounded tw-text-white tw-text-lg"
                   onClick={() => removeTicket(index)}
+                  className="tw-text-white tw-bg-red-600 tw-rounded-lg tw-p-2 tw-transition hover:tw-scale-110 hover:tw-bg-red-700"
                 >
                   <FaRegTrashAlt />
                 </button>
               )}
             </div>
 
-            <div className="tw-flex tw-flex-col tw-gap-2 tw-p-4">
+            <div className="tw-flex tw-flex-col tw-gap-4 tw-p-4">
               {cesta !== true ? (
                 <>
-                  <label className="dark:tw-text-slate-200">Horario:</label>
+                  <div>
+                    <label className="tw-block tw-mb-1 tw-font-medium dark:tw-text-slate-200">
+                      Horario
+                    </label>
+                    <select
+                      value={ticket.modalcode}
+                      onChange={(e) => {
+                        const selectedOption = producto.ListaOpciones.find(
+                          (opt) => opt.modalcode === e.target.value
+                        );
+                        updateTicket(index, "modalcode", e.target.value);
+                        updateTicket(
+                          index,
+                          "modalName",
+                          selectedOption.modalName
+                        );
+                        updateTicket(index, "price", selectedOption.precio);
+                      }}
+                      disabled={cesta}
+                      className="tw-w-full tw-border tw-rounded-lg tw-border-slate-300 dark:tw-border-slate-700 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-px-3 tw-py-2 tw-transition focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-border-blue-500"
+                    >
+                      {producto.ListaOpciones.map((option) => (
+                        <option key={option.modalcode} value={option.modalcode}>
+                          {option.modalName} - €{option.precio}
+                        </option>
+                      ))}
+                    </select>
+                  </div>
 
-                  <select
-                    value={ticket.modalcode}
-                    onChange={(e) => {
-                      const selectedOption = producto.ListaOpciones.find(
-                        (opt) => opt.modalcode === e.target.value
-                      );
-                      updateTicket(index, "modalcode", e.target.value);
-                      updateTicket(
-                        index,
-                        "modalName",
-                        selectedOption.modalName
-                      );
-                      updateTicket(index, "price", selectedOption.precio);
-                    }}
-                    disabled={cesta}
-                    className="tw-border tw-rounded tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 dark:tw-text-slate-300 tw-px-2 tw-py-1"
-                  >
-                    {producto.ListaOpciones.map((option) => (
-                      <option key={option.modalcode} value={option.modalcode}>
-                        {option.modalName} - €{option.precio}
-                      </option>
-                    ))}
-                  </select>
-
-                  <label className="dark:tw-text-slate-200">Cantidad:</label>
-                  <input
-                    type="number"
-                    min="1"
-                    value={ticket.quantity}
-                    onChange={(e) =>
-                      updateTicket(index, "quantity", Number(e.target.value))
-                    }
-                    disabled={cesta}
-                    className="tw-border tw-rounded tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 dark:tw-text-slate-300 tw-px-2 tw-py-1"
-                  />
+                  {/* Cantidad */}
+                  <div>
+                    <label className="tw-block tw-mb-1 tw-font-medium dark:tw-text-slate-200">
+                      Cantidad
+                    </label>
+                    <input
+                      type="number"
+                      min="1"
+                      value={ticket.quantity}
+                      onChange={(e) =>
+                        updateTicket(index, "quantity", Number(e.target.value))
+                      }
+                      disabled={cesta}
+                      className="tw-w-full tw-border tw-rounded-lg tw-border-slate-300 dark:tw-border-slate-700 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-px-3 tw-py-2 tw-transition focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-border-blue-500"
+                    />
+                  </div>
                 </>
               ) : (
-                <div>
-                  <span>cantidad</span>
-                  <div className="tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-p-2 tw-rounded-lg">
-                    {ticket.quantity}
+                <div className="tw-grid tw-grid-cols-2 tw-gap-3 tw-text-sm">
+                  <div>
+                    <span className="tw-font-medium dark:tw-text-slate-200">
+                      Cantidad
+                    </span>
+                    <div className="tw-mt-1 tw-border tw-rounded-lg tw-p-2 tw-text-center tw-bg-slate-50 dark:tw-bg-slate-900 dark:tw-text-slate-200 dark:tw-border-slate-700">
+                      {ticket.quantity}x
+                    </div>
                   </div>
-                  <span>precios</span>
-                  <div className="tw-border tw-border-slate-200 dark:tw-border-slate-700 tw-p-2 tw-rounded-lg">
-                    {ticket.price}€
+                  <div>
+                    <span className="tw-font-medium dark:tw-text-slate-200">
+                      Precio
+                    </span>
+                    <div className="tw-mt-1 tw-border tw-rounded-lg tw-p-2 tw-text-center tw-bg-slate-50 dark:tw-bg-slate-900 dark:tw-text-slate-200 dark:tw-border-slate-700">
+                      {ticket.price}€
+                    </div>
                   </div>
                 </div>
               )}
