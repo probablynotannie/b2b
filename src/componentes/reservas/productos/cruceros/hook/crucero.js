@@ -3,8 +3,8 @@ const fetchCrucero = async (idCrucero) => {
     const res = await fetch(url);
     if (!res.ok) throw new Error(`Error al sacar crucero con ID: ${idCrucero}`);
     const data = await res.json();
+    console.log(url)
     return data.item;
 };
 
 export default fetchCrucero;
-   

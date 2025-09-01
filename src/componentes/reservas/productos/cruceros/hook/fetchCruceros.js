@@ -22,6 +22,7 @@ const fetchCruceros = async ({ queryKey }) => {
         json: "1",
     });
     const url = `${baseUrl}?${params.toString()}`;
+
     const response = await fetch(url);
     if (!response.ok) throw new Error("Error cargando datos");
     const data = await response.json();
