@@ -33,7 +33,15 @@ function Productos() {
       position={"center"}
       color={"tw-bg-blue-200/50"}
       buscador={<Buscador listado={true} />}
-      aside={<Aside values={values} setValues={setValues} minMax={minMax} />}
+      aside={
+        <Aside
+          isLoading={loading}
+          ferris={ferrisArray}
+          values={values}
+          setValues={setValues}
+          minMax={minMax}
+        />
+      }
       listado={
         <>
           {loading ? (

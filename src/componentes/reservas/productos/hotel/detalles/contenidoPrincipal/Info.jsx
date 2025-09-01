@@ -36,9 +36,7 @@ function Info({ hotel, aside, habitacion }) {
         title={"Hotel"}
         value={
           <React.Fragment>
-            <span className="tw-font-semibold tw-text-secondary dark:tw-text-secondaryDark ">
-              {hotel.NombreHotel}
-            </span>
+            <span>{hotel.NombreHotel}</span>
             <span className="tw-block">
               {hotel.City}, {hotel.Dir}
             </span>

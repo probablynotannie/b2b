@@ -3,15 +3,15 @@ import { Link } from "react-router-dom";
 /* Los que tienen uqe estar pvp: 19 */
 
 function Resultado({ entradas }) {
-  console.log(entradas);
+  const idTicket = "E-E10-A1AANO1056";
+  const idOp = 5;
   return (
     <section className="tw-pb-12 md:tw-mt-5 tw-grid tw-grid-cols-1 md:tw-grid-cols-2 lg:tw-grid-cols-3 tw-gap-4">
       {entradas.map((actividad) => {
         const neto = actividad.idOp === "19" ? true : false;
-        console.log(neto);
         return (
           <Link
-            to={"/entrada"}
+            to={`/ticket/${idTicket}/${idOp}`}
             state={actividad}
             className="tw-overflow-hidden tw-border-2 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-cursor-pointer"
             key={actividad.code}

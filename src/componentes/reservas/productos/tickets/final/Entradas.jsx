@@ -3,15 +3,10 @@ import Detalles from "../ticket/contenidoPrincipal/Detalles";
 function Entradas({ producto, tickets, data }) {
   const calculateTotalPrice = () => {
     return tickets.reduce((total, ticket) => {
-      const pricePerTicket =
-        ticket.type === "adulto"
-          ? producto.reserva.tiposEntradas.adulto.precio
-          : producto.reserva.tiposEntradas.niño.precio;
-
+      const pricePerTicket = ticket.price;
       return total + pricePerTicket * ticket.quantity;
     }, 0);
   };
-
   return (
     <section className="tw-mt-10 tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-border dark:tw-bg-slate-800 tw-bg-slate-50 tw-p-5 tw-border-slate-200 dark:tw-border-slate-700 tw-rounded-lg">
       <section className="tw-flex tw-justify-between tw-items-center tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-5">

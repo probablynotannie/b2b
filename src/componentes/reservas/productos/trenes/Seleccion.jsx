@@ -17,7 +17,6 @@ import capitalizeFirstLetterOnly from "../../../../assets/scripts/capitalizeFirs
 function Seleccion({ tren, reservar, setTren }) {
   const [openModal, setOpenModal] = useState(null);
   const [expandedSeats, setExpandedSeats] = useState({});
-
   const toggleSeatClass = (index) => {
     setExpandedSeats((prev) => ({
       ...prev,

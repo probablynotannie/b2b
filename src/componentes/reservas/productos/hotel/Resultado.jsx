@@ -27,11 +27,9 @@ function Productos() {
   const isReservaIncomplete = Object.values(reserva).some(
     (val) => val === null || val === ""
   );
-  const { data, isLoading, isFetching } = useQuery({
+  const { data, isLoading, isFetching, refetch } = useQuery({
     queryKey: ["hoteles", reserva],
     queryFn: getHoteles,
-    refetchInterval: 5000,
-    keepPreviousData: true,
     select: (data) => data,
   });
 
@@ -41,7 +39,7 @@ function Productos() {
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const hotelesPorPagina = 10;
-  const [page, setPage] = useState(1);
+  const [page, setPage] = useState();
   const indexUltimoHotel = page * hotelesPorPagina;
   const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
   const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
@@ -59,6 +57,7 @@ function Productos() {
         <>
           {!isReservaIncomplete && (
             <Aside
+              refetch={refetch}
               isLoading={isLoading}
               isFetching={isFetching}
               setPage={setPage}
@@ -164,6 +163,7 @@ function Productos() {
                   ) : (
                     <>
                       <MapaHoteles
+                        reserva={reserva}
                         setHoteles={setHoteles}
                         hotelesSinFiltrar={data}
                         neto={neto}

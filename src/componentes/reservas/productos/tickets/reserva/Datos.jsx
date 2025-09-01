@@ -6,16 +6,15 @@ function Datos() {
   const location = useLocation();
   const { producto, tickets } = location.state || {};
   const fechaIda = (
-    <div className="tw-p-3  tw-bg-opacity-40 tw-rounded-lg">
+    <div className="tw-p-3 tw-bg-opacity-40 tw-rounded-lg tw-flex tw-gap-2">
       {tickets.map((ticket, index) => (
         <div
           className="tw-text-sm tw-mt-3 tw-pl-2 tw-bg-secondary tw-text-white tw-p-1 tw-rounded-lg tw-font-semibold"
           key={index}
         >
-          <p>
-            Día - {FormatearFecha(ticket.date)} a las {ticket.time} -{" "}
-            {ticket.quantity}x {ticket.type}
-          </p>
+          <span>
+            {ticket.modalName} - {ticket.quantity}x
+          </span>
         </div>
       ))}
     </div>
@@ -31,6 +30,7 @@ function Datos() {
       state: { data, producto, tickets },
     });
   };
+  const fecini = "20/11/2025";
   return (
     <ComponenteDatos
       submit={handleSubmit(onSubmit)}
@@ -38,8 +38,9 @@ function Datos() {
       register={register}
       errors={errors}
       img={"/banners/banner_actividades2.webp"}
-      itinerario={producto.titulo}
-      fecha={fechaIda}
+      itinerario={producto.name}
+      fecha={FormatearFecha(fecini)}
+      extras={fechaIda}
     />
   );
 }

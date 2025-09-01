@@ -19,7 +19,6 @@ function Ferris({
   const results = Object.values(ferrisData.results) ?? [];
   const idaFerries = results?.[0]?.ListaTarifas ?? [];
   const vueltaFerries = results?.[1]?.ListaTarifas ?? [];
-  console.log(TarifaNames[0]);
   const tipos = [
     ...new Set([...idaFerries, ...vueltaFerries].map((t) => t.Tipo)),
   ];
@@ -142,11 +141,11 @@ function Ferris({
                   {TarifaNames[tipo].Descrip}
                 </p>
               </div>
-              <div className="dark:tw-bg-slate-100 tw-rounded-lg">
+              <div className="dark:tw-bg-slate-100 tw-rounded-lg tw-overflow-hidden">
                 <img
                   src={ferrisData.operador.imagen}
                   alt="GNV Logo"
-                  className="tw-h-12 tw-object-contain"
+                  className="tw-h-12 tw-w-24 tw-object"
                 />
               </div>
             </div>
@@ -170,12 +169,13 @@ function Ferris({
                 {idaFerries
                   .filter((t) => t.Tipo === tipo)
                   .map((tarifa) => {
+                    (tarifa);
                     const selected =
                       ida?.id === tarifa.Code + tarifa.AcomodationCode;
                     return (
                       <div
                         key={tarifa.Code + tarifa.AcomodationCode}
-                        className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
+                        className={`tw-group tw-relative tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
                           selected ? "tw-bg-blue-50 dark:tw-bg-slate-900" : ""
                         }`}
                       >
@@ -195,6 +195,12 @@ function Ferris({
                             {tarifa.Pvp.toFixed(2)}€
                           </p>
                         </div>
+
+                        {tarifa.Restriction && (
+                          <div className="tw-absolute tw-hidden tw-ml-2 tw--translate-y-1/2 tw-left-0 tw-top-20 tw-z-50 group-hover:tw-block tw-w-fit tw-rounded-lg tw-bg-white tw-border-2 tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-p-2 tw-text-sm tw-text-slate-700 tw-shadow-lg dark:tw-text-slate-200">
+                            <p>{tarifa.Restriction}</p>
+                          </div>
+                        )}
                       </div>
                     );
                   })}
@@ -224,7 +230,7 @@ function Ferris({
                           return (
                             <div
                               key={tarifa.Code + tarifa.AcomodationCode}
-                              className={`tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
+                              className={`tw-group tw-relative tw-flex tw-items-center tw-gap-4 tw-p-2 tw-border-b dark:tw-border-slate-700 ${
                                 selected
                                   ? "tw-bg-blue-50 dark:tw-bg-slate-900"
                                   : ""
@@ -248,6 +254,11 @@ function Ferris({
                                   {tarifa.Pvp.toFixed(2)}€
                                 </p>
                               </div>
+                              {tarifa.Restriction && (
+                                <div className="tw-absolute tw-hidden tw-ml-2 tw--translate-y-1/2 tw-left-0 tw-top-20 tw-z-50 group-hover:tw-block tw-w-fit tw-rounded-lg tw-bg-white tw-border-2 tw-border-slate-200 dark:tw-border-slate-700 dark:tw-bg-slate-800 tw-p-2 tw-text-sm tw-text-slate-700 tw-shadow-lg dark:tw-text-slate-200">
+                                  <p>{tarifa.Restriction}</p>
+                                </div>
+                              )}
                             </div>
                           );
                         })}

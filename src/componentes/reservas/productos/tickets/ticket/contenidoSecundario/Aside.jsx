@@ -1,47 +1,48 @@
-import { FaInfoCircle } from "react-icons/fa";
-import formatearFecha from "../../../../../../assets/scripts/formatearFecha";
+import { FaInfoCircle, FaUserAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
+
 import Reserva from "../../../../../../helpers/visuales/ReservaFinal/Resumen";
 
 function Aside({ tickets, producto, link }) {
   const calcularPrecio = () => {
     return tickets.reduce((total, ticket) => {
-      const pricePerTicket =
-        ticket.type === "adulto"
-          ? producto.reserva.tiposEntradas.adulto.precio
-          : producto.reserva.tiposEntradas.niño.precio;
-
-      return total + pricePerTicket * ticket.quantity;
+      return total + ticket.price * ticket.quantity;
     }, 0);
   };
   return (
     <section>
       {tickets.length > 0 ? (
         <div className="dark:tw-text-slate-400">
-          <h2 className="tw-font-semibold dark:tw-text-white">
-            Resumen compra
-          </h2>
-          <Reserva img={producto.img} txt={producto.titulo} />
-
+          <Reserva img={producto.img[0].L} txt={producto.name} />
           {tickets.map((ticket, index) => (
             <div
-              className="tw-text-sm tw-border-l-2 tw-border-secondary tw-mt-3 tw-pl-2"
               key={index}
+              className="tw-border tw-rounded-xl tw-bg-slate-100/70 dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-shadow-sm tw-p-3 tw-mt-3 tw-transition hover:tw-shadow-md"
             >
               <div className="tw-flex tw-justify-between tw-items-center">
-                <h3 className="tw-font-semibold tw-text-slate-700 dark:tw-text-slate-200 tw-text-sm">
-                  {formatearFecha(ticket.date)}
+                <h3 className="tw-font-medium tw-text-slate-800 dark:tw-text-slate-200 tw-text-base">
+                  {ticket.modalName}
                 </h3>
-                <span className="tw-block">{ticket.time}</span>
+                <span className="tw-text-slate-600 dark:tw-text-slate-300 tw-font-semibold">
+                  €{ticket.price}
+                </span>
               </div>
-              {ticket.quantity}x {ticket.type}
+              <div className="tw-flex tw-justify-between tw-items-center tw-mt-2">
+                <span className="tw-text-slate-800 dark:tw-text-slate-400 tw-flex tw-items-center tw-gap-1">
+                  <FaUserAlt /> - {ticket.quantity}x
+                </span>
+                <span className="tw-font-bold tw-text-slate-700 dark:tw-text-slate-100">
+                  €{(ticket.quantity * ticket.price).toFixed(2)}
+                </span>
+              </div>
             </div>
           ))}
+
           {link ? (
             link
           ) : (
             <Link to={"/datosTickets"} state={{ producto, tickets }}>
-              <button className=" tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
+              <button className="tw-btn_accesorios tw-btn_primario tw-w-full tw-mt-5">
                 Total: €{calcularPrecio().toFixed(2)}
               </button>
             </Link>

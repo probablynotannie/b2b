@@ -6,11 +6,7 @@ function ResumenFinal() {
   const location = useLocation();
   const calculateTotalPrice = () => {
     return tickets.reduce((total, ticket) => {
-      const pricePerTicket =
-        ticket.type === "adulto"
-          ? producto.reserva.tiposEntradas.adulto.precio
-          : producto.reserva.tiposEntradas.niño.precio;
-
+      const pricePerTicket = ticket.price;
       return total + pricePerTicket * ticket.quantity;
     }, 0);
   };
@@ -21,7 +17,7 @@ function ResumenFinal() {
       Icono={FaTicket}
       finalizada={true}
       numReserva={numReserva}
-      titulo={producto.titulo}
+      titulo={producto.name}
       precio={calculateTotalPrice().toFixed(2)}
       main={<Detalles producto={producto} tickets={tickets} cesta={true} />}
       datosContacto={data}

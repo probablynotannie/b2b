@@ -18,9 +18,6 @@ function Aside({ tickets, producto, link }) {
     <section>
       {tickets.length > 0 ? (
         <div className="dark:tw-text-slate-400">
-          <h2 className="tw-font-semibold dark:tw-text-white">
-            Resumen compra
-          </h2>
           <Reserva img={producto.img} txt={producto.titulo} />
 
           {tickets.map((ticket, index) => (
