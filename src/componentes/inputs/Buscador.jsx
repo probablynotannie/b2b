@@ -21,6 +21,7 @@ function Buscador({
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const searchBoxRef = useRef(null);
   const suggestionRefs = useRef([]);
+  console.log("destinod", destinos);
   useEffect(() => {
     if (highlightedIndex >= 0 && suggestionRefs.current[highlightedIndex]) {
       suggestionRefs.current[highlightedIndex].scrollIntoView({

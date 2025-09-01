@@ -93,7 +93,7 @@ function Productos() {
           tw-col-span-9 tw-p-3 
           `}
             >
-              {isLoading ? (
+              {isLoading || isFetching ? (
                 <>
                   <Cargando />
                   <PlaceHolder />

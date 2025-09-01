@@ -13,7 +13,6 @@ function Producto() {
   const vaciarCesta = cesta((state) => state.vaciarCesta);
   const location = useLocation();
   const producto = location.state;
-
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
   const agrupados = groupAndMergeRooms(producto.ListaPrecios);

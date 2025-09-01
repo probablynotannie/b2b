@@ -9,6 +9,8 @@ import normalizeDestinos from "../../../inputs/scripts/normalizedDestinos";
 import getDestinos from "../_hooks/getDestinos";
 import getHoteles from "../_hooks/getHoteles";
 import { useQuery } from "@tanstack/react-query";
+import getNoches from "../../../../assets/scripts/getNochesDeStartDateYEndDate";
+import simplificarFecha from "../../../../assets/scripts/simplificarFecha";
 function Buscador_Cruceros({ listado }) {
   const { data: hotelesParsed, isLoading: isHotelesLoading } = useQuery({
     queryKey: ["hoteles"],
@@ -28,18 +30,22 @@ function Buscador_Cruceros({ listado }) {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
+
   const onSubmit = (data) => {
+    const fecha = simplificarFecha(data.startDate);
+    const noches = getNoches(data.startDate, data.endDate);
+
     const reserva = {
       codearea: 251,
       codcity: 199,
-      fecini: "28-07-2026",
-      noc: 5,
+      fecini: "28-07-2026" /* calculado pero por ahora no lo paso */,
+      noc: 5 /* calculado pero por ahora no lo paso */,
       numper: "2,0;3,1,6",
     };
-
-    const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
     console.log(data);
-   navigate(path); 
+    const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
+
+    navigate(path);
   };
   const {
     register,
