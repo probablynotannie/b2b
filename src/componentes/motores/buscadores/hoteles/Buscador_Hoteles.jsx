@@ -39,7 +39,7 @@ function Buscador_Cruceros({ listado }) {
 
     const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
     console.log(data);
-    /*    navigate(path); */
+   navigate(path); 
   };
   const {
     register,
