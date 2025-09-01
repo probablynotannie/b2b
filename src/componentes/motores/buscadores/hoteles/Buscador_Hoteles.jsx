@@ -38,14 +38,14 @@ function Buscador_Cruceros({ listado }) {
     const reserva = {
       codearea: 251,
       codcity: 199,
-      fecini: "28-07-2026", /* calculado pero por ahora no lo paso */
-      noc: 5, /* calculado pero por ahora no lo paso */
+      fecini: "28-07-2026" /* calculado pero por ahora no lo paso */,
+      noc: 5 /* calculado pero por ahora no lo paso */,
       numper: "2,0;3,1,6",
     };
     console.log(data);
     const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
 
-    /*    navigate(path); */
+    navigate(path);
   };
   const {
     register,
