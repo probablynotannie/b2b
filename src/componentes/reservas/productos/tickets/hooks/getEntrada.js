@@ -1,6 +1,5 @@
 const fetchTicket = async (idTicket, idOp) => {
     const url = `http://devxml-2.vpackage.net/Hoteles/public/tickets/info/ticket/${idTicket}/IdOp/${idOp}/fecini/10-10-2025/noc/1/numper/2,0;/codarea/216/codcity/0?json=1`;
-
     let res;
     try {
         res = await fetch(url);

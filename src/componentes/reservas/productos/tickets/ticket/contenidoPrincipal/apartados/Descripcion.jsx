@@ -1,13 +1,13 @@
 import parse, { domToReact } from "html-react-parser";
 import { useState } from "react";
-function Imagen_Descripcion({ ticket, img }) {
+function Imagen_Descripcion({ ticket }) {
   const [mainDesc, features] = ticket.desc.split(/<b>Características:<\/b>/i);
 
   const options = {
     replace: (node) => {
       if (node.name === "b") {
         return (
-          <span className="tw-font-semibold tw-text-secondary dark:tw-text-seondaryDark">
+          <span className="tw-font-bold tw-text-secondary dark:tw-text-seondaryDark">
             {domToReact(node.children)}
           </span>
         );
@@ -51,7 +51,7 @@ function Imagen_Descripcion({ ticket, img }) {
       </div>
       <div className="tw-text-sm tw-mt-3 dark:tw-text-slate-300">
         <span className="tw-font-bold tw-text-secondary dark:tw-text-secondar">
-          Características:
+          Características
         </span>
         {parse(features, options)}
       </div>

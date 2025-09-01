@@ -16,6 +16,7 @@ import { MdCancel } from "react-icons/md";
 import getEstrellas from "../hook/getEstrellas";
 const customIconUrl = "/logos/hotel.png";
 const MapaHoteles = ({
+  reserva,
   hoteles,
   values,
   setValues,
@@ -30,7 +31,8 @@ const MapaHoteles = ({
   const mapRef = useRef(null);
   const navigate = useNavigate();
   const handleNavigateToHotel = (hotel) => {
-    navigate("/hotel", { state: hotel });
+    console.log(reserva);
+    navigate("/hotel", { state: { ...hotel, reserva } });
   };
   useEffect(() => {
     if (mapRef.current) {
@@ -100,7 +102,7 @@ const MapaHoteles = ({
                 return (
                   <Link
                     to={"/hotel"}
-                    state={hotel}
+                    state={{ ...hotel, reserva }}
                     key={hotel.id}
                     onMouseEnter={() => handleHotelHover(hotel)}
                     className="tw-group tw-flex tw-flex-row tw-bg-slate-50 dark:tw-bg-slate-900 tw-border tw-border-slate-200 dark:tw-border-slate-700 hover:tw-border-secondary tw-smooth tw-transition-transform tw-duration-300 tw-ease-in-out hover:tw-shadow-lg tw-rounded-xl tw-overflow-hidden"
@@ -177,6 +179,7 @@ const MapaHoteles = ({
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
               />
               <Cluster
+                reserva={reserva}
                 neto={neto}
                 hoteles={hoteles}
                 markerIcon={markerIcon}

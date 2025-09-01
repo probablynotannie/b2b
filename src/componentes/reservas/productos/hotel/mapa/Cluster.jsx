@@ -37,6 +37,7 @@ const HotelPopup = ({ hotel, onNavigate, habitacion, neto }) => (
 );
 
 const Cluster = ({
+  reserva,
   hoteles,
   markerIcon,
   onMarkerRef,
@@ -77,7 +78,7 @@ const Cluster = ({
             habitacion={habitacion}
             hotel={hotel}
             onNavigate={() => {
-              onNavigateToHotel(hotel);
+              onNavigateToHotel(hotel, reserva);
               map.closePopup();
             }}
           />

@@ -88,8 +88,6 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
                       ))}
                     </select>
                   </div>
-
-                  {/* Cantidad */}
                   <div>
                     <label className="tw-block tw-mb-1 tw-font-medium dark:tw-text-slate-200">
                       Cantidad
@@ -112,7 +110,7 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
                     <span className="tw-font-medium dark:tw-text-slate-200">
                       Cantidad
                     </span>
-                    <div className="tw-mt-1 tw-border tw-rounded-lg tw-p-2 tw-text-center tw-bg-slate-50 dark:tw-bg-slate-900 dark:tw-text-slate-200 dark:tw-border-slate-700">
+                    <div className="tw-mt-1 tw-border tw-rounded-lg tw-p-2 tw-text-center tw-bg-slate-50 dark:tw-bg-slate-700 dark:tw-text-slate-200 dark:tw-border-slate-700">
                       {ticket.quantity}x
                     </div>
                   </div>
@@ -120,7 +118,7 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
                     <span className="tw-font-medium dark:tw-text-slate-200">
                       Precio
                     </span>
-                    <div className="tw-mt-1 tw-border tw-rounded-lg tw-p-2 tw-text-center tw-bg-slate-50 dark:tw-bg-slate-900 dark:tw-text-slate-200 dark:tw-border-slate-700">
+                    <div className="tw-mt-1 tw-border tw-rounded-lg tw-p-2 tw-text-center tw-bg-slate-50 dark:tw-bg-slate-700 dark:tw-text-slate-200 dark:tw-border-slate-700">
                       {ticket.price}€
                     </div>
                   </div>
@@ -130,7 +128,6 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
           </div>
         ))}
       </div>
-
       {!cesta && (
         <button
           onClick={addTicket}

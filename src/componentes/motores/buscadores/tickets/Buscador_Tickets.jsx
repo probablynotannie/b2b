@@ -39,7 +39,7 @@ function Buscador_Tickets({ listado }) {
     const reserva = {
       codearea: 216,
       codcity: 0,
-      fecini: "31-08-2025",
+      fecini: "25-02-2026",
       noc: 2,
       numper: "2,0",
     };

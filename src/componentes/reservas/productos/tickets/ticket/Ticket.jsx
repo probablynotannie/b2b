@@ -6,10 +6,10 @@ import { useQuery } from "@tanstack/react-query";
 import Placeholder from "../../../../../placeholders/Detalles";
 import Error from "../filtrado/Error";
 import getEntrada from "../hooks/getEntrada";
-
+import { useParams } from "react-router-dom";
 function Producto() {
-  const idTicket = "E-E10-A1AANO1056";
-  const idOp = 5;
+  const { idTicket } = useParams();
+  const { idOp } = useParams();
 
   const {
     data: ticket,
