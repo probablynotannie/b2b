@@ -44,7 +44,7 @@ function Imagen_Descripcion({ ticket, img }) {
 
         <button
           onClick={() => setExpanded(!expanded)}
-          className="tw-text-slate-400 dark:tw-text-slate-300"
+          className="tw-text-slate-400 dark:tw-text-slate-400"
         >
           {expanded ? "Mostrar menos" : "Leer más"}
         </button>

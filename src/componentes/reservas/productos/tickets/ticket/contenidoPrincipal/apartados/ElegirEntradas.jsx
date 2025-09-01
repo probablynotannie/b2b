@@ -34,14 +34,14 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
       )}
       <div className="tw-grid md:tw-grid-cols-2 tw-gap-5 ">
         {tickets.length === 0 && (
-          <p className="tw-text-gray-500 dark:tw-text-slate-400r">
+          <p className="tw-text-slate-500 dark:tw-text-slate-400r">
             No hay tickets seleccionados.
           </p>
         )}
         {tickets.map((ticket, index) => (
           <div
             key={index}
-            className="tw-border tw-rounded-2xl tw-bg-white dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-shadow-md tw-overflow-hidden tw-transition hover:tw-shadow-lg"
+            className="tw-border tw-rounded-xl tw-bg-white dark:tw-bg-slate-800 dark:tw-border-slate-700 tw-shadow-md tw-overflow-hidden tw-transition hover:tw-shadow-lg"
           >
             <div className="tw-flex tw-justify-between tw-items-center tw-bg-slate-700 dark:tw-bg-slate-900 tw-px-4 tw-py-3">
               <h3 className="tw-font-semibold tw-text-white tw-text-lg">
@@ -57,7 +57,7 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
               )}
             </div>
 
-            <div className="tw-flex tw-flex-col tw-gap-4 tw-p-4">
+            <div className="tw-flex tw-flex-col tw-gap-4 tw-p-4 dark:tw-bg-slate-800">
               {cesta !== true ? (
                 <>
                   <div>
@@ -79,7 +79,7 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
                         updateTicket(index, "price", selectedOption.precio);
                       }}
                       disabled={cesta}
-                      className="tw-w-full tw-border tw-rounded-lg tw-border-slate-300 dark:tw-border-slate-700 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-px-3 tw-py-2 tw-transition focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-border-blue-500"
+                      className="tw-w-full tw-border tw-rounded-lg tw-border-slate-300 dark:tw-border-slate-700 dark:tw-bg-slate-700 dark:tw-text-slate-200 tw-px-3 tw-py-2 tw-transition focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-border-blue-500"
                     >
                       {producto.ListaOpciones.map((option) => (
                         <option key={option.modalcode} value={option.modalcode}>
@@ -102,7 +102,7 @@ function ElegirEntradas({ producto, cesta, tickets, setTickets }) {
                         updateTicket(index, "quantity", Number(e.target.value))
                       }
                       disabled={cesta}
-                      className="tw-w-full tw-border tw-rounded-lg tw-border-slate-300 dark:tw-border-slate-700 dark:tw-bg-slate-900 dark:tw-text-slate-200 tw-px-3 tw-py-2 tw-transition focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-border-blue-500"
+                      className="tw-w-full tw-border tw-rounded-lg tw-border-slate-300 dark:tw-border-slate-700 dark:tw-bg-slate-700 dark:tw-text-slate-200 tw-px-3 tw-py-2 tw-transition focus:tw-ring-2 focus:tw-ring-blue-500 focus:tw-border-blue-500"
                     />
                   </div>
                 </>
