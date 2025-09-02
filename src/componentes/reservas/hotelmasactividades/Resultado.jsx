@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
-import Hoteles from "../hotel/HotelMas";
+import Hoteles from "../hotel/Hoteles";
 import Entradas from "../tickets/TicketsMas";
 import Buscador from "../../motores/buscadores/hotelmasactividades/Buscador_Hotel_Mas_Actividades";
 import { FaHotel } from "react-icons/fa";
