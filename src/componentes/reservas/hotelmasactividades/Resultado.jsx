@@ -12,25 +12,46 @@ import { BsFillBasket2Fill } from "react-icons/bs";
 import PlaceHolder from "../../../placeholders/listados/Hoteles";
 import { FaCheck } from "react-icons/fa";
 import Resultado from "../../../helpers/Resultado";
+import useNetoStore from "../../../assets/netoSwitcher/useNetoStore";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import getHoteles from "../hotel/hook/getHoteles";
+import PaginacionFooter from "../../../helpers/visuales/pagination/PaginacionFooter";
+import Paginacion from "../../../helpers/visuales/pagination/Paginacion";
 function Productos() {
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
+  const { codearea, codcity, fecini, noc, numper } = useParams();
+  const reserva = {
+    codearea: codearea ? Number(codearea) : null,
+    codcity: codcity ? Number(codcity) : null,
+    fecini: fecini || null,
+    noc: noc ? Number(noc) : null,
+    numper: numper || null,
+  };
+  const isReservaIncomplete = Object.values(reserva).some(
+    (val) => val === null || val === ""
+  );
+  const { data, isLoading, isFetching, refetch } = useQuery({
+    queryKey: ["hoteles", reserva],
+    queryFn: getHoteles,
+    select: (data) => data,
+  });
+
   const [habitacion, setHabitacion] = useState();
   const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setHotel] = useState();
   const [actividades, setActividades] = useState([]);
-  const reserva = {
-    pax: 2,
-    pax_ninios: 1,
-    habitaciones: 2,
-    noches: 7,
-  };
+
+  const [viewMode, setViewMode] = useState("list");
+  const [hoteles, setHoteles] = useState(data);
+  const neto = useNetoStore((state) => state.neto);
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
+  const hotelesPorPagina = 10;
+  const [page, setPage] = useState();
+  const indexUltimoHotel = page * hotelesPorPagina;
+  const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
+  const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
+  const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
   return (
     <Resultado
       background={"url('/banners/banner_actividades2.webp')"}
@@ -43,7 +64,19 @@ function Productos() {
       wideContent={
         activeTab === "actividades" || (activeTab === "Cesta" && true)
       }
-      aside={<Aside values={values} setValues={setValues} minMax={minMax} />}
+      aside={
+        <Aside
+          isLoading={isLoading}
+          isFetching={isFetching}
+          setPage={setPage}
+          setHoteles={setHoteles}
+          hoteles={data ? data : []}
+          values={values}
+          setValues={setValues}
+          minMax={minMax}
+          setMinMax={setMinMax}
+        />
+      }
       extraInfo={
         <div className="tw-flex tw-items-center tw-space-x-4 tw-mb-6 tw-col-span-9 tw-container tw-mt-10">
           <div className="tw-flex tw-items-center tw-relative">
@@ -101,17 +134,42 @@ function Productos() {
         <>
           {activeTab === "Resultados" ? (
             <>
-              {loading ? (
+              {isLoading ? (
                 <PlaceHolder />
               ) : (
-                <Hoteles
-                  setActiveTab={setActiveTab}
-                  tab={"actividades"}
-                  hoteles={hoteles}
-                  selectedHotel={selectedHotel}
-                  setHotel={setHotel}
-                  setHabitacion={setHabitacion}
-                />
+                <>
+                  <>
+                    <div className="tw-flex tw-justify-start">
+                      <Paginacion
+                        totalPages={paginasTotales}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    </div>
+                    <Hoteles
+                      reserva={reserva}
+                      neto={neto}
+                      hoteles={hotelesAMostrar}
+                      page={page}
+                      setPage={setPage}
+                    />
+                    <div className="tw-flex tw-justify-end tw-mt-4">
+                      <PaginacionFooter
+                        totalPages={paginasTotales}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    </div>
+                  </>
+                  {/*   <Hoteles
+                    setActiveTab={setActiveTab}
+                    tab={"actividades"}
+                    hoteles={hoteles}
+                    selectedHotel={selectedHotel}
+                    setHotel={setHotel}
+                    setHabitacion={setHabitacion}
+                  />  */}
+                </>
               )}
             </>
           ) : activeTab === "actividades" ? (

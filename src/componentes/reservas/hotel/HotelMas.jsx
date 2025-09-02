@@ -1,255 +1,326 @@
-import { IoMdStar, IoMdStarOutline } from "react-icons/io";
-import { FaMapPin } from "react-icons/fa";
+import {
+  FaDoorOpen,
+  FaEye,
+  FaHotel,
+  FaMapPin,
+  FaMinus,
+  FaPlus,
+} from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
 import { MdModeNight } from "react-icons/md";
 import { Carousel } from "flowbite-react";
-import { FaDoorOpen } from "react-icons/fa";
-import { useState } from "react";
-import Listado_cajas from "./detalles/hoteles/Listado_cajas";
-import Listado2 from "./detalles/hoteles/Listado";
+import { useState, useEffect } from "react";
+import { Link } from "react-router-dom";
 import Imagenes from "./detalles/hoteles/Imgs";
-import Map from "./detalles/hoteles/Map";
-import { FaRegCalendarAlt } from "react-icons/fa";
-function Resultado({
-  hoteles,
-  selectedHotel,
-  setHotel,
-  setHabitacion,
-  setActiveTab,
-  tab,
-}) {
-  const reserva = {
-    pax: 2,
-    pax_ninios: 1,
-    habitaciones: 2,
-    noches: 7,
-  };
-
+import Estrellas from "../../../helpers/visuales/Estrellas";
+import capitalizeFirstLetterOnly from "../../../assets/scripts/capitalizeFirstLetterOnly";
+import FormatearFecha from "../../../assets/scripts/formatearFecha";
+import ModalWindow from "../../../helpers/visuales/ModalWindow";
+import calcularFechaSalida from "../../../assets/scripts/fechaSalidaConInicioYNoches";
+function Resultado({ hoteles, neto, reserva }) {
+  const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
-  const [values, setValues] = useState([0, 5000]);
-  const [minMax, setMinMax] = useState([0, 5000]);
+  useEffect(() => {
+    if (openModal !== null) {
+      document.body.style.overflow = "hidden";
+    } else {
+      document.body.style.overflow = "auto";
+    }
+    return () => {
+      document.body.style.overflow = "auto";
+    };
+  }, [openModal]);
+  function habitacionMasBarata(hotel) {
+    if (!hotel?.ListaPrecios) return [];
 
+    const groupedByBoard = {};
+    hotel.ListaPrecios.forEach((item) => {
+      if (item.NumRoom !== 0) return;
+      const boardKey = item.BoardNameFiltro?.toLowerCase();
+      if (!boardKey) return;
+      const relatedRooms = hotel.ListaPrecios.filter(
+        (r) => r.Code === item.Code
+      );
+      const totalPrice = parseFloat(item.Price);
+      if (
+        !groupedByBoard[boardKey] ||
+        totalPrice < parseFloat(groupedByBoard[boardKey].baseRoom.Price)
+      ) {
+        const info = {
+          habitaciones: relatedRooms.length,
+          pax: relatedRooms.reduce(
+            (total, room) => total + Number(room.NumAdults ?? 0),
+            0
+          ),
+          pax_ninios: relatedRooms.reduce(
+            (total, room) => total + Number(room.NumChilds ?? 0),
+            0
+          ),
+          noches: reserva.noc,
+          fechaSalida: reserva.fecini,
+        };
+        groupedByBoard[boardKey] = {
+          baseRoom: item,
+          relatedRooms,
+          info,
+        };
+      }
+    });
+    return Object.values(groupedByBoard);
+  }
   return (
-    <section className="tw-pb-12">
-      <div className="tw-flex tw-flex-col lg:tw-flex-row lg:tw-justify-between tw-p-3 tw-rounded-xl lg:tw-mt-0">
-        <h3 className="tw-text-secondary tw-font-semibold tw-text-lg">
-          Resultados ({hoteles.length})
-        </h3>
-      </div>
-      {hoteles.map((hotel) => (
-        <>
-          <article
-            key={hotel.id}
-            className={`lg:tw-flex tw-flex-row tw-transition tw-mt-10 tw-relative tw-min-h-[15vh] tw-z-0 tw-rounded-xl ${
-              selectedHotel?.id === hotel.id
-                ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary"
-                : "tw-bg-slate-100 dark:tw-bg-slate-800 tw-border-slate-100 dark:tw-border-slate-800"
-            } tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2`}
-          >
-            <div className="tw-w-full tw-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
-              <Carousel slide={false} indicators={true}>
-                {hotel.fotos.map((foto, idx) => (
-                  <img
-                    key={idx}
-                    src={foto}
-                    alt={`Imagen ${idx + 1} de ${hotel.nombre}`}
-                    className="tw-h-full tw-w-full tw-object-cover"
-                  />
-                ))}
-              </Carousel>
-            </div>
-            <div className="tw-p-5 lg:tw-w-2/3">
-              <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
-                <div className="tw-flex tw-justify-between tw-w-full">
-                  <h4 className="tw-text-secondary tw-font-semibold">
-                    {hotel.nombre}
-                    <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
-                      - {hotel.regimen}
-                    </span>
-                  </h4>
-                  <div className="tw-flex tw-text-secondary">
-                    {[...Array(5)].map((_, i) =>
-                      i < hotel.estrellas ? (
-                        <IoMdStar key={i} className="tw-text-lg" />
-                      ) : (
-                        <IoMdStarOutline key={i} className="tw-text-lg" />
-                      )
-                    )}
-                  </div>
-                </div>
-                <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
-                  <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
-                  {hotel.direccion}
-                </span>
-                <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
-                  <span className="tw-flex tw-items-center">
-                    <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
-                    {reserva.pax !== 1 && "s"}
-                  </span>
-                  <span className="tw-flex tw-items-center">
-                    <FaChild className="tw-text-lg" /> {reserva.pax_ninios} niño
-                  </span>
-                  <span className="tw-flex tw-items-center">
-                    <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
-                    {reserva.habitaciones}
-                    Habitación/es
-                  </span>
-                  <span className="tw-flex tw-items-center">
-                    <MdModeNight className="tw-text-lg" />
-                    {reserva.noches} noches
-                  </span>
-                </div>
-              </div>
-              <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
-                {hotel.descripcion}
-              </p>
-              <div className="tw-flex tw-justify-end tw-mt-3">
-                <button
-                  className="tw-w-full lg:tw-w-fit tw-p-3 tw-btn_primario tw-btn_accesorios"
-                  onClick={() => setOpenModal(hotel.id)}
+    <section>
+      {hoteles.map((hotel, index) => {
+        const estrella = hotel.CategoryCode.split("*").length - 1;
+        const habitacion = habitacionMasBarata(hotel);
+        const info = habitacion[0].info;
+        const preciosAgrupados = hotel.ListaPrecios.reduce((acc, item) => {
+          if (item.NumRoom !== 0) return acc;
+          const boardKey = item.BoardNameFiltro?.toLowerCase();
+          if (!boardKey) return acc;
+
+          const relatedRooms = hotel.ListaPrecios.filter(
+            (r) => r.Code === item.Code
+          );
+          const combinedName = relatedRooms.map((r) => r.Name).join(" + ");
+          const price = parseFloat(item.Price);
+
+          if (!acc[boardKey] || price < parseFloat(acc[boardKey].Price)) {
+            acc[boardKey] = {
+              ...item,
+              relatedRooms,
+              combinedName,
+            };
+          }
+
+          return acc;
+        }, {});
+
+        const preciosOrdenados = Object.values(preciosAgrupados).sort(
+          (a, b) => parseFloat(a.Price) - parseFloat(b.Price)
+        );
+        const fotos =
+          hotel.ListFotos?.length > 2
+            ? hotel.ListFotos.slice(2, 8)
+            : hotel.ListFotos?.length > 0
+            ? hotel.ListFotos
+            : ["/placeholder/hoteles.jpg"];
+        const fechaSaslida = calcularFechaSalida(reserva.fecini, reserva.noc);
+        return (
+          <>
+            <article
+              key={index}
+              className="tw-gap-2 md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
+            >
+              <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
+                <Carousel
+                  className="tw-h-[25vh] md:tw-h-full"
+                  slide={false}
+                  indicators={true}
                 >
-                  Detalles
+                  {fotos.map((foto, idx) => (
+                    <div
+                      key={idx}
+                      className="tw-h-[25vh] md:tw-h-full tw-w-full tw-relative"
+                    >
+                      <img
+                        loading="lazy"
+                        src={foto}
+                        alt={`Imagen ${idx + 1} de ${hotel.NombreHotel}`}
+                        className="tw-h-[25vh] md:tw-h-full tw-w-full tw-object-cover"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          const placeholder = document.createElement("div");
+                          placeholder.className =
+                            "tw-h-[25vh] md:tw-h-full tw-w-full tw-flex tw-items-center tw-justify-center tw-bg-slate-300 tw-text-lg";
+                          placeholder.innerText = "Imagen no disponible";
+                          e.target.parentNode.appendChild(placeholder);
+                        }}
+                      />
+                    </div>
+                  ))}
+                </Carousel>
+
+                <button
+                  className="transition tw-absolute tw-top-3 tw-left-2 tw-flex tw-justify-center tw-items-center tw-bg-secondary tw-text-white tw-font-medium tw-p-2 tw-rounded-full hover:tw-bg-slate-700"
+                  onClick={() => setOpenModal(index)}
+                >
+                  <FaEye />
                 </button>
               </div>
-            </div>
-          </article>
-          <div
-            className={`${
-              openModal === hotel.id
-                ? "tw-fixed tw-inset-0 tw-z-50 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center"
-                : "tw-hidden"
-            }`}
-          >
-            <div
-              className={`${
-                openModal === hotel.id
-                  ? "tw-fixed tw-inset-0 tw-bg-black tw-bg-opacity-50 tw-flex tw-justify-center tw-items-center"
-                  : "tw-hidden"
-              }`}
-            >
-              <div className=" tw-w-[80vw] tw-max-h-[80vh] lg:tw-w-7/12 tw-bg-white dark:tw-bg-slate-900 tw-rounded-xl tw-shadow-xl tw-overflow-y-auto">
-                <div className="tw-text-2xl tw-font-bold tw-p-5 tw-bg-slate-800 tw-text-white tw-flex tw-justify-between tw-items-center">
-                  <h3> {hotel.nombre}</h3>
-                  <button
-                    className="tw-text-slate-300 hover:tw-text-slate-100 tw-smooth"
-                    onClick={() => setOpenModal(null)}
-                  >
-                    X
-                  </button>
-                </div>
-                <div className="tw-container">
-                  <article className="tw-grid tw-grid-cols-2 xl:tw-grid-cols-3 lg:tw-gap-10 tw-my-5 tw-mt-10">
-                    <section className="tw-col-span-5 lg:tw-col-span-1 tw-flex tw-flex-col tw-justify-between tw-border-2 tw-border-gray-200 dark:tw-border-slate-800 tw-rounded-xl tw-p-3 tw-text-slate-700 tw-bg-slate-500 dark:tw-bg-slate-800 tw-shadow-xl">
-                      <h4 className="tw-p-3 tw-font-bold text-cen tw-rounded-t-xl tw-text-secondary">
-                        Resumen
-                      </h4>
-                      <div className="tw-flex tw-justify-between tw-pb-2 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700">
-                        <div className="tw-flex tw-items-center tw-space-x-1 tw-text-sm tw-font-semibold dark:tw-text-slate-100">
-                          <FaPerson className="tw-text-xl tw-text-secondary" />
-                          <span className="tw-text-white">{hotel.pax}</span>
-                          <span className="tw-text-white">
-                            adulto{hotel.pax !== 1 && "s"}
-                          </span>
-                        </div>
-                        {hotel.pax_ninios > 0 && (
-                          <div className="tw-flex tw-items-center tw-space-x-1 tw-text-sm tw-font-semibold dark:tw-text-slate-100">
-                            <FaChild className="tw-text-lg tw-text-secondary" />
-                            <span className="tw-text-white">
-                              {hotel.pax_ninios} niño
-                              {hotel.pax_ninios > 1 && "s"}
-                            </span>
-                          </div>
-                        )}
-                      </div>
-                      <div className="text-slateo-700 tw-mx-2 tw-mt-3 tw-text-sm">
-                        <span className="tw-font-semibold dark:tw-text-slate-400 tw-text-white">
-                          Entrada
-                        </span>
-                        <div className="tw-relative">
-                          <input
-                            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
-                            type="text"
-                            disabled
-                            value={hotel.fecha}
-                          />
-                          <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-                            <FaRegCalendarAlt />
-                          </div>
-                        </div>
-                        <span className="tw-block tw-mt-2 tw-font-semibold tw-text-white dark:tw-text-slate-400">
-                          Salida
-                        </span>
-                        <div className="tw-relative">
-                          <input
-                            className="tw-border tw-bg-white dark:tw-bg-slate-700 dark:tw-border-slate-600 dark:placeholder-slate-400 dark:tw-text-white dark:focus:tw-ring-slate-600 dark:focus:tw-border-slate-600 tw-border-slate-300 tw-text-slate-500 tw-text-sm tw-rounded-lg tw-p-2.5 tw-pl-10 tw-w-full tw-cursor-pointer"
-                            type="text"
-                            disabled
-                            value={hotel.fechaSalida}
-                          />
-                          <div className="tw-absolute tw-top-0 tw-pointer-events-none tw-bg-inputIcon dark:tw-bg-slate-800 dark:tw-border-slate-600 dark:tw-border-y-2 dark:tw-border-l-2 tw-text-white tw-h-full tw-rounded-tl-lg tw-rounded-bl-lg tw-flex tw-items-center tw-justify-center tw-w-8 tw-text-xl">
-                            <FaRegCalendarAlt />
-                          </div>
-                        </div>
-                      </div>
-                    </section>
-                    <aside className="tw-h-full lg:tw-col-span-4 tw-col-span-5 tw-mt-5 lg:tw-mt-0">
-                      <Map location={hotel.ubicacion} />
-                    </aside>
 
-                    <section className="tw-col-span-5 tw-hidden md:tw-flex">
-                      <Listado2
-                        setActiveTab={setActiveTab}
-                        tab={tab}
-                        values={values}
-                        setValues={setValues}
-                        minMax={minMax}
-                        setHabitacion={setHabitacion}
-                        seleccion={"seleccionar"}
-                        hotel={hotel}
-                        setHotel={setHotel}
-                        setOpenModal={setOpenModal}
-                        reserva={reserva}
-                        habitaciones={hotel.habitaciones}
-                      />
-                    </section>
-                    <section className="tw-col-span-5 md:tw-hidden">
-                      <Listado_cajas
-                        setActiveTab={setActiveTab}
-                        tab={tab}
-                        values={values}
-                        setValues={setValues}
-                        minMax={minMax}
-                        setHabitacion={setHabitacion}
-                        seleccion={"seleccionar"}
-                        hotel={hotel}
-                        setHotel={setHotel}
-                        setOpenModal={setOpenModal}
-                        reserva={reserva}
-                        habitaciones={hotel.habitaciones}
-                      />
-                    </section>
-                    <section className="tw-col-span-5">
-                      <h4 className="tw-font-bold tw-text-lg tw-mb-3 dark:tw-text-white">
-                        Imagenes
-                      </h4>
-                      <Imagenes imagenes={hotel.habitacionImgs} />
-                    </section>
-                  </article>
+              <div className="tw-p-5 md:tw-w-2/3 tw-px-2 tw-flex tw-flex-col tw-justify-between">
+                <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
+                  <div className="tw-flex tw-justify-between tw-w-full">
+                    <h4 className="tw-text-secondary tw-font-semibold">
+                      {hotel.NombreHotel} -
+                      {habitacion.length > 0 && (
+                        <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
+                          {habitacion[0].baseRoom.BoardName}
+                        </span>
+                      )}
+                    </h4>
+                    <Estrellas estrellas={estrella} />
+                  </div>
+                  <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
+                    <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
+                    {hotel.Dir}
+                  </span>
+                  <div className="tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm">
+                    <span className="tw-flex tw-items-center tw-gap-1">
+                      <FaHotel className="tw-text-lg" />{" "}
+                      {habitacion[0].baseRoom.BoardName}
+                    </span>
+                    <span className="tw-flex tw-items-center">
+                      <FaPerson className="tw-text-lg" /> {info.pax} adulto
+                    </span>
+                    <span className="tw-flex tw-items-center">
+                      <FaChild className="tw-text-lg" /> {info.pax_ninios} niño
+                    </span>
+                    <span className="tw-flex tw-items-center">
+                      <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
+                      {habitacion.length}x Hab
+                    </span>
+                    <span className="tw-flex tw-items-center">
+                      <MdModeNight className="tw-text-lg" />
+                      {info.noches} noches
+                    </span>
+                  </div>
                 </div>
-                <div className="tw-bg-white dark:tw-bg-slate-900 tw-flex tw-justify-end tw-p-4">
+
+                <p className="lg:tw-text-slate-600 tw-mt-2 dark:tw-text-slate-400 tw-text-sm tw-text-slate-500 tw-line-clamp-2">
+                  {hotel.ShortDesc ? hotel.ShortDesc : "Sin Descripción"}
+                </p>
+                <div className="tw-grid tw-grid-cols-2 lg:tw-flex tw-flex-wrap tw-justify-end tw-gap-2 tw-mt-4">
                   <button
-                    className="tw-w-full lg:tw-w-fit tw-btn_primario tw-btn_accesorios"
-                    onClick={() => setOpenModal(null)}
+                    className="transition tw-flex tw-justify-center tw-bg-slate-200 hover:tw-bg-slate-200/70 dark:tw-bg-slate-700 tw-text-slate-800 dark:tw-text-slate-300 tw-font-medium tw-px-4 tw-py-2 tw-rounded-lg dark:hover:tw-bg-slate-600"
+                    onClick={() =>
+                      setExpandedHotel(expandedHotel === index ? null : index)
+                    }
                   >
-                    Cerrar
+                    {expandedHotel === index ? (
+                      <span className="tw-flex tw-gap-1 tw-items-center">
+                        <FaMinus className="tw-text-xs" /> precios
+                      </span>
+                    ) : (
+                      <span className="tw-flex tw-gap-1 tw-items-center">
+                        <FaPlus className="tw-text-xs" /> precios
+                      </span>
+                    )}
                   </button>
+                  <ModalWindow
+                    show={openModal === index}
+                    onClose={() => setOpenModal(null)}
+                    titulo={hotel.NombreHotel}
+                    subTitulo={
+                      FormatearFecha(reserva.fecini) +
+                      " - " +
+                      FormatearFecha(fechaSaslida)
+                    }
+                    body={
+                      <div className="tw-space-y-6">
+                        <p className="tw-leading-relaxed tw-text-slate-500 dark:tw-text-slate-400">
+                          {hotel.ShortDesc}
+                        </p>
+                        <Imagenes imagenes={hotel.ListFotos} />
+                      </div>
+                    }
+                  />
+                  <Link
+                    className={`${
+                      neto === true
+                        ? "tw-bg-sky-200 tw-text-sky-800 hover:tw-bg-sky-200/80 dark:tw-bg-sky-900 dark:tw-text-sky-300 hover:dark:tw-bg-sky-950"
+                        : "tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white "
+                    } tw-font-semibold tw-px-6 tw-py-2 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-gap-2 tw-smooth`}
+                    to="/hotel"
+                    state={{ ...hotel, reserva }}
+                  >
+                    <button className="tw-flex tw-gap-1">
+                      desde
+                      <span>
+                        {neto !== true
+                          ? habitacion[0]?.baseRoom?.Price
+                          : habitacion[0]?.baseRoom?.Pvp}
+                        {habitacion.length > 0 &&
+                          (habitacion[0].baseRoom.Currency === "EUR"
+                            ? "€"
+                            : habitacion[0].baseRoom.Currency)}
+                      </span>
+                    </button>
+                  </Link>
                 </div>
               </div>
-            </div>
-          </div>
-        </>
-      ))}
+            </article>
+            {expandedHotel === index && (
+              <section
+                aria-labelledby="prices-heading"
+                className="tw-relative tw-bg-slate-100 dark:tw-bg-slate-800 tw-rounded-lg tw-shadow-lg hover:tw-shadow-xl tw-smooth tw-p-3 tw-mt-4 tw-mb-6"
+              >
+                <h2 id="prices-heading" className="sr-only">
+                  Opciones de precios
+                </h2>
+                <ul className="tw-grid md:tw-grid-cols-2 lg:tw-grid-cols-3 xl:tw-grid-cols-4 tw-gap-3">
+                  {preciosOrdenados.map((precio, idx) => (
+                    <li
+                      key={idx}
+                      className="tw-cursor-pointer tw-flex tw-flex-col tw-justify-between tw-bg-white dark:tw-bg-slate-700 tw-rounded-lg tw-shadow-sm tw-p-3 tw-text-sm tw-border tw-border-slate-200 dark:tw-border-slate-600 hover:tw-shadow-lg tw-smooth dark:hover:tw-bg-slate-800 hover:tw-border-secondary"
+                    >
+                      <article aria-labelledby={`price-title-${idx}`}>
+                        <h3
+                          id={`price-title-${idx}`}
+                          className="tw-font-medium tw-text-slate-800 dark:tw-text-white tw-flex tw-items-start tw-gap-1"
+                        >
+                          {precio.combinedName}
+                        </h3>
+
+                        <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400 tw-mt-1">
+                          {capitalizeFirstLetterOnly(precio.BoardName)}
+                        </p>
+
+                        {(precio.NoReembolsable === true ||
+                          precio.NoReembolsable === 1) && (
+                          <p className="tw-font-semibold tw-text-red-600 dark:tw-text-red-400">
+                            No reembolsable
+                          </p>
+                        )}
+                        <div>
+                          <p className="tw-font-semibold dark:tw-text-white">
+                            <span className="tw-text-slate-400">
+                              {neto === true && "neto "} desde{" "}
+                            </span>
+                            {neto === true ? precio.Pvp : precio.Price}
+                            {precio.Currency === "EUR" ? "€" : precio.Currency}
+                          </p>
+
+                          {neto === true && (
+                            <p className="tw-font-semibold dark:tw-text-white">
+                              <span className="tw-text-slate-400">
+                                agencia:{" "}
+                              </span>
+                              {precio.Price}
+                              {precio.Currency === "EUR"
+                                ? "€"
+                                : precio.Currency}
+                              <span className="tw-text-sky-800 dark:tw-text-sky-500 tw-font-semibold tw-ml-1">
+                                (+
+                                {parseFloat(precio.Price - precio.Pvp).toFixed(
+                                  2
+                                )}
+                                )
+                              </span>
+                            </p>
+                          )}
+                        </div>
+                      </article>
+                    </li>
+                  ))}
+                </ul>
+              </section>
+            )}
+          </>
+        );
+      })}
     </section>
   );
 }
