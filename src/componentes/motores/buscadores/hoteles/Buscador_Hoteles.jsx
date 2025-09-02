@@ -56,7 +56,7 @@ function Buscador_Cruceros({ listado }) {
       numper: "2,0;3,1,6",
     };
     const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
-    /*     navigate(path); */
+    navigate(path);
   };
   const {
     register,
@@ -74,7 +74,7 @@ function Buscador_Cruceros({ listado }) {
   });
   useEffect(() => {
     const serialized = roomDataANumper(roomData);
-    setValue("numper", serialized); // <-- RHF siempre tendrá el valor actualizado
+    setValue("numper", serialized);
   }, [roomData, setValue]);
 
   return (
