@@ -5,12 +5,12 @@ function ModalEliminar({ isOpen, onClose, onConfirm, producto }) {
   return ReactDOM.createPortal(
     <div className="tw-fixed tw-inset-0 tw-z-50 tw-flex tw-items-center tw-justify-center tw-bg-black/50">
       <div className="tw-bg-white tw-border-2 tw-border-red-700 dark:tw-border-red-900 dark:tw-bg-slate-800 tw-rounded-xl tw-shadow-xl tw-w-full tw-max-w-md tw-p-6">
-        <h2 className="tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-white mb-4">
+        <h2 className="mb-4 tw-text-lg tw-font-bold tw-text-slate-800 dark:tw-text-white">
           ¿Deseas eliminar este producto de la cesta?
         </h2>
         <Info img={producto.img} txt={producto.titulo} />
 
-        <p className="tw-text-slate-400 dark:tw-text-slate-200 my-6 tw-text-center tw-animate-pulse">
+        <p className="my-6 tw-text-slate-400 dark:tw-text-slate-200 tw-text-center tw-animate-pulse">
           Esta acción no se puede deshacer.
         </p>
         <div className="tw-flex tw-justify-end tw-gap-4">
