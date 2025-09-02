@@ -40,6 +40,7 @@ function Escritorio({
           roomData={roomData}
           setRoomData={setRoomData}
         />
+        <input type="hidden" {...register("numper")} />
       </div>
       <div
         className={`${

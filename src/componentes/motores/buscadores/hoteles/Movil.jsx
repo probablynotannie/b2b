@@ -44,6 +44,7 @@ export default function Movil({
         roomData={roomData}
         setRoomData={setRoomData}
       />
+      <input type="hidden" {...register("numper")} />
     </>
   );
 }

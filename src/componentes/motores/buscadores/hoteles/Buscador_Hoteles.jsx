@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
@@ -21,6 +21,7 @@ function Buscador_Cruceros({ listado }) {
     queryFn: getDestinos,
     enabled: !!hotelesParsed,
   });
+  console.log(hotelesParsed);
   const navigate = useNavigate();
   const destinosormalized = normalizeDestinos(
     !isHotelesLoading && hotelesParsed,
@@ -30,11 +31,23 @@ function Buscador_Cruceros({ listado }) {
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
+  const roomDataANumper = (rooms) => {
+    return rooms
+      .map((room) => {
+        const base = `${room.adultos},${room.ninios}`;
+        const ages =
+          room.ninioAges.length > 0 ? `,${room.ninioAges.join(",")}` : "";
+        return base + ages;
+      })
+      .join(";");
+  };
 
   const onSubmit = (data) => {
     const fecha = simplificarFecha(data.startDate);
     const noches = getNoches(data.startDate, data.endDate);
-
+    const numper = data.numper;
+    const codearea = data.origen;
+    console.log(data);
     const reserva = {
       codearea: 251,
       codcity: 199,
@@ -42,10 +55,8 @@ function Buscador_Cruceros({ listado }) {
       noc: 5 /* calculado pero por ahora no lo paso */,
       numper: "2,0;3,1,6",
     };
-    console.log(data);
     const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
-
-    navigate(path);
+    /*     navigate(path); */
   };
   const {
     register,
@@ -58,8 +69,14 @@ function Buscador_Cruceros({ listado }) {
       startDate: 0,
       endDate: 0,
       origen: 0,
+      numper: "",
     },
   });
+  useEffect(() => {
+    const serialized = roomDataANumper(roomData);
+    setValue("numper", serialized); // <-- RHF siempre tendrá el valor actualizado
+  }, [roomData, setValue]);
+
   return (
     <>
       <Buscador

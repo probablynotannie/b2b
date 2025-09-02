@@ -31,7 +31,6 @@ const MapaHoteles = ({
   const mapRef = useRef(null);
   const navigate = useNavigate();
   const handleNavigateToHotel = (hotel) => {
-    console.log(reserva);
     navigate("/hotel", { state: { ...hotel, reserva } });
   };
   useEffect(() => {
