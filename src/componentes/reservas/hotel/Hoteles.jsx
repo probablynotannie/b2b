@@ -120,15 +120,28 @@ function Resultado({ hoteles, neto, reserva }) {
                   indicators={true}
                 >
                   {fotos.map((foto, idx) => (
-                    <img
-                      loading="lazy"
+                    <div
                       key={idx}
-                      src={foto}
-                      alt={`Imagen ${idx + 1} de ${hotel.NombreHotel}`}
-                      className="tw-h-[25vh] md:tw-h-full tw-w-full tw-object-cover"
-                    />
+                      className="tw-h-[25vh] md:tw-h-full tw-w-full tw-relative"
+                    >
+                      <img
+                        loading="lazy"
+                        src={foto}
+                        alt={`Imagen ${idx + 1} de ${hotel.NombreHotel}`}
+                        className="tw-h-[25vh] md:tw-h-full tw-w-full tw-object-cover"
+                        onError={(e) => {
+                          e.target.style.display = "none";
+                          const placeholder = document.createElement("div");
+                          placeholder.className =
+                            "tw-h-[25vh] md:tw-h-full tw-w-full tw-flex tw-items-center tw-justify-center tw-bg-slate-300 tw-text-lg";
+                          placeholder.innerText = "Imagen no disponible";
+                          e.target.parentNode.appendChild(placeholder);
+                        }}
+                      />
+                    </div>
                   ))}
                 </Carousel>
+
                 <button
                   className="transition tw-absolute tw-top-3 tw-left-2 tw-flex tw-justify-center tw-items-center tw-bg-secondary tw-text-white tw-font-medium tw-p-2 tw-rounded-full hover:tw-bg-slate-700"
                   onClick={() => setOpenModal(index)}
