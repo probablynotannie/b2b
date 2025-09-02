@@ -1,4 +1,4 @@
-const normalizeDestinos = (hoteles, destinos) => {
+const normalizeDestinos = (destinos, hoteles) => {
     const hotelData = Array.isArray(hoteles?.results)
         ? hoteles.results.map((h) => ({
             id: h.idHotel,
@@ -10,7 +10,8 @@ const normalizeDestinos = (hoteles, destinos) => {
 
     const destinoData = Array.isArray(destinos?.results)
         ? destinos.results.map((d) => ({
-            id: d.codcity || d.codarea,
+            id: d.codarea,
+            codcity: d.codcity,
             name: d.city,
             destino: `${d.region ? d.region + ", " : ""}${d.country}`,
             type: "destino",
