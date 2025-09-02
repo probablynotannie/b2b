@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react";
-
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Buscador from "../Buscador";
@@ -21,7 +20,6 @@ function Buscador_Cruceros({ listado }) {
     queryFn: getDestinos,
     enabled: !!hotelesParsed,
   });
-  console.log(hotelesParsed);
   const navigate = useNavigate();
   const destinosormalized = normalizeDestinos(
     !isHotelesLoading && hotelesParsed,
@@ -41,7 +39,6 @@ function Buscador_Cruceros({ listado }) {
       })
       .join(";");
   };
-
   const onSubmit = (data) => {
     const fecha = simplificarFecha(data.startDate);
     const noches = getNoches(data.startDate, data.endDate);
@@ -53,7 +50,7 @@ function Buscador_Cruceros({ listado }) {
       codcity: 199,
       fecini: "28-07-2026" /* calculado pero por ahora no lo paso */,
       noc: 5 /* calculado pero por ahora no lo paso */,
-      numper: "2,0;3,1,6",
+      numper: "2,0;3,1,6" /* calculado pero por ahora no lo paso */,
     };
     const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
     navigate(path);
