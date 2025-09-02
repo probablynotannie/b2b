@@ -57,7 +57,6 @@ function Productos() {
         <>
           {!isReservaIncomplete && (
             <Aside
-              refetch={refetch}
               isLoading={isLoading}
               isFetching={isFetching}
               setPage={setPage}

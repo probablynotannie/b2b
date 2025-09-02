@@ -7,7 +7,7 @@ import { FaHotel } from "react-icons/fa";
 import { PiMaskHappyFill } from "react-icons/pi";
 import Cesta from "./Cesta";
 import entradas from "./Tickets.json";
-import hoteles from "./Hoteles.json";
+import hoteles from "./hotelesReaeles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import PlaceHolder from "../../../placeholders/listados/Hoteles";
 import { FaCheck } from "react-icons/fa";

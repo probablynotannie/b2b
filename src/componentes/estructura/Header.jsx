@@ -218,7 +218,7 @@ function Header() {
         />
         <Route path="/listadoFerris" element={<ListadoFerris />} />
         <Route
-          path="/listadoHotelMasActividades"
+          path="/listadoHotelMasActividades/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
           element={<ListadoHotelMasActividades />}
         />
         <Route path="/listadoCircuitos" element={<ListadoCircuitos />} />

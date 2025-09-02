@@ -141,7 +141,7 @@ function Resultado({ hoteles, neto, reserva }) {
                     </div>
                   ))}
                 </Carousel>
-
+ 
                 <button
                   className="transition tw-absolute tw-top-3 tw-left-2 tw-flex tw-justify-center tw-items-center tw-bg-secondary tw-text-white tw-font-medium tw-p-2 tw-rounded-full hover:tw-bg-slate-700"
                   onClick={() => setOpenModal(index)}
