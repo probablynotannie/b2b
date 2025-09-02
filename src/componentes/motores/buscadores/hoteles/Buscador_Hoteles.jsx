@@ -1,5 +1,4 @@
-import { useState } from "react";
-
+import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import Buscador from "../Buscador";
@@ -23,28 +22,37 @@ function Buscador_Cruceros({ listado }) {
   });
   const navigate = useNavigate();
   const destinosormalized = normalizeDestinos(
-    !isHotelesLoading && hotelesParsed,
-    !isDestinosLoading && destinosParsed
+    !isDestinosLoading && destinosParsed,
+    !isHotelesLoading && hotelesParsed
   );
   const [habitacion, setHabitacion] = useState(1);
   const [roomData, setRoomData] = useState([
     { id: Date.now(), adultos: 1, ninios: 0, ninioAges: [] },
   ]);
-
+  const roomDataANumper = (rooms) => {
+    return rooms
+      .map((room) => {
+        const base = `${room.adultos},${room.ninios}`;
+        const ages =
+          room.ninioAges.length > 0 ? `,${room.ninioAges.join(",")}` : "";
+        return base + ages;
+      })
+      .join(";");
+  };
   const onSubmit = (data) => {
     const fecha = simplificarFecha(data.startDate);
     const noches = getNoches(data.startDate, data.endDate);
-
+    const numper = data.numper;
+    const codArea = data.codarea;
+    const codCity = data.codcity;
     const reserva = {
-      codearea: 251,
-      codcity: 199,
+      codarea: 251 /* calculado pero por ahora no lo paso */,
+      codcity: 199 /* calculado pero por ahora no lo paso */,
       fecini: "28-07-2026" /* calculado pero por ahora no lo paso */,
       noc: 5 /* calculado pero por ahora no lo paso */,
-      numper: "2,0;3,1,6",
+      numper: "2,0;3,1,6" /* calculado pero por ahora no lo paso */,
     };
-    console.log(data);
-    const path = `/listadoHoteles/${reserva.codearea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
-
+    const path = `/listadoHoteles/${reserva.codarea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
     navigate(path);
   };
   const {
@@ -57,9 +65,17 @@ function Buscador_Cruceros({ listado }) {
     defaultValues: {
       startDate: 0,
       endDate: 0,
-      origen: 0,
+      codcity: 0,
+      codarea: 0,
+      tipo: "",
+      numper: "",
     },
   });
+  useEffect(() => {
+    const serialized = roomDataANumper(roomData);
+    setValue("numper", serialized);
+  }, [roomData, setValue]);
+
   return (
     <>
       <Buscador

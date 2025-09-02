@@ -19,7 +19,7 @@ export default function Movil({
       <Input_Buscador
         required={true}
         control={control}
-        name={"origen"}
+        name={"codCity"}
         setValue={setValue}
         placeholder={"Origen"}
         destinos={destinos}
@@ -44,6 +44,7 @@ export default function Movil({
         roomData={roomData}
         setRoomData={setRoomData}
       />
+      <input type="hidden" {...register("numper")} />
     </>
   );
 }

@@ -19,7 +19,7 @@ function Escritorio({
       <div className="tw-col-span-6 xl:tw-col-span-3">
         <Input_Buscador
           control={control}
-          name={"origen"}
+          name={"codcity"}
           setValue={setValue}
           placeholder={"Origen"}
           destinos={destinos}
@@ -40,6 +40,7 @@ function Escritorio({
           roomData={roomData}
           setRoomData={setRoomData}
         />
+        <input type="hidden" {...register("numper")} />
       </div>
       <div
         className={`${

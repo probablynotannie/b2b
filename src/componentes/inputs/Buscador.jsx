@@ -21,7 +21,6 @@ function Buscador({
   const [highlightedIndex, setHighlightedIndex] = useState(-1);
   const searchBoxRef = useRef(null);
   const suggestionRefs = useRef([]);
-  console.log("destinod", destinos);
   useEffect(() => {
     if (highlightedIndex >= 0 && suggestionRefs.current[highlightedIndex]) {
       suggestionRefs.current[highlightedIndex].scrollIntoView({
@@ -54,10 +53,19 @@ function Buscador({
       setLoading(false);
     }
   };
-
   const handleSuggestionClick = (suggestion) => {
     setValue(name, suggestion.id);
     setInputText(suggestion.name);
+    setValue("tipo", suggestion.type);
+
+    if (suggestion.type !== "hotel") {
+      if (suggestion.codcity) {
+        setValue("codcity", suggestion.codcity);
+      }
+      if (suggestion.id) {
+        setValue("codarea", suggestion.id);
+      }
+    }
     setSuggestions([]);
     setIsDropdownOpen(false);
     setHighlightedIndex(-1);
@@ -136,7 +144,7 @@ function Buscador({
             <ul>
               {suggestions.map((suggestion, index) => (
                 <li
-                  key={suggestion.id}
+                  key={index}
                   ref={(el) => (suggestionRefs.current[index] = el)}
                   onClick={() => handleSuggestionClick(suggestion)}
                   className={`tw-p-2 tw-text-gray-700 tw-cursor-pointer ${
