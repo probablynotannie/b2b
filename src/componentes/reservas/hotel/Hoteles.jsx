@@ -307,9 +307,18 @@ function Resultado({
                   {hotelMas === true ? (
                     <butto
                       onClick={() => setOpenModalPrecios(index)}
-                      className="tw-btn_accesorios tw-btn_primario"
+                      className="tw-btn_accesorios tw-btn_primario tw-flex tw-gap-1"
                     >
-                      Modal
+                      desde
+                      <span>
+                        {neto !== true
+                          ? habitacion[0]?.baseRoom?.Price
+                          : habitacion[0]?.baseRoom?.Pvp}
+                        {habitacion.length > 0 &&
+                          (habitacion[0].baseRoom.Currency === "EUR"
+                            ? "€"
+                            : habitacion[0].baseRoom.Currency)}
+                      </span>
                     </butto>
                   ) : (
                     <Link
