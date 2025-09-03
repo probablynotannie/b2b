@@ -24,6 +24,7 @@ function Buscador_Destinos({ listado }) {
       flag: <img src="../../logo.png" alt="logo" className="tw-w-5 tw-h-4" />,
     },
   ];
+  
   const regions = {
     AF: [
       { id: 1, name: "Nigeria" },

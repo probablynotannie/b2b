@@ -37,8 +37,9 @@ function Productos() {
   });
 
   const [habitacion, setHabitacion] = useState();
-  const [activeTab, setActiveTab] = useState("Resultados");
   const [selectedHotel, setSelectedHotel] = useState();
+  const [activeTab, setActiveTab] = useState("Resultados");
+
   const [actividades, setActividades] = useState([]);
 
   const [viewMode, setViewMode] = useState("list");

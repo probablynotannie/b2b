@@ -7,6 +7,7 @@ import capitalizeFirstLetter from "../../../assets/scripts/capitalizeFirstLetter
 import TarifaNames from "./jsons/TarifaNames.js";
 
 function Ferris({
+  ocultarBoton,
   ida,
   setIda,
   vuelta,
@@ -264,18 +265,26 @@ function Ferris({
                         })}
                     </>
                   )}
-
-                {ida?.tipo === tipo &&
-                  (!results?.[1] || vuelta?.tipo === tipo) && (
-                    <div className="tw-flex tw-justify-end tw-mt-4">
-                      <Link to="/ferry" state={{ ferry, ferrisData }}>
-                        <button className="tw-btn_primario tw-btn_accesorios">
-                          Reservar por{" "}
-                          {((ida?.Pvp || 0) + (vuelta?.Pvp || 0)).toFixed(2)}€
-                        </button>
-                      </Link>
-                    </div>
-                  )}
+                {ocultarBoton === true ? (
+                  ""
+                ) : (
+                  <div>
+                    {ida?.tipo === tipo &&
+                      (!results?.[1] || vuelta?.tipo === tipo) && (
+                        <div className="tw-flex tw-justify-end tw-mt-4">
+                          <Link to="/ferry" state={{ ferry, ferrisData }}>
+                            <button className="tw-btn_primario tw-btn_accesorios">
+                              Reservar por{" "}
+                              {((ida?.Pvp || 0) + (vuelta?.Pvp || 0)).toFixed(
+                                2
+                              )}
+                              €
+                            </button>
+                          </Link>
+                        </div>
+                      )}
+                  </div>
+                )}
               </div>
             )}
           </div>
