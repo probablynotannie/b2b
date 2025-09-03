@@ -232,12 +232,15 @@ function Header() {
         />
         <Route path="/listadoVuelos" element={<ListadoVuelos />} />
         <Route
-          path="/listadoHotelMasVuelo"
+          path="/listadoHotelMasVuelo/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
           element={<ListadoVueloMasHotel />}
         />
         {/* PRODUCTO  */}
         <Route path="/hotel" element={<Hotel />} />
-        <Route path="/hotelMasFerry" element={<HotelMasFerry />} />
+        <Route
+          path="/hotelMasFerry/:codearea?/:codcity?/:fecini?/:noc?/:numper?"
+          element={<HotelMasFerry />}
+        />
         <Route path="/tren" element={<Tren />} />
         <Route path="/ferry" element={<Ferry />} />
         <Route path="/seguro" element={<Seguro />} />
