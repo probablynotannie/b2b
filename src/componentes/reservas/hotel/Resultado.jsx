@@ -15,6 +15,7 @@ import { useQuery } from "@tanstack/react-query";
 import { useParams } from "react-router-dom";
 import Error from "./filtros/Error";
 import NetoSwitcher from "../../../assets/netoSwitcher/Switch";
+
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
   const reserva = {

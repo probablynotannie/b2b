@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-const Error = ({ error, tipo, enlace }) => {
+const Error = ({ error, tipo, enlace, ocultarBoton }) => {
   const colors = {
     building: tipo === 2 ? "#1E3A8A" : tipo === 3 ? "#6B4226" : "#7F1D1D",
     roof: tipo === 2 ? "#2563EB" : tipo === 3 ? "#8B5E3C" : "#B91C1C",
@@ -93,12 +93,14 @@ const Error = ({ error, tipo, enlace }) => {
       <p className="tw-text-md tw-select-none tw-text-center tw-text-slate-400 tw-mb-2 -tw-mt-5">
         {error}
       </p>
-      <Link
-        to={enlace ? enlace : "/hoteles"}
-        className=" tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-      >
-        volver
-      </Link>
+      {ocultarBoton !== true && (
+        <Link
+          to={enlace ? enlace : "/hoteles"}
+          className=" tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+        >
+          volver
+        </Link>
+      )}
       <style>{`
         .hotel {
           margin-top: 27px;

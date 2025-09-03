@@ -5,6 +5,7 @@ function Listado({
   neto,
   habitaciones,
   seleccion,
+  habitacionSeleccionada,
   hotel,
   setHotel,
   setOpenModal,
@@ -40,7 +41,14 @@ function Listado({
         <tbody className="dark:tw-bg-slate-800 tw-bg-slate-50">
           {habitaciones.map((habitacion) => (
             <tr
-              className="tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700"
+              className={`
+                ${
+                  habitacion.Code === habitacionSeleccionada?.Code &&
+                  "tw-bg-elegido/50"
+                }
+                tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700
+                
+                `}
               key={habitacion.Code}
             >
               <td className="tw-p-3 tw-font-semibold dark:tw-text-secondaryDark">
@@ -101,13 +109,15 @@ function Listado({
                     <button
                       onClick={() => {
                         setHabitacionSeleccionada(habitacion);
-                        confirmacion(habitacion);
+                        confirmacion(habitacion, hotel);
                       }}
-                      className={`tw-p-3 tw-flex tw-flex-col tw-transition tw-font-semibold tw-min-w-[100px] tw-btn_accesorios ${
-                        neto === true
-                          ? "tw-bg-sky-200 tw-text-sky-800 dark:tw-bg-sky-900 dark:tw-text-sky-300"
-                          : "tw-btn_primario"
-                      } tw-shadow-md hover:tw-shadow-lg`}
+                      className={`tw-p-3 tw-flex tw-flex-col tw-transition tw-font-semibold tw-min-w-[100px] tw-btn_accesorios
+                        
+                        ${
+                          neto === true
+                            ? "tw-bg-sky-200 tw-text-sky-800 dark:tw-bg-sky-900 dark:tw-text-sky-300"
+                            : "tw-btn_primario"
+                        } tw-shadow-md hover:tw-shadow-lg`}
                     >
                       {neto === true ? habitacion.Pvp : habitacion.Price}
                       {habitacion.Currency === "EUR"
@@ -139,12 +149,14 @@ function Listado({
             </tr>
           ))}
         </tbody>
-        <AnadirMasProductos
-          isOpen={modalMasProductos}
-          setModalOpen={setModalMasProductos}
-          masProductos={aniadirMas}
-          onConfirm={sinProductosAdicionales}
-        />
+        {modalMasProductos && (
+          <AnadirMasProductos
+            isOpen={modalMasProductos}
+            setModalOpen={setModalMasProductos}
+            masProductos={aniadirMas}
+            onConfirm={sinProductosAdicionales}
+          />
+        )}
       </table>
     </div>
   );

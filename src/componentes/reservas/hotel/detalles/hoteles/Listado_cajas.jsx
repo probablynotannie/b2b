@@ -17,13 +17,22 @@ function Listado({
   confirmacion,
   aniadirMas,
   sinProductosAdicionales,
+  habitacionSeleccionada,
 }) {
+  console.log(habitacionSeleccionada);
   return (
     <div className="tw-mb-16">
       <div className="tw-grid tw-grid-cols-4 tw-gap-9">
         {habitaciones.map((habitacion) => (
           <div
-            className="tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-border dark:tw-border-slate-800 tw-bg-slate-100 dark:tw-bg-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-200 tw-group tw-smooth tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10"
+            className={`
+            
+             ${
+               habitacion.Code === habitacionSeleccionada?.Code
+                 ? "tw-bg-elegido/50 hover:tw-bg-elegido/70"
+                 : " tw-bg-slate-100 dark:tw-bg-slate-800"
+             }
+            tw-col-span-4 md:tw-col-span-2 lg:tw-col-span-1 tw-relative tw-border dark:tw-border-slate-800 dark:hover:tw-bg-slate-900 hover:tw-bg-slate-200 tw-group tw-smooth tw-rounded-lg tw-flex tw-flex-col tw-items-center tw-shadow-xl tw-p-3 tw-pb-10`}
             key={habitacion.Code}
           >
             <FaBed className="tw-text-4xl dark:tw-text-white tw-text-secondary" />
@@ -70,7 +79,7 @@ function Listado({
               <button
                 onClick={() => {
                   setHabitacionSeleccionada(habitacion);
-                  confirmacion(habitacion);
+                  confirmacion(habitacion, hotel);
                 }}
                 className={`tw-absolute -tw-bottom-6 tw-left-1/2 tw-transform -tw-translate-x-1/2 tw-btn_accesorios ${
                   neto === true

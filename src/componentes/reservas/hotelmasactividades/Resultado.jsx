@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Hoteles from "../hotel/Hoteles";
 import Entradas from "../tickets/TicketsMas";
@@ -7,9 +7,9 @@ import { FaHotel } from "react-icons/fa";
 import { PiMaskHappyFill } from "react-icons/pi";
 import Cesta from "./Cesta";
 import entradas from "./Tickets.json";
-import hoteles from "./hotelesReaeles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import PlaceHolder from "../../../placeholders/listados/Hoteles";
+import Cargando from "../../../placeholders/listados/Cargando";
 import { FaCheck } from "react-icons/fa";
 import Resultado from "../../../helpers/Resultado";
 import useNetoStore from "../../../assets/netoSwitcher/useNetoStore";
@@ -38,7 +38,7 @@ function Productos() {
 
   const [habitacion, setHabitacion] = useState();
   const [activeTab, setActiveTab] = useState("Resultados");
-  const [selectedHotel, setHotel] = useState();
+  const [selectedHotel, setSelectedHotel] = useState();
   const [actividades, setActividades] = useState([]);
 
   const [viewMode, setViewMode] = useState("list");
@@ -52,6 +52,12 @@ function Productos() {
   const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
   const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
   const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
+  const confirmacion = (habitacion, hotel) => {
+    setSelectedHotel(hotel);
+    setOpenModalPrecios(null);
+    setActiveTab("actividades");
+  };
+  const [openModalPrecios, setOpenModalPrecios] = useState(null);
   return (
     <Resultado
       background={"url('/banners/banner_actividades2.webp')"}
@@ -135,24 +141,42 @@ function Productos() {
           {activeTab === "Resultados" ? (
             <>
               {isLoading ? (
-                <PlaceHolder />
+                <>
+                  <Cargando />
+                  <PlaceHolder />
+                </>
               ) : (
                 <>
                   <>
-                    <div className="tw-flex tw-justify-start">
+                    <div className="tw-flex tw-justify-between">
+                      <h3
+                        className={`tw-text-secondary
+                 tw-font-semibold tw-text-lg tw-flex tw-items-center`}
+                      >
+                        Resultados ({hoteles?.length})
+                      </h3>
                       <Paginacion
                         totalPages={paginasTotales}
                         page={page}
                         setPage={setPage}
                       />
                     </div>
-                    <Hoteles
-                      reserva={reserva}
-                      neto={neto}
-                      hoteles={hotelesAMostrar}
-                      page={page}
-                      setPage={setPage}
-                    />
+                    {hotelesAMostrar && (
+                      <Hoteles
+                        openModalPrecios={openModalPrecios}
+                        setOpenModalPrecios={setOpenModalPrecios}
+                        confirmacion={confirmacion}
+                        habitacionSeleccionada={habitacion}
+                        setHabitacion={setHabitacion}
+                        selectedHotel={selectedHotel}
+                        hotelMas={true}
+                        reserva={reserva}
+                        neto={neto}
+                        hoteles={hotelesAMostrar}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    )}
                     <div className="tw-flex tw-justify-end tw-mt-4">
                       <PaginacionFooter
                         totalPages={paginasTotales}
@@ -161,14 +185,6 @@ function Productos() {
                       />
                     </div>
                   </>
-                  {/*   <Hoteles
-                    setActiveTab={setActiveTab}
-                    tab={"actividades"}
-                    hoteles={hoteles}
-                    selectedHotel={selectedHotel}
-                    setHotel={setHotel}
-                    setHabitacion={setHabitacion}
-                  />  */}
                 </>
               )}
             </>
@@ -182,11 +198,13 @@ function Productos() {
             </>
           ) : (
             <Cesta
+              setHabitacion={setHabitacion}
+              neto={neto}
               habitacion={habitacion}
               hotel={selectedHotel}
               actividades={actividades}
               reserva={reserva}
-              setHotel={setHotel}
+              setHotel={setSelectedHotel}
               setActividades={setActividades}
             />
           )}

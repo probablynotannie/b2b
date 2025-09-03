@@ -338,3 +338,7 @@ body {
 .leaflet-container {
   z-index: 0 !important;
 }
+.hide-arrows .carousel-control-prev,
+.hide-arrows .carousel-control-next {
+  display: none !important;
+}

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 
-const AnimatedTicket = ({ error, tipo, enlace }) => {
+const AnimatedTicket = ({ error, tipo, enlace, ocultarBoton }) => {
   const colors = {
     ticketBg: tipo === 2 ? "#E0F2FE" : tipo === 3 ? "#FDE68A" : "#FECACA",
     ticketBorder: tipo === 2 ? "#38BDF8" : tipo === 3 ? "#FBBF24" : "#F87171",
@@ -56,13 +56,14 @@ const AnimatedTicket = ({ error, tipo, enlace }) => {
       <p className="tw-text-md tw-select-none tw-text-center tw-text-slate-400 ">
         {error}
       </p>
-      <Link
-        to={enlace ? enlace : "/tickets"}
-        className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
-      >
-        volver
-      </Link>
-
+      {ocultarBoton !== true && (
+        <Link
+          to={enlace ? enlace : "/tickets"}
+          className="tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-400 hover:dark:tw-bg-slate-900 hover:tw-bg-slate-300 tw-text-slate-500 hover:tw-text-slate-700 tw-w-fit tw-p-2 tw-px-6 tw-rounded tw-smooth"
+        >
+          volver
+        </Link>
+      )}
       <style>{`
         .ticket {
           transform-origin: center;
