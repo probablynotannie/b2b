@@ -224,6 +224,7 @@ function Productos() {
           )}
           {activeTab === "Cesta" && (
             <Cesta
+              neto={neto}
               habitacion={habitacion}
               setHabitacion={setHabitacion}
               hotel={selectedHotel}

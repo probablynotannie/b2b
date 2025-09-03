@@ -19,7 +19,6 @@ function Listado({
   sinProductosAdicionales,
   habitacionSeleccionada,
 }) {
-  console.log(habitacionSeleccionada);
   return (
     <div className="tw-mb-16">
       <div className="tw-grid tw-grid-cols-4 tw-gap-9">

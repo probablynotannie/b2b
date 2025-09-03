@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
-import Hoteles from "../hotel/HotelMas";
+import Hoteles from "../hotel/Hoteles";
 import Vuelos from "../vuelos/VueloSeleccionados";
 import MasVuelos from "./Vuelos";
 import Buscador from "../../motores/buscadores/hotelmasvuelo/Buscador_HotVuelo";
@@ -36,7 +36,7 @@ function Productos() {
             const totalPrice = outboundFlight.precio + returnFlight.precio;
             if (
               !cheapestCombination ||
-              totalPrice < cheapestCombination.totalPric
+              totalPrice < cheapestCombination.totalPrice
             ) {
               cheapestCombination = {
                 flightSetId: flightSet.id,
