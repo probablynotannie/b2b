@@ -1,21 +1,25 @@
 import { FaMapPin } from "react-icons/fa";
 import { FaPerson } from "react-icons/fa6";
 import { FaChild } from "react-icons/fa6";
-import { MdModeNight } from "react-icons/md";
 import { FaDoorOpen } from "react-icons/fa";
 import { FaRegTrashAlt } from "react-icons/fa";
 import { FaCalendarAlt } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import formatearFecha from "../../../assets/scripts/formatearFecha" ;
+import { Carousel } from "flowbite-react";
+import Error from "../hotel/filtros/Error";
+import ErrorActividad from "../tickets/filtrado/Error";
+import formatearFecha from "../../../assets/scripts/formatearFecha";
 function Cesta({
+  neto,
   hotel,
   actividades,
-  reserva,
   setHotel,
   setActividades,
   habitacion,
+  setHabitacion,
 }) {
   const borrarHotel = () => {
+    setHabitacion(null);
     setHotel(null);
   };
   const removeActividad = (actividad) => {
@@ -24,41 +28,54 @@ function Cesta({
     );
   };
   const totalPrice =
-    (hotel ? parseFloat(hotel.precio) : 0) +
+    (hotel && habitacion ? parseFloat(habitacion.Pvp) : 0) +
     actividades.reduce(
       (sum, actividad) => sum + parseFloat(actividad.precioTotal),
       0
     );
-
+  const fotos =
+    hotel?.ListFotos?.length > 2
+      ? hotel?.ListFotos
+      : ["/placeholder/hoteles.jpg"];
   return (
     <div className="tw-mt-5">
-      <div className="tw-min-h-[30vh] tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-gap-4">
-        {hotel && (
+      <div
+        className={`
+      ${
+        !hotel && !habitacion && !actividades
+          ? " tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3"
+          : " tw-grid  lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-divide-y md:tw-divide-y-0 tw-space-y-5 lg:tw-divide-x dark:tw-divide-slate-800/40"
+      }
+      tw-min-h-[30vh] tw-gap-4
+
+        `}
+      >
+        {hotel && habitacion ? (
           <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-overflow-hidden tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
             <div className="tw-absolute tw-bottom-0 tw-grid tw-grid-cols-2 tw-justify-between tw-items-center tw-w-full tw-p-2">
               <div className="tw-col-span-2 tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-2">
                 <span className="tw-flex tw-items-center">
-                  <FaPerson className="tw-text-lg" /> {reserva.pax} adulto
-                  {reserva.pax > 1 && "s"}
+                  <FaPerson className="tw-text-lg" /> {habitacion.adultosTotal}{" "}
+                  adulto
+                  {habitacion.adultosTotal > 1 && "s"}
                 </span>
                 <span className="tw-flex tw-items-center">
-                  <FaChild className="tw-text-lg" /> {reserva.pax_ninios} niño
-                  {reserva.pax_ninios > 1 && "s"}
+                  <FaChild className="tw-text-lg" /> {habitacion.niniosTotal}{" "}
+                  niño
+                  {habitacion.niniosTotal > 1 && "s"}
                 </span>
                 <span className="tw-flex tw-items-center">
                   <FaDoorOpen className="tw-text-lg tw-mr-1" />{" "}
-                  {reserva.habitaciones} Habitación/es
-                </span>
-                <span className="tw-flex tw-items-center">
-                  <MdModeNight className="tw-text-lg" />
-                  {reserva.noches} noches
+                  {habitacion.relatedRooms.length} Habitación
+                  {habitacion.relatedRooms.length > 1 && "es"}
                 </span>
               </div>
               <div className="tw-col-span-2 tw-flex tw-justify-between">
                 <span
                   className={`tw-mt-2 tw-text-lg tw-text-slate-500 dark:tw-text-green-400 tw-rounded-lg tw-px-2 tw-p-1 tw-font-bold`}
                 >
-                  {hotel.precio}€
+                  {neto === true ? habitacion.Pvp : habitacion.Price}
+                  {habitacion.Currency === "EUR" ? "€" : habitacion.Currency}
                 </span>
                 <button
                   onClick={borrarHotel}
@@ -74,31 +91,58 @@ function Cesta({
               Hotel
             </span>
 
-            <div className="tw-relative">
-              <img
-                className="tw-h-[25vh] tw-w-full tw-object-cover tw-rounded-t-lg"
-                src={hotel.img}
-                alt="imagen hotel"
-              />
-              <div className="tw-bg-emerald-500 tw-bg-opacity-15 tw-absolute tw-top-0 tw-w-full tw-h-full" />
+            <div className="tw-relative tw-group">
+              <Carousel
+                className="tw-h-[25vh] hide-arrows"
+                slide={false}
+                indicators={true}
+                controls={false}
+              >
+                {fotos.map((foto, idx) => (
+                  <div key={idx} className="tw-h-[25vh] tw-w-full tw-relative">
+                    <img
+                      loading="lazy"
+                      src={foto}
+                      alt={`Imagen ${idx + 1} de ${hotel.NombreHotel}`}
+                      className="tw-h-[25vh] tw-w-full tw-object-cover"
+                      onError={(e) => {
+                        e.target.style.display = "none";
+                        const placeholder = document.createElement("div");
+                        placeholder.className =
+                          "tw-h-[25vh] tw-w-full tw-flex tw-items-center tw-justify-center tw-bg-slate-300 tw-text-lg";
+                        placeholder.innerText = "Imagen no disponible";
+                        e.target.parentNode.appendChild(placeholder);
+                      }}
+                    />
+                  </div>
+                ))}
+              </Carousel>
             </div>
             <div className="tw-p-5">
               <h4 className="tw-text-secondary tw-font-semibold">
-                {hotel.nombre}
+                {hotel.NombreHotel}
                 <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
-                  - {hotel.regimen}
+                  - {habitacion.BoardCode}
                 </span>
               </h4>
               <div className="tw-pb-2">
                 <span className="tw-text-slate-400 dark:tw-text-slate-400 tw-text-sm tw-flex tw-items-center tw-mb-2">
                   <FaMapPin className="tw-text-slate-600 dark:tw-text-slate-500 tw-mr-2" />
-                  {hotel.direccion}
+                  {hotel.Dir}
                 </span>
               </div>
             </div>
           </section>
+        ) : (
+          <div className="tw-flex tw-justify-center">
+            <Error
+              ocultarBoton={true}
+              error={"No has seleccionado ningun hotel"}
+              tipo={1}
+            />
+          </div>
         )}
-        {actividades.length > 0 && (
+        {actividades.length > 0 ? (
           <>
             {actividades.map((actividad, index) => (
               <section
@@ -162,6 +206,14 @@ function Cesta({
               </section>
             ))}
           </>
+        ) : (
+          <div className="tw-block tw-justify-center">
+            <ErrorActividad
+              ocultarBoton={true}
+              error={"No has seleccionado ninguna actividad"}
+              tipo={1}
+            />
+          </div>
         )}
       </div>
       {hotel && actividades.length > 0 && (
@@ -169,7 +221,7 @@ function Cesta({
           to="/hotel+actividades"
           state={{ hotel, actividades, habitacion }}
         >
-          <button className=" tw-btn_accesorios tw-btn_primario  tw-mt-10">
+          <button className=" tw-btn_accesorios tw-btn_primario tw-mt-10">
             Total: {totalPrice.toFixed(2)}€
           </button>
         </Link>

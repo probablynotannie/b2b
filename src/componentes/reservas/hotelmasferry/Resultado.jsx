@@ -1,41 +1,84 @@
 import { useState, useEffect } from "react";
 import Aside from "../hotel/filtros/Aside";
 import Aside_Ferry from "../ferris/filtros/Aside";
-import Hoteles from "../hotel/HotelMas";
-import MasFerris from "./Ferris";
+import Hoteles from "../hotel/Hoteles";
+import MasFerris from "../ferris/Ferris";
 import Buscador from "../../motores/buscadores/hotelmasferri/Buscador_hotelferry";
 import { FaHotel } from "react-icons/fa";
 import { FaShip } from "react-icons/fa";
-import ferris from "./Ferris.json";
-import hoteles from "./Hoteles.json";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
 import PlaceHolder from "../../../placeholders/listados/Hoteles";
 import Cargando from "../../../placeholders/listados/Cargando";
 import Resultado from "../../../helpers/Resultado";
+import { useParams } from "react-router-dom";
+import getHoteles from "../hotel/hook/getHoteles";
+import { useQuery } from "@tanstack/react-query";
+import useNetoStore from "../../../assets/netoSwitcher/useNetoStore";
+import Paginacion from "../../../helpers/visuales/pagination/Paginacion";
+import PaginacionFooter from "../../../helpers/visuales/pagination/PaginacionFooter";
+import ferrisRealesGnv from "../ferris/jsons/ferrisRealesGnv.json";
+import ferrisRealesTrasmed from "../ferris/jsons/ferrisRealesTrasmed.json";
+import ferrisRealesBalearia from "../ferris/jsons/ferrisRealesBalearia.json";
 function Productos() {
+  const { codearea, codcity, fecini, noc, numper } = useParams();
+  const reserva = {
+    codearea: codearea ? Number(codearea) : null,
+    codcity: codcity ? Number(codcity) : null,
+    fecini: fecini || null,
+    noc: noc ? Number(noc) : null,
+    numper: numper || null,
+  };
+  const isReservaIncomplete = Object.values(reserva).some(
+    (val) => val === null || val === ""
+  );
+
+  const { data, isLoading, isFetching, refetch } = useQuery({
+    queryKey: ["hoteles", reserva],
+    queryFn: getHoteles,
+    select: (data) => data,
+  });
+  const [hoteles, setHoteles] = useState(data);
+
+  const [activeTab, setActiveTab] = useState("Resultados");
+
+  const [habitacion, setHabitacion] = useState();
+
+  const [ida, setIda] = useState(null);
+  const [vuelta, setVuelta] = useState(null);
+  const [ferry, setFerry] = useState({});
+
+  const [values, setValues] = useState([0, 5000]);
+  const [minMax, setMinMax] = useState([0, 5000]);
+  const [valuesFerris, setValuesFerris] = useState([0, 5000]);
+  const [minMaxFerris, setMinMaxFerris] = useState([0, 5000]);
+  const [viewMode, setViewMode] = useState("list");
+  const [selectedHotel, setSelectedHotel] = useState(data);
+  const neto = useNetoStore((state) => state.neto);
+  const hotelesPorPagina = 10;
+  const [page, setPage] = useState();
+  const indexUltimoHotel = page * hotelesPorPagina;
+  const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
+  const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
+  const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
+  const [openModalPrecios, setOpenModalPrecios] = useState(null);
+
+  const confirmacion = (habitacion, hotel) => {
+    setSelectedHotel(hotel);
+    setOpenModalPrecios(null);
+    setActiveTab("Ferris");
+  };
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, []);
-  const [activeTab, setActiveTab] = useState("Resultados");
-  const [selectedHotel, setHotel] = useState();
-  const [habitacion, setHabitacion] = useState();
-  const [ida, setIda] = useState(null);
-  const [vuelta, setVuelta] = useState(null);
-  const [ferry, setFerry] = useState({});
-  const reserva = {
-    pax: 2,
-    pax_ninios: 1,
-    habitaciones: 2,
-    noches: 7,
-  };
-  const [values, setValues] = useState([0, 5000]);
-  const [minMax, setMinMax] = useState([0, 5000]);
-  const [valuesFerris, setValuesFerris] = useState([0, 5000]);
-  const [minMaxFerris, setMinMaxFerris] = useState([0, 5000]);
+  const ferrisArray = [
+    ferrisRealesGnv,
+    ferrisRealesTrasmed,
+    ferrisRealesBalearia,
+  ];
   return (
     <Resultado
       background={"url('/banners/banner_avion.webp')"}
@@ -45,13 +88,27 @@ function Productos() {
       aside={
         <>
           {activeTab === "Resultados" ? (
-            <Aside values={values} setValues={setValues} minMax={minMax} />
-          ) : (
-            <Aside_Ferry
-              values={valuesFerris}
-              setValues={setValuesFerris}
-              minMax={minMaxFerris}
+            <Aside
+              isLoading={isLoading}
+              isFetching={isFetching}
+              setPage={setPage}
+              setHoteles={setHoteles}
+              hoteles={data ? data : []}
+              values={values}
+              setValues={setValues}
+              minMax={minMax}
+              setMinMax={setMinMax}
             />
+          ) : (
+            <>
+              <Aside_Ferry
+                isLoading={loading}
+                ferris={ferrisArray}
+                values={valuesFerris}
+                setValues={setValuesFerris}
+                minMax={minMaxFerris}
+              />
+            </>
           )}
         </>
       }
@@ -95,42 +152,84 @@ function Productos() {
         <>
           {activeTab === "Resultados" && (
             <>
-              {loading ? (
+              {isLoading ? (
                 <>
                   <Cargando />
                   <PlaceHolder />
                 </>
               ) : (
-                <Hoteles
-                  setActiveTab={setActiveTab}
-                  tab={"Ferris"}
-                  setHabitacion={setHabitacion}
-                  hoteles={hoteles}
-                  selectedHotel={selectedHotel}
-                  setHotel={setHotel}
-                />
+                <>
+                  <>
+                    <div className="tw-flex tw-justify-between">
+                      <h3
+                        className={`tw-text-secondary
+                 tw-font-semibold tw-text-lg tw-flex tw-items-center`}
+                      >
+                        Resultados ({hoteles?.length})
+                      </h3>
+                      <Paginacion
+                        totalPages={paginasTotales}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    </div>
+                    {hotelesAMostrar && (
+                      <Hoteles
+                        openModalPrecios={openModalPrecios}
+                        setOpenModalPrecios={setOpenModalPrecios}
+                        confirmacion={confirmacion}
+                        habitacionSeleccionada={habitacion}
+                        setHabitacion={setHabitacion}
+                        selectedHotel={selectedHotel}
+                        hotelMas={true}
+                        reserva={reserva}
+                        neto={neto}
+                        hoteles={hotelesAMostrar}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    )}
+                    <div className="tw-flex tw-justify-end tw-mt-4">
+                      <PaginacionFooter
+                        totalPages={paginasTotales}
+                        page={page}
+                        setPage={setPage}
+                      />
+                    </div>
+                  </>
+                </>
               )}
             </>
           )}
           {activeTab === "Ferris" && (
-            <MasFerris
-              seleccion={true}
-              ferris={ferris}
-              ferry={ferry}
-              setFerry={setFerry}
-              ida={ida}
-              setIda={setIda}
-              vuelta={vuelta}
-              setVuelta={setVuelta}
-            />
+            <>
+              {ferrisArray && (
+                <div>
+                  {ferrisArray.map((ferryData, index) => (
+                    <MasFerris
+                      ocultarBoton={true}
+                      key={index}
+                      ferrisData={ferryData}
+                      ferry={ferry}
+                      setFerry={setFerry}
+                      ida={ida}
+                      setIda={setIda}
+                      vuelta={vuelta}
+                      setVuelta={setVuelta}
+                    />
+                  ))}
+                </div>
+              )}
+            </>
           )}
           {activeTab === "Cesta" && (
             <Cesta
+              neto={neto}
               habitacion={habitacion}
-              ferry={ferry}
+              setHabitacion={setHabitacion}
               hotel={selectedHotel}
-              reserva={reserva}
-              setHotel={setHotel}
+              setHotel={setSelectedHotel}
+              ferry={ferry}
             />
           )}
         </>

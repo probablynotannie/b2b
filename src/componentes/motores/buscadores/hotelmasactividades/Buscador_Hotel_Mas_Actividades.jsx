@@ -27,9 +27,15 @@ function Buscador_Entradas({ listado }) {
   ];
 
   const onSubmit = (data) => {
-    navigate("/listadohotelmasactividades", {
-      state: { datosForm: data },
-    });
+    const reserva = {
+      codarea: 251 /* calculado pero por ahora no lo paso */,
+      codcity: 199 /* calculado pero por ahora no lo paso */,
+      fecini: "28-07-2026" /* calculado pero por ahora no lo paso */,
+      noc: 5 /* calculado pero por ahora no lo paso */,
+      numper: "2,0;3,1,6" /* calculado pero por ahora no lo paso */,
+    };
+    const path = `/listadohotelmasactividades/${reserva.codarea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
+    navigate(path);
   };
   const { handleSubmit, control, setValue } = useForm({
     defaultValues: {

@@ -6,7 +6,7 @@ export default function groupAndMergeByCode(listaPrecios) {
             if (!item.Code) return acc;
             const numAdults = Number(item.NumAdults) || 0;
             const numChilds = Number(item.NumChilds) || 0;
-
+            
             if (!acc[item.Code]) {
                 acc[item.Code] = {
                     ...item,

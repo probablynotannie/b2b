@@ -7,6 +7,7 @@ import capitalizeFirstLetter from "../../../assets/scripts/capitalizeFirstLetter
 import TarifaNames from "./jsons/TarifaNames.js";
 
 function Ferris({
+  ocultarBoton,
   ida,
   setIda,
   vuelta,
@@ -49,6 +50,7 @@ function Ferris({
 
     setFerry((prevFerry) => {
       const newFerry = { ...prevFerry };
+
       if (type === "ida") {
         if (vuelta && vuelta.tipo !== tarifa.Tipo) {
           newFerry.vuelta = null;
@@ -64,6 +66,7 @@ function Ferris({
         newFerry.vuelta = opcionSeleccionada;
         setVuelta(opcionSeleccionada);
       }
+      newFerry.proveedor = ferrisData.operador;
       return newFerry;
     });
   };
@@ -108,7 +111,9 @@ function Ferris({
         return (
           <div
             key={tipo}
-            className={`tw-mt-2 tw-border dark:tw-border-slate-700 tw-border-slate-100 tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-duration-500`}
+            className={`
+              tw-mt-2 tw-border dark:tw-border-slate-700 tw-border-slate-100 tw-rounded-lg tw-shadow hover:tw-shadow-lg tw-bg-white dark:tw-bg-slate-800 tw-transition-all tw-duration-500
+              `}
           >
             <div
               className="tw-flex tw-justify-between tw-items-center tw-p-4 tw-cursor-pointer"
@@ -264,18 +269,26 @@ function Ferris({
                         })}
                     </>
                   )}
-
-                {ida?.tipo === tipo &&
-                  (!results?.[1] || vuelta?.tipo === tipo) && (
-                    <div className="tw-flex tw-justify-end tw-mt-4">
-                      <Link to="/ferry" state={{ ferry, ferrisData }}>
-                        <button className="tw-btn_primario tw-btn_accesorios">
-                          Reservar por{" "}
-                          {((ida?.Pvp || 0) + (vuelta?.Pvp || 0)).toFixed(2)}€
-                        </button>
-                      </Link>
-                    </div>
-                  )}
+                {ocultarBoton === true ? (
+                  ""
+                ) : (
+                  <div>
+                    {ida?.tipo === tipo &&
+                      (!results?.[1] || vuelta?.tipo === tipo) && (
+                        <div className="tw-flex tw-justify-end tw-mt-4">
+                          <Link to="/ferry" state={{ ferry, ferrisData }}>
+                            <button className="tw-btn_primario tw-btn_accesorios">
+                              Reservar por{" "}
+                              {((ida?.Pvp || 0) + (vuelta?.Pvp || 0)).toFixed(
+                                2
+                              )}
+                              €
+                            </button>
+                          </Link>
+                        </div>
+                      )}
+                  </div>
+                )}
               </div>
             )}
           </div>

@@ -18,7 +18,22 @@ import capitalizeFirstLetterOnly from "../../../assets/scripts/capitalizeFirstLe
 import FormatearFecha from "../../../assets/scripts/formatearFecha";
 import ModalWindow from "../../../helpers/visuales/ModalWindow";
 import calcularFechaSalida from "../../../assets/scripts/fechaSalidaConInicioYNoches";
-function Resultado({ hoteles, neto, reserva }) {
+import Listado from "./detalles/hoteles/Listado";
+import Listado_cajas from "./detalles/hoteles/Listado_cajas";
+import groupAndMergeRooms from "./hook/mergeHabitaciones.js";
+
+function Resultado({
+  hoteles,
+  neto,
+  reserva,
+  hotelMas,
+  habitacionSeleccionada,
+  setHabitacion,
+  confirmacion,
+  openModalPrecios,
+  setOpenModalPrecios,
+  selectedHotel,
+}) {
   const [expandedHotel, setExpandedHotel] = useState(null);
   const [openModal, setOpenModal] = useState(null);
   useEffect(() => {
@@ -35,7 +50,7 @@ function Resultado({ hoteles, neto, reserva }) {
     if (!hotel?.ListaPrecios) return [];
 
     const groupedByBoard = {};
-    hotel.ListaPrecios.forEach((item) => {
+    hotel?.ListaPrecios.forEach((item) => {
       if (item.NumRoom !== 0) return;
       const boardKey = item.BoardNameFiltro?.toLowerCase();
       if (!boardKey) return;
@@ -107,33 +122,43 @@ function Resultado({ hoteles, neto, reserva }) {
             ? hotel.ListFotos
             : ["/placeholder/hoteles.jpg"];
         const fechaSaslida = calcularFechaSalida(reserva.fecini, reserva.noc);
+        const agrupados = groupAndMergeRooms(hotel.ListaPrecios);
+
         return (
           <>
             <article
               key={index}
-              className="tw-gap-2 md:tw-flex tw-flex-row tw-bg-slate-100 dark:tw-bg-slate-800 tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2 tw-border-slate-100 dark:tw-border-slate-800 tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[15vh]"
+              className={`      
+                ${
+                  selectedHotel?.idHotel === hotel.idHotel
+                    ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary"
+                    : "tw-bg-slate-100 dark:tw-bg-slate-800 tw-border-slate-200/70 dark:tw-border-slate-800"
+                } 
+                
+                tw-gap-2 md:tw-flex tw-flex-row   tw-shadow-xl lg:tw-shadow-lg hover:tw-shadow-xl tw-border-2  tw-rounded-xl tw-transition tw-mt-10 tw-relative tw-min-h-[25vh]
+                `}
             >
-              <div className="tw-w-full tw-min-h-[25vh] lg:tw-h-auto lg:tw-w-1/3 lg:tw-rounded-l-lg tw-rounded-t-lg tw-overflow-hidden">
+              <div className="tw-w-full md:tw-w-1/3 tw-rounded-t-lg md:tw-rounded-l-lg tw-overflow-hidden tw-flex-shrink-0">
                 <Carousel
-                  className="tw-h-[25vh] md:tw-h-full"
+                  className="tw-h-[30vh] xl:tw-h-[25vh]"
                   slide={false}
                   indicators={true}
                 >
                   {fotos.map((foto, idx) => (
                     <div
                       key={idx}
-                      className="tw-h-[25vh] md:tw-h-full tw-w-full tw-relative"
+                      className="tw-h-[30vh] xl:tw-h-[25vh] tw-w-full tw-relative"
                     >
                       <img
                         loading="lazy"
                         src={foto}
                         alt={`Imagen ${idx + 1} de ${hotel.NombreHotel}`}
-                        className="tw-h-[25vh] md:tw-h-full tw-w-full tw-object-cover"
+                        className="tw-h-[30vh] xl:tw-h-[25vh] tw-w-full tw-object-cover"
                         onError={(e) => {
                           e.target.style.display = "none";
                           const placeholder = document.createElement("div");
                           placeholder.className =
-                            "tw-h-[25vh] md:tw-h-full tw-w-full tw-flex tw-items-center tw-justify-center tw-bg-slate-300 tw-text-lg";
+                            "tw-h-[30vh] xl:tw-h-[25vh] tw-w-full tw-flex tw-items-center tw-justify-center tw-bg-slate-300 tw-text-lg";
                           placeholder.innerText = "Imagen no disponible";
                           e.target.parentNode.appendChild(placeholder);
                         }}
@@ -150,13 +175,31 @@ function Resultado({ hoteles, neto, reserva }) {
                 </button>
               </div>
 
-              <div className="tw-p-5 md:tw-w-2/3 tw-px-2 tw-flex tw-flex-col tw-justify-between">
-                <div className="tw-border-b-2 tw-border-slate-200 dark:tw-border-slate-700 tw-pb-2">
+              <div className=" tw-p-5 tw-px-2 tw-flex tw-flex-col tw-justify-between md:tw-w-2/3">
+                <div
+                  className={`
+                
+                 ${
+                   selectedHotel?.idHotel === hotel.idHotel
+                     ? " tw-border-secondary/20 dark:tw-border-secondaryDark/70"
+                     : "tw-border-slate-200  dark:tw-border-slate-700"
+                 } 
+                tw-border-b-2  tw-pb-2`}
+                >
                   <div className="tw-flex tw-justify-between tw-w-full">
                     <h4 className="tw-text-secondary tw-font-semibold">
                       {hotel.NombreHotel} -
                       {habitacion.length > 0 && (
-                        <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
+                        <span
+                          className={`
+                        
+                           ${
+                             selectedHotel?.idHotel === hotel.idHotel
+                               ? "tw-text-slate-500"
+                               : " tw-text-slate-400"
+                           } 
+                        tw-text-sm tw-ml-1 tw-font-normal`}
+                        >
                           {habitacion[0].baseRoom.BoardName}
                         </span>
                       )}
@@ -227,28 +270,71 @@ function Resultado({ hoteles, neto, reserva }) {
                       </div>
                     }
                   />
-                  <Link
-                    className={`${
-                      neto === true
-                        ? "tw-bg-sky-200 tw-text-sky-800 hover:tw-bg-sky-200/80 dark:tw-bg-sky-900 dark:tw-text-sky-300 hover:dark:tw-bg-sky-950"
-                        : "tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white "
-                    } tw-font-semibold tw-px-6 tw-py-2 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-gap-2 tw-smooth`}
-                    to="/hotel"
-                    state={{ ...hotel, reserva }}
-                  >
-                    <button className="tw-flex tw-gap-1">
-                      desde
-                      <span>
-                        {neto !== true
-                          ? habitacion[0]?.baseRoom?.Price
-                          : habitacion[0]?.baseRoom?.Pvp}
-                        {habitacion.length > 0 &&
-                          (habitacion[0].baseRoom.Currency === "EUR"
-                            ? "€"
-                            : habitacion[0].baseRoom.Currency)}
-                      </span>
-                    </button>
-                  </Link>
+                  <ModalWindow
+                    show={openModalPrecios === index}
+                    onClose={() => setOpenModalPrecios(null)}
+                    titulo={hotel.NombreHotel}
+                    subTitulo={
+                      FormatearFecha(reserva.fecini) +
+                      " - " +
+                      FormatearFecha(fechaSaslida)
+                    }
+                    body={
+                      <div className="tw-space-y-6">
+                        <section className="tw-col-span-5 tw-hidden md:tw-flex">
+                          <Listado
+                            neto={neto}
+                            habitaciones={agrupados}
+                            habitacionSeleccionada={habitacionSeleccionada}
+                            setHabitacionSeleccionada={setHabitacion}
+                            confirmacion={confirmacion}
+                            hotel={hotel}
+                          />
+                        </section>
+                        <section className="tw-col-span-5 md:tw-hidden">
+                          <Listado_cajas
+                            neto={neto}
+                            habitaciones={agrupados}
+                            habitacionSeleccionada={habitacionSeleccionada}
+                            setHabitacionSeleccionada={setHabitacion}
+                            confirmacion={confirmacion}
+                            hotel={hotel}
+                          />
+                        </section>
+                      </div>
+                    }
+                  />
+                  {hotelMas === true ? (
+                    <butto
+                      onClick={() => setOpenModalPrecios(index)}
+                      className="tw-btn_accesorios tw-btn_primario"
+                    >
+                      Modal
+                    </butto>
+                  ) : (
+                    <Link
+                      className={`${
+                        neto === true
+                          ? "tw-bg-sky-200 tw-text-sky-800 hover:tw-bg-sky-200/80 dark:tw-bg-sky-900 dark:tw-text-sky-300 hover:dark:tw-bg-sky-950"
+                          : "tw-bg-secondary hover:tw-bg-secondary/90 tw-text-white "
+                      } tw-font-semibold tw-px-6 tw-py-2 tw-rounded-lg tw-flex tw-items-center tw-justify-center tw-gap-2 tw-smooth`}
+                      to="/hotel"
+                      state={{ ...hotel, reserva }}
+                    >
+                      <button className="tw-flex tw-gap-1">
+                        desde
+                        <span>
+                          {neto !== true
+                            ? habitacion[0]?.baseRoom?.Price
+                            : habitacion[0]?.baseRoom?.Pvp}
+                          {habitacion.length > 0 &&
+                            (habitacion[0].baseRoom.Currency === "EUR"
+                              ? "€"
+                              : habitacion[0].baseRoom.Currency)}
+                        </span>
+                      </button>
+                    </Link>
+                  )}
                 </div>
               </div>
             </article>
@@ -287,7 +373,7 @@ function Resultado({ hoteles, neto, reserva }) {
                         <div>
                           <p className="tw-font-semibold dark:tw-text-white">
                             <span className="tw-text-slate-400">
-                              {neto === true && "neto "} desde{" "}
+                              {neto === true && "neto "} desde
                             </span>
                             {neto === true ? precio.Pvp : precio.Price}
                             {precio.Currency === "EUR" ? "€" : precio.Currency}

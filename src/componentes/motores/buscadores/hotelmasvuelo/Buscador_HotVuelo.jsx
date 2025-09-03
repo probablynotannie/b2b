@@ -20,9 +20,15 @@ function Buscador_Cruceros({ listado }) {
   });
 
   const onSubmit = (data) => {
-    navigate("/listadohotelmasvuelo", {
-      state: { data },
-    });
+    const reserva = {
+      codarea: 251 /* calculado pero por ahora no lo paso */,
+      codcity: 199 /* calculado pero por ahora no lo paso */,
+      fecini: "28-07-2026" /* calculado pero por ahora no lo paso */,
+      noc: 5 /* calculado pero por ahora no lo paso */,
+      numper: "2,0;3,1,6" /* calculado pero por ahora no lo paso */,
+    };
+    const path = `/listadohotelmasvuelo/${reserva.codarea}/${reserva.codcity}/${reserva.fecini}/${reserva.noc}/${reserva.numper}`;
+    navigate(path);
   };
   const destinos = [
     { id: 0, type: "Destino", name: "MADRID Centro", destino: "Madrid" },
