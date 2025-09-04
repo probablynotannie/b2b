@@ -14,7 +14,7 @@ import Filtrado from "./Filtrado";
 import Placeholder from "./Placeholder";
 import { MdCancel } from "react-icons/md";
 import getEstrellas from "../hook/getEstrellas";
-import HotelMas from "../hotelMas";
+import HotelMas from "../HotelMas";
 import groupAndMergeByCode from "../hook/mergeHabitaciones";
 import calcularFechaSalida from "../../../../assets/scripts/fechaSalidaConInicioYNoches";
 const customIconUrl = "/logos/hotel.png";
