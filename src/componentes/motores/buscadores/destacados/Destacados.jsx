@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { FaSpinner } from "react-icons/fa";
 
 function Destacados({ destacados, columnas, filas, max }) {
   const maxItems = columnas * filas;
@@ -29,8 +30,8 @@ function ImageWithSpinner({ destacado }) {
       role="button"
     >
       {!loaded && (
-        <div className="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center tw-bg-gray-200">
-          <div className="tw-border-4 tw-border-t-indigo-500 tw-rounded-full tw-w-10 tw-h-10 tw-animate-spin"></div>
+        <div className="tw-absolute tw-inset-0 tw-flex tw-items-center tw-justify-center tw-bg-slate-200">
+          <FaSpinner className="tw-animate-spin tw-text-slate-600 tw-text-2xl" />
         </div>
       )}
       <img
