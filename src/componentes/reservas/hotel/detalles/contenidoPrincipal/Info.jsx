@@ -6,6 +6,7 @@ import formatearFecha from "../../../../../assets/scripts/formatearFecha";
 import calcularFechaSalida from "../../../../../assets/scripts/fechaSalidaConInicioYNoches";
 import React from "react";
 function Info({ hotel, aside, habitacion }) {
+  console.log(hotel.reserva)
   const fechaSalida = calcularFechaSalida(
     hotel.reserva.fecini,
     hotel.reserva.noc

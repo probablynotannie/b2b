@@ -300,6 +300,7 @@ function Productos() {
           )}
           {activeTab === "Cesta" && (
             <Cesta
+              reserva={reserva}
               neto={neto}
               habitacion={habitacion}
               setHabitacion={setHabitacion}

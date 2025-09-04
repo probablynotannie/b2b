@@ -7,10 +7,13 @@ import { Link } from "react-router-dom";
 import { Carousel } from "flowbite-react";
 import Ferrys from "./FerrySeleccionado";
 import Error from "../hotel/filtros/Error";
-function Cesta({ hotel, setHotel, ferry, habitacion, neto }) {
+function Cesta({ hotel, setHotel, ferry, habitacion, neto, reserva }) {
   const reservaFinal = {
     habitacion: habitacion || null,
-    hotel: hotel || null,
+    hotel: {
+      ...hotel,
+      reserva: reserva,
+    },
     ferry: ferry || null,
   };
   const removeHotel = () => {
@@ -134,7 +137,7 @@ function Cesta({ hotel, setHotel, ferry, habitacion, neto }) {
           )}
           <Ferrys ferry={ferry} />
         </div>
-        {hotel && ferry && (
+        {hotel && ferry && habitacion && (
           <Link state={reservaFinal} to={"/hotelmasferry"}>
             <button className=" tw-btn_accesorios tw-btn_primario tw-mt-10">
               Total: {totalPrice.toFixed(2)}€
