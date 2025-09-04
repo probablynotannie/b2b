@@ -14,6 +14,9 @@ import Filtrado from "./Filtrado";
 import Placeholder from "./Placeholder";
 import { MdCancel } from "react-icons/md";
 import getEstrellas from "../hook/getEstrellas";
+import HotelMas from "../hotelMas";
+import groupAndMergeByCode from "../hook/mergeHabitaciones";
+import calcularFechaSalida from "../../../../assets/scripts/fechaSalidaConInicioYNoches";
 const customIconUrl = "/logos/hotel.png";
 const MapaHoteles = ({
   reserva,
@@ -25,6 +28,13 @@ const MapaHoteles = ({
   setHoteles,
   hotelesSinFiltrar,
   neto,
+  openModalPrecios,
+  setOpenModalPrecios,
+  confirmacion,
+  habitacionSeleccionada,
+  setHabitacion,
+  selectedHotel,
+  hotelMas,
 }) => {
   const markersRef = useRef({});
   const [showMapOnly, setShowMapOnly] = useState(false);
@@ -43,21 +53,22 @@ const MapaHoteles = ({
   const handleHotelHover = (hotel) => {
     const marker = markersRef.current[hotel.idHotel];
     if (!marker || !mapRef.current) return;
+
     const map = mapRef.current;
     const parent = marker.__parent;
-    if (parent && typeof parent.zoomToShowLayer === "function") {
-      parent.zoomToShowLayer(marker, () => {
-        setTimeout(() => {
-          marker.openPopup();
-        }, 300);
-      });
-    } else {
-      const onMoveEnd = () => {
+
+    const openPopupSafely = () => {
+      setTimeout(() => {
         marker.openPopup();
-        map.off("moveend", onMoveEnd);
-      };
-      map.on("moveend", onMoveEnd);
-      map.flyTo(marker.getLatLng(), Math.max(map.getZoom(), 15), {
+      }, 50);
+    };
+
+    if (parent && typeof parent.zoomToShowLayer === "function") {
+      parent.zoomToShowLayer(marker, openPopupSafely);
+    } else {
+      const targetZoom = map.getMaxZoom();
+      map.once("moveend", openPopupSafely);
+      map.flyTo(marker.getLatLng(), targetZoom, {
         animate: true,
         duration: 1,
       });
@@ -77,6 +88,8 @@ const MapaHoteles = ({
       parseFloat(item.Price) < parseFloat(min.Price) ? item : min
     );
   }
+  const fechaSalida = calcularFechaSalida(reserva.fecini, reserva.noc);
+
   return (
     <main>
       <Filtrado
@@ -96,15 +109,21 @@ const MapaHoteles = ({
         >
           {!showMapOnly && (
             <div className=" tw-hidden lg:tw-grid xl:tw-grid-cols-1 lg:tw-col-span-2 2xl:tw-col-span-1">
-              {hoteles.map((hotel) => {
+              {hoteles.map((hotel, index) => {
+                const agrupados = groupAndMergeByCode(hotel.ListaPrecios);
                 const habitacion = habitacionMasBarata(hotel);
+                console.log(hotel);
                 return (
-                  <Link
-                    to={"/hotel"}
-                    state={{ ...hotel, reserva }}
-                    key={hotel.id}
+                  <div
+                    key={hotel.idHotel}
                     onMouseEnter={() => handleHotelHover(hotel)}
-                    className="tw-group tw-flex tw-flex-row tw-bg-slate-50 dark:tw-bg-slate-900 tw-border tw-border-slate-200 dark:tw-border-slate-700 hover:tw-border-secondary tw-smooth tw-transition-transform tw-duration-300 tw-ease-in-out hover:tw-shadow-lg tw-rounded-xl tw-overflow-hidden"
+                    className={`
+                          ${
+                            selectedHotel?.idHotel === hotel.idHotel
+                              ? "tw-bg-elegido dark:tw-bg-slate-900 tw-border-secondary"
+                              : " tw-bg-slate-50  dark:tw-bg-slate-900 tw-border-slate-200 dark:tw-border-slate-700 hover:tw-border-secondary"
+                          }
+                    tw-group  tw-flex tw-flex-row tw-border tw-smooth tw-transition-transform tw-duration-300 tw-ease-in-out hover:tw-shadow-lg tw-rounded-xl tw-overflow-hidden`}
                   >
                     <img
                       alt="imagen"
@@ -131,26 +150,50 @@ const MapaHoteles = ({
                         </p>
                       </div>
                       <div className="tw-mt-4">
-                        <button className="tw-w-full tw-font-medium tw-rounded-lg">
-                          <span
-                            className={`tw-smooth group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-text-xl tw-font-mono ${
-                              neto === true
-                                ? "tw-text-sky-500 dark:tw-text-sky-300"
-                                : "dark:tw-text-slate-100"
-                            }`}
+                        {hotelMas === true ? (
+                          <HotelMas
+                            botonMapa={true}
+                            setOpenModalPrecios={setOpenModalPrecios}
+                            openModalPrecios={openModalPrecios}
+                            neto={neto}
+                            habitacion={habitacion}
+                            index={index}
+                            reserva={reserva}
+                            fechaSalida={fechaSalida}
+                            hotel={hotel}
+                            agrupados={agrupados}
+                            habitacionSeleccionada={habitacionSeleccionada}
+                            setHabitacion={setHabitacion}
+                            confirmacion={confirmacion}
+                          />
+                        ) : (
+                          <Link
+                            to={"/hotel"}
+                            state={{ ...hotel, reserva }}
+                            className="tw-w-full tw-font-medium tw-rounded-lg"
                           >
-                            {neto !== true ? habitacion.Price : habitacion.Pvp}
-                            {habitacion.Currency === "EUR"
-                              ? "€"
-                              : habitacion.Currency}
-                          </span>
-                          <span className="tw-block tw-text-sm tw-font-light tw-text-slate-500 tw-smooth dark:tw-text-slate-400">
-                            {habitacion.BoardName}
-                          </span>
-                        </button>
+                            <span
+                              className={`tw-smooth group-hover:tw-text-secondary dark:group-hover:tw-text-secondaryDark tw-text-xl tw-font-mono ${
+                                neto === true
+                                  ? "tw-text-sky-500 dark:tw-text-sky-300"
+                                  : "dark:tw-text-slate-100"
+                              }`}
+                            >
+                              {neto !== true
+                                ? habitacion.Price
+                                : habitacion.Pvp}
+                              {habitacion.Currency === "EUR"
+                                ? "€"
+                                : habitacion.Currency}
+                            </span>
+                            <span className="tw-block tw-text-sm tw-font-light tw-text-slate-500 tw-smooth dark:tw-text-slate-400">
+                              {habitacion.BoardName}
+                            </span>
+                          </Link>
+                        )}
                       </div>
                     </div>
-                  </Link>
+                  </div>
                 );
               })}
             </div>
@@ -166,6 +209,7 @@ const MapaHoteles = ({
             >
               {showMapOnly ? <FaArrowRight /> : <FaArrowLeft />}
             </div>
+
             <MapContainer
               center={[hoteles[0].Lat, hoteles[0].Long]}
               zoom={12}
@@ -178,11 +222,12 @@ const MapaHoteles = ({
                 attribution='&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/">CARTO</a>'
               />
               <Cluster
+                hotelMas={hotelMas}
                 reserva={reserva}
-                neto={neto}
                 hoteles={hoteles}
                 markerIcon={markerIcon}
                 onMarkerRef={(id, marker) => (markersRef.current[id] = marker)}
+                neto={neto}
                 onNavigateToHotel={handleNavigateToHotel}
               />
             </MapContainer>

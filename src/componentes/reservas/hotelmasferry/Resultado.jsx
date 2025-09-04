@@ -236,6 +236,13 @@ function Productos() {
                     ) : (
                       <>
                         <MapaHoteles
+                          openModalPrecios={openModalPrecios}
+                          setOpenModalPrecios={setOpenModalPrecios}
+                          confirmacion={confirmacion}
+                          habitacionSeleccionada={habitacion}
+                          setHabitacion={setHabitacion}
+                          selectedHotel={selectedHotel}
+                          hotelMas={true}
                           reserva={reserva}
                           setHoteles={setHoteles}
                           hotelesSinFiltrar={data}
