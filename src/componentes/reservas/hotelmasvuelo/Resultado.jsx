@@ -13,19 +13,71 @@ import Placeholder from "../../../placeholders/listados/Hotelmasvuelo";
 import Cargando from "../../../placeholders/listados/Cargando";
 import Resultado from "../../../helpers/Resultado";
 import Aside_Vuelo from "../vuelos/filtros/Aside_Vuelo";
+import getHoteles from "../hotel/hook/getHoteles";
+import { useParams } from "react-router-dom";
+import { useQuery } from "@tanstack/react-query";
+import useNetoStore from "../../../assets/netoSwitcher/useNetoStore";
+import Paginacion from "../../../helpers/visuales/pagination/Paginacion";
+import PaginacionFooter from "../../../helpers/visuales/pagination/PaginacionFooter";
+import MapaHoteles from "../hotel/mapa/MapaHoteles";
 
 function Productos() {
+  /* HOTEL */
+  /* HOTEL */
+  const { codearea, codcity, fecini, noc, numper } = useParams();
+  const reserva = {
+    codearea: codearea ? Number(codearea) : null,
+    codcity: codcity ? Number(codcity) : null,
+    fecini: fecini || null,
+    noc: noc ? Number(noc) : null,
+    numper: numper || null,
+  };
+  const isReservaIncomplete = Object.values(reserva).some(
+    (val) => val === null || val === ""
+  );
+
+  const { data, isLoading, isFetching } = useQuery({
+    queryKey: ["hoteles", reserva],
+    queryFn: getHoteles,
+    select: (data) => data,
+  });
+  const [hoteles, setHoteles] = useState(data);
+  const [habitacion, setHabitacion] = useState();
+
+  const [values, setValues] = useState([0, 5000]);
+  const [minMax, setMinMax] = useState([0, 5000]);
+
+  const [viewMode, setViewMode] = useState("list");
+  const [selectedHotel, setSelectedHotel] = useState(data);
+  const neto = useNetoStore((state) => state.neto);
+  const hotelesPorPagina = 10;
+  const [page, setPage] = useState();
+  const indexUltimoHotel = page * hotelesPorPagina;
+  const indexPrimerHotel = indexUltimoHotel - hotelesPorPagina;
+  const hotelesAMostrar = hoteles?.slice(indexPrimerHotel, indexUltimoHotel);
+  const paginasTotales = Math.ceil(hoteles?.length / hotelesPorPagina);
+  const [openModalPrecios, setOpenModalPrecios] = useState(null);
+
+  const confirmacion = (habitacion, hotel) => {
+    setSelectedHotel(hotel);
+    setOpenModalPrecios(null);
+  };
+  /* END HOTEL */
+  /* HOTEL END */
+
+  /* GENERAL */
+  const [activeTab, setActiveTab] = useState("Hoteles");
+
+  /* GENERAL END */
+  /* VUELOS */
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     setTimeout(() => {
       setLoading(false);
     }, 3000);
   }, []);
-  const [activeTab, setActiveTab] = useState("Hoteles");
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
-  const [selectedHotel, setHotel] = useState();
-  const [habitacion, setHabitacion] = useState();
 
   useEffect(() => {
     const findCheapestCombination = () => {
@@ -78,8 +130,8 @@ function Productos() {
       setVuelta(vuelta);
     }
   }, []);
-  const [values, setValues] = useState([0, 5000]);
-  const [minMax, setMinMax] = useState([0, 5000]);
+  /* VUELOS END */
+
   return (
     <Resultado
       background={"url('/banners/banner_avion.webp')"}
@@ -88,7 +140,21 @@ function Productos() {
       aside={
         <>
           {activeTab === "Hoteles" ? (
-            <Aside values={values} setValues={setValues} minMax={minMax} />
+            <>
+              {viewMode === "list" && (
+                <Aside
+                  isLoading={isLoading}
+                  isFetching={isFetching}
+                  setPage={setPage}
+                  setHoteles={setHoteles}
+                  hoteles={data ? data : []}
+                  values={values}
+                  setValues={setValues}
+                  minMax={minMax}
+                  setMinMax={setMinMax}
+                />
+              )}
+            </>
           ) : (
             <Aside_Vuelo
               values={values}
@@ -147,13 +213,63 @@ function Productos() {
               ) : (
                 <>
                   <Vuelos ida={ida} vuelta={vuelta} cesta={true} />
-                  <Hoteles
-                    setActiveTab={setActiveTab}
-                    hoteles={hoteles}
-                    selectedHotel={selectedHotel}
-                    setHotel={setHotel}
-                    setHabitacion={setHabitacion}
-                  />
+                  {viewMode === "list" ? (
+                    <div>
+                      {hotelesAMostrar && (
+                        <>
+                          <div className="tw-flex tw-justify-start">
+                            <Paginacion
+                              totalPages={paginasTotales}
+                              page={page}
+                              setPage={setPage}
+                            />
+                          </div>
+                          <Hoteles
+                            openModalPrecios={openModalPrecios}
+                            setOpenModalPrecios={setOpenModalPrecios}
+                            confirmacion={confirmacion}
+                            habitacionSeleccionada={habitacion}
+                            setHabitacion={setHabitacion}
+                            selectedHotel={selectedHotel}
+                            hotelMas={true}
+                            reserva={reserva}
+                            neto={neto}
+                            hoteles={hotelesAMostrar}
+                            page={page}
+                            setPage={setPage}
+                          />
+                          <div className="tw-flex tw-justify-end tw-mt-4">
+                            <PaginacionFooter
+                              totalPages={paginasTotales}
+                              page={page}
+                              setPage={setPage}
+                            />
+                          </div>
+                        </>
+                      )}
+                    </div>
+                  ) : (
+                    <>
+                      <MapaHoteles
+                        openModalPrecios={openModalPrecios}
+                        setOpenModalPrecios={setOpenModalPrecios}
+                        confirmacion={confirmacion}
+                        habitacionSeleccionada={habitacion}
+                        setHabitacion={setHabitacion}
+                        selectedHotel={selectedHotel}
+                        hotelMas={true}
+                        reserva={reserva}
+                        setHoteles={setHoteles}
+                        hotelesSinFiltrar={data}
+                        neto={neto}
+                        hoteles={hoteles}
+                        values={values}
+                        setValues={setValues}
+                        minMax={minMax}
+                        setMinMax={setMinMax}
+                      />
+                    </>
+                  )}
                 </>
               )}
             </>

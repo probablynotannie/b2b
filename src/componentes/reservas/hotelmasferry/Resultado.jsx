@@ -23,6 +23,30 @@ import ferrisRealesBalearia from "../ferris/jsons/ferrisRealesBalearia.json";
 import NetoSwitcher from "../../../assets/netoSwitcher/Switch";
 import MapaHoteles from "../hotel/mapa/MapaHoteles";
 function Productos() {
+  /* FERRY */
+  const [ida, setIda] = useState(null);
+  const [vuelta, setVuelta] = useState(null);
+  const [ferry, setFerry] = useState({});
+  const [valuesFerris, setValuesFerris] = useState([0, 5000]);
+  const [minMaxFerris, setMinMaxFerris] = useState([0, 5000]);
+  const [loading, setLoading] = useState(true);
+  useEffect(() => {
+    setTimeout(() => {
+      setLoading(false);
+    }, 3000);
+  }, []);
+  const ferrisArray = [
+    ferrisRealesGnv,
+    ferrisRealesTrasmed,
+    ferrisRealesBalearia,
+  ];
+  /* FERRY END */
+
+  /* GENERAL */
+  const [activeTab, setActiveTab] = useState("Resultados");
+
+  /* GENERAL END */
+  /* HOTEL */
   const { codearea, codcity, fecini, noc, numper } = useParams();
   const reserva = {
     codearea: codearea ? Number(codearea) : null,
@@ -41,19 +65,11 @@ function Productos() {
     select: (data) => data,
   });
   const [hoteles, setHoteles] = useState(data);
-
-  const [activeTab, setActiveTab] = useState("Resultados");
-
   const [habitacion, setHabitacion] = useState();
-
-  const [ida, setIda] = useState(null);
-  const [vuelta, setVuelta] = useState(null);
-  const [ferry, setFerry] = useState({});
 
   const [values, setValues] = useState([0, 5000]);
   const [minMax, setMinMax] = useState([0, 5000]);
-  const [valuesFerris, setValuesFerris] = useState([0, 5000]);
-  const [minMaxFerris, setMinMaxFerris] = useState([0, 5000]);
+
   const [viewMode, setViewMode] = useState("list");
   const [selectedHotel, setSelectedHotel] = useState(data);
   const neto = useNetoStore((state) => state.neto);
@@ -70,17 +86,8 @@ function Productos() {
     setOpenModalPrecios(null);
     setActiveTab("Ferris");
   };
-  const [loading, setLoading] = useState(true);
-  useEffect(() => {
-    setTimeout(() => {
-      setLoading(false);
-    }, 3000);
-  }, []);
-  const ferrisArray = [
-    ferrisRealesGnv,
-    ferrisRealesTrasmed,
-    ferrisRealesBalearia,
-  ];
+  /* END HOTEL */
+
   return (
     <Resultado
       background={"url('/banners/banner_avion.webp')"}
