@@ -93,12 +93,14 @@ function Listado({
           </div>
         ))}
       </div>
-      <AnadirMasProductos
-        isOpen={modalMasProductos}
-        setModalOpen={setModalMasProductos}
-        masProductos={aniadirMas}
-        onConfirm={sinProductosAdicionales}
-      />
+      {modalMasProductos && (
+        <AnadirMasProductos
+          isOpen={modalMasProductos}
+          setModalOpen={setModalMasProductos}
+          masProductos={aniadirMas}
+          onConfirm={sinProductosAdicionales}
+        />
+      )}
     </div>
   );
 }

@@ -18,10 +18,8 @@ import capitalizeFirstLetterOnly from "../../../assets/scripts/capitalizeFirstLe
 import FormatearFecha from "../../../assets/scripts/formatearFecha";
 import ModalWindow from "../../../helpers/visuales/ModalWindow";
 import calcularFechaSalida from "../../../assets/scripts/fechaSalidaConInicioYNoches";
-import Listado from "./detalles/hoteles/Listado";
-import Listado_cajas from "./detalles/hoteles/Listado_cajas";
 import groupAndMergeRooms from "./hook/mergeHabitaciones.js";
-
+import HotelMas from "./HotelMas.jsx";
 function Resultado({
   hoteles,
   neto,
@@ -121,7 +119,7 @@ function Resultado({
             : hotel.ListFotos?.length > 0
             ? hotel.ListFotos
             : ["/placeholder/hoteles.jpg"];
-        const fechaSaslida = calcularFechaSalida(reserva.fecini, reserva.noc);
+        const fechaSalida = calcularFechaSalida(reserva.fecini, reserva.noc);
         const agrupados = groupAndMergeRooms(hotel.ListaPrecios);
 
         return (
@@ -259,7 +257,7 @@ function Resultado({
                     subTitulo={
                       FormatearFecha(reserva.fecini) +
                       " - " +
-                      FormatearFecha(fechaSaslida)
+                      FormatearFecha(fechaSalida)
                     }
                     body={
                       <div className="tw-space-y-6">
@@ -270,47 +268,22 @@ function Resultado({
                       </div>
                     }
                   />
-                  <ModalWindow
-                    show={openModalPrecios === index}
-                    onClose={() => setOpenModalPrecios(null)}
-                    titulo={hotel.NombreHotel}
-                    subTitulo={
-                      FormatearFecha(reserva.fecini) +
-                      " - " +
-                      FormatearFecha(fechaSaslida)
-                    }
-                    body={
-                      <div className="tw-space-y-6">
-                        <section className="tw-col-span-5 tw-hidden md:tw-flex">
-                          <Listado
-                            neto={neto}
-                            habitaciones={agrupados}
-                            habitacionSeleccionada={habitacionSeleccionada}
-                            setHabitacionSeleccionada={setHabitacion}
-                            confirmacion={confirmacion}
-                            hotel={hotel}
-                          />
-                        </section>
-                        <section className="tw-col-span-5 md:tw-hidden">
-                          <Listado_cajas
-                            neto={neto}
-                            habitaciones={agrupados}
-                            habitacionSeleccionada={habitacionSeleccionada}
-                            setHabitacionSeleccionada={setHabitacion}
-                            confirmacion={confirmacion}
-                            hotel={hotel}
-                          />
-                        </section>
-                      </div>
-                    }
-                  />
+
                   {hotelMas === true ? (
-                    <butto
-                      onClick={() => setOpenModalPrecios(index)}
-                      className="tw-btn_accesorios tw-btn_primario"
-                    >
-                      Modal
-                    </butto>
+                    <HotelMas
+                      setOpenModalPrecios={setOpenModalPrecios}
+                      openModalPrecios={openModalPrecios}
+                      neto={neto}
+                      habitacion={habitacion}
+                      index={index}
+                      reserva={reserva}
+                      fechaSalida={fechaSalida}
+                      hotel={hotel}
+                      agrupados={agrupados}
+                      habitacionSeleccionada={habitacionSeleccionada}
+                      setHabitacion={setHabitacion}
+                      confirmacion={confirmacion}
+                    />
                   ) : (
                     <Link
                       className={`${

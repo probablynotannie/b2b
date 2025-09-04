@@ -4,7 +4,7 @@ import Aside_Ferry from "../ferris/filtros/Aside";
 import Hoteles from "../hotel/Hoteles";
 import MasFerris from "../ferris/Ferris";
 import Buscador from "../../motores/buscadores/hotelmasferri/Buscador_hotelferry";
-import { FaHotel } from "react-icons/fa";
+import { FaHotel, FaList, FaMapMarkedAlt } from "react-icons/fa";
 import { FaShip } from "react-icons/fa";
 import { BsFillBasket2Fill } from "react-icons/bs";
 import Cesta from "./Cesta";
@@ -20,6 +20,8 @@ import PaginacionFooter from "../../../helpers/visuales/pagination/PaginacionFoo
 import ferrisRealesGnv from "../ferris/jsons/ferrisRealesGnv.json";
 import ferrisRealesTrasmed from "../ferris/jsons/ferrisRealesTrasmed.json";
 import ferrisRealesBalearia from "../ferris/jsons/ferrisRealesBalearia.json";
+import NetoSwitcher from "../../../assets/netoSwitcher/Switch";
+import MapaHoteles from "../hotel/mapa/MapaHoteles";
 function Productos() {
   const { codearea, codcity, fecini, noc, numper } = useParams();
   const reserva = {
@@ -33,7 +35,7 @@ function Productos() {
     (val) => val === null || val === ""
   );
 
-  const { data, isLoading, isFetching, refetch } = useQuery({
+  const { data, isLoading, isFetching } = useQuery({
     queryKey: ["hoteles", reserva],
     queryFn: getHoteles,
     select: (data) => data,
@@ -85,20 +87,26 @@ function Productos() {
       position={"center"}
       color={"tw-bg-blue-500/50"}
       buscador={<Buscador listado={true} />}
+      wideContent={!isReservaIncomplete && viewMode === "list" ? false : true}
+      ocultarAside={!isReservaIncomplete && viewMode === "list" ? false : true}
       aside={
         <>
           {activeTab === "Resultados" ? (
-            <Aside
-              isLoading={isLoading}
-              isFetching={isFetching}
-              setPage={setPage}
-              setHoteles={setHoteles}
-              hoteles={data ? data : []}
-              values={values}
-              setValues={setValues}
-              minMax={minMax}
-              setMinMax={setMinMax}
-            />
+            <>
+              {viewMode === "list" && (
+                <Aside
+                  isLoading={isLoading}
+                  isFetching={isFetching}
+                  setPage={setPage}
+                  setHoteles={setHoteles}
+                  hoteles={data ? data : []}
+                  values={values}
+                  setValues={setValues}
+                  minMax={minMax}
+                  setMinMax={setMinMax}
+                />
+              )}
+            </>
           ) : (
             <>
               <Aside_Ferry
@@ -146,8 +154,6 @@ function Productos() {
           </button>
         </div>
       }
-      wideContent={activeTab === "Cesta" && true}
-      ocultarAside={activeTab === "Cesta" && true}
       listado={
         <>
           {activeTab === "Resultados" && (
@@ -160,42 +166,95 @@ function Productos() {
               ) : (
                 <>
                   <>
-                    <div className="tw-flex tw-justify-between">
+                    <div className="tw-flex tw-justify-between tw-items-center">
                       <h3
                         className={`tw-text-secondary
                  tw-font-semibold tw-text-lg tw-flex tw-items-center`}
                       >
                         Resultados ({hoteles?.length})
                       </h3>
-                      <Paginacion
-                        totalPages={paginasTotales}
-                        page={page}
-                        setPage={setPage}
-                      />
+                      <div className="tw-flex tw-gap-2">
+                        <NetoSwitcher />
+                        <button
+                          className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
+                            viewMode === "list"
+                              ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                              : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
+                          }`}
+                          onClick={() => setViewMode("list")}
+                        >
+                          <FaList /> Lista
+                        </button>
+                        <button
+                          className={`tw-flex tw-items-center tw-gap-2 tw-p-2 tw-rounded-md ${
+                            viewMode === "map"
+                              ? "tw-bg-secondary dark:tw-bg-secondaryDark tw-text-white"
+                              : "tw-bg-slate-200 dark:tw-bg-slate-800 dark:tw-text-slate-200"
+                          }`}
+                          onClick={() => setViewMode("map")}
+                        >
+                          <FaMapMarkedAlt /> Mapa
+                        </button>
+                      </div>
                     </div>
-                    {hotelesAMostrar && (
-                      <Hoteles
-                        openModalPrecios={openModalPrecios}
-                        setOpenModalPrecios={setOpenModalPrecios}
-                        confirmacion={confirmacion}
-                        habitacionSeleccionada={habitacion}
-                        setHabitacion={setHabitacion}
-                        selectedHotel={selectedHotel}
-                        hotelMas={true}
-                        reserva={reserva}
-                        neto={neto}
-                        hoteles={hotelesAMostrar}
-                        page={page}
-                        setPage={setPage}
-                      />
+
+                    {viewMode === "list" ? (
+                      <div>
+                        {hotelesAMostrar && (
+                          <>
+                            <div className="tw-flex tw-justify-start">
+                              <Paginacion
+                                totalPages={paginasTotales}
+                                page={page}
+                                setPage={setPage}
+                              />
+                            </div>
+                            <Hoteles
+                              openModalPrecios={openModalPrecios}
+                              setOpenModalPrecios={setOpenModalPrecios}
+                              confirmacion={confirmacion}
+                              habitacionSeleccionada={habitacion}
+                              setHabitacion={setHabitacion}
+                              selectedHotel={selectedHotel}
+                              hotelMas={true}
+                              reserva={reserva}
+                              neto={neto}
+                              hoteles={hotelesAMostrar}
+                              page={page}
+                              setPage={setPage}
+                            />
+                            <div className="tw-flex tw-justify-end tw-mt-4">
+                              <PaginacionFooter
+                                totalPages={paginasTotales}
+                                page={page}
+                                setPage={setPage}
+                              />
+                            </div>
+                          </>
+                        )}
+                      </div>
+                    ) : (
+                      <>
+                        <MapaHoteles
+                          openModalPrecios={openModalPrecios}
+                          setOpenModalPrecios={setOpenModalPrecios}
+                          confirmacion={confirmacion}
+                          habitacionSeleccionada={habitacion}
+                          setHabitacion={setHabitacion}
+                          selectedHotel={selectedHotel}
+                          hotelMas={true}
+                          reserva={reserva}
+                          setHoteles={setHoteles}
+                          hotelesSinFiltrar={data}
+                          neto={neto}
+                          hoteles={hoteles}
+                          values={values}
+                          setValues={setValues}
+                          minMax={minMax}
+                          setMinMax={setMinMax}
+                        />
+                      </>
                     )}
-                    <div className="tw-flex tw-justify-end tw-mt-4">
-                      <PaginacionFooter
-                        totalPages={paginasTotales}
-                        page={page}
-                        setPage={setPage}
-                      />
-                    </div>
                   </>
                 </>
               )}
