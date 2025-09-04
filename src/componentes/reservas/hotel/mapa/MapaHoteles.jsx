@@ -112,7 +112,7 @@ const MapaHoteles = ({
               {hoteles.map((hotel, index) => {
                 const agrupados = groupAndMergeByCode(hotel.ListaPrecios);
                 const habitacion = habitacionMasBarata(hotel);
-                console.log(hotel);
+                console.log(agrupados.length);
                 return (
                   <div
                     key={hotel.idHotel}
@@ -146,7 +146,8 @@ const MapaHoteles = ({
                           {hotel.Dir}
                         </p>
                         <p className="tw-text-xs tw-text-slate-500 dark:tw-text-slate-400">
-                          habitaciones disponibles
+                          disponible{agrupados.length > 1 && "s"}:{" "}
+                          {agrupados.length}
                         </p>
                       </div>
                       <div className="tw-mt-4">

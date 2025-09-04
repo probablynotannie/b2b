@@ -205,7 +205,7 @@ function Productos() {
                   </Link>
                 )}
               </div>
-              {loading ? (
+              {isLoading ? (
                 <>
                   <Cargando />
                   <Placeholder />
