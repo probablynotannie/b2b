@@ -1,56 +1,54 @@
 import { FaHotel, FaShip } from "react-icons/fa";
-
-const formatDate = (dateString) => {
-  if (!dateString || typeof dateString !== "string") return "";
-
-  try {
-    const [day, month, year] = dateString.split("-").map(Number);
-    if (!day || !month || !year) {
-      console.error("Invalid date components:", { day, month, year });
-      return "Fecha inválida";
-    }
-    const date = new Date(year, month - 1, day);
-    return new Intl.DateTimeFormat("es-ES", {
-      day: "numeric",
-      month: "long",
-    }).format(date);
-  } catch (error) {
-    console.error("Error parsing date:", error);
-    return "Fecha inválida";
-  }
-};
-function Aside({ hotel, ferry }) {
+import DatoTituloIcono from "../../../../../helpers/visuales/DatoTituloIcono";
+import Reserva from "../../../../../helpers/visuales/ReservaFinal/Resumen";
+import formatearFecha from "../../../../../assets/scripts/formatearFecha";
+import calcularFechaSalida from "../../../../../assets/scripts/fechaSalidaConInicioYNoches";
+import extractFechaHora from "../../../../../assets/scripts/extractDateAndTime";
+function Aside({ hotel, ferry, habitacion }) {
+  const fechaSalida = calcularFechaSalida(
+    hotel.reserva.fecini,
+    hotel.reserva.noc
+  );
+  const { hora: horaIda } = extractFechaHora(ferry.ida.fecha_llegada);
+  const { hora: horavuelta } = extractFechaHora(ferry.vuelta?.fecha_llegada);
   return (
     <div>
-      <h2 className="tw-text-lg tw-font-bold tw-pb-1 tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 dark:tw-text-white tw-mb-2">
-        Reservando
-      </h2>
-      <div className="tw-text-sm">
-        <ul className="tw-text-slate-500 dark:tw-text-slate-300">
-          <li className="tw-flex tw-justify-between tw-items-center">
-            <span className="tw-flex tw-items-center tw-gap-1">
-              <FaHotel className="tw-text-secondary" />
-              {hotel.nombre}
-            </span>
-            <span>{hotel.precio}€</span>
-          </li>
-          <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-400">
-            {hotel.fecha} - {hotel.fechaSalida}
-          </li>
-          <li className="tw-flex tw-justify-between tw-items-center">
-            <span className="tw-flex tw-items-center tw-gap-1">
-              <FaShip className="tw-text-secondary" />
-              {ferry.ida.ruta}
-            </span>
+      <Reserva
+        img={" /banners/banner_hoteles.webp"}
+        txt={<span>Hotel + ferry de ida {ferry.vuelta && " y vuelta"} </span>}
+      />
+      <section className="tw-my-2">
+        <DatoTituloIcono
+          icon={<FaHotel className="tw-text-secondary" />}
+          title={hotel.NombreHotel}
+          value={
             <span>
-              {(ferry.ida.precio + ferry.vuelta?.precio || 0).toFixed(2)}€
+              {formatearFecha(hotel.reserva.fecini)} -{" "}
+              {formatearFecha(fechaSalida)}
             </span>
-          </li>
-          <li className="tw-flex tw-items-center tw-gap-1 tw-text-slate-400">
-            {formatDate(ferry.ida.fecha)} - {formatDate(ferry.vuelta?.fecha)}
-          </li>
-        </ul>
-      </div>
+          }
+        />
+        <DatoTituloIcono
+          icon={<FaShip className="tw-text-secondary" />}
+          title={<span>Ferry de ida</span>}
+          value={
+            <span>
+              {formatearFecha(ferry.ida.fecha_llegada)}, {horaIda}
+            </span>
+          }
+        />
+        {ferry.vuelta && (
+          <DatoTituloIcono
+            icon={<FaShip className="tw-text-secondary" />}
+            title={<span>Ferry de vuelta</span>}
+            value={
+              <span>
+                {formatearFecha(ferry.vuelta.fecha_llegada)}, {horavuelta}
+              </span>
+            }
+          />
+        )}
+      </section>
     </div>
   );
 }

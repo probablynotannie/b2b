@@ -94,28 +94,38 @@ function Productos() {
       position={"center"}
       color={"tw-bg-blue-500/50"}
       buscador={<Buscador listado={true} />}
-      wideContent={!isReservaIncomplete && viewMode === "list" ? false : true}
-      ocultarAside={!isReservaIncomplete && viewMode === "list" ? false : true}
+      wideContent={
+        activeTab === "Cesta"
+          ? true
+          : !isReservaIncomplete && viewMode === "list"
+          ? false
+          : true
+      }
+      ocultarAside={
+        activeTab === "Cesta"
+          ? true
+          : !isReservaIncomplete && viewMode === "list"
+          ? false
+          : true
+      }
       aside={
         <>
-          {activeTab === "Resultados" ? (
-            <>
-              {viewMode === "list" && (
-                <Aside
-                  isLoading={isLoading}
-                  isFetching={isFetching}
-                  setPage={setPage}
-                  setHoteles={setHoteles}
-                  hoteles={data ? data : []}
-                  values={values}
-                  setValues={setValues}
-                  minMax={minMax}
-                  setMinMax={setMinMax}
-                />
-              )}
-            </>
-          ) : (
-            <>
+          <>
+            {activeTab === "Resultados" && viewMode === "list" && (
+              <Aside
+                isLoading={isLoading}
+                isFetching={isFetching}
+                setPage={setPage}
+                setHoteles={setHoteles}
+                hoteles={data ? data : []}
+                values={values}
+                setValues={setValues}
+                minMax={minMax}
+                setMinMax={setMinMax}
+              />
+            )}
+
+            {activeTab === "Ferris" && (
               <Aside_Ferry
                 isLoading={loading}
                 ferris={ferrisArray}
@@ -123,8 +133,8 @@ function Productos() {
                 setValues={setValuesFerris}
                 minMax={minMaxFerris}
               />
-            </>
-          )}
+            )}
+          </>
         </>
       }
       extraInfo={
@@ -290,6 +300,7 @@ function Productos() {
           )}
           {activeTab === "Cesta" && (
             <Cesta
+              reserva={reserva}
               neto={neto}
               habitacion={habitacion}
               setHabitacion={setHabitacion}

@@ -7,18 +7,21 @@ import { Link } from "react-router-dom";
 import { Carousel } from "flowbite-react";
 import Ferrys from "./FerrySeleccionado";
 import Error from "../hotel/filtros/Error";
-function Cesta({ hotel, setHotel, ferry, habitacion, neto }) {
+function Cesta({ hotel, setHotel, ferry, habitacion, neto, reserva }) {
   const reservaFinal = {
     habitacion: habitacion || null,
-    hotel: hotel || null,
+    hotel: {
+      ...hotel,
+      reserva: reserva,
+    },
     ferry: ferry || null,
   };
   const removeHotel = () => {
     setHotel(null);
   };
   const totalFerry = ferry.vuelta?.Pvp
-    ? ferry.ida.Pvp + ferry.vuelta.Pvp
-    : ferry.ida.Pvpƒ;
+    ? ferry?.ida?.Pvp + ferry.vuelta.Pvp
+    : ferry?.ida?.Pvp;
   const totalPrice =
     hotel &&
     (hotel && habitacion ? parseFloat(habitacion.Pvp) : 0) +
@@ -134,10 +137,10 @@ function Cesta({ hotel, setHotel, ferry, habitacion, neto }) {
           )}
           <Ferrys ferry={ferry} />
         </div>
-        {hotel && ferry && (
+        {hotel && ferry && habitacion && (
           <Link state={reservaFinal} to={"/hotelmasferry"}>
             <button className=" tw-btn_accesorios tw-btn_primario tw-mt-10">
-              Total: {totalPrice}€
+              Total: {totalPrice.toFixed(2)}€
             </button>
           </Link>
         )}

@@ -1,21 +1,27 @@
 import { useState } from "react";
 import { FaSpinner } from "react-icons/fa";
 
-function Destacados({ destacados, columnas, filas, max }) {
+function Destacados({ destacados, columnas, filas, max, loading }) {
   const maxItems = columnas * filas;
+  const itemsToRender = destacados?.slice(0, max ? max : maxItems) || [];
 
   return (
     <div className="tw-p-5 tw-mt-5">
       <h2 className="tw-text-2xl tw-font-semibold dark:tw-text-white">
         Búsqueda rápida
       </h2>
+
       <div
         className="tw-grid tw-gap-5 tw-mt-4 tw-grid-cols-1 sm:tw-grid-cols-[var(--columnas)]"
         style={{ "--columnas": `repeat(${columnas}, minmax(0, 1fr))` }}
       >
-        {destacados.slice(0, max ? max : maxItems).map((destacado) => (
-          <ImageWithSpinner key={destacado.id} destacado={destacado} />
-        ))}
+        {loading
+          ? Array.from({ length: maxItems }).map((_, i) => (
+              <SkeletonCard key={i} />
+            ))
+          : itemsToRender.map((destacado) => (
+              <ImageWithSpinner key={destacado.id} destacado={destacado} />
+            ))}
       </div>
     </div>
   );
@@ -42,7 +48,7 @@ function ImageWithSpinner({ destacado }) {
         alt={`Reserva de hotel en ${destacado.titulo}`}
         onLoad={() => setLoaded(true)}
       />
-      <div className="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-p-2 tw-bg-opacity-60 group-hover:tw-bg-opacity-70 tw-smooth tw-flex tw-items-center tw-justify-center">
+      <div className="tw-absolute tw-inset-0 tw-bg-indigo-900 tw-p-2 tw-bg-opacity-60 group-hover:tw-bg-opacity-70 tw-flex tw-items-center tw-justify-center">
         <div className="tw-text-white tw-text-center tw-px-3">
           <h3 className="tw-text-lg md:tw-text-xl xl:tw-text-2xl tw-font-semibold">
             {destacado.titulo}
@@ -51,6 +57,12 @@ function ImageWithSpinner({ destacado }) {
         </div>
       </div>
     </div>
+  );
+}
+
+function SkeletonCard() {
+  return (
+    <div className="tw-rounded-lg tw-overflow-hidden tw-shadow-md tw-bg-slate-200 tw-animate-pulse tw-h-[15vh] md:tw-h-[23vh]"></div>
   );
 }
 

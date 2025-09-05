@@ -7,6 +7,8 @@ function Ferry() {
   const location = useLocation();
   const { ferry, ferrisData } = location.state || {};
   const { ida, vuelta } = ferry || {};
+  console.log(ida);
+
   return (
     <PaginaDetalles
       titulo={"Ferry"}

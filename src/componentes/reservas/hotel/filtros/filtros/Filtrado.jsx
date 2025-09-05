@@ -170,7 +170,7 @@ function Filtrado({
           />
         ) : (
           <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
-            No hay regímenes disponibles.
+            Los datos se estan cargando.
           </p>
         )}
       </div>
@@ -186,7 +186,7 @@ function Filtrado({
           />
         ) : (
           <p className="tw-text-sm tw-text-gray-400 tw-mt-2">
-            No hay regímenes disponibles.
+            Los datos se estan cargando.
           </p>
         )}
       </div>

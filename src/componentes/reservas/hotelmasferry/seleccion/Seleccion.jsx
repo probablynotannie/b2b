@@ -8,20 +8,27 @@ function Seleccion() {
   const hotel = producto.hotel;
   const ferry = producto.ferry;
   const habitacion = producto.habitacion;
-  const calcularPrecio =
-    Number(hotel.precio) +
-    Number(ferry.ida.precio.toFixed(2)) +
-    Number(ferry.vuelta?.precio || 0);
+  const totalFerry = ferry.vuelta?.Pvp
+    ? ferry?.ida?.Pvp + ferry.vuelta.Pvp
+    : ferry?.ida?.Pvp;
+  const totalPrice =
+    hotel &&
+    (hotel && habitacion ? parseFloat(habitacion.Pvp) : 0) +
+      parseFloat(totalFerry);
   return (
     <PaginaDetalles
       titulo={"Hotel + Ferry"}
-      contenidoPrincipal={<Detalles hotel={hotel} ferry={ferry} />}
+      contenidoPrincipal={
+        <>
+          <Detalles hotel={hotel} ferry={ferry} habitacion={habitacion} />
+        </>
+      }
       contenidoSecundario={
         <>
           <Aside hotel={hotel} ferry={ferry} habitacion={habitacion} />
           <Link to={"/datosHotelFerry"} state={{ hotel, ferry, habitacion }}>
             <button className="tw-w-full tw-mt-3 tw-btn_primario tw-btn_accesorios">
-              {calcularPrecio.toFixed(2)}€
+              {totalPrice.toFixed(2)}€
             </button>
           </Link>
         </>

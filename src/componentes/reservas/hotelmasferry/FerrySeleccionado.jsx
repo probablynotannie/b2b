@@ -36,7 +36,7 @@ function ferris({ ferry }) {
           <div className="tw-p-3">
             <h4 className="tw-text-secondary tw-font-semibold">
               {capitalizeFirstLetterOnly(ferry.ida.nombre)}
-              {ferry.vuelta.nombre && (
+              {ferry.vuelta && (
                 <span> - {capitalizeFirstLetterOnly(ferry.vuelta.nombre)}</span>
               )}
             </h4>
