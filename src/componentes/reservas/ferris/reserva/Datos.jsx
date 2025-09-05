@@ -8,6 +8,7 @@ function Datos() {
   const { ida, vuelta, ferry } = location.state || {};
   const img = "/banners/banner_ferris.webp";
   const navigate = useNavigate();
+  console.log(ferry);
   const {
     register,
     handleSubmit,
@@ -15,7 +16,7 @@ function Datos() {
   } = useForm();
   const onSubmit = (data) => {
     navigate("/reservaFerry", {
-      state: { data, ida, vuelta },
+      state: { data, ida, vuelta, ferry },
     });
   };
   return (

@@ -9,9 +9,9 @@ function ResumenFinal() {
   const { hotel, ferry, data, habitacion } = location.state || {};
   const numReserva = "aouaguoy76";
   const calcularPrecio =
-    Number(hotel.precio) +
-    Number(ferry.ida.precio.toFixed(2)) +
-    Number(ferry.vuelta?.precio || 0);
+    Number(hotel.Pvp) +
+    Number(ferry.ida.Pvp.toFixed(2)) +
+    Number(ferry.vuelta?.Pvp || 0);
   return (
     <Reserva
       finalizada={true}
@@ -26,7 +26,7 @@ function ResumenFinal() {
       main={
         <>
           <Hotel hotel={hotel} habitacion={habitacion} />
-          <Ferry ida={ferry.ida} vuelta={ferry.vuelta || null} />
+          <Ferry ida={ferry.ida} ferry={ferry} vuelta={ferry.vuelta || null} />
         </>
       }
     />

@@ -24,8 +24,6 @@ function Productos() {
   const [ida, setIda] = useState(null);
   const [vuelta, setVuelta] = useState(null);
   const [ferry, setFerry] = useState({});
-  const [values, setValues] = useState([0, 5000]);
-  const [minMax, setMinMax] = useState([0, 5000]);
 
   return (
     <Resultado
@@ -33,15 +31,7 @@ function Productos() {
       position={"center"}
       color={"tw-bg-blue-200/50"}
       buscador={<Buscador listado={true} />}
-      aside={
-        <Aside
-          isLoading={loading}
-          ferris={ferrisArray}
-          values={values}
-          setValues={setValues}
-          minMax={minMax}
-        />
-      }
+      aside={<Aside isLoading={loading} ferris={ferrisArray} />}
       listado={
         <>
           {loading ? (

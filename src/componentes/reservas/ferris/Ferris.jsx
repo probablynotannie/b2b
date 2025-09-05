@@ -66,7 +66,7 @@ function Ferris({
         newFerry.vuelta = opcionSeleccionada;
         setVuelta(opcionSeleccionada);
       }
-      newFerry.proveedor = ferrisData.operador;
+      newFerry.operador = ferrisData.operador;
       return newFerry;
     });
   };

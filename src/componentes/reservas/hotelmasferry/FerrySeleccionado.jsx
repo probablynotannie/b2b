@@ -24,7 +24,7 @@ function ferris({ ferry }) {
             </span>
           </div>
           <img
-            src={ferry.proveedor.imagen}
+            src={ferry.operador.imagen}
             alt="Logo compania"
             className="tw-w-[80px] tw-rounded tw-absolute tw-top-4 tw-left-4 tw-bg-white"
           />
