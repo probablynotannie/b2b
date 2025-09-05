@@ -1,9 +1,9 @@
-import HotelDetalles from "../../hotel/reserva/contenidoSecundario/HotelDetalles";
 import Actividad from "./Actividad";
-function Detalles({ hotel, actividades }) {
+import Info from "../../hotel/detalles/contenidoPrincipal/Info";
+function Detalles({ hotel, actividades, habitacion }) {
   return (
-    <div>
-      <HotelDetalles hotel={hotel} />
+    <div className="tw-flex tw-flex-col tw-gap-5">
+      <Info hotel={hotel} habitacion={habitacion} />
       <div className="tw-grid md:tw-grid-cols-2 tw-gap-5">
         {actividades.map((actividad, index) => (
           <section

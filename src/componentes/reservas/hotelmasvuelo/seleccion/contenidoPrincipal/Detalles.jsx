@@ -1,9 +1,9 @@
 import Vuelos from "../../../vuelos/VueloSeleccionados";
-import HotelDetalles from "../../../hotel/reserva/contenidoSecundario/HotelDetalles";
+import Info from "../../../hotel/detalles/contenidoPrincipal/Info";
 function Detalles({ hotel, ida, vuelta }) {
   return (
     <>
-      <HotelDetalles hotel={hotel} />
+      <Info hotel={hotel} />
       <Vuelos ida={ida} vuelta={vuelta} cesta={true} />
     </>
   );

@@ -1,6 +1,6 @@
 function Aside({ ferris, isLoading }) {
   return (
-    <div className="tw-gap-4 tw-mt-3">
+    <div className="lg:tw-flex tw-hidden tw-gap-4 tw-mt-3">
       <div className="tw-flex tw-flex-col tw-gap-5">
         {ferris.map((ferry, index) => (
           <div key={index}>

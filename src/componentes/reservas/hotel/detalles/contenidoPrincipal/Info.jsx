@@ -6,17 +6,34 @@ import formatearFecha from "../../../../../assets/scripts/formatearFecha";
 import calcularFechaSalida from "../../../../../assets/scripts/fechaSalidaConInicioYNoches";
 import React from "react";
 function Info({ hotel, aside, habitacion }) {
-  console.log(hotel.reserva)
   const fechaSalida = calcularFechaSalida(
     hotel.reserva.fecini,
     hotel.reserva.noc
   );
+
   return (
     <section
       className={`tw-grid ${
         !aside && "lg:tw-grid-cols-2 xl:tw-grid-cols-3"
-      } tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-900 tw-p-5 tw-rounded-lg`}
+      } tw-gap-5 tw-bg-slate-50 dark:tw-bg-slate-800 tw-p-5 tw-rounded-lg`}
     >
+      <DatoTituloIcono
+        icon={<FaHotel className="tw-text-pink-500" />}
+        title={"Hotel"}
+        value={<span>{hotel.NombreHotel}</span>}
+      />
+      <DatoTituloIcono
+        icon={<FaGlobe className="tw-text-cyan-500" />}
+        title={"Dirección"}
+        value={
+          <React.Fragment>
+            <span>
+              {hotel.City}, {hotel.Dir}, {hotel.ZipCode}
+            </span>
+          </React.Fragment>
+        }
+      />
+
       <DatoTituloIcono
         icon={<FaCalendarAlt className="tw-text-blue-500" />}
         title={"Fecha Entrada"}
@@ -32,18 +49,21 @@ function Info({ hotel, aside, habitacion }) {
         title={"Noches"}
         value={hotel.reserva.noc + " noches"}
       />
-      <DatoTituloIcono
-        icon={<FaHotel className="tw-text-pink-500" />}
-        title={"Hotel"}
-        value={
-          <React.Fragment>
-            <span>{hotel.NombreHotel}</span>
-            <span className="tw-block">
-              {hotel.City}, {hotel.Dir}
-            </span>
-          </React.Fragment>
-        }
-      />
+
+      {hotel.Tfno && (
+        <DatoTituloIcono
+          icon={<FaPhone className="tw-text-orange-500" />}
+          title={"Teléfono"}
+          value={hotel.Tfno}
+        />
+      )}
+      {hotel.Email && (
+        <DatoTituloIcono
+          icon={<MdEmail className="tw-text-blue-500" />}
+          title={"Email"}
+          value={hotel.Email}
+        />
+      )}
       {habitacion && (
         <DatoTituloIcono
           icon={<FaWallet className="tw-text-yellow-400" />}
@@ -78,27 +98,6 @@ function Info({ hotel, aside, habitacion }) {
               )}
             </>
           }
-        />
-      )}
-      {hotel.ZipCode && (
-        <DatoTituloIcono
-          icon={<FaGlobe className="tw-text-green-500" />}
-          title={"Codigo Postal"}
-          value={hotel.ZipCode}
-        />
-      )}
-      {hotel.Tfno && (
-        <DatoTituloIcono
-          icon={<FaPhone className="tw-text-orange-500" />}
-          title={"Teléfono"}
-          value={hotel.Tfno}
-        />
-      )}
-      {hotel.Email && (
-        <DatoTituloIcono
-          icon={<MdEmail className="tw-text-blue-500" />}
-          title={"Email"}
-          value={hotel.Email}
         />
       )}
     </section>

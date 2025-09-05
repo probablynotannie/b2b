@@ -112,7 +112,6 @@ const MapaHoteles = ({
               {hoteles.map((hotel, index) => {
                 const agrupados = groupAndMergeByCode(hotel.ListaPrecios);
                 const habitacion = habitacionMasBarata(hotel);
-                console.log(agrupados.length);
                 return (
                   <div
                     key={hotel.idHotel}

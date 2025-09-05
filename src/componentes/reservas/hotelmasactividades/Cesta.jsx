@@ -17,7 +17,17 @@ function Cesta({
   setActividades,
   habitacion,
   setHabitacion,
+  reserva,
 }) {
+  const reservaFinal = {
+    habitacion: habitacion || null,
+    hotel: {
+      ...hotel,
+      reserva: reserva,
+    },
+    actividades: actividades || null,
+  };
+
   const borrarHotel = () => {
     setHabitacion(null);
     setHotel(null);
@@ -43,15 +53,15 @@ function Cesta({
         className={`
       ${
         !hotel && !habitacion && !actividades
-          ? " tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-3"
-          : " tw-grid  lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-divide-y md:tw-divide-y-0 tw-space-y-5 lg:tw-divide-x dark:tw-divide-slate-800/40"
+          ? " tw-grid lg:tw-grid-cols-2 xl:tw-grid-cols-2"
+          : " tw-grid  lg:tw-grid-cols-2 xl:tw-grid-cols-3 tw-divide-y md:tw-divide-y-0 tw-gap-3 lg:tw-divide-x dark:tw-divide-slate-800/40"
       }
       tw-min-h-[30vh] tw-gap-4
 
         `}
       >
         {hotel && habitacion ? (
-          <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-overflow-hidden tw-border-slate-100 dark:tw-border-slate-700 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
+          <section className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-overflow-hidden tw-border-slate-100 dark:tw-border-slate-700 tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition">
             <div className="tw-absolute tw-bottom-0 tw-grid tw-grid-cols-2 tw-justify-between tw-items-center tw-w-full tw-p-2">
               <div className="tw-col-span-2 tw-flex tw-flex-wrap tw-gap-2 tw-justify-between tw-mt-2 tw-text-slate-900 dark:tw-text-slate-400 tw-font-semibold tw-text-sm tw-border-b-2 tw-border-slate-100 dark:tw-border-slate-700 tw-pb-2 tw-mb-2">
                 <span className="tw-flex tw-items-center">
@@ -90,7 +100,6 @@ function Cesta({
             >
               Hotel
             </span>
-
             <div className="tw-relative tw-group">
               <Carousel
                 className="tw-h-[25vh] hide-arrows"
@@ -119,7 +128,7 @@ function Cesta({
               </Carousel>
             </div>
             <div className="tw-p-5">
-              <h4 className="tw-text-secondary tw-font-semibold">
+              <h4 className="tw-text-secondary dark:tw-text-secondaryDark tw-font-semibold">
                 {hotel.NombreHotel}
                 <span className="tw-text-sm tw-ml-1 tw-text-slate-400 tw-font-normal">
                   - {habitacion.BoardCode}
@@ -146,7 +155,7 @@ function Cesta({
           <>
             {actividades.map((actividad, index) => (
               <section
-                className="tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-h-auto tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition tw-relative tw-overflow-hidden"
+                className="tw-border-2 tw-pb-20 tw-bg-white hover:tw-scale-[102%] tw-duration-300 dark:tw-bg-slate-800 tw-relative tw-overflow-hidden tw-border-slate-100 dark:tw-border-slate-700    tw-max-w-full tw-rounded-lg tw-rounded-t-lg tw-shadow-lg hover:tw-shadow-xl tw-transition"
                 key={index}
               >
                 <div className="tw-absolute tw-bottom-0 tw-grid tw-grid-cols-2 tw-justify-between tw-items-center tw-w-full tw-p-2">
@@ -191,13 +200,13 @@ function Cesta({
                   <div className="tw-bg-emerald-500 tw-bg-opacity-15 tw-absolute tw-top-0 tw-w-full tw-h-full" />
                 </div>
                 <div className="tw-p-5">
-                  <h1 className="tw-font-semibold tw-text-slate-600 dark:tw-text-slate-300">
+                  <h1 className="tw-text-secondary dark:tw-text-secondaryDark tw-font-semibold">
                     {actividad.titulo}
                   </h1>
 
                   <div>
-                    <p className="tw-flex tw-items-center tw-gap-2 dark:tw-text-slate-400">
-                      <FaCalendarAlt className="tw-text-secondary" />
+                    <p className="tw-flex tw-items-center tw-gap-2 dark:tw-text-slate-400 tw-text-slate-400 tw-text-sm">
+                      <FaCalendarAlt className="tw-text-slate-500" />
                       {formatearFecha(actividad.fechaSeleccionada)} a las{" "}
                       {actividad.horaSeleccionada}
                     </p>
@@ -216,11 +225,8 @@ function Cesta({
           </div>
         )}
       </div>
-      {hotel && actividades.length > 0 && (
-        <Link
-          to="/hotel+actividades"
-          state={{ hotel, actividades, habitacion }}
-        >
+      {hotel && habitacion && actividades.length > 0 && (
+        <Link to="/hotel+actividades" state={reservaFinal}>
           <button className=" tw-btn_accesorios tw-btn_primario tw-mt-10">
             Total: {totalPrice.toFixed(2)}€
           </button>
