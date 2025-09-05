@@ -1,6 +1,6 @@
 import DatosContacto from "../../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import Ferry from "../Ferry";
-function Detalles({ ida, vuelta, datosContacto }) {
+function Detalles({ ida, vuelta, datosContacto, ferry }) {
   return (
     <section>
       <DatosContacto
@@ -9,8 +9,8 @@ function Detalles({ ida, vuelta, datosContacto }) {
         email={datosContacto.email}
         numero={datosContacto.numero}
       />
-      <Ferry producto={ida} tipo={"ida"} />
-      {vuelta && <Ferry producto={vuelta} tipo={"vuelta"} />}
+      <Ferry producto={ida} tipo={"ida"} ferry={ferry} />
+      {vuelta && <Ferry producto={vuelta} tipo={"vuelta"} ferry={ferry} />}
     </section>
   );
 }

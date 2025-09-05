@@ -4,17 +4,14 @@ import Seleccion from "../seleccion/contenidoPrincipal/Detalles";
 
 import DatosContacto from "../../../../helpers/visuales/ReservaFinal/DatosContacto";
 import PaginaDetalles from "../../../../helpers/visuales/PaginaDetalles";
-import Aside from "./contenidoSecundario/Aside";
+import Aside from "../seleccion/contenidoSecundario/Aside";
 function ReservaFinal() {
   const location = useLocation();
   const { hotel, ferry, data, habitacion } = location.state || {};
-  const precioFerry = Number(
-    ferry.ida.precio + (ferry.vuelta?.precio || 0)
-  ).toFixed(2);
   const calcularPrecio =
-    Number(hotel.precio) +
-    Number(ferry.ida.precio.toFixed(2)) +
-    Number(ferry.vuelta?.precio || 0);
+    Number(habitacion.Pvp) +
+    Number(ferry.ida.Pvp.toFixed(2)) +
+    Number(ferry.vuelta?.Pvp || 0);
   return (
     <PaginaDetalles
       titulo={"Hotel + Ferry"}
@@ -31,7 +28,8 @@ function ReservaFinal() {
       }
       contenidoSecundario={
         <>
-          <Aside hotel={hotel} ferry={ferry} precioFerry={precioFerry} />
+          <Aside hotel={hotel} ferry={ferry} habitacion={habitacion} />
+
           <Link
             to={"/resumenHotelmasFerry"}
             state={{ hotel, ferry, data, habitacion }}

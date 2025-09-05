@@ -22,6 +22,7 @@ import ferrisRealesTrasmed from "../ferris/jsons/ferrisRealesTrasmed.json";
 import ferrisRealesBalearia from "../ferris/jsons/ferrisRealesBalearia.json";
 import NetoSwitcher from "../../../assets/netoSwitcher/Switch";
 import MapaHoteles from "../hotel/mapa/MapaHoteles";
+import ferrisIda from "../ferris/jsons/ferrisRealesSoloIda.json";
 function Productos() {
   /* FERRY */
   const [ida, setIda] = useState(null);
@@ -39,6 +40,7 @@ function Productos() {
     ferrisRealesGnv,
     ferrisRealesTrasmed,
     ferrisRealesBalearia,
+    ferrisIda,
   ];
   /* FERRY END */
 

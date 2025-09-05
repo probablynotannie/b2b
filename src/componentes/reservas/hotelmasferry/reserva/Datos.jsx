@@ -8,15 +8,22 @@ function Datos() {
   const { hotel, ferry, habitacion } = location.state || {};
   const img = "/banners/ferry.webp";
   const navigate = useNavigate();
-
   const itinerario = (
     <div>
-      <p>Hotel: {hotel.nombre}</p>Ferry de ida {ferry.vuelta && " y vuelta"}:{" "}
-      {ferry.ida.ruta}
+      <p>Hotel: {hotel.NombreHotel}</p>
+      <div>
+        <ul>
+          <li>
+            Ferry de ida {ferry.vuelta && " y vuelta"}:{" "}
+            {ferry.ida.puerto_origen} - {ferry.ida.puerto_destino}
+          </li>
+        </ul>
+      </div>
     </div>
   );
-  const fechaIda = FormatearFecha(ferry.ida.fecha);
-  const fechaVuelta = ferry.vuelta && FormatearFecha(ferry.vuelta.fecha);
+  const fechaIda = FormatearFecha(ferry.ida.fecha_salida);
+  const fechaVuelta =
+    ferry.vuelta && FormatearFecha(ferry.vuelta.fecha_llegada);
   const {
     register,
     handleSubmit,
